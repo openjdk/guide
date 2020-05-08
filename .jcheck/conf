@@ -22,7 +22,7 @@
 ;
 
 [general]
-project=jdk
+project=guide
 jbs=JDK
 
 [checks]
