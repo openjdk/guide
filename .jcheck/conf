@@ -36,4 +36,4 @@ domain=openjdk.org
 files=.*\.java$|.*\.c$|.*\.h$|.*\.cpp$|.*\.hpp$
 
 [checks "reviewers"]
-committers=1
+reviewers=1
