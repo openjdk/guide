@@ -1,4 +1,4 @@
-% The OpenJDK Developers\' Guide: Process Workflow
+% Process Workflow
 
 ::: {.version}
 version 0.02

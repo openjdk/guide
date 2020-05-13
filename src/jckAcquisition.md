@@ -1,4 +1,4 @@
-% The OpenJDK Developers\' Guide: JCK Acquisition
+% JCK Acquisition
 
 ::: {.version}
 version 0.02

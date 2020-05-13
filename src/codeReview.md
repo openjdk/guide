@@ -64,8 +64,8 @@ For more information about webrev, refer to:
   the [Atom feed](http://cr.openjdk.java.net/feed.atom),
   create `.title` and/or `.description` files:
 
->>     echo "A suitable review title or bug synopsis" &gt; 6543210/.title
->>     echo "Short description of the change to be reviewed" &gt; 6543210/.description
+>>     echo "A suitable review title or bug synopsis" > 6543210/.title
+>>     echo "Short description of the change to be reviewed" > 6543210/.description
 
   Syndication does not recognize line endings or formatting tags,
   so it would be a good idea to keep the information in these files
@@ -79,9 +79,11 @@ For more information about webrev, refer to:
 * They transfer the webrev tree to their home directory on
   cr.openjdk.java.net using scp or rsync:
 
->     scp -r 6543210 username@cr.openjdk.java.net:
-  or
->     rsync -av 6543210 username@cr.openjdk.java.net:
+>>     scp -r 6543210 username@cr.openjdk.java.net:
+
+> or
+
+>>     rsync -av 6543210 username@cr.openjdk.java.net:
 
   Note the final : on the command line. If you omit that, you will
   copy the bits into a directory called
@@ -89,7 +91,7 @@ For more information about webrev, refer to:
 
 * The results will be published at:
 
->     http://cr.openjdk.java.net/~username/6543210
+>>     http://cr.openjdk.java.net/~username/6543210
 
 * In ten minutes or less, the new information will appear on the
   feed:
@@ -99,14 +101,14 @@ For more information about webrev, refer to:
 * Later on, if it is time to clean up, use sftp to access your
   code review directory:
 
->     sftp username@cr.openjdk.java.net
+>>     sftp username@cr.openjdk.java.net
 
   Use the `rm` command to delete individual files. If you
   want to delete a tree of files and directories, use the
   `rename` command to move them into your ~/.trash
   subdirectory. To continue with the example for bug ID 6543210:
 
->     rename 6543210 .trash/6543210
+>>     rename 6543210 .trash/6543210
 
   A cron job on the cr.openjdk.java.net
   server will periodically empty the trash for

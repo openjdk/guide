@@ -1,4 +1,4 @@
-% The OpenJDK Developers\' Guide: Producing a Changeset
+% Producing a Changeset
 
 ::: {.version}
 version 0.02
@@ -283,7 +283,7 @@ ssh-related operations.
   >     fi
 
   For secure operation, only start an ssh-agent when needed and kill it off when
-  the shell completes. Test this by running `ssh `hostname` echo
+  the shell completes. Test this by running `ssh 'hostname' echo
   hello` multiple times.
 
 * _Logging in without a password_

@@ -1,4 +1,4 @@
-% The OpenJDK Developers\' Guide: Introduction
+% Introduction
 
 ::: {.version}
 version 0.02

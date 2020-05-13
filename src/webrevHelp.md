@@ -1,4 +1,4 @@
-% The OpenJDK Developers\' Guide: Webrev Help
+% Webrev Help
 
 So, what is webrev?
 
@@ -28,7 +28,7 @@ and their own preferences.
 >    the main page Include a clickable link to _`<BUGID>`_ in the
 >    [OpenJDK Bug System](http://bugs.openjdk.java.net). Output to `./webrev/`.
 
-`ksh WDIR=\<OUTDIR\> ./webrev.ksh \<FILE\>`
+`ksh WDIR=<OUTDIR> ./webrev.ksh <FILE>`
 
 >    Useful when generating diffs across multiple repositories in
 >    the forest, the _`<FILE>`_

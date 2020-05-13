@@ -1,4 +1,4 @@
-% The OpenJDK Developers\' Guide: Review Bodies
+% Review Bodies
 
 ::: {.version}
 version 0.02

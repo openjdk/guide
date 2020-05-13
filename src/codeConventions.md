@@ -1,4 +1,4 @@
-% The OpenJDK Developers\' Guide: Code Conventions
+% Code Conventions
 
 ::: {.version}
 version 0.02

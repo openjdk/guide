@@ -1,4 +1,4 @@
-% The OpenJDK Developers\' Guide: Mailing Lists
+% Mailing Lists
 
 ::: {.version}
 version 0.02

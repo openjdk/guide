@@ -1,4 +1,4 @@
-% The OpenJDK Developers\' Guide: `get\_source.sh` Output
+% `get_source.sh` Output
 
 ::: {.version}
 version 0.02
@@ -72,14 +72,14 @@ version 0.02
 >                       jdk:   22161 files updated, 0 files merged, 0 files removed, 0 files unresolved
 >     # Repositories:  ./corba . ./hotspot ./jaxp ./jaxws ./jdk ./langtools ./nashorn
 >
->                   ./corba:   cd ./corba &amp;&amp; hg pull -u
->                         .:   cd . &amp;&amp; hg pull -u
->                 ./hotspot:   cd ./hotspot &amp;&amp; hg pull -u
->                    ./jaxp:   cd ./jaxp &amp;&amp; hg pull -u
->                   ./jaxws:   cd ./jaxws &amp;&amp; hg pull -u
->                     ./jdk:   cd ./jdk &amp;&amp; hg pull -u
->               ./langtools:   cd ./langtools &amp;&amp; hg pull -u
->                 ./nashorn:   cd ./nashorn &amp;&amp; hg pull -u
+>                   ./corba:   cd ./corba && hg pull -u
+>                         .:   cd . && hg pull -u
+>                 ./hotspot:   cd ./hotspot && hg pull -u
+>                    ./jaxp:   cd ./jaxp && hg pull -u
+>                   ./jaxws:   cd ./jaxws && hg pull -u
+>                     ./jdk:   cd ./jdk && hg pull -u
+>               ./langtools:   cd ./langtools && hg pull -u
+>                 ./nashorn:   cd ./nashorn && hg pull -u
 >                   ./corba:   pulling from http://hg.openjdk.java.net/jdk9/dev/corba
 >                         .:   pulling from http://hg.openjdk.java.net/jdk9/dev
 >                   ./jaxws:   pulling from http://hg.openjdk.java.net/jdk9/dev/jaxws

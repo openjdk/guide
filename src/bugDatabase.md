@@ -1,4 +1,4 @@
-% The OpenJDK Developers\' Guide: Bug Database
+% Bug Database
 
 ::: {.version}
 version 0.02

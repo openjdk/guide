@@ -1,4 +1,4 @@
-% The OpenJDK Developers&apos; Guide
+% Index
 
 ::: {.version}
 version 0.02
