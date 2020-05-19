@@ -1,4 +1,4 @@
-% The OpenJDK Developers\' Guide: Repositories
+% Repositories
 
 ::: {.version}
 version 0.02
@@ -210,7 +210,7 @@ extension just use `tclone`:
    >     $ hg tclone http://hg.openjdk.java.net/jdk9/dev 9dev
    > [full output](tClone.html)
 
-#. To clone the forest using `get\_source.sh`, first
+#. To clone the forest using `get_source.sh`, first
 clone the main tree:
 
    >     $ hg clone http://hg.openjdk.java.net/jdk9/dev 9dev

@@ -1,4 +1,4 @@
-% The OpenJDK Developers\' Guide: Change Planning and Guidelines
+% Change Planning and Guidelines
 
 ::: {.version}
 version 0.02
@@ -118,6 +118,7 @@ also imply "implementation for an enhancement".
    |   | possibly a comment, to the bug report.  The label has the prefix     |
    |   | "noreg" for regression tests and "nounit" for unit tests.  The       |
    |   | suffixes and their meanings are as follows:                          |
+   |   |                                                                      |
    |   | **-sqe**                                                             |
    |   | :    Change can be verified by running an existing SQE test suite;   |
    |   |      the bug should identify the suite and the specific test case(s). |

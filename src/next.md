@@ -1,4 +1,4 @@
-% The OpenJDK Developers\' Guide: What Happens Next
+% What Happens Next
 
 ::: {.version}
 version 0.02

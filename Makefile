@@ -12,7 +12,7 @@ build:
 	mkdir build
 
 build/%.html: src/%.md
-	pandoc -o $@ $< --css build/guidestyle.css --strip-comments --standalone
+	pandoc -o $@ $< --css guidestyle.css --strip-comments --standalone --title-prefix "The OpenJDK Developers' Guide"
 
 build/guidestyle.css: build src/guidestyle.css
 	cp src/guidestyle.css build/guidestyle.css

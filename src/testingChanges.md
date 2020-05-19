@@ -1,4 +1,4 @@
-% The OpenJDK Developers\' Guide: Testing Changes
+% Testing Changes
 
 ::: {.version}
 version 0.02

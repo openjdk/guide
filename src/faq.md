@@ -1,4 +1,4 @@
-% The OpenJDK Developers\' Guide: Frequently Asked Questions
+% Frequently Asked Questions
 
 ::: {.version}
 version 0.02
