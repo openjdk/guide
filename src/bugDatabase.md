@@ -5,7 +5,7 @@ version 0.02
 :::
 
 ::: {.NavBit}
-[« Previous](next.html) • [TOC](index.html) • [Next »](faq.html)
+[« Previous](next.html) • [TOC](index.html) • [Next »](faq.html)
 :::
 
 The Bug Database section will include the guidelines for triage, priorities,
@@ -16,5 +16,5 @@ version 0.02
 :::
 
 ::: {.NavBit}
-[« Previous](next.html) • [TOC](index.html) • [Next »](faq.html)
+[« Previous](next.html) • [TOC](index.html) • [Next »](faq.html)
 :::

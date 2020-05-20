@@ -12,7 +12,8 @@ build:
 	mkdir build
 
 build/%.html: src/%.md
-	pandoc -o $@ $< --css guidestyle.css --strip-comments --standalone --title-prefix "The OpenJDK Developers' Guide"
+	pandoc $< --css guidestyle.css --strip-comments --standalone --ascii --title-prefix "The OpenJDK Developers' Guide" | iconv -f UTF-8 -t ISO-8859-1 > $@
+	sed -i "" "/^  <meta charset=/d" $@
 
 build/guidestyle.css: build src/guidestyle.css
 	cp src/guidestyle.css build/guidestyle.css

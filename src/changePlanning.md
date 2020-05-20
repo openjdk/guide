@@ -5,7 +5,7 @@ version 0.02
 :::
 
 ::: {.NavBit}
-[« Previous](codeConventions.html) • [TOC](index.html) • [Next »](reviewBodies.html)
+[« Previous](codeConventions.html) • [TOC](index.html) • [Next »](reviewBodies.html)
 :::
 
 This section describes the development process of identifying a bug or
@@ -130,7 +130,7 @@ also imply "implementation for an enhancement".
    |   | **-external**                                                        |
    |   | :    Change can be verified by running an existing external test     |
    |   |      suite; the bug should identify the suite and the specific test  |
-   |   |      case(s).                                                        |
+   |   |      case(s).                                                        |
    |   |                                                                      |
    |   | **-doc**                                                             |
    |   | :    Change only affects documentation.                              |
@@ -303,5 +303,5 @@ version 0.02
 :::
 
 ::: {.NavBit}
-[« Previous](codeConventions.html) • [TOC](index.html) • [Next »](reviewBodies.html)
+[« Previous](codeConventions.html) • [TOC](index.html) • [Next »](reviewBodies.html)
 :::

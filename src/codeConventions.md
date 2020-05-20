@@ -5,7 +5,7 @@ version 0.02
 :::
 
 ::: {.NavBit}
-[« Previous](mailinglists.html) • [TOC](index.html) • [Next »](changePlanning.html)
+[« Previous](mailinglists.html) • [TOC](index.html) • [Next »](changePlanning.html)
 :::
 
 This section will contain a major revision of our antiquated code conventions
@@ -16,5 +16,5 @@ version 0.02
 :::
 
 ::: {.NavBit}
-[« Previous](mailinglists.html) • [TOC](index.html) • [Next »](changePlanning.html)
+[« Previous](mailinglists.html) • [TOC](index.html) • [Next »](changePlanning.html)
 :::

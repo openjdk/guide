@@ -5,7 +5,7 @@ version 0.02
 :::
 
 ::: {.NavBit}
-[« Previous](jckAcquisition.html) • [TOC](index.html) • [Next »](next.html)
+[« Previous](jckAcquisition.html) • [TOC](index.html) • [Next »](next.html)
 :::
 
 This section is confined to the actual Mercurial mechanics required to produce
@@ -408,5 +408,5 @@ version 0.02
 :::
 
 ::: {.NavBit}
-[« Previous](jckAcquisition.html) • [TOC](index.html) • [Next »](next.html)
+[« Previous](jckAcquisition.html) • [TOC](index.html) • [Next »](next.html)
 :::

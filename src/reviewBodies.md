@@ -5,7 +5,7 @@ version 0.02
 :::
 
 ::: {.NavBit}
-[« Previous](changePlanning.html) • [TOC](index.html) • [Next »](testingChanges.html)
+[« Previous](changePlanning.html) • [TOC](index.html) • [Next »](testingChanges.html)
 :::
 
 For now, this corresponds to the current processes referred to as
@@ -17,5 +17,5 @@ version 0.02
 :::
 
 ::: {.NavBit}
-[« Previous](changePlanning.html) • [TOC](index.html) • [Next »](testingChanges.html)
+[« Previous](changePlanning.html) • [TOC](index.html) • [Next »](testingChanges.html)
 :::

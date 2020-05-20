@@ -5,7 +5,7 @@ version 0.02
 :::
 
 ::: {.NavBit}
-[« Previous](repositories.html#cloneForest) • [TOC](index.html) • [Next »](repositories.html#cloneSingle)
+[« Previous](repositories.html#cloneForest) • [TOC](index.html) • [Next »](repositories.html#cloneSingle)
 :::
 
 >     $ sh ./get_source.sh
@@ -111,5 +111,5 @@ version 0.02
 :::
 
 ::: {.NavBit}
-[« Previous](repositories.html#cloneForest) • [TOC](index.html) • [Next »](repositories.html#cloneSingle)
+[« Previous](repositories.html#cloneForest) • [TOC](index.html) • [Next »](repositories.html#cloneSingle)
 :::

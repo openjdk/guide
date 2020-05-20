@@ -5,7 +5,7 @@ version 0.02
 :::
 
 ::: {.NavBit}
-[« Previous](repositories.html) • [TOC](index.html) • [Next »](codeConventions.html)
+[« Previous](repositories.html) • [TOC](index.html) • [Next »](codeConventions.html)
 :::
 
 The mailing lists are the key communications mechanism for all OpenJDK work.
@@ -23,5 +23,5 @@ version 0.02
 :::
 
 ::: {.NavBit}
-[« Previous](repositories.html) • [TOC](index.html) • [Next »](codeConventions.html)
+[« Previous](repositories.html) • [TOC](index.html) • [Next »](codeConventions.html)
 :::
