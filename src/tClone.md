@@ -5,7 +5,7 @@ version 0.02
 :::
 
 ::: {.NavBit}
-[« Previous](repositories.html#cloneForest) • [TOC](index.html) • [Next »](repositories.html#cloneSingle)
+[« Previous](repositories.html#cloneForest) • [TOC](index.html) • [Next »](repositories.html#cloneSingle)
 :::
 
 >     $ hg tclone http://hg.openjdk.java.net/jdk9/dev 9dev
@@ -95,5 +95,5 @@ version 0.02
 :::
 
 ::: {.NavBit}
-[« Previous](repositories.html#cloneForest) • [TOC](index.html) • [Next »](repositories.html#cloneSingle)
+[« Previous](repositories.html#cloneForest) • [TOC](index.html) • [Next »](repositories.html#cloneSingle)
 :::

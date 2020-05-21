@@ -5,7 +5,7 @@ version 0.02
 :::
 
 ::: {.NavBit}
-[Next »](intro.html)
+[Next »](intro.html)
 :::
 
 * [Introduction](intro.html)
@@ -31,7 +31,7 @@ version 0.02
   * [Pushing](producingChangeset.html#pushing)
 * [What Happens Next](next.html)
 * [Bug Database](bugDatabase.html)
-* [Frequently Asked Questions](faq.html)
+* [Frequently Asked Questions](faq.html)
 * [Glossary](glossary.html)
 
 ::: {.version}
@@ -39,5 +39,5 @@ version 0.02
 :::
 
 ::: {.NavBit}
-[Next »](intro.html)
+[Next »](intro.html)
 :::

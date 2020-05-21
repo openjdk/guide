@@ -5,7 +5,7 @@ version 0.02
 :::
 
 ::: {.NavBit}
-[« Previous](processWorkflow.html) • [TOC](index.html) • [Next »](mailingLists.html)
+[« Previous](processWorkflow.html) • [TOC](index.html) • [Next »](mailingLists.html)
 :::
 
 This section describes the OpenJDK repository terminology and naming scheme. It
@@ -266,5 +266,5 @@ version 0.02
 :::
 
 ::: {.NavBit}
-[« Previous](processWorkflow.html) • [TOC](index.html) • [Next »](mailingLists.html)
+[« Previous](processWorkflow.html) • [TOC](index.html) • [Next »](mailingLists.html)
 :::

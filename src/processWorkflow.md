@@ -5,7 +5,7 @@ version 0.02
 :::
 
 ::: {.NavBit}
-[« Previous](intro.html) • [TOC](index.html) • [Next »](repositories.html)
+[« Previous](intro.html) • [TOC](index.html) • [Next »](repositories.html)
 :::
 
 This is the main navigation for the document and the primary entry point. It is
@@ -18,5 +18,5 @@ version 0.02
 :::
 
 ::: {.NavBit}
-[« Previous](intro.html) • [TOC](index.html) • [Next »](repositories.html)
+[« Previous](intro.html) • [TOC](index.html) • [Next »](repositories.html)
 :::

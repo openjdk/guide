@@ -5,7 +5,7 @@ version 0.02
 :::
 
 ::: {.NavBit}
-[« Previous](repositories.html#verify) • [TOC](index.html) • [Next »](repositories.html#cloneSandbox)
+[« Previous](repositories.html#verify) • [TOC](index.html) • [Next »](repositories.html#cloneSandbox)
 :::
 
 >     $ hg help
@@ -98,5 +98,5 @@ version 0.02
 :::
 
 ::: {.NavBit}
-[« Previous](repositories.html#verify) • [TOC](index.html) • [Next »](repositories.html#cloneSandbox)
+[« Previous](repositories.html#verify) • [TOC](index.html) • [Next »](repositories.html#cloneSandbox)
 :::

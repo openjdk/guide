@@ -5,7 +5,7 @@ version 0.02
 :::
 
 ::: {.NavBit}
-[« Previous](bugDatabase.html) • [TOC](index.html) • [Next »](glossary.html)
+[« Previous](bugDatabase.html) • [TOC](index.html) • [Next »](glossary.html)
 :::
 
 The FAQ is transient. It should only contain things that have not been
@@ -18,5 +18,5 @@ version 0.02
 :::
 
 ::: {.NavBit}
-[« Previous](bugDatabase.html) • [TOC](index.html) • [Next »](glossary.html)
+[« Previous](bugDatabase.html) • [TOC](index.html) • [Next »](glossary.html)
 :::

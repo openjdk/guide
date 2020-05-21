@@ -5,7 +5,7 @@ version 0.02
 :::
 
 ::: {.NavBit}
-[« Previous](faq.html) • [TOC](index.html)
+[« Previous](faq.html) • [TOC](index.html)
 :::
 
 **accepted** (by the CCC)
@@ -69,5 +69,5 @@ version 0.02
 :::
 
 ::: {.NavBit}
-[« Previous](faq.html) • [TOC](index.html)
+[« Previous](faq.html) • [TOC](index.html)
 :::

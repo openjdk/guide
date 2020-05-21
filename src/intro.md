@@ -5,7 +5,7 @@ version 0.02
 :::
 
 ::: {.NavBit}
-[« Previous](index.html) • [TOC](index.html) • [Next »](processWorkflow.html)
+[« Previous](index.html) • [TOC](index.html) • [Next »](processWorkflow.html)
 :::
 
 When the JDK was released under the GPLv2 license in May 2007, the need for a
@@ -29,5 +29,5 @@ version 0.02
 :::
 
 ::: {.NavBit}
-[« Previous](index.html) • [TOC](index.html) • [Next »](processWorkflow.html)
+[« Previous](index.html) • [TOC](index.html) • [Next »](processWorkflow.html)
 :::
