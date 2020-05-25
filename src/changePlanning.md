@@ -1,9 +1,5 @@
 % Change Planning and Guidelines
 
-::: {.version}
-version 0.02
-:::
-
 ::: {.NavBit}
 [« Previous](codeConventions.html) • [TOC](index.html) • [Next »](reviewBodies.html)
 :::
@@ -297,10 +293,6 @@ TBD
 This section will describe the process for adding new functionality which
 requires more than just a few new APIs. In particular, this will cover how the
 JSR process interacts with the OpenJDK development life cycle.
-
-::: {.version}
-version 0.02
-:::
 
 ::: {.NavBit}
 [« Previous](codeConventions.html) • [TOC](index.html) • [Next »](reviewBodies.html)

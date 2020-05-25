@@ -1,9 +1,5 @@
 %`hg help` Output
 
-::: {.version}
-version 0.02
-:::
-
 ::: {.NavBit}
 [« Previous](repositories.html#verify) • [TOC](index.html) • [Next »](repositories.html#cloneSandbox)
 :::
@@ -92,10 +88,6 @@ version 0.02
 >      urls          URL Paths
 
 >     use "hg -v help" to show builtin aliases and global options
-
-::: {.version}
-version 0.02
-:::
 
 ::: {.NavBit}
 [« Previous](repositories.html#verify) • [TOC](index.html) • [Next »](repositories.html#cloneSandbox)

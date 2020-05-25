@@ -1,9 +1,5 @@
 % Glossary
 
-::: {.version}
-version 0.02
-:::
-
 ::: {.NavBit}
 [« Previous](faq.html) • [TOC](index.html)
 :::
@@ -63,10 +59,6 @@ version 0.02
     [`webrev.ksh`](http://hg.openjdk.java.net/code-tools/webrev/raw-file/tip/webrev.ksh),
     examines a forest or repository to generate a set of web-based views of
     differences.
-
-::: {.version}
-version 0.02
-:::
 
 ::: {.NavBit}
 [« Previous](faq.html) • [TOC](index.html)

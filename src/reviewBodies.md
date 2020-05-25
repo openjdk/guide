@@ -1,9 +1,5 @@
 % Review Bodies
 
-::: {.version}
-version 0.02
-:::
-
 ::: {.NavBit}
 [« Previous](changePlanning.html) • [TOC](index.html) • [Next »](testingChanges.html)
 :::
@@ -11,10 +7,6 @@ version 0.02
 For now, this corresponds to the current processes referred to as
 [_JEP_](http://openjdk.java.net/jeps/0)
 and _ccc_. Other processes may be identified later.
-
-::: {.version}
-version 0.02
-:::
 
 ::: {.NavBit}
 [« Previous](changePlanning.html) • [TOC](index.html) • [Next »](testingChanges.html)

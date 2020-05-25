@@ -1,9 +1,5 @@
 % Producing a Changeset
 
-::: {.version}
-version 0.02
-:::
-
 ::: {.NavBit}
 [« Previous](jckAcquisition.html) • [TOC](index.html) • [Next »](next.html)
 :::
@@ -402,10 +398,6 @@ dedicated _-changes_ list for notifications.
 > information about becoming a Project Committer.
 
 > ---
-
-::: {.version}
-version 0.02
-:::
 
 ::: {.NavBit}
 [« Previous](jckAcquisition.html) • [TOC](index.html) • [Next »](next.html)

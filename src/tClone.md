@@ -1,9 +1,5 @@
 %`tclone` Output
 
-::: {.version}
-version 0.02
-:::
-
 ::: {.NavBit}
 [« Previous](repositories.html#cloneForest) • [TOC](index.html) • [Next »](repositories.html#cloneSingle)
 :::
@@ -89,10 +85,6 @@ version 0.02
 >     updating to branch default
 >     2121 files updated, 0 files merged, 0 files removed, 0 files unresolved
 >     created /home/iris/9dev/nashorn
-
-::: {.version}
-version 0.02
-:::
 
 ::: {.NavBit}
 [« Previous](repositories.html#cloneForest) • [TOC](index.html) • [Next »](repositories.html#cloneSingle)
