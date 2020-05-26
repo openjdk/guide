@@ -2,13 +2,13 @@
 
 This project maintains the [OpenJDK Developers' Guide](https://openjdk.java.net/guide/).
 The goal of this guide is to answer questions that the developers of the JDK might have around
-development process, tooling, standards, et.c. The formal rules and processes are described in
+development process, tooling, standards, etc. The formal rules and processes are described in
 other documents, like [JEP 1](https://openjdk.java.net/jeps/1) for the JDK Enhancement-Proposal
 & Roadmap Process, or [JEP 3](https://openjdk.java.net/jeps/3) for the JDK Release Process.
 This guide is meant to be a complement with tutorials and examples for how to follow these rules
 and how to work together with the rest of the OpenJDK community.
 
-There are many common use cases that isn't detailed in the formal process. This guide contains the
+There are many common use cases that aren't detailed in the formal process. This guide contains the
 defacto standard for how to work in such cases.
 
 ## Audience
