@@ -1,9 +1,5 @@
 % `get_source.sh` Output
 
-::: {.version}
-version 0.02
-:::
-
 ::: {.NavBit}
 [« Previous](repositories.html#cloneForest) • [TOC](index.html) • [Next »](repositories.html#cloneSingle)
 :::
@@ -105,10 +101,6 @@ version 0.02
 >                 ./hotspot:   searching for changes
 >                 ./hotspot:   no changes found
 >     Waiting 5 secs before spawning next background command.
-
-::: {.version}
-version 0.02
-:::
 
 ::: {.NavBit}
 [« Previous](repositories.html#cloneForest) • [TOC](index.html) • [Next »](repositories.html#cloneSingle)

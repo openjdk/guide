@@ -1,9 +1,5 @@
 % Index
 
-::: {.version}
-version 0.02
-:::
-
 ::: {.NavBit}
 [Next »](intro.html)
 :::
@@ -33,10 +29,6 @@ version 0.02
 * [Bug Database](bugDatabase.html)
 * [Frequently Asked Questions](faq.html)
 * [Glossary](glossary.html)
-
-::: {.version}
-version 0.02
-:::
 
 ::: {.NavBit}
 [Next »](intro.html)

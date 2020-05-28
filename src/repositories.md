@@ -1,9 +1,5 @@
 % Repositories
 
-::: {.version}
-version 0.02
-:::
-
 ::: {.NavBit}
 [« Previous](processWorkflow.html) • [TOC](index.html) • [Next »](mailingLists.html)
 :::
@@ -260,10 +256,6 @@ destination directory.
 >     6212 files updated, 0 files merged, 0 files removed, 0 files unresolved
 >     $ du -s langtools
 >     84396   langtools
-
-::: {.version}
-version 0.02
-:::
 
 ::: {.NavBit}
 [« Previous](processWorkflow.html) • [TOC](index.html) • [Next »](mailingLists.html)
