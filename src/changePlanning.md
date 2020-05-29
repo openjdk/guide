@@ -115,66 +115,66 @@ also imply "implementation for an enhancement".
    |   | "noreg" for regression tests and "nounit" for unit tests.  The       |
    |   | suffixes and their meanings are as follows:                          |
    +---+----------------------------------------------------------------------+
-   |   | <a name="noreg-sqe">**-sqe**</a>                                     |
+   |   | [**-sqe**]{#noreg-sqe}                                               |
    |   | :    Change can be verified by running an existing SQE test suite;   |
    |   |      the bug should identify the suite and the specific test case(s).|
    |   |                                                                      |
-   |   | <a name="noreg-jck">**-jck**</a>                                     |
+   |   | [**-jck**]{#noreg-jck}                                               |
    |   | :    Change can be verified by running the JCK; the bug should       |
    |   |      identify the specific test case(s).                             |
    |   |                                                                      |
-   |   | <a name="noreg-external">**-external**</a>                           |
+   |   | [**-external**]{#noreg-external}                                     |
    |   | :    Change can be verified by running an existing external test     |
    |   |      suite; the bug should identify the suite and the specific test  |
    |   |      case(s).                                                        |
    |   |                                                                      |
-   |   | <a name="noreg-doc">**-doc**</a>                                     |
+   |   | [**-doc**]{#noreg-doc}                                               |
    |   | :    Change only affects documentation.                              |
    |   |                                                                      |
-   |   | <a name="noreg-demo">**-demo**</a>                                   |
+   |   | [**-demo**]{#noreg-demo}                                             |
    |   | :    Change only affects demo code.                                  |
    |   |                                                                      |
-   |   | <a name="noreg-build">**-build**</a>                                 |
+   |   | [**-build**<]{#noreg-build}                                          |
    |   | :    Change only affects build infrastructure (makefiles,            |
    |   |      copyrights, scripts, etc.).                                     |
    |   |                                                                      |
-   |   | <a name="noreg-self">**-self**</a>                                   |
+   |   | [**-self**]{#noreg-self}                                             |
    |   | :    Change is a fix to a regression or unit test itself.            |
    |   |                                                                      |
-   |   | <a name="noreg-perf">**-perf**</a>                                   |
+   |   | [**-perf**]{#noreg-perf}                                             |
    |   | :    Change is for a performance bug for which writing a regression  |
    |   |      test is infeasible; the bug should describe how to verify the   |
    |   |      fix.                                                            |
    |   |                                                                      |
-   |   | <a name="noreg-hard">**-hard**</a>                                   |
+   |   | [**-hard**]{#noreg-hard}                                             |
    |   | :    It is too hard to write a regression or unit test for this bug  |
    |   |      (e.g., theoretical race condition, complex setup, reboot        |
    |   |      required, editing of installed files required, specific         |
    |   |      graphics card required); the bug should explain why.            |
    |   |                                                                      |
-   |   | <a name="noreg-long">**-long**</a>                                   |
+   |   | [**-long**]{#noreg-long}                                             |
    |   | :    Testing requires a very long running time (e.g., more than a    |
    |   |      few minutes).                                                   |
    |   |                                                                      |
-   |   | <a name="noreg-big">**-big**</a>                                     |
+   |   | [**-big**]{#noreg-big}                                               |
    |   | :    Testing requires an unreasonable quantity of resources (e.g.,   |
    |   |      tens of gigabytes of filesystem space).                         |
    |   |                                                                      |
-   |   | <a name="noreg-trivial">**-trivial**</a>                             |
+   |   | [**-trivial**]{#noreg-trivial}                                       |
    |   | :    Change is so trivial that nothing could possibly go wrong with  |
    |   |      it.                                                             |
    |   |                                                                      |
-   |   | <a name="noreg-cleanup">**-cleanup**</a>                             |
+   |   | [**-cleanup**]{#noreg-cleanup}                                       |
    |   | :    Change is a cleanup or refactoring of existing code that is     |
    |   |      covered by existing tests.                                      |
    |   |                                                                      |
-   |   | <a name="noreg-l10n">**-l10n**</a>                                   |
+   |   | [**-l10n**]{#noreg-l10n}                                             |
    |   | :    Change only affects localized text.                             |
    |   |                                                                      |
-   |   | <a name="noreg-undo">**-undo**</a>                                   |
+   |   | [**-undo**]{#noreg-undo}                                             |
    |   | :    Change is a reversion of a previous faulty change.              |
    |   |                                                                      |
-   |   | <a name="noreg-other">**-other**</a>                                 |
+   |   | [**-other**]{#noreg-other}                                           |
    |   | :    Regression or unit test is unnecessary or infeasible for some   |
    |   |      other reason; the bug report should explain why.                |
    |   |                                                                      |
