@@ -30,7 +30,7 @@ the dedicated [guide-dev mail list](https://mail.openjdk.java.net/mailman/listin
 ## Building the Developers' Guide
 
 The project comes with a makefile. Simply type `make` to generate html files from the source
-markdown. The build requires the tools `pandoc`, `ìconv`, and `perl` and assumes a posix environment.
+markdown. The build requires the tools `pandoc`, `iconv`, and `perl` and assumes a posix environment.
 The resulting html files in the `build` directory are exactly the files published on the
 OpenJDK web server. There is however a larger framework on the web server with fonts and CSS
 that is not part of this project. This means that the html files as they are generated
