@@ -5,7 +5,6 @@
 :::
 
 * [Introduction](intro.html)
-  * [Maintenance](intro.html#maintenance)
 * [Process Workflow](processWorkflow.html)
 * [Repositories](repositories.html)
   * [Terminology and Naming Scheme](repositories.html#terminology-and-naming-scheme)
