@@ -27,7 +27,7 @@
 * [What Happens Next](next.html)
 * [Bug Database](bugDatabase.html)
 * [Frequently Asked Questions](faq.html)
-* [About this guide](about.html)
+* [About this Guide](about.html)
 * [Glossary](glossary.html)
 
 ::: {.NavBit}

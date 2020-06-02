@@ -1,4 +1,4 @@
-% Introduction
+% About this Guide
 
 ::: {.NavBit}
 [« Previous](faq.html) • [TOC](index.html) • [Next »](glossary.html)
