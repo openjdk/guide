@@ -6,8 +6,9 @@
 
 Welcome to the OpenJDK Developers' Guide!
 
-The OpejJDK project governs the Java programming language and the Java runtime.
-The project was created when the JDK was first released under the GPLv2 license in May
+OpenJDK is the place to collaborate on an open-source implementation
+of the Java Platform, Standard Edition, and related projects.
+OpenJDK was created when the JDK was first released under the GPLv2 license in May
 2007 and since then a community has grown around it to help develop and maintain Java.
 
 In order to work together efficiently clear directions are sometimes needed to
@@ -28,17 +29,6 @@ of the OpenJDK community.
 
 There are many common use cases that aren't detailed in the formal process. This
 guide contains the defacto standard for how to work in such cases.
-
-## Maintenance
-
-This guide is being maintained through the
-[OpenJDK Developers' Guide Project](https://openjdk.java.net/census#guide). The
-[source repository](https://github.com/openjdk/guide) is available at GitHub.
-The revision hash at the bottom of each page refers to the latest change that
-modified that particular page.
-
-Comments and questions may be sent to [guide-dev (at) openjdk.java.net](mailto:guide-dev-at-openjdk.java.net).
-Please let us know if there's anything in the guide that isn't clear.
 
 ::: {.NavBit}
 [« Previous](index.html) • [TOC](index.html) • [Next »](processWorkflow.html)
