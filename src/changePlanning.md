@@ -134,7 +134,7 @@ also imply "implementation for an enhancement".
    |   | [**-demo**]{#noreg-demo}                                             |
    |   | :    Change only affects demo code.                                  |
    |   |                                                                      |
-   |   | [**-build**<]{#noreg-build}                                          |
+   |   | [**-build**]{#noreg-build}                                           |
    |   | :    Change only affects build infrastructure (makefiles,            |
    |   |      copyrights, scripts, etc.).                                     |
    |   |                                                                      |
