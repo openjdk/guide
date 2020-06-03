@@ -5,7 +5,6 @@
 :::
 
 * [Introduction](intro.html)
-  * [Release Notes](intro.html#release-notes)
 * [Process Workflow](processWorkflow.html)
 * [Repositories](repositories.html)
   * [Terminology and Naming Scheme](repositories.html#terminology-and-naming-scheme)
@@ -28,6 +27,7 @@
 * [What Happens Next](next.html)
 * [Bug Database](bugDatabase.html)
 * [Frequently Asked Questions](faq.html)
+* [About this Guide](about.html)
 * [Glossary](glossary.html)
 
 ::: {.NavBit}

@@ -1,7 +1,7 @@
 % Glossary
 
 ::: {.NavBit}
-[« Previous](faq.html) • [TOC](index.html)
+[« Previous](about.html) • [TOC](index.html)
 :::
 
 [**accepted**]{#accepted} (by the CCC)
@@ -61,5 +61,5 @@
     differences.
 
 ::: {.NavBit}
-[« Previous](faq.html) • [TOC](index.html)
+[« Previous](about.html) • [TOC](index.html)
 :::
