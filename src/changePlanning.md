@@ -90,7 +90,7 @@ also imply "implementation for an enhancement".
    working on the code using the latest source available from the appropriate
    OpenJDK Project [repository](http://hg.openjdk.java.net).
 
-#. **Is it possible to write a test to detect the bug?**
+#. [**Is it possible to write a test to detect the bug?**]{#noreg}
 
    +:-:+:---------------------------------------------------------------------+
    | Y | For bugs, provide a [jtreg](../jtreg/) regression test               |
