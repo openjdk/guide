@@ -14,7 +14,7 @@ The OpenJDK community is a friendly place. To keep it that way it's important to
 keep a professional tone in emails and be aware that the community is global.
 Many different people with different backgrounds collaborate in these lists.
 Even though English is the required language for all lists, many participants
-speak other languages as their mother tongue. A high tolerance for non-perfect
+speak other languages as their native language. A high tolerance for non-perfect
 English is expected from anyone joining these lists.
 
 You must be in the list to send to the list. Some lists are moderated to keep the
@@ -45,16 +45,18 @@ that owns the list and the second part is explained below.
        expected to be low traffic. The special case `announce(at)openjdk.java.net`
        is used for announcements for the OpenJDK project.
 
-> `-comments`
-> :    Expert group comments around the project.
-
 > `-experts`
-> :    Expert group discussions (moderated).
+> :    Expert group discussions. The list is restricted; only members of the expert
+       group can subscribe.
 
 > `-observers`
-> :    List used to follow and comment on the discussions in the corresponding `-experts` list.
+> :    Open for anyone to subscribe to see what the experts are discussing and potentially
+       to have some dialog with other non-experts. There is no guarantee that an expert is
+       subscribed to the `-observers` list or will see any responses on that list.
 
-
+> `-comments`
+> :    Used by observers to directly provide feedback/comments to the experts (typically
+       a lead will process the comments list and forward things on to the experts list).
 
 ::: {.NavBit}
 [« Previous](repositories.html) • [TOC](index.html) • [Next »](codeConventions.html)
