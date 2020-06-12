@@ -5,7 +5,7 @@
 :::
 
 The mailing lists are the key communications mechanism for all OpenJDK work.
-All participation in an OpenJDK project starts with joining the project mailing
+All participation in an OpenJDK project starts with joining the relevant mailing
 list. All OpenJDK mailing lists are found here:
 
 > [`mail.openjdk.java.net`](http://mail.openjdk.java.net/mailman/listinfo)
@@ -22,8 +22,10 @@ content on topic. Each list has its own archive where you can browse older
 conversations on the list.
 
 There are a few different types of lists. The list name has two parts to explain what
-the list is intended for, `<project>-<suffix>`, where the first part is the project
-that owns the list and the second part is explained below.
+the list is intended for, `<name>-<suffix>`. The name often refers to the project
+that owns the list or a specific area of interest that the list focuses on.
+The suffix is explained below. Not all projects or areas have all types of
+lists described here.
 
 > `-dev`
 > :    Technical discussions around the implementation of the project artifacts. This
