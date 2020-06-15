@@ -4,31 +4,31 @@ H3 { font-size: 10pt; font-weight: bold; font-style: italic;
      padding: 0pt; margin: 1.5ex 0pt 0pt 0pt; }
 
 
-/***************************************/
-/* Styles for code conventions         */
-/***************************************/
-
 /* Use a section symbol as list item for style guide items */
-ul.conventions {
+div.conventions > ul {
   list-style: none;
   margin-left: 0;
   padding-left: 0;
 }
 
-ul.conventions > li {
+div.conventions > ul > li {
     padding-left: 1em;
     text-indent: -1em;
     padding-bottom: 1em;
 }
 
-ul.conventions > li:before {
+div.conventions > ul > li:before {
     content: '\a7';
     padding-right: 5px;
     color: #5382a1;
 }
 
-/* Reset styles that would otherwise be inherited from ul.conventions > li */
-li, pre, .boxheader, div {
+div.conventions > * > li > p:first-child {
+    display: inline;
+}
+
+/* Reset styles that would otherwise be inherited from div.conventions > li */
+div.conventions > ul > li > * {
     text-indent: 0em;
 }
 
@@ -66,12 +66,12 @@ pre > code {
 .boxheader {
     font-weight: bold;
     margin-bottom: .5em;
+    display: block;
 }
 
 /* Side by side content */
 .leftcol, .rightcol {
     float: left;
-    min-width: 49%;
     min-width: 49%;
 }
 
@@ -79,7 +79,6 @@ pre > code {
     margin-right: 1%;
 }
 
-/* Basic syntax highlighting for code examples */
-.comment { color: #408080; }
-.keyword { color: #954121; }
-.literal { color: #219161; }
+.rightcol + * {
+    clear: both;
+}
