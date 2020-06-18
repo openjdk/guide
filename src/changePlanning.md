@@ -74,11 +74,11 @@ also imply "implementation for an enhancement".
    impact?**
 
    ---  -----------------------------------------------------------------------
-    Y   Submission of a CCC request is required. Work may begin after the
-        request has been [accepted](glossary.html#accepted) by the CCC; the
+    Y   Submission of a CSR request is required. Work may begin after the
+        request has been [accepted](glossary.html#accepted) by the CSR; the
         changeset implementing the fix may be committed to a team forest
-        after the request has been [approved](glossary.html#approved) by the CCC.
-        A description of the CCC requirements may be found in
+        after the request has been [approved](glossary.html#approved) by the CSR.
+        A description of the CSR requirements may be found in
         [Review Bodies](reviewBodies.html).
 
     N   Continue
