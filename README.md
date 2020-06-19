@@ -18,7 +18,7 @@ to the development of the JDK but is not yet
 familiar with the process. People who are already regular contributors will already know much of
 what this guide has to offer. Still, the Developers' Guide should work as a source of knowledge also
 for experienced contributors. Any descriptions in the Guide should thus be self-contained
-or have explicit references to any information thata the reader is expected to already know. The information
+or have explicit references to any information that the reader is expected to already know. The information
 should also be structured in such a way that it's easy to find the details for any process, so that
 a reader who already knows the big picture can quickly find a particular detail that was forgotten.
 
