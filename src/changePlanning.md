@@ -74,12 +74,11 @@ also imply "implementation for an enhancement".
    impact?**
 
    ---  -----------------------------------------------------------------------
-    Y   Submission of a CSR request is required. Work may begin after the
-        request has been [accepted](glossary.html#accepted) by the CSR; the
-        changeset implementing the fix may be committed to a team forest
-        after the request has been [approved](glossary.html#approved) by the CSR.
-        A description of the CSR requirements may be found in
-        [Review Bodies](reviewBodies.html).
+    Y   Submission of a CSR request is required. The CSR must be [approved](glossary.html#approved) 
+        before the bug fix is pushed to a feature release or update release
+        repository. The work may begin concurrently with the CSR review, but may
+        need to be update in response to CSR review. A summary of the CSR process
+        may be found in [Review Bodies](reviewBodies.html).
 
     N   Continue
    ---  -----------------------------------------------------------------------
