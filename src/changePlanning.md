@@ -74,7 +74,7 @@ also imply "implementation for an enhancement".
    impact?**
 
    ---  -----------------------------------------------------------------------
-    Y   Submission of a CSR request is required. The CSR must be [approved](glossary.html#approved) 
+    Y   Submission of a CSR request is required. The CSR must be [approved](glossary.html#approved)
         before the bug fix is pushed to a feature release or update release
         repository. The work may begin concurrently with the CSR review, but may
         need to be update in response to CSR review. A summary of the CSR process
