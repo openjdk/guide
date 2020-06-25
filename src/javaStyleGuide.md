@@ -140,10 +140,10 @@ An unused import gives a false impression of a dependency. Also, many IDEs list 
 ### Class Structure
 ::: conventions
 - The recommended order of class members is the following:
-  1. Fields
-  1. Constructors
-  1. Factory methods
-  1. Other Methods
+  #. Fields
+  #. Constructors
+  #. Factory methods
+  #. Other Methods
 - Related fields should be grouped together. Ordering fields primarily according to access modifiers or identifier is not required. The same applies to methods.
 - Nested types should be grouped at the top of the class, or else defined before first use.
 :::
@@ -209,16 +209,16 @@ This order puts the most generally applicable versions first. Also, making sure 
 ### Modifiers
 ::: conventions
 - Modifiers should go in the following order
-  1. Access modifier (`public` / `private` / `protected`)
-  1. `abstract`
-  1. `static`
-  1. `final`
-  1. `transient`
-  1. `volatile`
-  1. `default`
-  1. `synchronized`
-  1. `native`
-  1. `strictfp`
+  #. Access modifier (`public` / `private` / `protected`)
+  #. `abstract`
+  #. `static`
+  #. `final`
+  #. `transient`
+  #. `volatile`
+  #. `default`
+  #. `synchronized`
+  #. `native`
+  #. `strictfp`
 - Modifiers should not be written out when they are implicit. For example, interface methods should neither be declared public nor abstract, and nested enums and interfaces should not be declared static.
 - Method parameters and local variables should not be declared final unless it improves readability or documents an actual design decision.
 - Fields should be declared final unless there is a compelling reason to make them mutable.
