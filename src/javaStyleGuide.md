@@ -4,12 +4,6 @@
 [« Previous](mailinglists.html) • [TOC](index.html) • [Next »](changePlanning.html)
 :::
 
-While this section covers a lot of ground, it should be noted that no style guide can answer all questions for us, and developers will always need to use good judgment towards the end of producing code that is correct, readable, maintainable, debuggable, consistently formatted, and aesthetically pleasing.
-
-Examples in this section are non-normative; While they intend to illustrate correct way of formatting the code, there may be other ways to correctly format the code. This is a general principle: There may be several ways to format the code, all adhering to the guidelines in this section.
-
-Tool support is nice, but ultimately each IDE and style checking tool can handle different sets of rules, and support for rules that can’t be handled today might be added in future versions. So, whether a rule plays well with tools or not can be a factor, but it’s secondary to the above principles.
-
 ## Overview
 
 - [Java Source Files](#java-source-files)  
@@ -29,7 +23,6 @@ Tool support is nice, but ultimately each IDE and style checking tool can handle
   - [Lambda Expressions](#lambda-expressions)  
   - [Redundant Parentheses](#redundant-parentheses)  
   - [Literals](#literals)  
-  - [Javadoc](#javadoc)  
 - [Naming](#naming)  
   - [Package Names](#package-names)  
   - [Class, Interface and Enum Names](#class-interface-and-enum-names)  
@@ -43,7 +36,6 @@ Tool support is nice, but ultimately each IDE and style checking tool can handle
 - [Cases not covered](#cases-not-covered)  
 
 ## Java Source Files
-This section concerns ordinary `.java` files only. Rules do not necessarily apply to other source files such as `.jasm`, `.sh` or `.gmk`.
 
 ::: conventions
 - Source files must be encoded in 7-bit ASCII.

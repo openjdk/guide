@@ -21,6 +21,12 @@ The guidelines in this section strive to maximize,
 #. Consistency
 #. Aesthetics
 
+While this section covers a lot of ground, it should be noted that no style guide can answer all questions for us, and developers will always need to use good judgment towards the end of producing code that is correct, readable, maintainable, debuggable, consistently formatted, and aesthetically pleasing.
+
+Examples in this section are non-normative; While they intend to illustrate a correct way of formatting the code, there may be other ways to correctly format the code. This is a general principle: There may be several ways to format the code, all adhering to the guidelines in this section.
+
+Tool support is nice, but ultimately each IDE and style checking tool can handle different sets of rules, and support for rules that can’t be handled today might be added in future versions. So, whether a rule plays well with tools or not can be a factor, but it’s secondary to the above principles.
+
 ## Language Style Guides
 
 - [Java Style Guide](javaStyleGuide.html)  
