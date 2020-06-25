@@ -17,7 +17,8 @@ build/%.html: src/%.md
 	if [ "$$CHANGE_HASH" = "" ]; then                        \
 	  CHANGE_HASH="0000000";                                 \
 	fi;                                                      \
-	perl -pi -e 'BEGIN {$$hash=shift} s/!git-commit-hash!/$$hash/' $$CHANGE_HASH build/tmp_footer.html	perl -pi -e 's;!source-file-name!;$<;' build/tmp_footer.html
+	perl -pi -e 'BEGIN {$$hash=shift} s/!git-commit-hash!/$$hash/' $$CHANGE_HASH build/tmp_footer.html
+	perl -pi -e 's;!source-file-name!;$<;' build/tmp_footer.html
 	pandoc $< --css guidestyle.css --strip-comments --standalone --ascii --to html4 --title-prefix "The OpenJDK Developers' Guide" --include-after-body=build/tmp_footer.html | iconv -f UTF-8 -t ISO-8859-1 > $@
 	perl -pi -e 's/ charset=utf-8//' $@
 	rm build/tmp_footer.html
