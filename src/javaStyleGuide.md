@@ -4,9 +4,9 @@
 [« Previous](mailinglists.html) • [TOC](index.html) • [Next »](changePlanning.html)
 :::
 
-While this document covers a lot of ground, it should be noted that no style guide can answer all questions for us, and developers will always need to use good judgment towards the end of producing code that is correct, readable, maintainable, debuggable, consistently formatted, and aesthetically pleasing.
+While this section covers a lot of ground, it should be noted that no style guide can answer all questions for us, and developers will always need to use good judgment towards the end of producing code that is correct, readable, maintainable, debuggable, consistently formatted, and aesthetically pleasing.
 
-Examples in this document are non-normative; While they intend to illustrate correct way of formatting the code, there may be other ways to correctly format the code. This is a general principle: There may be several ways to format the code, all adhering to the guidelines in this document.
+Examples in this section are non-normative; While they intend to illustrate correct way of formatting the code, there may be other ways to correctly format the code. This is a general principle: There may be several ways to format the code, all adhering to the guidelines in this section.
 
 Tool support is nice, but ultimately each IDE and style checking tool can handle different sets of rules, and support for rules that can’t be handled today might be added in future versions. So, whether a rule plays well with tools or not can be a factor, but it’s secondary to the above principles.
 
@@ -93,15 +93,18 @@ The short forms (e.g. `\t`) are commonly used and easier to recognize than the c
 
 - For files under Oracle copyright, the copyright notice must follow the standard wording and format. In particular the first two lines should be
 
-  ```java
+  ~~~java
   /*
    * Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
-  ```
+  ~~~
+
   or
-  ```java
+
+  ~~~java
   /*
    * Copyright (c) 2011, 2015, Oracle and/or its affiliates. All rights reserved.
-  ```
+  ~~~
+
   where the first year is the year the file was created and the second year is the year the file was last edited.
 :::
 
@@ -162,7 +165,8 @@ An unused import gives a false impression of a dependency. Also, many IDEs list 
 ::: leftcol
 ::: box
 [Dos]{.boxheader .dos}
-```java
+
+~~~java
 public HashSet() {
     this(DEFAULT_INITIAL_CAPACITY);
 }
@@ -174,14 +178,16 @@ public HashSet(int capacity) {
 public HashSet(int capacity, double loadFactor) {
     …
 }
-```
+~~~
+
 :::
 :::
 
 ::: rightcol
 ::: box
 [Don’ts]{.boxheader .donts}
-```java
+
+~~~java
 // Overloaded methods should not be split apart
 void logValue(int i) {
     log("Int: %d", i);
@@ -198,7 +204,8 @@ void logValue(double d) {
 void setValue(double d) {
     val = d;
 }
-```
+~~~
+
 :::
 :::
 
@@ -248,39 +255,45 @@ Making fields immutable where possible is good programming practice. Refer to *E
 ::: leftcol
 ::: box
 [Dos]{.boxheader .dos}
-```java
+
+~~~java
 void method() {
     …
 }
-```
-```java
+~~~
+
+~~~java
 try {
     something();
 } catch (AnException e) {
     …
 }
-```
-```java
+~~~
+
+~~~java
 for (int[] row : matrix) {
     for (int val : row) {
         sum += val;
     }
 }
-```
+~~~
+
 :::
 :::
 
 ::: rightcol
 ::: box
 [Don’ts]{.boxheader .donts}
-```java
+
+~~~java
 // Wrong placement of opening brace
 void method()
 {
     …
 }
-```
-```java
+~~~
+
+~~~java
 // Newline in front of catch should be avoided
 try {
     something();
@@ -288,21 +301,24 @@ try {
 catch (AnException e) {
     …
 }
-```
-```java
+~~~
+
+~~~java
 // Braces should be used
 if (flag)
     // Restore x
     x = 1;
-```
-```java
+~~~
+
+~~~java
 // Use braces if block comes last in enclosing block
 // to avoid accidentally indenting the closing brace.
 for (int[] row : matrix) {
     for (int val : row)
         sum += val;
 }
-```
+~~~
+
 :::
 :::
 
@@ -322,24 +338,30 @@ Omitting braces is error prone and can lead to mistakes in the indentation and h
 ::: leftcol
 ::: box
 [Dos]{.boxheader .dos}
-```java
+
+~~~java
 enum Response { YES, NO, MAYBE }
-```
-```java
+~~~
+
+~~~java
 public boolean isReference() { return true; }
-```
+~~~
+
 :::
 :::
 
 ::: rightcol
 ::: box
 [Don’ts]{.boxheader .donts}
-```java
+
+~~~java
 public boolean getResult() { int value = getValue(); return value < 0 ? 0 : value; }
-```
-```java
+~~~
+
+~~~java
 for (int i = 0; i < size; i++) { sum += data[i]; }
-```
+~~~
+
 :::
 :::
 
@@ -356,7 +378,8 @@ Refer to Section&nbsp;[Wrapping Lines](#wrapping-lines)&nbsp;for guidelines on h
 ::: leftcol
 ::: box
 [Dos]{.boxheader .dos}
-```java
+
+~~~java
 switch (var) {
     case TWO:
         setChoice("two");
@@ -367,14 +390,16 @@ switch (var) {
     default:
         throw new IllegalArgumentException();
 }
-```
+~~~
+
 :::
 :::
 
 ::: rightcol
 ::: box
 [Don’ts]{.boxheader .donts}
-```java
+
+~~~java
 switch (var) {
 case TWO:
     setChoice("two");
@@ -385,7 +410,8 @@ case THREE:
 default:
     throw new IllegalArgumentException();
 }
-```
+~~~
+
 :::
 :::
 
@@ -411,17 +437,20 @@ By using spaces for indentation, problems regarding different default settings f
   ::: {.boxheader .dos}
   Dos
   :::
-  ```java
+  
+  ~~~java
   // Ok even though it might exceed the character limit when indented.
   Error e = isTypeParam
           ? Errors.InvalidRepeatableAnnotationNotApplicable(targetContainerType, on)
           : Errors.InvalidRepeatableAnnotationNotApplicableInContext(targetContainerType));
-  ```
-  ```java
+  ~~~
+  
+  ~~~java
   String pretty = Stream.of(args)
                         .map(Argument::prettyPrint)
                         .collectors(joining(", "));
-  ```
+  ~~~
+
   :::
   :::
 
@@ -430,18 +459,21 @@ By using spaces for indentation, problems regarding different default settings f
   ::: {.boxheader .donts}
   Don’ts
   :::
-  ```java
+
+  ~~~java
   // Too strict interpretation of the character limit. Readability suffers.
   Error e = isTypeParam
         ? Errors.InvalidRepeatableAnnotationNotApplicable(
                 targetContainerType, on)
         : Errors.InvalidRepeatableAnnotationNotApplicableInContext(
                 targetContainerType);
-  ```
-  ```java
+  ~~~
+
+  ~~~java
   // Should be wrapped even though it fits within the character limit
   String pretty = Stream.of(args).map(Argument::prettyPrint).collectors(joining(", "));
-  ```
+  ~~~
+
   :::
   :::
 
@@ -456,10 +488,12 @@ By using spaces for indentation, problems regarding different default settings f
   ::: {.boxheader .dos}
   Dos
   :::
-  ```java
+
+  ~~~java
   aMethodCall(withMany(arguments, that, needs),
           to(be, (wrapped - to) * avoid / veryLong - lines));
-  ```
+  ~~~
+
   :::
   :::
 
@@ -468,10 +502,12 @@ By using spaces for indentation, problems regarding different default settings f
   ::: {.boxheader .donts}
   Don’ts
   :::
-  ```java
+
+  ~~~java
   aMethodCall(withMany(arguments, that, needs), to(be, (wrapped
           - to) * avoid / veryLong - lines));
-  ```
+  ~~~
+
   :::
   :::
 
@@ -485,15 +521,18 @@ By using spaces for indentation, problems regarding different default settings f
   ::: {.boxheader .dos}
   Dos
   :::
-  ```java
+
+  ~~~java
   i += j;
   j += k;
-  ```
-  ```java
+  ~~~
+
+  ~~~java
   if (condition) {
       return expression;
   }
-  ```
+  ~~~
+
   :::
   :::
 
@@ -502,12 +541,15 @@ By using spaces for indentation, problems regarding different default settings f
   ::: {.boxheader .donts}
   Don’ts
   :::
-  ```java
+
+  ~~~java
   i += j; j += k;
-  ```
-  ```java
+  ~~~
+
+  ~~~java
   if (condition) { return expression; }
-  ```
+  ~~~
+
   :::
   :::
 
@@ -525,28 +567,33 @@ By using spaces for indentation, problems regarding different default settings f
   ::: {.boxheader .dos}
   Dos
   :::
-  ```java
+
+  ~~~java
   // Variant 1
   int anInteger = aMethod(that, takes,
           a, lengthy, list, of, arguments);
-  ```
-  ```java
+  ~~~
+
+  ~~~java
   // Variant 2
   int anInteger = that * (is + computed) / using
                           + a * complex - expression;
-  ```
-  ```java
+  ~~~
+
+  ~~~java
   // Variant 3
   int anInteger = aMethod(thatTakes,
                           aLongList,
                           ofArguments);
-  ```
-  ```java
+  ~~~
+
+  ~~~java
   // Variant 4
   int anInteger = IntStream.of(numbers)
                            .map(Math::sqrt)
                            .sum();
-  ```
+  ~~~
+
   :::
   :::
 
@@ -555,15 +602,17 @@ By using spaces for indentation, problems regarding different default settings f
   ::: {.boxheader .donts}
   Don’ts
   :::
-  ```java
+
+  ~~~java
   // Mixing of wrapping variants (unless there
   // is a logical grouping of arguments)
   int anInteger = aMethod(that,
                           takes,
                           a, lengthy, list,
                           of, arguments);
-  ```
-  ```java
+  ~~~
+
+  ~~~java
   // Don't align with sibling expression if the
   // continuation line can be confused with a block
   // indentation
@@ -571,7 +620,8 @@ By using spaces for indentation, problems regarding different default settings f
       someOtherPredicate()) {
       System.out.println("Avoid");
   }
-  ```
+  ~~~
+
   :::
   :::
 
@@ -589,39 +639,45 @@ By using spaces for indentation, problems regarding different default settings f
 ::: leftcol
 ::: box
 [Dos]{.boxheader .dos}
-```java
+
+~~~java
 public class MyGenericClass<T, S>
         extends HashMap<T, S>
         implements Comparable<T> {
     …
 }
-```
-```java
+~~~
+
+~~~java
 public class AnotherClass<K, R> implements Collector<T extends K,
                                                      Set<? extends R>,
                                                      List<R>> {
     …
 }
-```
-```java
+~~~
+
+~~~java
 public class AnotherClass<K, R> implements Collector<T extends K,
                                                      Set<? extends R>,
                                                      List<R>> {
     …
 }
-```
+~~~
+
 :::
 :::
 
 ::: rightcol
 ::: box
 [Don’ts]{.boxheader .donts}
-```java
+
+~~~java
 public class MyGenericClass<T> implements Comparable<T>,
         Predicate<T> {
     …
 }
-```
+~~~
+
 :::
 :::
 
@@ -635,7 +691,8 @@ public class MyGenericClass<T> implements Comparable<T>,
 ::: leftcol
 ::: box
 [Dos]{.boxheader .dos}
-```java
+
+~~~java
 int someMethod(String aString,
                List<Integer> aList,
                Map<String, String> aMap,
@@ -645,36 +702,41 @@ int someMethod(String aString,
                double aDouble) {
     …
 }
-```
-```java
+~~~
+
+~~~java
 int someMethod(String aString, List<Integer> aList,
         Map<String, String> aMap, int anInt, long aLong,
         double aDouble, long aLong) {
     …
 }
-```
-```java
+~~~
+
+~~~java
 int someMethod(String aString,
                List<Map<Integer, StringBuffer>> aListOfMaps,
                Map<String, String> aMap)
         throws IllegalArgumentException {
     …
 }
-```
-```java
+~~~
+
+~~~java
 int someMethod(String aString, List<Integer> aList,
         Map<String, String> aMap, int anInt)
                 throws IllegalArgumentException {
     …
 }
-```
+~~~
+
 :::
 :::
 
 ::: rightcol
 ::: box
 [Don’ts]{.boxheader .donts}
-```java
+
+~~~java
 // If aligning the parameters vertically, don't put two
 // parameters on one line
 int someMethod(String aString,
@@ -685,22 +747,25 @@ int someMethod(String aString,
                double aDouble) {
     …
 }
-```
-```java
+~~~
+
+~~~java
 int someMethod(String aString,
                List<Map<Integer, StringBuffer>> aListOfMaps,
                Map<String, String> aMap) throws InterruptedException {
     …
 }
-```
-```java
+~~~
+
+~~~java
 int someMethod(String aString,
                List<Integer> aList,
                Map<String, String> aMap)
                throws IllegalArgumentException {
     …
 }
-```
+~~~
+
 :::
 :::
 
@@ -715,44 +780,52 @@ int someMethod(String aString,
 ::: leftcol
 ::: box
 [Dos]{.boxheader .dos}
-```java
+
+~~~java
 methodCall(a * simple - formula,
            some + complex - formula * spanning
                         + multiple - lines * may
                         + look - as * follows);
-```
-```java
+~~~
+
+~~~java
 popupMsg("Inbox notification: You have "
         + newMsgs + " new messages");
-```
-```java
+~~~
+
+~~~java
 people.stream()
       .map(Person::getName)
       .forEach(System.out::println);
-```
+~~~
+
 :::
 :::
 
 ::: rightcol
 ::: box
 [Don’ts]{.boxheader .donts}
-```java
+
+~~~java
 // Arity unclear
 methodCall(a * simple - formula,
            some + complex - formula * spanning +
            multiple - lines * should + not *
            look - as * follows);
-```
-```java
+~~~
+
+~~~java
 // Looks like two arguments
 popupMsg("Inbox notification: You have " +
          newMsgs + " new messages");
-```
-```java
+~~~
+
+~~~java
 people.stream().
        map(Person::getName).
        forEach(System.out::println);
-```
+~~~
+
 :::
 :::
 
@@ -791,50 +864,60 @@ people.stream().
 ::: leftcol
 ::: box
 [Dos]{.boxheader .dos}
-```java
+
+~~~java
 int someInt;
 String myString;
 char aChar;
 long sixtyfourFlags;
-```
-```java
+~~~
+
+~~~java
 if (isFlagSet(GO)) {
     …
 }
-```
-```java
+~~~
+
+~~~java
 IntUnaryOperator inc = x -> x + 1;
-```
-```java
+~~~
+
+~~~java
 init: {
     …
 }
-```
+~~~
+
 :::
 :::
 
 ::: rightcol
 ::: box
 [Don’ts]{.boxheader .donts}
-```java
+
+~~~java
 int    someInt;
 String myString;
 char   aChar;
 long   sixtyfourFlags;
-```
-```java
+~~~
+
+~~~java
 if( isFlagSet( GO ) ) {
     …
 }
-```
-```java
+~~~
+
+~~~java
 IntUnaryOperator inc = x->x + 1;
-```
-```java
+~~~
+
+~~~java
 init : {
     …
 }
-```
+~~~
+
 :::
 :::
 
@@ -861,20 +944,23 @@ The improvement in readability when aligning variable names is negligible compar
 ::: leftcol
 ::: box
 [Dos]{.boxheader .dos}
-```java
+
+~~~java
 @Deprecated
 @Override
 public void foo() {
     …
 }
-```
-```java
+~~~
+
+~~~java
 @Deprecated @Override
 public void foo() {
     …
 }
-```
-```java
+~~~
+
+~~~java
 addListener(new Listener() {
  
     // Ignored events
@@ -888,25 +974,29 @@ addListener(new Listener() {
         …
     }
 });
-```
+~~~
+
 :::
 :::
 
 ::: rightcol
 ::: box
 [Don’ts]{.boxheader .donts}
-```java
+
+~~~java
 @Override @Deprecated public void foo() {
     …
 }
-```
-```java
+~~~
+
+~~~java
 @Override @Deprecated
 @SafeVarargs
 public void foo() {
     …
 }
-```
+~~~
+
 :::
 :::
 
@@ -923,26 +1013,32 @@ public void foo() {
 ::: leftcol
 ::: box
 [Dos]{.boxheader .dos}
-```java
+
+~~~java
 Runnable r = () -> System.out.println("Hello World");
-```
-```java
+~~~
+
+~~~java
 Supplier<String> c = () -> "Hello World";
-```
-```java
+~~~
+
+~~~java
 // Collection::contains is a simple unary method and its behavior is
 // clear from the context. A method reference is preferred here.
 appendFilter(goodStrings::contains);
-```
-```java
+~~~
+
+~~~java
 // A lambda expression is more readable in this case
 // (cf. corresponding example in Don'ts section)
 trackTemperature((time, temp) -> tempMap.put(time, temp));
-```
-```java
+~~~
+
+~~~java
 Function<Person, String> nameFunc = p -> p.getFirstName() + " " + p.getLastName();
-```
-```java
+~~~
+
+~~~java
 class Util {
     private static String getCapitalizedFirstName(Person p) {
         String first = p.getFirstName();
@@ -956,33 +1052,40 @@ class Util {
               .forEach(System.out::println);
     }
 }
-```
+~~~
+
 :::
 :::
 
 ::: rightcol
 ::: box
 [Don’ts]{.boxheader .donts}
-```java
+
+~~~java
 Runnable r = () -> { System.out.println("Hello World"); };
-```
-```java
+~~~
+
+~~~java
 Supplier<String> s = () -> { return "Hello World"; };
-```
-```java
+~~~
+
+~~~java
 // A lambda expression is not needed here
 appendFilter(s -> goodStrings.contains(s));
-```
-```java
+~~~
+
+~~~java
 // Map::put is a binary function, and it’s not clear from context what type
 // of argument trackTemperature accepts. A lambda expression is better here.
 trackTemperature(tempMap::put);
-```
-```java
+~~~
+
+~~~java
 // Unnecessary parameter type
 Function<Person, String> nameFunc = (Person p) -> p.getFirstName() + " " + p.getLastName();
-```
-```java
+~~~
+
+~~~java
 class Util {
     static void printAllPeople(List<Person> people) {
         people.stream()
@@ -994,7 +1097,8 @@ class Util {
               .forEach(System.out::println);
     }
 }
-```
+~~~
+
 :::
 :::
 
@@ -1009,21 +1113,26 @@ class Util {
 ::: leftcol
 ::: box
 [Dos]{.boxheader .dos}
-```java
+
+~~~java
 return flag ? "yes" : "no";
-```
-```java
+~~~
+
+~~~java
 String cmp = (flag1 != flag2) ? "not equal" : "equal";
-```
+~~~
+
 :::
 :::
 
 ::: rightcol
 ::: box
 [Don’ts]{.boxheader .donts}
-```java
+
+~~~java
 return (flag ? "yes" : "no");
-```
+~~~
+
 :::
 :::
 
@@ -1038,7 +1147,8 @@ return (flag ? "yes" : "no");
 ::: leftcol
 ::: box
 [Dos]{.boxheader .dos}
-```java
+
+~~~java
 long l = 5432L;
 int i = 0x123 + 0xABC;
 byte b = 0b1010;
@@ -1046,14 +1156,16 @@ float f1 = 1 / 5432f;
 float f2 = 0.123e4f;
 double d1 = 1 / 5432d;  // or 1 / 5432.0
 double d2 = 0x1.3p2;
-```
+~~~
+
 :::
 :::
 
 ::: rightcol
 ::: box
 [Don’ts]{.boxheader .donts}
-```java
+
+~~~java
 long l = 5432l;
 int i = 0X123 + 0xabc;
 byte b = 0B1010;
@@ -1061,7 +1173,8 @@ float f1 = 1 / 5432F;
 float f2 = 0.123E4f;
 double d1 = 1 / 5432D;
 double d2 = 0x1.3P2;
-```
+~~~
+
 :::
 :::
 
@@ -1083,10 +1196,12 @@ This section only covers basic Javadoc formatting. For a complete reference refe
 ::: leftcol
 ::: box
 [Dos]{.boxheader .dos}
-```java
+
+~~~java
 /** A short javadoc comment */
-```
-```java
+~~~
+
+~~~java
 /**
  * …
  *
@@ -1094,18 +1209,21 @@ This section only covers basic Javadoc formatting. For a complete reference refe
  *     List<String> names;
  * }</blockquote>
  */
-```
+~~~
+
 :::
 :::
 
 ::: rightcol
 ::: box
 [Don’ts]{.boxheader .donts}
-```java
+
+~~~java
 /** put on single line instead
  */
-```
-```java
+~~~
+
+~~~java
 /**
  * The <String> below may interfere with the HTML!
  *
@@ -1113,7 +1231,8 @@ This section only covers basic Javadoc formatting. For a complete reference refe
  *     List<String> names;
  * </pre></blockquote>
  */
-```
+~~~
+
 :::
 :::
 
@@ -1143,53 +1262,63 @@ This section only covers basic Javadoc formatting. For a complete reference refe
 ::: leftcol
 ::: box
 [Dos]{.boxheader .dos}
-```java
+
+~~~java
 class EmptyCell {
     …
 }
-```
-```java
+~~~
+
+~~~java
 class RunningMode {
     …
 }
-```
-```java
+~~~
+
+~~~java
 interface Expandable {
     …
 }
-```
-```java
+~~~
+
+~~~java
 class XmlParser {
     …
 }
-```
+~~~
+
 :::
 :::
 
 ::: rightcol
 ::: box
 [Don’ts]{.boxheader .donts}
-```java
+
+~~~java
 class Empty {
     …
 }
-```
-```java
+~~~
+
+~~~java
 class Running {
     …
 }
-```
-```java
+~~~
+
+~~~java
 class Expandable {
     …
 }
-```
-```java
+~~~
+
+~~~java
 // Abbreviation should be formatted as 'Xml'
 class XMLParser {
     …
 }
-```
+~~~
+
 :::
 :::
 
@@ -1203,42 +1332,50 @@ class XMLParser {
 ::: leftcol
 ::: box
 [Dos]{.boxheader .dos}
-```java
+
+~~~java
 public void expand() {
     …
 }
-```
-```java
+~~~
+
+~~~java
 public boolean isExpanding() {
     …
 }
-```
-```java
+~~~
+
+~~~java
 public State getState() {
     …
 }
-```
+~~~
+
 :::
 :::
 
 ::: rightcol
 ::: box
 [Don’ts]{.boxheader .donts}
-```java
+
+~~~java
 public boolean expanding() {
     …
 }
-```
-```java
+~~~
+
+~~~java
 public State GetState() {
     …
 }
-```
-```java
+~~~
+
+~~~java
 public int get_index() {
     …
 }
-```
+~~~
+
 :::
 :::
 
@@ -1252,20 +1389,24 @@ public int get_index() {
 ::: leftcol
 ::: box
 [Dos]{.boxheader .dos}
-```java
+
+~~~java
 int currentIndex;
 boolean dataAvailable;
-```
+~~~
+
 :::
 :::
 
 ::: rightcol
 ::: box
 [Don’ts]{.boxheader .donts}
-```java
+
+~~~java
 int current_index;
 boolean DataAvailable;
-```
+~~~
+
 :::
 :::
 
@@ -1280,32 +1421,38 @@ boolean DataAvailable;
 ::: leftcol
 ::: box
 [Dos]{.boxheader .dos}
-```java
+
+~~~java
 interface SpecialMap<K, V> extends Map<K, V> {
     …
 }
-```
-```java
+~~~
+
+~~~java
 class GraphMapper<SRC_VERTEX, SRC_EDGE, DST_VERTEX, DST_EDGE> {
     …
 }
-```
+~~~
+
 :::
 :::
 
 ::: rightcol
 ::: box
 [Don’ts]{.boxheader .donts}
-```java
+
+~~~java
 interface SpecialMap<Key, Value> extends Map<Key, Value> {
     …
 }
-```
-```java
+~~~
+
+~~~java
 class GraphMapper<S, T, U, V> {
     …
 }
-```
+~~~
+
 :::
 :::
 
@@ -1318,30 +1465,36 @@ class GraphMapper<S, T, U, V> {
 ::: leftcol
 ::: box
 [Dos]{.boxheader .dos}
-```java
+
+~~~java
 public static final int BUFFER_SIZE = 1024;
-```
-```java
+~~~
+
+~~~java
 enum ApplicationMode { RUNNING, PAUSED, TERMINATED }
-```
+~~~
+
 :::
 :::
 
 ::: rightcol
 ::: box
 [Don’ts]{.boxheader .donts}
-```java
+
+~~~java
 public final List<String> CURRENT_WORDS = new ArrayList<>();
-```
-```java
+~~~
+
+~~~java
 enum ApplicationMode { Running, Paused, Terminated }
-```
+~~~
+
 :::
 :::
 
 
 ## Programming Practices
-The focus of the guidelines in this document is on style. General guidelines on best programming practices, use of design patterns, how to structure programs etc is thus out of scope.&nbsp;A few “low level” practices that are easy to pin down is however good to agree upon.
+The focus of the guidelines in this section is on style. General guidelines on best programming practices, use of design patterns, how to structure programs etc is thus out of scope.&nbsp;A few “low level” practices that are easy to pin down is however good to agree upon.
 
 ::: conventions
 - Always use `@Override` where it is possible to do so.
