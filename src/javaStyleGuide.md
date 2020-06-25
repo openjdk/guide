@@ -72,10 +72,10 @@ The short forms (e.g. `\t`) are commonly used and easier to recognize than the c
 ## Formatting
 ::: conventions
 - A Java source file should be structured as follows:
-  1. The copyright notice
-  1. Package declaration
-  1. Import statements
-  1. Class declaration
+  #. The copyright notice
+  #. Package declaration
+  #. Import statements
+  #. Class declaration
 - There may be only one top level class declaration per file.
 :::
 
@@ -1515,6 +1515,7 @@ For a complete Javadoc reference refer to &nbsp;[How to Write Doc Comments for t
 ::: box
 [Motivation]{.boxheader}
 Cleaning up code that’s unrelated to the patch may…
+
 - Complicate the review of the patch in which case correctness may suffer
 - Run the risk of breaking existing code
 - Have a downstream impact, e.g. affect ports to other versions.
