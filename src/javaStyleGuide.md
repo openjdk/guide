@@ -1184,59 +1184,6 @@ double d2 = 0x1.3P2;
 Lower case L resembles a 1 in many monospace fonts which means that the literal `5432l` can be confused with `54321`. Using upper case `L` suffix avoids this. The lowercase `0x`, `0b`, `e`, `p`, `f`, and `d` characters are easier to spot in a long sequence of digits, and they avoid confusion with the hexadecimal digits `A`-`F`.
 :::
 
-### Javadoc
-This section only covers basic Javadoc formatting. For a complete reference refer to &nbsp;[How to Write Doc Comments for the Javadoc Tool](http://www.oracle.com/technetwork/articles/java/index-137868.html).
-
-::: conventions
-- Start longer comments with a short summarizing sentence since Javadoc includes this in the method summary table.
-- Prefer inline tags (such as `{@code …}` and `{@link …}` etc) over corresponding HTML tags (`<code>…</code>`, `<a href="…">…</a>` etc).
-- Use `<p>` to separate paragraphs (closing `</p>` tags are not needed and should not be used)
-:::
-
-::: leftcol
-::: box
-[Dos]{.boxheader .dos}
-
-~~~java
-/** A short javadoc comment */
-~~~
-
-~~~java
-/**
- * …
- *
- * <blockquote>{@code
- *     List<String> names;
- * }</blockquote>
- */
-~~~
-
-:::
-:::
-
-::: rightcol
-::: box
-[Don’ts]{.boxheader .donts}
-
-~~~java
-/** put on single line instead
- */
-~~~
-
-~~~java
-/**
- * The <String> below may interfere with the HTML!
- *
- * <blockquote><pre>
- *     List<String> names;
- * </pre></blockquote>
- */
-~~~
-
-:::
-:::
-
-
 ## Naming
 ::: conventions
 - Avoid hiding/shadowing methods, variables and type variables in outer scopes.
@@ -1517,8 +1464,56 @@ The focus of the guidelines in this section is on style. General guidelines on b
 - Don’t check in code that’s commented out.
 - IDE/tool-specific comments should be avoided wherever possible, especially when there are reasonable alternatives, such as external settings files, etc.
 - Comments should be grammatically correct and follow general recommendations of technical writing.
+- Start longer Javadoc comments with a short summarizing sentence since Javadoc includes this in the method summary table.
+- Prefer inline tags (such as `{@code …}` and `{@link …}` etc) over corresponding HTML tags (`<code>…</code>`, `<a href="…">…</a>` etc).
+- Use `<p>` to separate paragraphs (closing `</p>` tags are not needed and should not be used)
 :::
-    
+
+::: leftcol
+::: box
+[Dos]{.boxheader .dos}
+
+~~~java
+/** A short javadoc comment */
+~~~
+
+~~~java
+/**
+ * …
+ *
+ * <blockquote>{@code
+ *     List<String> names;
+ * }</blockquote>
+ */
+~~~
+
+:::
+:::
+
+::: rightcol
+::: box
+[Don’ts]{.boxheader .donts}
+
+~~~java
+/** put on single line instead
+ */
+~~~
+
+~~~java
+/**
+ * The <String> below may interfere with the HTML!
+ *
+ * <blockquote><pre>
+ *     List<String> names;
+ * </pre></blockquote>
+ */
+~~~
+
+:::
+:::
+
+For a complete Javadoc reference refer to &nbsp;[How to Write Doc Comments for the Javadoc Tool](http://www.oracle.com/technetwork/articles/java/index-137868.html).
+
 ## When to reformat code
 ::: conventions
 - Do not reformat code in files unrelated to the current changeset, even if the code doesn’t adhere to the guidelines.
