@@ -1,7 +1,7 @@
 % Java Style Guide
 
 ::: {.NavBit}
-[« Previous](mailinglists.html) • [TOC](index.html) • [Next »](changePlanning.html)
+[« Previous](codeConventions.html) • [TOC](index.html) • [Next »](changePlanning.html)
 :::
 
 ## Overview
@@ -1528,5 +1528,5 @@ Cleaning up code that’s unrelated to the patch may…
 :::
 
 ::: {.NavBit}
-[« Previous](mailinglists.html) • [TOC](index.html) • [Next »](changePlanning.html)
+[« Previous](codeConventions.html) • [TOC](index.html) • [Next »](changePlanning.html)
 :::
