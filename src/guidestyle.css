@@ -2,3 +2,83 @@ DIV.version {text-align: right ; font-style: italic }
 TD.aligned  {vertical-align: top ; padding-right: 1em }
 H3 { font-size: 10pt; font-weight: bold; font-style: italic;
      padding: 0pt; margin: 1.5ex 0pt 0pt 0pt; }
+
+
+/* Use a section symbol as list item for style guide items */
+div.conventions > ul {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+div.conventions > ul > li {
+    padding-left: 1em;
+    text-indent: -1em;
+    padding-bottom: 1em;
+}
+
+div.conventions > ul > li:before {
+    content: '\a7';
+    padding-right: 5px;
+    color: #5382a1;
+}
+
+div.conventions > * > li > p:first-child {
+    display: inline;
+}
+
+/* Reset styles that would otherwise be inherited from div.conventions > li */
+div.conventions > ul > li > * {
+    text-indent: 0em;
+}
+
+.dos {
+    color: #008000;
+}
+
+.donts {
+    color: #993300;
+}
+
+/* Spacing between consecutive code examples */
+pre ~ pre {
+    margin-top: 1em;
+}
+
+/* Code blocks */
+pre > code {
+    border: 1px solid #CCCCCC;
+    background: #FCFCFF;
+    display: block;
+    padding: .5em;
+    margin: 0em;
+}
+
+/* Info boxes */
+.box {
+    margin: 1em 0;
+    padding: .5em;
+    background: #ecf3f8;
+    border-left: 5px solid #5382a1;
+    font-size: 90%;
+}
+
+.boxheader {
+    font-weight: bold;
+    margin-bottom: .5em;
+    display: block;
+}
+
+/* Side by side content */
+.leftcol, .rightcol {
+    float: left;
+    min-width: 49%;
+}
+
+.leftcol {
+    margin-right: 1%;
+}
+
+.rightcol + * {
+    clear: both;
+}
