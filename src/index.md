@@ -27,7 +27,7 @@
 * [What Happens Next](next.html)
   * [Requesting a Backport](next.html#requesting-a-backport)
   * [Filing a Bug](next.html#filing-a-bug)
-  * [ProblemListing or Ignoring a test](next.html#problemlisting-or-ignore-ing-a-test)
+  * [ProblemListing or `@ignore`-ing a Test](#problemlisting-or-ignore-ing-a-test)
   * [Backing Out a Change](next.html#backing-out-a-change)
 * [Bug Database](bugDatabase.html)
 * [Frequently Asked Questions](faq.html)

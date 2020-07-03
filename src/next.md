@@ -9,7 +9,7 @@ for example a bug might be filed or a backport could be requested.
 
 * [Requesting a Backport](#requesting-a-backport)
 * [Filing a Bug](#filing-a-bug)
-* [ProblemListing or Ignoring a test](#problemlisting-or-ignore-ing-a-test)
+* [ProblemListing or `@ignore`-ing a Test](#problemlisting-or-ignore-ing-a-test)
 * [Backing Out a Change](#backing-out-a-change)
 
 ## Requesting a Backport
@@ -23,7 +23,7 @@ When a new failure is found in the JDK a bug should be filed to describe and tra
 A few things to keep in mind when filing a new bug:
 
 * Before filing a bug, verify that there isn't already a bug filed for this issue.
-* Add relevant labels like `intermittent`, `regression`, `testbug` etc.
+* Add relevant labels like `intermittent`, `regression`, `noreg-self` etc.
 * Set affects version to the JDK version(s) where the failure was seen.
 * In the description, always include (if possible):
   * full name of the failing tests
@@ -66,7 +66,7 @@ test/lib-test/ProblemList.txt
 Use the suitable ProblemList and add a line like this in the proper section:
 
 ~~~
-sun.tools.jcmd.MyTest.java                        4711   windows-all
+foo/bar/MyTest.java                        4711   windows-all
 ~~~
 
 In this example, `MyTest.java` is ProblemListed on windows, tracked by bug `JDK-4711`.
@@ -74,18 +74,39 @@ In this example, `MyTest.java` is ProblemListed on windows, tracked by bug `JDK-
 Currently there's [no support for multiple lines for the same test](https://bugs.openjdk.java.net/browse/CODETOOLS-7902481). For this reason it's important to always make sure there's no existing entry for the test before adding a new one, as multiple entries might lead to unexpected results, e.g.
 
 ~~~
-sun.tools.jcmd.MyTest.java                        4710   generic-all
+foo/bar/MyTest.java                        4710   generic-all
 ...
-sun.tools.jcmd.MyTest.java                        4711   windows-all
+foo/bar/MyTest.java                        4711   windows-all
 ~~~
 
 This would lead to `sun.tools.jcmd.MyTest.java` being ProblemListed only on `windows-all`. The proper way to write this is:
 
 ~~~
-sun.tools.jcmd.MyTest.java                        4710,4711   generic-all,windows-all
+foo/bar/MyTest.java                        4710,4711   generic-all,windows-all
 ~~~
 
 Although `windows-all` isn't strictly required in this example, it's preferable to specify platforms for each bugid (unless they are all `generic-all`), this makes it easier to remove one of the bugs from the list.
+
+#### ProblemListing some, but not all, test cases in a file
+
+Some tests contain several test cases and there may be a need to ProblemList only a few of them. To do this use the full test name, i.e. `<filename> + # + <test case id>`, where test case id can be specified in the test header. If no id is specified each test case can be referenced with `id` + ordinary number of the test case in the test file.
+
+Let's assume we have four test cases in `foo/bar/MyTest.java`:
+
+~~~
+/* @test */
+/* @test id=fancy_name */
+/* @test */
+/* @test */
+~~~
+
+A ProblemList entry that excludes the first, second, and third test case would look like this:
+
+~~~
+foo/bar/MyTest.java#id0          4720  generic-all
+foo/bar/MyTest.java#fancy_name   4721  generic-all
+foo/bar/MyTest.java#id2          4722  generic-all
+~~~
 
 #### Running ProblemListed tests
 
