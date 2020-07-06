@@ -108,6 +108,8 @@ foo/bar/MyTest.java#fancy_name   4721  generic-all
 foo/bar/MyTest.java#id2          4722  generic-all
 ~~~
 
+Due to an issue described in [CODETOOLS-7902712](https://bugs.openjdk.java.net/browse/CODETOOLS-7902712) tests that contains more than one `@test` actually must use this way to specify all test cases, even if all of them should be ProblemListed.
+
 #### Running ProblemListed tests
 
 To run ad-hoc runs of ProblemListed tests use `RUN_PROBLEM_LISTS=true`.
