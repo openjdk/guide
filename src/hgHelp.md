@@ -6,9 +6,9 @@
 
 >     $ hg help
 >     Mercurial Distributed SCM
-
+>
 >     list of commands:
-
+>
 >      add           add the specified files on the next commit
 >      addremove     add all new files, delete all missing files
 >      annotate      show changeset information by line for each file
@@ -60,14 +60,14 @@
 >      update        update working directory (or switch revisions)
 >      verify        verify the integrity of the repository
 >      version       output version and copyright information
-
+>
 >     enabled extensions:
-
+>
 >      jcheck        (no help text available)
 >      trees         manage loosely-coupled nested repositories
-
+>
 >     additional help topics:
-
+>
 >      config        Configuration Files
 >      dates         Date Formats
 >      diffs         Diff Formats
@@ -86,7 +86,7 @@
 >      subrepos      Subrepositories
 >      templating    Template Usage
 >      urls          URL Paths
-
+>
 >     use "hg -v help" to show builtin aliases and global options
 
 ::: {.NavBit}
