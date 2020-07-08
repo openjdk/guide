@@ -15,7 +15,7 @@
 >     updating to branch default
 >     82 files updated, 0 files merged, 0 files removed, 0 files unresolved
 >     created /home/iris/9dev
-
+>
 >     cloning http://hg.openjdk.java.net/jdk9/dev/corba
 >     requesting all changes
 >     adding changesets
@@ -25,7 +25,7 @@
 >     updating to branch default
 >     1195 files updated, 0 files merged, 0 files removed, 0 files unresolved
 >     created /home/iris/9dev/corba
-
+>
 >     cloning http://hg.openjdk.java.net/jdk9/dev/hotspot
 >     requesting all changes
 >     adding changesets
@@ -35,7 +35,7 @@
 >     updating to branch default
 >     4357 files updated, 0 files merged, 0 files removed, 0 files unresolved
 >     created /home/iris/9dev/hotspot
-
+>
 >     cloning http://hg.openjdk.java.net/jdk9/dev/jaxp
 >     requesting all changes
 >     adding changesets
@@ -45,7 +45,7 @@
 >     updating to branch default
 >     2078 files updated, 0 files merged, 0 files removed, 0 files unresolved
 >     created /home/iris/9dev/jaxp
-
+>
 >     cloning http://hg.openjdk.java.net/jdk9/dev/jaxws
 >     requesting all changes
 >     adding changesets
@@ -55,7 +55,7 @@
 >     updating to branch default
 >     3710 files updated, 0 files merged, 0 files removed, 0 files unresolved
 >     created /home/iris/9dev/jaxws
-
+>
 >     cloning http://hg.openjdk.java.net/jdk9/dev/jdk
 >     requesting all changes
 >     adding changesets
@@ -65,7 +65,7 @@
 >     updating to branch default
 >     22251 files updated, 0 files merged, 0 files removed, 0 files unresolved
 >     created /home/iris/9dev/jdk
-
+>
 >     cloning http://hg.openjdk.java.net/jdk9/dev/langtools
 >     requesting all changes
 >     adding changesets
@@ -75,7 +75,7 @@
 >     updating to branch default
 >     6196 files updated, 0 files merged, 0 files removed, 0 files unresolved
 >     created /home/iris/9dev/langtools
-
+>
 >     cloning http://hg.openjdk.java.net/jdk9/dev/nashorn
 >     requesting all changes
 >     adding changesets

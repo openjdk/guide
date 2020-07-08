@@ -1,4 +1,36 @@
-DIV.version {text-align: right ; font-style: italic }
-TD.aligned  {vertical-align: top ; padding-right: 1em }
-H3 { font-size: 10pt; font-weight: bold; font-style: italic;
-     padding: 0pt; margin: 1.5ex 0pt 0pt 0pt; }
+div.version {
+    text-align: right;
+    font-style: italic;
+}
+
+td.aligned {
+    vertical-align: top;
+    padding-right: 1em;
+}
+
+/* Spacing between consecutive code blocks */
+pre ~ pre {
+    margin-top: 1em;
+}
+
+/* Code blocks */
+pre > code {
+    border: 1px solid #cccccc;
+    background: #fcfcff;
+    display: block;
+    padding: .5em;
+    margin: 0em;
+}
+
+/* Info boxes */
+.box {
+    margin: 1em 0;
+    padding: .5em;
+    background: #ecf3f8;
+    border-left: 5px solid #5382a1;
+}
+
+.boxheader {
+    font-weight: bold;
+    margin-bottom: .5em;
+}
