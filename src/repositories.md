@@ -30,7 +30,7 @@ download, and describes basic installation and configuration.
 obtaining private copies of source repositories.
 
 This document assumes familiarity with the first two chapters of the free
-on-line book [Mercurial: The Definitive Guide](https://hgbook.red-bean.com).
+on-line book [Mercurial: The Definitive Guide](http://hgbook.red-bean.com).
 
 ## Terminology and Naming Scheme
 
@@ -110,7 +110,7 @@ used to apply commands to all the repositories in the
 [forest](glossary.html#forest). Popular extensions for OpenJDK developers include
 [jcheck](https://openjdk.java.net/projects/code-tools/jcheck/),
 [trees](https://openjdk.java.net/projects/code-tools/trees/), and
-[Mercurial Queues](https://hgbook.red-bean.com/read/managing-change-with-mercurial-queues.html)
+[Mercurial Queues](http://hgbook.red-bean.com/read/managing-change-with-mercurial-queues.html)
 (mq). Note that `trees` is enabled on the OpenJDK Mercurial server.
 
 Create and edit the `~/.hgrc` file to minimally contain the following entry:

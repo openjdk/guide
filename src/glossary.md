@@ -43,7 +43,7 @@
     binary packages for Mercurial are available at
     [https://www.selenic.com/mercurial/wiki/index.cgi](https://www.selenic.com/mercurial/wiki/index.cgi/Mercurial).
     The main Mercurial documentation is available at
-    [https://hgbook.red-bean.com](https://hgbook.red-bean.com/).
+    [http://hgbook.red-bean.com](https://hgbook.red-bean.com/).
 
 [**Project**]{#project}
 :   A collaborative effort to produce a specific artifact, which may be a body of

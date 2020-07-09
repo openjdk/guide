@@ -30,7 +30,7 @@ The timing for creating a changeset is important. Creating the changeset long
 before it gets pushed into the parent repository may require complex merges. If
 a changeset is created before sufficient review or testing, a rollback may be
 required and a new changeset may be required to correct previous mistakes. The
-[mq extension](https://hgbook.red-bean.com/hgbookch12.html#x16-26500012) is
+[mq extension](http://hgbook.red-bean.com/hgbookch12.html#x16-26500012) is
 recommended for managing changes before they become
 committed to a changeset.
 
@@ -136,7 +136,7 @@ It is often necessary to merge local changes with those made in the parent
 repositories. The first step in a merge process is to retrieve (or pull) the
 collection of changesets which have been pushed since the last merge or initial
 clone. If there if there are merge conflicts, then they must be resolved.
-[Chapter 3](https://hgbook.red-bean.com/hgbookch3.html#x7-530003) of
+[Chapter 3](http://hgbook.red-bean.com/hgbookch3.html#x7-530003) of
 the Mercurial book contains detailed information on the
 merging process.
 
