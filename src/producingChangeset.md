@@ -30,7 +30,7 @@ The timing for creating a changeset is important. Creating the changeset long
 before it gets pushed into the parent repository may require complex merges. If
 a changeset is created before sufficient review or testing, a rollback may be
 required and a new changeset may be required to correct previous mistakes. The
-[mq extension](http://hgbook.red-bean.com/hgbookch12.html#x16-26500012) is
+[mq extension](https://hgbook.red-bean.com/hgbookch12.html#x16-26500012) is
 recommended for managing changes before they become
 committed to a changeset.
 
@@ -136,7 +136,7 @@ It is often necessary to merge local changes with those made in the parent
 repositories. The first step in a merge process is to retrieve (or pull) the
 collection of changesets which have been pushed since the last merge or initial
 clone. If there if there are merge conflicts, then they must be resolved.
-[Chapter 3](http://hgbook.red-bean.com/hgbookch3.html#x7-530003) of
+[Chapter 3](https://hgbook.red-bean.com/hgbookch3.html#x7-530003) of
 the Mercurial book contains detailed information on the
 merging process.
 
@@ -178,7 +178,7 @@ Option 2: _**`hg`**_ `fetch`
 
 > ---
 > Actual file merging will be done with the selected Mercurial merging tool see
-> [MergeProgram](http://www.selenic.com/mercurial/wiki/index.cgi/MergeProgram)
+> [MergeProgram](https://www.selenic.com/mercurial/wiki/index.cgi/MergeProgram)
 > for the details on how to define the selected merge tool in ` ~/.hgrc`.
 
 > ---
@@ -364,7 +364,7 @@ $ hg fdefpath -dgv
 
 #### Pushing a Changeset
 
-[Committers](http://openjdk.java.net/bylaws#committer)
+[Committers](https://openjdk.java.net/bylaws#committer)
 can use the _**hg**_ `push` command to propagate changesets into the repositories.
 
 Most developers will only find a need to create changesets in one or two
@@ -375,7 +375,7 @@ performed; otherwise there is a risk of breaking the build.
 >     $ hg push
 
 After the push has been accepted, an automatic e-mail notification will be sent
-to the [mailing list](http://mail.openjdk.java.net) associated with the
+to the [mailing list](https://mail.openjdk.java.net) associated with the
 repository. In most cases notifications
 are sent to the Project's _-dev_ mailing list. Some
 Projects with high traffic _-dev_ mailing lists use a
@@ -384,7 +384,7 @@ dedicated _-changes_ list for notifications.
 > ---
 > Who has push access?
 >
-> All of a Project's [Committers](http://openjdk.java.net/bylaws#committer)
+> All of a Project's [Committers](https://openjdk.java.net/bylaws#committer)
 > can push to all of the the Project's repositories.
 >
 > Some Projects may chose to restrict the set of Committers with push to key

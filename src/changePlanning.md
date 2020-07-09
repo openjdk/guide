@@ -28,11 +28,11 @@ the specification.
 
 > ---
 > Some steps refer to operations which can not be performed directly without the
-> assistance of a [Project Committer](http://openjdk.java.net/bylaws#committer).
+> assistance of a [Project Committer](https://openjdk.java.net/bylaws#committer).
 > For example, any changes to the
-> [bug database](http://bugs.openjdk.java.net) fall into
+> [bug database](https://bugs.openjdk.java.net) fall into
 > this category. Since these steps are required,
-> [Contributors](http://openjdk.java.net/bylaws#contributor)
+> [Contributors](https://openjdk.java.net/bylaws#contributor)
 > are urged to work with their [Sponsors](/sponsor/)
 > to complete these tasks.
 
@@ -87,7 +87,7 @@ also imply "implementation for an enhancement".
 
    Assuming that the development team approves of the intended approach, begin
    working on the code using the latest source available from the appropriate
-   OpenJDK Project [repository](http://hg.openjdk.java.net).
+   OpenJDK Project [repository](https://hg.openjdk.java.net).
 
 #. [**Is it possible to write a test to detect the bug?**]{#noreg}
 
@@ -97,14 +97,14 @@ also imply "implementation for an enhancement".
    |   | one or more exported interfaces, add an adequate set of jtreg unit   |
    |   | tests as part of the changeset. By convention all regression and     |
    |   | unit tests should contain a                                          |
-   |   | [\@bug tag](http://openjdk.java.net/jtreg/tag-spec.html#INFORMATIONAL_TAGS9) |
+   |   | [\@bug tag](https://openjdk.java.net/jtreg/tag-spec.html#INFORMATIONAL_TAGS9) |
    |   | referencing at least one bugid.                                      |
    +---+----------------------------------------------------------------------+
    |   | An entirely new test (or tests) may not be required. For             |
    |   | example, if the bug is an existing regression test failure, then     |
    |   | when fixing the bug you should just add the new bug ID to the list   |
    |   | of space-delimited bugs in the                                       |
-   |   | [\@bug tag](http://openjdk.java.net/jtreg/tag-spec.html#INFORMATIONAL_TAGS) |
+   |   | [\@bug tag](https://openjdk.java.net/jtreg/tag-spec.html#INFORMATIONAL_TAGS) |
    |   | of the failing regression test, even if the test did not need to     |
    |   | be updated.                                                          |
    +---+----------------------------------------------------------------------+
@@ -228,9 +228,9 @@ the development alias**
 
    A patch can be submitted as described in [Contributing](../contribute/). Alternatively, a
    ["webrev"](webrevHelp.html) may be generated and
-   uploaded to the [community code review](http://cr.openjdk.java.net/) server.
+   uploaded to the [community code review](https://cr.openjdk.java.net/) server.
    The complete webrev generation and upload procedure is described at
-   [http://cr.openjdk.java.net](http://cr.openjdk.java.net/).
+   [https://cr.openjdk.java.net](https://cr.openjdk.java.net/).
 
    Changeset pushes before the
    [Feature Complete](/projects/jdk8/milestones#Feature_Complete)
