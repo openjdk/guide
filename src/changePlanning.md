@@ -47,7 +47,7 @@ also imply "implementation for an enhancement".
    Send an e-mail to the appropriate development mailing list for the Project that
    maintains the code. The e-mail should have a subject line of the form:
 
-   >     6543210: My favorite bug
+       6543210: My favorite bug
 
    where `6543210` is replaced with the actual bug id number or
    "[NEW BUG]" if the bug id is not known and `My favorite bug` is

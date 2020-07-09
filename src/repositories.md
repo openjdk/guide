@@ -115,8 +115,8 @@ used to apply commands to all the repositories in the
 
 Create and edit the `~/.hgrc` file to minimally contain the following entry:
 
->     [ui]
->     username = <openjdk_username>
+    [ui]
+    username = <openjdk_username>
 
 _openjdk\_username_ is a plain lowercase, alphanumeric
 token (not an e-mail address) with twelve characters or less. The first
@@ -145,23 +145,23 @@ the following steps.
 
 #. Verify that Mercurial is version 2.6.3 (or newer).
 
-   >     $ hg version
-   >     Mercurial Distributed SCM (version 2.9)
-   >     (see http://mercurial.selenic.com for more information)
-   >
-   >     Copyright (C) 2005-2014 Matt Mackall and others
-   >     This is free software; see the source for copying conditions. There is NO
-   >     warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+       $ hg version
+       Mercurial Distributed SCM (version 2.9)
+       (see http://mercurial.selenic.com for more information)
+   
+       Copyright (C) 2005-2014 Matt Mackall and others
+       This is free software; see the source for copying conditions. There is NO
+       warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 #. Verify that the list of enabled extensions includes fetch and mq.
 
-   >     $ hg help
-   > [full output](hgHelp.html)
+       $ hg help
+   [full output](hgHelp.html)
 
 #. Verify that the `~/.hgrc` configuration looks correct. Minimally it should contain the following entries:
 
-   >     $ hg showconfig
-   >     ui.username=iris
+       $ hg showconfig
+       ui.username=iris
 
 At this point, it should be possible to start retrieving source from the
 repositories.
@@ -179,17 +179,17 @@ may be used to run test commands against Mercurial without fear of causing
 damage to development source. Use them freely but with discretion; content in
 them may be deleted at any time.
 
->     $ mkdir sandbox; cd sandbox
->     $ hg clone http://hg.openjdk.java.net/sandbox/box
->     destination directory: box
->     requesting all changes
->     adding changesets
->     adding manifests
->     adding file changes
->     added 23 changesets with 24 changes to 5 files
->     4 files updated, 0 files merged, 0 files removed, 0 files unresolved
->     $ du -s box
->     46      box
+    $ mkdir sandbox; cd sandbox
+    $ hg clone http://hg.openjdk.java.net/sandbox/box
+    destination directory: box
+    requesting all changes
+    adding changesets
+    adding manifests
+    adding file changes
+    added 23 changesets with 24 changes to 5 files
+    4 files updated, 0 files merged, 0 files removed, 0 files unresolved
+    $ du -s box
+    46      box
 
 #### ... a Forest {#cloneForest}
 
@@ -203,38 +203,38 @@ into the directory `9dev`.
 [trees](http://openjdk.java.net/projects/code-tools/trees/)
 extension just use `tclone`:
 
-   >     $ hg tclone http://hg.openjdk.java.net/jdk9/dev 9dev
-   > [full output](tClone.html)
+       $ hg tclone http://hg.openjdk.java.net/jdk9/dev 9dev
+   [full output](tClone.html)
 
 #. To clone the forest using `get_source.sh`, first
 clone the main tree:
 
-   >     $ hg clone http://hg.openjdk.java.net/jdk9/dev 9dev
-   >     requesting all changes
-   >     adding changesets
-   >     adding manifests
-   >     adding file changes
-   >     added 997 changesets with 1477 changes to 138 files
-   >     updating to branch default
-   >     82 files updated, 0 files merged, 0 files removed, 0 files unresolved
+       $ hg clone http://hg.openjdk.java.net/jdk9/dev 9dev
+       requesting all changes
+       adding changesets
+       adding manifests
+       adding file changes
+       added 997 changesets with 1477 changes to 138 files
+       updating to branch default
+       82 files updated, 0 files merged, 0 files removed, 0 files unresolved
 
    Then clone the repositories in the forest:
 
-   >     $ cd 9dev
-   >     $ sh ./get_source.sh
-   > [full output](getSource.html)
+       $ cd 9dev
+       $ sh ./get_source.sh
+   [full output](getSource.html)
 
 Regardless of how the forest was cloned, this is the resulting populated
 forest.
 
->     $ du -s
->     934532  .
->     $ ls
->     ASSEMBLY_EXCEPTION  hotspot    LICENSE   README-builds.html
->     common              jaxp       make      test
->     configure           jaxws      Makefile  THIRD_PARTY_README
->     corba               jdk        nashorn
->     get_source.sh       langtools  README
+    $ du -s
+    934532  .
+    $ ls
+    ASSEMBLY_EXCEPTION  hotspot    LICENSE   README-builds.html
+    common              jaxp       make      test
+    configure           jaxws      Makefile  THIRD_PARTY_README
+    corba               jdk        nashorn
+    get_source.sh       langtools  README
 
 #### ... a Single Repository {#cloneSingle}
 
@@ -245,17 +245,17 @@ example shows how to clone the `langtools`
 repository from _jdk9/dev_ into the default
 destination directory.
 
->     $ hg clone http://hg.openjdk.java.net/jdk9/dev/langtools
->     destination directory: langtools
->     requesting all changes
->     adding changesets
->     adding manifests
->     adding file changes
->     added 2289 changesets with 21194 changes to 7004 files
->     updating to branch default
->     6212 files updated, 0 files merged, 0 files removed, 0 files unresolved
->     $ du -s langtools
->     84396   langtools
+    $ hg clone http://hg.openjdk.java.net/jdk9/dev/langtools
+    destination directory: langtools
+    requesting all changes
+    adding changesets
+    adding manifests
+    adding file changes
+    added 2289 changesets with 21194 changes to 7004 files
+    updating to branch default
+    6212 files updated, 0 files merged, 0 files removed, 0 files unresolved
+    $ du -s langtools
+    84396   langtools
 
 ::: {.NavBit}
 [« Previous](processWorkflow.html) • [TOC](index.html) • [Next »](mailingLists.html)

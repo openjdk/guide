@@ -46,19 +46,19 @@ the individual cloned repositories of the forest, the `hg
 status` command may be used to see the changes in a single
 repository.
 
->     $ hg root
->     /u/iris/sandbox/box
->     $ hg status
->     ? duke/images/DukeTubbingSmall.png
->     $ hg add duke/images/DukeTubbingSmall.png
->     $ hg status
->     A duke/images/DukeTubbingSmall.png
+    $ hg root
+    /u/iris/sandbox/box
+    $ hg status
+    ? duke/images/DukeTubbingSmall.png
+    $ hg add duke/images/DukeTubbingSmall.png
+    $ hg status
+    A duke/images/DukeTubbingSmall.png
 
 To see changes made to the repositories use _**`hg`**_ `status`:
 
->     $ hg status
->     [.]
->     A duke/images/DukeTubbingSmall.png
+    $ hg status
+    [.]
+    A duke/images/DukeTubbingSmall.png
 
 In this example, the repository was previously cloned as described in
 [Cloning a Sandbox Repository](repositories.html#cloneSandbox). A new file
@@ -68,10 +68,10 @@ In this example, the repository was previously cloned as described in
 
 A single change is described by a block of text of the following form:
 
->     <bugid>: <synopsis-of-symptom>
->     Summary: <summary-of-code-change>
->     Reviewed-by: <reviewer>+
->     Contributed-by: <contributor-email>
+    <bugid>: <synopsis-of-symptom>
+    Summary: <summary-of-code-change>
+    Reviewed-by: <reviewer>+
+    Contributed-by: <contributor-email>
 
 There may be more than one _bugid_ line, but there
 must be at least one.
@@ -96,10 +96,10 @@ There will be exceptions for merge changesets, tag changesets, etc.
 
 Example:
 
->     1234567: NPE thrown on FileInputStream("")
->     Summary: Rewrite precondition-checking code in io.c
->     Reviewed-by: mr
->     Contributed-by: Ben Bitdiddle <ben at bits.org>
+    1234567: NPE thrown on FileInputStream("")
+    Summary: Rewrite precondition-checking code in io.c
+    Reviewed-by: mr
+    Contributed-by: Ben Bitdiddle <ben at bits.org>
 
 If a changeset contains multiple unrelated changes (this is frowned upon, but
 may happen from time to time) then its comment will contain multiple blocks of
@@ -115,20 +115,20 @@ depending upon their goals.
 The following commands commit all of the changes in a repository to a
 changeset.
 
->     $ cat ../message
->     1111111: Missing Duke gif
->     Summary:  Add missing file
->     Reviewed-by: iag
->     $ hg commit -l ../message
->     $ hg toutgoing
->     [.]
->     comparing with http://hg.openjdk.java.net/sandbox/box
->     searching for changes
->     changeset:   23:fb12953f3a35
->     tag:         tip
->     user:        iris
->     date:        Wed Dec 12 21:05:59 2007 -0800
->     summary:     1111111: Missing Duke gif
+    $ cat ../message
+    1111111: Missing Duke gif
+    Summary:  Add missing file
+    Reviewed-by: iag
+    $ hg commit -l ../message
+    $ hg toutgoing
+    [.]
+    comparing with http://hg.openjdk.java.net/sandbox/box
+    searching for changes
+    changeset:   23:fb12953f3a35
+    tag:         tip
+    user:        iris
+    date:        Wed Dec 12 21:05:59 2007 -0800
+    summary:     1111111: Missing Duke gif
 
 ## Merging
 
@@ -148,11 +148,11 @@ Option 1: _**`hg`**_ `pull`
 > _**`hg`**_ `pull` all by itself. This option allows merging off-line or at a
 > later time.
 >
->>     $ hg pull
->>     [.]
->>     pulling from http://hg.openjdk.java.net/sandbox/box
->>     searching for changes
->>     no changes found
+>     $ hg pull
+>     [.]
+>     pulling from http://hg.openjdk.java.net/sandbox/box
+>     searching for changes
+>     no changes found
 >
 > In Mercurial, pulling changesets will not update or merge into the working set
 > of files. To update the clone, run _**`hg`**_ `update`. If the update
@@ -165,16 +165,16 @@ Option 2: _**`hg`**_ `fetch`
 > fetch extension is distributed with Mercurial but needs to be enabled. Edit
 > the `.hgrc` to include the following entries:
 >
->>     [extensions]
->>     fetch=
+>     [extensions]
+>     fetch=
 >
 > Once the fetch extension has been enabled, _**`hg`**_ `fetch` may be invoked as follows:
 >
->>     $ hg fetch
->>     [.]
->>     pulling from http://hg.openjdk.java.net/sandbox/box
->>     searching for changes
->>     no changes found
+>     $ hg fetch
+>     [.]
+>     pulling from http://hg.openjdk.java.net/sandbox/box
+>     searching for changes
+>     no changes found
 
 > ---
 > Actual file merging will be done with the selected Mercurial merging tool see
@@ -200,27 +200,27 @@ this is **strongly** discouraged. Empty or
 insecure passphrases may be reset using `ssh-keygen
 -p`; this does not change the keys.
 
->     $ ssh-keygen -t rsa -b 4096
->     Enter file in which to save the key(/u/iris/.ssh/id_rsa):
->     Generating public/private rsa key pair.
->     Enter passphrase(empty for no passphrase):
->     Enter same passphrase again:
->     Your identification has been saved in /u/iris/.ssh/id_rsa.
->     Your public key has been saved in /u/iris/.ssh/id_rsa.pub.
->     The key fingerprint is:
->     md5 4096 c2:b7:00:e6:4b:da:ea:ec:32:30:f5:bd:12:26:04:83 iris@duke
->     The key's randomart image is:
->     +--[ RSA 4096]----+
->     |    E.=          |
->     |     . *         |
->     |      o .   .    |
->     |         + o     |
->     |        S + .    |
->     |       .   + .   |
->     |        + + +..  |
->     |       * . oo+.  |
->     |      o . .o..   |
->     +-----------------+
+    $ ssh-keygen -t rsa -b 4096
+    Enter file in which to save the key(/u/iris/.ssh/id_rsa):
+    Generating public/private rsa key pair.
+    Enter passphrase(empty for no passphrase):
+    Enter same passphrase again:
+    Your identification has been saved in /u/iris/.ssh/id_rsa.
+    Your public key has been saved in /u/iris/.ssh/id_rsa.pub.
+    The key fingerprint is:
+    md5 4096 c2:b7:00:e6:4b:da:ea:ec:32:30:f5:bd:12:26:04:83 iris@duke
+    The key's randomart image is:
+    +--[ RSA 4096]----+
+    |    E.=          |
+    |     . *         |
+    |      o .   .    |
+    |         + o     |
+    |        S + .    |
+    |       .   + .   |
+    |        + + +..  |
+    |       * . oo+.  |
+    |      o . .o..   |
+    +-----------------+
 
 The `~/.ssh/id_rsa.pub` is a text file
 containing the public ssh key. This file should be mailed as an attachment
@@ -234,8 +234,8 @@ completion. This process may take a couple of days.
 > `~/.ssh/config` file to connect to the OpenJDK
 > Mercurial server:
 > 
->>     Host *.openjdk.java.net
->>     ProxyCommand /usr/lib/ssh/ssh-socks5-proxy-connect -h [socks_proxy_address] %h %p
+>     Host *.openjdk.java.net
+>     ProxyCommand /usr/lib/ssh/ssh-socks5-proxy-connect -h [socks_proxy_address] %h %p
 >
 > See the `ssh-socks5-proxy-connect` man page and
 > `ssh-config` man page for more information. Other
@@ -260,23 +260,23 @@ ssh-related operations.
   To avoid having to constantly type in the passphrase, use the ssh-agent on your
   local client to cache your pashphrase:
 
-  >     $ eval `ssh-agent`
-  >     Agent pid 17450
-  >     $ ssh-add
-  >     Enter passphrase for /u/iris/.ssh/id_rsa:
-  >     Identity added: /u/iris/.ssh/id_rsa(/u/iris/.ssh/id_rsa)
+      $ eval `ssh-agent`
+      Agent pid 17450
+      $ ssh-add
+      Enter passphrase for /u/iris/.ssh/id_rsa:
+      Identity added: /u/iris/.ssh/id_rsa(/u/iris/.ssh/id_rsa)
 
   The same ssh-agent process can be shared with multiple shells. There are
   various ways to do this. Bash users can accomplish this with the following code
   in `.bashrc`:
 
-  >     if [ "$PS1" -a -d $HOME/.ssh ]; then
-  >       if [ "x$SSH_AUTH_SOCK" = x ]; then
-  >         eval `ssh-agent | grep -v 'echo Agent pid'`
-  >         ssh-add
-  >         trap "echo Killing SSH agent $SSH_AGENT_PID; kill $SSH_AGENT_PID" 0
-  >       fi
-  >     fi
+      if [ "$PS1" -a -d $HOME/.ssh ]; then
+        if [ "x$SSH_AUTH_SOCK" = x ]; then
+          eval `ssh-agent | grep -v 'echo Agent pid'`
+          ssh-add
+          trap "echo Killing SSH agent $SSH_AGENT_PID; kill $SSH_AGENT_PID" 0
+        fi
+      fi
 
   For secure operation, only start an ssh-agent when needed and kill it off when
   the shell completes. Test this by running `ssh 'hostname' echo
@@ -287,8 +287,8 @@ ssh-related operations.
   To avoid needing to constantly type in the password, add the public key to the
   list of ssh authorized keys.
 
-  >     $ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
-  >     $ chmod 600 ~/.ssh/authorized_keys
+      $ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+      $ chmod 600 ~/.ssh/authorized_keys
 
 #### Setting the `default-push` Path to the Server Repositories
 
@@ -310,35 +310,35 @@ path in every repository's `.hg/hgrc` file. The
 private to the repository. The following example defines the "default" and
 "default-push" paths for clones of the jdk9/dev team repository.
 
->     [paths]
->     default = http://hg.openjdk.java.net/jdk9/dev
->     default-push = ssh://<JDK_username>@hg.openjdk.java.net/jdk9/dev
+    [paths]
+    default = http://hg.openjdk.java.net/jdk9/dev
+    default-push = ssh://<JDK_username>@hg.openjdk.java.net/jdk9/dev
 
 Given a `JDK_username` this simple script will
 attempt to do this for all the repositories:
 
->     #!/bin/sh
->     username=$1
->     hgdirs="`find . -type d -name .hg`"
->     for i in ${hgdirs}; do
->       d="`dirname ${i}`"
->       defpush="`(cd ${d} && hg paths default-push 2> /dev/null)`"
->       if [ "${defpush}" = "" ] ; then
->         defpath="`(cd ${d} && hg paths default 2> /dev/null)`"
->         if [ "${defpath}" != "" ] ; then
->           defpush="`echo ${defpath} | sed -e 's@http://\([^/]*/[^/]*/[^/]*\)/\(.*\)@ssh://$username\@\1/\2@'`"
->           cp ${i}/hgrc ${i}/hgrc.orig
->           echo "default-push = ${defpush}" >> ${i}/hgrc
->           echo "Added default-push: ${defpush}"
->         fi
->       fi
->     done
->     for i in ${hgdirs}; do
->       d="`dirname ${i}`"
->       echo "(cd ${d} && hg paths)"
->       (cd ${d} && hg paths)
->     done
->     exit 0
+    #!/bin/sh
+    username=$1
+    hgdirs="`find . -type d -name .hg`"
+    for i in ${hgdirs}; do
+      d="`dirname ${i}`"
+      defpush="`(cd ${d} && hg paths default-push 2> /dev/null)`"
+      if [ "${defpush}" = "" ] ; then
+        defpath="`(cd ${d} && hg paths default 2> /dev/null)`"
+        if [ "${defpath}" != "" ] ; then
+          defpush="`echo ${defpath} | sed -e 's@http://\([^/]*/[^/]*/[^/]*\)/\(.*\)@ssh://$username\@\1/\2@'`"
+          cp ${i}/hgrc ${i}/hgrc.orig
+          echo "default-push = ${defpush}" >> ${i}/hgrc
+          echo "Added default-push: ${defpush}"
+        fi
+      fi
+    done
+    for i in ${hgdirs}; do
+      d="`dirname ${i}`"
+      echo "(cd ${d} && hg paths)"
+      (cd ${d} && hg paths)
+    done
+    exit 0
 
 <!--
 #. Option 2: Use the <code>defpath</code> ExtensionAnother way to setup the default-push path is to use the Mercurial defpath
@@ -372,7 +372,7 @@ repositories. However, it is important that before any changesets are pushed,
 the corresponding forest pull and merge with the destination forest be
 performed; otherwise there is a risk of breaking the build.
 
->     $ hg push
+    $ hg push
 
 After the push has been accepted, an automatic e-mail notification will be sent
 to the [mailing list](http://mail.openjdk.java.net) associated with the
