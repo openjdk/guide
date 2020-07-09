@@ -8,11 +8,11 @@ The mailing lists are the key communications mechanism for all OpenJDK work.
 All participation in an OpenJDK project starts with joining the relevant mailing
 list. A subscriber to an OpenJDK mailing list is referred to as a Participant
 in the [Bylaws](https://openjdk.java.net/bylaws). As a general recommendation we suggest
-to subscribe to [announce](http://mail.openjdk.java.net/mailman/listinfo/announce),
-[discuss](http://mail.openjdk.java.net/mailman/listinfo/discuss), and the `-dev` lists
+to subscribe to [announce](https://mail.openjdk.java.net/mailman/listinfo/announce),
+[discuss](https://mail.openjdk.java.net/mailman/listinfo/discuss), and the `-dev` lists
 covering your explicit area of interest. All OpenJDK mailing lists are found here:
 
-> [`mail.openjdk.java.net`](http://mail.openjdk.java.net/mailman/listinfo)
+> [`mail.openjdk.java.net`](https://mail.openjdk.java.net/mailman/listinfo)
 
 The OpenJDK community is a friendly place. To keep it that way it's important to
 keep a professional tone in emails and be aware that the community is global.

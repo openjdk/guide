@@ -10,7 +10,7 @@ as run by the [jtreg harness](../jtreg/) and JCK
 tests. Characteristics of a good regression test will be provided.
 
 <!--
- See also the <a href="http://openjdk.java.net/groups/quality/">OpenJDK
+ See also the <a href="https://openjdk.java.net/groups/quality/">OpenJDK
 Quality Group</a>. 
 -->
 

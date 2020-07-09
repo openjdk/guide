@@ -41,9 +41,9 @@
 [**Mercurial**]{#mercurial}
 :   A free, cross-platform, distributed source management tool. Source bundles and
     binary packages for Mercurial are available at
-    [http://www.selenic.com/mercurial/wiki/index.cgi](http://www.selenic.com/mercurial/wiki/index.cgi/Mercurial).
+    [https://www.selenic.com/mercurial/wiki/index.cgi](https://www.selenic.com/mercurial/wiki/index.cgi/Mercurial).
     The main Mercurial documentation is available at
-    [http://hgbook.red-bean.com](http://hgbook.red-bean.com/).
+    [http://hgbook.red-bean.com](https://hgbook.red-bean.com/).
 
 [**Project**]{#project}
 :   A collaborative effort to produce a specific artifact, which may be a body of
@@ -56,7 +56,7 @@
 
 [**webrev**]{#webrev}
 :   A tool and its output. In JDK release forests, the script,
-    [`webrev.ksh`](http://hg.openjdk.java.net/code-tools/webrev/raw-file/tip/webrev.ksh),
+    [`webrev.ksh`](https://hg.openjdk.java.net/code-tools/webrev/raw-file/tip/webrev.ksh),
     examines a forest or repository to generate a set of web-based views of
     differences.
 

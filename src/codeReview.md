@@ -4,12 +4,12 @@
 
 The cr.openjdk.java.net server provides storage and display of code review
 materials such as webrevs and other artifacts related to the
-[OpenJDK](http://openjdk.java.net/) Community. If you
+[OpenJDK](https://openjdk.java.net/) Community. If you
 are interested in monitoring recent reviews, try our review feed
-[here](http://cr.openjdk.java.net/feed.atom).
+[here](https://cr.openjdk.java.net/feed.atom).
 
 Any user with push access to the OpenJDK
-[Mercurial](http://hg.openjdk.java.net) server can publish
+[Mercurial](https://hg.openjdk.java.net) server can publish
 materials on the cr.openjdk.java.net server.
 Users can upload files to temporary
 storage using secure methods (rsync, scp, and sftp).
@@ -19,7 +19,7 @@ storage using secure methods (rsync, scp, and sftp).
 This site is for open source materials related to the OpenJDK
 Community only. Users uploading inappropriate materials will lose
 access and the material will be deleted. Please review the
-[Terms of Use](http://openjdk.java.net/legal/terms.html).
+[Terms of Use](https://openjdk.java.net/legal/terms.html).
 
 Special note to developers working on closed code and tests:
 This cr.openjdk.java.net
@@ -61,7 +61,7 @@ For more information about webrev, refer to:
   files.
 
 * **Optional:** If they would like to dress up their entry in
-  the [Atom feed](http://cr.openjdk.java.net/feed.atom),
+  the [Atom feed](https://cr.openjdk.java.net/feed.atom),
   create `.title` and/or `.description` files:
 
 >>     echo "A suitable review title or bug synopsis" > 6543210/.title
@@ -91,12 +91,12 @@ For more information about webrev, refer to:
 
 * The results will be published at:
 
->>     http://cr.openjdk.java.net/~username/6543210
+>>     https://cr.openjdk.java.net/~username/6543210
 
 * In ten minutes or less, the new information will appear on the
   feed:
 
-  [http://cr.openjdk.java.net/feed.atom](http://cr.openjdk.java.net/feed.atom)
+  [https://cr.openjdk.java.net/feed.atom](https://cr.openjdk.java.net/feed.atom)
 
 * Later on, if it is time to clean up, use sftp to access your
   code review directory:
