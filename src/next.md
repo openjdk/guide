@@ -152,8 +152,10 @@ The backout is a regular change and will have to go through the standard code re
 
 ### How to work with JBS when a change is backed out
 
+#. Close the original JBS issue **(O)**.
+   * "Verify" the issue and choose "Fix Failed".
 #. If the intention is to fix the change and submit it again, create a redo-issue **(R)** to track that the work still needs to be done.
-   * Clone the original JBS issue **(O)** and add the prefix `[REDO]` on the summary - the clone becomes the redo-issue **(R)**.
+   * Clone **(O)** and add the prefix `[REDO]` on the summary - the clone becomes the redo-issue **(R)**.
    * Make sure relevant information is brought to **(R)**.
    * Remember that comments are not brought over when cloning.
 #. Create a backout-issue **(B)**:
