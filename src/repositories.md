@@ -7,13 +7,13 @@
 This section describes the OpenJDK repository terminology and naming scheme. It
 also includes minimal instructions to acquire source from the OpenJDK
 repository,
-[`http://hg.openjdk.java.net/`](http://hg.openjdk.java.net/).
+[`https://hg.openjdk.java.net/`](https://hg.openjdk.java.net/).
 
 > ---
 > Note that source may be available from other locations, for example
 > `src.zip` from a full JDK distribution. However,
 > OpenJDK contributions must use source from the
-> [OpenJDK Mercurial repository](http://hg.openjdk.java.net/)
+> [OpenJDK Mercurial repository](https://hg.openjdk.java.net/)
 > since other source distributions may contain older code
 > or code which differs due to licensing.
 
@@ -35,27 +35,27 @@ on-line book [Mercurial: The Definitive Guide](http://hgbook.red-bean.com).
 ## Terminology and Naming Scheme
 
 The OpenJDK code base for all
-[Projects](http://openjdk.java.net/bylaws#_6) is
+[Projects](https://openjdk.java.net/bylaws#_6) is
 stored in Mercurial repositories which contain the source files and their
 change history. Some Projects may choose to organize their code into multiple,
 possibly related, Mercurial repositories. For instance,
-[JDK 9](http://openjdk.java.net/projects/jdk9)
+[JDK 9](https://openjdk.java.net/projects/jdk9)
 uses a forest of multiple related repositories which contain components of the
 entire JDK. Projects which are based on the JDK, such as
-[IcedTea](http://openjdk.java.net/projects/icedtea)
+[IcedTea](https://openjdk.java.net/projects/icedtea)
 and
-[Jigsaw](http://openjdk.java.net/projects/jigsaw)
+[Jigsaw](https://openjdk.java.net/projects/jigsaw)
 also use this model. In contrast,
-[Code Tools](http://openjdk.java.net/projects/code-tools) uses an unrelated repository for each tool and
-[Graal](http://openjdk.java.net/projects/graal)
+[Code Tools](https://openjdk.java.net/projects/code-tools) uses an unrelated repository for each tool and
+[Graal](https://openjdk.java.net/projects/graal)
 uses only a single repository. Regardless of how a Project has chosen to store
 their code, each
-[Contributor](http://openjdk.java.net/bylaws#contributor)
+[Contributor](https://openjdk.java.net/bylaws#contributor)
 clones the repository associated with the code they are modifying.
 
 > ---
 > Consult the Project's documentation or
-> [mailing list](http://mail.openjdk.java.net) to
+> [mailing list](https://mail.openjdk.java.net) to
 > determine the appropriate repository, development conventions, and helpful
 > tools.
 
@@ -73,7 +73,7 @@ Mercurial server. They work on their change in the clone and locally
 _commit_ a changeset. After the new changeset(s) are
 verified, they're either _pushed_ directly from the
 clone or _exported_ and delivered to a
-[Committer](http://openjdk.java.net/bylaws#committer)
+[Committer](https://openjdk.java.net/bylaws#committer)
 who can perform the push into the server repository for all to see.
 
 > ---
@@ -89,15 +89,15 @@ The repositories use the following naming scheme:
 where
 
 > ------------------  ----  ----------------------------------------------------
-> _project_            ::   the short name of an OpenJDK [Project](http://openjdk.java.net/bylaws#_6) such as "jdk9", "openjfx", or "sumatra"
-> _component_path_     ::   the path to a repository containing the code base as designated by the [Project Lead](http://openjdk.java.net/bylaws#project-lead).
+> _project_            ::   the short name of an OpenJDK [Project](https://openjdk.java.net/bylaws#_6) such as "jdk9", "openjfx", or "sumatra"
+> _component_path_     ::   the path to a repository containing the code base as designated by the [Project Lead](https://openjdk.java.net/bylaws#project-lead).
 > ------------------  ----  ----------------------------------------------------
 
 ## Installing and Configuring Mercurial
 
 Mercurial is a free, cross-platform, distributed source management tool. Source
 bundles and binary packages for Mercurial are available at
-[http://www.selenic.com/mercurial/wiki/index.cgi](http://www.selenic.com/mercurial/wiki/index.cgi/Mercurial).
+[https://www.selenic.com/mercurial/wiki/index.cgi](https://www.selenic.com/mercurial/wiki/index.cgi/Mercurial).
 The OpenJDK repositories recommend installation of Mercurial 2.6.3 (or later).
 A Mercurial installation is sufficient to clone a repository. Contributors who
 wish to submit changes will need some additional configuration as described
@@ -108,8 +108,8 @@ repository manipulation and code development. For instance, in JDK 9, the
 utility script `common/bin/hgforest.sh` may be
 used to apply commands to all the repositories in the
 [forest](glossary.html#forest). Popular extensions for OpenJDK developers include
-[jcheck](http://openjdk.java.net/projects/code-tools/jcheck/),
-[trees](http://openjdk.java.net/projects/code-tools/trees/), and
+[jcheck](https://openjdk.java.net/projects/code-tools/jcheck/),
+[trees](https://openjdk.java.net/projects/code-tools/trees/), and
 [Mercurial Queues](http://hgbook.red-bean.com/read/managing-change-with-mercurial-queues.html)
 (mq). Note that `trees` is enabled on the OpenJDK Mercurial server.
 
@@ -123,9 +123,9 @@ token (not an e-mail address) with twelve characters or less. The first
 character should be alphabetic. This username will be publicly visible in all
 Mercurial changeset logs. It will be used to verify that the changeset author
 is at least an
-[Author](http://openjdk.java.net/bylaws#author)
+[Author](https://openjdk.java.net/bylaws#author)
 for the Project and that the person pushing the changeset is at least a
-[Committer](http://openjdk.java.net/bylaws#committer).
+[Committer](https://openjdk.java.net/bylaws#committer).
 It is recommended that the _openjdk\_username_ be
 somehow related to the Author's full name, such as the first character of the
 Author's first name followed by the Author's last name. Refer to the
@@ -135,7 +135,7 @@ additional information.
 
 An alphabetical list of all of the assigned
 _openjdk\_usernames_ may be found on the
-[OpenJDK people](http://db.openjdk.java.net/people) list. The
+[OpenJDK people](https://db.openjdk.java.net/people) list. The
 [Census](../census) shows the structure of the OpenJDK Community.
 
 #### Verifying the Configuration
@@ -200,7 +200,7 @@ alternatives for cloning the entire _jdk9/dev_ forest
 into the directory `9dev`.
 
 #. To clone the forest using the
-[trees](http://openjdk.java.net/projects/code-tools/trees/)
+[trees](https://openjdk.java.net/projects/code-tools/trees/)
 extension just use `tclone`:
 
        $ hg tclone http://hg.openjdk.java.net/jdk9/dev 9dev

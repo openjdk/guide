@@ -3,10 +3,10 @@
 So, what is webrev?
 
 `webrev` refers to both the tool and its output. The script,
-[`webrev.ksh`](http://hg.openjdk.java.net/code-tools/webrev/raw-file/tip/webrev.ksh),
+[`webrev.ksh`](https://hg.openjdk.java.net/code-tools/webrev/raw-file/tip/webrev.ksh),
 is maintained in the [Code Tools](../projects/code-tools) Project.
 The latest version of the tool may be downloaded from
-[http://hg.openjdk.java.net/code-tools/webrev/raw-file/tip/webrev.ksh](http://hg.openjdk.java.net/code-tools/webrev/raw-file/tip/webrev.ksh).
+[https://hg.openjdk.java.net/code-tools/webrev/raw-file/tip/webrev.ksh](https://hg.openjdk.java.net/code-tools/webrev/raw-file/tip/webrev.ksh).
 
 `webrev.ksh` crawls over your changes to generate a
 set of web-based views of the differences in your code. The different views
@@ -26,7 +26,7 @@ and their own preferences.
 >    Force the use of Mercurial to generate diffs between all
 >    modified files and the current `tip`. At the top of
 >    the main page Include a clickable link to _`<BUGID>`_ in the
->    [OpenJDK Bug System](http://bugs.openjdk.java.net). Output to `./webrev/`.
+>    [OpenJDK Bug System](https://bugs.openjdk.java.net). Output to `./webrev/`.
 
 `ksh WDIR=<OUTDIR> ./webrev.ksh <FILE>`
 
@@ -41,5 +41,5 @@ and their own preferences.
 
 ## Further information
 
-* [Source repository](http://hg.openjdk.java.net/code-tools/webrev)
-* [Mailing list](http://mail.openjdk.java.net/pipermail/webrev-dev/)
+* [Source repository](https://hg.openjdk.java.net/code-tools/webrev)
+* [Mailing list](https://mail.openjdk.java.net/pipermail/webrev-dev/)
