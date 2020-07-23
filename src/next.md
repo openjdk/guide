@@ -25,6 +25,7 @@ A few things to keep in mind when filing a new bug:
 * Before filing a bug, verify that there isn't already a bug filed for this issue.
 * Add relevant labels like `intermittent`, `regression`, `noreg-self` etc.
 * Set affects version to the JDK version(s) where the failure was seen.
+  * If the failure is found in an update train of the JDK (e.g. 11.0.x), please make an effort to see if the bug is also present in [mainline](https://hg.openjdk.java.net/jdk/jdk/).
 * In the description, always include (if possible):
   * full name of the failing tests
   * error messages
@@ -32,11 +33,12 @@ A few things to keep in mind when filing a new bug:
   * stack trace
   * command line information
   * relevant information from the logs
+* If the failure is not reproducible with an existing OpenJDK test, attach a reproducer if possible.
 * Only set CPU and/or OS fields if the bug **ONLY** happens on that particular platform.
 * Always file separate bugs for different issues.
   * If two crashes looks related but not similar enough to for sure be the same, it is easier to close a bug as a duplicate than it is to extract the relevant info from a bug to create a new one later.
 
-## ProblemListing or `@ignore`-ing a Test
+## Excluding a Test
 
 Sometimes tests break. It could be e.g. due to bugs in the test itself, due to changed functionality in the code that the test is testing, or changes in the environment where the test is executed. While working on a fix, it can be useful to stop the test from being executed in everyone else's testing to reduce noise, especially if the test is expected to fail for more than a day. There are two ways to stop a test from being run in standard test runs: ProblemListing and using the `@ignore` keyword. Removing tests isn't the standard way to remove a failure. A failing test is often a regression and should ideally be handled with high urgency.
 
@@ -120,7 +122,7 @@ make test TEST=... JTREG=RUN_PROBLEM_LISTS=true
 
 ### Exclude jtreg tests using `@ignore`
 
-The `@ignore` keyword is used in the test source code. This is mainly used for tests that are so broken that they may be harmful or useless. Examples can be tests that don't compile because something changed in the platform; or a test which might remove your `/etc/shadow`. Use `@ignore` with a bug reference in the test case to prevent the test from being run.
+The `@ignore` keyword is used in the test source code. This is mainly used for tests that are so broken that they may be harmful or useless, and is less common than ProblemListing. Examples can be tests that don't compile because something changed in the platform; or a test which might remove your `/etc/shadow`. Use `@ignore` with a bug reference in the test case to prevent the test from being run.
 
 ~~~java
 /**
