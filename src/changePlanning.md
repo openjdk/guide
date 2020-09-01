@@ -57,11 +57,11 @@ also imply "implementation for an enhancement".
 
 #. **Does a bug id exist for the work?**
 
-   ---  -----------------------------------------------------------------------
-    Y   Continue
+   **Yes**
+   :   Continue
 
-    N   Create a bug in an appropriate component/sub-component.
-   ---  -----------------------------------------------------------------------
+   **No**
+   :   Create a bug in an appropriate component/sub-component.
 
 #. **Set the bug status to "Open"**
 
@@ -73,144 +73,49 @@ also imply "implementation for an enhancement".
    directly affect an external interface, or otherwise have a compatibility
    impact?**
 
-   ---  -----------------------------------------------------------------------
-    Y   Submission of a CSR request is required. The CSR must be [approved](glossary.html#approved)
-        before the bug fix is pushed to a feature release or update release
-        repository. The work may begin concurrently with the CSR review, but may
-        need to be modified in response to CSR feedback. A summary of the CSR process
-        may be found in [Review Bodies](reviewBodies.html).
+   **Yes**
+   :   Submission of a CSR request is required. The CSR must be [approved](glossary.html#approved) before the bug fix is pushed to a feature release or update release repository. The work may begin concurrently with the CSR review, but may need to be modified in response to CSR feedback. A summary of the CSR process may be found in [Review Bodies](reviewBodies.html).
 
-    N   Continue
-   ---  -----------------------------------------------------------------------
+   **No**
+   :   Continue
 
 #. **Fix the bug**
 
-   Assuming that the development team approves of the intended approach, begin
-   working on the code using the latest source available from the appropriate
-   OpenJDK Project [repository](https://hg.openjdk.java.net).
+   Assuming that the development team approves of the intended approach, begin working on the code using the latest source available from the appropriate OpenJDK Project [repository](https://hg.openjdk.java.net).
 
 #. [**Is it possible to write a test to detect the bug?**]{#noreg}
 
-   +:-:+:---------------------------------------------------------------------+
-   | Y | For bugs, provide a [jtreg](../jtreg/) regression test               |
-   |   | as part of the changeset. For enhancements that directly affect      |
-   |   | one or more exported interfaces, add an adequate set of jtreg unit   |
-   |   | tests as part of the changeset. By convention all regression and     |
-   |   | unit tests should contain a                                          |
-   |   | [\@bug tag](https://openjdk.java.net/jtreg/tag-spec.html#INFORMATIONAL_TAGS9) |
-   |   | referencing at least one bugid.                                      |
-   +---+----------------------------------------------------------------------+
-   |   | An entirely new test (or tests) may not be required. For             |
-   |   | example, if the bug is an existing regression test failure, then     |
-   |   | when fixing the bug you should just add the new bug ID to the list   |
-   |   | of space-delimited bugs in the                                       |
-   |   | [\@bug tag](https://openjdk.java.net/jtreg/tag-spec.html#INFORMATIONAL_TAGS) |
-   |   | of the failing regression test, even if the test did not need to     |
-   |   | be updated.                                                          |
-   +---+----------------------------------------------------------------------+
-   | N | An explanation for why a test is unnecessary or infeasible is        |
-   |   | required.  Such an explanation is recorded by adding a label, and    |
-   |   | possibly a comment, to the bug report.  The label has the prefix     |
-   |   | "noreg" for regression tests and "nounit" for unit tests.  The       |
-   |   | suffixes and their meanings are as follows:                          |
-   +---+----------------------------------------------------------------------+
-   |   | [**-sqe**]{#noreg-sqe}                                               |
-   |   | :    Change can be verified by running an existing SQE test suite;   |
-   |   |      the bug should identify the suite and the specific test case(s).|
-   |   |                                                                      |
-   |   | [**-jck**]{#noreg-jck}                                               |
-   |   | :    Change can be verified by running the JCK; the bug should       |
-   |   |      identify the specific test case(s).                             |
-   |   |                                                                      |
-   |   | [**-external**]{#noreg-external}                                     |
-   |   | :    Change can be verified by running an existing external test     |
-   |   |      suite; the bug should identify the suite and the specific test  |
-   |   |      case(s).                                                        |
-   |   |                                                                      |
-   |   | [**-doc**]{#noreg-doc}                                               |
-   |   | :    Change only affects documentation.                              |
-   |   |                                                                      |
-   |   | [**-demo**]{#noreg-demo}                                             |
-   |   | :    Change only affects demo code.                                  |
-   |   |                                                                      |
-   |   | [**-build**]{#noreg-build}                                           |
-   |   | :    Change only affects build infrastructure (makefiles,            |
-   |   |      copyrights, scripts, etc.).                                     |
-   |   |                                                                      |
-   |   | [**-self**]{#noreg-self}                                             |
-   |   | :    Change is a fix to a regression or unit test itself.            |
-   |   |                                                                      |
-   |   | [**-perf**]{#noreg-perf}                                             |
-   |   | :    Change is for a performance bug for which writing a regression  |
-   |   |      test is infeasible; the bug should describe how to verify the   |
-   |   |      fix.                                                            |
-   |   |                                                                      |
-   |   | [**-hard**]{#noreg-hard}                                             |
-   |   | :    It is too hard to write a regression or unit test for this bug  |
-   |   |      (e.g., theoretical race condition, complex setup, reboot        |
-   |   |      required, editing of installed files required, specific         |
-   |   |      graphics card required); the bug should explain why.            |
-   |   |                                                                      |
-   |   | [**-long**]{#noreg-long}                                             |
-   |   | :    Testing requires a very long running time (e.g., more than a    |
-   |   |      few minutes).                                                   |
-   |   |                                                                      |
-   |   | [**-big**]{#noreg-big}                                               |
-   |   | :    Testing requires an unreasonable quantity of resources (e.g.,   |
-   |   |      tens of gigabytes of filesystem space).                         |
-   |   |                                                                      |
-   |   | [**-trivial**]{#noreg-trivial}                                       |
-   |   | :    Change is so trivial that nothing could possibly go wrong with  |
-   |   |      it.                                                             |
-   |   |                                                                      |
-   |   | [**-cleanup**]{#noreg-cleanup}                                       |
-   |   | :    Change is a cleanup or refactoring of existing code that is     |
-   |   |      covered by existing tests.                                      |
-   |   |                                                                      |
-   |   | [**-l10n**]{#noreg-l10n}                                             |
-   |   | :    Change only affects localized text.                             |
-   |   |                                                                      |
-   |   | [**-undo**]{#noreg-undo}                                             |
-   |   | :    Change is a reversion of a previous faulty change.              |
-   |   |                                                                      |
-   |   | [**-other**]{#noreg-other}                                           |
-   |   | :    Regression or unit test is unnecessary or infeasible for some   |
-   |   |      other reason; the bug report should explain why.                |
-   |   |                                                                      |
-   |   | Examples:  If a bug fix only corrects a change in the build system,  |
-   |   | then add the "noreg-build" label to the corresponding bug. If the    |
-   |   | change improves loop optimizations in HotSpot, then add              |
-   |   | "nounit-perf" to the corresponding bug.                              |
-   +---+----------------------------------------------------------------------+
+   **Yes**
+   :   For bugs, provide a [jtreg](../jtreg/) regression test as part of the changeset. For enhancements that directly affect one or more exported interfaces, add an adequate set of jtreg unit tests as part of the changeset. By convention all regression and unit tests should contain a [\@bug tag](https://openjdk.java.net/jtreg/tag-spec.html#INFORMATIONAL_TAGS9) referencing at least one bugid.
+
+   :   An entirely new test (or tests) may not be required. For example, if the bug is an existing regression test failure, then when fixing the bug you should just add the new bug ID to the list of space-delimited bugs in the [\@bug tag](https://openjdk.java.net/jtreg/tag-spec.html#INFORMATIONAL_TAGS) of the failing regression test, even if the test did not need to be updated.
+
+   **No**
+   :   An explanation for why a test is unnecessary or infeasible is required. Such an explanation is recorded by adding a label, and possibly a comment, to the bug report. The label has the prefix **`noreg`** for regression tests and **`nounit`** for unit tests. The suffix of the label is described in detail in the [JBS Label Dictionary](jbslabels.html#noreg)
 
 #. **Is modification of shared Java code needed?**
 
-   ---  -----------------------------------------------------------------------
-    Y   It is often sufficient to build and test on a single platform,
-        but sometimes it is not. Use discretion.
+   **Yes**
+   :   It is often sufficient to build and test on a single platform, but sometimes it is not. Use discretion.
 
-    N   Continue
-   ---  -----------------------------------------------------------------------
+   **No**
+   :   Continue
 
 #. **Is modification of shared C code needed?**
 
-   ---  -----------------------------------------------------------------------
-    Y   Build and test on at least one instance of all three of the
-        supported operating systems (Solaris, Linux, and
-        Windows).
+   **Yes**
+   :   Build and test on at least one instance of all three of the supported operating systems (Solaris, Linux, and Windows).
 
-    N   Continue
-   ---  -----------------------------------------------------------------------
+   **No**
+   :   Continue
 
 #. **Is modification of C or Java platform-specific code needed?**
 
-   ---  -----------------------------------------------------------------------
-    Y   Build and test on all relevant platforms.  Code under
-        `src/solaris` builds on Solaris, Linux, and MacOS X
-        despite its name.
+   **Yes**
+   :   Build and test on all relevant platforms.  Code under `src/solaris` builds on Solaris, Linux, and MacOS X despite its name.
 
-    N   Continue
-   ---  -----------------------------------------------------------------------
+   **No**
+   :   Continue
 
 #. **Run relevant regression and unit tests on all relevant platforms**
 
