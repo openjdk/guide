@@ -26,7 +26,7 @@ This list is intended to make it easier to identify which email list to include 
   * Runtime: [`hotspot-runtime-dev@openjdk.java.net`](mailto:hotspot-runtime-dev@openjdk.java.net)
   * Serviceability: [`serviceability-dev@openjdk.java.net`](mailto:serviceability-dev@openjdk.java.net)
 * I18n: [`i18n-dev@openjdk.java.net`](mailto:i18n-dev@openjdk.java.net)
-* Langtools
+* LangTools
   * Amber Project: [`amber-dev@openjdk.java.net`](mailto:amber-dev@openjdk.java.net)
   * Javac: [`compiler-dev@openjdk.java.net`](mailto:compiler-dev@openjdk.java.net)
   * Javadoc: [`javadoc-dev@openjdk.java.net`](mailto:javadoc-dev@openjdk.java.net)
@@ -71,20 +71,20 @@ This list is intended to make it easier to identify which email list to include 
     * `trace` – Runtime
     * `utilities` – Runtime
 * `java.base`
-  * Core Libs should almost always be included but Langtools, HotSpot, and/or Security may also be involved.
+  * Core Libs should almost always be included but LangTools, HotSpot, Security and/or I18n may also be involved.
   * `classes`
     * `crypto` – Security
     * `internal` – HotSpot, Core Libs
     * `invoke` – Core Libs
     * `io` – NIO
     * `lang` – Core Libs
-    * `launcher` – Langtools
+    * `launcher` – LangTools
     * `math` – Core Libs
     * `net` – Net
     * `nio` – NIO
     * `reflect` – Core Libs
     * `security` – Security
-    * `text` – Core Libs
+    * `text` – I18n
     * `time` – Core Libs
     * `util` – I18n, Core Libs
   * `conf`
@@ -92,22 +92,25 @@ This list is intended to make it easier to identify which email list to include 
     * `security` – Security
   * `legal` –
   * `lib/security` – Security
-  * `man` –
+  * `man`
+    * `java.1` - LangTools
+    * `jfr.1` - Runtime
+    * `keytool.1` - Security
   * `native`
     * `common` –
     * `include` – Runtime, Core Libs
     * `jspawnhelper` – LangTools
-    * `launcher` – Langtools
-    * `libfdlibm` –
+    * `launcher` – LangTools
+    * `libfdlibm` – Core Libs
     * `libjava` – Core Libs
-    * `libjimage` – Langtools, Core Libs
+    * `libjimage` – LangTools, Core Libs
     * `libjli` – LangTools
     * `libjsig` – HotSpot
     * `libnet` – Net
     * `libnio` – NIO
     * `libosxsecurity` – Security
-    * `libverify` –
-    * `libzip` –
+    * `libverify` – LangTools
+    * `libzip` – Core Libs
 * `java.compiler` – LangTools
 * `java.datatransfer` – AWT
 * `java.desktop` – Client
