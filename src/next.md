@@ -23,6 +23,7 @@ When a new failure is found in the JDK a bug should be filed to describe and tra
 A few things to keep in mind when filing a new bug:
 
 * Before filing a bug, verify that there isn't already a bug filed for this issue.
+* If you suspect that the bug is a vulnerability, don't file a JBS issue. Instead send your bugreport to [vuln-dev@openjdk.java.net](mailto:vuln-dev@openjdk.java.net)
 * Make a reasonable attempt to narrow down which build or release the failure first appeared in.
 * Add relevant labels like `intermittent`, `regression`, `noreg-self` etc.
 * Set affects version to the JDK version(s) where the failure was seen.
@@ -43,7 +44,7 @@ A few things to keep in mind when filing a new bug:
 
 Sometimes tests break. It could be e.g. due to bugs in the test itself, due to changed functionality in the code that the test is testing, or changes in the environment where the test is executed. While working on a fix, it can be useful to stop the test from being executed in everyone else's testing to reduce noise, especially if the test is expected to fail for more than a day. There are two ways to stop a test from being run in standard test runs: ProblemListing and using the `@ignore` keyword. Removing tests isn't the standard way to remove a failure. A failing test is often a regression and should ideally be handled with high urgency.
 
-I'll say it right away so that it's not forgotten at the end: Remember to remove the JBS id from the ProblemList or the test when the bug is closed. This is especially easy to forget if a bug is closed as a duplicate or 'Will Not Fix'.
+I'll say it right away so that it's not forgotten at the end: Remember to remove the JBS id from the ProblemList or the test when the bug is closed. This is especially easy to forget if a bug is closed as a duplicate or 'Will Not Fix'. jcheck will report an error and prohibit a push if a PR is created for an issue that is found in a ProblemList if the fix doesn't remove the bug ID from the ProblemList.
 
 ### ProblemListing jtreg tests
 
