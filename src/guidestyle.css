@@ -34,3 +34,20 @@ pre > code {
     font-weight: bold;
     margin-bottom: .5em;
 }
+
+table.dictionary {
+    border-spacing: 0px;
+}
+
+td.dictionary {
+    border-style: solid none;
+    border-width: 1px;
+    border-color: #ccc;
+    padding: 1em;
+    vertical-align: top;
+}
+
+strong > code {
+    white-space: nowrap;
+    color: #060;
+}
