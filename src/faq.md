@@ -1,14 +1,3 @@
-% Frequently Asked Questions
+% Page moved
 
-::: {.NavBit}
-[« Previous](bugDatabase.html) • [TOC](index.html) • [Next »](about.html)
-:::
-
-The FAQ is transient. It should only contain things that have not been
-integrated into the main document. If questions remain in the FAQ over more
-than a few revisions, it will be to provide a pointer to the section in the
-main document which contains the answer.
-
-::: {.NavBit}
-[« Previous](bugDatabase.html) • [TOC](index.html) • [Next »](about.html)
-:::
+The OpenJDK Developers' Guide has been merged into a single document. Please update your links to point to the new location: [OpenJDK Developers' Guide](index.html)
