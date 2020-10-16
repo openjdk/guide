@@ -1,12 +1,3 @@
-% Code Conventions
+% Page moved
 
-::: {.NavBit}
-[« Previous](mailinglists.html) • [TOC](index.html) • [Next »](changePlanning.html)
-:::
-
-This section will contain a major revision of our antiquated code conventions
-[document](https://www.oracle.com/technetwork/java/codeconvtoc-136057.html).
-
-::: {.NavBit}
-[« Previous](mailinglists.html) • [TOC](index.html) • [Next »](changePlanning.html)
-:::
+The OpenJDK Developers' Guide has been merged into a single document. Please update your links to point to the new location: [OpenJDK Developers' Guide](index.html)
