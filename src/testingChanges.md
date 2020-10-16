@@ -1,19 +1,3 @@
-% Testing Changes
+% Page moved
 
-::: {.NavBit}
-[« Previous](reviewBodies.html) • [TOC](index.html) • [Next »](jckAcquisition.html)
-:::
-
-This section will describe the need for tests and will provide an engineering
-perspective to the different kinds of test suites, including regression tests
-as run by the [jtreg harness](../jtreg/) and JCK
-tests. Characteristics of a good regression test will be provided.
-
-<!--
- See also the <a href="https://openjdk.java.net/groups/quality/">OpenJDK
-Quality Group</a>. 
--->
-
-::: {.NavBit}
-[« Previous](reviewBodies.html) • [TOC](index.html) • [Next »](jckAcquisition.html)
-:::
+The OpenJDK Developers' Guide has been merged into a single document. Please update your links to point to the new location: [OpenJDK Developers' Guide](index.html)

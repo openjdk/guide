@@ -333,6 +333,115 @@ For the purposes of brevity this document will use the term "bug" to refer to bo
 
 _Congratulations!_ Your changeset will now make its way towards a promoted build. When the changeset becomes part of a promoted build, the bug's "Resolved in Build" will have a value of \"b\[1-9\]\[0-9\]&ast;\" to indicate the build number.
 
+# Testing Changes
+
+In addition to your own Java applications, OpenJDK have support for two test frameworks, JTReg and GTest. JTReg is a Java regression test framework that is used for most of the tests that are included in the OpenJDK source repository. The Google Test (GTest) framework is intended for unit testing of the C++ native code.
+
+## JTReg
+
+In depth documentation about the JTReg framework is found here: [JTReg harness](https://openjdk.java.net/jtreg/). JTReg itself is available in the [Code Tools Project](https://openjdk.java.net/projects/code-tools/).
+
+Below is a small example of a JTReg test. It’s a clean Java class with a main method that is called from the test harness. If the test fails we throw a RuntimeException. This is picked up by the harness and is reported as a test failure. Try to always write a meaningful message in the exception. One that actually helps with understanding what went wrong once the test fails.
+
+    /*
+     * @test
+     * @summary Make sure feature X handles Y correctly
+     */
+    public class TestXY {
+        public static void main(String[] args) throws Exception {
+            var result = X.y();
+            if (result != expected_result) {
+                throw new RuntimeException("X.y() gave " + result + ", expexted " + expected_result);
+            }
+        }
+    }
+
+This example only utilizes two JTReg specific tags, `@test` and `@summary`. `@test` simply tells JTReg that this class is a test, and `@summary` provides a description of the test. There are several other tags that can be used in JTReg tests. You can for instance associate the test with a specific bug that this test is a regression test for.
+
+    @bug 7000001
+
+Or you can specify a number of requirements that must be fulfilled for JTReg to execute the test.
+
+    @requires docker.support
+    @requires os.family != ”windows”
+    @requires os.maxMemory > 3G
+    @requires os.arch=="x86_64" | os.arch=="amd64"
+
+You can also specify if the test requires specific modules, and you can specify command line flags and run the test in several different ways.
+
+    @modules java.base/jdk.internal.misc
+    @run main/othervm -Xmx128m TestStringEndify
+
+Note that you can have several `@run` tags in the same test with different command line options.
+
+The [JTReg documentation](https://openjdk.java.net/jtreg/) provides information on many more tags like these.
+
+### Running OpenJDK JTReg Tests
+
+When configuring the OpenJDK build you can tell it where your JTReg installation is located. When providing this information you can later run `make run-test` to execute JTReg tests.
+
+    sh ./configure --with-jtreg=/path/to/jtreg
+    make run-test TEST=tier1
+
+In the OpenJDK source tree you can find a directory called `test`. There are a large number of tests in this directory that are written to be used with JTReg.
+
+    make run-test TEST=test/jdk/java/lang/String/
+
+You can also run JTReg without invoking make. In this case you’ll need to tell JTReg which JDK to test.
+
+    jtreg -jdk:/path/to/jdk /path/to/test
+
+## GTest
+
+As mentioned the Google test framework is mainly used for C++ unit tests. There are several of these in the `test/hotspot` directory. The tests can be run without starting the JVM, which enables testing of JVM data structures that would be fragile to play with in a running JVM.
+
+    static int demo_comparator(int a, int b) {
+      if (a == b) {
+        return 0;
+      }
+      if (a < b) {
+        return -1;
+      }
+      return 1;
+    }
+
+    TEST(Demo, quicksort) {
+      int test_array[] = {7,1,5,3,6,9,8,2,4,0};
+      int expected_array[] = {0,1,2,3,4,5,6,7,8,9};
+
+      QuickSort::sort(test_array, 10, demo_comparator, false);
+      for (int i = 0; i < 10; i++) {
+        ASSERT_EQ(expected_array[i], test_array[i]);
+      }
+    }
+
+`ASSERT_EQ` is one example of an assertion that can be used in the test. Below are a few other examples. A full list is found in the [Google Test Documentation](https://github.com/google/googletest/blob/master/googletest/docs/primer.md).
+
+    EXPECT_TRUE(condition);
+    EXPECT_FALSE(condition);
+    ASSERT_TRUE(condition);
+    ASSERT_FALSE(condition);
+    EXPECT_EQ(expected, actual);
+    EXPECT_NE(val1, val2);
+    EXPECT_LT(val1, val2);
+    EXPECT_LE(val1, val2);
+    EXPECT_GT(val1, val2);
+    EXPECT_GE(val1, val2);
+    EXPECT_STREQ(expected_str, actual_str);
+
+`ASSERT` is a fatal assertion and will give you fast failure. That means that test execution will be stopped and the failure will be reported. `EXPECT` is a nonfatal assertion and will report the error but continues to run the test. All assertions have both an `ASSERT` and an `EXPECT` variant.
+
+### Running OpenJDK GTests
+
+To run GTests in OpenJDK use make:
+
+    make test-hotspot-gtest
+
+You can use the environment variable `GTEST_FILTER` to select subsets of tests. The filter should be a regular expression.
+
+    GTEST_FILTER="code.*:os.*"
+    GTEST_FILTER="os.*-os.page_size_*"
+
 # Producing a Changeset
 
 This section is confined to the actual Mercurial mechanics required to produce a changeset:
