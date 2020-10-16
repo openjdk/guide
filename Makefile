@@ -11,7 +11,7 @@ clean:
 build:
 	mkdir build
 
-build/%.html: src/%.md
+build/%.html: src/%.md src/footer.html
 	cp src/footer.html build/tmp_footer.html
 	CHANGE_HASH=$$(git log -1 --pretty=format:"%h" -- $<);   \
 	if [ "$$CHANGE_HASH" = "" ]; then                        \
