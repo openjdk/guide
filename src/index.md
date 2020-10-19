@@ -347,6 +347,8 @@ A few key items to think about when writing a regression test:
 * The test should only test the desired functionality - if you have several features to test, write more tests
 * The test should pass reliably on all supported platforms - watch out for platform-specific differences such as path separators
 
+The JTReg documentation has a section on [how to write good JTReg tests](https://openjdk.java.net/jtreg/writetests.html).
+
 ## JTReg
 
 In-depth documentation about the JTReg framework is found here: [JTReg harness](https://openjdk.java.net/jtreg/). JTReg itself is available in the [Code Tools Project](https://openjdk.java.net/projects/code-tools/).
@@ -387,7 +389,7 @@ You can also specify if the test requires specific modules, and you can specify 
 
 Note that you can have several `@run` tags in the same test with different command line options.
 
-JTReg also have support for labeling tests with arbitrary keys using the `@key` tag. These keywords can then be used to filter the test selection. For instance if you have a UI test which needs to display a window you'll want to make sure the test harness doesn't try to run this test on a system which doesn't support headful tests. You do this by specifying
+JTReg also have support for labeling tests with keys using the `@key` tag. These keywords can then be used to filter the test selection. For instance if you have a UI test which needs to display a window you'll want to make sure the test harness doesn't try to run this test on a system which doesn't support headful tests. You do this by specifying
 
     @key headful
 
@@ -396,6 +398,8 @@ Another example is `@key randomness` that should be used to indicate that a test
 There are many other keywords in use and their usage may differ between areas in the JDK. Make sure you understand the conventions for the particular area you are testing since these are just examples.
 
 The [JTReg documentation](https://openjdk.java.net/jtreg/) provides information on many more tags like these.
+
+The [compiler group](https://openjdk.java.net/groups/compiler/) has a section in their wiki with [Guidelines for "langtools" tests](https://openjdk.java.net/groups/compiler/tests.html).
 
 ### Running OpenJDK JTReg Tests
 
@@ -438,21 +442,15 @@ As mentioned the Google test framework is mainly used for C++ unit tests. There 
 
 `ASSERT_EQ` is one example of an assertion that can be used in the test. Below are a few other examples. A full list is found in the [Google Test Documentation](https://github.com/google/googletest/blob/master/googletest/docs/primer.md).
 
-    EXPECT_TRUE(condition);
-    EXPECT_FALSE(condition);
     ASSERT_TRUE(condition);
     ASSERT_FALSE(condition);
     EXPECT_EQ(expected, actual);
-    EXPECT_NE(val1, val2);
     EXPECT_LT(val1, val2);
-    EXPECT_LE(val1, val2);
-    EXPECT_GT(val1, val2);
-    EXPECT_GE(val1, val2);
     EXPECT_STREQ(expected_str, actual_str);
 
 `ASSERT` is a fatal assertion and will give you fast failure. That means that test execution will be stopped and the failure will be reported. `EXPECT` is a nonfatal assertion and will report the error but continues to run the test. All assertions have both an `ASSERT` and an `EXPECT` variant.
 
-For more information on how to write good GTests in OpenJDK, see [`doc/hotspot-unit-tests.md`](https://github.com/openjdk/jdk/blob/master/doc/hotspot-unit-tests.md).
+For more information on how to write good GTests in HotSpot, see [`doc/hotspot-unit-tests.md`](https://github.com/openjdk/jdk/blob/master/doc/hotspot-unit-tests.md).
 
 ### Running OpenJDK GTests
 
