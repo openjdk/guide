@@ -339,6 +339,14 @@ In addition to your own Java applications, OpenJDK have support for two test fra
 
 This section provides a brief summary of how to get started with testing in OpenJDK. For more information on configuration and how to use the OpenJDK test framework, a.k.a. "run-test framework", see [`doc/testing.md`](https://github.com/openjdk/jdk/blob/master/doc/testing.md).
 
+In general all changes should come with a regression test so if you're writing product code you should also be writing test code. There are a few examples where it doesn't make sence to write an explicit regression test. These should be tagged in JBS with one of the [noreg-labels](#noreg).
+
+A few key items to think about when writing a regression test:
+
+* A regression test should execute fast - a few seconds at most
+* The test should only test the desired functionality - if you have several features to test, write more tests
+* The test should pass reliably on all supported platforms - watch out for platform-specific differences such as path separators
+
 ## JTReg
 
 In-depth documentation about the JTReg framework is found here: [JTReg harness](https://openjdk.java.net/jtreg/). JTReg itself is available in the [Code Tools Project](https://openjdk.java.net/projects/code-tools/).
@@ -383,7 +391,9 @@ JTReg also have support for labeling tests with arbitrary keys using the `@key` 
 
     @key headful
 
-There are many other keywords in use, like `intermittent` and `randomness`, and their usage may differ between areas in the JDK. Make sure you understand the conventions for the particular area you are testing since this is just an example.
+Another example is `@key randomness` that should be used to indicate that a test is using randomness - i.e. is intentionally non-deterministic.
+
+There are many other keywords in use and their usage may differ between areas in the JDK. Make sure you understand the conventions for the particular area you are testing since these are just examples.
 
 The [JTReg documentation](https://openjdk.java.net/jtreg/) provides information on many more tags like these.
 
