@@ -335,7 +335,7 @@ _Congratulations!_ Your changeset will now make its way towards a promoted build
 
 # Testing Changes
 
-In addition to your own Java applications, OpenJDK have support for two test frameworks, JTReg and GTest. JTReg is a Java regression test framework that is used for most of the tests that are included in the OpenJDK source repository. The Google Test (GTest) framework is intended for unit testing of the C++ native code.
+In addition to your own Java applications, OpenJDK have support for two test frameworks, JTReg and GTest. JTReg is a Java regression test framework that is used for most of the tests that are included in the OpenJDK source repository. The Google Test (GTest) framework is intended for unit testing of the C++ native code. Currently only JVM testing is supported by the GTest framework. Other areas use JTReg for unit testing of C++ code.
 
 This section provides a brief summary of how to get started with testing in OpenJDK. For more information on configuration and how to use the OpenJDK test framework, a.k.a. "run-test framework", see [`doc/testing.md`](https://github.com/openjdk/jdk/blob/master/doc/testing.md).
 
@@ -448,7 +448,7 @@ As mentioned the Google test framework is mainly used for C++ unit tests. There 
     EXPECT_LT(val1, val2);
     EXPECT_STREQ(expected_str, actual_str);
 
-`ASSERT` is a fatal assertion and will give you fast failure. That means that test execution will be stopped and the failure will be reported. `EXPECT` is a nonfatal assertion and will report the error but continues to run the test. All assertions have both an `ASSERT` and an `EXPECT` variant.
+`ASSERT` is a fatal assertion and will interrupt execution of the current sub-routine. `EXPECT` is a nonfatal assertion and will report the error but continues to run the test. All assertions have both an `ASSERT` and an `EXPECT` variant.
 
 For more information on how to write good GTests in HotSpot, see [`doc/hotspot-unit-tests.md`](https://github.com/openjdk/jdk/blob/master/doc/hotspot-unit-tests.md).
 
