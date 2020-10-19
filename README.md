@@ -34,3 +34,4 @@ The Developers' Guide is continuously updated and there are several parts still 
 * Text about JCK
 * Text about backports
 * Text about JBS, triage, priorities, status
+* List JTReg `@key` conventions for different areas

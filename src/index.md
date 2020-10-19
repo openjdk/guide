@@ -337,15 +337,18 @@ _Congratulations!_ Your changeset will now make its way towards a promoted build
 
 In addition to your own Java applications, OpenJDK have support for two test frameworks, JTReg and GTest. JTReg is a Java regression test framework that is used for most of the tests that are included in the OpenJDK source repository. The Google Test (GTest) framework is intended for unit testing of the C++ native code.
 
+This section provides a brief summary of how to get started with testing in OpenJDK. For more information on configuration and how to use the OpenJDK test framework, a.k.a. "run-test framework", see [`doc/testing.md`](https://github.com/openjdk/jdk/blob/master/doc/testing.md).
+
 ## JTReg
 
-In depth documentation about the JTReg framework is found here: [JTReg harness](https://openjdk.java.net/jtreg/). JTReg itself is available in the [Code Tools Project](https://openjdk.java.net/projects/code-tools/).
+In-depth documentation about the JTReg framework is found here: [JTReg harness](https://openjdk.java.net/jtreg/). JTReg itself is available in the [Code Tools Project](https://openjdk.java.net/projects/code-tools/).
 
 Below is a small example of a JTReg test. It’s a clean Java class with a main method that is called from the test harness. If the test fails we throw a RuntimeException. This is picked up by the harness and is reported as a test failure. Try to always write a meaningful message in the exception. One that actually helps with understanding what went wrong once the test fails.
 
     /*
      * @test
      * @summary Make sure feature X handles Y correctly
+     * @run main TestXY
      */
     public class TestXY {
         public static void main(String[] args) throws Exception {
@@ -356,7 +359,9 @@ Below is a small example of a JTReg test. It’s a clean Java class with a main 
         }
     }
 
-This example only utilizes two JTReg specific tags, `@test` and `@summary`. `@test` simply tells JTReg that this class is a test, and `@summary` provides a description of the test. There are several other tags that can be used in JTReg tests. You can for instance associate the test with a specific bug that this test is a regression test for.
+This example only utilizes three JTReg specific tags, `@test`, `@summary`, and `@run`. `@test` simply tells JTReg that this class is a test, and `@summary` provides a description of the test. `@run` tells JTReg how to execute the test. In this case we simply tell JTReg to execute the main method of the class `TestXY`. `@run` is not strictly necessary for JTReg to execute the test, an implicit `@run` tag will be added if none exists. However, for clarity and in order to avoid bugs it's recommended to always explicitly use the `@run` tag.
+
+There are several other tags that can be used in JTReg tests. You can for instance associate the test with a specific bug that this test is a regression test for.
 
     @bug 7000001
 
@@ -370,9 +375,15 @@ Or you can specify a number of requirements that must be fulfilled for JTReg to 
 You can also specify if the test requires specific modules, and you can specify command line flags and run the test in several different ways.
 
     @modules java.base/jdk.internal.misc
-    @run main/othervm -Xmx128m TestStringEndify
+    @run main/othervm -Xmx128m TestXY
 
 Note that you can have several `@run` tags in the same test with different command line options.
+
+JTReg also have support for labeling tests with arbitrary keys using the `@key` tag. These keywords can then be used to filter the test selection. For instance if you have a UI test which needs to display a window you'll want to make sure the test harness doesn't try to run this test on a system which doesn't support headful tests. You do this by specifying
+
+    @key headful
+
+There are many other keywords in use, like `intermittent` and `randomness`, and their usage may differ between areas in the JDK. Make sure you understand the conventions for the particular area you are testing since this is just an example.
 
 The [JTReg documentation](https://openjdk.java.net/jtreg/) provides information on many more tags like these.
 
@@ -393,7 +404,7 @@ You can also run JTReg without invoking make. In this case you’ll need to tell
 
 ## GTest
 
-As mentioned the Google test framework is mainly used for C++ unit tests. There are several of these in the `test/hotspot` directory. The tests can be run without starting the JVM, which enables testing of JVM data structures that would be fragile to play with in a running JVM.
+As mentioned the Google test framework is mainly used for C++ unit tests. There are several of these in the `test/hotspot` directory. Currently, only the C++ code in the JVM area is supported by the OpenJDK GTest framework. The tests can be run without starting the JVM, which enables testing of JVM data structures that would be fragile to play with in a running JVM.
 
     static int demo_comparator(int a, int b) {
       if (a == b) {
@@ -431,16 +442,21 @@ As mentioned the Google test framework is mainly used for C++ unit tests. There 
 
 `ASSERT` is a fatal assertion and will give you fast failure. That means that test execution will be stopped and the failure will be reported. `EXPECT` is a nonfatal assertion and will report the error but continues to run the test. All assertions have both an `ASSERT` and an `EXPECT` variant.
 
+For more information on how to write good GTests in OpenJDK, see [`doc/hotspot-unit-tests.md`](https://github.com/openjdk/jdk/blob/master/doc/hotspot-unit-tests.md).
+
 ### Running OpenJDK GTests
 
-To run GTests in OpenJDK use make:
+When configuring the OpenJDK build you can tell it where your GTest installation is located. Once configured, use make to run GTests.
 
-    make test-hotspot-gtest
+    sh ./configure --with-gtest=/path/to/gtest
+    make test TEST=gtest
 
-You can use the environment variable `GTEST_FILTER` to select subsets of tests. The filter should be a regular expression.
+You can also use a regular expression to filter which tests to run:
 
-    GTEST_FILTER="code.*:os.*"
-    GTEST_FILTER="os.*-os.page_size_*"
+    make test TEST=gtest:code.*:os.*
+    make test TEST=gtest:$X/$variant
+
+The second example above runs tests which match the regexp `$X.*` on a specific variant of the JVM. The variant is one of client, server, etc.
 
 # Producing a Changeset
 
