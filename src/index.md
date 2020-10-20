@@ -31,7 +31,7 @@ This document assumes familiarity with the first two chapters of the free on-lin
 
 ## Terminology and Naming Scheme
 
-The OpenJDK code base for all [Projects](https://openjdk.java.net/bylaws#_6) is stored in Mercurial repositories which contain the source files and their change history. Some Projects may choose to organize their code into multiple, possibly related, Mercurial repositories. For instance, [JDK 9](https://openjdk.java.net/projects/jdk9) uses a forest of multiple related repositories which contain components of the entire JDK. Projects which are based on the JDK, such as [IcedTea](https://openjdk.java.net/projects/icedtea) and [Jigsaw](https://openjdk.java.net/projects/jigsaw) also use this model. In contrast, [Code Tools](https://openjdk.java.net/projects/code-tools) uses an unrelated repository for each tool and [Graal](https://openjdk.java.net/projects/graal) uses only a single repository. Regardless of how a Project has chosen to store their code, each [Contributor](https://openjdk.java.net/bylaws#contributor) clones the repository associated with the code they are modifying.
+The OpenJDK code base for all [Projects](https://openjdk.java.net/bylaws#project) is stored in Mercurial repositories which contain the source files and their change history. Some Projects may choose to organize their code into multiple, possibly related, Mercurial repositories. For instance, [JDK 9](https://openjdk.java.net/projects/jdk9) uses a forest of multiple related repositories which contain components of the entire JDK. Projects which are based on the JDK, such as [IcedTea](https://openjdk.java.net/projects/icedtea) and [Jigsaw](https://openjdk.java.net/projects/jigsaw) also use this model. In contrast, [Code Tools](https://openjdk.java.net/projects/code-tools) uses an unrelated repository for each tool and [Graal](https://openjdk.java.net/projects/graal) uses only a single repository. Regardless of how a Project has chosen to store their code, each [Contributor](https://openjdk.java.net/bylaws#contributor) clones the repository associated with the code they are modifying.
 
 > ---
 > Consult the Project's documentation or [mailing list](https://mail.openjdk.java.net) to determine the appropriate repository, development conventions, and helpful tools.
@@ -58,7 +58,7 @@ The repositories use the following naming scheme:
 where
 
 > ------------------  ----  ----------------------------------------------------
-> _project_            ::   the short name of an OpenJDK [Project](https://openjdk.java.net/bylaws#_6) such as "jdk9", "openjfx", or "sumatra"
+> _project_            ::   the short name of an OpenJDK [Project](https://openjdk.java.net/bylaws#project) such as "jdk9", "openjfx", or "sumatra"
 > _component_path_     ::   the path to a repository containing the code base as designated by the [Project Lead](https://openjdk.java.net/bylaws#project-lead).
 > ------------------  ----  ----------------------------------------------------
 
@@ -73,9 +73,9 @@ Create and edit the `~/.hgrc` file to minimally contain the following entry:
     [ui]
     username = <openjdk_username>
 
-_openjdk\_username_ is a plain lowercase, alphanumeric token (not an e-mail address) with twelve characters or less. The first character should be alphabetic. This username will be publicly visible in all Mercurial changeset logs. It will be used to verify that the changeset author is at least an [Author](https://openjdk.java.net/bylaws#author) for the Project and that the person pushing the changeset is at least a [Committer](https://openjdk.java.net/bylaws#committer). It is recommended that the _openjdk\_username_ be somehow related to the Author's full name, such as the first character of the Author's first name followed by the Author's last name. Refer to the [Becoming an Author](../projects/index.html#project-author) section of the [Project](../projects/index.html) page for additional information.
+_openjdk\_username_ is a plain lowercase, alphanumeric token (not an e-mail address) with twelve characters or less. The first character should be alphabetic. This username will be publicly visible in all Mercurial changeset logs. It will be used to verify that the changeset author is at least an [Author](https://openjdk.java.net/bylaws#author) for the Project and that the person pushing the changeset is at least a [Committer](https://openjdk.java.net/bylaws#committer). It is recommended that the _openjdk\_username_ be somehow related to the Author's full name, such as the first character of the Author's first name followed by the Author's last name. Refer to the [Becoming an Author](https://openjdk.java.net/projects/index.html#project-author) section of the [Project](https://openjdk.java.net/projects/index.html) page for additional information.
 
-An alphabetical list of all of the assigned _openjdk\_usernames_ may be found on the [OpenJDK people](https://db.openjdk.java.net/people) list. The [Census](../census) shows the structure of the OpenJDK Community.
+An alphabetical list of all of the assigned _openjdk\_usernames_ may be found on the [OpenJDK people](https://db.openjdk.java.net/people) list. The [Census](https://openjdk.java.net/census) shows the structure of the OpenJDK Community.
 
 #### Verifying the Configuration
 
@@ -175,7 +175,7 @@ If the source for the Project is contained within a single repository or reading
 
 # Mailing Lists
 
-The mailing lists are the key communications mechanism for all OpenJDK work. All participation in an OpenJDK project starts with joining the relevant mailing list. A subscriber to an OpenJDK mailing list is referred to as a Participant in the [Bylaws](https://openjdk.java.net/bylaws). As a general recommendation we suggest to subscribe to [announce](https://mail.openjdk.java.net/mailman/listinfo/announce), [discuss](https://mail.openjdk.java.net/mailman/listinfo/discuss), and the `-dev` lists covering your explicit area of interest. All OpenJDK mailing lists are found here:
+The mailing lists are the key communications mechanism for all OpenJDK work. All participation in an OpenJDK project starts with joining the relevant mailing list. A subscriber to an OpenJDK mailing list is referred to as a [Participant](https://openjdk.java.net/bylaws#participant) in the [Bylaws](https://openjdk.java.net/bylaws). As a general recommendation we suggest to subscribe to [announce](https://mail.openjdk.java.net/mailman/listinfo/announce), [discuss](https://mail.openjdk.java.net/mailman/listinfo/discuss), and the `-dev` lists covering your explicit area of interest. All OpenJDK mailing lists are found here:
 
 > [`mail.openjdk.java.net`](https://mail.openjdk.java.net/mailman/listinfo)
 
@@ -215,14 +215,14 @@ There are a few different types of lists. The list name has two parts to explain
 
 # Change Planning and Guidelines
 
-This section describes the development process of identifying a bug or enhancement (formerly "Request for Enhancement" (RFE)) and providing a solution. The instructions assume that the [Contributor](/bylaws#contributor) already has a working build environment and has some familiarity with an existing OpenJDK [Project](bylaws#_6) and its repositories.
+This section describes the development process of identifying a bug or enhancement (formerly "Request for Enhancement" (RFE)) and providing a solution. The instructions assume that the [Contributor](https://openjdk.java.net/bylaws#contributor) already has a working build environment and has some familiarity with an existing OpenJDK [Project](https://openjdk.java.net/bylaws#project) and its repositories.
 
 ## Fixing a Bug
 
 This is the list of steps which should be performed when fixing a small bug. Small bugs include typos in code or specification, algorithm improvements for correctness or performance, and code changes required to correctly implement the specification.
 
 > ---
-> Some steps refer to operations which can not be performed directly without the assistance of a [Project Committer](https://openjdk.java.net/bylaws#committer). For example, any changes to the [bug database](https://bugs.openjdk.java.net) fall into this category. Since these steps are required, [Contributors](https://openjdk.java.net/bylaws#contributor) are urged to work with their [Sponsors](/sponsor/) to complete these tasks.
+> Some steps refer to operations which can not be performed directly without the assistance of a [Project Committer](https://openjdk.java.net/bylaws#committer). For example, any changes to the [bug database](https://bugs.openjdk.java.net) fall into this category. Since these steps are required, [Contributors](https://openjdk.java.net/bylaws#contributor) are urged to work with their [Sponsors](https://openjdk.java.net/sponsor/) to complete these tasks.
 
 > ---
 
@@ -263,7 +263,7 @@ For the purposes of brevity this document will use the term "bug" to refer to bo
 #. [**Is it possible to write a test to detect the bug?**]
 
    **Yes**
-   :   For bugs, provide a [jtreg](../jtreg/) regression test as part of the changeset. For enhancements that directly affect one or more exported interfaces, add an adequate set of jtreg unit tests as part of the changeset. By convention all regression and unit tests should contain a [\@bug tag](https://openjdk.java.net/jtreg/tag-spec.html#INFORMATIONAL_TAGS9) referencing at least one bugid.
+   :   For bugs, provide a [jtreg](https://openjdk.java.net/jtreg/) regression test as part of the changeset. For enhancements that directly affect one or more exported interfaces, add an adequate set of jtreg unit tests as part of the changeset. By convention all regression and unit tests should contain a [\@bug tag](https://openjdk.java.net/jtreg/tag-spec.html#INFORMATIONAL_TAGS9) referencing at least one bugid.
 
    :   An entirely new test (or tests) may not be required. For example, if the bug is an existing regression test failure, then when fixing the bug you should just add the new bug ID to the list of space-delimited bugs in the [\@bug tag](https://openjdk.java.net/jtreg/tag-spec.html#INFORMATIONAL_TAGS) of the failing regression test, even if the test did not need to be updated.
 
@@ -304,9 +304,9 @@ For the purposes of brevity this document will use the term "bug" to refer to bo
 
 #. **Request a review of the changes by sending an e-mail to the development alias**
 
-   A patch can be submitted as described in [Contributing](../contribute/). Alternatively, a ["webrev"](webrevHelp.html) may be generated and uploaded to the [community code review](https://cr.openjdk.java.net/) server. The complete webrev generation and upload procedure is described at [https://cr.openjdk.java.net](https://cr.openjdk.java.net/).
+   A patch can be submitted as described in [Contributing](https://openjdk.java.net/contribute/). Alternatively, a ["webrev"](webrevHelp.html) may be generated and uploaded to the [community code review](https://cr.openjdk.java.net/) server. The complete webrev generation and upload procedure is described at [https://cr.openjdk.java.net](https://cr.openjdk.java.net/).
 
-   Changeset pushes before the [Feature Complete](/projects/jdk8/milestones#Feature_Complete) require at least one [Reviewer](/bylaws#reviewer); pushes after the Feature Complete require at least two Reviewers. In either case, the more the merrier. Some teams may require more Reviewers. Check with members of the Project.
+   Changeset pushes before the [Feature Complete](https://openjdk.java.net/projects/jdk8/milestones#Feature_Complete) require at least one [Reviewer](https://openjdk.java.net/bylaws#reviewer); pushes after the Feature Complete require at least two Reviewers. In either case, the more the merrier. Some teams may require more Reviewers. Check with members of the Project.
 
    Reviewers should examine not only the code being added or changed but also the relevant unit or regression tests.
 
@@ -615,7 +615,7 @@ After the push has been accepted, an automatic e-mail notification will be sent 
 >
 > Some Projects may chose to restrict the set of Committers with push to key repositories. For instance, JDK Release Projects restrict push access to MASTER repositories to Committers who are either integrators or members of the Release Engineering Team.
 >
-> Refer to the [Nominating a Contributor or Author to be a Committer](../projects/index.html#project-committer) section of the [Project](../projects/index.html) page for information about becoming a Project Committer.
+> Refer to the [Nominating a Contributor or Author to be a Committer](https://openjdk.java.net/projects/index.html#project-committer) section of the [Project](https://openjdk.java.net/projects/index.html) page for information about becoming a Project Committer.
 
 > ---
 
@@ -625,14 +625,14 @@ This section describes what might happen after a changeset gets into the build, 
 
 ## Filing a Bug
 
-When a new failure is found in the JDK a bug should be filed to describe and track the issue. Depending on your role in the OpenJDK you can either use the [Bug Report Tool](https://bugreport.java.com/) or, if you are Author in an OpenJDK Project, report the bug directly in the [JDK Bug System](https://bugs.openjdk.java.net/). Try to make the bug report as complete as possible to make it easier to triage and investigate the bug. It's not the reporter's responsibility to set a correct priority, but a qualified guess is always better than a default value. To help with setting the right priority consider things like how the bug impacts the product and our testing, how likely is it that the bug triggers, how difficult is it to work around the bug if it's not fixed soon, and whether it's a recent regression, since that may break existing applications. Regressions are often higher priority than long standing bugs and may block a release if not fixed.
+When a new failure is found in the JDK a bug should be filed to describe and track the issue. Depending on your role in the OpenJDK you can either use the [Bug Report Tool](https://bugreport.java.com/) or, if you are [Author](https://openjdk.java.net/bylaws#author) in an OpenJDK [Project](https://openjdk.java.net/bylaws#project), report the bug directly in the [JDK Bug System](https://bugs.openjdk.java.net/). Try to make the bug report as complete as possible to make it easier to triage and investigate the bug. It's not the reporter's responsibility to set a correct priority, but a qualified guess is always better than a default value. To help with setting the right priority consider things like how the bug impacts the product and our testing, how likely is it that the bug triggers, how difficult is it to work around the bug if it's not fixed soon, and whether it's a recent regression, since that may break existing applications. Regressions are often higher priority than long standing bugs and may block a release if not fixed.
 
 A few things to keep in mind when filing a new bug:
 
 * Before filing a bug, verify that there isn't already a bug filed for this issue.
 * If you suspect that the bug is a vulnerability, don't file a JBS issue. Instead send your bugreport to [vuln-dev@openjdk.java.net](mailto:vuln-dev@openjdk.java.net)
 * Make a reasonable attempt to narrow down which build or release the failure first appeared in.
-* Add relevant labels like `intermittent`, `regression`, `noreg-self` etc.
+* Add relevant labels like [`intermittent`](#intermittent), [`regression`](#regression), [`noreg-self`](#noreg-self) etc.
 * Set affects version to the JDK version(s) where the failure was seen.
   * If the failure is found in an update train of the JDK (e.g. 11.0.x), please make an effort to see if the bug is also present in [mainline](https://hg.openjdk.java.net/jdk/jdk/).
 * In the description, always include (if possible):
@@ -746,8 +746,8 @@ In this example, `MyTest.java` is excluded, tracked by bug `JDK-4711`. `@ignore`
 
 ProblemListing and `@ignore`-ing are done in the JDK source tree, that means a check-in into the repository is needed. This in turn means that a unique JBS issue and a code review are needed. This is a good thing since it makes test problems visible.
 
-* **Code review**: This is considered a [trivial](#trivial) change.
-* **JBS issue**: A JBS issue is obviously created for the bug that caused the failure, we call this the _main issue_. To exclude the test, create a subtask to the main issue. Also add the label `problemlist` to the main issue.
+* **Code review**: ProblemListing a test is considered a [trivial](#trivial) change.
+* **JBS issue**: A JBS issue is obviously created for the bug that caused the failure, we call this the _main issue_. To exclude the test, create a subtask to the main issue. Also add the label [`problemlist`](#problemlist) to the main issue.
 
 The fix for the main issue should remove the test from the ProblemList or remove the `@ignore` keyword from the test.
 
@@ -823,13 +823,13 @@ Comments and questions may be sent to [guide-dev (at) openjdk.java.net](mailto:g
 :   A collection of Mercurial repositories which can be managed as a set of nested repositories. The name "Forest" originally came from the Mercurial "Forest Extension" which can be used with some versions of Mercurial, but in general is no longer recommended. The script `common/bin/hgforest.sh` can be used to apply a Mercurial `hg` command to all the repositories in a forest.
 
 [**Group**]{#group}
-:   A collection of [Participants](/bylaws#participant) who engage in open conversation about a common interest. That interest may be in the creation, enhancement, or maintenance of a specific body of code or it may lie in other areas, e.g., quality, documentation, or evangelism. See the [Group overview](../groups/).
+:   A collection of [Participants](https://openjdk.java.net/bylaws#participant) who engage in open conversation about a common interest. That interest may be in the creation, enhancement, or maintenance of a specific body of code or it may lie in other areas, e.g., quality, documentation, or evangelism. See the [Group overview](https://openjdk.java.net/groups/).
 
 [**Mercurial**]{#mercurial}
 :   A free, cross-platform, distributed source management tool. Source bundles and binary packages for Mercurial are available at [https://www.selenic.com/mercurial/wiki/index.cgi](https://www.selenic.com/mercurial/wiki/index.cgi/Mercurial). The main Mercurial documentation is available at [http://hgbook.red-bean.com](https://hgbook.red-bean.com/).
 
 [**Project**]{#project}
-:   A collaborative effort to produce a specific artifact, which may be a body of code, or documentation, or some other material. See the [Project overview](../projects/).
+:   A collaborative effort to produce a specific artifact, which may be a body of code, or documentation, or some other material. See the [Project overview](https://openjdk.java.net/projects/).
 
 [**repository**]{#repository}
 :   A directory tree in the filesystem that Mercurial treats specially. This tree contains the source files and their revision history.
