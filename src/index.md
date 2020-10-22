@@ -346,6 +346,8 @@ A few key items to think about when writing a regression test:
 * A regression test should execute fast - a few seconds at most
 * The test should only test the desired functionality - if you have several features to test, write more tests
 * The test should pass reliably on all supported platforms - watch out for platform-specific differences such as path separators
+* Binary files should not be checked in, if your test needs to use one, the test should create it in some fashion
+* Avoid shell scripts and relying on external commands as much as possible
 
 The JTReg documentation has a section on [how to write good JTReg tests](https://openjdk.java.net/jtreg/writetests.html).
 
