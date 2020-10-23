@@ -209,6 +209,10 @@ There are a few different types of lists. The list name has two parts to explain
 > `-comments`
 > :    Used by observers to directly provide feedback/comments to the experts (typically a lead will process the comments list and forward things on to the experts list).
 
+## Changing your email address
+
+If you need to change your registered email address, or if you have any other problems with the mailing lists, please contact [mailman@openjdk.java.net](mailto:mailman@openjdk.java.net).
+
 # Code Conventions
 
 * [Java code conventions](https://www.oracle.com/technetwork/java/codeconvtoc-136057.html)
