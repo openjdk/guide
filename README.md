@@ -34,3 +34,5 @@ The Developers' Guide is continuously updated and there are several parts still 
 * Text about JCK
 * Text about backports
 * Text about JBS, triage, priorities, status
+* List JTReg `@key` conventions for different areas
+* Document best practices around TEST.properties usage. See [PR#30](https://github.com/openjdk/guide/pull/30#issuecomment-714589551)
