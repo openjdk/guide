@@ -175,6 +175,12 @@ If the source for the Project is contained within a single repository or reading
 
 # Mailing Lists
 
+::: {.box}
+[Quick Links]{.boxheader}
+
+* [OpenJDK Mailing Lists Manager](https://mail.openjdk.java.net/mailman/listinfo)
+:::
+
 The mailing lists are the key communications mechanism for all OpenJDK work. All participation in an OpenJDK project starts with joining the relevant mailing list. A subscriber to an OpenJDK mailing list is referred to as a [Participant](https://openjdk.java.net/bylaws#participant) in the [Bylaws](https://openjdk.java.net/bylaws). As a general recommendation we suggest to subscribe to [announce](https://mail.openjdk.java.net/mailman/listinfo/announce), [discuss](https://mail.openjdk.java.net/mailman/listinfo/discuss), and the `-dev` lists covering your explicit area of interest. All OpenJDK mailing lists are found here:
 
 > [`mail.openjdk.java.net`](https://mail.openjdk.java.net/mailman/listinfo)
@@ -215,7 +221,12 @@ If you need to change your registered email address, or if you have any other pr
 
 # Code Conventions
 
-* [Java code conventions](https://www.oracle.com/technetwork/java/codeconvtoc-136057.html)
+::: {.box}
+[Quick Links]{.boxheader}
+
+* [Java Code Conventions](https://www.oracle.com/technetwork/java/codeconvtoc-136057.html)
+* [HotSpot C++ Code Conventions](https://github.com/openjdk/jdk/blob/master/doc/hotspot-style.md)
+:::
 
 # Change Planning and Guidelines
 
@@ -338,6 +349,14 @@ For the purposes of brevity this document will use the term "bug" to refer to bo
 _Congratulations!_ Your changeset will now make its way towards a promoted build. When the changeset becomes part of a promoted build, the bug's "Resolved in Build" will have a value of \"b\[1-9\]\[0-9\]&ast;\" to indicate the build number.
 
 # Testing Changes
+
+::: {.box}
+[Quick Links]{.boxheader}
+
+* [Using the run-test Framework](https://github.com/openjdk/jdk/blob/master/doc/testing.md)
+* [JTReg Harness Documentation](https://openjdk.java.net/jtreg/)
+* [Google Test Documentation](https://github.com/google/googletest/blob/master/googletest/docs/primer.md)
+:::
 
 In addition to your own Java applications, OpenJDK have support for two test frameworks, JTReg and GTest. JTReg is a Java regression test framework that is used for most of the tests that are included in the OpenJDK source repository. The Google Test (GTest) framework is intended for unit testing of the C++ native code. Currently only JVM testing is supported by the GTest framework. Other areas use JTReg for unit testing of C++ code.
 
@@ -759,6 +778,13 @@ After the push has been accepted, an automatic e-mail notification will be sent 
 > ---
 
 # What Happens Next
+
+::: {.box}
+[Quick Links]{.boxheader}
+
+* [Bug Report Tool](https://bugreport.java.com/)
+* [JDK Bug System (JBS)](https://bugs.openjdk.java.net/)
+:::
 
 This section describes what might happen after a changeset gets into the build, for example a bug might be filed or a backport could be requested.
 
