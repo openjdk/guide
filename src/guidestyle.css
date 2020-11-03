@@ -35,15 +35,17 @@ pre > code {
 
 /* Info boxes */
 .box {
-    margin: 1em 0;
-    padding: .5em;
-    background: #ecf3f8;
-    border-left: 5px solid #5382a1;
+    margin: 1em 0em;
+    padding: 0 0 .5em .5em;
+    background: #f4f8ff;
+    border-left: 5px solid #437291;
 }
 
 .boxheader {
     font-weight: bold;
+    padding-top: 0px;
     margin-bottom: .5em;
+    color: #437291;
 }
 
 table.dictionary {
