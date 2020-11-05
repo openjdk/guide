@@ -969,6 +969,24 @@ reverse effect of earlier changeset
     merged result is left uncommitted.
 ~~~
 
+## Handling Maintainer Pain
+
+::: {.box}
+[Quick Links]{.boxheader}
+
+* [JBS filter to see currently open maintainer-pain](https://bugs.openjdk.java.net/issues/?filter=35335)
+:::
+
+The JBS label [`maintainer-pain`](#maintainer-pain) is used to tag bugs that for some reason is wasting engineering time or in other ways are causing pain for the maintainers of the JDK. This could for instance be a bug that occurs frequently in testing and requires that many engineers investigate the failure in different test runs just to realize it's the same issue as have been seen before, or worse, don't realize it is a known issue and file a duplicate bug in JBS. Bugs that cause tests to fail without a proper explanation may also be considered maintainer pain since several engineers risk to investigate the failures just to realize there is no information to be found. There are other cases as well and there is some flexibility in the definition. If you see a problem that is causing pain for a large number of maintainers, add an explanation to why you think so and add the label.
+
+The fact that a bug is causing pain to engineering should be taken into account when a bug is triaged. Bugs tagged with [`maintainer-pain`](#maintainer-pain) have higher urgency than other bugs. This is not really reflected in the priority of a bug so that's not necessarily changed due to the higher urgency. The triage team should however make sure that the component team knows about the issue and make sure the bug is assigned. If the label is added after a bug has been triaged, please make sure the component team is notified.
+
+If you have a [`maintainer-pain`](#maintainer-pain) bug assigned to you please consider fixing it asap. If you chose not to work on the issue, you should at least be aware that you are choosing to waste others' engineering time and people will be affected by this choice.
+
+As with any issue the best way to deal with a [`maintainer-pain`](#maintainer-pain) issue is to fix it. Another way to reduce the noise is to ProblemList the failing test. This is a viable option if there is a limited set of tests that are failing and the bug is actively investigated. ProblemListing a test is a regression in our test coverage so this should not be taken lightly, but it works well as a quick emergency action when a test is failing repeatedly.
+
+When ProblemListing a [`maintainer-pain`](#maintainer-pain) issue, remember to move the [`maintainer-pain`](#maintainer-pain) label to the issue used to ProblemList. Leaving the label on the closed ProblemList-issue is helpful for tracking purposes.
+
 # About this Guide
 
 This guide is being maintained through the [OpenJDK Developers' Guide Project](https://openjdk.java.net/census#guide). The [source repository](https://github.com/openjdk/guide) is available at GitHub. The revision hash at the bottom of each page refers to the latest change that modified that particular page.
@@ -1472,10 +1490,10 @@ Labels are an open namespace, which means that anyone can create new labels at a
   </tr>
   <tr>
     <td class="dictionary">
-      [**`maintainer-pain`**]{#}
+      [**`maintainer-pain`**]{#maintainer-pain}
     </td>
     <td class="dictionary">
-      Bugs that for some reason is wasting engineering time just by existing, or in other ways are causing pain for the maintainers of the JDK. Examples are bugs that occur frequently in testing or test failures that are time consuming to investigate before determining that it is a pre-existing bug.
+      Bugs that for some reason is wasting engineering time just by existing, or in other ways are causing pain for the maintainers of the JDK. Examples are bugs that occur frequently in testing or test failures that are time consuming to investigate before determining that it is a pre-existing bug. See [Handling Maintainer Pain](#handling-maintainer-pain).
     </td>
   </tr>
   <tr>
