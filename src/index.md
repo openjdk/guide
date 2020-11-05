@@ -983,7 +983,7 @@ The fact that a bug is causing pain to engineering should be taken into account 
 
 If you have a [`maintainer-pain`](#maintainer-pain) bug assigned to you please consider fixing it asap. If you chose not to work on the issue, you should at least be aware that you are choosing to waste others' engineering time and people will be affected by this choice.
 
-As with any issue the best way to deal with a [`maintainer-pain`](#maintainer-pain) issue is to fix it. Another way to reduce the noise is to ProblemList the failing test. This is a viable option if there is a limited set of tests that are failing and the bug is actively investigated. ProblemListing a test is a regression in our test coverage so this should not be taken lightly, but it works well as a quick emergency action when a test is failing repeatedly.
+As with any issue the best way to deal with a [`maintainer-pain`](#maintainer-pain) issue is to fix it. Another way to reduce the noise is to [ProblemList the failing test](#excluding-a-test). This is a viable option if there is a limited set of tests that are failing and the bug is actively investigated. ProblemListing a test is a regression in our test coverage so this should not be taken lightly, but it works well as a quick emergency action when a test is failing repeatedly.
 
 When ProblemListing a [`maintainer-pain`](#maintainer-pain) issue, remember to move the [`maintainer-pain`](#maintainer-pain) label to the issue used to ProblemList. Leaving the label on the closed ProblemList-issue is helpful for tracking purposes.
 
