@@ -790,16 +790,19 @@ This section describes what might happen after a changeset gets into the build, 
 
 ## Filing a Bug
 
-When a new failure is found in the JDK a bug should be filed to describe and track the issue. Depending on your role in the OpenJDK you can either use the [Bug Report Tool](https://bugreport.java.com/) or, if you are [Author](https://openjdk.java.net/bylaws#author) in an OpenJDK [Project](https://openjdk.java.net/bylaws#project), report the bug directly in the [JDK Bug System](https://bugs.openjdk.java.net/). Try to make the bug report as complete as possible to make it easier to triage and investigate the bug. It's not the reporter's responsibility to set a correct priority, but a qualified guess is always better than a default value. To help with setting the right priority consider things like how the bug impacts the product and our testing, how likely is it that the bug triggers, how difficult is it to work around the bug if it's not fixed soon, and whether it's a recent regression, since that may break existing applications. Regressions are often higher priority than long standing bugs and may block a release if not fixed.
+When a new failure is found in the JDK a bug should be filed to describe and track the issue. Depending on your role in the OpenJDK you can either use the [Bug Report Tool](https://bugreport.java.com/) or, if you are [Author](https://openjdk.java.net/bylaws#author) in an OpenJDK [Project](https://openjdk.java.net/bylaws#project), report the bug directly in the [JDK Bug System](https://bugs.openjdk.java.net/). Try to make the bug report as complete as possible to make it easier to triage and investigate the bug.
+
+It's not the reporter's responsibility to set a correct priority, but a qualified guess is always better than a default value. To help with setting the right priority consider things like how the bug impacts the product and our testing, how likely is it that the bug triggers, how difficult is it to work around the bug if it's not fixed soon, and whether it's a recent regression, since that may break existing applications. Regressions are often higher priority than long standing bugs and may block a release if not fixed.
 
 A few things to keep in mind when filing a new bug:
 
 * Before filing a bug, verify that there isn't already a bug filed for this issue.
 * If you suspect that the bug is a vulnerability, don't file a JBS issue. Instead send your bugreport to [vuln-dev@openjdk.java.net](mailto:vuln-dev@openjdk.java.net)
 * Make a reasonable attempt to narrow down which build or release the failure first appeared in.
-* Add relevant labels like [`intermittent`](#intermittent), [`regression`](#regression), [`noreg-self`](#noreg-self) etc.
+* Add relevant labels like [`intermittent`](#intermittent), [`regression`](#regression), [`noreg-self`](#noreg-self), ['tier1'](#tier) etc.
 * Set affects version to the JDK version(s) where the failure was seen.
   * If the failure is found in an update train of the JDK (e.g. 11.0.x), please make an effort to see if the bug is also present in [mainline](https://hg.openjdk.java.net/jdk/jdk/).
+* Set priority (see above)
 * In the description, always include (if possible):
   * full name of the failing tests
   * error messages
@@ -811,6 +814,8 @@ A few things to keep in mind when filing a new bug:
 * Only set CPU and/or OS fields if the bug **ONLY** happens on that particular platform.
 * Always file separate bugs for different issues.
   * If two crashes looks related but not similar enough to for sure be the same, it is easier to close a bug as a duplicate than it is to extract the relevant info from a bug to create a new one later.
+
+To find out which component to use for different bugs, consult the [directory to area mapping](#directory-to-area-mapping).
 
 ## Excluding a Test
 
