@@ -52,7 +52,7 @@ The mailing lists are the key communications mechanism for all OpenJDK work. All
 
 The OpenJDK community is a friendly place. To keep it that way it's important to keep a professional tone in emails and be aware that the community is global. Many different people with different backgrounds collaborate in these lists. Even though English is the required language for all lists, many Participants speak other languages as their native language. A high tolerance for non-perfect English is expected from anyone joining these lists.
 
-You must be in the list to send to the list. Some lists are moderated to keep the content on topic. Each list has its own archive where you can browse older conversations on the list.
+You must be a member of the the list to be able to post to the list. Some lists are moderated to keep the content on topic. Each list has its own archive where you can browse older conversations on the list.
 
 There are a few different types of lists. The list name has two parts to explain what the list is intended for, `<name>-<suffix>`. The name often refers to the project that owns the list or a specific area of interest that the list focuses on. The suffix is explained below. Not all projects or areas have all types of lists described here.
 
