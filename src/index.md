@@ -12,6 +12,78 @@ The goal of this guide is to answer questions that developers of the JDK might h
 
 There are many common use cases that aren't detailed in the formal process. This guide suggests how to work in such cases.
 
+## I have a patch, what do I do?
+
+::: {.box}
+[Quick Links]{.boxheader}
+
+* [Oracle Contributor Agreement (OCA)](https://www.oracle.com/technical-resources/oracle-contributor-agreement.html)
+:::
+
+In many GitHub projects the standard way to propose a change is to create a pull request (PR) and discuss the patch in the PR. For OpenJDK projects the situation is somewhat different. First of all, the JDK and the surrounding tooling developed in the OpenJDK projects are part of commercial products maintained and sold by many companies. The JDK is installed on billions of devices and there are many millions of developers out there who use the Java language. For this reason there must be several safety checks before a change is made.
+
+### 1. Sign the OCA
+
+Oracle are the stewards of the OpenJDK project, and owns the Java brand. In order to make your patch available for review you must first sign the [Oracle Contributor Agreement](https://www.oracle.com/technical-resources/oracle-contributor-agreement.html) (OCA). This agreement gives Oracle and you as a contributor joint copyright interests in the code. You will retain your copyright while also granting those rights to Oracle. If you try to create a PR before you have signed the OCA, you will get instructions telling you to do so, and the PR will not be published until this is done.
+
+### 2. Socialize your change
+
+Once the OCA is signed, please restrain your urge to create a PR just a little while longer. In order to prepare the community for your patch, please socialize your idea on the relevant [mailing lists](#mailing-lists). Java and the JDK are very popular products, and just about every Java developer out there has an idea or two for how to enhance something. And (obviously not referring to you) believe it or not, not every idea is a good idea. Even though many ideas are indeed good, we must be quite restrictive on what we actually include into the JDK. There are many reasons for this. Stability is one. Any change that goes into the source code risks introducing bugs. This means that the added value of your change must outweigh the added risk of it. The code must be maintained for a foreseeable future even if you as the original developer decides not to do so. This means that the added value of your change must outweigh the added maintenance burden of it. All changes to the Java programming language are visible to a large developer community. Any change you do will require a very large number of developers around the world to spend time to understand your change. Again, the added value of your change must outweigh the cost for all those developers' time. For reasons like these it's quite possible that your change, even though it adds value to you, isn't deemed to add enough value to the larger community.
+
+### 3. Find a sponsor
+
+Socializing your change on the mailing lists also prevents the surprise that would otherwise make the community choke on their morning coffee when they see the huge patch in a new, unknown PR. As a new developer in the community you will need to make a few friends that agrees with your change. There are many good reasons to make friends, but the one relevant here is that you'll need a sponsor to approve your change. This is in addition to the reviewers (but can be the same person). The sponsor takes on a larger responsibility for your change than the reviewers, and may need to defend the change in case of later problems. Making people choke on their morning coffee is not the way to make friends.
+
+### 4. Get acquainted with local process
+
+Even though we strive to unify how things are done within the OpenJDK, different areas and projects in the OpenJDK may have slight variations in how they work. Some of these differences are highlighted throughout this guide, some aren't. If you're new to an area, make sure you understand local differences before you proceed. Ask your sponsor who should be your main point of contact through your first developer experience in the OpenJDK.
+
+# Mailing Lists
+
+::: {.box}
+[Quick Links]{.boxheader}
+
+* [OpenJDK Mailing Lists Manager](https://mail.openjdk.java.net/mailman/listinfo)
+:::
+
+The mailing lists are the key communications mechanism for all OpenJDK work. All participation in an OpenJDK project starts with joining the relevant mailing list. A subscriber to an OpenJDK mailing list is referred to as a [Participant](https://openjdk.java.net/bylaws#participant) in the [Bylaws](https://openjdk.java.net/bylaws). As a general recommendation we suggest to subscribe to [announce](https://mail.openjdk.java.net/mailman/listinfo/announce), [discuss](https://mail.openjdk.java.net/mailman/listinfo/discuss), and the `-dev` lists covering your explicit area of interest. All OpenJDK mailing lists are found here:
+
+> [`mail.openjdk.java.net`](https://mail.openjdk.java.net/mailman/listinfo)
+
+The OpenJDK community is a friendly place. To keep it that way it's important to keep a professional tone in emails and be aware that the community is global. Many different people with different backgrounds collaborate in these lists. Even though English is the required language for all lists, many Participants speak other languages as their native language. A high tolerance for non-perfect English is expected from anyone joining these lists.
+
+You must be in the list to send to the list. Some lists are moderated to keep the content on topic. Each list has its own archive where you can browse older conversations on the list.
+
+There are a few different types of lists. The list name has two parts to explain what the list is intended for, `<name>-<suffix>`. The name often refers to the project that owns the list or a specific area of interest that the list focuses on. The suffix is explained below. Not all projects or areas have all types of lists described here.
+
+> `-dev`
+> :    Technical discussions around the implementation of the project artifacts. This is also where code reviews happen.
+
+> `-use`
+> :    Technical discussions around the usage of the project artifacts.
+
+> `-discuss`
+> :    General discussions around the project. The special case `discuss(at)openjdk.java.net` is used for general discussions around the OpenJDK project. Discussions around new project proposals usually happens here.
+
+>  `-changes`
+> :    Changeset notifications from the source code repositories maintained by the project.
+
+> `-announce`
+> :    General project announcements. These lists are tightly moderated and are expected to be low traffic. The special case `announce(at)openjdk.java.net` is used for announcements for the OpenJDK project.
+
+> `-experts`
+> :    Expert group discussions. The list is restricted; only members of the expert group can subscribe.
+
+> `-observers`
+> :    Open for anyone to subscribe to see what the experts are discussing and potentially to have some dialog with other non-experts. There is no guarantee that an expert is subscribed to the `-observers` list or will see any responses on that list.
+
+> `-comments`
+> :    Used by observers to directly provide feedback/comments to the experts (typically a lead will process the comments list and forward things on to the experts list).
+
+## Changing your email address
+
+If you need to change your registered email address, or if you have any other problems with the mailing lists, please contact [mailman@openjdk.java.net](mailto:mailman@openjdk.java.net).
+
 # Repositories
 
 This section describes the OpenJDK repository terminology and naming scheme. It also includes minimal instructions to acquire source from the OpenJDK repository, [`https://hg.openjdk.java.net/`](https://hg.openjdk.java.net/).
@@ -172,52 +244,6 @@ If the source for the Project is contained within a single repository or reading
     6212 files updated, 0 files merged, 0 files removed, 0 files unresolved
     $ du -s langtools
     84396   langtools
-
-# Mailing Lists
-
-::: {.box}
-[Quick Links]{.boxheader}
-
-* [OpenJDK Mailing Lists Manager](https://mail.openjdk.java.net/mailman/listinfo)
-:::
-
-The mailing lists are the key communications mechanism for all OpenJDK work. All participation in an OpenJDK project starts with joining the relevant mailing list. A subscriber to an OpenJDK mailing list is referred to as a [Participant](https://openjdk.java.net/bylaws#participant) in the [Bylaws](https://openjdk.java.net/bylaws). As a general recommendation we suggest to subscribe to [announce](https://mail.openjdk.java.net/mailman/listinfo/announce), [discuss](https://mail.openjdk.java.net/mailman/listinfo/discuss), and the `-dev` lists covering your explicit area of interest. All OpenJDK mailing lists are found here:
-
-> [`mail.openjdk.java.net`](https://mail.openjdk.java.net/mailman/listinfo)
-
-The OpenJDK community is a friendly place. To keep it that way it's important to keep a professional tone in emails and be aware that the community is global. Many different people with different backgrounds collaborate in these lists. Even though English is the required language for all lists, many Participants speak other languages as their native language. A high tolerance for non-perfect English is expected from anyone joining these lists.
-
-You must be in the list to send to the list. Some lists are moderated to keep the content on topic. Each list has its own archive where you can browse older conversations on the list.
-
-There are a few different types of lists. The list name has two parts to explain what the list is intended for, `<name>-<suffix>`. The name often refers to the project that owns the list or a specific area of interest that the list focuses on. The suffix is explained below. Not all projects or areas have all types of lists described here.
-
-> `-dev`
-> :    Technical discussions around the implementation of the project artifacts. This is also where code reviews happen.
-
-> `-use`
-> :    Technical discussions around the usage of the project artifacts.
-
-> `-discuss`
-> :    General discussions around the project. The special case `discuss(at)openjdk.java.net` is used for general discussions around the OpenJDK project. Discussions around new project proposals usually happens here.
-
->  `-changes`
-> :    Changeset notifications from the source code repositories maintained by the project.
-
-> `-announce`
-> :    General project announcements. These lists are tightly moderated and are expected to be low traffic. The special case `announce(at)openjdk.java.net` is used for announcements for the OpenJDK project.
-
-> `-experts`
-> :    Expert group discussions. The list is restricted; only members of the expert group can subscribe.
-
-> `-observers`
-> :    Open for anyone to subscribe to see what the experts are discussing and potentially to have some dialog with other non-experts. There is no guarantee that an expert is subscribed to the `-observers` list or will see any responses on that list.
-
-> `-comments`
-> :    Used by observers to directly provide feedback/comments to the experts (typically a lead will process the comments list and forward things on to the experts list).
-
-## Changing your email address
-
-If you need to change your registered email address, or if you have any other problems with the mailing lists, please contact [mailman@openjdk.java.net](mailto:mailman@openjdk.java.net).
 
 # Code Conventions
 
