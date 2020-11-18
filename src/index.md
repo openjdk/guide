@@ -32,7 +32,7 @@ When you sign the OCA, please make sure that you specify your GitHub user name i
 
 ### 2. Socialize your change
 
-Once the OCA is signed, please restrain your urge to create a PR just a little while longer. In order to prepare the community for your patch, please socialize your idea on the relevant [mailing lists](#mailing-lists). Java and the JDK are very popular products, and just about every Java developer out there has an idea or two for how to enhance something. And (obviously not referring to you) believe it or not, not every idea is a good idea. Even though many ideas are indeed good, we must be quite restrictive on what we actually include into the JDK. There are many reasons for this. Stability is one. Any change that goes into the source code risks introducing bugs. This means that the added value of your change must outweigh the added risk of it. The code must be maintained for a foreseeable future even if you as the original developer decides not to do so. This means that the added value of your change must outweigh the added maintenance burden of it. All changes to the Java programming language are visible to a large developer community. Any change you do will require a very large number of developers around the world to spend time to understand your change. Again, the added value of your change must outweigh the cost for all those developers' time. For reasons like these it's quite possible that your change, even though it adds value to you, isn't deemed to add enough value to the larger community.
+Once the OCA is signed, please restrain your urge to create a PR just a little while longer. In order to prepare the community for your patch, please socialize your idea on the relevant [mailing lists](#mailing-lists). To understand the criteria by which your patch is going to be judged, please read [_Why is My Change Rejected?_](#why-is-my-change-rejected) below. In short, hidden constraints and assumptions, stability and quality, maintainability, compatibility, and conformance to specifications must be considered before your PR is ready to be submitted. If you don't understand the constraints for acceptance, you might be surprised when your PR is rejected.
 
 ### 3. Find a sponsor
 
@@ -42,11 +42,41 @@ Socializing your change on the mailing lists also prevents the surprise that wou
 
 Many OpenJDK projects require a tracking issue to be filed in the [JDK Bug System (JBS)](https://bugs.openjdk.java.net/) before a change can be pushed. This is the case for instance for the JDK and the JDK-Updates projects. In order to get write access to JBS you need to be an [Author](https://openjdk.java.net/bylaws#author) in an OpenJDK project. For your first changes, ask your sponsor to help you create the issue.
 
-If you continue to contribute high-quality content you'll soon enough be eligible for OpenJDK roles in the project. First Author, and later Contributor. The Contributor role means you won't need a sponsor anymore. You can read more about [OpenJDK Project Roles](https://openjdk.java.net/bylaws#project-roles).
+If you continue to contribute high-quality content you'll soon enough be eligible for OpenJDK roles in the project. First Author, and later Committer. The Committer role means you won't need a sponsor anymore. You can read more about [OpenJDK Project Roles](https://openjdk.java.net/bylaws#project-roles).
 
 ### 5. Get acquainted with local process
 
 Even though we strive to unify how things are done within the OpenJDK, different areas and projects in the OpenJDK may have slight variations in how they work. Some of these differences are highlighted throughout this guide, some aren't. If you're new to an area, make sure you understand local differences before you proceed. Ask your sponsor who should be your main point of contact through your first developer experience in the OpenJDK.
+
+## Why is my change rejected?
+
+::: {.box}
+[Quick Links]{.boxheader}
+
+* [Java Language and Virtual Machine Specifications](https://docs.oracle.com/javase/specs/)
+* [Java API Specification](https://docs.oracle.com/en/java/javase/15/docs/api/index.html)
+* [CSR Process](https://wiki.openjdk.java.net/display/csr/Main)
+:::
+
+Java and the JDK are very popular products, and just about every Java developer out there has an idea or two for how to enhance something. And (obviously not referring to you) believe it or not, not every idea is a good idea. Even though many ideas are indeed good, we must be quite restrictive on what we actually include into the JDK. There are many reasons for this.
+
+* **Hidden constraints and assumptions**. Many sections of code have constraints and assumptions that aren't necessarily visible at first glance. This might preclude certain changes, even those that might seem obvious.
+
+* **Stability and quality**. The JDK is used by millions of developers and as a widely deployed commercial product, it is held to a high standard of quality. Changes should include tests where practicable, and core tests should be kept passing at all times. The value of the change should outweigh the risk of introducing a bug.
+
+* **Maintainability**. Any new feature or code change will need to be maintained in the JDK essentially forever, thus imposing a maintenance burden on future maintainers. The code might still be in use long after you and the people who reviewed it have moved on. New maintainers must be able to understand how to fix bugs in this code.
+
+* **Complexity**. Each new feature interacts with all the existing features, which can result in geometric growth of the interactions among features if features are added unchecked. Sometimes we avoid adding a new feature, even if it seems like an obvious thing to add, if that feature would make it difficult to add a more important feature in the future.
+
+* **Adherence to specifications**. Much of the JDK is governed by a series of specifications, in particular the [Java Language Specification](https://docs.oracle.com/javase/specs/), the [Java Virtual Machine Specification](https://docs.oracle.com/javase/specs/), and the [Java API Specification](https://docs.oracle.com/en/java/javase/15/docs/api/index.html) ("javadocs"). All changes must be checked and tested carefully to ensure that they don't violate these specifications.
+
+* **Javadoc comments are specifications**. The Java API Specification is authored in the form of javadoc comments, so even apparently innocuous changes to comments can be quite significant. It's not always easy to tell what comments are part of the specification and what parts are merely code comments. Briefly, documentation comments on public packages, classes, and class members of exported modules are specifications.
+
+* **Specification changes**. It is possible to change the API specifications, and this is done regularly. However, these changes require even more scrutiny than code changes. This extra review is handled by the [CSR Process](https://wiki.openjdk.java.net/display/csr/Main). Specifications are written in stylized, somewhat formal language, and they don't simply describe what the code does. Writing specifications is a separate skill from coding.
+
+* **Compatibility**. Changes should also adhere to high standards of binary, source, and behavioral compatibility. The compatibility impact of apparently innocuous changes is sometimes startling.
+
+For reasons like these it’s quite possible that your change, even though it adds value to you, isn’t deemed to add enough value to the larger community.
 
 # Mailing Lists
 
@@ -60,7 +90,7 @@ The mailing lists are the key communications mechanism for all OpenJDK work. All
 
 > [`mail.openjdk.java.net`](https://mail.openjdk.java.net/mailman/listinfo)
 
-The OpenJDK community is a friendly place. To keep it that way it's important to keep a professional tone in emails and be aware that the community is global. Many different people with different backgrounds collaborate in these lists. Even though English is the required language for all lists, many Participants speak other languages as their native language. A high tolerance for non-perfect English is expected from anyone joining these lists.
+The OpenJDK community is a friendly place. To keep it that way it's important to keep a professional tone in emails and be aware that the community is global. Many different people with different backgrounds collaborate in these lists. Even though English is the required language for all lists, many Participants speak other languages as their native language. A high tolerance for non-perfect English is expected from anyone joining these lists. You're also strongly encouraged to use your real name on the mailing lists. This adds to the professional tone of your email. Postings from anonymized mailboxes risk being seen as spam. If you do work in the OpenJDK on behalf of your employer, please also list this affiliation.
 
 You must be a member of a list to be able to post to that list. Some lists are moderated to keep the content on topic. Each list has its own archive where you can browse older conversations on the list.
 
