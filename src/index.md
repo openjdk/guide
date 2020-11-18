@@ -18,15 +18,17 @@ There are many common use cases that aren't detailed in the formal process. This
 [Quick Links]{.boxheader}
 
 * [Oracle Contributor Agreement (OCA)](https://www.oracle.com/technical-resources/oracle-contributor-agreement.html)
+* [JDK Bug System (JBS)](https://bugs.openjdk.java.net/)
+* [OpenJDK Project Roles](https://openjdk.java.net/bylaws#project-roles)
 :::
 
-In many GitHub projects the standard way to propose a change is to create a pull request (PR) and discuss the patch in the PR. For OpenJDK projects the situation is somewhat different. First of all, the JDK and the surrounding tooling developed in the OpenJDK projects are part of commercial products maintained and sold by many companies. The JDK is installed on billions of devices and there are many millions of developers out there who use the Java language. For this reason there must be several safety checks before a change is made.
+In many GitHub projects the standard way to propose a change is to create a pull request (PR) and discuss the patch in the PR. For OpenJDK projects the situation is somewhat different. First of all, the JDK and the surrounding tooling developed in the OpenJDK projects are part of commercial products maintained and sold by many companies. The JDK is installed on billions of devices and there are many millions of developers out there who use Java. For this reason there must be several safety checks before a change is made.
 
 ### 1. Sign the OCA
 
-Oracle are the stewards of the OpenJDK project, and owns the Java brand. In order to make your patch available for review you must first sign the [Oracle Contributor Agreement](https://www.oracle.com/technical-resources/oracle-contributor-agreement.html) (OCA). This agreement gives Oracle and you as a contributor joint copyright interests in the code. You will retain your copyright while also granting those rights to Oracle. 
+Oracle are the stewards of the OpenJDK project, and owns the Java brand. In order to make your patch available for review you must first sign the [Oracle Contributor Agreement](https://www.oracle.com/technical-resources/oracle-contributor-agreement.html) (OCA). This agreement gives Oracle and you as a contributor joint copyright interests in the code. You will retain your copyright while also granting those rights to Oracle.
 
-When you sign the OCA, please make sure that you specify your GitHub user name in the `Username` field of the OCA. If you try to create a PR before you have signed the OCA, or if you did not specify your GitHub user name, you will get instructions telling you to do so, and the PR will not be published until this is done. OCA registration is a manual process. Please allow for up to several days to have your OCA application processed, even though it's normally processed swiftly.
+When you sign the OCA, please make sure that you specify your GitHub user name in the `Username` field of the OCA. If you try to create a PR before you have signed the OCA, or if you didn't specify your GitHub user name, you'll get instructions telling you to do so, and the PR won't be published until this is done. OCA registration is a manual process. Please allow for up to several days to have your OCA application processed, even though it's normally processed swiftly.
 
 ### 2. Socialize your change
 
@@ -34,9 +36,15 @@ Once the OCA is signed, please restrain your urge to create a PR just a little w
 
 ### 3. Find a sponsor
 
-Socializing your change on the mailing lists also prevents the surprise that would otherwise make the community choke on their morning coffee when they see the huge patch in a new, unknown PR. As a new developer in the community you will need to make a few friends that agrees with your change. There are many good reasons to make friends, but the one relevant here is that you'll need a sponsor to approve your change. This is in addition to the reviewers (but can be the same person). The sponsor takes on a larger responsibility for your change than the reviewers, and may need to defend the change in case of later problems. Making people choke on their morning coffee is not the way to make friends.
+Socializing your change on the mailing lists also prevents the surprise that would otherwise make the community choke on their morning coffee when they see a huge patch in a new, unknown PR. As a new developer in the community you'll need to make a few friends that agrees with your change. There are many good reasons to make friends, but the one relevant here is that for your first changes you'll need a sponsor to approve your work. This is in addition to the reviewers (but can be the same person). The sponsor takes on a larger responsibility for your change than the reviewers, and may need to defend the change in case of later problems. For this reason it's important that the sponsor understands all the details of your proposed change. Making people choke on their morning coffee isn't the way to make friends.
 
-### 4. Get acquainted with local process
+### 4. Create a tracking issue in JBS
+
+Many OpenJDK projects require a tracking issue to be filed in the [JDK Bug System (JBS)](https://bugs.openjdk.java.net/) before a change can be pushed. This is the case for instance for the JDK and the JDK-Updates projects. In order to get write access to JBS you need to be an [Author](https://openjdk.java.net/bylaws#author) in an OpenJDK project. For your first changes, ask your sponsor to help you create the issue.
+
+If you continue to contribute high-quality content you'll soon enough be eligible for OpenJDK roles in the project. First Author, and later Contributor. The Contributor role means you won't need a sponsor anymore. You can read more about [OpenJDK Project Roles](https://openjdk.java.net/bylaws#project-roles).
+
+### 5. Get acquainted with local process
 
 Even though we strive to unify how things are done within the OpenJDK, different areas and projects in the OpenJDK may have slight variations in how they work. Some of these differences are highlighted throughout this guide, some aren't. If you're new to an area, make sure you understand local differences before you proceed. Ask your sponsor who should be your main point of contact through your first developer experience in the OpenJDK.
 
@@ -54,7 +62,7 @@ The mailing lists are the key communications mechanism for all OpenJDK work. All
 
 The OpenJDK community is a friendly place. To keep it that way it's important to keep a professional tone in emails and be aware that the community is global. Many different people with different backgrounds collaborate in these lists. Even though English is the required language for all lists, many Participants speak other languages as their native language. A high tolerance for non-perfect English is expected from anyone joining these lists.
 
-You must be a member of the the list to be able to post to the list. Some lists are moderated to keep the content on topic. Each list has its own archive where you can browse older conversations on the list.
+You must be a member of a list to be able to post to that list. Some lists are moderated to keep the content on topic. Each list has its own archive where you can browse older conversations on the list.
 
 There are a few different types of lists. The list name has two parts to explain what the list is intended for, `<name>-<suffix>`. The name often refers to the project that owns the list or a specific area of interest that the list focuses on. The suffix is explained below. Not all projects or areas have all types of lists described here.
 
