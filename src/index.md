@@ -26,7 +26,7 @@ In many GitHub projects the standard way to propose a change is to create a pull
 
 ### 1. Sign the OCA
 
-Oracle are the stewards of the OpenJDK project, and owns the Java brand. In order to make your patch available for review you must first sign the [Oracle Contributor Agreement](https://www.oracle.com/technical-resources/oracle-contributor-agreement.html) (OCA). This agreement gives Oracle and you as a contributor joint copyright interests in the code. You will retain your copyright while also granting those rights to Oracle.
+Oracle is the stewards of the OpenJDK project, and owns the Java brand. In order to make your patch available for review you must first sign the [Oracle Contributor Agreement](https://www.oracle.com/technical-resources/oracle-contributor-agreement.html) (OCA). This agreement gives Oracle and you as a contributor joint copyright interests in the code. You will retain your copyright while also granting those rights to Oracle.
 
 When you sign the OCA, please make sure that you specify your GitHub user name in the `Username` field of the OCA. If you try to create a PR before you have signed the OCA, or if you didn't specify your GitHub user name, you'll get instructions telling you to do so, and the PR won't be published until this is done. OCA registration is a manual process. Please allow for up to several days to have your OCA application processed, even though it's normally processed swiftly.
 
@@ -36,7 +36,7 @@ Once the OCA is signed, please restrain your urge to create a PR just a little w
 
 ### 3. Find a sponsor
 
-Socializing your change on the mailing lists also prevents the surprise that would otherwise make the community choke on their morning coffee when they see a huge patch in a new, unknown PR. As a new developer in the community you'll need to make a few friends that agrees with your change. There are many good reasons to make friends, but the one relevant here is that for your first changes you'll need a sponsor to approve your work. This is in addition to the reviewers (but can be the same person). The sponsor takes on a larger responsibility for your change than the reviewers, and may need to defend the change in case of later problems. For this reason it's important that the sponsor understands all the details of your proposed change. Making people choke on their morning coffee isn't the way to make friends.
+Socializing your change on the mailing lists also prevents the surprise that would otherwise make the community choke on their morning coffee when they see a huge patch in a new, unknown PR. As a new developer in the community you'll need to make a few friends that agree with your change. There are many good reasons to make friends, but the one relevant here is that for your first changes you'll need a sponsor to facilitate the integration of your work. The sponsor will perform any number of administrative tasks like JBS updates, additional testing, etc. It's usual for a sponsor to also be a reviewer of a change and thus familiar with it, but it's not a requirement. Making people choke on their morning coffee isn't the way to make friends.
 
 ### 4. Create a tracking issue in JBS
 
@@ -62,7 +62,7 @@ Java and the JDK are very popular products, and just about every Java developer 
 
 * **Hidden constraints and assumptions**. Many sections of code have constraints and assumptions that aren't necessarily visible at first glance. This might preclude certain changes, even those that might seem obvious.
 
-* **Stability and quality**. The JDK is used by millions of developers and as a widely deployed commercial product, it is held to a high standard of quality. Changes should include tests where practicable, and core tests should be kept passing at all times. The value of the change should outweigh the risk of introducing a bug.
+* **Stability and quality**. The JDK is used by millions of developers and as a widely deployed commercial product, it is held to a high standard of quality. Changes should include tests where practical, and core tests should pass at all times. The value of the change should outweigh the risk of introducing a bug, or performance regression.
 
 * **Maintainability**. Any new feature or code change will need to be maintained in the JDK essentially forever, thus imposing a maintenance burden on future maintainers. The code might still be in use long after you and the people who reviewed it have moved on. New maintainers must be able to understand how to fix bugs in this code.
 
@@ -90,7 +90,7 @@ The mailing lists are the key communications mechanism for all OpenJDK work. All
 
 > [`mail.openjdk.java.net`](https://mail.openjdk.java.net/mailman/listinfo)
 
-The OpenJDK community is a friendly place. To keep it that way it's important to keep a professional tone in emails and be aware that the community is global. Many different people with different backgrounds collaborate in these lists. Even though English is the required language for all lists, many Participants speak other languages as their native language. A high tolerance for non-perfect English is expected from anyone joining these lists. You're also strongly encouraged to use your real name on the mailing lists. This adds to the professional tone of your email. Postings from anonymized mailboxes risk being seen as spam. If you do work in the OpenJDK on behalf of your employer, please also list this affiliation.
+The OpenJDK community is a friendly place. To keep it that way it's important to keep a professional tone in emails and be aware that the community is global. Many different people with different backgrounds collaborate in these lists. Even though English is the required language for all lists, many Participants speak other languages as their native language. A high tolerance for non-perfect English is expected from anyone joining these lists. You're also strongly encouraged to use your real name on the mailing lists. This adds to the professional tone of your email. Postings from anonymized mailboxes risk being seen as spam. If you do work in the OpenJDK on behalf of your employer, please also list this affiliation. If your GitHub username differs from your real name it's also a good idea to include that to identify yourself and your actions on GitHub.
 
 You must be a member of a list to be able to post to that list. Some lists are moderated to keep the content on topic. Each list has its own archive where you can browse older conversations on the list.
 
