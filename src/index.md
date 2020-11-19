@@ -26,7 +26,7 @@ In many GitHub projects the standard way to propose a change is to create a pull
 
 ### 1. Sign the OCA
 
-Oracle is the stewards of the OpenJDK project, and owns the Java brand. In order to make your patch available for review you must first sign the [Oracle Contributor Agreement](https://www.oracle.com/technical-resources/oracle-contributor-agreement.html) (OCA). This agreement gives Oracle and you as a contributor joint copyright interests in the code. You will retain your copyright while also granting those rights to Oracle.
+Oracle is the steward of the OpenJDK project, and owns the Java brand. In order to make your patch available for review you must first sign the [Oracle Contributor Agreement](https://www.oracle.com/technical-resources/oracle-contributor-agreement.html) (OCA). This agreement gives Oracle and you as a contributor joint copyright interests in the code. You will retain your copyright while also granting those rights to Oracle.
 
 When you sign the OCA, please make sure that you specify your GitHub user name in the `Username` field of the OCA. If you try to create a PR before you have signed the OCA, or if you didn't specify your GitHub user name, you'll get instructions telling you to do so, and the PR won't be published until this is done. OCA registration is a manual process. Please allow for up to several days to have your OCA application processed, even though it's normally processed swiftly.
 
@@ -62,7 +62,7 @@ Java and the JDK are very popular products, and just about every Java developer 
 
 * **Hidden constraints and assumptions**. Many sections of code have constraints and assumptions that aren't necessarily visible at first glance. This might preclude certain changes, even those that might seem obvious.
 
-* **Stability and quality**. The JDK is used by millions of developers and as a widely deployed commercial product, it is held to a high standard of quality. Changes should include tests where practical, and core tests should pass at all times. The value of the change should outweigh the risk of introducing a bug, or performance regression.
+* **Stability and quality**. The JDK is used by millions of developers and as a widely deployed commercial product, it is held to a high standard of quality. Changes should include tests where practical, and core tests should pass at all times. The value of the change should outweigh the risk of introducing a bug or performance regression.
 
 * **Maintainability**. Any new feature or code change will need to be maintained in the JDK essentially forever, thus imposing a maintenance burden on future maintainers. The code might still be in use long after you and the people who reviewed it have moved on. New maintainers must be able to understand how to fix bugs in this code.
 
