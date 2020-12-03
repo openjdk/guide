@@ -1205,7 +1205,48 @@ This list is intended to make it easier to identify which email list to include 
 * `sample` –
 * `utils` –
 
-# JBS Label Dictionary
+# JBS - JDK Bug System
+
+[JBS](https://bugs.openjdk.java.net/) is an issue tracker used by many OpenJDK projects.
+
+## How to fix an incorrect backport creation
+
+If a main bug is targeted to a release and the fix is pushed to a different release, then a backport bug is automatically created. Usually this is a "good thing", e.g., when you are backporting a fix to an earlier release, but not always... If the main bug is targeted to a later release (due to schedule planning), but someone finds the time to fix that bug in the current release, then the bug should be retargeted to the current release before pushing the fix. However, sometimes we forget to do that.
+
+Here is how to fix that:
+
+> ---
+> In this example a fix was pushed to JDK N (a.k.a. the current release) while the JBS bug was targeted to JDK N+1 (a.k.a. a future release).
+
+> ---
+
+#. Reopen the _backport_ bug that was created automatically
+   * Use a comment like the following (in the reopen dialog):
+~~~
+Fix was pushed while main bug was targeted to 'N+1'. Reset the main bug to fixed in 'N', reset this bug to fix in 'N+1' and closed as 'Not An Issue' since JDK N+1 will automatically get this fix from JDK N.
+~~~
+   * Change the 'Fix Version/s' from 'N' to 'N+1'.
+   * Close the _backport_ bug as "Not an Issue".
+#. Clean up the _main_ bug
+   * Copy the open push notification comment from the _backport_ bug to the _main_ bug, e.g.:
+~~~
+Changeset: 12345678
+Author: Duke <duke@openjdk.org>
+Date: 2020-10-23 15:37:46 +0000
+URL: https://git.openjdk.java.net/jdk/commit/12345678
+~~~
+   * Add a comment like the following to the _main_ bug:
+~~~
+Fix was pushed while main bug was targeted to 'N+1'. Reset the main bug to fixed in 'N' and copied the Robo Duke entry here.
+~~~
+   * Reset the _main_ bug 'Fix Version/s' from 'N+1' to 'N'.
+   * Resolve the _main_ bug as "Fixed" in build "team" or in build "master" depending on where the fix was pushed. Pushes to 'openjdk/jdk' are fixed in build "master" and pushes to project repositories are fixed in build "team".
+
+## Resolved - Incomplete
+
+To resolve an issue as `Incomplete` is JBS lingo for "Need More Information". An issue that is `Resolved - Incomplete` is *not* closed but more information is needed to be able to work on it. If no more information is obtained within reasonable time the issue should be closed (`Closed - Incomplete`). Closing a resolved issue is done using the `Verify` option.
+
+## JBS Label Dictionary
 
 This table contains some frequently used JBS labels and their meaning. Please help keeping this dictionary up to date by adding your favorite labels. This table doesn’t dictate how to use labels, but rather document how they are used. That said, obviously it will help everyone if we try to follow a common standard and use similar labels in the same way across all entities that use JBS.
 
