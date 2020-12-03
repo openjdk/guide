@@ -22,11 +22,11 @@ There are many common use cases that aren't detailed in the formal process. This
 * [OpenJDK Project Roles](https://openjdk.java.net/bylaws#project-roles)
 :::
 
-In many GitHub projects the standard way to propose a change is to create a pull request (PR) and discuss the patch in the PR. For OpenJDK projects the situation is somewhat different. First of all, the JDK and the surrounding tooling developed in the OpenJDK projects are part of commercial products maintained and sold by many companies. The JDK is installed on billions of devices and there are many millions of developers out there who use Java. For this reason there must be several safety checks before a change is made.
+In many GitHub projects the standard way to propose a change is to create a pull request (PR) and discuss the patch in the PR. For OpenJDK projects the situation is somewhat different. The JDK is used for mission critical applications and by millions of developers, the bar to contributing changes is high. Please follow the steps outlined below to make sure your change passes above the bar before creating a PR.
 
 ### 1. Sign the OCA
 
-Oracle is the steward of the OpenJDK project, and owns the Java brand. In order to make your patch available for review you must first sign the [Oracle Contributor Agreement](https://www.oracle.com/technical-resources/oracle-contributor-agreement.html) (OCA). This agreement gives Oracle and you as a contributor joint copyright interests in the code. You will retain your copyright while also granting those rights to Oracle.
+Oracle is the steward of the OpenJDK project. In order to make your patch available for review you must first sign the [Oracle Contributor Agreement](https://www.oracle.com/technical-resources/oracle-contributor-agreement.html) (OCA). This agreement gives Oracle and you as a contributor joint copyright interests in the code. You will retain your copyright while also granting those rights to Oracle.
 
 When you sign the OCA, please make sure that you specify your GitHub user name in the `Username` field of the OCA. If you try to create a PR before you have signed the OCA, or if you didn't specify your GitHub user name, you'll get instructions telling you to do so, and the PR won't be published until this is done. OCA registration is a manual process. Please allow for up to several days to have your OCA application processed, even though it's normally processed swiftly.
 
