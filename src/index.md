@@ -62,7 +62,7 @@ Java and the JDK are very popular products, and just about every Java developer 
 
 * **Hidden constraints and assumptions**. Many sections of code have constraints and assumptions that aren't necessarily visible at first glance. This might preclude certain changes, even those that might seem obvious.
 
-* **Stability and quality**. The JDK is used by millions of developers and as a widely deployed commercial product, it is held to a high standard of quality. Changes should include tests where practical, and core tests should pass at all times. The value of the change should outweigh the risk of introducing a bug or performance regression.
+* **Stability and quality**. The JDK is used by millions of developers and as a widely deployed commercial product, it's held to a high standard of quality. Changes should include tests where practical, and core tests should pass at all times. The value of the change should outweigh the risk of introducing a bug or performance regression.
 
 * **Maintainability**. Any new feature or code change will need to be maintained in the JDK essentially forever, thus imposing a maintenance burden on future maintainers. The code might still be in use long after you and the people who reviewed it have moved on. New maintainers must be able to understand how to fix bugs in this code.
 
@@ -72,7 +72,7 @@ Java and the JDK are very popular products, and just about every Java developer 
 
 * **Javadoc comments are specifications**. The Java API Specification is authored in the form of javadoc comments, so even apparently innocuous changes to comments can be quite significant. It's not always easy to tell what comments are part of the specification and what parts are merely code comments. Briefly, documentation comments on public packages, classes, and class members of exported modules are specifications.
 
-* **Specification changes**. It is possible to change the API specifications, and this is done regularly. However, these changes require even more scrutiny than code changes. This extra review is handled by the [CSR Process](https://wiki.openjdk.java.net/display/csr/Main). Specifications are written in stylized, somewhat formal language, and they don't simply describe what the code does. Writing specifications is a separate skill from coding.
+* **Specification changes**. It's possible to change the API specifications, and this is done regularly. However, these changes require even more scrutiny than code changes. This extra review is handled by the [CSR Process](https://wiki.openjdk.java.net/display/csr/Main). Specifications are written in stylized, somewhat formal language, and they don't simply describe what the code does. Writing specifications is a separate skill from coding.
 
 * **Compatibility**. Changes should also adhere to high standards of binary, source, and behavioral compatibility. The compatibility impact of apparently innocuous changes is sometimes startling.
 
@@ -185,7 +185,7 @@ Create and edit the `~/.hgrc` file to minimally contain the following entry:
     [ui]
     username = <openjdk_username>
 
-_openjdk\_username_ is a plain lowercase, alphanumeric token (not an e-mail address) with twelve characters or less. The first character should be alphabetic. This username will be publicly visible in all Mercurial changeset logs. It will be used to verify that the changeset author is at least an [Author](https://openjdk.java.net/bylaws#author) for the Project and that the person pushing the changeset is at least a [Committer](https://openjdk.java.net/bylaws#committer). It is recommended that the _openjdk\_username_ be somehow related to the Author's full name, such as the first character of the Author's first name followed by the Author's last name. Refer to the [Becoming an Author](https://openjdk.java.net/projects/index.html#project-author) section of the [Project](https://openjdk.java.net/projects/index.html) page for additional information.
+_openjdk\_username_ is a plain lowercase, alphanumeric token (not an e-mail address) with twelve characters or less. The first character should be alphabetic. This username will be publicly visible in all Mercurial changeset logs. It will be used to verify that the changeset author is at least an [Author](https://openjdk.java.net/bylaws#author) for the Project and that the person pushing the changeset is at least a [Committer](https://openjdk.java.net/bylaws#committer). It's recommended that the _openjdk\_username_ be somehow related to the Author's full name, such as the first character of the Author's first name followed by the Author's last name. Refer to the [Becoming an Author](https://openjdk.java.net/projects/index.html#project-author) section of the [Project](https://openjdk.java.net/projects/index.html) page for additional information.
 
 An alphabetical list of all of the assigned _openjdk\_usernames_ may be found on the [OpenJDK people](https://db.openjdk.java.net/people) list. The [Census](https://openjdk.java.net/census) shows the structure of the OpenJDK Community.
 
@@ -236,7 +236,7 @@ In addition to the Project repositories, there are some test repositories that m
 
 #### ... a Forest {#cloneForest}
 
-If a Project uses a forest, It is strongly recommended for developers to clone an entire forest, rather than a single repository. This is the only means to ensure consistency in builds. The following examples illustrate two alternatives for cloning the entire _jdk9/dev_ forest into the directory `9dev`.
+If a Project uses a forest, It's strongly recommended for developers to clone an entire forest, rather than a single repository. This is the only means to ensure consistency in builds. The following examples illustrate two alternatives for cloning the entire _jdk9/dev_ forest into the directory `9dev`.
 
 #. To clone the forest using the [trees](https://openjdk.java.net/projects/code-tools/trees/) extension just use `tclone`:
 
@@ -271,7 +271,7 @@ Regardless of how the forest was cloned, this is the resulting populated forest.
 
 #### ... a Single Repository {#cloneSingle}
 
-If the source for the Project is contained within a single repository or reading a limited portion of the source is the only goal, it is possible to clone a single repository (even if it's part of a forest). For instance, this example shows how to clone the `langtools` repository from _jdk9/dev_ into the default destination directory.
+If the source for the Project is contained within a single repository or reading a limited portion of the source is the only goal, it's possible to clone a single repository (even if it's part of a forest). For instance, this example shows how to clone the `langtools` repository from _jdk9/dev_ into the default destination directory.
 
     $ hg clone http://hg.openjdk.java.net/jdk9/dev/langtools
     destination directory: langtools
@@ -327,10 +327,10 @@ A few things to keep in mind when filing a new bug:
   * stack trace
   * command line information
   * relevant information from the logs
-* If the failure is not reproducible with an existing OpenJDK test, attach a reproducer if possible.
+* If the failure isn't reproducible with an existing OpenJDK test, attach a reproducer if possible.
 * Only set CPU and/or OS fields if the bug **ONLY** happens on that particular platform.
 * Always file separate bugs for different issues.
-  * If two crashes looks related but not similar enough to for sure be the same, it is easier to close a bug as a duplicate than it is to extract the relevant info from a bug to create a new one later.
+  * If two crashes looks related but not similar enough to for sure be the same, it's easier to close a bug as a duplicate than it is to extract the relevant info from a bug to create a new one later.
 
 To find out which component to use for different bugs, consult the [directory to area mapping](#directory-to-area-mapping).
 
@@ -406,7 +406,7 @@ Labels are an open namespace, which means that anyone can create new labels at a
       [*(Rel)***`-bp`**]{#rel-bp}
     </td>
     <td class="dictionary">
-      Used to indicate that a bug would be suitable for backport to a release *(Rel)*. This is not a decision to backport, just a suggestion / recommendation. E.g., **`11-bp`**
+      Used to indicate that a bug would be suitable for backport to a release *(Rel)*. This isn't a decision to backport, just a suggestion / recommendation. E.g., **`11-bp`**
     </td>
   </tr>
   <tr>
@@ -476,7 +476,7 @@ Labels are an open namespace, which means that anyone can create new labels at a
       [*(Rel)***`-na`**]{#rel-na}
     </td>
     <td class="dictionary">
-      Used to indicate that the issue does not affect release *(Rel)* or later. Could for instance be a bug in code that was removed in *(Rel)*.
+      Used to indicate that the issue doesn't affect release *(Rel)* or later. Could for instance be a bug in code that was removed in *(Rel)*.
     </td>
   </tr>
   <tr>
@@ -629,16 +629,16 @@ Labels are an open namespace, which means that anyone can create new labels at a
       [**`intermittent-hardware`**]{#intermittent-hardware}
     </td>
     <td class="dictionary">
-      An intermittent issue is one that fails sometimes but not always. The exact reason for the intermittent failure is per definition unknown. Once the reason has been identified the issue is no more considered intermittent. An issue isn't intermittent if some characteristics has been found that triggers the failure consistently, even if the actual cause for the failure has not been found. For instance if a test fails every time it is executed on a specific host but not on other hosts it wouldn't be considered intermittent as it fails consistently on that specific host. In other cases it may be that we know that a test sometimes is unlucky in some respect and fails due to this. This test could still be considered intermittent even though we know what the reason is if the reason itself appears intermittently.
+      An intermittent issue is one that fails sometimes but not always. The exact reason for the intermittent failure is per definition unknown. Once the reason has been identified the issue is no more considered intermittent. An issue isn't intermittent if some characteristics has been found that triggers the failure consistently, even if the actual cause for the failure hasn't been found. For instance if a test fails every time it's executed on a specific host but not on other hosts it wouldn't be considered intermittent as it fails consistently on that specific host. In other cases it may be that we know that a test sometimes is unlucky in some respect and fails due to this. This test could still be considered intermittent even though we know what the reason is if the reason itself appears intermittently.
 
-      Some issues may seem intermittent when looking at test results, even though the reason for failing is actually known. One example is where a test fails consistently on a specific host, or due to specific conditions in the environment. These failures should not be considered intermittent but it may still be valuable to tag these in JBS with one of the labels **`intermittent-hardware`** or **`intermittent-environment`**. This will help to faster identify that the cause of the failure is known without having to read through the entire bug.
+      Some issues may seem intermittent when looking at test results, even though the reason for failing is actually known. One example is where a test fails consistently on a specific host, or due to specific conditions in the environment. These failures shouldn't be considered intermittent but it may still be valuable to tag these in JBS with one of the labels **`intermittent-hardware`** or **`intermittent-environment`**. This will help to faster identify that the cause of the failure is known without having to read through the entire bug.
 
-      A test that should be platform agnostic but is consistently failing on a specific OS would for instance be labeled with **`intermittent-environment`**, while a test that fails every time it is run on some specific hardware would be labeled with **`intermittent-hardware`**.
+      A test that should be platform agnostic but is consistently failing on a specific OS would for instance be labeled with **`intermittent-environment`**, while a test that fails every time it's run on some specific hardware would be labeled with **`intermittent-hardware`**.
     </td>
   </tr>
   <tr>
     <td class="dictionary">
-      [**`maintainer-pain`**]{#}
+      [**`maintainer-pain`**]{#maintainer-pain}
     </td>
     <td class="dictionary">
 Used to tag bugs that for some reason is wasting time or in other ways are causing pain for the OpenJDK maintainers. Examples of issues that could be considered a pain:
@@ -691,7 +691,7 @@ As with any issue the best way to deal with a **`maintainer-pain`** issue is to 
 :    Change is for a performance bug for which writing a regression test is infeasible; the bug should describe how to verify the fix.
 
 [**`-hard`**]{#noreg-hard}
-:    It is too hard to write a regression or unit test for this bug (e.g., theoretical race condition, complex setup, reboot required, editing of installed files required, specific graphics card required); the bug should explain why.
+:    It's too hard to write a regression or unit test for this bug (e.g., theoretical race condition, complex setup, reboot required, editing of installed files required, specific graphics card required); the bug should explain why.
 
 [**`-long`**]{#noreg-long}
 :    Testing requires a very long running time (e.g., more than a few minutes).
@@ -746,7 +746,7 @@ Examples:  If a bug fix only corrects a change in the build system, then add the
       [**`regression`**]{#regression}
     </td>
     <td class="dictionary">
-      A regression is a bug that did not exist in the previous release. Ideally all regressions must be fixed in order to release the next major version.
+      A regression is a bug that didn't exist in the previous release. Ideally all regressions must be fixed in order to release the next major version.
     </td>
   </tr>
   <tr>
@@ -763,7 +763,7 @@ Examples:  If a bug fix only corrects a change in the build system, then add the
 :   A significant issue which has been fixed, would normally be a regression or an issue which unknowingly released in a new feature.
 
 [**`RN-KnownIssue`**]{#RN-KnownIssue}
-:   An issue that was not possible to fix by the time the release was GA'd.
+:   An issue that wasn't possible to fix by the time the release was GA'd.
 
 [**`RN-Removed`**]{#RN-Removed}
 :   Covers an API, feature, tool etc. which has been removed from the JDK.
@@ -861,7 +861,7 @@ Examples:  If a bug fix only corrects a change in the build system, then add the
 This is the list of steps which should be performed when fixing a small bug. Small bugs include typos in code or specification, algorithm improvements for correctness or performance, and code changes required to correctly implement the specification.
 
 > ---
-> Some steps refer to operations which can not be performed directly without the assistance of a [Project Committer](https://openjdk.java.net/bylaws#committer). For example, any changes to the [bug database](https://bugs.openjdk.java.net) fall into this category. Since these steps are required, [Contributors](https://openjdk.java.net/bylaws#contributor) are urged to work with their [Sponsors](https://openjdk.java.net/sponsor/) to complete these tasks.
+> Some steps refer to operations which can't be performed directly without the assistance of a [Project Committer](https://openjdk.java.net/bylaws#committer). For example, any changes to the [bug database](https://bugs.openjdk.java.net) fall into this category. Since these steps are required, [Contributors](https://openjdk.java.net/bylaws#contributor) are urged to work with their [Sponsors](https://openjdk.java.net/sponsor/) to complete these tasks.
 
 > ---
 
@@ -873,7 +873,7 @@ For the purposes of brevity this document will use the term "bug" to refer to bo
 
        6543210: My favorite bug
 
-   where `6543210` is replaced with the actual bug id number or "[NEW BUG]" if the bug id is not known and `My favorite bug` is replaced with the bug's summary.  The message should describe the intended change, which components may be affected, and any other risks or concerns.
+   where `6543210` is replaced with the actual bug id number or "[NEW BUG]" if the bug id isn't known and `My favorite bug` is replaced with the bug's summary.  The message should describe the intended change, which components may be affected, and any other risks or concerns.
 
 #. **Does a bug id exist for the work?**
 
@@ -904,7 +904,7 @@ For the purposes of brevity this document will use the term "bug" to refer to bo
    **Yes**
    :   For bugs, provide a [jtreg](https://openjdk.java.net/jtreg/) regression test as part of the changeset. For enhancements that directly affect one or more exported interfaces, add an adequate set of jtreg unit tests as part of the changeset. By convention all regression and unit tests should contain a [\@bug tag](https://openjdk.java.net/jtreg/tag-spec.html#INFORMATIONAL_TAGS9) referencing at least one bugid.
 
-   :   An entirely new test (or tests) may not be required. For example, if the bug is an existing regression test failure, then when fixing the bug you should just add the new bug ID to the list of space-delimited bugs in the [\@bug tag](https://openjdk.java.net/jtreg/tag-spec.html#INFORMATIONAL_TAGS) of the failing regression test, even if the test did not need to be updated.
+   :   An entirely new test (or tests) may not be required. For example, if the bug is an existing regression test failure, then when fixing the bug you should just add the new bug ID to the list of space-delimited bugs in the [\@bug tag](https://openjdk.java.net/jtreg/tag-spec.html#INFORMATIONAL_TAGS) of the failing regression test, even if the test didn't need to be updated.
 
    **No**
    :   An explanation for why a test is unnecessary or infeasible is required. Such an explanation is recorded by adding a label, and possibly a comment, to the bug report. The label has the prefix **`noreg`** for regression tests and **`nounit`** for unit tests. The suffix of the label is described in detail in the [JBS Label Dictionary](#noreg)
@@ -912,7 +912,7 @@ For the purposes of brevity this document will use the term "bug" to refer to bo
 #. **Is modification of shared Java code needed?**
 
    **Yes**
-   :   It is often sufficient to build and test on a single platform, but sometimes it is not. Use discretion.
+   :   It's often sufficient to build and test on a single platform, but sometimes it's not. Use discretion.
 
    **No**
    :   Continue
@@ -949,7 +949,7 @@ For the purposes of brevity this document will use the term "bug" to refer to bo
 
    Reviewers should examine not only the code being added or changed but also the relevant unit or regression tests.
 
-   A change may require multiple Reviewers because it affects multiple areas.  Reviewers should be aware that they take full responsibility for the appropriateness and correctness of any changes in their area of expertise.  If something goes wrong (e.g., the build breaks) and the change&apos;s author is unavailable, they may be asked to deal with the problem.  Potential Reviewers are encouraged to refuse to review code for which they are not qualified.
+   A change may require multiple Reviewers because it affects multiple areas.  Reviewers should be aware that they take full responsibility for the appropriateness and correctness of any changes in their area of expertise.  If something goes wrong (e.g., the build breaks) and the change&apos;s author is unavailable, they may be asked to deal with the problem. Potential Reviewers are encouraged to refuse to review code for which they aren't qualified.
 
 #. **Create a changeset**
 
@@ -993,7 +993,7 @@ A few key items to think about when writing a regression test:
 * A regression test should execute fast - a few seconds at most
 * The test should only test the desired functionality - if you have several features to test, write more tests
 * The test should pass reliably on all supported platforms - watch out for platform-specific differences such as path separators
-* Binary files should not be checked in, if your test needs to use one, the test should create it in some fashion
+* Binary files shouldn't be checked in, if your test needs to use one, the test should create it in some fashion
 * Avoid shell scripts and relying on external commands as much as possible
 
 The JTReg documentation has a section on [how to write good JTReg tests](https://openjdk.java.net/jtreg/writetests.html).
@@ -1018,7 +1018,7 @@ Below is a small example of a JTReg test. It’s a clean Java class with a main 
         }
     }
 
-This example only utilizes three JTReg specific tags, `@test`, `@summary`, and `@run`. `@test` simply tells JTReg that this class is a test, and `@summary` provides a description of the test. `@run` tells JTReg how to execute the test. In this case we simply tell JTReg to execute the main method of the class `TestXY`. `@run` is not strictly necessary for JTReg to execute the test, an implicit `@run` tag will be added if none exists. However, for clarity and in order to avoid bugs it's recommended to always explicitly use the `@run` tag.
+This example only utilizes three JTReg specific tags, `@test`, `@summary`, and `@run`. `@test` simply tells JTReg that this class is a test, and `@summary` provides a description of the test. `@run` tells JTReg how to execute the test. In this case we simply tell JTReg to execute the main method of the class `TestXY`. `@run` isn't strictly necessary for JTReg to execute the test, an implicit `@run` tag will be added if none exists. However, for clarity and in order to avoid bugs it's recommended to always explicitly use the `@run` tag.
 
 There are several other tags that can be used in JTReg tests. You can for instance associate the test with a specific bug that this test is a regression test for.
 
@@ -1272,11 +1272,11 @@ A single change is described by a block of text of the following form:
 
 There may be more than one _bugid_ line, but there must be at least one.
 
-The _summary_ line is optional, but authors are strongly encouraged to include one if the nature of the change is not obvious from the synopsis. It's just one line, meant to give the reader a clue as to how the code changed. A more complete description of the change belongs in the bug report.
+The _summary_ line is optional, but authors are strongly encouraged to include one if the nature of the change isn't obvious from the synopsis. It's just one line, meant to give the reader a clue as to how the code changed. A more complete description of the change belongs in the bug report.
 
 A _reviewed-by_ line is required. Reviewers must have the ability to deal with any adverse consequences of the change, and so must themselves be authors. They are therefore identified by their OpenJDK usernames rather than full e-mail addresses.
 
-The _contributed-by_ line is optional. If present, it is a list of comma-separated email addresses. It should be included only when the author or authors of the change do not have commit rights to the target repository and thus would not otherwise receive acknowledgment.
+The _contributed-by_ line is optional. If present, it's a list of comma-separated email addresses. It should be included only when the author or authors of the change don't have commit rights to the target repository and thus would not otherwise receive acknowledgment.
 
 There will be exceptions for merge changesets, tag changesets, etc.
 
@@ -1312,7 +1312,7 @@ The following commands commit all of the changes in a repository to a changeset.
 
 ## Merging
 
-It is often necessary to merge local changes with those made in the parent repositories. The first step in a merge process is to retrieve (or pull) the collection of changesets which have been pushed since the last merge or initial clone. If there if there are merge conflicts, then they must be resolved. [Chapter 3](http://hgbook.red-bean.com/hgbookch3.html#x7-530003) of the Mercurial book contains detailed information on the merging process.
+It's often necessary to merge local changes with those made in the parent repositories. The first step in a merge process is to retrieve (or pull) the collection of changesets which have been pushed since the last merge or initial clone. If there if there are merge conflicts, then they must be resolved. [Chapter 3](http://hgbook.red-bean.com/hgbookch3.html#x7-530003) of the Mercurial book contains detailed information on the merging process.
 
 There are two basic ways to update the working set files in the repositories:
 
@@ -1354,7 +1354,7 @@ In order to push changesets into the parent repository, some additional configur
 
 #### Generating an SSH Key
 
-All pushes require an ssh key which must be installed on the Mercurial server. The `ssh-keygen` command generates an ssh key. The `-b` option overrides the default number of bits for the key. Allow a few minutes to generate a 4096 bit key; a key of at least 2048 bits is recommended. While it is possible to use ssh without a passphrase, this is **strongly** discouraged. Empty or insecure passphrases may be reset using `ssh-keygen -p`; this does not change the keys.
+All pushes require an ssh key which must be installed on the Mercurial server. The `ssh-keygen` command generates an ssh key. The `-b` option overrides the default number of bits for the key. Allow a few minutes to generate a 4096 bit key; a key of at least 2048 bits is recommended. While it's possible to use ssh without a passphrase, this is **strongly** discouraged. Empty or insecure passphrases may be reset using `ssh-keygen -p`; this doesn't change the keys.
 
     $ ssh-keygen -t rsa -b 4096
     Enter file in which to save the key(/u/iris/.ssh/id_rsa):
@@ -1388,7 +1388,7 @@ The `~/.ssh/id_rsa.pub` is a text file containing the public ssh key. This file 
 >
 > See the `ssh-socks5-proxy-connect` man page and `ssh-config` man page for more information. Other systems may require proxy access via other programs. Some Linux distributions provide the `corkscrew` package which provides ssh access through HTTP proxies.
 >
-> **It is recommended that all users check with their network administrators before installing any kind of TCP forwarding tool on their network. Many corporations and institutions have strict security policies in this area.**
+> **It's recommended that all users check with their network administrators before installing any kind of TCP forwarding tool on their network. Many corporations and institutions have strict security policies in this area.**
 
 > ---
 
@@ -1437,7 +1437,7 @@ This is the typical development model:
 ![Diagram of server repos and user's clone](devModel.gif)
 :::
 
-Changesets need to be _pushed_ via ssh to the read/write repository which resides on the OpenJDK Mercurial server. The easiest way to do this is to have each repository define the "default-push" path in every repository's `.hg/hgrc` file. The `.hg/hgrc` file in is not a managed file - it is private to the repository. The following example defines the "default" and "default-push" paths for clones of the jdk9/dev team repository.
+Changesets need to be _pushed_ via ssh to the read/write repository which resides on the OpenJDK Mercurial server. The easiest way to do this is to have each repository define the "default-push" path in every repository's `.hg/hgrc` file. The `.hg/hgrc` file in isn't a managed file - it's private to the repository. The following example defines the "default" and "default-push" paths for clones of the jdk9/dev team repository.
 
     [paths]
     default = http://hg.openjdk.java.net/jdk9/dev
@@ -1492,7 +1492,7 @@ $ hg fdefpath -dgv
 
 [Committers](https://openjdk.java.net/bylaws#committer) can use the _**hg**_ `push` command to propagate changesets into the repositories.
 
-Most developers will only find a need to create changesets in one or two repositories. However, it is important that before any changesets are pushed, the corresponding forest pull and merge with the destination forest be performed; otherwise there is a risk of breaking the build.
+Most developers will only find a need to create changesets in one or two repositories. However, it's important that before any changesets are pushed, the corresponding forest pull and merge with the destination forest be performed; otherwise there is a risk of breaking the build.
 
     $ hg push
 
@@ -1522,7 +1522,7 @@ The backout is a regular change and will have to go through the standard code re
 #. If the intention is to fix the change and submit it again, create a redo-issue **(R)** to track that the work still needs to be done.
    * Clone **(O)** and add the prefix `[REDO]` on the summary - the clone becomes the redo-issue **(R)**.
    * Make sure relevant information is brought to **(R)**.
-   * Remember that comments are not brought over when cloning.
+   * Remember that comments aren't brought over when cloning.
 #. Create a backout-issue **(B)**:
    * Alternative 1 - the regression is identified directly.
      * Create a sub-task to **(R)** with the same summary, prefix with `[BACKOUT]`.
@@ -1784,7 +1784,7 @@ Comments and questions may be sent to [guide-dev (at) openjdk.java.net](mailto:g
 :   A directory tree in the filesystem that Mercurial treats specially. This tree contains the source files and their revision history.
 
 [**trivial**]{#trivial}
-:   A change that is small, well contained, and makes no semantic changes. Typically fixing obvious typos or renaming some local identifier. Trivial changes can also be pushing an already reviewed change that was missed in an earlier push (e.g. forgot to add a file) or generated changes like an [`hg backout`](#backing-out-a-change). It's up to the author of a change to claim that the change is trivial in the RFR, and it's up to the Reviewer whether to approve such a claim. A change is only trivial if the Reviewer says so. Trivial changes does not have to wait 24 hours before being pushed, and only needs one Reviewer, even in areas where stricter rules for pushing normally applies.
+:   A change that is small, well contained, and makes no semantic changes. Typically fixing obvious typos or renaming some local identifier. Trivial changes can also be pushing an already reviewed change that was missed in an earlier push (e.g. forgot to add a file) or generated changes like an [`hg backout`](#backing-out-a-change). It's up to the author of a change to claim that the change is trivial in the RFR, and it's up to the Reviewer whether to approve such a claim. A change is only trivial if the Reviewer says so. Trivial changes doesn't have to wait 24 hours before being pushed, and only needs one Reviewer, even in areas where stricter rules for pushing normally applies.
 
 [**webrev**]{#webrev}
 :   A tool and its output. In JDK release forests, the script, [`webrev.ksh`](https://hg.openjdk.java.net/code-tools/webrev/raw-file/tip/webrev.ksh), examines a forest or repository to generate a set of web-based views of differences.
