@@ -12,6 +12,118 @@ The goal of this guide is to answer questions that developers of the JDK might h
 
 There are many common use cases that aren't detailed in the formal process. This guide suggests how to work in such cases.
 
+## I have a patch, what do I do?
+
+::: {.box}
+[Quick Links]{.boxheader}
+
+* [Oracle Contributor Agreement (OCA)](https://www.oracle.com/technical-resources/oracle-contributor-agreement.html)
+* [JDK Bug System (JBS)](https://bugs.openjdk.java.net/)
+* [OpenJDK Project Roles](https://openjdk.java.net/bylaws#project-roles)
+:::
+
+In many GitHub projects the standard way to propose a change is to create a pull request (PR) and discuss the patch in the PR. For OpenJDK projects the situation is somewhat different. The JDK is used for mission critical applications and by millions of developers, the bar to contributing changes is high. Please follow the steps outlined below to make sure your change passes above the bar before creating a PR.
+
+### 1. Sign the OCA
+
+Oracle is the steward of the OpenJDK project. In order to make your patch available for review you must first sign the [Oracle Contributor Agreement](https://www.oracle.com/technical-resources/oracle-contributor-agreement.html) (OCA). This agreement gives Oracle and you as a contributor joint copyright interests in the code. You will retain your copyright while also granting those rights to Oracle.
+
+When you sign the OCA, please make sure that you specify your GitHub user name in the `Username` field of the OCA. If you try to create a PR before you have signed the OCA, or if you didn't specify your GitHub user name, you'll get instructions telling you to do so, and the PR won't be published until this is done. OCA registration is a manual process. Please allow for up to several days to have your OCA application processed, even though it's normally processed swiftly.
+
+### 2. Socialize your change
+
+Once the OCA is signed, please restrain your urge to create a PR just a little while longer. In order to prepare the community for your patch, please socialize your idea on the relevant [mailing lists](#mailing-lists). Almost all changes, and in particular any API changes, must go this route and have a broad agreement in place before there is any point in presenting code. To understand the criteria by which your patch is going to be judged, please read [_Why is My Change Rejected?_](#why-is-my-change-rejected) below. In short, hidden constraints and assumptions, stability and quality, maintainability, compatibility, and conformance to specifications must be considered before your PR is ready to be submitted. If you don't understand the constraints for acceptance, you might be surprised when your PR is rejected.
+
+### 3. Find a sponsor
+
+Socializing your change on the mailing lists also prevents the surprise that would otherwise make the community choke on their morning coffee when they see a huge patch in a new, unknown PR. As a new developer in the community you'll need to make a few friends that agree with your change. There are many good reasons to make friends, but the one relevant here is that for your first changes you'll need a sponsor to facilitate the integration of your work. The sponsor will perform any number of administrative tasks like JBS updates, additional testing, etc. It's usual for a sponsor to also be a reviewer of a change and thus familiar with it, but it's not a requirement.
+
+### 4. Create a tracking issue in JBS
+
+Many OpenJDK projects require a tracking issue to be filed in the [JDK Bug System (JBS)](https://bugs.openjdk.java.net/) before a change can be pushed. This is the case for instance for the JDK and the JDK-Updates projects. In order to get write access to JBS you need to be an [Author](https://openjdk.java.net/bylaws#author) in an OpenJDK project. For your first changes, ask your sponsor to help you create the issue.
+
+If you continue to contribute high-quality content you'll soon enough be eligible for OpenJDK roles in the project. First Author, and later Committer. The Committer role means you won't need a sponsor anymore. You can read more about [OpenJDK Project Roles](https://openjdk.java.net/bylaws#project-roles).
+
+### 5. Get acquainted with local process
+
+Even though we strive to unify how things are done within the OpenJDK, different areas and projects in the OpenJDK may have slight variations in how they work. Some of these differences are highlighted throughout this guide, some aren't. If you're new to an area, make sure you understand local differences before you proceed. Ask your sponsor who should be your main point of contact through your first developer experience in the OpenJDK.
+
+## Why is my change rejected?
+
+::: {.box}
+[Quick Links]{.boxheader}
+
+* [Java Language and Virtual Machine Specifications](https://docs.oracle.com/javase/specs/)
+* [Java API Specification](https://docs.oracle.com/en/java/javase/15/docs/api/index.html)
+* [CSR Process](https://wiki.openjdk.java.net/display/csr/Main)
+:::
+
+Java and the JDK are very popular products, and just about every Java developer out there has an idea or two for how to enhance something. And (obviously not referring to you) believe it or not, not every idea is a good idea. Even though many ideas are indeed good, we must be quite restrictive on what we actually include into the JDK. There are many reasons for this.
+
+* **Hidden constraints and assumptions**. Many sections of code have constraints and assumptions that aren't necessarily visible at first glance. This might preclude certain changes, even those that might seem obvious.
+
+* **Stability and quality**. The JDK is used by millions of developers and as a widely deployed commercial product, it is held to a high standard of quality. Changes should include tests where practical, and core tests should pass at all times. The value of the change should outweigh the risk of introducing a bug or performance regression.
+
+* **Maintainability**. Any new feature or code change will need to be maintained in the JDK essentially forever, thus imposing a maintenance burden on future maintainers. The code might still be in use long after you and the people who reviewed it have moved on. New maintainers must be able to understand how to fix bugs in this code.
+
+* **Complexity**. Each new feature interacts with all the existing features, which can result in geometric growth of the interactions among features if features are added unchecked. Sometimes we avoid adding a new feature, even if it seems like an obvious thing to add, if that feature would make it difficult to add a more important feature in the future.
+
+* **Adherence to specifications**. Much of the JDK is governed by a series of specifications, in particular the [Java Language Specification](https://docs.oracle.com/javase/specs/), the [Java Virtual Machine Specification](https://docs.oracle.com/javase/specs/), and the [Java API Specification](https://docs.oracle.com/en/java/javase/15/docs/api/index.html) ("javadocs"). All changes must be checked and tested carefully to ensure that they don't violate these specifications.
+
+* **Javadoc comments are specifications**. The Java API Specification is authored in the form of javadoc comments, so even apparently innocuous changes to comments can be quite significant. It's not always easy to tell what comments are part of the specification and what parts are merely code comments. Briefly, documentation comments on public packages, classes, and class members of exported modules are specifications.
+
+* **Specification changes**. It is possible to change the API specifications, and this is done regularly. However, these changes require even more scrutiny than code changes. This extra review is handled by the [CSR Process](https://wiki.openjdk.java.net/display/csr/Main). Specifications are written in stylized, somewhat formal language, and they don't simply describe what the code does. Writing specifications is a separate skill from coding.
+
+* **Compatibility**. Changes should also adhere to high standards of binary, source, and behavioral compatibility. The compatibility impact of apparently innocuous changes is sometimes startling.
+
+For reasons like these it’s quite possible that your change, even though it adds value to you, isn’t deemed to add enough value to the larger community.
+
+# Mailing Lists
+
+::: {.box}
+[Quick Links]{.boxheader}
+
+* [OpenJDK Mailing Lists Manager](https://mail.openjdk.java.net/mailman/listinfo)
+:::
+
+The mailing lists are the key communications mechanism for all OpenJDK work. All participation in an OpenJDK project starts with joining the relevant mailing list. A subscriber to an OpenJDK mailing list is referred to as a [Participant](https://openjdk.java.net/bylaws#participant) in the [Bylaws](https://openjdk.java.net/bylaws). As a general recommendation we suggest to subscribe to [announce](https://mail.openjdk.java.net/mailman/listinfo/announce), [discuss](https://mail.openjdk.java.net/mailman/listinfo/discuss), and the `-dev` lists covering your explicit area of interest. All OpenJDK mailing lists are found here:
+
+> [`mail.openjdk.java.net`](https://mail.openjdk.java.net/mailman/listinfo)
+
+The OpenJDK community is a friendly place. To keep it that way it's important to keep a professional tone in emails and be aware that the community is global. Many different people with different backgrounds collaborate in these lists. Even though English is the required language for all lists, many Participants speak other languages as their native language. A high tolerance for non-perfect English is expected from anyone joining these lists. You're also strongly encouraged to use your real name on the mailing lists. This adds to the professional tone of your email. Postings from anonymized mailboxes risk being seen as spam. If you do work in the OpenJDK on behalf of your employer, please also list this affiliation. If your GitHub username differs from your real name it's also a good idea to include that to identify yourself and your actions on GitHub.
+
+You must be a member of a list to be able to post to that list. Some lists are moderated to keep the content on topic. Each list has its own archive where you can browse older conversations on the list.
+
+There are a few different types of lists. The list name has two parts to explain what the list is intended for, `<name>-<suffix>`. The name often refers to the project that owns the list or a specific area of interest that the list focuses on. The suffix is explained below. Not all projects or areas have all types of lists described here.
+
+> `-dev`
+> :    Technical discussions around the implementation of the project artifacts. This is also where code reviews happen.
+
+> `-use`
+> :    Technical discussions around the usage of the project artifacts.
+
+> `-discuss`
+> :    General discussions around the project. The special case `discuss(at)openjdk.java.net` is used for general discussions around the OpenJDK project. Discussions around new project proposals usually happens here.
+
+>  `-changes`
+> :    Changeset notifications from the source code repositories maintained by the project.
+
+> `-announce`
+> :    General project announcements. These lists are tightly moderated and are expected to be low traffic. The special case `announce(at)openjdk.java.net` is used for announcements for the OpenJDK project.
+
+> `-experts`
+> :    Expert group discussions. The list is restricted; only members of the expert group can subscribe.
+
+> `-observers`
+> :    Open for anyone to subscribe to see what the experts are discussing and potentially to have some dialog with other non-experts. There is no guarantee that an expert is subscribed to the `-observers` list or will see any responses on that list.
+
+> `-comments`
+> :    Used by observers to directly provide feedback/comments to the experts (typically a lead will process the comments list and forward things on to the experts list).
+
+## Changing your email address
+
+If you need to change your registered email address, or if you have any other problems with the mailing lists, please contact [mailman@openjdk.java.net](mailto:mailman@openjdk.java.net).
+
 # Repositories
 
 This section describes the OpenJDK repository terminology and naming scheme. It also includes minimal instructions to acquire source from the OpenJDK repository, [`https://hg.openjdk.java.net/`](https://hg.openjdk.java.net/).
@@ -173,52 +285,6 @@ If the source for the Project is contained within a single repository or reading
     $ du -s langtools
     84396   langtools
 
-# Mailing Lists
-
-::: {.box}
-[Quick Links]{.boxheader}
-
-* [OpenJDK Mailing Lists Manager](https://mail.openjdk.java.net/mailman/listinfo)
-:::
-
-The mailing lists are the key communications mechanism for all OpenJDK work. All participation in an OpenJDK project starts with joining the relevant mailing list. A subscriber to an OpenJDK mailing list is referred to as a [Participant](https://openjdk.java.net/bylaws#participant) in the [Bylaws](https://openjdk.java.net/bylaws). As a general recommendation we suggest to subscribe to [announce](https://mail.openjdk.java.net/mailman/listinfo/announce), [discuss](https://mail.openjdk.java.net/mailman/listinfo/discuss), and the `-dev` lists covering your explicit area of interest. All OpenJDK mailing lists are found here:
-
-> [`mail.openjdk.java.net`](https://mail.openjdk.java.net/mailman/listinfo)
-
-The OpenJDK community is a friendly place. To keep it that way it's important to keep a professional tone in emails and be aware that the community is global. Many different people with different backgrounds collaborate in these lists. Even though English is the required language for all lists, many Participants speak other languages as their native language. A high tolerance for non-perfect English is expected from anyone joining these lists.
-
-You must be in the list to send to the list. Some lists are moderated to keep the content on topic. Each list has its own archive where you can browse older conversations on the list.
-
-There are a few different types of lists. The list name has two parts to explain what the list is intended for, `<name>-<suffix>`. The name often refers to the project that owns the list or a specific area of interest that the list focuses on. The suffix is explained below. Not all projects or areas have all types of lists described here.
-
-> `-dev`
-> :    Technical discussions around the implementation of the project artifacts. This is also where code reviews happen.
-
-> `-use`
-> :    Technical discussions around the usage of the project artifacts.
-
-> `-discuss`
-> :    General discussions around the project. The special case `discuss(at)openjdk.java.net` is used for general discussions around the OpenJDK project. Discussions around new project proposals usually happens here.
-
->  `-changes`
-> :    Changeset notifications from the source code repositories maintained by the project.
-
-> `-announce`
-> :    General project announcements. These lists are tightly moderated and are expected to be low traffic. The special case `announce(at)openjdk.java.net` is used for announcements for the OpenJDK project.
-
-> `-experts`
-> :    Expert group discussions. The list is restricted; only members of the expert group can subscribe.
-
-> `-observers`
-> :    Open for anyone to subscribe to see what the experts are discussing and potentially to have some dialog with other non-experts. There is no guarantee that an expert is subscribed to the `-observers` list or will see any responses on that list.
-
-> `-comments`
-> :    Used by observers to directly provide feedback/comments to the experts (typically a lead will process the comments list and forward things on to the experts list).
-
-## Changing your email address
-
-If you need to change your registered email address, or if you have any other problems with the mailing lists, please contact [mailman@openjdk.java.net](mailto:mailman@openjdk.java.net).
-
 # Code Conventions
 
 ::: {.box}
@@ -228,11 +294,569 @@ If you need to change your registered email address, or if you have any other pr
 * [HotSpot C++ Code Conventions](https://github.com/openjdk/jdk/blob/master/doc/hotspot-style.md)
 :::
 
-# Change Planning and Guidelines
+# JBS - JDK Bug System
 
-This section describes the development process of identifying a bug or enhancement (formerly "Request for Enhancement" (RFE)) and providing a solution. The instructions assume that the [Contributor](https://openjdk.java.net/bylaws#contributor) already has a working build environment and has some familiarity with an existing OpenJDK [Project](https://openjdk.java.net/bylaws#project) and its repositories.
+::: {.box}
+[Quick Links]{.boxheader}
 
-## Fixing a Bug
+* [Bug Report Tool](https://bugreport.java.com/)
+* [JDK Bug System (JBS)](https://bugs.openjdk.java.net/)
+:::
+
+[JBS](https://bugs.openjdk.java.net/) is an issue tracker used by many OpenJDK projects.
+
+## Filing a Bug
+
+When a new failure is found in the JDK a bug should be filed to describe and track the issue. Depending on your role in the OpenJDK you can either use the [Bug Report Tool](https://bugreport.java.com/) or, if you are [Author](https://openjdk.java.net/bylaws#author) in an OpenJDK [Project](https://openjdk.java.net/bylaws#project), report the bug directly in the [JDK Bug System](https://bugs.openjdk.java.net/). Try to make the bug report as complete as possible to make it easier to triage and investigate the bug.
+
+It's not the reporter's responsibility to set a correct priority, but a qualified guess is always better than a default value. To help with setting the right priority consider things like how the bug impacts the product and our testing, how likely is it that the bug triggers, how difficult is it to work around the bug if it's not fixed soon, and whether it's a recent regression, since that may break existing applications. Regressions are often higher priority than long standing bugs and may block a release if not fixed.
+
+A few things to keep in mind when filing a new bug:
+
+* Before filing a bug, verify that there isn't already a bug filed for this issue.
+* If you suspect that the bug is a vulnerability, don't file a JBS issue. Instead send your bugreport to [vuln-dev@openjdk.java.net](mailto:vuln-dev@openjdk.java.net)
+* Make a reasonable attempt to narrow down which build or release the failure first appeared in.
+* Add relevant labels like [`intermittent`](#intermittent), [`regression`](#regression), [`noreg-self`](#noreg-self), ['tier1'](#tier) etc.
+* Set affects version to the JDK version(s) where the failure was seen.
+  * If the failure is found in an update train of the JDK (e.g. 11.0.x), please make an effort to see if the bug is also present in [mainline](https://hg.openjdk.java.net/jdk/jdk/).
+* Set priority (see above)
+* In the description, always include (if possible):
+  * full name of the failing tests
+  * error messages
+  * assert messages
+  * stack trace
+  * command line information
+  * relevant information from the logs
+* If the failure is not reproducible with an existing OpenJDK test, attach a reproducer if possible.
+* Only set CPU and/or OS fields if the bug **ONLY** happens on that particular platform.
+* Always file separate bugs for different issues.
+  * If two crashes looks related but not similar enough to for sure be the same, it is easier to close a bug as a duplicate than it is to extract the relevant info from a bug to create a new one later.
+
+To find out which component to use for different bugs, consult the [directory to area mapping](#directory-to-area-mapping).
+
+## How to fix an incorrect backport creation
+
+If a main bug is targeted to a release and the fix is pushed to a different release, then a backport bug is automatically created. Usually this is a "good thing", e.g., when you are backporting a fix to an earlier release, but not always... If the main bug is targeted to a later release (due to schedule planning), but someone finds the time to fix that bug in the current release, then the bug should be retargeted to the current release before pushing the fix. However, sometimes we forget to do that.
+
+Here is how to fix that:
+
+> ---
+> In this example a fix was pushed to JDK N (a.k.a. the current release) while the JBS bug was targeted to JDK N+1 (a.k.a. a future release).
+
+> ---
+
+#. Reopen the _backport_ bug that was created automatically
+   * Use a comment like the following (in the reopen dialog):
+~~~
+Fix was pushed while main bug was targeted to 'N+1'. Reset the main bug to fixed in 'N', reset this bug to fix in 'N+1' and closed as 'Not An Issue' since JDK N+1 will automatically get this fix from JDK N.
+~~~
+   * Change the 'Fix Version/s' from 'N' to 'N+1'.
+   * Close the _backport_ bug as "Not an Issue".
+#. Clean up the _main_ bug
+   * Copy the open push notification comment from the _backport_ bug to the _main_ bug, e.g.:
+~~~
+Changeset: 12345678
+Author: Duke <duke@openjdk.org>
+Date: 2020-10-23 15:37:46 +0000
+URL: https://git.openjdk.java.net/jdk/commit/12345678
+~~~
+   * Add a comment like the following to the _main_ bug:
+~~~
+Fix was pushed while main bug was targeted to 'N+1'. Reset the main bug to fixed in 'N' and copied the Robo Duke entry here.
+~~~
+   * Reset the _main_ bug 'Fix Version/s' from 'N+1' to 'N'.
+   * Resolve the _main_ bug as "Fixed" in build "team" or in build "master" depending on where the fix was pushed. Pushes to 'openjdk/jdk' are fixed in build "master" and pushes to project repositories are fixed in build "team".
+
+## Resolved - Incomplete
+
+To resolve an issue as `Incomplete` is JBS lingo for "Need More Information". An issue that is `Resolved - Incomplete` is *not* closed but more information is needed to be able to work on it. If no more information is obtained within reasonable time the issue should be closed (`Closed - Incomplete`). Closing a resolved issue is done using the `Verify` option.
+
+## JBS Label Dictionary
+
+This table contains some frequently used JBS labels and their meaning. Please help keeping this dictionary up to date by adding your favorite labels. This table doesn’t dictate how to use labels, but rather document how they are used. That said, obviously it will help everyone if we try to follow a common standard and use similar labels in the same way across all entities that use JBS.
+
+Labels are an open namespace, which means that anyone can create new labels at any time. In order to avoid confusion, however, it's best to reuse existing labels where possible. This can be done by editing the "labels" field of a bug and entering the first few characters of the label you want to add. JIRA will pop up an autocomplete window with existing labels that match that prefix. Then choose one of the existing labels. Using the autocomplete window is preferable to typing the whole label name (even if you're a good typist) because it's easy for minor spelling errors to creep in, which can inadvertently introduce multiple labels with spurious spelling variations.
+
+> ---
+> ### Labels are case sensitive
+> When using labels in Jira gadgets (like pie charts, heat maps, and statistics tables) Jira will be case sensitive and treat e.g. OpenJDK and openjdk as two different labels. Searching however is case insensitive. This means that if you group a set of issues in a gadget based on a label, and then click one of the groups to see the list of issues, that list will contain more results than the gadget if there are usages of the label with different casing. This can be very confusing and for this reason the recommendation is to stick with the commonly used case for all labels, regardless of your personal taste for upper or lower case letters. Most labels are lower case only, but there are examples where upper case letters are used in the most common version of a label. Use of the autocomplete popup window (described above) when adding labels will avoid inadvertent introduction of labels with differing case.
+
+> ---
+
+<table class="dictionary">
+  <tr style="text-align:left;"><th>Label</th><th>Description</th></tr>
+  <tr>
+    <td class="dictionary">
+      [*(Area)***`-interest`**]{#area-interest}
+    </td>
+    <td class="dictionary">
+      Used to indicate that an area (usually a team or project) is interested in the issue. This label doesn't indicate ownership of the issue. E.g., **`redhat-interest`**, **`azul-interest`**, **`coin-interest`**
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [*(Area)***`-related`**]{#area-related}
+    </td>
+    <td class="dictionary">
+      Used to indicate that an issue is related to a specific area (usually a feature or project). This label doesn't indicate ownership of the issue. E.g., **`graal-related`**, **`testcolo-related`**, **`doc-related`**
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [*(Rel)***`-bp`**]{#rel-bp}
+    </td>
+    <td class="dictionary">
+      Used to indicate that a bug would be suitable for backport to a release *(Rel)*. This is not a decision to backport, just a suggestion / recommendation. E.g., **`11-bp`**
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [*(Rel)***`-critical-request`**]{#rel-critical-request}<br>
+      [*(Rel)***`-critical-approved`**]{#rel-critical-approved}<br>
+      [*(Rel)***`-critical-watch`**]{#rel-critical-watch}
+    </td>
+    <td class="dictionary">
+      Used in the rampdown phases of specific releases to request approval of changes that requires project lead approval (or similar) to be included. *(Rel)* is the release in question. E.g., **`jdk11-critical-request`**
+
+      *(Rel)***`-critical-approved`** is used to signal that the change has been approved for inclusion. E.g., **`jdk11-critical-approved`**<br>
+      *(Rel)***`-critical-watch`** is used for issues that must get into a specific release but risk running late. The label is used while the issue is still in progress and is replaced with *(Rel)***`-critical-request`** once the issue is resolved. E.g., **`jdk11-critical-watch`**
+
+      These labels are always placed on the main JBS issue (the bug), never on backports or subtasks.
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [*(Rel)***`-defer-request`**]{#rel-defer-request}<br>
+      [*(Rel)***`-defer-yes`**]{#rel-defer-yes}<br>
+      [*(Rel)***`-defer-no`**]{#rel-defer-no}
+    </td>
+    <td class="dictionary">
+      Used to request deferral of changes that requires project lead approval (or similar) to defer. *(Rel)* is the release in question. E.g., **`jdk12-defer-request`**
+
+      *(Rel)***`-defer-yes`** and *(Rel)***`-defer-no`** are used to indicate wether the deferral has been approved or not. E.g., **`jdk12-defer-yes`**
+
+      These labels are always placed on the main JBS issue (the bug), never on backports or subtasks.
+      Further details are found in the [JDK Release Process](https://openjdk.java.net/jeps/3#Bug-Deferral-Process).
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [*(Rel)***`-enhancement-request`**]{#rel-enhancement-request}<br>
+      [*(Rel)***`-enhancement-yes`**]{#rel-enhancement-yes}<br>
+      [*(Rel)***`-enhancement-no`**]{#rel-enhancement-no}
+    </td>
+    <td class="dictionary">
+      Used in the rampdown phases to request the late inclusion of an enhancement. *(Rel)* is the release in question. E.g., **`jdk10-enhancement-request`**
+
+      *(Rel)***`-enhancement-yes`** and *(Rel)***`-enhancement-no`** are used to indicate the response on the request. E.g., **`jdk10-enhancement-yes`**, **`jdk10-enhancement-no`**
+
+      These labels are always placed on the main JBS issue (the bug), never on backports or subtasks.
+      Further details are found in the [JDK Release Process](http://openjdk.java.net/jeps/3#Late-Enhancement-Request-Process).
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [*(Rel)***`-fix-request`**]{#rel-fix-request}<br>
+      [*(Rel)***`-fix-SQE-ok`**]{#rel-fix-SQE-ok}<br>
+      [*(Rel)***`-fix-yes`**]{#rel-fix-yes}<br>
+      [*(Rel)***`-fix-no`**]{#rel-fix-no}
+    </td>
+    <td class="dictionary">
+      Used in rampdown phase 2 to indicate that an issue would be of interest to get integrated into release *(Rel)*. E.g., **`jdk12u-fix-request`**
+
+      *(Rel)***`-fix-SQE-ok`** is used to indicate that the issue will be covered by the test plan for *(Rel)*. E.g., **`jdk12u-fix-SQE-ok`**<br>
+      *(Rel)***`-fix-yes`** and *(Rel)***`-fix-no`** are used to indicate wether an issue has been approved for backport to *(Rel)*. E.g., **`jdk12u-fix-yes`**
+
+      These labels are always placed on the main JBS issue (the bug), never on backports or subtasks.
+      Further details are found in the [JDK Release Process](http://openjdk.java.net/jeps/3#Fix-Request-Process).
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [*(Rel)***`-na`**]{#rel-na}
+    </td>
+    <td class="dictionary">
+      Used to indicate that the issue does not affect release *(Rel)* or later. Could for instance be a bug in code that was removed in *(Rel)*.
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [*(Team)***`-triage-`***(Rel)*]{#team-triage-rel}
+    </td>
+    <td class="dictionary">
+      Used to indicate that *(Team)* has triaged this issue for release *(Rel)*. It's encouraged that all open bugs are triaged on a regular basis so that old bugs aren't forgotten. It's therefore common to see several triage labels on the same issue which helps keeping track of which bugs has been triaged for each release. E.g., **`oracle-triage-13`**
+
+      There are many label variants that include the word triage in some form. The form described above is the only one recommended. Please refrain from using other forms.
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [**`aot`**]{#aot}
+    </td>
+    <td class="dictionary">
+      Used to indicate that an issue is related to Ahead of Time Compilation.
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+     [~~**`appcds`**~~]{#appcds}
+    </td>
+    <td class="dictionary">
+      **Deprecated.** Was used to indicate that an issue was related to Application Class-Data Sharing. The **`cds`** label is now used instead.
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [**`c1`**]{#c1}
+    </td>
+    <td class="dictionary">
+      Used to indicate that an issue is related to the C1 JIT compiler.
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [**`c2`**]{#c2}<br>
+      **`c2-`**`.*`
+    </td>
+    <td class="dictionary">
+      Used to indicate that an issue is related to the C2 JIT compiler.
+
+      **`c2-`**`.*` labels are used to identify different c2 features. E.g., **`c2-intrinsic`**, **`c2-loopopts`**
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [**`cds`**]{#cds}
+    </td>
+    <td class="dictionary">
+      Used to indicate that an issue is related to Class Data Sharing.
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [**`cleanup`**]{#cleanup}
+    </td>
+    <td class="dictionary">
+      The **`cleanup`** label is used to indicate enhancements which has no semantic changes, whose only purpose is to make the code more maintainable or better looking.
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [**`docker`**]{#docker}
+    </td>
+    <td class="dictionary">
+      Used to indicate that an issue is related to docker support.
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [**`gc-`**`.*`]{#gc}
+    </td>
+    <td class="dictionary">
+      Used to indicate that an issue is related to a specific garbage collector in the JVM. E.g., **`gc-g1`**, **`gc-shenandoah`**, **`gc-serial`**, **`gc-epsilon`**
+
+      There are also labels in use to identify different GC features or areas rather than GC algorithms. E.g., **`gc-g1-fullgc`**, **`gc-largeheap`**, **`gc-performance`**
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [**`graal`**]{#graal}
+    </td>
+    <td class="dictionary">
+      Used to indicate that this is a Graal issue. (Something that needs to be fixed in Graal rather than in OpenJDK.)
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [**`graal-integration`**]{#graal-integration}
+    </td>
+    <td class="dictionary">
+      Reserved for Graal integration umbrella bugs. The automated integration script will break if this label is used for other bugs.
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [**`hgupdate-sync`**]{#hgupdate-sync}
+    </td>
+    <td class="dictionary">
+      Used to identify backport issues automatically created by HG Updater (a script that monitors the hg repositories for changes).
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [~~**`hs-nightly`**~~]{#hs-nightly}
+    </td>
+    <td class="dictionary">
+      **Deprecated.** Was used to tag bugs found in the HotSpot nightly testing. Since we are now running tiered testing there is no more nightly HotSpot testing. See **`tier`**`[1-8]`.
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [**`hs-sbr`**]{#hs-sbr}
+    </td>
+    <td class="dictionary">
+      Used to tag bugs that are found in the "same binary runs", a stress testing method used to find intermittent failures.
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [~~**`hs-tier`**~~~~`[1-8]`~~]{#hs-tier}
+    </td>
+    <td class="dictionary">
+      **Deprecated.** Was used to identify which HotSpot tier a test failure was seen in. We don't separate HotSpot tiers from the JDK tiers anymore. See **`tier`**`[1-8]`.
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [**`i18n`**]{#i18n}
+    </td>
+    <td class="dictionary">
+      Used to indicate that an issue is related to internationalization.
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [**`integration-blocker`**]{#integration-blocker}
+    </td>
+    <td class="dictionary">
+      Used to indicate that a bug is present in a downstream repository but not present in the upstream repository and is therefore blocking integration of downstream changes into upstream.
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [**`intermittent`**]{#intermittent}<br>
+      [**`intermittent-environment`**]{#intermittent-environment}<br>
+      [**`intermittent-hardware`**]{#intermittent-hardware}
+    </td>
+    <td class="dictionary">
+      An intermittent issue is one that fails sometimes but not always. The exact reason for the intermittent failure is per definition unknown. Once the reason has been identified the issue is no more considered intermittent. An issue isn't intermittent if some characteristics has been found that triggers the failure consistently, even if the actual cause for the failure has not been found. For instance if a test fails every time it is executed on a specific host but not on other hosts it wouldn't be considered intermittent as it fails consistently on that specific host. In other cases it may be that we know that a test sometimes is unlucky in some respect and fails due to this. This test could still be considered intermittent even though we know what the reason is if the reason itself appears intermittently.
+
+      Some issues may seem intermittent when looking at test results, even though the reason for failing is actually known. One example is where a test fails consistently on a specific host, or due to specific conditions in the environment. These failures should not be considered intermittent but it may still be valuable to tag these in JBS with one of the labels **`intermittent-hardware`** or **`intermittent-environment`**. This will help to faster identify that the cause of the failure is known without having to read through the entire bug.
+
+      A test that should be platform agnostic but is consistently failing on a specific OS would for instance be labeled with **`intermittent-environment`**, while a test that fails every time it is run on some specific hardware would be labeled with **`intermittent-hardware`**.
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [**`maintainer-pain`**]{#}
+    </td>
+    <td class="dictionary">
+Used to tag bugs that for some reason is wasting time or in other ways are causing pain for the OpenJDK maintainers. Examples of issues that could be considered a pain:
+
+* A bug that occurs frequently in testing, maybe on a specific platform, maybe specific to one vendor's test infrastructure, and requires that many maintainers investigate the failure in different test runs just to realize it's the same issue as has been seen and reported before, or worse, don't realize it's a known issue and file a duplicate bug in JBS.
+
+* Bugs that cause tests to fail without a proper explanation causing several maintainers to investigate the failures just to realize there is no information to be found.
+
+* An underlying bug that causes several tests to fail intermittently.
+
+* A bug that causes a test failure in a faraway place and the failure isn’t acted on quickly.
+
+There are other cases as well and there is some flexibility in the definition. If you see a problem that is causing pain for a large number of maintainers, add an explanation in the JBS issue to why you think the issue is a pain and add the label.
+
+If you have a **`maintainer-pain`** bug assigned to you please consider fixing it asap. If you chose not to work on the issue, you should at least be aware that you are choosing to waste others' time and people will be affected by this choice.
+
+As with any issue the best way to deal with a **`maintainer-pain`** issue is to fix it. Another way to reduce the noise is to [exclude the failing test](#excluding-a-test). This is a viable option if there is a limited set of tests that are failing and the bug is actively investigated. When excluding a **`maintainer-pain`** issue, remember to move the **`maintainer-pain`** label to the JBS issue used to exclude. Leaving the label on the closed exclude-issue is helpful for tracking purposes.
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [**`noreg-`**`.*`]{#noreg}<br>
+      [**`nounit-`**`.*`]{#nounit}
+    </td>
+    <td class="dictionary">
+      The **`noreg-`**`.*` and **`nounit-`**`.*` labels are used to explain why a bugfix doesn't need/have a regression test or a unit test. The suffix of the label is described below.
+
+[**`-sqe`**]{#noreg-sqe}
+:    Change can be verified by running an existing SQE test suite; the bug should identify the suite and the specific test case(s).
+
+[**`-jck`**]{#noreg-jck}
+:    Change can be verified by running the JCK; the bug should identify the specific test case(s).
+
+[**`-external`**]{#noreg-external}
+:    Change can be verified by running an existing external test suite; the bug should identify the suite and the specific test case(s).
+
+[**`-doc`**]{#noreg-doc}
+:    Change only affects documentation.
+
+[**`-demo`**]{#noreg-demo}
+:    Change only affects demo code.
+
+[**`-build`**]{#noreg-build}
+:    Change only affects build infrastructure (makefiles, copyrights, scripts, etc.).
+
+[**`-self`**]{#noreg-self}
+:    Change is a fix to a regression or unit test itself.
+
+[**`-perf`**]{#noreg-perf}
+:    Change is for a performance bug for which writing a regression test is infeasible; the bug should describe how to verify the fix.
+
+[**`-hard`**]{#noreg-hard}
+:    It is too hard to write a regression or unit test for this bug (e.g., theoretical race condition, complex setup, reboot required, editing of installed files required, specific graphics card required); the bug should explain why.
+
+[**`-long`**]{#noreg-long}
+:    Testing requires a very long running time (e.g., more than a few minutes).
+
+[**`-big`**]{#noreg-big}
+:    Testing requires an unreasonable quantity of resources (e.g., tens of gigabytes of filesystem space).
+
+[**`-trivial`**]{#noreg-trivial}
+:    Change is so trivial that nothing could possibly go wrong with it.
+
+[**`-cleanup`**]{#noreg-cleanup}
+:    Change is a cleanup or refactoring of existing code that is covered by existing tests.
+
+[**`-l10n`**]{#noreg-l10n}
+:    Change only affects localized text.
+
+[**`-undo`**]{#noreg-undo}
+:    Change is a reversion of a previous faulty change.
+
+[**`-other`**]{#noreg-other}
+:    Regression or unit test is unnecessary or infeasible for some other reason; the bug report should explain why.
+
+Examples:  If a bug fix only corrects a change in the build system, then add the **`noreg-build`** label to the corresponding bug. If the change improves loop optimizations in HotSpot, then add **`nounit-perf`** to the corresponding bug.
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [**`performance`**]{#performance}
+    </td>
+    <td class="dictionary">
+      Used to identify a bug with noticeable performance impact. Either positive or negative.
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [~~**`pit`**~~]{#pit}
+    </td>
+    <td class="dictionary">
+      **Deprecated.** Was used to indicate that a failure happened in product integration testing (PIT). Since we are now running tiered testing there is no more PIT. See **`tier`**`[1-8]`.
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [**`problemlist`**]{#problemlist}
+    </td>
+    <td class="dictionary">
+      One or more tests has been problemlisted due to this bug.
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [**`regression`**]{#regression}
+    </td>
+    <td class="dictionary">
+      A regression is a bug that did not exist in the previous release. Ideally all regressions must be fixed in order to release the next major version.
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [**`release-note`**]{#release-note}
+    </td>
+    <td class="dictionary">
+      Used to indicate that the issue is a release note. The release-note issue is a sub-task to the main JBS issue containing the text to be used in the release note. The release note must also have one of the following labels:
+
+[**`RN-NewFeature`**]{#RN-NewFeature}
+:   New Feature or enhancement.
+
+[**`RN-IssueFixed`**]{#RN-IssueFixed}
+:   A significant issue which has been fixed, would normally be a regression or an issue which unknowingly released in a new feature.
+
+[**`RN-KnownIssue`**]{#RN-KnownIssue}
+:   An issue that was not possible to fix by the time the release was GA'd.
+
+[**`RN-Removed`**]{#RN-Removed}
+:   Covers an API, feature, tool etc. which has been removed from the JDK.
+
+[**`RN-Deprecated`**]{#RN-Deprecated}
+:   Covers an API that has been marked as deprecated in the release.
+
+[**`RN-Important`**]{#RN-Important}
+:   Used to indicate that the release note should be highlighted in some fashion, such as listing it at the beginning of the release notes.
+
+[**`RN-`(distro)**]{#RN-distro}
+:   Used to indicate that the release note is only relevant for a specific JDK distribution. E.g. RN-Oracle
+
+[~~**`RN-Change`**~~]{#RN-Change}
+:   Deprecated.
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [**`release-note=yes`**]{#release-note-yes}<br>
+      [**`release-note=no`**]{#release-note-no}<br>
+      [~~**`release-note=done`**~~]{#release-note-done}
+    </td>
+    <td class="dictionary">
+      Used to indicate wether a change requires a release note or not. The labels are always placed on the main JBS issue, never on the actual release note issue.
+
+      **`release-note=done`** is deprecated and should no longer be used.
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [**`starter`**]{#starter}
+    </td>
+    <td class="dictionary">
+      A starter bug is a well contained, small issue that is suitable for someone new to the codebase.
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [**`startup`**]{#startup}
+    </td>
+    <td class="dictionary">
+      Used to identify a bug as affecting Java SE startup performance.
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [**`tck-red-`***(Rel)*]{#tck-red-rel}<br>
+      [~~**`tck-red`**~~]{#tck-red}
+    </td>
+    <td class="dictionary">
+      Used to identify TCK conformance stoppers (e.g. failure of a valid TCK test that exists in a shipped TCK). The release number indicates which release of the TCK that failed. E.g., **`tck-red-11`**
+
+      There are **`tck-red`** labels without the release number out there as well. This usage is deprecated.
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [~~**`test`**~~]{#test}<br>
+      [~~**`test-only`**~~]{#test-only}<br>
+      [~~**`testbug`**~~]{#testbug}
+    </td>
+    <td class="dictionary">
+      The labels **`test`**, **`test-only`**, and **`testbug`** are deprecated and should no longer be used. Use [**`noreg-self`**](#noreg) to indicate that an issue is a bug in test code.
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [**`tier`**`[1-8]`]{#tier}
+    </td>
+    <td class="dictionary">
+      Used to indicate which tier in the jdk/jdk CI pipeline a test failure has been seen in. Lower tiers would in general mean higher urgency to fix the issue. E.g., **`tier1`**, **`tier2`**
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [**`webbug`**]{#webbug}
+    </td>
+    <td class="dictionary">
+      Used to identify a bug as submitted on [bugs.java.com](https://bugs.java.com/bugdatabase/).
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [**`zgc`**]{#zgc}
+    </td>
+    <td class="dictionary">
+      Used to indicate that an issue is related to ZGC.
+    </td>
+  </tr>
+</table>
+
+# Fixing a Bug
 
 This is the list of steps which should be performed when fixing a small bug. Small bugs include typos in code or specification, algorithm improvements for correctness or performance, and code changes required to correctly implement the specification.
 
@@ -348,7 +972,7 @@ For the purposes of brevity this document will use the term "bug" to refer to bo
 
 _Congratulations!_ Your changeset will now make its way towards a promoted build. When the changeset becomes part of a promoted build, the bug's "Resolved in Build" will have a value of \"b\[1-9\]\[0-9\]&ast;\" to indicate the build number.
 
-# Testing Changes
+# Testing the JDK
 
 ::: {.box}
 [Quick Links]{.boxheader}
@@ -490,6 +1114,114 @@ You can also use a regular expression to filter which tests to run:
     make test TEST=gtest:$X/$variant
 
 The second example above runs tests which match the regexp `$X.*` on a specific variant of the JVM. The variant is one of client, server, etc.
+
+## Excluding a Test
+
+Sometimes tests break. It could be e.g. due to bugs in the test itself, due to changed functionality in the code that the test is testing, or changes in the environment where the test is executed. While working on a fix, it can be useful to stop the test from being executed in everyone else's testing to reduce noise, especially if the test is expected to fail for more than a day. There are two ways to stop a test from being run in standard test runs: ProblemListing and using the `@ignore` keyword. Removing tests isn't the standard way to remove a failure. A failing test is often a regression and should ideally be handled with high urgency.
+
+I'll say it right away so that it's not forgotten at the end: Remember to remove the JBS id from the ProblemList or the test when the bug is closed. This is especially easy to forget if a bug is closed as a duplicate or 'Will Not Fix'. jcheck will report an error and prohibit a push if a PR is created for an issue that is found in a ProblemList if the fix doesn't remove the bug ID from the ProblemList.
+
+### ProblemListing jtreg tests
+
+ProblemListing should be used for a short term exclusion while a test is being fixed, and for the exclusion of intermittently failing tests that cause too much noise, but can still be useful to run on an ad-hoc basis. ProblemListing is done in the file `ProblemList.txt`. There are actually several ProblemList files to choose from. Their location and name hint about what area or feature each file belongs to. Each file has sections for different components. All ProblemList files complement each other to build the total set of tests to exclude in JTReg runs.
+
+~~~
+test/hotspot/jtreg/ProblemList.txt
+test/hotspot/jtreg/ProblemList-aot.txt
+test/hotspot/jtreg/ProblemList-graal.txt
+test/hotspot/jtreg/ProblemList-non-cds-mode.txt
+test/hotspot/jtreg/ProblemList-Xcomp.txt
+test/hotspot/jtreg/ProblemList-zgc.txt
+test/jaxp/ProblemList.txt
+test/jdk/ProblemList.txt
+test/jdk/ProblemList-aot.txt
+test/jdk/ProblemList-graal.txt
+test/jdk/ProblemList-Xcomp.txt
+test/langtools/ProblemList.txt
+test/langtools/ProblemList-graal.txt
+test/lib-test/ProblemList.txt
+~~~
+
+Use the suitable ProblemList and add a line like this in the proper section:
+
+~~~
+foo/bar/MyTest.java                        4711   windows-all
+~~~
+
+In this example, `MyTest.java` is ProblemListed on windows, tracked by bug `JDK-4711`.
+
+Currently there's [no support for multiple lines for the same test](https://bugs.openjdk.java.net/browse/CODETOOLS-7902481). For this reason it's important to always make sure there's no existing entry for the test before adding a new one, as multiple entries might lead to unexpected results, e.g.
+
+~~~
+foo/bar/MyTest.java                        4710   generic-all
+...
+foo/bar/MyTest.java                        4711   windows-all
+~~~
+
+This would lead to `sun.tools.jcmd.MyTest.java` being ProblemListed only on `windows-all`. The proper way to write this is:
+
+~~~
+foo/bar/MyTest.java                        4710,4711   generic-all,windows-all
+~~~
+
+Although `windows-all` isn't strictly required in this example, it's preferable to specify platforms for each bugid (unless they are all `generic-all`), this makes it easier to remove one of the bugs from the list.
+
+#### ProblemListing some, but not all, test cases in a file
+
+Some tests contain several test cases and there may be a need to ProblemList only a few of them. To do this use the full test name, i.e. `<filename> + # + <test case id>`, where test case id can be specified in the test header. If no id is specified each test case can be referenced with `id` + ordinary number of the test case in the test file.
+
+Let's assume we have four test cases in `foo/bar/MyTest.java`:
+
+~~~
+/* @test */
+/* @test id=fancy_name */
+/* @test */
+/* @test */
+~~~
+
+A ProblemList entry that excludes the first, second, and third test case would look like this:
+
+~~~
+foo/bar/MyTest.java#id0          4720  generic-all
+foo/bar/MyTest.java#fancy_name   4721  generic-all
+foo/bar/MyTest.java#id2          4722  generic-all
+~~~
+
+Due to an issue described in [CODETOOLS-7902712](https://bugs.openjdk.java.net/browse/CODETOOLS-7902712) tests that contains more than one `@test` must actually use this way to specify all test cases if all of them should be ProblemListed. Specifying just the test name will not work.
+
+#### Running ProblemListed tests
+
+To run ad-hoc runs of ProblemListed tests use `RUN_PROBLEM_LISTS=true`.
+
+~~~
+make test TEST=... JTREG=RUN_PROBLEM_LISTS=true
+~~~
+
+### Exclude jtreg tests using `@ignore`
+
+The `@ignore` keyword is used in the test source code. This is mainly used for tests that are so broken that they may be harmful or useless, and is less common than ProblemListing. Examples can be tests that don't compile because something changed in the platform; or a test which might remove your `/etc/shadow`. Use `@ignore` with a bug reference in the test case to prevent the test from being run.
+
+~~~java
+/**
+ *  @test
+ *  @ignore 4711
+ *
+~~~
+
+In this example, `MyTest.java` is excluded, tracked by bug `JDK-4711`. `@ignore` should always be placed directly before the first `@run` line in the test.
+
+### Dealing with JBS bugs for test exclusion
+
+ProblemListing and `@ignore`-ing are done in the JDK source tree, that means a check-in into the repository is needed. This in turn means that a unique JBS issue and a code review are needed. This is a good thing since it makes test problems visible.
+
+* **Code review**: ProblemListing a test is considered a [trivial](#trivial) change.
+* **JBS issue**: A JBS issue is obviously created for the bug that caused the failure, we call this the _main issue_. To exclude the test, create a subtask to the main issue. Also add the label [`problemlist`](#problemlist) to the main issue.
+
+The fix for the main issue should remove the test from the ProblemList or remove the `@ignore` keyword from the test.
+
+#### Triage excluded issues
+
+After a failure is handled by excluding a test, the main JBS issue should be re-triaged and possibly given a new priority. This should be handled by the standard triage process. A test exclusion results in an outage in our testing. This outage should be taken into consideration when triaging, in addition to the impact of the bug itself.
 
 # Producing a Changeset
 
@@ -777,154 +1509,6 @@ After the push has been accepted, an automatic e-mail notification will be sent 
 
 > ---
 
-# What Happens Next
-
-::: {.box}
-[Quick Links]{.boxheader}
-
-* [Bug Report Tool](https://bugreport.java.com/)
-* [JDK Bug System (JBS)](https://bugs.openjdk.java.net/)
-:::
-
-This section describes what might happen after a changeset gets into the build, for example a bug might be filed or a backport could be requested.
-
-## Filing a Bug
-
-When a new failure is found in the JDK a bug should be filed to describe and track the issue. Depending on your role in the OpenJDK you can either use the [Bug Report Tool](https://bugreport.java.com/) or, if you are [Author](https://openjdk.java.net/bylaws#author) in an OpenJDK [Project](https://openjdk.java.net/bylaws#project), report the bug directly in the [JDK Bug System](https://bugs.openjdk.java.net/). Try to make the bug report as complete as possible to make it easier to triage and investigate the bug.
-
-It's not the reporter's responsibility to set a correct priority, but a qualified guess is always better than a default value. To help with setting the right priority consider things like how the bug impacts the product and our testing, how likely is it that the bug triggers, how difficult is it to work around the bug if it's not fixed soon, and whether it's a recent regression, since that may break existing applications. Regressions are often higher priority than long standing bugs and may block a release if not fixed.
-
-A few things to keep in mind when filing a new bug:
-
-* Before filing a bug, verify that there isn't already a bug filed for this issue.
-* If you suspect that the bug is a vulnerability, don't file a JBS issue. Instead send your bugreport to [vuln-dev@openjdk.java.net](mailto:vuln-dev@openjdk.java.net)
-* Make a reasonable attempt to narrow down which build or release the failure first appeared in.
-* Add relevant labels like [`intermittent`](#intermittent), [`regression`](#regression), [`noreg-self`](#noreg-self), ['tier1'](#tier) etc.
-* Set affects version to the JDK version(s) where the failure was seen.
-  * If the failure is found in an update train of the JDK (e.g. 11.0.x), please make an effort to see if the bug is also present in [mainline](https://hg.openjdk.java.net/jdk/jdk/).
-* Set priority (see above)
-* In the description, always include (if possible):
-  * full name of the failing tests
-  * error messages
-  * assert messages
-  * stack trace
-  * command line information
-  * relevant information from the logs
-* If the failure is not reproducible with an existing OpenJDK test, attach a reproducer if possible.
-* Only set CPU and/or OS fields if the bug **ONLY** happens on that particular platform.
-* Always file separate bugs for different issues.
-  * If two crashes looks related but not similar enough to for sure be the same, it is easier to close a bug as a duplicate than it is to extract the relevant info from a bug to create a new one later.
-
-To find out which component to use for different bugs, consult the [directory to area mapping](#directory-to-area-mapping).
-
-## Excluding a Test
-
-Sometimes tests break. It could be e.g. due to bugs in the test itself, due to changed functionality in the code that the test is testing, or changes in the environment where the test is executed. While working on a fix, it can be useful to stop the test from being executed in everyone else's testing to reduce noise, especially if the test is expected to fail for more than a day. There are two ways to stop a test from being run in standard test runs: ProblemListing and using the `@ignore` keyword. Removing tests isn't the standard way to remove a failure. A failing test is often a regression and should ideally be handled with high urgency.
-
-I'll say it right away so that it's not forgotten at the end: Remember to remove the JBS id from the ProblemList or the test when the bug is closed. This is especially easy to forget if a bug is closed as a duplicate or 'Will Not Fix'. jcheck will report an error and prohibit a push if a PR is created for an issue that is found in a ProblemList if the fix doesn't remove the bug ID from the ProblemList.
-
-### ProblemListing jtreg tests
-
-ProblemListing should be used for a short term exclusion while a test is being fixed, and for the exclusion of intermittently failing tests that cause too much noise, but can still be useful to run on an ad-hoc basis. ProblemListing is done in the file `ProblemList.txt`. There are actually several ProblemList files to choose from. Their location and name hint about what area or feature each file belongs to. Each file has sections for different components. All ProblemList files complement each other to build the total set of tests to exclude in JTReg runs.
-
-~~~
-test/hotspot/jtreg/ProblemList.txt
-test/hotspot/jtreg/ProblemList-aot.txt
-test/hotspot/jtreg/ProblemList-graal.txt
-test/hotspot/jtreg/ProblemList-non-cds-mode.txt
-test/hotspot/jtreg/ProblemList-Xcomp.txt
-test/hotspot/jtreg/ProblemList-zgc.txt
-test/jaxp/ProblemList.txt
-test/jdk/ProblemList.txt
-test/jdk/ProblemList-aot.txt
-test/jdk/ProblemList-graal.txt
-test/jdk/ProblemList-Xcomp.txt
-test/langtools/ProblemList.txt
-test/langtools/ProblemList-graal.txt
-test/lib-test/ProblemList.txt
-~~~
-
-Use the suitable ProblemList and add a line like this in the proper section:
-
-~~~
-foo/bar/MyTest.java                        4711   windows-all
-~~~
-
-In this example, `MyTest.java` is ProblemListed on windows, tracked by bug `JDK-4711`.
-
-Currently there's [no support for multiple lines for the same test](https://bugs.openjdk.java.net/browse/CODETOOLS-7902481). For this reason it's important to always make sure there's no existing entry for the test before adding a new one, as multiple entries might lead to unexpected results, e.g.
-
-~~~
-foo/bar/MyTest.java                        4710   generic-all
-...
-foo/bar/MyTest.java                        4711   windows-all
-~~~
-
-This would lead to `sun.tools.jcmd.MyTest.java` being ProblemListed only on `windows-all`. The proper way to write this is:
-
-~~~
-foo/bar/MyTest.java                        4710,4711   generic-all,windows-all
-~~~
-
-Although `windows-all` isn't strictly required in this example, it's preferable to specify platforms for each bugid (unless they are all `generic-all`), this makes it easier to remove one of the bugs from the list.
-
-#### ProblemListing some, but not all, test cases in a file
-
-Some tests contain several test cases and there may be a need to ProblemList only a few of them. To do this use the full test name, i.e. `<filename> + # + <test case id>`, where test case id can be specified in the test header. If no id is specified each test case can be referenced with `id` + ordinary number of the test case in the test file.
-
-Let's assume we have four test cases in `foo/bar/MyTest.java`:
-
-~~~
-/* @test */
-/* @test id=fancy_name */
-/* @test */
-/* @test */
-~~~
-
-A ProblemList entry that excludes the first, second, and third test case would look like this:
-
-~~~
-foo/bar/MyTest.java#id0          4720  generic-all
-foo/bar/MyTest.java#fancy_name   4721  generic-all
-foo/bar/MyTest.java#id2          4722  generic-all
-~~~
-
-Due to an issue described in [CODETOOLS-7902712](https://bugs.openjdk.java.net/browse/CODETOOLS-7902712) tests that contains more than one `@test` must actually use this way to specify all test cases if all of them should be ProblemListed. Specifying just the test name will not work.
-
-#### Running ProblemListed tests
-
-To run ad-hoc runs of ProblemListed tests use `RUN_PROBLEM_LISTS=true`.
-
-~~~
-make test TEST=... JTREG=RUN_PROBLEM_LISTS=true
-~~~
-
-### Exclude jtreg tests using `@ignore`
-
-The `@ignore` keyword is used in the test source code. This is mainly used for tests that are so broken that they may be harmful or useless, and is less common than ProblemListing. Examples can be tests that don't compile because something changed in the platform; or a test which might remove your `/etc/shadow`. Use `@ignore` with a bug reference in the test case to prevent the test from being run.
-
-~~~java
-/**
- *  @test
- *  @ignore 4711
- *
-~~~
-
-In this example, `MyTest.java` is excluded, tracked by bug `JDK-4711`. `@ignore` should always be placed directly before the first `@run` line in the test.
-
-### Dealing with JBS bugs for test exclusion
-
-ProblemListing and `@ignore`-ing are done in the JDK source tree, that means a check-in into the repository is needed. This in turn means that a unique JBS issue and a code review are needed. This is a good thing since it makes test problems visible.
-
-* **Code review**: ProblemListing a test is considered a [trivial](#trivial) change.
-* **JBS issue**: A JBS issue is obviously created for the bug that caused the failure, we call this the _main issue_. To exclude the test, create a subtask to the main issue. Also add the label [`problemlist`](#problemlist) to the main issue.
-
-The fix for the main issue should remove the test from the ProblemList or remove the `@ignore` keyword from the test.
-
-#### Triage excluded issues
-
-After a failure is handled by excluding a test, the main JBS issue should be re-triaged and possibly given a new priority. This should be handled by the standard triage process. A test exclusion results in an outage in our testing. This outage should be taken into consideration when triaging, in addition to the impact of the bug itself.
-
 ## Backing Out a Change
 
 If a change causes a regression that can't be fixed within reasonable time the best way to handle the regression can be to back out the change. Backing out means that the inverse (anti-delta) of the change is pushed to effectively undo the change in the repository. There are two parts to this task, how to do the bookkeeping in JBS, and how to do the actual backout in mercurial.
@@ -968,47 +1552,6 @@ reverse effect of earlier changeset
     committed automatically. Otherwise, hg needs to merge the changes and the
     merged result is left uncommitted.
 ~~~
-
-# About this Guide
-
-This guide is being maintained through the [OpenJDK Developers' Guide Project](https://openjdk.java.net/census#guide). The [source repository](https://github.com/openjdk/guide) is available at GitHub. The revision hash at the bottom of each page refers to the latest change that modified that particular page.
-
-Comments and questions may be sent to [guide-dev (at) openjdk.java.net](mailto:guide-dev-at-openjdk.java.net). Please let us know if there's anything in the guide that isn't clear.
-
-# Glossary
-
-[**accepted**]{#accepted} (by the CCC)
-:   The stage of the CCC process after "DRAFT", and "PROPOSED". At this stage the primary goals are to ensure that the proposed changes are suitable for the release in a general sense and that the requisite JCK and SQE resources will be available.
-
-[**approved**]{#approved} (by the CCC)
-:   The stage of the CCC process after "FINAL". The CCC has approved the final version of the request which permits push into the project forest.
-
-[**changeset**]{#changeset}
-:   A collection of changes with respect to the current clone of a repository.
-
-[**development freeze**]{#developmentfreeze}
-:   The date by which all planned work should be complete for a particular line of development. After a line's development freeze, only exit-criteria bugs may be fixed in that line.
-
-[**forest**]{#forest}
-:   A collection of Mercurial repositories which can be managed as a set of nested repositories. The name "Forest" originally came from the Mercurial "Forest Extension" which can be used with some versions of Mercurial, but in general is no longer recommended. The script `common/bin/hgforest.sh` can be used to apply a Mercurial `hg` command to all the repositories in a forest.
-
-[**Group**]{#group}
-:   A collection of [Participants](https://openjdk.java.net/bylaws#participant) who engage in open conversation about a common interest. That interest may be in the creation, enhancement, or maintenance of a specific body of code or it may lie in other areas, e.g., quality, documentation, or evangelism. See the [Group overview](https://openjdk.java.net/groups/).
-
-[**Mercurial**]{#mercurial}
-:   A free, cross-platform, distributed source management tool. Source bundles and binary packages for Mercurial are available at [https://www.selenic.com/mercurial/wiki/index.cgi](https://www.selenic.com/mercurial/wiki/index.cgi/Mercurial). The main Mercurial documentation is available at [http://hgbook.red-bean.com](https://hgbook.red-bean.com/).
-
-[**Project**]{#project}
-:   A collaborative effort to produce a specific artifact, which may be a body of code, or documentation, or some other material. See the [Project overview](https://openjdk.java.net/projects/).
-
-[**repository**]{#repository}
-:   A directory tree in the filesystem that Mercurial treats specially. This tree contains the source files and their revision history.
-
-[**trivial**]{#trivial}
-:   A change that is small, well contained, and makes no semantic changes. Typically fixing obvious typos or renaming some local identifier. Trivial changes can also be pushing an already reviewed change that was missed in an earlier push (e.g. forgot to add a file) or generated changes like an [`hg backout`](#backing-out-a-change). It's up to the author of a change to claim that the change is trivial in the RFR, and it's up to the Reviewer whether to approve such a claim. A change is only trivial if the Reviewer says so. Trivial changes does not have to wait 24 hours before being pushed, and only needs one Reviewer, even in areas where stricter rules for pushing normally applies.
-
-[**webrev**]{#webrev}
-:   A tool and its output. In JDK release forests, the script, [`webrev.ksh`](https://hg.openjdk.java.net/code-tools/webrev/raw-file/tip/webrev.ksh), examines a forest or repository to generate a set of web-based views of differences.
 
 # Code Owners
 
@@ -1205,487 +1748,43 @@ This list is intended to make it easier to identify which email list to include 
 * `sample` –
 * `utils` –
 
-# JBS Label Dictionary
+# About this Guide
 
-This table contains some frequently used JBS labels and their meaning. Please help keeping this dictionary up to date by adding your favorite labels. This table doesn’t dictate how to use labels, but rather document how they are used. That said, obviously it will help everyone if we try to follow a common standard and use similar labels in the same way across all entities that use JBS.
+This guide is being maintained through the [OpenJDK Developers' Guide Project](https://openjdk.java.net/census#guide). The [source repository](https://github.com/openjdk/guide) is available at GitHub. The revision hash at the bottom of each page refers to the latest change that modified that particular page.
 
-Labels are an open namespace, which means that anyone can create new labels at any time. In order to avoid confusion, however, it's best to reuse existing labels where possible. This can be done by editing the "labels" field of a bug and entering the first few characters of the label you want to add. JIRA will pop up an autocomplete window with existing labels that match that prefix. Then choose one of the existing labels. Using the autocomplete window is preferable to typing the whole label name (even if you're a good typist) because it's easy for minor spelling errors to creep in, which can inadvertently introduce multiple labels with spurious spelling variations.
+Comments and questions may be sent to [guide-dev (at) openjdk.java.net](mailto:guide-dev-at-openjdk.java.net). Please let us know if there's anything in the guide that isn't clear.
 
-> ---
-> ### Labels are case sensitive
-> When using labels in Jira gadgets (like pie charts, heat maps, and statistics tables) Jira will be case sensitive and treat e.g. OpenJDK and openjdk as two different labels. Searching however is case insensitive. This means that if you group a set of issues in a gadget based on a label, and then click one of the groups to see the list of issues, that list will contain more results than the gadget if there are usages of the label with different casing. This can be very confusing and for this reason the recommendation is to stick with the commonly used case for all labels, regardless of your personal taste for upper or lower case letters. Most labels are lower case only, but there are examples where upper case letters are used in the most common version of a label. Use of the autocomplete popup window (described above) when adding labels will avoid inadvertent introduction of labels with differing case.
+# Glossary
 
-> ---
+[**accepted**]{#accepted} (by the CCC)
+:   The stage of the CCC process after "DRAFT", and "PROPOSED". At this stage the primary goals are to ensure that the proposed changes are suitable for the release in a general sense and that the requisite JCK and SQE resources will be available.
 
-<table class="dictionary">
-  <tr style="text-align:left;"><th>Label</th><th>Description</th></tr>
-  <tr>
-    <td class="dictionary">
-      [*(Area)***`-interest`**]{#area-interest}
-    </td>
-    <td class="dictionary">
-      Used to indicate that an area (usually a team or project) is interested in the issue. This label doesn't indicate ownership of the issue. E.g., **`redhat-interest`**, **`azul-interest`**, **`coin-interest`**
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [*(Area)***`-related`**]{#area-related}
-    </td>
-    <td class="dictionary">
-      Used to indicate that an issue is related to a specific area (usually a feature or project). This label doesn't indicate ownership of the issue. E.g., **`graal-related`**, **`testcolo-related`**, **`doc-related`**
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [*(Rel)***`-bp`**]{#rel-bp}
-    </td>
-    <td class="dictionary">
-      Used to indicate that a bug would be suitable for backport to a release *(Rel)*. This is not a decision to backport, just a suggestion / recommendation. E.g., **`11-bp`**
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [*(Rel)***`-critical-request`**]{#rel-critical-request}<br>
-      [*(Rel)***`-critical-approved`**]{#rel-critical-approved}<br>
-      [*(Rel)***`-critical-watch`**]{#rel-critical-watch}
-    </td>
-    <td class="dictionary">
-      Used in the rampdown phases of specific releases to request approval of changes that requires project lead approval (or similar) to be included. *(Rel)* is the release in question. E.g., **`jdk11-critical-request`**
+[**approved**]{#approved} (by the CCC)
+:   The stage of the CCC process after "FINAL". The CCC has approved the final version of the request which permits push into the project forest.
 
-      *(Rel)***`-critical-approved`** is used to signal that the change has been approved for inclusion. E.g., **`jdk11-critical-approved`**<br>
-      *(Rel)***`-critical-watch`** is used for issues that must get into a specific release but risk running late. The label is used while the issue is still in progress and is replaced with *(Rel)***`-critical-request`** once the issue is resolved. E.g., **`jdk11-critical-watch`**
+[**changeset**]{#changeset}
+:   A collection of changes with respect to the current clone of a repository.
 
-      These labels are always placed on the main JBS issue (the bug), never on backports or subtasks.
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [*(Rel)***`-defer-request`**]{#rel-defer-request}<br>
-      [*(Rel)***`-defer-yes`**]{#rel-defer-yes}<br>
-      [*(Rel)***`-defer-no`**]{#rel-defer-no}
-    </td>
-    <td class="dictionary">
-      Used to request deferral of changes that requires project lead approval (or similar) to defer. *(Rel)* is the release in question. E.g., **`jdk12-defer-request`**
+[**development freeze**]{#developmentfreeze}
+:   The date by which all planned work should be complete for a particular line of development. After a line's development freeze, only exit-criteria bugs may be fixed in that line.
 
-      *(Rel)***`-defer-yes`** and *(Rel)***`-defer-no`** are used to indicate wether the deferral has been approved or not. E.g., **`jdk12-defer-yes`**
+[**forest**]{#forest}
+:   A collection of Mercurial repositories which can be managed as a set of nested repositories. The name "Forest" originally came from the Mercurial "Forest Extension" which can be used with some versions of Mercurial, but in general is no longer recommended. The script `common/bin/hgforest.sh` can be used to apply a Mercurial `hg` command to all the repositories in a forest.
 
-      These labels are always placed on the main JBS issue (the bug), never on backports or subtasks.
-      Further details are found in the [JDK Release Process](https://openjdk.java.net/jeps/3#Bug-Deferral-Process).
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [*(Rel)***`-enhancement-request`**]{#rel-enhancement-request}<br>
-      [*(Rel)***`-enhancement-yes`**]{#rel-enhancement-yes}<br>
-      [*(Rel)***`-enhancement-no`**]{#rel-enhancement-no}
-    </td>
-    <td class="dictionary">
-      Used in the rampdown phases to request the late inclusion of an enhancement. *(Rel)* is the release in question. E.g., **`jdk10-enhancement-request`**
+[**Group**]{#group}
+:   A collection of [Participants](https://openjdk.java.net/bylaws#participant) who engage in open conversation about a common interest. That interest may be in the creation, enhancement, or maintenance of a specific body of code or it may lie in other areas, e.g., quality, documentation, or evangelism. See the [Group overview](https://openjdk.java.net/groups/).
 
-      *(Rel)***`-enhancement-yes`** and *(Rel)***`-enhancement-no`** are used to indicate the response on the request. E.g., **`jdk10-enhancement-yes`**, **`jdk10-enhancement-no`**
+[**Mercurial**]{#mercurial}
+:   A free, cross-platform, distributed source management tool. Source bundles and binary packages for Mercurial are available at [https://www.selenic.com/mercurial/wiki/index.cgi](https://www.selenic.com/mercurial/wiki/index.cgi/Mercurial). The main Mercurial documentation is available at [http://hgbook.red-bean.com](https://hgbook.red-bean.com/).
 
-      These labels are always placed on the main JBS issue (the bug), never on backports or subtasks.
-      Further details are found in the [JDK Release Process](http://openjdk.java.net/jeps/3#Late-Enhancement-Request-Process).
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [*(Rel)***`-fix-request`**]{#rel-fix-request}<br>
-      [*(Rel)***`-fix-SQE-ok`**]{#rel-fix-SQE-ok}<br>
-      [*(Rel)***`-fix-yes`**]{#rel-fix-yes}<br>
-      [*(Rel)***`-fix-no`**]{#rel-fix-no}
-    </td>
-    <td class="dictionary">
-      Used in rampdown phase 2 to indicate that an issue would be of interest to get integrated into release *(Rel)*. E.g., **`jdk12u-fix-request`**
+[**Project**]{#project}
+:   A collaborative effort to produce a specific artifact, which may be a body of code, or documentation, or some other material. See the [Project overview](https://openjdk.java.net/projects/).
 
-      *(Rel)***`-fix-SQE-ok`** is used to indicate that the issue will be covered by the test plan for *(Rel)*. E.g., **`jdk12u-fix-SQE-ok`**<br>
-      *(Rel)***`-fix-yes`** and *(Rel)***`-fix-no`** are used to indicate wether an issue has been approved for backport to *(Rel)*. E.g., **`jdk12u-fix-yes`**
+[**repository**]{#repository}
+:   A directory tree in the filesystem that Mercurial treats specially. This tree contains the source files and their revision history.
 
-      These labels are always placed on the main JBS issue (the bug), never on backports or subtasks.
-      Further details are found in the [JDK Release Process](http://openjdk.java.net/jeps/3#Fix-Request-Process).
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [*(Rel)***`-na`**]{#rel-na}
-    </td>
-    <td class="dictionary">
-      Used to indicate that the issue does not affect release *(Rel)* or later. Could for instance be a bug in code that was removed in *(Rel)*.
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [*(Team)***`-triage-`***(Rel)*]{#team-triage-rel}
-    </td>
-    <td class="dictionary">
-      Used to indicate that *(Team)* has triaged this issue for release *(Rel)*. It's encouraged that all open bugs are triaged on a regular basis so that old bugs aren't forgotten. It's therefore common to see several triage labels on the same issue which helps keeping track of which bugs has been triaged for each release. E.g., **`oracle-triage-13`**
+[**trivial**]{#trivial}
+:   A change that is small, well contained, and makes no semantic changes. Typically fixing obvious typos or renaming some local identifier. Trivial changes can also be pushing an already reviewed change that was missed in an earlier push (e.g. forgot to add a file) or generated changes like an [`hg backout`](#backing-out-a-change). It's up to the author of a change to claim that the change is trivial in the RFR, and it's up to the Reviewer whether to approve such a claim. A change is only trivial if the Reviewer says so. Trivial changes does not have to wait 24 hours before being pushed, and only needs one Reviewer, even in areas where stricter rules for pushing normally applies.
 
-      There are many label variants that include the word triage in some form. The form described above is the only one recommended. Please refrain from using other forms.
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [**`aot`**]{#aot}
-    </td>
-    <td class="dictionary">
-      Used to indicate that an issue is related to Ahead of Time Compilation.
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-     [~~**`appcds`**~~]{#appcds}
-    </td>
-    <td class="dictionary">
-      **Deprecated.** Was used to indicate that an issue was related to Application Class-Data Sharing. The **`cds`** label is now used instead.
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [**`c1`**]{#c1}
-    </td>
-    <td class="dictionary">
-      Used to indicate that an issue is related to the C1 JIT compiler.
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [**`c2`**]{#c2}<br>
-      **`c2-`**`.*`
-    </td>
-    <td class="dictionary">
-      Used to indicate that an issue is related to the C2 JIT compiler.
-
-      **`c2-`**`.*` labels are used to identify different c2 features. E.g., **`c2-intrinsic`**, **`c2-loopopts`**
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [**`cds`**]{#cds}
-    </td>
-    <td class="dictionary">
-      Used to indicate that an issue is related to Class Data Sharing.
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [**`cleanup`**]{#cleanup}
-    </td>
-    <td class="dictionary">
-      The **`cleanup`** label is used to indicate enhancements which has no semantic changes, whose only purpose is to make the code more maintainable or better looking.
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [**`docker`**]{#docker}
-    </td>
-    <td class="dictionary">
-      Used to indicate that an issue is related to docker support.
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [**`gc-`**`.*`]{#gc}
-    </td>
-    <td class="dictionary">
-      Used to indicate that an issue is related to a specific garbage collector in the JVM. E.g., **`gc-g1`**, **`gc-shenandoah`**, **`gc-serial`**, **`gc-epsilon`**
-
-      There are also labels in use to identify different GC features or areas rather than GC algorithms. E.g., **`gc-g1-fullgc`**, **`gc-largeheap`**, **`gc-performance`**
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [**`graal`**]{#graal}
-    </td>
-    <td class="dictionary">
-      Used to indicate that this is a Graal issue. (Something that needs to be fixed in Graal rather than in OpenJDK.)
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [**`graal-integration`**]{#graal-integration}
-    </td>
-    <td class="dictionary">
-      Reserved for Graal integration umbrella bugs. The automated integration script will break if this label is used for other bugs.
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [**`hgupdate-sync`**]{#hgupdate-sync}
-    </td>
-    <td class="dictionary">
-      Used to identify backport issues automatically created by HG Updater (a script that monitors the hg repositories for changes).
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [~~**`hs-nightly`**~~]{#hs-nightly}
-    </td>
-    <td class="dictionary">
-      **Deprecated.** Was used to tag bugs found in the HotSpot nightly testing. Since we are now running tiered testing there is no more nightly HotSpot testing. See **`tier`**`[1-8]`.
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [**`hs-sbr`**]{#hs-sbr}
-    </td>
-    <td class="dictionary">
-      Used to tag bugs that are found in the "same binary runs", a stress testing method used to find intermittent failures.
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [~~**`hs-tier`**~~~~`[1-8]`~~]{#hs-tier}
-    </td>
-    <td class="dictionary">
-      **Deprecated.** Was used to identify which HotSpot tier a test failure was seen in. We don't separate HotSpot tiers from the JDK tiers anymore. See **`tier`**`[1-8]`.
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [**`i18n`**]{#i18n}
-    </td>
-    <td class="dictionary">
-      Used to indicate that an issue is related to internationalization.
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [**`integration-blocker`**]{#integration-blocker}
-    </td>
-    <td class="dictionary">
-      Used to indicate that a bug is present in a downstream repository but not present in the upstream repository and is therefore blocking integration of downstream changes into upstream.
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [**`intermittent`**]{#intermittent}<br>
-      [**`intermittent-environment`**]{#intermittent-environment}<br>
-      [**`intermittent-hardware`**]{#intermittent-hardware}
-    </td>
-    <td class="dictionary">
-      An intermittent issue is one that fails sometimes but not always. The exact reason for the intermittent failure is per definition unknown. Once the reason has been identified the issue is no more considered intermittent. An issue isn't intermittent if some characteristics has been found that triggers the failure consistently, even if the actual cause for the failure has not been found. For instance if a test fails every time it is executed on a specific host but not on other hosts it wouldn't be considered intermittent as it fails consistently on that specific host. In other cases it may be that we know that a test sometimes is unlucky in some respect and fails due to this. This test could still be considered intermittent even though we know what the reason is if the reason itself appears intermittently.
-
-      Some issues may seem intermittent when looking at test results, even though the reason for failing is actually known. One example is where a test fails consistently on a specific host, or due to specific conditions in the environment. These failures should not be considered intermittent but it may still be valuable to tag these in JBS with one of the labels **`intermittent-hardware`** or **`intermittent-environment`**. This will help to faster identify that the cause of the failure is known without having to read through the entire bug.
-
-      A test that should be platform agnostic but is consistently failing on a specific OS would for instance be labeled with **`intermittent-environment`**, while a test that fails every time it is run on some specific hardware would be labeled with **`intermittent-hardware`**.
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [**`maintainer-pain`**]{#maintainer-pain}
-    </td>
-    <td class="dictionary">
-Used to tag bugs that for some reason is wasting time or in other ways are causing pain for the OpenJDK maintainers. Examples of issues that could be considered a pain:
-
-* A bug that occurs frequently in testing, maybe on a specific platform, maybe specific to one vendor's test infrastructure, and requires that many maintainers investigate the failure in different test runs just to realize it's the same issue as has been seen and reported before, or worse, don't realize it's a known issue and file a duplicate bug in JBS.
-
-* Bugs that cause tests to fail without a proper explanation causing several maintainers to investigate the failures just to realize there is no information to be found.
-
-* An underlying bug that causes several tests to fail intermittently.
-
-* A bug that causes a test failure in a faraway place and the failure isn’t acted on quickly.
-
-There are other cases as well and there is some flexibility in the definition. If you see a problem that is causing pain for a large number of maintainers, add an explanation in the JBS issue to why you think the issue is a pain and add the label.
-
-If you have a **`maintainer-pain`** bug assigned to you please consider fixing it asap. If you chose not to work on the issue, you should at least be aware that you are choosing to waste others' time and people will be affected by this choice.
-
-As with any issue the best way to deal with a **`maintainer-pain`** issue is to fix it. Another way to reduce the noise is to [exclude the failing test](#excluding-a-test). This is a viable option if there is a limited set of tests that are failing and the bug is actively investigated. When excluding a **`maintainer-pain`** issue, remember to move the **`maintainer-pain`** label to the JBS issue used to exclude. Leaving the label on the closed exclude-issue is helpful for tracking purposes.
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [**`noreg-`**`.*`]{#noreg}<br>
-      [**`nounit-`**`.*`]{#nounit}
-    </td>
-    <td class="dictionary">
-      The **`noreg-`**`.*` and **`nounit-`**`.*` labels are used to explain why a bugfix doesn't need/have a regression test or a unit test. The suffix of the label is described below.
-
-[**`-sqe`**]{#noreg-sqe}
-:    Change can be verified by running an existing SQE test suite; the bug should identify the suite and the specific test case(s).
-
-[**`-jck`**]{#noreg-jck}
-:    Change can be verified by running the JCK; the bug should identify the specific test case(s).
-
-[**`-external`**]{#noreg-external}
-:    Change can be verified by running an existing external test suite; the bug should identify the suite and the specific test case(s).
-
-[**`-doc`**]{#noreg-doc}
-:    Change only affects documentation.
-
-[**`-demo`**]{#noreg-demo}
-:    Change only affects demo code.
-
-[**`-build`**]{#noreg-build}
-:    Change only affects build infrastructure (makefiles, copyrights, scripts, etc.).
-
-[**`-self`**]{#noreg-self}
-:    Change is a fix to a regression or unit test itself.
-
-[**`-perf`**]{#noreg-perf}
-:    Change is for a performance bug for which writing a regression test is infeasible; the bug should describe how to verify the fix.
-
-[**`-hard`**]{#noreg-hard}
-:    It is too hard to write a regression or unit test for this bug (e.g., theoretical race condition, complex setup, reboot required, editing of installed files required, specific graphics card required); the bug should explain why.
-
-[**`-long`**]{#noreg-long}
-:    Testing requires a very long running time (e.g., more than a few minutes).
-
-[**`-big`**]{#noreg-big}
-:    Testing requires an unreasonable quantity of resources (e.g., tens of gigabytes of filesystem space).
-
-[**`-trivial`**]{#noreg-trivial}
-:    Change is so trivial that nothing could possibly go wrong with it.
-
-[**`-cleanup`**]{#noreg-cleanup}
-:    Change is a cleanup or refactoring of existing code that is covered by existing tests.
-
-[**`-l10n`**]{#noreg-l10n}
-:    Change only affects localized text.
-
-[**`-undo`**]{#noreg-undo}
-:    Change is a reversion of a previous faulty change.
-
-[**`-other`**]{#noreg-other}
-:    Regression or unit test is unnecessary or infeasible for some other reason; the bug report should explain why.
-
-Examples:  If a bug fix only corrects a change in the build system, then add the **`noreg-build`** label to the corresponding bug. If the change improves loop optimizations in HotSpot, then add **`nounit-perf`** to the corresponding bug.
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [**`performance`**]{#performance}
-    </td>
-    <td class="dictionary">
-      Used to identify a bug with noticeable performance impact. Either positive or negative.
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [~~**`pit`**~~]{#pit}
-    </td>
-    <td class="dictionary">
-      **Deprecated.** Was used to indicate that a failure happened in product integration testing (PIT). Since we are now running tiered testing there is no more PIT. See **`tier`**`[1-8]`.
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [**`problemlist`**]{#problemlist}
-    </td>
-    <td class="dictionary">
-      One or more tests has been problemlisted due to this bug.
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [**`regression`**]{#regression}
-    </td>
-    <td class="dictionary">
-      A regression is a bug that did not exist in the previous release. Ideally all regressions must be fixed in order to release the next major version.
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [**`release-note`**]{#release-note}
-    </td>
-    <td class="dictionary">
-      Used to indicate that the issue is a release note. The release-note issue is a sub-task to the main JBS issue containing the text to be used in the release note. The release note must also have one of the following labels:
-
-[**`RN-NewFeature`**]{#RN-NewFeature}
-:   New Feature or enhancement.
-
-[**`RN-IssueFixed`**]{#RN-IssueFixed}
-:   A significant issue which has been fixed, would normally be a regression or an issue which unknowingly released in a new feature.
-
-[**`RN-KnownIssue`**]{#RN-KnownIssue}
-:   An issue that was not possible to fix by the time the release was GA'd.
-
-[**`RN-Removed`**]{#RN-Removed}
-:   Covers an API, feature, tool etc. which has been removed from the JDK.
-
-[**`RN-Deprecated`**]{#RN-Deprecated}
-:   Covers an API that has been marked as deprecated in the release.
-
-[**`RN-Important`**]{#RN-Important}
-:   Used to indicate that the release note should be highlighted in some fashion, such as listing it at the beginning of the release notes.
-
-[**`RN-`(distro)**]{#RN-distro}
-:   Used to indicate that the release note is only relevant for a specific JDK distribution. E.g. RN-Oracle
-
-[~~**`RN-Change`**~~]{#RN-Change}
-:   Deprecated.
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [**`release-note=yes`**]{#release-note-yes}<br>
-      [**`release-note=no`**]{#release-note-no}<br>
-      [~~**`release-note=done`**~~]{#release-note-done}
-    </td>
-    <td class="dictionary">
-      Used to indicate wether a change requires a release note or not. The labels are always placed on the main JBS issue, never on the actual release note issue.
-
-      **`release-note=done`** is deprecated and should no longer be used.
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [**`starter`**]{#starter}
-    </td>
-    <td class="dictionary">
-      A starter bug is a well contained, small issue that is suitable for someone new to the codebase.
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [**`startup`**]{#startup}
-    </td>
-    <td class="dictionary">
-      Used to identify a bug as affecting Java SE startup performance.
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [**`tck-red-`***(Rel)*]{#tck-red-rel}<br>
-      [~~**`tck-red`**~~]{#tck-red}
-    </td>
-    <td class="dictionary">
-      Used to identify TCK conformance stoppers (e.g. failure of a valid TCK test that exists in a shipped TCK). The release number indicates which release of the TCK that failed. E.g., **`tck-red-11`**
-
-      There are **`tck-red`** labels without the release number out there as well. This usage is deprecated.
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [~~**`test`**~~]{#test}<br>
-      [~~**`test-only`**~~]{#test-only}<br>
-      [~~**`testbug`**~~]{#testbug}
-    </td>
-    <td class="dictionary">
-      The labels **`test`**, **`test-only`**, and **`testbug`** are deprecated and should no longer be used. Use [**`noreg-self`**](#noreg) to indicate that an issue is a bug in test code.
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [**`tier`**`[1-8]`]{#tier}
-    </td>
-    <td class="dictionary">
-      Used to indicate which tier in the jdk/jdk CI pipeline a test failure has been seen in. Lower tiers would in general mean higher urgency to fix the issue. E.g., **`tier1`**, **`tier2`**
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [**`webbug`**]{#webbug}
-    </td>
-    <td class="dictionary">
-      Used to identify a bug as submitted on [bugs.java.com](https://bugs.java.com/bugdatabase/).
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [**`zgc`**]{#zgc}
-    </td>
-    <td class="dictionary">
-      Used to indicate that an issue is related to ZGC.
-    </td>
-  </tr>
-</table>
+[**webrev**]{#webrev}
+:   A tool and its output. In JDK release forests, the script, [`webrev.ksh`](https://hg.openjdk.java.net/code-tools/webrev/raw-file/tip/webrev.ksh), examines a forest or repository to generate a set of web-based views of differences.

@@ -21,7 +21,6 @@ The project comes with a `Makefile`. Simply type `make` to generate HTML files f
 The Developers' Guide is continuously updated and there are several parts still missing. This todo list isn't complete and there is no limitation on current work being tied to any item on this list. It's just a list of things that we know are missing or needs to be updated. The list isn't ordered in any way.
 
 * All SCM references should be updated to GIT
-* Introductory text about how to approach the community - Socialize your patch before asking for reviews
 * Step-by-step build instructions
 * JEPs - When do I need one? - Working with JEPs
 * Reference external CSR pages with small intro that is unlikely to need upates
@@ -36,3 +35,6 @@ The Developers' Guide is continuously updated and there are several parts still 
 * Text about JBS, triage, priorities, status
 * List JTReg `@key` conventions for different areas
 * Document best practices around TEST.properties usage. See [PR#30](https://github.com/openjdk/guide/pull/30#issuecomment-714589551)
+* How to work with the code in an IDE
+* Where to find JTReg bundles
+* How to run tests with your fork and how to navigate the test result ZIP
