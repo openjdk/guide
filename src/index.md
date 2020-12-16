@@ -641,7 +641,21 @@ Labels are an open namespace, which means that anyone can create new labels at a
       [**`maintainer-pain`**]{#}
     </td>
     <td class="dictionary">
-      Bugs that for some reason is wasting engineering time just by existing, or in other ways are causing pain for the maintainers of the JDK. Examples are bugs that occur frequently in testing or test failures that are time consuming to investigate before determining that it is a pre-existing bug.
+Used to tag bugs that for some reason is wasting time or in other ways are causing pain for the OpenJDK maintainers. Examples of issues that could be considered a pain:
+
+* A bug that occurs frequently in testing, maybe on a specific platform, maybe specific to one vendor's test infrastructure, and requires that many maintainers investigate the failure in different test runs just to realize it's the same issue as has been seen and reported before, or worse, don't realize it's a known issue and file a duplicate bug in JBS.
+
+* Bugs that cause tests to fail without a proper explanation causing several maintainers to investigate the failures just to realize there is no information to be found.
+
+* An underlying bug that causes several tests to fail intermittently.
+
+* A bug that causes a test failure in a faraway place and the failure isn’t acted on quickly.
+
+There are other cases as well and there is some flexibility in the definition. If you see a problem that is causing pain for a large number of maintainers, add an explanation in the JBS issue to why you think the issue is a pain and add the label.
+
+If you have a **`maintainer-pain`** bug assigned to you please consider fixing it asap. If you chose not to work on the issue, you should at least be aware that you are choosing to waste others' time and people will be affected by this choice.
+
+As with any issue the best way to deal with a **`maintainer-pain`** issue is to fix it. Another way to reduce the noise is to [exclude the failing test](#excluding-a-test). This is a viable option if there is a limited set of tests that are failing and the bug is actively investigated. When excluding a **`maintainer-pain`** issue, remember to move the **`maintainer-pain`** label to the JBS issue used to exclude. Leaving the label on the closed exclude-issue is helpful for tracking purposes.
     </td>
   </tr>
   <tr>
