@@ -638,7 +638,7 @@ Labels are an open namespace, which means that anyone can create new labels at a
   </tr>
   <tr>
     <td class="dictionary">
-      [**`maintainer-pain`**]{#}
+      [**`maintainer-pain`**]{#maintainer-pain}
     </td>
     <td class="dictionary">
 Used to tag bugs that for some reason is wasting time or in other ways are causing pain for the OpenJDK maintainers. Examples of issues that could be considered a pain:
