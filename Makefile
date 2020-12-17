@@ -28,3 +28,6 @@ build/guidestyle.css: build src/guidestyle.css
 
 build/devModel.gif: build src/devModel.gif
 	cp src/devModel.gif build/devModel.gif
+
+validate: build/index.html
+	tidy -q -ascii -asxhtml -n --doctype omit --tidy-mark n build/index.html > /dev/null
