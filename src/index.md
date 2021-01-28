@@ -411,14 +411,14 @@ Labels are an open namespace, which means that anyone can create new labels at a
   </tr>
   <tr>
     <td class="dictionary">
-      [*(Rel)***`-critical-request`**]{#rel-critical-request}<br>
-      [*(Rel)***`-critical-approved`**]{#rel-critical-approved}<br>
+      [*(Rel)***`-critical-request`**]{#rel-critical-request}<br />
+      [*(Rel)***`-critical-approved`**]{#rel-critical-approved}<br />
       [*(Rel)***`-critical-watch`**]{#rel-critical-watch}
     </td>
     <td class="dictionary">
       Used in the rampdown phases of specific releases to request approval of changes that requires project lead approval (or similar) to be included. *(Rel)* is the release in question. E.g., **`jdk11-critical-request`**
 
-      *(Rel)***`-critical-approved`** is used to signal that the change has been approved for inclusion. E.g., **`jdk11-critical-approved`**<br>
+      *(Rel)***`-critical-approved`** is used to signal that the change has been approved for inclusion. E.g., **`jdk11-critical-approved`**<br />
       *(Rel)***`-critical-watch`** is used for issues that must get into a specific release but risk running late. The label is used while the issue is still in progress and is replaced with *(Rel)***`-critical-request`** once the issue is resolved. E.g., **`jdk11-critical-watch`**
 
       These labels are always placed on the main JBS issue (the bug), never on backports or subtasks.
@@ -426,8 +426,8 @@ Labels are an open namespace, which means that anyone can create new labels at a
   </tr>
   <tr>
     <td class="dictionary">
-      [*(Rel)***`-defer-request`**]{#rel-defer-request}<br>
-      [*(Rel)***`-defer-yes`**]{#rel-defer-yes}<br>
+      [*(Rel)***`-defer-request`**]{#rel-defer-request}<br />
+      [*(Rel)***`-defer-yes`**]{#rel-defer-yes}<br />
       [*(Rel)***`-defer-no`**]{#rel-defer-no}
     </td>
     <td class="dictionary">
@@ -441,8 +441,8 @@ Labels are an open namespace, which means that anyone can create new labels at a
   </tr>
   <tr>
     <td class="dictionary">
-      [*(Rel)***`-enhancement-request`**]{#rel-enhancement-request}<br>
-      [*(Rel)***`-enhancement-yes`**]{#rel-enhancement-yes}<br>
+      [*(Rel)***`-enhancement-request`**]{#rel-enhancement-request}<br />
+      [*(Rel)***`-enhancement-yes`**]{#rel-enhancement-yes}<br />
       [*(Rel)***`-enhancement-no`**]{#rel-enhancement-no}
     </td>
     <td class="dictionary">
@@ -456,15 +456,15 @@ Labels are an open namespace, which means that anyone can create new labels at a
   </tr>
   <tr>
     <td class="dictionary">
-      [*(Rel)***`-fix-request`**]{#rel-fix-request}<br>
-      [*(Rel)***`-fix-SQE-ok`**]{#rel-fix-SQE-ok}<br>
-      [*(Rel)***`-fix-yes`**]{#rel-fix-yes}<br>
+      [*(Rel)***`-fix-request`**]{#rel-fix-request}<br />
+      [*(Rel)***`-fix-SQE-ok`**]{#rel-fix-SQE-ok}<br />
+      [*(Rel)***`-fix-yes`**]{#rel-fix-yes}<br />
       [*(Rel)***`-fix-no`**]{#rel-fix-no}
     </td>
     <td class="dictionary">
       Used in rampdown phase 2 to indicate that an issue would be of interest to get integrated into release *(Rel)*. E.g., **`jdk12u-fix-request`**
 
-      *(Rel)***`-fix-SQE-ok`** is used to indicate that the issue will be covered by the test plan for *(Rel)*. E.g., **`jdk12u-fix-SQE-ok`**<br>
+      *(Rel)***`-fix-SQE-ok`** is used to indicate that the issue will be covered by the test plan for *(Rel)*. E.g., **`jdk12u-fix-SQE-ok`**<br />
       *(Rel)***`-fix-yes`** and *(Rel)***`-fix-no`** are used to indicate wether an issue has been approved for backport to *(Rel)*. E.g., **`jdk12u-fix-yes`**
 
       These labels are always placed on the main JBS issue (the bug), never on backports or subtasks.
@@ -515,7 +515,7 @@ Labels are an open namespace, which means that anyone can create new labels at a
   </tr>
   <tr>
     <td class="dictionary">
-      [**`c2`**]{#c2}<br>
+      [**`c2`**]{#c2}<br />
       **`c2-`**`.*`
     </td>
     <td class="dictionary">
@@ -624,8 +624,8 @@ Labels are an open namespace, which means that anyone can create new labels at a
   </tr>
   <tr>
     <td class="dictionary">
-      [**`intermittent`**]{#intermittent}<br>
-      [**`intermittent-environment`**]{#intermittent-environment}<br>
+      [**`intermittent`**]{#intermittent}<br />
+      [**`intermittent-environment`**]{#intermittent-environment}<br />
       [**`intermittent-hardware`**]{#intermittent-hardware}
     </td>
     <td class="dictionary">
@@ -660,7 +660,7 @@ As with any issue the best way to deal with a **`maintainer-pain`** issue is to 
   </tr>
   <tr>
     <td class="dictionary">
-      [**`noreg-`**`.*`]{#noreg}<br>
+      [**`noreg-`**`.*`]{#noreg}<br />
       [**`nounit-`**`.*`]{#nounit}
     </td>
     <td class="dictionary">
@@ -779,12 +779,14 @@ Examples:  If a bug fix only corrects a change in the build system, then add the
 
 [~~**`RN-Change`**~~]{#RN-Change}
 :   Deprecated.
+
+<!-- Comment needed due to bug in Pandoc. -->
     </td>
   </tr>
   <tr>
     <td class="dictionary">
-      [**`release-note=yes`**]{#release-note-yes}<br>
-      [**`release-note=no`**]{#release-note-no}<br>
+      [**`release-note=yes`**]{#release-note-yes}<br />
+      [**`release-note=no`**]{#release-note-no}<br />
       [~~**`release-note=done`**~~]{#release-note-done}
     </td>
     <td class="dictionary">
@@ -811,7 +813,7 @@ Examples:  If a bug fix only corrects a change in the build system, then add the
   </tr>
   <tr>
     <td class="dictionary">
-      [**`tck-red-`***(Rel)*]{#tck-red-rel}<br>
+      [**`tck-red-`***(Rel)*]{#tck-red-rel}<br />
       [~~**`tck-red`**~~]{#tck-red}
     </td>
     <td class="dictionary">
@@ -822,8 +824,8 @@ Examples:  If a bug fix only corrects a change in the build system, then add the
   </tr>
   <tr>
     <td class="dictionary">
-      [~~**`test`**~~]{#test}<br>
-      [~~**`test-only`**~~]{#test-only}<br>
+      [~~**`test`**~~]{#test}<br />
+      [~~**`test-only`**~~]{#test-only}<br />
       [~~**`testbug`**~~]{#testbug}
     </td>
     <td class="dictionary">
