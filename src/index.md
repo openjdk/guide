@@ -1609,7 +1609,7 @@ This list is intended to make it easier to identify which email list to include 
     * `gc` – GC
     * `include` – HotSpot
     * `interpreter` – Runtime
-    * `jfr` – JFR, Runtime
+    * `jfr` – JFR
     * `jvmci` – Compiler
     * `libadt` – Compiler
     * `logging` – Runtime
@@ -1724,7 +1724,7 @@ This list is intended to make it easier to identify which email list to include 
 * `jdk.jdeps` – Core Libs
 * `jdk.jdi` – Serviceability
 * `jdk.jdwp.agent` – Serviceability
-* `jdk.jfr` – JFR, Runtime
+* `jdk.jfr` – JFR
 * `jdk.jlink` – LangTools
 * `jdk.jshell` – LangTools
 * `jdk.jsobject` – LangTools
