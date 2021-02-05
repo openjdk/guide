@@ -1577,6 +1577,7 @@ This list is intended to make it easier to identify which email list to include 
   * Compiler: [`hotspot-compiler-dev@openjdk.java.net`](mailto:hotspot-compiler-dev@openjdk.java.net)
   * GC: [`hotspot-gc-dev@openjdk.java.net`](mailto:hotspot-gc-dev@openjdk.java.net)
   * Runtime: [`hotspot-runtime-dev@openjdk.java.net`](mailto:hotspot-runtime-dev@openjdk.java.net)
+  * JFR: [`hotspot-jfr-dev@openjdk.java.net`](mailto:hotspot-jfr-dev@openjdk.java.net)
   * Serviceability: [`serviceability-dev@openjdk.java.net`](mailto:serviceability-dev@openjdk.java.net)
 * I18n: [`i18n-dev@openjdk.java.net`](mailto:i18n-dev@openjdk.java.net)
 * LangTools
@@ -1608,7 +1609,7 @@ This list is intended to make it easier to identify which email list to include 
     * `gc` – GC
     * `include` – HotSpot
     * `interpreter` – Runtime
-    * `jfr` – Runtime
+    * `jfr` – JFR
     * `jvmci` – Compiler
     * `libadt` – Compiler
     * `logging` – Runtime
@@ -1723,7 +1724,7 @@ This list is intended to make it easier to identify which email list to include 
 * `jdk.jdeps` – Core Libs
 * `jdk.jdi` – Serviceability
 * `jdk.jdwp.agent` – Serviceability
-* `jdk.jfr` – Runtime
+* `jdk.jfr` – JFR
 * `jdk.jlink` – LangTools
 * `jdk.jshell` – LangTools
 * `jdk.jsobject` – LangTools
