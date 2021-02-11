@@ -153,7 +153,14 @@ The OpenJDK code base for all [Projects](https://openjdk.java.net/bylaws#project
 This is the typical development model:
 
 ::: {style="text-align:center;"}
-![Diagram of server repos and user's clone](devModel.gif)
+~~~{.mermaid caption="Diagram of server repos and user's clone" format=svg theme=neutral}
+graph TD
+    subgraph hg.openjdk.java.net
+        origin(jdk9/dev)
+    end
+    origin --> |clone| local(9dev)
+    local --> |push| origin
+~~~
 :::
 
 A Contributor creates a _clone_ (a local copy called "9dev") of a read/write repository ("jdk9/dev") which resides on the OpenJDK Mercurial server. They work on their change in the clone and locally _commit_ a changeset. After the new changeset(s) are verified, they're either _pushed_ directly from the clone or _exported_ and delivered to a [Committer](https://openjdk.java.net/bylaws#committer) who can perform the push into the server repository for all to see.
@@ -1435,8 +1442,15 @@ The following section provides some tips for improving the usability of ssh-rela
 
 This is the typical development model:
 
-:::{style="text-align:center;"}
-![Diagram of server repos and user's clone](devModel.gif)
+::: {style="text-align:center;"}
+~~~{.mermaid caption="Diagram of server repos and user's clone" format=svg theme=neutral}
+graph TD
+    subgraph hg.openjdk.java.net
+        origin(jdk9/dev)
+    end
+    origin --> |clone| local(9dev)
+    local --> |push| origin
+~~~
 :::
 
 Changesets need to be _pushed_ via ssh to the read/write repository which resides on the OpenJDK Mercurial server. The easiest way to do this is to have each repository define the "default-push" path in every repository's `.hg/hgrc` file. The `.hg/hgrc` file in isn't a managed file - it's private to the repository. The following example defines the "default" and "default-push" paths for clones of the jdk9/dev team repository.

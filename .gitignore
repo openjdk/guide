@@ -1,5 +1,6 @@
 # Generated files from make
 build/
+mermaid-filter.err
 
 # MAC OS X Files
 .DS_Store
