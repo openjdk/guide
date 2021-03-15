@@ -7,14 +7,22 @@ endef
 
 TITLE := The OpenJDK Developers' Guide
 
-ALL_MD := $(wildcard src/*.md)
-ALL_FOOTER := $(patsubst src/%.md, build/support/footers/%.html, $(ALL_MD))
-ALL_RESULT := $(patsubst src/%.md, build/dist/%.html, $(ALL_MD))
+LEGACY_MD := $(wildcard src/*.md)
+LEGACY_FOOTER := $(patsubst src/%.md, build/support/footers/%.html, $(LEGACY_MD))
+LEGACY_RESULT := $(patsubst src/%.md, build/dist/%.html, $(LEGACY_MD))
+
+GUIDE_MD := $(wildcard src/guide/*.md)
+GUIDE_CONCATENATED := build/support/index.md
+GUIDE_FOOTER := build/support/footers/index.html
+GUIDE_UTF8 := build/support/utf-8/index.html
+GUIDE_RESULT := build/dist/index.html
+
+ALL_RESULT := $(LEGACY_RESULT) $(GUIDE_RESULT)
 
 UTF8_HTML := $(patsubst build/dist/%.html, build/support/utf-8/%.html, $(ALL_RESULT))
 
 ifneq ($(DEBUG_MAKE),)
-  .SECONDARY: $(ALL_FOOTER) $(UTF8_HTML)
+  .SECONDARY: $(LEGACY_FOOTER) $(GUIDE_CONCATENATED) $(GUIDE_FOOTER) $(UTF8_HTML)
 endif
 
 MERMAID ?= $(shell command -v mermaid-filter 2> /dev/null)
@@ -51,6 +59,22 @@ RunPandoc = \
 # $2: output latin-1 file
 ConvertToLatin1 = \
 	sed -e 's/ charset=utf-8//' $1 | iconv -f UTF-8 -t ISO-8859-1 > $2
+
+$(GUIDE_CONCATENATED): $(GUIDE_MD)
+	rm -f $@.tmp
+	$(foreach s, $(sort $^), \
+		cat $s >> $@.tmp $(NEWLINE) \
+		printf "\n" >> $@.tmp $(NEWLINE) \
+	)
+	mv $@.tmp $@
+
+$(GUIDE_FOOTER): $(GUIDE_CONCATENATED)
+	mkdir -p build/support/footers
+	$(call GenerateFooter, $@, $(call GetHash, $(GUIDE_MD)), src/guide)
+
+$(GUIDE_UTF8): $(GUIDE_CONCATENATED) $(GUIDE_FOOTER)
+	mkdir -p build/support/utf-8
+	$(call RunPandoc, $<, $@)
 
 build/support/footers/%.html: src/%.md
 	mkdir -p build/support/footers
