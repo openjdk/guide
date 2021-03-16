@@ -320,7 +320,7 @@ ProblemList entries and `@ignore` keywords will continue to point to the origina
 
 ### How to work with mercurial when a change is backed out
 
-In order to backout a change, the `hg backout` command is recommended, which essentially applies the anti delta of the change. Make sure you perform the backout in the most upstream repostiory the change has escaped to.
+In order to backout a change, the `hg backout` command is recommended, which essentially applies the anti delta of the change. Make sure you perform the backout in the most upstream repository the change has escaped to.
 
 ~~~
 hg backout [OPTION]... [-r] REV

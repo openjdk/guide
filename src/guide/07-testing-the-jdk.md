@@ -39,7 +39,7 @@ Below is a small example of a JTReg test. It’s a clean Java class with a main 
         public static void main(String[] args) throws Exception {
             var result = X.y();
             if (result != expected_result) {
-                throw new RuntimeException("X.y() gave " + result + ", expexted " + expected_result);
+                throw new RuntimeException("X.y() gave " + result + ", expected " + expected_result);
             }
         }
     }
