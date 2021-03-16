@@ -34,6 +34,7 @@ domain=openjdk.org
 
 [checks "whitespace"]
 files=.*\.md$|.*\.html$|.*\.css$|Makefile
+ignore-tabs=Makefile
 
 [checks "reviewers"]
 reviewers=1
