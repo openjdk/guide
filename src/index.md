@@ -321,7 +321,7 @@ It's not the reporter's responsibility to set a correct priority, but a qualifie
 A few things to keep in mind when filing a new bug:
 
 * Before filing a bug, verify that there isn't already a bug filed for this issue.
-* If you suspect that the bug is a vulnerability, don't file a JBS issue. Instead send your bugreport to [vuln-dev@openjdk.java.net](mailto:vuln-dev@openjdk.java.net)
+* If you suspect that the bug is a vulnerability, don't file a JBS issue. Instead send your bug report to [vuln-dev@openjdk.java.net](mailto:vuln-dev@openjdk.java.net)
 * Make a reasonable attempt to narrow down which build or release the failure first appeared in.
 * Add relevant labels like [`intermittent`](#intermittent), [`regression`](#regression), [`noreg-self`](#noreg-self), ['tier1'](#tier) etc.
 * Set affects version to the JDK version(s) where the failure was seen.
@@ -1022,7 +1022,7 @@ Below is a small example of a JTReg test. It’s a clean Java class with a main 
         public static void main(String[] args) throws Exception {
             var result = X.y();
             if (result != expected_result) {
-                throw new RuntimeException("X.y() gave " + result + ", expexted " + expected_result);
+                throw new RuntimeException("X.y() gave " + result + ", expected " + expected_result);
             }
         }
     }
