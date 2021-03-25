@@ -16,7 +16,7 @@ To engage in the development of the Developers' Guide itself, create a private f
 
 The project comes with a `Makefile`. Simply type `make` to generate HTML files from the source Markdown. The build requires the tools `pandoc`, `iconv`, and `perl` and assumes a POSIX environment. We recommend using at least pandoc 2.0.
 
-To generate the diagrams, you also need the `mermaid-filter` for pandoc. You can install this by running `npm install --global mermaid-filter`.
+To generate the diagrams, you also need the `mermaid-filter` for pandoc. You can install this by running `npm install --global mermaid-filter --unsafe-perm=true`.
 
 The resulting HTML files in the `build` directory are exactly the files published on the [OpenJDK web server](https://openjdk.java.net/guide/). There is, however, a larger framework on the web server with fonts and CSS that is not part of this project. This means that the HTML files as they are generated will not look exactly the same as the final published version. Still they are hopefully good enough to proof read changes and see the layout in a browser.
 
