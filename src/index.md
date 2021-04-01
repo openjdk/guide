@@ -1685,9 +1685,9 @@ This list is intended to make it easier to identify which email list to include 
   * Many files in the awt directories are shared between 2D and AWT
     * See [https://openjdk.java.net/groups/2d/2dawtfiles.html](https://openjdk.java.net/groups/2d/2dawtfiles.html)
     * And see [https://openjdk.java.net/groups/2d](https://openjdk.java.net/groups/2d)
-  * `color`, `font`, `freetype`, `geom`, `imageio`, `java2d`, `jpeg`, `lcms`, `mlib`, `print`, Graphics primitives – 2D
+  * `color`, `font`, `freetype`, `geom`, `imageio`, `java2d`, `jpeg`, `lcms`, `mlib`, `print`, graphics primitives – 2D
   * `splashscreen`, `dnd`, `eawt`, `lwawt` – AWT
-  * `im`, InputMethods – I18n, AWT
+  * `im`, input methods – I18n, AWT
   * `libjsound`, `sound` – Sound
   * `accessibility`, `laf` – Swing
 * `java.instrument` – Serviceability
@@ -1723,7 +1723,8 @@ This list is intended to make it easier to identify which email list to include 
 * `jdk.httpserver` – Net
 * `jdk.incubator.foreign` – LangTools
 * `jdk.incubator.httpclient` – Net
-* `jdk.incubator.jpackage` –
+* `jdk.incubator.jpackage` – Client
+* `jdk.incubator.vector` – HotSpot Compiler
 * `jdk.internal.ed` – LangTools
 * `jdk.internal.jvmstat` – Serviceability
 * `jdk.internal.le` – LangTools
@@ -1740,6 +1741,7 @@ This list is intended to make it easier to identify which email list to include 
 * `jdk.jdwp.agent` – Serviceability
 * `jdk.jfr` – JFR
 * `jdk.jlink` – LangTools
+* `jdk.jpackage` – Client
 * `jdk.jshell` – LangTools
 * `jdk.jsobject` – LangTools
 * `jdk.jstatd` – Serviceability
