@@ -390,7 +390,7 @@ Labels are an open namespace, which means that anyone can create new labels at a
 
 > ---
 
-<table class="dictionary">
+<table class="dictionary" summary="JBS Label Dictionary">
   <tr style="text-align:left;"><th>Label</th><th>Description</th></tr>
   <tr>
     <td class="dictionary">
