@@ -42,3 +42,4 @@ The Developers' Guide is continuously updated and there are several parts still 
 * How to work with the code in an IDE
 * Where to find JTReg bundles
 * How to run tests with your fork and how to navigate the test result ZIP
+* Text about how to create a PR - What to do and what not to do
