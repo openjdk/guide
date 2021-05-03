@@ -321,9 +321,10 @@ It's not the reporter's responsibility to set a correct priority, but a qualifie
 A few things to keep in mind when filing a new bug:
 
 * Before filing a bug, verify that there isn't already a bug filed for this issue.
-* If you suspect that the bug is a vulnerability, don't file a JBS issue. Instead send your bug report to [vuln-dev@openjdk.java.net](mailto:vuln-dev@openjdk.java.net)
+  * Search [JBS](https://bugs.openjdk.java.net/) for things like the name of the failing test, assert messages, the name of the source code file where a crash occurred etc.
+* If you suspect that the bug is a vulnerability, don't file a JBS issue. Instead send your bug report to [vuln-report@openjdk.java.net](mailto:vuln-report@openjdk.java.net). See [OpenJDK Vulnerabilities](https://openjdk.java.net/groups/vulnerability/report) for more information.
 * Make a reasonable attempt to narrow down which build or release the failure first appeared in.
-* Add relevant labels like [`intermittent`](#intermittent), [`regression`](#regression), [`noreg-self`](#noreg-self), ['tier1'](#tier) etc.
+* Add relevant labels like [`intermittent`](#intermittent), [`regression`](#regression), [`noreg-self`](#noreg-self), [`tier1`](#tier) etc.
 * Set affects version to the JDK version(s) where the failure was seen.
   * If the failure is found in an update train of the JDK (e.g. 11.0.x), please make an effort to see if the bug is also present in [mainline](https://hg.openjdk.java.net/jdk/jdk/).
 * Set priority (see above)
