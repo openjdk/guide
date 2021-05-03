@@ -986,6 +986,7 @@ _Congratulations!_ Your changeset will now make its way towards a promoted build
 ::: {.box}
 [Quick Links]{.boxheader}
 
+* [Official build instructions (source code)](https://git.openjdk.java.net/jdk/blob/master/doc/building.md)
 * [openjdk/jdk GitHub project](https://github.com/openjdk/jdk)
 * [JDK 16 General-Availability Release](https://jdk.java.net/16/)
 :::
