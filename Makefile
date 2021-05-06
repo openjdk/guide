@@ -73,7 +73,7 @@ all: $(ALL_RESULT) build/dist/guidestyle.css
 clean:
 	rm -rf build
 
-validate: build/index.html
-	tidy -q -ascii -asxhtml -n --doctype omit --tidy-mark n build/index.html > /dev/null
+validate: build/dist/index.html
+	tidy -q -ascii -asxhtml -n --doctype omit --tidy-mark n build/dist/index.html > /dev/null
 
 .PHONY: default all clean validate
