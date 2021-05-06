@@ -322,7 +322,9 @@ A few things to keep in mind when filing a new bug:
 
 * Before filing a bug, verify that there isn't already a bug filed for this issue.
   * Search [JBS](https://bugs.openjdk.java.net/) for things like the name of the failing test, assert messages, the name of the source code file where a crash occurred etc.
-* If you suspect that the bug is a vulnerability, don't file a JBS issue. Instead send your bug report to [vuln-report@openjdk.java.net](mailto:vuln-report@openjdk.java.net). See [OpenJDK Vulnerabilities](https://openjdk.java.net/groups/vulnerability/report) for more information.
+* If you suspect that the bug is a vulnerability, don't file a JBS issue. Instead send your bug report to [vuln-report@openjdk.java.net](mailto:vuln-report@openjdk.java.net).
+  * Please do *not* report or discuss potential vulnerabilities on any open lists or other public channels.
+  * See [OpenJDK Vulnerabilities](https://openjdk.java.net/groups/vulnerability/report) for more information.
 * Make a reasonable attempt to narrow down which build or release the failure first appeared in.
 * Add relevant labels like [`intermittent`](#intermittent), [`regression`](#regression), [`noreg-self`](#noreg-self), [`tier1`](#tier) etc.
 * Set affects version to the JDK version(s) where the failure was seen.
