@@ -611,7 +611,7 @@ Labels are an open namespace, which means that anyone can create new labels at a
   </tr>
   <tr>
     <td class="dictionary">
-      [~~**`hs-tier`**~~~~`[1-8]`~~]{#hs-tier}
+      [~~**`hs-tier`**`[1-8]`~~]{#hs-tier}
     </td>
     <td class="dictionary">
       **Deprecated.** Was used to identify which HotSpot tier a test failure was seen in. We don't separate HotSpot tiers from the JDK tiers anymore. See **`tier`**`[1-8]`.
@@ -985,13 +985,27 @@ For the purposes of brevity this document will use the term "bug" to refer to bo
 
 _Congratulations!_ Your changeset will now make its way towards a promoted build. When the changeset becomes part of a promoted build, the bug's "Resolved in Build" will have a value of \"b\[1-9\]\[0-9\]&ast;\" to indicate the build number.
 
+# Cloning the JDK
+
+::: {.box}
+[Quick Links]{.boxheader}
+
+* [openjdk/jdk GitHub project](https://github.com/openjdk/jdk)
+:::
+
+The complete source code for the JDK is hosted at [GitHub](https://github.com/openjdk/jdk). If you intend to make changes and contribute patches to the JDK, you should first fork the JDK repository on GitHub and clone your own fork as shown below. To fork a project on GitHub, go to the [project page](https://github.com/openjdk/jdk) and click the 'Fork' button in the upper right corner and follow the on screen instructions. Once you have your private fork, go ahead and clone it.
+
+    $ git clone https://github.com/jesperIRL/jdk.git
+    $ git remote add upstream https://github.com/openjdk/jdk.git
+
+In the example above I cloned my personal fork of the JDK mainline repository. When you do this you should of course use your own GitHub user name instead. Then, by adding a new remote named 'upsream', we associate this clone with [openjdk/jdk](https://github.com/openjdk/jdk) as well. Doing this will allow the tooling to automatically create a PR request on [openjdk/jdk](https://github.com/openjdk/jdk) whenever you push a change to your personal fork.
+
 # Building the JDK
 
 ::: {.box}
 [Quick Links]{.boxheader}
 
 * [Official build instructions (source code)](https://git.openjdk.java.net/jdk/blob/master/doc/building.md)
-* [openjdk/jdk GitHub project](https://github.com/openjdk/jdk)
 * [JDK 16 General-Availability Release](https://jdk.java.net/16/)
 :::
 
@@ -999,13 +1013,10 @@ The JDK build system is a fairly complex machine that has the ability to build a
 
 The JDK supports incremental builds. This means that if you have a complete build and make changes in just a single part of the JDK (e.g. a module or part of the JVM), only that particular part needs to be rebuilt. So subsequent builds will be faster and you can always use a make target that results in a complete JDK image without having to worry about actually building the entire JDK every time. Please note that the incremental build do have limits in its understanding of what you change. For instance, if you change behaviors or conventions in one module there may be other parts of the JDK that implicitly depends on these without make's knowledge. For this reason you may have to rebuild several modules, or do a clean build if you change things that may have a wider impact.
 
-The log below shows the steps taken to download and build the JDK source code from the mainline JDK development GIT repository. The configure script will tell you what additional packages you need. In this particular case several packages were needed since this build was performed on a clean Ubuntu installation. The configure script was run several times to get all the dependencies, but only the commands actually needed to get the JDK built are included in the log.
+The examples below show the steps taken to build the JDK source code. Please see [Cloning the JDK](#cloning-the-jdk) for information on how to download it. These examples were written in the JDK 17 development time frame which is why the boot JDK used here is JDK 16. Note that the download links used here point to JDK 16 bundles. To build JDK N, use JDK N-1 as the boot JDK.
 
-This example was written in the JDK 17 development time frame which is why the boot JDK used here is JDK 16. To build JDK N, use JDK N-1 as the boot JDK. Note that the download link used here points to a Linux x64 JDK 16.
+The configure script will tell you what additional packages you need. In this first example several packages were needed since this build was performed on a clean Ubuntu installation. The configure script was run several times to get all the dependencies, but only the commands actually needed to get the JDK built are included in the log. This is just an example log, don't copy the `apt-get install` line. Instead run `sh ./configure` to see what packages you actually need on your system.
 
-This is just an example log, don't copy the `apt-get install` line. Instead run `sh ./configure` once you have the boot JDK installed to see what packages you actually need on your system.
-
-    $ git clone https://github.com/openjdk/jdk.git
     $ wget https://download.java.net/java/GA/jdk16/7863447f0ab643c585b9bdebf67c69db/36/GPL/openjdk-16_linux-x64_bin.tar.gz
     $ tar xzf openjdk-16_linux-x64_bin.tar.gz
     $ sudo apt-get install autoconf zip make gcc g++ libx11-dev libxext-dev libxrender-dev libxrandr-dev libxtst-dev libxt-dev libcups2-dev libfontconfig1-dev libasound2-dev
@@ -1013,7 +1024,21 @@ This is just an example log, don't copy the `apt-get install` line. Instead run 
     $ sh ./configure --with-boot-jdk=$HOME/jdk-16/
     $ make images
 
-In this case the built JDK can be found in `build/linux-x86_64-server-release/jdk`. The exact path depends on your build platform and selected configuration.
+The built JDK can be found in `build/linux-x86_64-server-release/jdk`. The exact path depends on your build platform and selected configuration.
+
+The second example is from a clean (newly installed) Mac running MacOS Big Sur. Please note that in this case there are some steps taken outside of the terminal. Here [Mac Ports](https://www.macports.org) is used to install `autoconf`. `autoconf` can also be installed using [Homebrew](https://brew.sh) and surely through other sources as well.
+
+    $ curl https://download.java.net/java/GA/jdk16.0.1/7147401fd7354114ac51ef3e1328291f/9/GPL/openjdk-16.0.1_osx-x64_bin.tar.gz --output openjdk-16.0.1_osx-x64_bin.tar.gz
+    $ tar xzf openjdk-16.0.1_osx-x64_bin.tar.gz
+    $ # Get XCode from Appstore
+    $ sudo xcodebuild -license
+    $ # Agree to license
+    $ # Install Mac Ports: https://www.macports.org/install.php
+    $ sudo port install autoconf
+    $ sh ./configure --with-boot-jdk=$HOME/jdk-16.0.1.jdk/Contents/Home
+    $ make images
+
+In this case the built JDK can be found in `build/macosx-x86_64-server-release/jdk`.
 
 ## Configuration options
 
@@ -1290,7 +1315,7 @@ The `@ignore` keyword is used in the test source code. This is mainly used for t
 /**
  *  @test
  *  @ignore 4711
- *
+ */
 ~~~
 
 In this example, `MyTest.java` is excluded, tracked by bug `JDK-4711`. `@ignore` should always be placed directly before the first `@run` line in the test.
