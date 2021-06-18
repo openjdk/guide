@@ -4,7 +4,7 @@
 
 Welcome to the OpenJDK Developers' Guide!
 
-OpenJDK is the place to collaborate on open-source implementations of the Java Platform, Standard Edition, and related projects. It was created in November 2006, when initial portions of the JDK source code were published under the GPLv2 license.
+The OpenJDK Community is the place to collaborate on open-source implementations of the Java Platform, Standard Edition, and related projects. It was created in November 2006, when initial portions of the JDK source code were published under the GPLv2 license.
 
 In order to work together efficiently, clear directions are sometimes needed to avoid misconceptions and to align developers' views of terminology and process. The OpenJDK Community is a fairly pragmatic place. "Do the right thing" is most often the right course of action. Still, if people do things in the same right way then everyone's work becomes more transparent and easier for others to follow. For this reason most parts of the development process have standard flows that are the recommended ways to do things.
 
@@ -29,9 +29,9 @@ OpenJDK consists of a number of [Groups](https://openjdk.java.net/groups/). Memb
 
 ## Author, Committer, Reviewer
 
-The OpenJDK has a few different roles that determine who has the right to do what in the different projects. These roles are defined in the [OpenJDK Bylaws](https://openjdk.java.net/bylaws#project-roles). The roles are earned based on experience and knowledge within each project.
+OpenJDK has a few different roles that determine who has the right to do what in the different projects. These roles are defined in the [OpenJDK Bylaws](https://openjdk.java.net/bylaws#project-roles). The roles are earned based on experience and knowledge within each project.
 
-A Contributor can have different roles in different projects. When you're new to a project you don't yet have a formal role in that specific project, even though you might have earned roles in other OpenJDK projects or have been recognized as a [Contributor](https://openjdk.java.net/bylaws#contributor) or a [Member](https://openjdk.java.net/bylaws#openjdk-member) of the OpenJDK. By contributing high-quality content you'll soon be eligible for [OpenJDK roles](https://openjdk.java.net/bylaws#project-roles) in the project. First [Author](https://openjdk.java.net/bylaws#author), then [Committer](https://openjdk.java.net/bylaws#committer), and finally [Reviewer](https://openjdk.java.net/bylaws#reviewer) if you stay active and earn the trust of the community. Trust is an important part of earning these roles. There's a [rough guideline](https://openjdk.java.net/projects/) saying that to become a [Committer](https://openjdk.java.net/bylaws#committer) you should have contributed 8 significant changes, and to become a [Reviewer](https://openjdk.java.net/bylaws#reviewer) you should have contributed 32 significant changes. In reality it's not as easy as "just" contributing code. You need to build a track record of good decisions and sound judgement and show that you know what differentiates a good change from a not so good one. It's not only correctness of the code that matters, it's also the appropriateness. In the end the trust you've earned is put to the test through a vote.
+A Contributor can have different roles in different projects. When you're new to a project you don't yet have a formal role in that specific project, even though you might have earned roles in other OpenJDK projects or have been recognized as a [Contributor](https://openjdk.java.net/bylaws#contributor) or a [Member](https://openjdk.java.net/bylaws#openjdk-member) of OpenJDK. By contributing high-quality content you'll soon be eligible for [OpenJDK roles](https://openjdk.java.net/bylaws#project-roles) in the project. First [Author](https://openjdk.java.net/bylaws#author), then [Committer](https://openjdk.java.net/bylaws#committer), and finally [Reviewer](https://openjdk.java.net/bylaws#reviewer) if you stay active and earn the trust of the community. Trust is an important part of earning these roles. There's a [rough guideline](https://openjdk.java.net/projects/) saying that to become a [Committer](https://openjdk.java.net/bylaws#committer) you should have contributed 8 significant changes, and to become a [Reviewer](https://openjdk.java.net/bylaws#reviewer) you should have contributed 32 significant changes. In reality it's not as easy as "just" contributing code. You need to build a track record of good decisions and sound judgement and show that you know what differentiates a good change from a not so good one. It's not only correctness of the code that matters, it's also the appropriateness. In the end the trust you've earned is put to the test through a vote.
 
 ### Becoming an Author
 
@@ -90,7 +90,7 @@ In many GitHub projects the standard way to propose a change is to create a pull
 
 ### 1. Sign the OCA
 
-Oracle is the steward of the OpenJDK project. In order to make your patch available for review you must first sign the [Oracle Contributor Agreement](https://www.oracle.com/technical-resources/oracle-contributor-agreement.html) (OCA). This agreement gives Oracle and you as a contributor joint copyright interests in the code. You will retain your copyright while also granting those rights to Oracle.
+Oracle is the steward of OpenJDK. In order to make your patch available for review you must first sign the [Oracle Contributor Agreement](https://www.oracle.com/technical-resources/oracle-contributor-agreement.html) (OCA). This agreement gives Oracle and you as a contributor joint copyright interests in the code. You will retain your copyright while also granting those rights to Oracle.
 
 When you sign the OCA, please make sure that you specify your GitHub user name in the `Username` field of the OCA. If you try to create a PR before you have signed the OCA, or if you didn't specify your GitHub user name, you'll get instructions telling you to do so, and the PR won't be published until this is done. OCA registration is a manual process. Please allow for up to several days to have your OCA application processed, even though it's normally processed swiftly.
 
@@ -108,7 +108,7 @@ Many OpenJDK projects require a tracking issue to be filed in the [JDK Bug Syste
 
 ### 5. Get acquainted with local process
 
-Even though we strive to unify how things are done within the OpenJDK, different areas and projects in the OpenJDK may have slight variations in how they work. Some of these differences are highlighted throughout this guide, some aren't. If you're new to an area, make sure you understand local differences before you proceed. Ask your sponsor who should be your main point of contact through your first developer experience in the OpenJDK.
+Even though we strive to unify how things are done within OpenJDK, different areas and projects in OpenJDK may have slight variations in how they work. Some of these differences are highlighted throughout this guide, some aren't. If you're new to an area, make sure you understand local differences before you proceed. Ask your sponsor who should be your main point of contact through your first developer experience in OpenJDK.
 
 ## Why is my change rejected?
 
@@ -152,7 +152,7 @@ The mailing lists are the key communications mechanism for all OpenJDK work. All
 
 > [`mail.openjdk.java.net`](https://mail.openjdk.java.net/mailman/listinfo)
 
-The OpenJDK community is a friendly place. To keep it that way it's important to keep a professional tone in emails and be aware that the community is global. Many different people with different backgrounds collaborate in these lists. Even though English is the required language for all lists, many Participants speak other languages as their native language. A high tolerance for non-perfect English is expected from anyone joining these lists. You're also strongly encouraged to use your real name on the mailing lists. This adds to the professional tone of your email. Postings from anonymized mailboxes risk being seen as spam. If you do work in the OpenJDK on behalf of your employer, please also list this affiliation. If your GitHub username differs from your real name it's also a good idea to include that to identify yourself and your actions on GitHub.
+The OpenJDK Community is a friendly place. To keep it that way it's important to keep a professional tone in emails and be aware that the community is global. Many different people with different backgrounds collaborate in these lists. Even though English is the required language for all lists, many Participants speak other languages as their native language. A high tolerance for non-perfect English is expected from anyone joining these lists. You're also strongly encouraged to use your real name on the mailing lists. This adds to the professional tone of your email. Postings from anonymized mailboxes risk being seen as spam. If you do work in OpenJDK on behalf of your employer, please also list this affiliation. If your GitHub username differs from your real name it's also a good idea to include that to identify yourself and your actions on GitHub.
 
 You must be a member of a list to be able to post to that list. Some lists are moderated to keep the content on topic. Each list has its own archive where you can browse older conversations on the list.
 
@@ -165,13 +165,13 @@ There are a few different types of lists. The list name has two parts to explain
 > :    Technical discussions around the usage of the project artifacts.
 
 > `-discuss`
-> :    General discussions around the project. The special case `discuss(at)openjdk.java.net` is used for general discussions around the OpenJDK project. Discussions around new project proposals usually happens here.
+> :    General discussions around the project. The special case `discuss(at)openjdk.java.net` is used for general discussions around OpenJDK. Discussions around new project proposals usually happens here.
 
 >  `-changes`
 > :    Changeset notifications from the source code repositories maintained by the project.
 
 > `-announce`
-> :    General project announcements. These lists are tightly moderated and are expected to be low traffic. The special case `announce(at)openjdk.java.net` is used for announcements for the OpenJDK project.
+> :    General project announcements. These lists are tightly moderated and are expected to be low traffic. The special case `announce(at)openjdk.java.net` is used for announcements for OpenJDK.
 
 > `-experts`
 > :    Expert group discussions. The list is restricted; only members of the expert group can subscribe.
@@ -376,7 +376,7 @@ If the source for the Project is contained within a single repository or reading
 
 ## Filing a Bug
 
-When a new failure is found in the JDK a bug should be filed to describe and track the issue. Depending on your role in the OpenJDK you can either use the [Bug Report Tool](https://bugreport.java.com/) or, if you are registered in the [OpenJDK Census](https://openjdk.java.net/census), report the bug directly in [JBS](https://bugs.openjdk.java.net/). Try to make the bug report as complete as possible to make it easier to triage and investigate the bug.
+When a new failure is found in the JDK a bug should be filed to describe and track the issue. Depending on your role in OpenJDK you can either use the [Bug Report Tool](https://bugreport.java.com/) or, if you are registered in the [OpenJDK Census](https://openjdk.java.net/census), report the bug directly in [JBS](https://bugs.openjdk.java.net/). Try to make the bug report as complete as possible to make it easier to triage and investigate the bug.
 
 A few things to keep in mind when filing a new bug:
 
