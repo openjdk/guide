@@ -35,7 +35,7 @@ A Contributor can have different roles in different projects. When you're new to
 
 ### Becoming an Author
 
-Becoming an [Author](https://openjdk.java.net/bylaws#author) is the first step. To achieve this you need to contribute two non-trivial changes to the project in which you wish to become an Author. Once your changes are pushed into the code base and has been vetted enough to determine that the changes was indeed good changes you can go ahead and send an email to the project lead of that particular project and ask to be added as an Author.
+Becoming an [Author](https://openjdk.java.net/bylaws#author) is the first step. To achieve this you need to contribute two non-trivial changes to the project in which you wish to become an Author. Once your changes are pushed into the code base and has been vetted enough to determine that the changes were indeed good changes you can go ahead and send an email to the project lead of that particular project and ask to be added as an Author.
 
 As an Author you have the formal right to produce changesets for inclusion into the projects code base, but you will need a sponsor to perform the actual push. You'll also have write access to [JBS](#jbs---jdk-bug-system).
 
@@ -53,26 +53,28 @@ To become a [Reviewer](https://openjdk.java.net/bylaws#reviewer) you must show a
 
 The assumption is that after having produced 32 significant changes one should have become familiar with the process around reviews and the requirements around getting a change approved. This should really be seen as a minimum requirement though. A more practical consideration would be to look at whether the non-trivial commits of a potential Reviewer are accepted largely intact or whether they are always being refined by the review process. There may be cases where it will take significantly more than 32 changes for a Committer to be ready to become a Reviewer.
 
+Once you are deemed ready, a Reviewer in the project can start a vote by sending an email proposing that you should become a Reviewer. The email should follow the template found in the [OpenJDK Project description](https://openjdk.java.net/projects/).
+
 ### Non-trivial/Significant changes
 
 One key definition when advancing through the OpenJDK roles is the significant change. What exactly does it take for a change to be significant?
 
-Instead of describing the significant change (because that's quite difficult) provided here is a few examples of changes that would not be considered significant or for other reasnons wouldn't count as significant contributions.
+Instead of describing the significant change (because that's quite difficult to define) provided here is a few examples of changes that wouldn't be considered significant or for other reasons wouldn't count as significant contributions.
 
 * Purely aesthetic changes like renaming or fixing indentation
 * Repeated follow-up bugfixes from earlier changes
-* Larger changes where only a non-significant portion of the work was done by the proposed Committer
+* Larger changes where only a non-significant portion of the work was done by the Contributor under vote
 * Trivial backports of someone else's changes
 
 # Contributing to an OpenJDK Project
 
-Contributing to OpenJDK can take many forms. Writing code and providing patches is just one of them. A big part of developing a feature or a bugfix is testing and code review. Anything you can do to help out in these areas will be recognised as a contribution. Join the [mailing lists](#mailing-lists) to engage in design discussions and reviews, and dowload the latest EA builds or project repositories to try out new features and give feedback.
+Contributing to OpenJDK can take many forms. Writing code and providing patches is just one of them. A big part of developing a feature or a bugfix is testing and code review. Anything you can do to help out in these areas will be recognized as a contribution. Join the [mailing lists](#mailing-lists) to engage in design discussions and reviews, and download the latest EA builds or project repositories to try out new features and give feedback.
 
-Anything you can do to spread the word about Java, new features, and your experiences using the JDK will be helpful for the community and to the OpenJDK developers. Trying out a new feature and reporting your experiences is also a contribution. Wether you find that the new feature imroves your application, or if you find some area that needs to be improved, your feedback is valuable to the developers of that feature.
+Anything you can do to spread the word about Java, new features, and your experiences using the JDK will be helpful for the community and to the OpenJDK developers. Trying out a new feature and reporting your experiences is also a contribution. Whether you find that the new feature improves your application, or if you find some area that needs to be improved, your feedback is valuable to the developers of that feature.
 
 If you have a success story where Java solved your problem, or if you successfully upgraded to a more recent version of the JDK and noticed some improvements, spreading this story through a blog, news article, or some other channel is also a contribution.
 
-If you're in a position to choose what programming language to use in a project, in a tutorial, or in a class, you have the power to enlarge the Java community in a very direct way, and your colleagues or students will get an oportunity to learn the most used programming language in the world.
+If you're in a position to choose what programming language to use in a project, in a tutorial, or in a class, you have the power to enlarge the Java community in a very direct way, and your colleagues or students will get an opportunity to learn the most used programming language in the world.
 
 ## I have a patch, what do I do?
 
