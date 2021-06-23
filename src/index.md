@@ -1630,7 +1630,7 @@ ProblemList entries and `@ignore` keywords will continue to point to the origina
 
 ### How to work with git when a change is backed out
 
-To backout a change with git, use `git revert`. This will apply (commit) the anti delta of the change.
+To backout a change with git, use `git revert`. This will apply (commit) the anti-delta of the change.
 
 ~~~diff
 $ git show aa371b4f02c2f809eb9cd3e52aa12b639bed1ef5
@@ -1650,9 +1650,11 @@ index 399e7cc311f..4961acb2126 100644
 
  For build instructions please see the
  [online documentation](https://openjdk.java.net/groups/build/doc/building.html),
+
 $ git revert aa371b4f02c2f809eb9cd3e52aa12b639bed1ef5
 [master d454489052d] Revert "My change"
  1 file changed, 1 insertion(+), 1 deletion(-)
+
 $ git show d454489052dc6ff69a21ad9c8f56b67fdeb435ee
 commit d454489052dc6ff69a21ad9c8f56b67fdeb435ee (HEAD -> master)
 Author: Jesper Wilhelmsson <jesper.wilhelmsson@oracle.com>
@@ -1676,7 +1678,7 @@ index 4961acb2126..399e7cc311f 100644
 
 ### How to work with mercurial when a change is backed out
 
-In order to backout a change, the `hg backout` command is recommended, which essentially applies the anti delta of the change. Make sure you perform the backout in the most upstream repostiory the change has escaped to.
+In order to backout a change, the `hg backout` command is recommended, which essentially applies the anti-delta of the change. Make sure you perform the backout in the most upstream repostiory the change has escaped to.
 
 ~~~
 hg backout [OPTION]... [-r] REV
