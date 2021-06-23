@@ -993,12 +993,61 @@ _Congratulations!_ Your changeset will now make its way towards a promoted build
 * [openjdk/jdk GitHub project](https://github.com/openjdk/jdk)
 :::
 
-The complete source code for the JDK is hosted at [GitHub](https://github.com/openjdk/jdk). If you intend to make changes and contribute patches to the JDK, you should first fork the JDK repository on GitHub and clone your own fork as shown below. To fork a project on GitHub, go to the [project page](https://github.com/openjdk/jdk) and click the 'Fork' button in the upper right corner and follow the on screen instructions. Once you have your private fork, go ahead and clone it.
+The complete source code for the JDK is hosted at [GitHub](https://github.com). If you intend to make changes and contribute patches to the JDK, you should first fork the JDK repository on GitHub and clone your own fork as shown below. To fork a project on GitHub, go to the [project page](https://github.com/openjdk/jdk) and click the 'Fork' button in the upper right corner, then follow the on screen instructions. Once you have your private fork, go ahead and clone it.
 
-    $ git clone https://github.com/jesperIRL/jdk.git
-    $ git remote add upstream https://github.com/openjdk/jdk.git
+    $ git clone git@github.com:JesperIRL/jdk.git
+    $ git remote add upstream git@github.com:openjdk/jdk.git
 
-In the example above I cloned my personal fork of the JDK mainline repository. When you do this you should of course use your own GitHub user name instead. Then, by adding a new remote named 'upsream', we associate this clone with [openjdk/jdk](https://github.com/openjdk/jdk) as well. Doing this will allow the tooling to automatically create a PR request on [openjdk/jdk](https://github.com/openjdk/jdk) whenever you push a change to your personal fork.
+In the example above I cloned my personal fork of the JDK mainline repository. You should of course use your own GitHub username instead. Then, by adding a new *remote* named 'upstream', we associate this clone with [openjdk/jdk](https://github.com/openjdk/jdk) as well. Doing this will allow the tooling to automatically create a PR request on [openjdk/jdk](https://github.com/openjdk/jdk) whenever you push a change to your personal fork. The way that works is that once you have pushed a change to your private fork, and navigate to the [openjdk/jdk](https://github.com/openjdk/jdk) repository on GitHub, there will be a message saying that you just pushed a change and asking if you want to create a PR.
+
+The recommendation is to always create a new branch for any change you intend to implement. By doing that you can easily work on many different changes in parallel in the same code repository. Unless you know what you are doing, the recommendation is also to always base your new branch on the `master` branch.
+
+    $ git checkout master
+    $ git checkout -b my-fix
+
+Here we `checkout` the `master` branch, this is safe to do even if you already have the `master` branch active. Then we create a new branch called `my-fix` and set the repository up to work in that branch.
+
+::: {.box}
+If you're new to git you should read more about how to work with git in one of the many fine git tutorials available on the Internet. This guide doesn't aspire to become another git guide.
+:::
+
+## Generating an SSH key
+
+All pushes require an SSH key which must be installed on GitHub. If this is the first time you clone the [openjdk/jdk](https://github.com/openjdk/jdk) repository you may want to create an SSH key to use with it. For security reasons you should always create new keys and use different keys with each repository you clone. The `ssh-keygen` command generates an SSH key. The `-t` option determines which type of key to create. `ed25519` is recommended. `-C` is used to add a comment in the key file, to help you remember which key it is. While it’s possible to use SSH without a passphrase, this is **strongly discouraged**. Empty or insecure passphrases may be reset using `ssh-keygen -p`; this doesn’t change the keys.
+
+    $ ssh-keygen -t ed25519 -C openjdk-jdk -f ~/.ssh/openjdk-jdk
+    Generating public/private ed25519 key pair.
+    Enter passphrase (empty for no passphrase):
+    Enter same passphrase again:
+    Your identification has been saved in /Users/jesper/.ssh/openjdk-jdk.
+    Your public key has been saved in /Users/jesper/.ssh/openjdk-jdk.pub.
+    The key fingerprint is:
+    SHA256:WS4jCQMtat75ZEue+so+Lgj7V/sdMtj1FTNkfNsCfHA openjdk-jdk
+    The key's randomart image is:
+    +--[ED25519 256]--+
+    |  ..       ..oE  |
+    |  ...       o+o .|
+    | . .o     .  o+.o|
+    |..   o . +    .=.|
+    |o . . o S o   .. |
+    |.. o +.+ + . .   |
+    |o.  *.+.+ . .    |
+    |o....=.  + .     |
+    | .=B=. .. .      |
+    +----[SHA256]-----+
+
+`~/.ssh/openjdk-jdk` is a text file containing your private ssh key. There's a corresponding public key in `~/.ssh/openjdk-jdk.pub` (as detailed in the example above). You should **never** share your private key. The *public* key on the other hand should be uploaded to GitHub. Follow the steps below to do that.
+
+* Go to the GitHub settings for your account by choosing "Settings" in the menu by your avatar in the upper right corner
+* Go to "SSH and GPG keys"
+* Click "New SSH key"
+* Title "OpenJDK" (or something else appropriate)
+* Paste the content of `~/.ssh/openjdk-jdk.pub` into the text field
+  * To get the content of the file you can for instance use `cat ~/.ssh/openjdk-jdk.pub`
+  * It will look something like this: `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO8+egiIgWV+tE7LVVJmlR7WS2Lr3Fj7dXVo9HiasD6T openjdk-jdk`
+* Click "Add SSH key"
+
+Now you are ready to clone your [openjdk/jdk](https://github.com/openjdk/jdk) fork using SSH.
 
 # Building the JDK
 
@@ -1461,79 +1510,6 @@ Option 2: _**`hg`**_ `fetch`
 ## Pushing
 
 In order to push changesets into the parent repository, some additional configuration is required. The following sections describe the operations that will be performed by users with push access.
-
-#### Generating an SSH Key
-
-All pushes require an ssh key which must be installed on the Mercurial server. The `ssh-keygen` command generates an ssh key. The `-b` option overrides the default number of bits for the key. Allow a few minutes to generate a 4096 bit key; a key of at least 2048 bits is recommended. While it's possible to use ssh without a passphrase, this is **strongly** discouraged. Empty or insecure passphrases may be reset using `ssh-keygen -p`; this doesn't change the keys.
-
-    $ ssh-keygen -t rsa -b 4096
-    Enter file in which to save the key(/u/iris/.ssh/id_rsa):
-    Generating public/private rsa key pair.
-    Enter passphrase(empty for no passphrase):
-    Enter same passphrase again:
-    Your identification has been saved in /u/iris/.ssh/id_rsa.
-    Your public key has been saved in /u/iris/.ssh/id_rsa.pub.
-    The key fingerprint is:
-    md5 4096 c2:b7:00:e6:4b:da:ea:ec:32:30:f5:bd:12:26:04:83 iris@duke
-    The key's randomart image is:
-    +--[ RSA 4096]----+
-    |    E.=          |
-    |     . *         |
-    |      o .   .    |
-    |         + o     |
-    |        S + .    |
-    |       .   + .   |
-    |        + + +..  |
-    |       * . oo+.  |
-    |      o . .o..   |
-    +-----------------+
-
-The `~/.ssh/id_rsa.pub` is a text file containing the public ssh key. This file should be mailed as an attachment along with the JDK username to [keys(at)openjdk.java.net](mailto:keys-at-openjdk.java.net). An administrator will install your key on the server and notify you on completion. This process may take a couple of days.
-
-> ---
-> Users behind a SOCKS firewall can add a directive to the `~/.ssh/config` file to connect to the OpenJDK Mercurial server:
->
->     Host *.openjdk.java.net
->     ProxyCommand /usr/lib/ssh/ssh-socks5-proxy-connect -h [socks_proxy_address] %h %p
->
-> See the `ssh-socks5-proxy-connect` man page and `ssh-config` man page for more information. Other systems may require proxy access via other programs. Some Linux distributions provide the `corkscrew` package which provides ssh access through HTTP proxies.
->
-> **It's recommended that all users check with their network administrators before installing any kind of TCP forwarding tool on their network. Many corporations and institutions have strict security policies in this area.**
-
-> ---
-
-#### SSH Shortcuts
-
-The following section provides some tips for improving the usability of ssh-related operations.
-
-* _Using SSH in multiple shells_
-
-  To avoid having to constantly type in the passphrase, use the ssh-agent on your local client to cache your pashphrase:
-
-      $ eval `ssh-agent`
-      Agent pid 17450
-      $ ssh-add
-      Enter passphrase for /u/iris/.ssh/id_rsa:
-      Identity added: /u/iris/.ssh/id_rsa(/u/iris/.ssh/id_rsa)
-
-  The same ssh-agent process can be shared with multiple shells. There are various ways to do this. Bash users can accomplish this with the following code in `.bashrc`:
-
-      if [ "$PS1" -a -d $HOME/.ssh ]; then
-        if [ "x$SSH_AUTH_SOCK" = x ]; then
-          eval `ssh-agent | grep -v 'echo Agent pid'`
-          ssh-add
-          trap "echo Killing SSH agent $SSH_AGENT_PID; kill $SSH_AGENT_PID" 0
-        fi
-      fi
-
-  For secure operation, only start an ssh-agent when needed and kill it off when the shell completes. Test this by running `ssh 'hostname' echo hello` multiple times.
-
-* _Logging in without a password_
-
-  To avoid needing to constantly type in the password, add the public key to the list of ssh authorized keys.
-
-      $ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
-      $ chmod 600 ~/.ssh/authorized_keys
 
 #### Setting the `default-push` Path to the Server Repositories
 
