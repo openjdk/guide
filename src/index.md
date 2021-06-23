@@ -1603,9 +1603,9 @@ After the push has been accepted, an automatic e-mail notification will be sent 
 
 ## Backing Out a Change
 
-If a change causes a regression that can't be fixed within reasonable time the best way to handle the regression can be to back out the change. Backing out means that the inverse (anti-delta) of the change is pushed to effectively undo the change in the repository. There are two parts to this task, how to do the bookkeeping in JBS, and how to do the actual backout in mercurial.
+If a change causes a regression that can't be fixed within reasonable time the best way to handle the regression can be to back out the change. Backing out means that the inverse (anti-delta) of the change is pushed to effectively undo the change in the repository. There are two parts to this task, how to do the bookkeeping in JBS, and how to do the actual backout in git or mercurial.
 
-The backout is a regular change and will have to go through the standard code review process, but is considered a [trivial](#trivial) change. The rationale is that a backout is usually urgent in nature and the change itself is automatically created by hg, and reviewed by the person who is performing the backout, so even though only one additional Reviewer is required the change will in practice get two reviews.
+The backout is a regular change and will have to go through the standard code review process, but is considered a [trivial](#trivial) change. The rationale is that a backout is usually urgent in nature and the change itself is automatically generated. In areas where two reviewers are normally required, only one additional Reviewer is required for a backout since the person who is performing the backout also will review the change.
 
 ### How to work with JBS when a change is backed out
 
@@ -1627,6 +1627,52 @@ The backout is a regular change and will have to go through the standard code re
      * Link **(B)** and **(O)**.
 
 ProblemList entries and `@ignore` keywords will continue to point to the original bug (unless updated at back out). This is accepted since there is a clone link to follow.
+
+### How to work with git when a change is backed out
+
+To backout a change with git, use `git revert`. This will apply (commit) the anti delta of the change.
+
+~~~diff
+$ git show aa371b4f02c2f809eb9cd3e52aa12b639bed1ef5
+commit aa371b4f02c2f809eb9cd3e52aa12b639bed1ef5 (HEAD -> master)
+Author: Jesper Wilhelmsson <jesper.wilhelmsson@oracle.com>
+Date:   Wed Jun 23 20:31:32 2021 +0200
+
+    My change
+
+diff --git a/README.md b/README.md
+index 399e7cc311f..4961acb2126 100644
+--- a/README.md
++++ b/README.md
+@@ -1,4 +1,4 @@
+-# Welcome to the JDK!
++# Welcome to my modified JDK!
+
+ For build instructions please see the
+ [online documentation](https://openjdk.java.net/groups/build/doc/building.html),
+$ git revert aa371b4f02c2f809eb9cd3e52aa12b639bed1ef5
+[master d454489052d] Revert "My change"
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ git show d454489052dc6ff69a21ad9c8f56b67fdeb435ee
+commit d454489052dc6ff69a21ad9c8f56b67fdeb435ee (HEAD -> master)
+Author: Jesper Wilhelmsson <jesper.wilhelmsson@oracle.com>
+Date:   Wed Jun 23 20:32:08 2021 +0200
+
+    Revert "My change"
+
+    This reverts commit aa371b4f02c2f809eb9cd3e52aa12b639bed1ef5.
+
+diff --git a/README.md b/README.md
+index 4961acb2126..399e7cc311f 100644
+--- a/README.md
++++ b/README.md
+@@ -1,4 +1,4 @@
+-# Welcome to my modified JDK!
++# Welcome to the JDK!
+
+ For build instructions please see the
+ [online documentation](https://openjdk.java.net/groups/build/doc/building.html),
+~~~
 
 ### How to work with mercurial when a change is backed out
 
