@@ -1741,6 +1741,17 @@ Throughout the release there are a number of milestones and phases that defines 
 
 Please note that the priority of a bug doesn't change just because you want to get your fix in late in the release, or if you want to be able to defer it. The priority is based on the severity of the bug and if it was deemed to be a P2 before, you better have a really good explanation to why that conveniently has changed by the end of the release. Being hard to fix is **not** a reason to lower the priority of a bug.
 
+### Milestone cheat sheet
+
+Even though there's nothing explicitly written in the process about deferring P1 and P2 bugs during the normal development phase, the assumption is that these aren't deferred unless time runs out at the end of the release cycle.
+
+|           | P1           | P2           | P3           | P4/P5        | Doc/Test     | Enhancement  |
+|:----------|:-------------|:-------------|:-------------|:-------------|:-------------|:-------------|
+| Dev phase | Fix          | Fix          | Fix or Defer | Fix or Defer | Fix or Defer | Fix or Defer |
+| RDP1      | Fix or Defer with approval | Fix or Defer with approval | Fix or Defer | Defer | Fix or Defer | Fix with approval or Defer |
+| RDP2      | Fix with approval or Defer with approval | Fix with approval or Defer with approval | Defer | Defer | Fix or Defer | Defer |
+| RC        | Fix with approval or Defer with approval | Defer | Defer | Defer | Defer    | Defer    |
+
 ## Forward ports
 
 During the rampdown of a release there are two repositories in play, the stabilization fork for the outgoing release, and the mainline repository where the next release is being developed. Any bugfix going into the stabilization fork is likely to be desired in mainline as well. As a developer you should **only** push your fix to the stabilization fork if you intend for it to go to both repositories. Your fix will be forward ported to mainline.
