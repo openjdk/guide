@@ -1713,7 +1713,7 @@ Integrating early in a release is preferable, but all new features can't be inte
 
 ## Milestones and phases
 
-Throughout the release there are a number of milestones and phases that defines where in the release cycle we are.
+Throughout the release there are a number of milestones and phases that define where in the release cycle we are.
 
 [**The start of a release**]{#release-start}
 :    Since development is always ongoing in the mainline repository ([openjdk/jdk](https://github.com/openjdk/jdk)), the start of a new release can be said to begin when the former release is forked of from mainline. After the start of the release follows six months of development to implement and integrate all the cool stuff that will go into the next release. After these six months rampdown begins.
@@ -1725,7 +1725,7 @@ Throughout the release there are a number of milestones and phases that defines 
 :    At RDS we enter RDP1. During this phase you may continue to fix P1-P3 product bugs. P4 and P5 product bugs should be deferred at this point. Test bugs (labeled `noreg-self`) and documentation bugs (labeled `noreg-doc`) can still be fixed in RDP1 regardless of their priority. To fix an enhancement an approval is required. See the [Late-Enhancement Request Process](https://openjdk.java.net/jeps/3#Late-Enhancement-Request-Process) for details on how to do that. If you want to defer a P1 or P2 bug during RDP1 you will also need an approval. See the [Bug-Deferral Process](https://openjdk.java.net/jeps/3#Bug-Deferral-Process) for more details.
 
 [**Feature Complete (FC)**]{#fc}
-:    Feature Complete is declared when all features that is supposed to be in the release has been integrated into the release. With the six-month release cadence, FC is defined as a date rather than a set of features, so the features that are integrated by FC are the features that should be in the release. FC is normally the same day as RDS.
+:    Feature Complete is declared when all features that are supposed to be in the release have been integrated into the release. With the six-month release cadence, FC is defined as a date rather than a set of features, so the features that are integrated by FC are the features that should be in the release. FC is normally the same day as RDS.
 
 [**All Tests Run (ATR)**]{#atr}
 :    ATR is not a milestone described in JEP 3, but it's still a concept that might be mentioned in discussions on this topic and is therefore good to know about. ATR (a.k.a. ATR Start) is the start of an approximately six week long test period where all tests in the test plan for the given release is ran. ATR usually starts at RDS.
@@ -1734,7 +1734,7 @@ Throughout the release there are a number of milestones and phases that defines 
 :    In RDP2 the bar is higher to get changes into the release. For product bugs, only P1:s and P2:s are supposed to be fixed here, and to do so an approval is needed. See the [Fix-Request Process](https://openjdk.java.net/jeps/3#Fix-Request-Process) for details on how to obtain one. All other product bugs should be deferred. Test bugs (labeled `noreg-self`) and documentation bugs (labeled `noreg-doc`) can still be fixed in RDP2. To fix an enhancement an approval is required. See the [Late-Enhancement Request Process](https://openjdk.java.net/jeps/3#Late-Enhancement-Request-Process) for details on how to do that. If you want to defer a P1 or P2 bug during RDP2 you will also need an approval. See the [Bug-Deferral Process](https://openjdk.java.net/jeps/3#Bug-Deferral-Process) for more details.
 
 [**Release Candidate**]{#rc}
-:    Towards the end of a release, when there are no more open product bugs targeted to the release, a stable build is selected to be the release candidate. This build will go through additional testing and if no more issues are found it will be the build released. If new bugs are found these are investigated and hopefully fixed, and a new build becomes the release candidate. The RC phase has a few milestones with a deadline for finding a candidate build, and another for making sure the build is ready to go live. During the RC phase only P1 bugs are fixed, and to fix one an approval is needed. See the [Fix-Request Process](https://openjdk.java.net/jeps/3#Fix-Request-Process) for details on how to obtain one. All other bugs should be deferred. To defer a P1 bug during RC you will need an approval. See the [Bug-Deferral Process](https://openjdk.java.net/jeps/3#Bug-Deferral-Process) for more details. No enhancements are allowed to be integrated during RC.
+:    Towards the end of the release cycle, when there are no more open product bugs targeted to the release, a stable build is selected to be the release candidate. This build will go through additional testing and if no more issues are found it will be the build released. If new bugs are found these are investigated and hopefully fixed, and a new build becomes the release candidate. The RC phase has a few milestones with a deadline for finding a candidate build, and another for making sure the build is ready to go live. During the RC phase only P1 bugs are fixed, and to fix one an approval is needed. See the [Fix-Request Process](https://openjdk.java.net/jeps/3#Fix-Request-Process) for details on how to obtain one. All other bugs should be deferred. To defer a P1 bug during RC you will need an approval. See the [Bug-Deferral Process](https://openjdk.java.net/jeps/3#Bug-Deferral-Process) for more details. No enhancements are allowed to be integrated during RC.
 
 [**General Availability (GA)**]{#ga}
 :    This is the end of the release cycle. The last release candidate build is made available to the public.
@@ -1754,7 +1754,7 @@ Even though there's nothing explicitly written in the process about deferring P1
 
 ## Forward ports
 
-During the rampdown of a release there are two repositories in play, the stabilization fork for the outgoing release, and the mainline repository where the next release is being developed. Any bugfix going into the stabilization fork is likely to be desired in mainline as well. As a developer you should **only** push your fix to the stabilization fork if you intend for it to go to both repositories. Your fix will be forward ported to mainline.
+During the rampdown of a release there are two repositories in play, the stabilization fork for the outgoing release, and the mainline repository where the next release is being developed. Any bugfix going into the stabilization fork is likely to be desired in mainline as well. As a developer you should push your fix to the stabilization fork **only**, even if you intend for it to go to both repositories. Your fix will be forward ported to mainline.
 
 All fixes that are pushed to the stabilization fork are forward ported to mainline. If you have a fix that is only intended for the stabilization fork you will have to manually back it out from mainline once it has been forward ported.
 
