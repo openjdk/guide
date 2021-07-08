@@ -48,16 +48,19 @@ pre > code {
     color: #437291;
 }
 
-table.dictionary {
+table {
     border-spacing: 0px;
 }
 
 td.dictionary {
-    border-style: solid none;
-    border-width: 1px;
-    border-color: #ccc;
     padding: 1em;
     vertical-align: top;
+}
+
+td {
+  border-style: solid none none none;
+  border-width: 1px;
+  border-color: #ccc;
 }
 
 strong > code {
