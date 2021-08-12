@@ -1743,9 +1743,19 @@ Please note that the priority of a bug doesn't change just because you want to g
 
 During the rampdown of a release there are two repositories in play, the stabilization fork for the outgoing release, and the mainline repository where the next release is being developed. Any bugfix going into the stabilization fork is likely to be desired in mainline as well. As a developer you should push your fix to the stabilization fork **only**, even if you intend for it to go to both repositories. Your fix will be forward ported to mainline.
 
-All fixes that are pushed to the stabilization fork are forward ported to mainline. If you have a fix that is only intended for the stabilization fork you will have to manually back it out from mainline once it has been forward ported.
+All fixes that are pushed to the stabilization fork are forward ported to mainline. If you have a fix that is only intended for the stabilization fork you will have to manually back it out from mainline once it has been forward ported. In order to remember to do this you should file a backout isue in JBS before pushing your change to the stabilization fork. E.g., To push JDK-xxx to the stabilization fork but not to the mainline, you need to file an issue, JDK-yyy, in JBS to back out the fix after it has been merged into the mainline. Make sure the two JBS issues (JDK-xxx and JDK-yyy) are related so that it's easy to find one from the other.
 
-For example, if you want to push JDK-xxx to the stabilization fork but not to the mainline, you need to file an issue, JDK-yyy, in JBS to back out the fix after it's merged into the mainline. Make sure the two JBS issues (JDK-xxx and JDK-yyy) are related so that it's easy to find one from the other. One common way to do this is to link the two issues using a "relates to" link. There are also examples in JBS where JDK-yyy has been created as a sub-task of JDK-xxx. Also see [Backing out a change](#backing-out-a-change) for reference.
+To clarify, as soon as you know that there is a fix that needs to go into the stabilization fork but not the mainline, you should do the following:
+
+* File a bug, JDK-yyy, to cover the backout work
+* Link JDK-yyy to JDK-xxx using a "relates to" link
+* Set JDK-yyy's Fix Version to the next release
+* Add a comment describing the situation
+* Set the priority to be relatively high (e.g., P3)
+
+Then, you have to wait until the JDK-xxx fix is forward ported to the mainline before actually fixing JDK-yyy. Making these settings in JDK-yyy will help ensure that it won't be missed.
+
+There are also examples in JBS where JDK-yyy has been created as a sub-task of JDK-xxx. This works but is not recommended since JDK-yyy stands a higher risk of being missed when it's not of type *Bug* but rather a *sub-task* of an already closed issue. Also see [Backing out a change](#backing-out-a-change) for reference.
 
 # Code Owners
 
