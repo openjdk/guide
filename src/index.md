@@ -998,17 +998,17 @@ The complete source code for the JDK is hosted at [GitHub](https://github.com). 
     $ git clone git@github.com:JesperIRL/jdk.git
     $ git remote add upstream git@github.com:openjdk/jdk.git
 
-In the example above I cloned my personal fork of the JDK mainline repository. You should of course use your own GitHub username instead. Then, by adding a new *remote* named 'upstream', we associate this clone with [openjdk/jdk](https://github.com/openjdk/jdk) as well. Doing this will allow the tooling to automatically create a PR request on [openjdk/jdk](https://github.com/openjdk/jdk) whenever you push a change to your personal fork. The way that works is that once you have pushed a change to your private fork, and navigate to the [openjdk/jdk](https://github.com/openjdk/jdk) repository on GitHub, there will be a message saying that you just pushed a change and asking if you want to create a PR.
+In the example above I cloned my personal fork of the JDK mainline repository. You should of course use your own GitHub username instead. Then, by adding a new *remote* named 'upstream', we associate this clone with [openjdk/jdk](https://github.com/openjdk/jdk) as well. Doing this will allow the tooling to automatically create a PR on [openjdk/jdk](https://github.com/openjdk/jdk) whenever you push a change to your personal fork. The way that works is that once you have pushed a change to your private fork, and navigate to the [openjdk/jdk](https://github.com/openjdk/jdk) repository on GitHub, there will be a message saying that you just pushed a change and asking if you want to create a PR.
 
 The recommendation is to always create a new branch for any change you intend to implement. By doing that you can easily work on many different changes in parallel in the same code repository. Unless you know what you are doing, the recommendation is also to always base your new branch on the `master` branch.
 
     $ git checkout master
-    $ git checkout -b my-fix
+    $ git checkout -b JDK-8272373
 
-Here we `checkout` the `master` branch, this is safe to do even if you already have the `master` branch active. Then we create a new branch called `my-fix` and set the repository up to work in that branch.
+Here we first `checkout` the `master` branch, this is safe to do even if you already have the `master` branch active. Then we create a new branch called `JDK-8272373` and set the repository up to work in that branch.
 
 ::: {.box}
-If you're new to git you should read more about how to work with git in one of the many fine git tutorials available on the Internet. This guide doesn't aspire to become another git guide.
+If you're new to git you should read more about how to work with git in one of the many fine git tutorials available on the Internet. For instance the [Pro Git book](https://git-scm.com/book/en/v2). This guide doesn't aspire to become another git guide.
 :::
 
 ## Generating an SSH key
@@ -1019,8 +1019,8 @@ All pushes require an SSH key which must be installed on GitHub. If this is the 
     Generating public/private ed25519 key pair.
     Enter passphrase (empty for no passphrase):
     Enter same passphrase again:
-    Your identification has been saved in /Users/jesper/.ssh/openjdk-jdk.
-    Your public key has been saved in /Users/jesper/.ssh/openjdk-jdk.pub.
+    Your identification has been saved in /Users/duke/.ssh/openjdk-jdk.
+    Your public key has been saved in /Users/duke/.ssh/openjdk-jdk.pub.
     The key fingerprint is:
     SHA256:WS4jCQMtat75ZEue+so+Lgj7V/sdMtj1FTNkfNsCfHA openjdk-jdk
     The key's randomart image is:
@@ -1075,14 +1075,11 @@ The configure script will tell you what additional packages you need. In this fi
 
 The built JDK can be found in `build/linux-x86_64-server-release/jdk`. The exact path depends on your build platform and selected configuration.
 
-The second example is from a clean (newly installed) Mac running MacOS Big Sur. Please note that in this case there are some steps taken outside of the terminal. Here [Mac Ports](https://www.macports.org) is used to install `autoconf`. `autoconf` can also be installed using [Homebrew](https://brew.sh) and surely through other sources as well.
+The second example is from a clean (newly installed) Mac running MacOS Big Sur. Please note that in this case there are some steps taken outside of the terminal. First XCode and the XCode command line tools must be installed. It could be that the most recent version of XCode that you get from App Store is too new to have been properly tested with the JDK build. See [the JDK build instructions](https://github.com/openjdk/jdk/blob/master/doc/building.md#apple-xcode) for supported versions and more details in case you need to install an older version of XCode.
+In this example [Mac Ports](https://www.macports.org) is used to install `autoconf`. `autoconf` can also be installed using [Homebrew](https://brew.sh) and surely through other sources as well.
 
     $ curl https://download.java.net/java/GA/jdk16.0.1/7147401fd7354114ac51ef3e1328291f/9/GPL/openjdk-16.0.1_osx-x64_bin.tar.gz --output openjdk-16.0.1_osx-x64_bin.tar.gz
     $ tar xzf openjdk-16.0.1_osx-x64_bin.tar.gz
-    $ # Get XCode from Appstore
-    $ sudo xcodebuild -license
-    $ # Agree to license
-    $ # Install Mac Ports: https://www.macports.org/install.php
     $ sudo port install autoconf
     $ sh ./configure --with-boot-jdk=$HOME/jdk-16.0.1.jdk/Contents/Home
     $ make images
