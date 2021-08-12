@@ -35,7 +35,7 @@ A Contributor can have different roles in different projects. When you're new to
 
 ### Becoming an Author
 
-Becoming an [Author](https://openjdk.java.net/bylaws#author) is the first step. To achieve this you need to contribute two non-trivial changes to the project in which you wish to become an Author. Once your changes are pushed into the code base and has been vetted enough to determine that the changes were indeed good changes you can go ahead and send an email to the project lead of that particular project and ask to be added as an Author.
+Becoming an [Author](https://openjdk.java.net/bylaws#author) is the first step. To achieve this you need to contribute two changes to the project in which you wish to become an Author. Once your changes are pushed into the code base and has been vetted enough to determine that the changes were indeed good changes you can go ahead and send an email to the project lead of that particular project and ask to be added as an Author.
 
 As an Author you have the formal right to produce changesets for inclusion into the projects code base, but you will need a sponsor to perform the actual push. You'll also have write access to [JBS](#jbs---jdk-bug-system) and the [OpenJDK wiki](https://wiki.openjdk.java.net) related to the project in question.
 
@@ -104,7 +104,7 @@ Socializing your change on the mailing lists also prevents the surprise that wou
 
 ### 4. Create a tracking issue in JBS
 
-Many OpenJDK projects require a tracking issue to be filed in the [JDK Bug System (JBS)](https://bugs.openjdk.java.net/) before a change can be pushed. This is the case for instance for the JDK and the JDK-Updates projects. In order to get write access to JBS you need to be an [Author](https://openjdk.java.net/bylaws#author) in an OpenJDK project (see below). For your first changes, ask your sponsor to help you create the issue.
+Many OpenJDK projects require a tracking issue to be filed in the [JDK Bug System (JBS)](https://bugs.openjdk.java.net/) before a change can be pushed. This is the case for instance for the JDK and the JDK-Updates projects. In order to get write access to JBS you need to be an [Author](https://openjdk.java.net/bylaws#author) in an OpenJDK project (see [Becoming an Author](#becoming-an-author)). For your first changes, ask your sponsor to help you create the issue or file the bug through the [Bug Report Tool](https://bugreport.java.com/).
 
 ### 5. Get acquainted with local process
 
