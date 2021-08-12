@@ -1007,8 +1007,13 @@ The recommendation is to always create a new branch for any change you intend to
 
 Here we first `checkout` the `master` branch, this is safe to do even if you already have the `master` branch active. Then we create a new branch called `JDK-8272373` and set the repository up to work in that branch.
 
+Starting from Git version 2.23 there's also `git switch` that can be used instead of `git checkout`.
+
+    $ git switch master
+    $ git switch -c JDK-8272373
+
 ::: {.box}
-If you're new to git you should read more about how to work with git in one of the many fine git tutorials available on the Internet. For instance the [Pro Git book](https://git-scm.com/book/en/v2). This guide doesn't aspire to become another git guide.
+If you're new to git you should read more about how to work with it in one of the many fine git tutorials available on the Internet. For instance the [Pro Git book](https://git-scm.com/book/en/v2). This guide doesn't aspire to become another git guide.
 :::
 
 ## Generating an SSH key
