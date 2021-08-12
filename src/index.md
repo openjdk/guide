@@ -996,7 +996,8 @@ _Congratulations!_ Your changeset will now make its way towards a promoted build
 The complete source code for the JDK is hosted at [GitHub](https://github.com). If you intend to make changes and contribute patches to the JDK, you should first fork the JDK repository on GitHub and clone your own fork as shown below. To fork a project on GitHub, go to the [project page](https://github.com/openjdk/jdk) and click the 'Fork' button in the upper right corner, then follow the on screen instructions. Once you have your private fork, go ahead and clone it.
 
     $ git clone git@github.com:JesperIRL/jdk.git
-    $ git remote add upstream git@github.com:openjdk/jdk.git
+    $ cd jdk
+    $ git remote add upstream https://github.com/openjdk/jdk.git
 
 In the example above I cloned my personal fork of the JDK mainline repository. You should of course use your own GitHub username instead. Then, by adding a new *remote* named 'upstream', we associate this clone with [openjdk/jdk](https://github.com/openjdk/jdk) as well. Doing this will allow the tooling to automatically create a PR on [openjdk/jdk](https://github.com/openjdk/jdk) whenever you push a change to your personal fork. The way that works is that once you have pushed a change to your private fork, and navigate to the [openjdk/jdk](https://github.com/openjdk/jdk) repository on GitHub, there will be a message saying that you just pushed a change and asking if you want to create a PR.
 
