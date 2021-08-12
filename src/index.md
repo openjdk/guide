@@ -1002,15 +1002,13 @@ In the example above I cloned my personal fork of the JDK mainline repository. Y
 
 The recommendation is to always create a new branch for any change you intend to implement. By doing that you can easily work on many different changes in parallel in the same code repository. Unless you know what you are doing, the recommendation is also to always base your new branch on the `master` branch.
 
-    $ git checkout master
-    $ git checkout -b JDK-8272373
+    $ git checkout -b JDK-8272373 master
 
-Here we first `checkout` the `master` branch, this is safe to do even if you already have the `master` branch active. Then we create a new branch called `JDK-8272373` and set the repository up to work in that branch.
+Here we create a new branch called `JDK-8272373` based on the `master` branch and set the repository up to work in that new branch.
 
 Starting from Git version 2.23 there's also `git switch` that can be used instead of `git checkout`.
 
-    $ git switch master
-    $ git switch -c JDK-8272373
+    $ git switch -c JDK-8272373 master
 
 ::: {.box}
 If you're new to git you should read more about how to work with it in one of the many fine git tutorials available on the Internet. For instance the [Pro Git book](https://git-scm.com/book/en/v2). This guide doesn't aspire to become another git guide.
