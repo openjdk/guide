@@ -1016,7 +1016,7 @@ If you're new to git you should read more about how to work with it in one of th
 
 ## Generating an SSH key
 
-All pushes require an SSH key which must be installed on GitHub. If this is the first time you clone the [openjdk/jdk](https://github.com/openjdk/jdk) repository you may want to create an SSH key to use with it. For security reasons you should always create new keys and use different keys with each repository you clone. The `ssh-keygen` command generates an SSH key. The `-t` option determines which type of key to create. `ed25519` is recommended. `-C` is used to add a comment in the key file, to help you remember which key it is. While it’s possible to use SSH without a passphrase, this is **strongly discouraged**. Empty or insecure passphrases may be reset using `ssh-keygen -p`; this doesn’t change the keys.
+All pushes require an SSH key which must be installed on GitHub. If this is the first time you clone your personal fork of the [openjdk/jdk](https://github.com/openjdk/jdk) repository you may want to create an SSH key to use with it. For security reasons you should always create new keys and use different keys with each repository you clone. The `ssh-keygen` command generates an SSH key. The `-t` option determines which type of key to create. `ed25519` is recommended. `-C` is used to add a comment in the key file, to help you remember which key it is. While it’s possible to use SSH without a passphrase, this is **strongly discouraged**. Empty or insecure passphrases may be reset using `ssh-keygen -p`; this doesn’t change the keys.
 
     $ ssh-keygen -t ed25519 -C openjdk-jdk -f ~/.ssh/openjdk-jdk
     Generating public/private ed25519 key pair.
