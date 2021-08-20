@@ -991,15 +991,22 @@ _Congratulations!_ Your changeset will now make its way towards a promoted build
 [Quick Links]{.boxheader}
 
 * [openjdk/jdk GitHub project](https://github.com/openjdk/jdk)
+* [Skara Documentation](https://wiki.openjdk.java.net/display/SKARA)
 :::
 
-The complete source code for the JDK is hosted at [GitHub](https://github.com). If you intend to make changes and contribute patches to the JDK, you should first fork the JDK repository on GitHub and clone your own fork as shown below. To fork a project on GitHub, go to the [project page](https://github.com/openjdk/jdk) and click the 'Fork' button in the upper right corner, then follow the on screen instructions. Once you have your private fork, go ahead and clone it.
+The complete source code for the JDK is hosted at [GitHub](https://github.com). You can browse the code directly in the [openjdk/jdk GitHub repository](https://github.com/openjdk/jdk), or download the code for offline browsing, editing, and building using `git clone`.
 
-    $ git clone git@github.com:JesperIRL/jdk.git
+    $ git clone https://github.com/openjdk/jdk.git
+
+If you intend to contribute patches to the JDK, you should first *fork* the JDK repository on GitHub and clone your own fork as shown below. To fork a project on GitHub, go to the [project page](https://github.com/openjdk/jdk) and click the 'Fork' button in the upper right corner, then follow the on screen instructions.
+
+All pushes to [openjdk/jdk](https://github.com/openjdk/jdk) require an SSH key which must be installed on GitHub. If this is the first time you clone your personal fork of the [openjdk/jdk](https://github.com/openjdk/jdk) repository you may want to create an SSH key to use with it. See [Generating an SSH key] below. Once you have your private fork and an SSH key to go with it, go ahead and clone.
+
+    $ git clone git@github.com:OpenDuke/jdk.git
     $ cd jdk
     $ git remote add upstream https://github.com/openjdk/jdk.git
 
-In the example above I cloned my personal fork of the JDK mainline repository. You should of course use your own GitHub username instead. Then, by adding a new *remote* named 'upstream', we associate this clone with [openjdk/jdk](https://github.com/openjdk/jdk) as well. Doing this will allow the tooling to automatically create a PR on [openjdk/jdk](https://github.com/openjdk/jdk) whenever you push a change to your personal fork. The way that works is that once you have pushed a change to your private fork, and navigate to the [openjdk/jdk](https://github.com/openjdk/jdk) repository on GitHub, there will be a message saying that you just pushed a change and asking if you want to create a PR.
+In the example above Duke cloned his personal fork of the JDK mainline repository using SSH. You should of course use your own GitHub username instead. Then, by adding a new *remote* named 'upstream', the clone is associated with [openjdk/jdk](https://github.com/openjdk/jdk). Doing this will allow the tooling to automatically create a PR on [openjdk/jdk](https://github.com/openjdk/jdk) whenever a change is pushed to the personal fork. The way that works is that once the change has been pushed to the private fork, and you navigate to the [openjdk/jdk](https://github.com/openjdk/jdk) repository on GitHub, there will be a message saying that you just pushed a change and asking if you want to create a PR.
 
 The recommendation is to always create a new branch for any change you intend to implement. By doing that you can easily work on many different changes in parallel in the same code repository. Unless you know what you are doing, the recommendation is also to always base your new branch on the `master` branch.
 
@@ -1012,12 +1019,12 @@ Starting from Git version 2.23 there's also `git switch` that can be used instea
     $ git switch -c JDK-8272373 master
 
 ::: {.box}
-If you're new to git you should read more about how to work with it in one of the many fine git tutorials available on the Internet. For instance the [Pro Git book](https://git-scm.com/book/en/v2). This guide doesn't aspire to become another git guide.
+More information about how to work with git and the dedicated tooling that is available for OpenJDK can be found in the [Project Skara Documentation](https://wiki.openjdk.java.net/display/SKARA). If you're new to git you can also read more about how to work with it in one of the many fine git tutorials available on the Internet. For instance the [Pro Git book](https://git-scm.com/book/en/v2). This guide doesn't aspire to become another git guide.
 :::
 
 ## Generating an SSH key
 
-All pushes require an SSH key which must be installed on GitHub. If this is the first time you clone your personal fork of the [openjdk/jdk](https://github.com/openjdk/jdk) repository you may want to create an SSH key to use with it. For security reasons you should always create new keys and use different keys with each repository you clone. The `ssh-keygen` command generates an SSH key. The `-t` option determines which type of key to create. `ed25519` is recommended. `-C` is used to add a comment in the key file, to help you remember which key it is. While it’s possible to use SSH without a passphrase, this is **strongly discouraged**. Empty or insecure passphrases may be reset using `ssh-keygen -p`; this doesn’t change the keys.
+For security reasons you should always create new keys and use different keys with each repository you clone. The `ssh-keygen` command generates an SSH key. The `-t` option determines which type of key to create. `ed25519` is recommended. `-C` is used to add a comment in the key file, to help you remember which key it is. While it’s possible to use SSH without a passphrase, this is **strongly discouraged**. Empty or insecure passphrases may be reset using `ssh-keygen -p`; this doesn’t change the keys.
 
     $ ssh-keygen -t ed25519 -C openjdk-jdk -f ~/.ssh/openjdk-jdk
     Generating public/private ed25519 key pair.
