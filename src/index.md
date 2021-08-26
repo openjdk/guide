@@ -349,7 +349,7 @@ To find out which component to use for different bugs, consult the [directory to
 
 If a main bug is targeted to a release and the fix is pushed to a different release, then a backport bug is automatically created. Usually this is a "good thing", e.g., when you are backporting a fix to an earlier release, but not always... If the main bug is targeted to a later release (due to schedule planning), but someone finds the time to fix that bug in the current release, then the bug should be retargeted to the current release before pushing the fix. However, sometimes we forget to do that.
 
-Here is how to fix that:
+Here's how to fix that:
 
 > ---
 > In this example a fix was pushed to JDK N (a.k.a. the current release) while the JBS bug was targeted to JDK N+1 (a.k.a. a future release).
@@ -364,7 +364,7 @@ Fix was pushed while main bug was targeted to 'N+1'. Reset the main bug to fixed
    * Change the 'Fix Version/s' from 'N' to 'N+1'.
    * Close the _backport_ bug as "Not an Issue".
 #. Clean up the _main_ bug
-   * Copy the open push notification comment from the _backport_ bug to the _main_ bug, e.g.:
+   * Copy the push notification comment from the _backport_ bug to the _main_ bug, e.g.:
 ~~~
 Changeset: 12345678
 Author: Duke <duke@openjdk.org>
@@ -376,7 +376,7 @@ URL: https://git.openjdk.java.net/jdk/commit/12345678
 Fix was pushed while main bug was targeted to 'N+1'. Reset the main bug to fixed in 'N' and copied the Robo Duke entry here.
 ~~~
    * Reset the _main_ bug 'Fix Version/s' from 'N+1' to 'N'.
-   * Resolve the _main_ bug as "Fixed" in build "team" or in build "master" depending on where the fix was pushed. Pushes to 'openjdk/jdk' are fixed in build "master" and pushes to project repositories are fixed in build "team".
+   * Resolve the _main_ bug as "Fixed" in build "team" or in build "master" depending on where the fix was pushed - or to an actual build number if the change has already made it to a promoted build (look in the _backport_ bug if you are unsure). Pushes to 'openjdk/jdk' are fixed in build "master" and pushes to project repositories are fixed in build "team".
 
 ## Resolved - Incomplete
 
