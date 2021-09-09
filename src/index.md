@@ -1052,7 +1052,7 @@ _Congratulations!_ Your changeset will now make its way towards a promoted build
 ::: {.box}
 [Quick Links]{.boxheader}
 
-* [Official build instructions (source code)](https://git.openjdk.java.net/jdk/blob/master/doc/building.md)
+* [Official build instructions](https://openjdk.java.net/groups/build/doc/building.html)
 * [openjdk/jdk GitHub project](https://github.com/openjdk/jdk)
 * [JDK 16 General-Availability Release](https://jdk.java.net/16/)
 :::
@@ -1124,7 +1124,7 @@ There are many other targets available as well. Use `make help` to find out more
 ::: {.box}
 [Quick Links]{.boxheader}
 
-* [Using the run-test Framework](https://github.com/openjdk/jdk/blob/master/doc/testing.md)
+* [Using the run-test Framework](https://openjdk.java.net/groups/build/doc/testing.html)
 * [JTReg Harness Documentation](https://openjdk.java.net/jtreg/)
 * [Google Test Documentation](https://github.com/google/googletest/blob/master/googletest/docs/primer.md)
 :::
