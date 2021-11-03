@@ -90,7 +90,7 @@ In many GitHub projects the standard way to propose a change is to create a pull
 
 ### 1. Sign the OCA
 
-Oracle is the steward of OpenJDK. In order to make your patch available for review you must first sign the [Oracle Contributor Agreement](https://www.oracle.com/technical-resources/oracle-contributor-agreement.html) (OCA). This agreement gives Oracle and you as a contributor joint copyright interests in the code. You will retain your copyright while also granting those rights to Oracle.
+Oracle is the steward of OpenJDK. In order to make your patch available for review you must first sign the [Oracle Contributor Agreement](https://oca.opensource.oracle.com/) (OCA). This agreement gives Oracle and you as a contributor joint copyright interests in the code. You will retain your copyright while also granting those rights to Oracle.
 
 When you sign the OCA, please make sure that you specify your GitHub user name in the `Username` field of the OCA. If you try to create a PR before you have signed the OCA, or if you didn't specify your GitHub user name, you'll get instructions telling you to do so, and the PR won't be published until this is done. OCA registration is a manual process. Please allow for up to several days to have your OCA application processed, even though it's normally processed swiftly.
 
