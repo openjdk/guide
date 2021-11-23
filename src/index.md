@@ -1447,7 +1447,7 @@ index 4961acb2126..399e7cc311f 100644
 
 ### How to work with mercurial when a change is backed out
 
-In order to backout a change, the `hg backout` command is recommended, which essentially applies the anti-delta of the change. Make sure you perform the backout in the most upstream repostiory the change has escaped to.
+In order to backout a change, the `hg backout` command is recommended, which essentially applies the anti-delta of the change. Make sure you perform the backout in the most upstream repository the change has escaped to.
 
 ~~~
 hg backout [OPTION]... [-r] REV
@@ -1489,7 +1489,7 @@ Main issue - The top issue in a backport hierarchy. Eg. [JDK-8272373](https://bu
 
 In general there is no need to create backport issues in JBS manually. All work that is done in JBS in preparation for a backport (requesting approvals etc) is done in the main issue. The backport issue will be created automatically by the bots when you integrate the change to the source code repository.
 
-There can be cases where it is motivated to create a backport issue before the fix is done. In these cases set the fix version of the backport to `N-pool`, where `N` is the release train the backport is targeting. E.g. `17-pool`
+There can be cases where it is motivated to create a backport issue before the fix is done. In these cases set the fix version of the backport to `N-pool`, where `N` is the release train the backport is targeting. E.g. `17-pool`. Please note that even if a backport issue is created ahead of time, all work done in JBS is stil done in the main issue.
 
 Obviously it's possible to set the fix version to the exact release the backport is targeting, but this isn't recommended. When a change is pushed, the bots will look at the main issue as indicated in the PR title, and look for backports with the current `N.0.x` release version as fix version, if no such backport is found they will look for `N-pool`, and if that isn't found either, a new backport issue will be created. This means that if the backport has an exact fix version set, but is delayed and misses the release indicated by the fix version, a new backport issue is created with a small mess as the result.
 
