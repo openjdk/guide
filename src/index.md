@@ -1501,7 +1501,7 @@ In order to be allowed to push a change to one of the OpenJDK Update Release rep
 
 ## Using the Skara tooling to help with backports
 
-The Skara project developed support for backports. [The official Skara documentation](https://wiki.openjdk.java.net/display/SKARA/Backports) describes in detail how to work with the tooling to create backport PRs on GitHub or using the CLI tools. As described in the documentation, the [`/backport`](https://wiki.openjdk.java.net/display/SKARA/Commit+Commands#CommitCommands-/backport) command can be used to create the backport PR. If a backport PR is manually created, set the title to `Backport <original commit hash>`.
+The Skara tooling includes support for backports. [The official Skara documentation](https://wiki.openjdk.java.net/display/SKARA/Backports) describes in detail how to work with the tooling to create backport PRs on GitHub or using the CLI tools. As described in the documentation, the [`/backport`](https://wiki.openjdk.java.net/display/SKARA/Commit+Commands#CommitCommands-/backport) command can be used on a commit (not a PR!) to create the backport PR. If a backport PR is manually created, set the title to `Backport <original commit hash>`.
 
 # Producing a Changeset
 
