@@ -1497,7 +1497,7 @@ Setting the fix version of a backport to `N` is always wrong. JDK `N` has alread
 
 ## Requesting approvals for backports
 
-In order to be allowed to push a change to one of the OpenJDK Update Release repositories, an approval is required. The [official process for how to request push approval for a backport](https://openjdk.java.net/projects/jdk-updates/approval.html) describes in detail how to work with JBS when requesting approvals. In short, there's a label `jdk<release>u-fix-request` that should be added to the main JBS issue. Also put a motivation as to why the issue needs to be backported as a comment in the main issue. Once the label and motivation has been added, wait for the maintainers of the release to approve your request.
+In order to be allowed to push a change to one of the OpenJDK Update Release repositories, an approval is required. The [official process for how to request push approval for a backport](https://openjdk.java.net/projects/jdk-updates/approval.html) describes in detail how to work with JBS when requesting approvals. In short, there's a label `jdk<release>u-fix-request` that should be added to the main JBS issue. Also put a motivation as to why the issue needs to be backported as a comment in the main issue. Once the label and motivation has been added, wait for the maintainers of the release to approve your request. The approval will be indicated with a label, `jdk<release>u-fix-yes`, added to the main issue.
 
 ## Using the Skara tooling to help with backports
 
