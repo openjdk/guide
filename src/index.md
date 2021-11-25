@@ -4,13 +4,77 @@
 
 Welcome to the OpenJDK Developers' Guide!
 
-The OpenJDK Community is the place to collaborate on open-source implementations of the Java Platform, Standard Edition, and related projects.  It was created in November 2006, when initial portions of the JDK source code were published under the GPLv2 license.
+The OpenJDK Community is the place to collaborate on open-source implementations of the Java Platform, Standard Edition, and related projects. It was created in November 2006, when initial portions of the JDK source code were published under the GPLv2 license.
 
 In order to work together efficiently, clear directions are sometimes needed to avoid misconceptions and to align developers' views of terminology and process. The OpenJDK Community is a fairly pragmatic place. "Do the right thing" is most often the right course of action. Still, if people do things in the same right way then everyone's work becomes more transparent and easier for others to follow. For this reason most parts of the development process have standard flows that are the recommended ways to do things.
 
 The goal of this guide is to answer questions that developers of the JDK might have around development process, tooling, standards, and so forth. The formal rules and processes are described in other documents, such as [JEP 1](https://openjdk.java.net/jeps/1) for the JDK Enhancement-Proposal & Roadmap Process, and [JEP 3](https://openjdk.java.net/jeps/3) for the JDK Release Process. This guide is meant to be a complement to such documents, with tutorials and examples for how to follow these rules and how to work together with the rest of the OpenJDK Community.
 
 There are many common use cases that aren't detailed in the formal process. This guide suggests how to work in such cases.
+
+## OpenJDK
+
+::: {.box}
+[Quick Links]{.boxheader}
+
+* [OpenJDK Groups](https://openjdk.java.net/groups/)
+* [OpenJDK Projects](https://openjdk.java.net/projects/)
+* [OpenJDK General Roles (Participant, Contributor, Member)](https://openjdk.java.net/bylaws#general-roles)
+* [OpenJDK Project Roles (Author, Committer, Reviewer)](https://openjdk.java.net/bylaws#project-roles)
+:::
+
+OpenJDK consists of a number of [Groups](https://openjdk.java.net/groups/). Members of a group collaborate on an area of mutual interest. The right hand side bar on the [OpenJDK website](https://openjdk.java.net/) has a list of all groups in OpenJDK. If you're interested in a specific area, this is where you would start your OpenJDK experience. Look at the group's information and wiki pages, and see what projects they sponsor on the [Census page](https://openjdk.java.net/census).
+
+[Projects](https://openjdk.java.net/projects/) are where the coding and much of the other work is done in OpenJDK. There are many different projects, some produce shippable artifacts, like the [JDK Project](https://openjdk.java.net/projects/jdk/), some produce tools to be used by developers of these artifacts, like the [Code Tools Project](https://openjdk.java.net/projects/code-tools/) or [Project Skara](https://openjdk.java.net/projects/skara/), and some produce documentation, like the [Developers' Guide Project](https://openjdk.java.net/projects/guide/). Many projects designs and develops new features for the Java language or the JVM, but there are also less code centric projects like the [Duke Project](https://openjdk.java.net/projects/duke/) which collects images of the Java mascot, Duke.
+
+## Author, Committer, Reviewer
+
+OpenJDK has a few different roles that determine who has the right to do what in the different projects. These roles are defined in the [OpenJDK Bylaws](https://openjdk.java.net/bylaws#project-roles). The roles are earned based on experience and knowledge within each project.
+
+A Contributor can have different roles in different projects. When you're new to a project you don't yet have a formal role in that specific project, even though you might have earned roles in other OpenJDK projects or have been recognized as a [Contributor](https://openjdk.java.net/bylaws#contributor) or a [Member](https://openjdk.java.net/bylaws#openjdk-member) of OpenJDK. By contributing high-quality content you'll soon be eligible for [OpenJDK roles](https://openjdk.java.net/bylaws#project-roles) in the project. First [Author](https://openjdk.java.net/bylaws#author), then [Committer](https://openjdk.java.net/bylaws#committer), and finally [Reviewer](https://openjdk.java.net/bylaws#reviewer) if you stay active and earn the trust of the community. Trust is an important part of earning these roles. There's a [rough guideline](https://openjdk.java.net/projects/) saying that to become a [Committer](https://openjdk.java.net/bylaws#committer) you should have contributed 8 significant changes, and to become a [Reviewer](https://openjdk.java.net/bylaws#reviewer) you should have contributed 32 significant changes. In reality it's not as easy as "just" contributing code. You need to build a track record of good decisions and sound judgment and show that you know what differentiates a good change from a not so good one. It's not only correctness of the code that matters, it's also the appropriateness. In the end the trust you've earned is put to the test through a vote.
+
+### Becoming an Author
+
+Becoming an [Author](https://openjdk.java.net/bylaws#author) is the first step. To achieve this you need to contribute two changes to the project in which you wish to become an Author. Once your changes are pushed into the code base and has been vetted enough to determine that the changes were indeed good changes you can go ahead and send an email to the project lead of that particular project and ask to be added as an Author.
+
+As an Author you have the formal right to produce changesets for inclusion into the projects code base, but you will need a sponsor to perform the actual push. You'll also have write access to [JBS](#jbs---jdk-bug-system) and the [OpenJDK wiki](https://wiki.openjdk.java.net) related to the project in question.
+
+### Becoming a Committer
+
+To become a [Committer](https://openjdk.java.net/bylaws#committer) you should show that you can produce non-trivial changes that are accepted for inclusion into the project code base. The number eight has been seen as a formal lower limit on the number of changes, but since the changes must be non-trivial, or "significant" as the [OpenJDK Project description](https://openjdk.java.net/projects/) says, and the definition of significant is subjective, the general recommendation is to wait with a Committer nomination until there's at least 10-12 changes pushed to have some margin for different interpretations of "significant". It's always a good idea to seek the advice of a sponsor who can guide you through the process to becoming a Committer - you will need one later to run the Committer vote anyway. They probably will have a better idea of what constitutes a "significant" change.
+
+Once you have the required changes, a Committer in the project can start a vote by sending an email proposing that you should become a Committer. The email should follow the template found in the [OpenJDK Project description](https://openjdk.java.net/projects/).
+
+A Committer is allowed to push changes without the aid of a sponsor. A Committer is also allowed to nominate other non-Committers to become Committers in the project.
+
+### Becoming a Reviewer
+
+To become a [Reviewer](https://openjdk.java.net/bylaws#reviewer) you must show a track record of sound and correct judgment calls as mentioned above. Being a good Committer doesn't necessarily make you a good Reviewer. As a Reviewer you have the power to approve changes for inclusion into the project source code. This means that a Reviewer needs to be able to judge the quality and appropriateness of any proposed change, not just the mechanics of the code.
+
+The assumption is that after having produced 32 significant changes one should have become familiar with the process around reviews and the requirements around getting a change approved. This should really be seen as a minimum requirement though. A more practical consideration would be to look at whether the non-trivial commits of a potential Reviewer are accepted largely intact or whether they are always being refined by the review process. There may be cases where it will take significantly more than 32 changes for a Committer to be ready to become a Reviewer.
+
+Once you are deemed ready, a Reviewer in the project can start a vote by sending an email proposing that you should become a Reviewer. The email should follow the template found in the [OpenJDK Project description](https://openjdk.java.net/projects/).
+
+### Non-trivial/Significant changes
+
+One key definition when advancing through the OpenJDK roles is the significant change. What exactly does it take for a change to be significant?
+
+Instead of describing the significant change (because that's quite difficult to define) provided here is a few examples of changes that wouldn't be considered significant or for other reasons wouldn't count as significant contributions.
+
+* Purely aesthetic changes like renaming or fixing indentation
+* Repeated follow-up bugfixes from earlier changes
+* Larger changes where only a non-significant portion of the work was done by the Contributor under vote
+* Trivial backports of someone else's changes
+
+# Contributing to an OpenJDK Project
+
+Contributing to OpenJDK can take many forms. Writing code and providing patches is just one of them. A big part of developing a feature or a bugfix is testing and code review. Anything you can do to help out in these areas will be recognized as a contribution. Join the [mailing lists](#mailing-lists) to engage in design discussions and reviews, and download the latest EA builds or project repositories to try out new features and give feedback. If you see some misbehavior, or if you see somebody mention some misbehavior on some internet forum, try to track it down. Good bug reports with reproducible test cases are extremely valuable and make excellent contributions.
+
+Anything you can do to spread the word about Java, new features, and your experiences using the JDK will be helpful for the community and to the OpenJDK developers. Trying out a new feature and reporting your experiences is also a contribution. Whether you find that the new feature improves your application, or if you find some area that needs to be improved, your feedback is valuable to the developers of that feature.
+
+If you have a success story where Java solved your problem, or if you successfully upgraded to a more recent version of the JDK and noticed some improvements, spreading this story through a blog, news article, or some other channel is also a contribution.
+
+If you're in a position to choose what programming language to use in a project, in a tutorial, or in a class, you have the power to enlarge the Java community in a very direct way, and your colleagues or students will get an opportunity to learn one of the most used programming languages in the world.
 
 ## I have a patch, what do I do?
 
@@ -26,7 +90,7 @@ In many GitHub projects the standard way to propose a change is to create a pull
 
 ### 1. Sign the OCA
 
-Oracle is the steward of the OpenJDK project. In order to make your patch available for review you must first sign the [Oracle Contributor Agreement](https://www.oracle.com/technical-resources/oracle-contributor-agreement.html) (OCA). This agreement gives Oracle and you as a contributor joint copyright interests in the code. You will retain your copyright while also granting those rights to Oracle.
+Oracle is the steward of OpenJDK. In order to make your patch available for review you must first sign the [Oracle Contributor Agreement](https://oca.opensource.oracle.com/) (OCA). This agreement gives Oracle and you as a contributor joint copyright interests in the code. You will retain your copyright while also granting those rights to Oracle.
 
 When you sign the OCA, please make sure that you specify your GitHub user name in the `Username` field of the OCA. If you try to create a PR before you have signed the OCA, or if you didn't specify your GitHub user name, you'll get instructions telling you to do so, and the PR won't be published until this is done. OCA registration is a manual process. Please allow for up to several days to have your OCA application processed, even though it's normally processed swiftly. An alphabetical list of all of the assigned OpenJDK usernames may be found on the [OpenJDK people](https://db.openjdk.java.net/people) list.
 
@@ -40,13 +104,11 @@ Socializing your change on the mailing lists also prevents the surprise that wou
 
 ### 4. Create a tracking issue in JBS
 
-Many OpenJDK projects require a tracking issue to be filed in the [JDK Bug System (JBS)](https://bugs.openjdk.java.net/) before a change can be pushed. This is the case for instance for the JDK and the JDK-Updates projects. In order to get write access to JBS you need to be an [Author](https://openjdk.java.net/bylaws#author) in an OpenJDK project. For your first changes, ask your sponsor to help you create the issue.
-
-If you continue to contribute high-quality content you'll soon enough be eligible for OpenJDK roles in the project. First Author, and later Committer. The Committer role means you won't need a sponsor anymore. You can read more about [OpenJDK Project Roles](https://openjdk.java.net/bylaws#project-roles).
+Many OpenJDK projects require a tracking issue to be filed in the [JDK Bug System (JBS)](https://bugs.openjdk.java.net/) before a change can be pushed. This is the case for instance for the JDK and the JDK-Updates projects. In order to get write access to JBS you need to be an [Author](https://openjdk.java.net/bylaws#author) in an OpenJDK project (see [Becoming an Author](#becoming-an-author)). For your first changes, ask your sponsor to help you create the issue or file the bug through the [Bug Report Tool](https://bugreport.java.com/).
 
 ### 5. Get acquainted with local process
 
-Even though we strive to unify how things are done within the OpenJDK, different areas and projects in the OpenJDK may have slight variations in how they work. Some of these differences are highlighted throughout this guide, some aren't. If you're new to an area, make sure you understand local differences before you proceed. Ask your sponsor who should be your main point of contact through your first developer experience in the OpenJDK.
+Even though we strive to unify how things are done within OpenJDK, different areas and projects in OpenJDK may have slight variations in how they work. Some of these differences are highlighted throughout this guide, some aren't. If you're new to an area, make sure you understand local differences before you proceed. Ask your sponsor who should be your main point of contact through your first developer experience in OpenJDK.
 
 ## Why is my change rejected?
 
@@ -90,7 +152,7 @@ The mailing lists are the key communications mechanism for all OpenJDK work. All
 
 > [`mail.openjdk.java.net`](https://mail.openjdk.java.net/mailman/listinfo)
 
-The OpenJDK community is a friendly place. To keep it that way it's important to keep a professional tone in emails and be aware that the community is global. Many different people with different backgrounds collaborate in these lists. Even though English is the required language for all lists, many Participants speak other languages as their native language. A high tolerance for non-perfect English is expected from anyone joining these lists. You're also strongly encouraged to use your real name on the mailing lists. This adds to the professional tone of your email. Postings from anonymized mailboxes risk being seen as spam. If you do work in the OpenJDK on behalf of your employer, please also list this affiliation. If your GitHub username differs from your real name it's also a good idea to include that to identify yourself and your actions on GitHub.
+The OpenJDK Community is a friendly place. To keep it that way it's important to keep a professional tone in emails and be aware that the community is global. Many different people with different backgrounds collaborate in these lists. Even though English is the required language for all lists, many Participants speak other languages as their native language. A high tolerance for non-perfect English is expected from anyone joining these lists. You're also strongly encouraged to use your real name on the mailing lists. This adds to the professional tone of your email. Postings from anonymized mailboxes risk being seen as spam. If you do work in OpenJDK on behalf of your employer, please also list this affiliation. If your GitHub username differs from your real name it's also a good idea to include that to identify yourself and your actions on GitHub.
 
 You must be a member of a list to be able to post to that list. Some lists are moderated to keep the content on topic. Each list has its own archive where you can browse older conversations on the list.
 
@@ -103,13 +165,13 @@ There are a few different types of lists. The list name has two parts to explain
 > :    Technical discussions around the usage of the project artifacts.
 
 > `-discuss`
-> :    General discussions around the project. The special case `discuss(at)openjdk.java.net` is used for general discussions around the OpenJDK project. Discussions around new project proposals usually happens here.
+> :    General discussions around the project. The special case `discuss(at)openjdk.java.net` is used for general discussions around OpenJDK. Discussions around new project proposals usually happens here.
 
 >  `-changes`
 > :    Changeset notifications from the source code repositories maintained by the project.
 
 > `-announce`
-> :    General project announcements. These lists are tightly moderated and are expected to be low traffic. The special case `announce(at)openjdk.java.net` is used for announcements for the OpenJDK project.
+> :    General project announcements. These lists are tightly moderated and are expected to be low traffic. The special case `announce(at)openjdk.java.net` is used for announcements for OpenJDK.
 
 > `-experts`
 > :    Expert group discussions. The list is restricted; only members of the expert group can subscribe.
@@ -195,7 +257,7 @@ where
 
 ## Filing a Bug
 
-When a new failure is found in the JDK a bug should be filed to describe and track the issue. Depending on your role in the OpenJDK you can either use the [Bug Report Tool](https://bugreport.java.com/) or, if you are registered in the [OpenJDK Census](https://openjdk.java.net/census), report the bug directly in [JBS](https://bugs.openjdk.java.net/). Try to make the bug report as complete as possible to make it easier to triage and investigate the bug.
+When a new failure is found in the JDK a bug should be filed to describe and track the issue. Depending on your role in OpenJDK you can either use the [Bug Report Tool](https://bugreport.java.com/) or, if you are registered in the [OpenJDK Census](https://openjdk.java.net/census), report the bug directly in [JBS](https://bugs.openjdk.java.net/). Try to make the bug report as complete as possible to make it easier to triage and investigate the bug.
 
 A few things to keep in mind when filing a new bug:
 
@@ -230,7 +292,7 @@ To find out which component to use for different bugs, consult the [directory to
 
 If a main bug is targeted to a release and the fix is pushed to a different release, then a backport bug is automatically created. Usually this is a "good thing", e.g., when you are backporting a fix to an earlier release, but not always... If the main bug is targeted to a later release (due to schedule planning), but someone finds the time to fix that bug in the current release, then the bug should be retargeted to the current release before pushing the fix. However, sometimes we forget to do that.
 
-Here is how to fix that:
+Here's how to fix that:
 
 > ---
 > In this example a fix was pushed to JDK N (a.k.a. the current release) while the JBS bug was targeted to JDK N+1 (a.k.a. a future release).
@@ -245,7 +307,7 @@ Fix was pushed while main bug was targeted to 'N+1'. Reset the main bug to fixed
    * Change the 'Fix Version/s' from 'N' to 'N+1'.
    * Close the _backport_ bug as "Not an Issue".
 #. Clean up the _main_ bug
-   * Copy the open push notification comment from the _backport_ bug to the _main_ bug, e.g.:
+   * Copy the push notification comment from the _backport_ bug to the _main_ bug, e.g.:
 ~~~
 Changeset: 12345678
 Author: Duke <duke@openjdk.org>
@@ -257,7 +319,7 @@ URL: https://git.openjdk.java.net/jdk/commit/12345678
 Fix was pushed while main bug was targeted to 'N+1'. Reset the main bug to fixed in 'N' and copied the Robo Duke entry here.
 ~~~
    * Reset the _main_ bug 'Fix Version/s' from 'N+1' to 'N'.
-   * Resolve the _main_ bug as "Fixed" in build "team" or in build "master" depending on where the fix was pushed. Pushes to 'openjdk/jdk' are fixed in build "master" and pushes to project repositories are fixed in build "team".
+   * Resolve the _main_ bug as "Fixed" in build "team" or in build "master" depending on where the fix was pushed - or to an actual build number if the change has already made it to a promoted build (look in the _backport_ bug if you are unsure). Pushes to 'openjdk/jdk' are fixed in build "master" and pushes to project repositories are fixed in build "team".
 
 ## Resolved - Incomplete
 
@@ -946,7 +1008,8 @@ Now you are ready to clone your [openjdk/jdk](https://github.com/openjdk/jdk) fo
 ::: {.box}
 [Quick Links]{.boxheader}
 
-* [Official build instructions (source code)](https://git.openjdk.java.net/jdk/blob/master/doc/building.md)
+* [Official build instructions](https://openjdk.java.net/groups/build/doc/building.html)
+* [openjdk/jdk GitHub project](https://github.com/openjdk/jdk)
 * [JDK 16 General-Availability Release](https://jdk.java.net/16/)
 :::
 
@@ -1025,7 +1088,7 @@ There are many other targets available as well. Use `make help` to find out more
 ::: {.box}
 [Quick Links]{.boxheader}
 
-* [Using the run-test Framework](https://github.com/openjdk/jdk/blob/master/doc/testing.md)
+* [Using the run-test Framework](https://openjdk.java.net/groups/build/doc/testing.html)
 * [JTReg Harness Documentation](https://openjdk.java.net/jtreg/)
 * [Google Test Documentation](https://github.com/google/googletest/blob/master/googletest/docs/primer.md)
 :::
@@ -1618,9 +1681,9 @@ After the push has been accepted, an automatic e-mail notification will be sent 
 
 ## Backing Out a Change
 
-If a change causes a regression that can't be fixed within reasonable time the best way to handle the regression can be to back out the change. Backing out means that the inverse (anti-delta) of the change is pushed to effectively undo the change in the repository. There are two parts to this task, how to do the bookkeeping in JBS, and how to do the actual backout in mercurial.
+If a change causes a regression that can't be fixed within reasonable time the best way to handle the regression can be to back out the change. Backing out means that the inverse (anti-delta) of the change is pushed to effectively undo the change in the repository. There are two parts to this task, how to do the bookkeeping in JBS, and how to do the actual backout in git or mercurial.
 
-The backout is a regular change and will have to go through the standard code review process, but is considered a [trivial](#trivial) change. The rationale is that a backout is usually urgent in nature and the change itself is automatically created by hg, and reviewed by the person who is performing the backout, so even though only one additional Reviewer is required the change will in practice get two reviews.
+The backout is a regular change and will have to go through the standard code review process, but is considered a [trivial](#trivial) change. The rationale is that a backout is usually urgent in nature and the change itself is automatically generated. In areas where two reviewers are normally required, only one additional Reviewer is required for a backout since the person who is performing the backout also will review the change.
 
 ### How to work with JBS when a change is backed out
 
@@ -1643,9 +1706,57 @@ The backout is a regular change and will have to go through the standard code re
 
 ProblemList entries and `@ignore` keywords will continue to point to the original bug (unless updated at back out). This is accepted since there is a clone link to follow.
 
+### How to work with git when a change is backed out
+
+To backout a change with git, use `git revert`. This will apply (commit) the anti-delta of the change.
+
+~~~diff
+$ git show aa371b4f02c2f809eb9cd3e52aa12b639bed1ef5
+commit aa371b4f02c2f809eb9cd3e52aa12b639bed1ef5 (HEAD -> master)
+Author: Jesper Wilhelmsson <jesper.wilhelmsson@oracle.com>
+Date:   Wed Jun 23 20:31:32 2021 +0200
+
+    My change
+
+diff --git a/README.md b/README.md
+index 399e7cc311f..4961acb2126 100644
+--- a/README.md
++++ b/README.md
+@@ -1,4 +1,4 @@
+-# Welcome to the JDK!
++# Welcome to my modified JDK!
+
+ For build instructions please see the
+ [online documentation](https://openjdk.java.net/groups/build/doc/building.html),
+
+$ git revert aa371b4f02c2f809eb9cd3e52aa12b639bed1ef5
+[master d454489052d] Revert "My change"
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+$ git show d454489052dc6ff69a21ad9c8f56b67fdeb435ee
+commit d454489052dc6ff69a21ad9c8f56b67fdeb435ee (HEAD -> master)
+Author: Jesper Wilhelmsson <jesper.wilhelmsson@oracle.com>
+Date:   Wed Jun 23 20:32:08 2021 +0200
+
+    Revert "My change"
+
+    This reverts commit aa371b4f02c2f809eb9cd3e52aa12b639bed1ef5.
+
+diff --git a/README.md b/README.md
+index 4961acb2126..399e7cc311f 100644
+--- a/README.md
++++ b/README.md
+@@ -1,4 +1,4 @@
+-# Welcome to my modified JDK!
++# Welcome to the JDK!
+
+ For build instructions please see the
+ [online documentation](https://openjdk.java.net/groups/build/doc/building.html),
+~~~
+
 ### How to work with mercurial when a change is backed out
 
-In order to backout a change, the `hg backout` command is recommended, which essentially applies the anti delta of the change. Make sure you perform the backout in the most upstream repostiory the change has escaped to.
+In order to backout a change, the `hg backout` command is recommended, which essentially applies the anti-delta of the change. Make sure you perform the backout in the most upstream repostiory the change has escaped to.
 
 ~~~
 hg backout [OPTION]... [-r] REV
@@ -1659,6 +1770,70 @@ reverse effect of earlier changeset
     committed automatically. Otherwise, hg needs to merge the changes and the
     merged result is left uncommitted.
 ~~~
+
+# The JDK Release process
+
+::: {.box}
+[Quick Links]{.boxheader}
+
+* [JEP 3: JDK Release Process](https://openjdk.java.net/jeps/3)
+:::
+
+The JDK project has a well defined release process. [JEP 3](https://openjdk.java.net/jeps/3) describes this process in detail. This section intends to clarify some topics that often cause questions.
+
+## Release cycle
+
+The release cycle starts when development of a new release begins, and ends when that release is delivered to the public. The current release cadence is six months. This means that every six months we start development of a new release, and every six months a new release is delivered. However, this doesn't mean that each release cycle is six months. As described below, the total development time for a release (the release cycle) is actually nine months. Obviously this in turn doesn't mean that all features are developed in nine months. Most features are developed for a much longer time than that, and goes through long time development in other project repositories, and through a series of preview and experimental stages. But any feature that is to be included in a specific release has a specific window of nine months to integrate the code into mainline and fix all the remaining bugs.
+
+It may be tempting to integrate a new feature near the end of a release cycle, to get more time to fix all those last bugs before integration. Please don't. If you are getting close to the end of a release and you still just have one more bug to fix, please defer your feature to the next release. It's only six months out. Not only will this vouch for your new feature to be more stable on release, you will also help keeping the JDK as a whole more stable by allowing others to find and fix bugs in their new code that might come as a result of your changes.
+
+Integrating early in a release is preferable, but all new features can't be integrated at the same time. If many large changes enters the repository at the same time it will be more difficult to determine which change that caused all the new bugs. If you're about to integrate a larger change you must therefore communicate this on the relevant [mailing lists](#mailing-lists) to synchronize with other projects that may also be planning to integrate something soon.
+
+## Milestones and phases
+
+Throughout the release there are a number of milestones and phases that define where in the release cycle we are.
+
+[**The start of a release**]{#release-start}
+:    Since development is always ongoing in the mainline repository ([openjdk/jdk](https://github.com/openjdk/jdk)), the start of a new release can be said to be when the former release is forked from the mainline. After the start of the release follows six months of development to implement and integrate all the cool stuff that will go into the next release. After these six months ramp down begins.
+
+[**Ramp Down Phase 1 (RDP1)**]{#rdp1}
+:    The ramp down of a release starts with a fork of the mainline repository. A clone of the entire code base is made and hosted in a separate ramp down repository (e.g. [openjdk/jdk17](https://github.com/openjdk/jdk17)). During the ramp down of a release we focus on bug fixing and stabilization in order to get the JDK ready for release. In RDP1 you may continue to fix P1-P3 product bugs (and some other issues) in the stabilization repo. For detailed information on what can be fixed when, see [JEP 3](https://openjdk.java.net/jeps/3). The start of RDP1 is essentially the deadline for integrating JEPs and enhancements into this particular release.
+
+[**All Tests Run (ATR)**]{#atr}
+:    ATR is not a milestone described in JEP 3, but it's still a concept that might be mentioned in discussions on this topic and is therefore good to know about. ATR (a.k.a. ATR Start) is the start of an approximately six week long test period where all tests in the test plan for the given release is ran. ATR usually starts at the same time as RDP1.
+
+[**Ramp Down Phase 2 (RPD2)**]{#rdp2}
+:    In RDP2 the bar is higher to get changes into the release. For product bugs, only P1:s and P2:s are supposed to be fixed here, and to do so an approval is needed. See the [Fix-Request Process](https://openjdk.java.net/jeps/3#Fix-Request-Process) for details on how to obtain one. All other product bugs should be deferred. Again, see [JEP 3](https://openjdk.java.net/jeps/3) for more details.
+
+[**Release Candidate (RC)**]{#rc}
+:    Towards the end of the release cycle, when there are no more open product bugs targeted to the release, a stable build is selected to be the release candidate. This build will go through additional testing and if no more issues are found it will be the build released. If new bugs are found these are investigated and hopefully fixed, and a new build becomes the release candidate. The RC phase has a few milestones with a deadline for finding a candidate build, and another for making sure the build is ready to go live.
+
+[**General Availability (GA)**]{#ga}
+:    This is the end of the release cycle. The last release candidate build is made available to the public.
+
+### Deferring P1 and P2 bugs
+
+Even though there's nothing explicitly written in the process about deferring P1 and P2 bugs during the initial development phase, the assumption is that these aren't deferred unless time runs out at the end of the release cycle.
+
+Please note that the priority of a bug doesn't change just because you want to get your fix in late in the release, or if you want to be able to defer it. The priority is based on the severity of the bug and if it was deemed to be a P2 before, you better have a really good explanation to why that conveniently has changed by the end of the release. Being hard to fix is **not** a reason to lower the priority of a bug.
+
+## Forward ports
+
+During the rampdown of a release there are two repositories in play, the stabilization fork for the outgoing release, and the mainline repository where the next release is being developed. Any bugfix going into the stabilization fork is likely to be desired in mainline as well. As a developer you should push your fix to the stabilization fork **only**, even if you intend for it to go to both repositories. Your fix will be forward ported to mainline.
+
+All fixes that are pushed to the stabilization fork are forward ported to mainline. If you have a fix that is only intended for the stabilization fork you will have to manually back it out from mainline once it has been forward ported. In order to remember to do this you should file a backout isue in JBS before pushing your change to the stabilization fork. E.g., To push JDK-xxx to the stabilization fork but not to the mainline, you need to file an issue, JDK-yyy, in JBS to back out the fix after it has been merged into the mainline. Make sure the two JBS issues (JDK-xxx and JDK-yyy) are related so that it's easy to find one from the other.
+
+To clarify, as soon as you know that there is a fix that needs to go into the stabilization fork but not the mainline, you should do the following:
+
+* File a bug, JDK-yyy, to cover the backout work
+* Link JDK-yyy to JDK-xxx using a "relates to" link
+* Set JDK-yyy's Fix Version to the next release
+* Add a comment describing the situation
+* Set the priority to be relatively high (e.g., P3)
+
+Then, you have to wait until the JDK-xxx fix is forward ported to the mainline before actually fixing JDK-yyy. Making these settings in JDK-yyy will help ensure that it won't be missed.
+
+There are also examples in JBS where JDK-yyy has been created as a sub-task of JDK-xxx. This works but is not recommended since JDK-yyy stands a higher risk of being missed when it's not of type *Bug* but rather a *sub-task* of an already closed issue. Also see [Backing out a change](#backing-out-a-change) for reference.
 
 # Code Owners
 
