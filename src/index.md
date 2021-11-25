@@ -1372,7 +1372,7 @@ After a failure is handled by excluding a test, the main JBS issue should be re-
 
 ## Backing Out a Change
 
-If a change causes a regression that can't be fixed within reasonable time the best way to handle the regression can be to back out the change. Backing out means that the inverse (anti-delta) of the change is pushed to effectively undo the change in the repository. There are two parts to this task, how to do the bookkeeping in JBS, and how to do the actual backout in git or mercurial.
+If a change causes a regression that can't be fixed within reasonable time, the best way to handle the regression can be to back out the change. Backing out means that the inverse (anti-delta) of the change is pushed to effectively undo the change in the repository. There are two parts to this task, how to do the bookkeeping in JBS, and how to do the actual backout in git or mercurial.
 
 The backout is a regular change and will have to go through the standard code review process, but is considered a [trivial](#trivial) change. The rationale is that a backout is usually urgent in nature and the change itself is automatically generated. In areas where two reviewers are normally required, only one additional Reviewer is required for a backout since the person who is performing the backout also will review the change.
 
