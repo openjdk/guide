@@ -918,7 +918,7 @@ graph TD
 ~~~
 :::
 
-Pushes to your personal fork can be made either using HTTP or SSH. These examples assume you have an SSH key installed on GitHub. If this is the first time you clone your personal fork of an OpenJDK repository you may want to create an SSH key to use with it. See [Generating an SSH key] below. Once you have your personal fork and an SSH key to go with it, go ahead and clone.
+Pushes to your personal fork can be made either using HTTPS or SSH. These examples assume you have an SSH key installed on GitHub. If this is the first time you clone your personal fork of an OpenJDK repository you may want to create an SSH key to use with it. See [Generating an SSH key] below. Once you have your personal fork and an SSH key to go with it, go ahead and clone.
 
     $ git clone git@github.com:OpenDuke/jdk.git
     $ cd jdk
