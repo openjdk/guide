@@ -2025,7 +2025,7 @@ Comments and questions may be sent to [guide-dev (at) openjdk.java.net](mailto:g
 
 # Glossary
 
-[**provisional**]{#provisional} (int the CSR)
+[**provisional**]{#provisional} (in the CSR)
 :   The stage of the CSR process after "DRAFT", and "PROPOSED". At this stage the primary goals are to ensure that the proposed changes are suitable for the release in a general sense.
 
 [**approved**]{#approved} (by the CSR)
