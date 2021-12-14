@@ -43,3 +43,4 @@ The Developers' Guide is continuously updated and there are several parts still 
 * Where to find JTReg bundles
 * How to run tests with your fork and how to navigate the test result ZIP
 * Text about how to create a PR - What to do and what not to do
+* Logging in hotspot - available strategies, what is preferred and where, how to log in special conditions
