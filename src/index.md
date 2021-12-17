@@ -1307,14 +1307,42 @@ The fix for the main issue should remove the test from the ProblemList or remove
 
 After a failure is handled by excluding a test, the main JBS issue should be re-triaged and possibly given a new priority. This should be handled by the standard triage process. A test exclusion results in an outage in our testing. This outage should be taken into consideration when triaging, in addition to the impact of the bug itself.
 
-# Working with the legacy Mercurial servers
+# Adding new code in Hotspot
+
+## Logging
 
 ::: {.box}
 [Quick Links]{.boxheader}
 
-* [Mercurial: The Definitive Guide](http://hgbook.red-bean.com/)
-* [OpenJDK Mercurial Server](https://hg.openjdk.java.net/)
+* [JEP 158: Unified JVM Logging](https://openjdk.java.net/jeps/158)
 :::
+
+
+While developing your fix, your might want your code to output some diagnostic information. You might even want to leave some logging output on in the code you check in, to facilitate future diagnostics. 
+
+The appropriate way to print logging output from Hotspot is through the [Unified Logging Framework (JEP 158)](https://openjdk.java.net/jeps/158). It gives you a lot of nice features and enables common command-line options for all logging. Messages can also be "decorated" with e.g. uptime, level, tags. The JEP contains a thorough description of the feature, but a quick example might look like:
+
+~~~c++
+log_info(gc, marking)("Mark Stack Usage: " SIZE_FORMAT "M", _mark_stack_usage / M);
+~~~
+
+Where 'gc' and 'marking' are tags, and 'info' is the log level. This would be visible if the JVM were run with any of the following flags:
+
+~~~c++
+-Xlog:gc+marking=info
+-Xlog:gc+marking
+-Xlog:gc*
+~~~
+
+The API should be similar to:
+
+~~~c++
+log_<level>(Tag1[,...])(fmtstr, ...)
+~~~
+
+At the time of writing, the different log levels can be found in `src/hotspot/share/logging/log.hpp`. 
+
+# Working with the legacy Mercurial servers
 
 After the initial release of the JDK source code into OpenJDK in 2007 the OpenJDK project moved from TeamWare to using Mercurial. Starting in 2019 the source revision control has been moved to Git and GitHub. Even though most large projects have moved to Git by now, some still use the Mercurial servers. To access these projects some additional setup is required.
 
