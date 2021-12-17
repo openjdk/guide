@@ -1317,7 +1317,6 @@ After a failure is handled by excluding a test, the main JBS issue should be re-
 * [JEP 158: Unified JVM Logging](https://openjdk.java.net/jeps/158)
 :::
 
-
 While developing your fix, your might want your code to output some diagnostic information. You might even want to leave some logging output on in the code you check in, to facilitate future diagnostics. 
 
 The appropriate way to print logging output from Hotspot is through the [Unified Logging Framework (JEP 158)](https://openjdk.java.net/jeps/158). It gives you a lot of nice features and enables common command-line options for all logging. Messages can also be "decorated" with e.g. uptime, level, tags. The JEP contains a thorough description of the feature, but a quick example might look like:
@@ -1343,6 +1342,13 @@ log_<level>(Tag1[,...])(fmtstr, ...)
 At the time of writing, the different log levels can be found in `src/hotspot/share/logging/log.hpp`. 
 
 # Working with the legacy Mercurial servers
+
+::: {.box}
+[Quick Links]{.boxheader}
+
+* [Mercurial: The Definitive Guide](http://hgbook.red-bean.com/)
+* [OpenJDK Mercurial Server](https://hg.openjdk.java.net/)
+:::
 
 After the initial release of the JDK source code into OpenJDK in 2007 the OpenJDK project moved from TeamWare to using Mercurial. Starting in 2019 the source revision control has been moved to Git and GitHub. Even though most large projects have moved to Git by now, some still use the Mercurial servers. To access these projects some additional setup is required.
 
