@@ -1307,7 +1307,7 @@ The fix for the main issue should remove the test from the ProblemList or remove
 
 After a failure is handled by excluding a test, the main JBS issue should be re-triaged and possibly given a new priority. This should be handled by the standard triage process. A test exclusion results in an outage in our testing. This outage should be taken into consideration when triaging, in addition to the impact of the bug itself.
 
-# Adding new code in Hotspot
+# HotSpot development
 
 ## Logging
 
@@ -1317,9 +1317,9 @@ After a failure is handled by excluding a test, the main JBS issue should be re-
 * [JEP 158: Unified JVM Logging](https://openjdk.java.net/jeps/158)
 :::
 
-While developing your fix, your might want your code to output some diagnostic information. You might even want to leave some logging output on in the code you check in, to facilitate future diagnostics.
+While developing your fix, your might want your code to output some diagnostic information. You might even want to leave some logging in the code you check in, to facilitate future diagnostics.
 
-The appropriate way to print logging output from Hotspot is through the [Unified Logging Framework (JEP 158)](https://openjdk.java.net/jeps/158). It gives you a lot of nice features and enables common command-line options for all logging. Messages can also be "decorated" with e.g. uptime, level, tags. The JEP contains a thorough description of the feature, but a quick example might look like:
+The appropriate way to print logging output from HotSpot is through the [Unified Logging Framework (JEP 158)](https://openjdk.java.net/jeps/158). It gives you a lot of nice features and enables common command-line options for all logging. Messages can also be "decorated" with e.g. uptime, level, tags. The JEP contains a thorough description of the feature, but a quick example might look like:
 
 ~~~c++
 log_info(gc, marking)("Mark Stack Usage: " SIZE_FORMAT "M", _mark_stack_usage / M);
@@ -1339,7 +1339,7 @@ The API should be similar to:
 log_<level>(Tag1[,...])(fmtstr, ...)
 ~~~
 
-At the time of writing, the different log levels can be found in `src/hotspot/share/logging/log.hpp`.
+At the time of writing, the different log levels can be found in [src/hotspot/share/logging/log.hpp](https://github.com/openjdk/jdk/blob/master/src/hotspot/share/logging/log.hpp).
 
 # Working with the legacy Mercurial servers
 
