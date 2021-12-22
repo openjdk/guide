@@ -25,9 +25,8 @@ The resulting HTML files in the `build` directory are exactly the files publishe
 The Developers' Guide is continuously updated and there are several parts still missing. This todo list isn't complete and there is no limitation on current work being tied to any item on this list. It's just a list of things that we know are missing or needs to be updated. The list isn't ordered in any way.
 
 * All SCM references should be updated to GIT
-* Step-by-step build instructions
 * JEPs - When do I need one? - Working with JEPs
-* Reference external CSR pages with small intro that is unlikely to need upates
+* Reference external CSR pages with small intro that is unlikely to need updates
 * Document release note process
 * Add "stakeholders" for each section
 * Add references to current code conventions for Java, C++, Markdown, Makefiles
@@ -35,7 +34,6 @@ The Developers' Guide is continuously updated and there are several parts still 
 * Text about adding a feature
 * Text about testing
 * Text about JCK
-* Text about backports
 * Text about JBS, triage, priorities, status
 * List JTReg `@key` conventions for different areas
 * Document best practices around TEST.properties usage. See [PR#30](https://github.com/openjdk/guide/pull/30#issuecomment-714589551)

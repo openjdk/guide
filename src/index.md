@@ -1307,6 +1307,141 @@ The fix for the main issue should remove the test from the ProblemList or remove
 
 After a failure is handled by excluding a test, the main JBS issue should be re-triaged and possibly given a new priority. This should be handled by the standard triage process. A test exclusion results in an outage in our testing. This outage should be taken into consideration when triaging, in addition to the impact of the bug itself.
 
+## Backing Out a Change
+
+If a change causes a regression that can't be fixed within reasonable time, the best way to handle the regression can be to back out the change. Backing out means that the inverse (anti-delta) of the change is pushed to effectively undo the change in the repository. There are two parts to this task, how to do the bookkeeping in JBS, and how to do the actual backout in git or mercurial.
+
+The backout is a regular change and will have to go through the standard code review process, but is considered a [trivial](#trivial) change. The rationale is that a backout is usually urgent in nature and the change itself is automatically generated. In areas where two reviewers are normally required, only one additional Reviewer is required for a backout since the person who is performing the backout also will review the change.
+
+### How to work with JBS when a change is backed out
+
+#. Close the original JBS issue **(O)**.
+   * "Verify" the issue and choose "Fix Failed".
+#. If the intention is to fix the change and submit it again, create a redo-issue **(R)** to track that the work still needs to be done.
+   * Clone **(O)** and add the prefix `[REDO]` on the summary - the clone becomes the redo-issue **(R)**.
+   * Make sure relevant information is brought to **(R)**.
+   * Remember that comments aren't brought over when cloning.
+#. Create a backout-issue **(B)**:
+   * Alternative 1 - the regression is identified directly.
+     * Create a sub-task to **(R)** with the same summary, prefix with `[BACKOUT]`.
+   * Alternative 2 - an investigation issue is created **(I)**, and during the investigation backing out the change is identified as the best solution.
+     * Use the investigation issue **(I)** for the backout.
+     * Change summary of **(I)** to the same as **(O)** and prefix with `[BACKOUT]`.
+     * Move and change type of **(I)** to become a sub-task of **(R)**.
+   * Alternative 3 - no redo issue was created.
+     * Create a backout-issue **(B)** with the same summary as **(O)**, prefix with `[BACKOUT]`.
+     * Link **(B)** and **(O)**.
+
+ProblemList entries and `@ignore` keywords will continue to point to the original bug (unless updated at back out). This is accepted since there is a clone link to follow.
+
+### How to work with git when a change is backed out
+
+To backout a change with git, use `git revert`. This will apply (commit) the anti-delta of the change.
+
+~~~diff
+$ git show aa371b4f02c2f809eb9cd3e52aa12b639bed1ef5
+commit aa371b4f02c2f809eb9cd3e52aa12b639bed1ef5 (HEAD -> master)
+Author: Jesper Wilhelmsson <jesper.wilhelmsson@oracle.com>
+Date:   Wed Jun 23 20:31:32 2021 +0200
+
+    My change
+
+diff --git a/README.md b/README.md
+index 399e7cc311f..4961acb2126 100644
+--- a/README.md
++++ b/README.md
+@@ -1,4 +1,4 @@
+-# Welcome to the JDK!
++# Welcome to my modified JDK!
+
+ For build instructions please see the
+ [online documentation](https://openjdk.java.net/groups/build/doc/building.html),
+
+$ git revert aa371b4f02c2f809eb9cd3e52aa12b639bed1ef5
+[master d454489052d] Revert "My change"
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+$ git show d454489052dc6ff69a21ad9c8f56b67fdeb435ee
+commit d454489052dc6ff69a21ad9c8f56b67fdeb435ee (HEAD -> master)
+Author: Jesper Wilhelmsson <jesper.wilhelmsson@oracle.com>
+Date:   Wed Jun 23 20:32:08 2021 +0200
+
+    Revert "My change"
+
+    This reverts commit aa371b4f02c2f809eb9cd3e52aa12b639bed1ef5.
+
+diff --git a/README.md b/README.md
+index 4961acb2126..399e7cc311f 100644
+--- a/README.md
++++ b/README.md
+@@ -1,4 +1,4 @@
+-# Welcome to my modified JDK!
++# Welcome to the JDK!
+
+ For build instructions please see the
+ [online documentation](https://openjdk.java.net/groups/build/doc/building.html),
+~~~
+
+### How to work with mercurial when a change is backed out
+
+In order to backout a change, the `hg backout` command is recommended, which essentially applies the anti-delta of the change. Make sure you perform the backout in the most upstream repository the change has escaped to.
+
+~~~
+hg backout [OPTION]... [-r] REV
+
+reverse effect of earlier changeset
+
+    Prepare a new changeset with the effect of REV undone in the current
+    working directory.
+
+    If REV is the parent of the working directory, then this new changeset is
+    committed automatically. Otherwise, hg needs to merge the changes and the
+    merged result is left uncommitted.
+~~~
+
+# Backporting
+
+::: {.box}
+[Quick Links]{.boxheader}
+
+* [Push approval for JDK updates](https://openjdk.java.net/projects/jdk-updates/approval.html)
+* [Skara documentation on backports](https://wiki.openjdk.java.net/display/SKARA/Backports)
+:::
+
+Development of the latest version of the JDK often results in bug fixes that might be interesting to include in some of the JDK update releases still being maintained. Moving a fix from a more recent release train (e.g. JDK 17) to an older release train (e.g. JDK 11) is called *backporting*.
+
+The guideline for what to backport into a specific update release will vary over the lifetime of that release. Initially more fixes are expected to be backported as new features and large changes introduced in a mainline release stabilize. Over time the focus will shift from stabilization to keeping it stable - the release will go into maintenance mode. This means that bug fixes that require larger disruptive changes are more likely to be made in mainline and backported to more recent release trains only, and not to older release trains.
+
+Over time it's likely that the code base will diverge between mainline and any given update release, and the cost of backporting will increase. The cost in this case is not only the effort needed to perform the actual backport, but also the cost inferred by bugs introduced by the backport. This should be taken into consideration when deciding if a change should be backported or not. For more details on how to reason around what to backport, [this email from JDK 8 Updates Project lead Andrew Haley](https://mail.openjdk.java.net/pipermail/jdk8u-dev/2020-June/012002.html) has some guidelines for JDK 8u. The reasoning in this mail is specific to JDK 8u, but will in general apply to any JDK release in maintenance mode.
+
+Any change that originally required a CSR will require a new CSR to be backported unless the backport was covered by the initial CSR. Changes to Java SE specifications cannot be made in an update release without a Java SE Maintenance Release. CSR-related issues affect interfaces and behavior and must be very carefully scrutinized.
+
+## Working with backports in JBS
+
+::: {.box}
+[Terminology]{.boxheader}
+
+Main issue - The top issue in a backport hierarchy. Eg. [JDK-8272373](https://bugs.openjdk.java.net/browse/JDK-8272373) is a main issue, while [JDK-8277498](https://bugs.openjdk.java.net/browse/JDK-8277498) and [JDK-8277499](https://bugs.openjdk.java.net/browse/JDK-8277499) are backport issues of this main issue.
+:::
+
+In general there is no need to create backport issues in JBS manually. All work that is done in JBS in preparation for a backport (requesting approvals etc) is done in the main issue. The backport issue will be created automatically by the bots when you integrate the change to the source code repository.
+
+There can be cases where it's desirable to create a backport issue before the fix is done, e.g. if a CSR needs to be filed. In these cases set the fix version of the backport to `N-pool`, where `N` is the release train the backport is targeting. E.g. `17-pool`. Please note that even if a backport issue is created ahead of time, all work done in JBS is still done in the main issue.
+
+Obviously it's possible to set the fix version to the exact release the backport is targeting, but this isn't recommended. When a change is pushed, the bots will look at the main issue as indicated in the PR title, and look for backports with the current `N.0.x` release version as fix version, if no such backport is found they will look for `N-pool`, and if that isn't found either, a new backport issue will be created. This means that if the backport has an exact fix version set, but is delayed and misses the release indicated by the fix version, a new backport issue is created with a small mess as the result.
+
+Setting the fix version of a backport to `N` is always wrong. JDK `N` has already been released (or you wouldn't be backporting to it) and can't get any more fixes.
+
+## Requesting approvals for backports
+
+In order to be allowed to push a change to one of the OpenJDK update development repositories (e.g. [`jdk17u-dev`](https://github.com/openjdk/jdk17u-dev)), an approval is required. The [official process for how to request push approval for a backport](https://openjdk.java.net/projects/jdk-updates/approval.html) describes in detail how to work with JBS when requesting approvals. In short, there's a label `jdk<release>u-fix-request` that should be added to the main JBS issue. Also put a motivation as to why the issue needs to be backported as a comment in the main issue. Once the label and motivation has been added, wait for the maintainers of the release to approve your request. The approval will be indicated with a label, `jdk<release>u-fix-yes`, added to the main issue.
+
+If the update release is in rampdown, changes are pushed to the release repository (e.g. [`jdk17u`](https://github.com/openjdk/jdk17u)). During rampdown the bar to get changes in are significantly higher and fixes need to be approved with `jdk<release>u-critical-request` / `jdk<release>u-critical-yes`.
+
+## Using the Skara tooling to help with backports
+
+The Skara tooling includes support for backports. [The official Skara documentation](https://wiki.openjdk.java.net/display/SKARA/Backports) describes in detail how to work with the tooling to create backport PRs on GitHub or using the CLI tools. As described in the documentation, the [`/backport`](https://wiki.openjdk.java.net/display/SKARA/Commit+Commands#CommitCommands-/backport) command can be used on a commit (not a PR!) to create the backport PR. If a backport PR is manually created, set the PR title to `Backport <original commit hash>`. This ensures that the bots will recognize it as a backport as opposed to a main fix specifically targeting an older release. One can tell whether or not the bots recognized a PR as a backport by the `backport` label being added if it's recognized.
+
 # Working with the legacy Mercurial servers
 
 ::: {.box}
@@ -1612,98 +1747,6 @@ After the push has been accepted, an automatic e-mail notification will be sent 
 > See [Becoming a Committer] for information about becoming a Project Committer.
 >
 > ---
-
-## Backing Out a Change
-
-If a change causes a regression that can't be fixed within reasonable time the best way to handle the regression can be to back out the change. Backing out means that the inverse (anti-delta) of the change is pushed to effectively undo the change in the repository. There are two parts to this task, how to do the bookkeeping in JBS, and how to do the actual backout in git or mercurial.
-
-The backout is a regular change and will have to go through the standard code review process, but is considered a [trivial](#trivial) change. The rationale is that a backout is usually urgent in nature and the change itself is automatically generated. In areas where two reviewers are normally required, only one additional Reviewer is required for a backout since the person who is performing the backout also will review the change.
-
-### How to work with JBS when a change is backed out
-
-#. Close the original JBS issue **(O)**.
-   * "Verify" the issue and choose "Fix Failed".
-#. If the intention is to fix the change and submit it again, create a redo-issue **(R)** to track that the work still needs to be done.
-   * Clone **(O)** and add the prefix `[REDO]` on the summary - the clone becomes the redo-issue **(R)**.
-   * Make sure relevant information is brought to **(R)**.
-   * Remember that comments aren't brought over when cloning.
-#. Create a backout-issue **(B)**:
-   * Alternative 1 - the regression is identified directly.
-     * Create a sub-task to **(R)** with the same summary, prefix with `[BACKOUT]`.
-   * Alternative 2 - an investigation issue is created **(I)**, and during the investigation backing out the change is identified as the best solution.
-     * Use the investigation issue **(I)** for the backout.
-     * Change summary of **(I)** to the same as **(O)** and prefix with `[BACKOUT]`.
-     * Move and change type of **(I)** to become a sub-task of **(R)**.
-   * Alternative 3 - no redo issue was created.
-     * Create a backout-issue **(B)** with the same summary as **(O)**, prefix with `[BACKOUT]`.
-     * Link **(B)** and **(O)**.
-
-ProblemList entries and `@ignore` keywords will continue to point to the original bug (unless updated at back out). This is accepted since there is a clone link to follow.
-
-### How to work with git when a change is backed out
-
-To backout a change with git, use `git revert`. This will apply (commit) the anti-delta of the change.
-
-~~~diff
-$ git show aa371b4f02c2f809eb9cd3e52aa12b639bed1ef5
-commit aa371b4f02c2f809eb9cd3e52aa12b639bed1ef5 (HEAD -> master)
-Author: Jesper Wilhelmsson <jesper.wilhelmsson@oracle.com>
-Date:   Wed Jun 23 20:31:32 2021 +0200
-
-    My change
-
-diff --git a/README.md b/README.md
-index 399e7cc311f..4961acb2126 100644
---- a/README.md
-+++ b/README.md
-@@ -1,4 +1,4 @@
--# Welcome to the JDK!
-+# Welcome to my modified JDK!
-
- For build instructions please see the
- [online documentation](https://openjdk.java.net/groups/build/doc/building.html),
-
-$ git revert aa371b4f02c2f809eb9cd3e52aa12b639bed1ef5
-[master d454489052d] Revert "My change"
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-$ git show d454489052dc6ff69a21ad9c8f56b67fdeb435ee
-commit d454489052dc6ff69a21ad9c8f56b67fdeb435ee (HEAD -> master)
-Author: Jesper Wilhelmsson <jesper.wilhelmsson@oracle.com>
-Date:   Wed Jun 23 20:32:08 2021 +0200
-
-    Revert "My change"
-
-    This reverts commit aa371b4f02c2f809eb9cd3e52aa12b639bed1ef5.
-
-diff --git a/README.md b/README.md
-index 4961acb2126..399e7cc311f 100644
---- a/README.md
-+++ b/README.md
-@@ -1,4 +1,4 @@
--# Welcome to my modified JDK!
-+# Welcome to the JDK!
-
- For build instructions please see the
- [online documentation](https://openjdk.java.net/groups/build/doc/building.html),
-~~~
-
-### How to work with mercurial when a change is backed out
-
-In order to backout a change, the `hg backout` command is recommended, which essentially applies the anti-delta of the change. Make sure you perform the backout in the most upstream repostiory the change has escaped to.
-
-~~~
-hg backout [OPTION]... [-r] REV
-
-reverse effect of earlier changeset
-
-    Prepare a new changeset with the effect of REV undone in the current
-    working directory.
-
-    If REV is the parent of the working directory, then this new changeset is
-    committed automatically. Otherwise, hg needs to merge the changes and the
-    merged result is left uncommitted.
-~~~
 
 # The JDK Release process
 
