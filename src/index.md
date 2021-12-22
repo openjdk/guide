@@ -23,7 +23,7 @@ There are many common use cases that aren't detailed in the formal process. This
 * [OpenJDK Project Roles (Author, Committer, Reviewer)](https://openjdk.java.net/bylaws#project-roles)
 :::
 
-OpenJDK consists of a number of [Groups](https://openjdk.java.net/groups/). Members of a group collaborate on an area of mutual interest. The right hand side bar on the [OpenJDK website](https://openjdk.java.net/) has a list of all groups in OpenJDK. If you're interested in a specific area, this is where you would start your OpenJDK experience. Look at the group's information and wiki pages, and see what projects they sponsor on the [Census page](https://openjdk.java.net/census).
+OpenJDK consists of a number of [Groups](https://openjdk.java.net/groups/). Members of a group collaborate on an area of mutual interest. The right hand side bar on the [OpenJDK website](https://openjdk.java.net/) has a list of all groups in OpenJDK. If you're interested in a specific area, this is where you would start your OpenJDK experience. Look at the group's information and wiki pages, and see what projects they sponsor on the [Census page](https://openjdk.java.net/census). The [Census](https://openjdk.java.net/census) shows the structure of the OpenJDK Community.
 
 [Projects](https://openjdk.java.net/projects/) are where the coding and much of the other work is done in OpenJDK. There are many different projects, some produce shippable artifacts, like the [JDK Project](https://openjdk.java.net/projects/jdk/), some produce tools to be used by developers of these artifacts, like the [Code Tools Project](https://openjdk.java.net/projects/code-tools/) or [Project Skara](https://openjdk.java.net/projects/skara/), and some produce documentation, like the [Developers' Guide Project](https://openjdk.java.net/projects/guide/). Many projects designs and develops new features for the Java language or the JVM, but there are also less code centric projects like the [Duke Project](https://openjdk.java.net/projects/duke/) which collects images of the Java mascot, Duke.
 
@@ -90,9 +90,9 @@ In many GitHub projects the standard way to propose a change is to create a pull
 
 ### 1. Sign the OCA
 
-Oracle is the steward of OpenJDK. In order to make your patch available for review you must first sign the [Oracle Contributor Agreement](https://www.oracle.com/technical-resources/oracle-contributor-agreement.html) (OCA). This agreement gives Oracle and you as a contributor joint copyright interests in the code. You will retain your copyright while also granting those rights to Oracle.
+Oracle is the steward of OpenJDK. In order to make your patch available for review you must first sign the [Oracle Contributor Agreement](https://oca.opensource.oracle.com/) (OCA). This agreement gives Oracle and you as a contributor joint copyright interests in the code. You will retain your copyright while also granting those rights to Oracle.
 
-When you sign the OCA, please make sure that you specify your GitHub user name in the `Username` field of the OCA. If you try to create a PR before you have signed the OCA, or if you didn't specify your GitHub user name, you'll get instructions telling you to do so, and the PR won't be published until this is done. OCA registration is a manual process. Please allow for up to several days to have your OCA application processed, even though it's normally processed swiftly.
+When you sign the OCA, please make sure that you specify your GitHub user name in the `Username` field of the OCA. If you try to create a PR before you have signed the OCA, or if you didn't specify your GitHub user name, you'll get instructions telling you to do so, and the PR won't be published until this is done. OCA registration is a manual process. Please allow for up to several days to have your OCA application processed, even though it's normally processed swiftly. An alphabetical list of all of the assigned OpenJDK usernames may be found on the [OpenJDK people](https://db.openjdk.java.net/people) list.
 
 ### 2. Socialize your change
 
@@ -185,174 +185,6 @@ There are a few different types of lists. The list name has two parts to explain
 ## Changing your email address
 
 If you need to change your registered email address, or if you have any other problems with the mailing lists, please contact [mailman@openjdk.java.net](mailto:mailman@openjdk.java.net).
-
-# Repositories
-
-This section describes the OpenJDK repository terminology and naming scheme. It also includes minimal instructions to acquire source from the OpenJDK repository, [`https://hg.openjdk.java.net/`](https://hg.openjdk.java.net/).
-
-> ---
-> Note that source may be available from other locations, for example `src.zip` from a full JDK distribution. However, OpenJDK contributions must use source from the [OpenJDK Mercurial repository](https://hg.openjdk.java.net/) since other source distributions may contain older code or code which differs due to licensing.
-
-> ---
-
-Operations which are performed repeatedly, such as creating changesets, merging, and pushing are described in [Producing a Changeset](#producing-a-changeset).
-
-* [Terminology and Naming Scheme](#terminology-and-naming-scheme) defines the nomenclature used by OpenJDK.
-* [Installing and Configuring Mercurial](#installing-and-configuring) enumerates the required software, provides links for download, and describes basic installation and configuration.
-* [Cloning](#clone) covers the procedure for obtaining private copies of source repositories.
-
-This document assumes familiarity with the first two chapters of the free on-line book [Mercurial: The Definitive Guide](http://hgbook.red-bean.com).
-
-## Terminology and Naming Scheme
-
-The OpenJDK code base for all [Projects](https://openjdk.java.net/bylaws#project) is stored in Mercurial repositories which contain the source files and their change history. Some Projects may choose to organize their code into multiple, possibly related, Mercurial repositories. For instance, [JDK 9](https://openjdk.java.net/projects/jdk9) uses a forest of multiple related repositories which contain components of the entire JDK. Projects which are based on the JDK, such as [IcedTea](https://openjdk.java.net/projects/icedtea) and [Jigsaw](https://openjdk.java.net/projects/jigsaw) also use this model. In contrast, [Code Tools](https://openjdk.java.net/projects/code-tools) uses an unrelated repository for each tool and [Graal](https://openjdk.java.net/projects/graal) uses only a single repository. Regardless of how a Project has chosen to store their code, each [Contributor](https://openjdk.java.net/bylaws#contributor) clones the repository associated with the code they are modifying.
-
-> ---
-> Consult the Project's documentation or [mailing list](https://mail.openjdk.java.net) to determine the appropriate repository, development conventions, and helpful tools.
-
-> ---
-
-This is the typical development model:
-
-::: {style="text-align:center;"}
-~~~{.mermaid caption="Diagram of server repos and user's clone" format=svg theme=neutral}
-graph TD
-    subgraph hg.openjdk.java.net
-        origin(jdk9/dev)
-    end
-    origin --> |clone| local(9dev)
-    local --> |push| origin
-~~~
-:::
-
-A Contributor creates a _clone_ (a local copy called "9dev") of a read/write repository ("jdk9/dev") which resides on the OpenJDK Mercurial server. They work on their change in the clone and locally _commit_ a changeset. After the new changeset(s) are verified, they're either _pushed_ directly from the clone or _exported_ and delivered to a [Committer](https://openjdk.java.net/bylaws#committer) who can perform the push into the server repository for all to see.
-
-> ---
-> The use of _gate repositories_ was eliminated when the Mercurial servers were upgraded in March 2014.
-
-> ---
-
-The repositories use the following naming scheme:
-
-> `<project>/<component_path>`
-
-where
-
-> ------------------  ----  ----------------------------------------------------
-> _project_            ::   the short name of an OpenJDK [Project](https://openjdk.java.net/bylaws#project) such as "jdk9", "openjfx", or "sumatra"
-> _component_path_     ::   the path to a repository containing the code base as designated by the [Project Lead](https://openjdk.java.net/bylaws#project-lead).
-> ------------------  ----  ----------------------------------------------------
-
-## Installing and Configuring Mercurial
-
-Mercurial is a free, cross-platform, distributed source management tool. Source bundles and binary packages for Mercurial are available at [https://www.selenic.com/mercurial/wiki/index.cgi](https://www.selenic.com/mercurial/wiki/index.cgi/Mercurial). The OpenJDK repositories recommend installation of Mercurial 2.6.3 (or later). A Mercurial installation is sufficient to clone a repository. Contributors who wish to submit changes will need some additional configuration as described below.
-
-Some Projects may recommend additional tools or scripts that help with repository manipulation and code development. For instance, in JDK 9, the utility script `common/bin/hgforest.sh` may be used to apply commands to all the repositories in the [forest](#forest). Popular extensions for OpenJDK developers include [jcheck](https://openjdk.java.net/projects/code-tools/jcheck/), [trees](https://openjdk.java.net/projects/code-tools/trees/), and [Mercurial Queues](http://hgbook.red-bean.com/read/managing-change-with-mercurial-queues.html) (mq). Note that `trees` is enabled on the OpenJDK Mercurial server.
-
-Create and edit the `~/.hgrc` file to minimally contain the following entry:
-
-    [ui]
-    username = <openjdk_username>
-
-_openjdk\_username_ is a plain lowercase, alphanumeric token (not an e-mail address) with twelve characters or less. The first character should be alphabetic. This username will be publicly visible in all Mercurial changeset logs. It will be used to verify that the changeset author is at least an [Author](https://openjdk.java.net/bylaws#author) for the Project and that the person pushing the changeset is at least a [Committer](https://openjdk.java.net/bylaws#committer). It's recommended that the _openjdk\_username_ be somehow related to the Author's full name, such as the first character of the Author's first name followed by the Author's last name. Refer to the [Becoming an Author](https://openjdk.java.net/projects/index.html#project-author) section of the [Project](https://openjdk.java.net/projects/index.html) page for additional information.
-
-An alphabetical list of all of the assigned _openjdk\_usernames_ may be found on the [OpenJDK people](https://db.openjdk.java.net/people) list. The [Census](https://openjdk.java.net/census) shows the structure of the OpenJDK Community.
-
-#### Verifying the Configuration
-
-After installing and configuring Mercurial, validate the configuration using the following steps.
-
-#. Verify that Mercurial is version 2.6.3 (or newer).
-
-       $ hg version
-       Mercurial Distributed SCM (version 2.9)
-       (see http://mercurial.selenic.com for more information)
-
-       Copyright (C) 2005-2014 Matt Mackall and others
-       This is free software; see the source for copying conditions. There is NO
-       warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-
-#. Verify that the list of enabled extensions includes fetch and mq.
-
-       $ hg help
-
-#. Verify that the `~/.hgrc` configuration looks correct. Minimally it should contain the following entries:
-
-       $ hg showconfig
-       ui.username=iris
-
-At this point, it should be possible to start retrieving source from the repositories.
-
-## Cloning
-
-With Mercurial each developer works with a clone of the repository which is a snapshot of the files at the time the clone was taken. To update the clone, see [Producing a Changeset](#producing-a-changeset).
-
-#### ... a Sandbox Repository {#cloneSandbox}
-
-In addition to the Project repositories, there are some test repositories that may be used to run test commands against Mercurial without fear of causing damage to development source. Use them freely but with discretion; content in them may be deleted at any time.
-
-    $ mkdir sandbox; cd sandbox
-    $ hg clone http://hg.openjdk.java.net/sandbox/box
-    destination directory: box
-    requesting all changes
-    adding changesets
-    adding manifests
-    adding file changes
-    added 23 changesets with 24 changes to 5 files
-    4 files updated, 0 files merged, 0 files removed, 0 files unresolved
-    $ du -s box
-    46      box
-
-#### ... a Forest {#cloneForest}
-
-If a Project uses a forest, It's strongly recommended for developers to clone an entire forest, rather than a single repository. This is the only means to ensure consistency in builds. The following examples illustrate two alternatives for cloning the entire _jdk9/dev_ forest into the directory `9dev`.
-
-#. To clone the forest using the [trees](https://openjdk.java.net/projects/code-tools/trees/) extension just use `tclone`:
-
-       $ hg tclone http://hg.openjdk.java.net/jdk9/dev 9dev
-
-#. To clone the forest using `get_source.sh`, first clone the main tree:
-
-       $ hg clone http://hg.openjdk.java.net/jdk9/dev 9dev
-       requesting all changes
-       adding changesets
-       adding manifests
-       adding file changes
-       added 997 changesets with 1477 changes to 138 files
-       updating to branch default
-       82 files updated, 0 files merged, 0 files removed, 0 files unresolved
-
-   Then clone the repositories in the forest:
-
-       $ cd 9dev
-       $ sh ./get_source.sh
-
-Regardless of how the forest was cloned, this is the resulting populated forest.
-
-    $ du -s
-    934532  .
-    $ ls
-    ASSEMBLY_EXCEPTION  hotspot    LICENSE   README-builds.html
-    common              jaxp       make      test
-    configure           jaxws      Makefile  THIRD_PARTY_README
-    corba               jdk        nashorn
-    get_source.sh       langtools  README
-
-#### ... a Single Repository {#cloneSingle}
-
-If the source for the Project is contained within a single repository or reading a limited portion of the source is the only goal, it's possible to clone a single repository (even if it's part of a forest). For instance, this example shows how to clone the `langtools` repository from _jdk9/dev_ into the default destination directory.
-
-    $ hg clone http://hg.openjdk.java.net/jdk9/dev/langtools
-    destination directory: langtools
-    requesting all changes
-    adding changesets
-    adding manifests
-    adding file changes
-    added 2289 changesets with 21194 changes to 7004 files
-    updating to branch default
-    6212 files updated, 0 files merged, 0 files removed, 0 files unresolved
-    $ du -s langtools
-    84396   langtools
 
 # Code Conventions
 
@@ -673,7 +505,7 @@ Labels are an open namespace, which means that anyone can create new labels at a
   </tr>
   <tr>
     <td class="dictionary">
-      [~~**`hs-tier`**~~~~`[1-8]`~~]{#hs-tier}
+      [~~**`hs-tier`**`[1-8]`~~]{#hs-tier}
     </td>
     <td class="dictionary">
       **Deprecated.** Was used to identify which HotSpot tier a test failure was seen in. We don't separate HotSpot tiers from the JDK tiers anymore. See **`tier`**`[1-8]`.
@@ -1047,6 +879,103 @@ For the purposes of brevity this document will use the term "bug" to refer to bo
 
 _Congratulations!_ Your changeset will now make its way towards a promoted build. When the changeset becomes part of a promoted build, the bug's "Resolved in Build" will have a value of \"b\[1-9\]\[0-9\]&ast;\" to indicate the build number.
 
+# Cloning the JDK
+
+::: {.box}
+[Quick Links]{.boxheader}
+
+* [OpenJDK Mainline GitHub project](https://github.com/openjdk/jdk)
+* [Skara Documentation](https://wiki.openjdk.java.net/display/SKARA)
+:::
+
+The complete source code for the JDK is hosted at [GitHub](https://github.com). You can browse the code directly in the [openjdk/jdk repository](https://github.com/openjdk/jdk), or download the code for offline browsing, editing, and building using `git clone`.
+
+    $ git clone https://github.com/openjdk/jdk.git
+
+`openjdk/jdk` is the mainline JDK development repository where the next major release of the JDK is being developed. Other projects have their own repositories on GitHub.
+
+> ---
+>
+> Note that source may be available from other locations, for example `src.zip` from a full JDK distribution. However, OpenJDK contributions must use source from the appropriate OpenJDK GitHub repository since other source distributions may contain older code or code which differs due to licensing. Consult the Project's documentation or [mailing list](#mailing-lists) to determine the appropriate repository, development conventions, and helpful tools.
+>
+> ---
+
+If you intend to contribute patches, you should first *fork* the repository on GitHub and clone your own *personal fork* as shown below. To fork a project on GitHub, go to the GitHub project page and click the 'Fork' button in the upper right corner, then follow the on screen instructions.
+
+This is the typical development model:
+
+::: {style="text-align:center;"}
+~~~{.mermaid caption="Diagram of upstream repos and user's clone" format=svg theme=neutral}
+graph TD
+  subgraph GitHub
+    upstream(openjdk/jdk)
+    fork(OpenDuke/jdk)
+  end
+  upstream --> |fork| fork
+  fork --> |clone| local(local)
+  local --> |push| fork
+  fork --> |PR| upstream
+~~~
+:::
+
+Pushes to your personal fork can be made either using HTTPS or SSH. These examples assume you have an SSH key installed on GitHub. If this is the first time you clone your personal fork of an OpenJDK repository you may want to create an SSH key to use with it. See [Generating an SSH key] below. Once you have your personal fork and an SSH key to go with it, go ahead and clone.
+
+    $ git clone git@github.com:OpenDuke/jdk.git
+    $ cd jdk
+    $ git remote add upstream https://github.com/openjdk/jdk.git
+
+In the example above Duke cloned his personal fork of the JDK mainline repository using SSH. You should of course use your own GitHub username instead. Then, by adding a new *remote* named 'upstream', the clone is associated with [openjdk/jdk](https://github.com/openjdk/jdk). Doing this will allow the tooling to automatically create a PR on [openjdk/jdk](https://github.com/openjdk/jdk) whenever a change is pushed to the personal fork. The way that works is that once the change has been pushed to the personal fork, and you navigate to the [openjdk/jdk](https://github.com/openjdk/jdk) repository on GitHub, there will be a message saying that you just pushed a change and asking if you want to create a PR.
+
+The recommendation is to always create a new branch for any change you intend to implement. By doing that you can easily work on many different changes in parallel in the same code repository. Unless you know what you are doing, the recommendation is also to always base your new branch on the `master` branch.
+
+    $ git switch -c JDK-8272373 master
+
+Here we create a new branch called `JDK-8272373` based on the `master` branch and set the repository up to work in that new branch.
+
+`git switch` was introduced in Git version 2.23. For earlier versions of Git `git checkout` can be used instead. However it is always recommended to use the latest versions of all your tools when possible.
+
+::: {.box}
+More information about how to work with git and the dedicated tooling that is available for OpenJDK can be found in the [Project Skara Documentation](https://wiki.openjdk.java.net/display/SKARA). If you're new to git you can also read more about how to work with it in one of the many fine git tutorials available on the Internet. For instance the [Pro Git book](https://git-scm.com/book/en/v2). This guide doesn't aspire to become another git guide.
+:::
+
+## Generating an SSH key
+
+For security reasons you should always create new keys and use different keys with each repository you clone. The `ssh-keygen` command generates an SSH key. The `-t` option determines which type of key to create. `ed25519` is recommended. `-C` is used to add a comment in the key file, to help you remember which key it is. While it’s possible to use SSH without a passphrase, this is **strongly discouraged**. Empty or insecure passphrases may be reset using `ssh-keygen -p`; this doesn’t change the keys.
+
+    $ ssh-keygen -t ed25519 -C openjdk-jdk -f ~/.ssh/openjdk-jdk
+    Generating public/private ed25519 key pair.
+    Enter passphrase (empty for no passphrase):
+    Enter same passphrase again:
+    Your identification has been saved in /Users/duke/.ssh/openjdk-jdk.
+    Your public key has been saved in /Users/duke/.ssh/openjdk-jdk.pub.
+    The key fingerprint is:
+    SHA256:WS4jCQMtat75ZEue+so+Lgj7V/sdMtj1FTNkfNsCfHA openjdk-jdk
+    The key's randomart image is:
+    +--[ED25519 256]--+
+    |  ..       ..oE  |
+    |  ...       o+o .|
+    | . .o     .  o+.o|
+    |..   o . +    .=.|
+    |o . . o S o   .. |
+    |.. o +.+ + . .   |
+    |o.  *.+.+ . .    |
+    |o....=.  + .     |
+    | .=B=. .. .      |
+    +----[SHA256]-----+
+
+`~/.ssh/openjdk-jdk` is a text file containing your private ssh key. There's a corresponding public key in `~/.ssh/openjdk-jdk.pub` (as detailed in the example above). You should **never** share your private key. The *public* key on the other hand should be uploaded to GitHub. Follow the steps below to do that.
+
+* Go to the GitHub settings for your account by choosing "Settings" in the menu by your avatar in the upper right corner
+* Go to "SSH and GPG keys"
+* Click "New SSH key"
+* Title "OpenJDK" (or something else appropriate)
+* Paste the content of `~/.ssh/openjdk-jdk.pub` into the text field
+  * To get the content of the file you can for instance use `cat ~/.ssh/openjdk-jdk.pub`
+  * It will look something like this: `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO8+egiIgWV+tE7LVVJmlR7WS2Lr3Fj7dXVo9HiasD6T openjdk-jdk`
+* Click "Add SSH key"
+
+Now you are ready to clone your [openjdk/jdk](https://github.com/openjdk/jdk) fork using SSH.
+
 # Building the JDK
 
 ::: {.box}
@@ -1061,13 +990,10 @@ The JDK build system is a fairly complex machine that has the ability to build a
 
 The JDK supports incremental builds. This means that if you have a complete build and make changes in just a single part of the JDK (e.g. a module or part of the JVM), only that particular part needs to be rebuilt. So subsequent builds will be faster and you can always use a make target that results in a complete JDK image without having to worry about actually building the entire JDK every time. Please note that the incremental build do have limits in its understanding of what you change. For instance, if you change behaviors or conventions in one module there may be other parts of the JDK that implicitly depends on these without make's knowledge. For this reason you may have to rebuild several modules, or do a clean build if you change things that may have a wider impact.
 
-The log below shows the steps taken to download and build the JDK source code from the mainline JDK development GIT repository. The configure script will tell you what additional packages you need. In this particular case several packages were needed since this build was performed on a clean Ubuntu installation. The configure script was run several times to get all the dependencies, but only the commands actually needed to get the JDK built are included in the log.
+The examples below show the steps taken to build the JDK source code. Please see [Cloning the JDK](#cloning-the-jdk) for information on how to download it. These examples were written in the JDK 17 development time frame which is why the boot JDK used here is JDK 16. Note that the download links used here point to JDK 16 bundles. To build JDK N, use JDK N-1 as the boot JDK.
 
-This example was written in the JDK 17 development time frame which is why the boot JDK used here is JDK 16. To build JDK N, use JDK N-1 as the boot JDK. Note that the download link used here points to a Linux x64 JDK 16.
+The configure script will tell you what additional packages you need. In this first example several packages were needed since this build was performed on a clean Ubuntu installation. The configure script was run several times to get all the dependencies, but only the commands actually needed to get the JDK built are included in the log. This is just an example log, don't copy the `apt-get install` line. Instead run `sh ./configure` to see what packages you actually need on your system.
 
-This is just an example log, don't copy the `apt-get install` line. Instead run `sh ./configure` once you have the boot JDK installed to see what packages you actually need on your system.
-
-    $ git clone https://github.com/openjdk/jdk.git
     $ wget https://download.java.net/java/GA/jdk16/7863447f0ab643c585b9bdebf67c69db/36/GPL/openjdk-16_linux-x64_bin.tar.gz
     $ tar xzf openjdk-16_linux-x64_bin.tar.gz
     $ sudo apt-get install autoconf zip make gcc g++ libx11-dev libxext-dev libxrender-dev libxrandr-dev libxtst-dev libxt-dev libcups2-dev libfontconfig1-dev libasound2-dev
@@ -1075,7 +1001,18 @@ This is just an example log, don't copy the `apt-get install` line. Instead run 
     $ sh ./configure --with-boot-jdk=$HOME/jdk-16/
     $ make images
 
-In this case the built JDK can be found in `build/linux-x86_64-server-release/jdk`. The exact path depends on your build platform and selected configuration.
+The built JDK can be found in `build/linux-x86_64-server-release/jdk`. The exact path depends on your build platform and selected configuration.
+
+The second example is from a clean (newly installed) Mac running MacOS Big Sur. Please note that in this case there are some steps taken outside of the terminal. First XCode and the XCode command line tools must be installed. It could be that the most recent version of XCode that you get from App Store is too new to have been properly tested with the JDK build. See [the JDK build instructions](https://github.com/openjdk/jdk/blob/master/doc/building.md#apple-xcode) for supported versions and more details in case you need to install an older version of XCode.
+In this example [Mac Ports](https://www.macports.org) is used to install `autoconf`. `autoconf` can also be installed using [Homebrew](https://brew.sh) and surely through other sources as well.
+
+    $ curl https://download.java.net/java/GA/jdk16.0.1/7147401fd7354114ac51ef3e1328291f/9/GPL/openjdk-16.0.1_osx-x64_bin.tar.gz --output openjdk-16.0.1_osx-x64_bin.tar.gz
+    $ tar xzf openjdk-16.0.1_osx-x64_bin.tar.gz
+    $ sudo port install autoconf
+    $ sh ./configure --with-boot-jdk=$HOME/jdk-16.0.1.jdk/Contents/Home
+    $ make images
+
+In this case the built JDK can be found in `build/macosx-x86_64-server-release/jdk`.
 
 ## Configuration options
 
@@ -1352,7 +1289,7 @@ The `@ignore` keyword is used in the test source code. This is mainly used for t
 /**
  *  @test
  *  @ignore 4711
- *
+ */
 ~~~
 
 In this example, `MyTest.java` is excluded, tracked by bug `JDK-4711`. `@ignore` should always be placed directly before the first `@run` line in the test.
@@ -1505,25 +1442,115 @@ If the update release is in rampdown, changes are pushed to the release reposito
 
 The Skara tooling includes support for backports. [The official Skara documentation](https://wiki.openjdk.java.net/display/SKARA/Backports) describes in detail how to work with the tooling to create backport PRs on GitHub or using the CLI tools. As described in the documentation, the [`/backport`](https://wiki.openjdk.java.net/display/SKARA/Commit+Commands#CommitCommands-/backport) command can be used on a commit (not a PR!) to create the backport PR. If a backport PR is manually created, set the PR title to `Backport <original commit hash>`. This ensures that the bots will recognize it as a backport as opposed to a main fix specifically targeting an older release. One can tell whether or not the bots recognized a PR as a backport by the `backport` label being added if it's recognized.
 
-# Producing a Changeset
+# Working with the legacy Mercurial servers
 
-This section is confined to the actual Mercurial mechanics required to produce a changeset:
+::: {.box}
+[Quick Links]{.boxheader}
 
-* [Setting a JDK User Name](#setting-a-jdk-user-name) reminds the user to confirm proper configuration.
-* [Creating](#creating) includes instructions for the required format of a changeset comment and describes how to commit files to a changeset.
-* [Merging](#merging) describes how to pull changes from a parent forest or clone and incorporate the changes into the current working set of files.
-* [Pushing](#pushing) covers configuring ssh, setting the `default-push` path, and pushing changesets.
+* [Mercurial: The Definitive Guide](http://hgbook.red-bean.com/)
+* [OpenJDK Mercurial Server](https://hg.openjdk.java.net/)
+:::
 
-## Setting a JDK User Name
+After the initial release of the JDK source code into OpenJDK in 2007 the OpenJDK project moved from TeamWare to using Mercurial. Starting in 2019 the source revision control has been moved to Git and GitHub. Even though most large projects have moved to Git by now, some still use the Mercurial servers. To access these projects some additional setup is required.
 
-Ensure that _ui.username_ has a value in the `~/.hgrc` file as described in [Verifying the Configuration](#verifying-the-configuration).
+> ---
+>
+>  There used to be a sandbox repository that could be used for testing purposes. With the move to Git this has been replaced by GitHub Actions.
+>
+> ---
 
-## Creating
+This document assumes familiarity with the first two chapters of the free on-line book [Mercurial: The Definitive Guide](http://hgbook.red-bean.com).
+
+## Installing and Configuring Mercurial
+
+Source bundles and binary packages for Mercurial are available at [https://www.selenic.com/mercurial/wiki/index.cgi](https://www.selenic.com/mercurial/wiki/index.cgi/Mercurial). The OpenJDK repositories recommend installation of Mercurial 2.6.3 (or later). A Mercurial installation is sufficient to clone a repository. Contributors who wish to submit changes will need some additional configuration as described below.
+
+Once Mercurial is installed, create and edit the `~/.hgrc` file to minimally contain the following entry:
+
+    [ui]
+    username = <openjdk_username>
+
+_openjdk\_username_ is in general the same as your GitHub user name. (See [Contributing to an OpenJDK Project] for more information.) If you don't have a GitHub user name, you choose your OpenJDK user name when you sign the OCA. The user name should be a plain lowercase, alphanumeric token (not an e-mail address) with twelve characters or less. The first character should be alphabetic. This username will be publicly visible in all Mercurial changeset logs. It will be used to verify that the changeset author is at least an [Author](https://openjdk.java.net/bylaws#author) for the Project and that the person pushing the changeset is at least a [Committer](https://openjdk.java.net/bylaws#committer). It's recommended that the _openjdk\_username_ be somehow related to the Author's full name, such as the first character of the Author's first name followed by the Author's last name.
+
+Some Projects may recommend additional tools or scripts that help with repository manipulation and code development. For instance, in JDK 8u, the utility script `common/bin/hgforest.sh` may be used to apply commands to all the repositories in the [forest](#forest). Some useful Mercurial extensions for OpenJDK developers are [jcheck](https://openjdk.java.net/projects/code-tools/jcheck/), [trees](https://openjdk.java.net/projects/code-tools/trees/), and [Mercurial Queues](http://hgbook.red-bean.com/read/managing-change-with-mercurial-queues.html) (mq). Note that `trees` is enabled on the OpenJDK Mercurial server.
+
+### Verifying the Configuration
+
+After installing and configuring Mercurial, validate the configuration using the following steps.
+
+#. Verify that Mercurial is version 2.6.3 (or newer).
+
+       $ hg version
+       Mercurial Distributed SCM (version 2.9)
+       (see http://mercurial.selenic.com for more information)
+
+       Copyright (C) 2005-2014 Matt Mackall and others
+       This is free software; see the source for copying conditions. There is NO
+       warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+#. Verify that the list of enabled extensions includes fetch and mq.
+
+       $ hg help
+
+#. Verify that the `~/.hgrc` configuration looks correct. Minimally it should contain the following entries:
+
+       $ hg showconfig
+       ui.username=iris
+
+At this point, it should be possible to start retrieving source from the repositories.
+
+## Cloning a Mercurial Repository
+
+Some Projects organized their code into multiple Mercurial repositories. For instance, [JDK 8](https://openjdk.java.net/projects/jdk8) uses a forest of multiple related repositories which contain components of the entire JDK. If a Project uses a forest, It's strongly recommended for developers to clone an entire forest, rather than a single repository. This is the only means to ensure consistency in builds. The following examples illustrate two alternatives for cloning the entire `jdk8u/jdk8u-dev` forest into the directory `8u-dev`.
+
+#. To clone the forest using the [trees](https://openjdk.java.net/projects/code-tools/trees/) extension just use `tclone`:
+
+       $ hg tclone http://hg.openjdk.java.net/jdk8u/jdk8u-dev/ 8u-dev
+
+#. To clone the forest using `get_source.sh`, first clone the main tree:
+
+       $ hg clone http://hg.openjdk.java.net/jdk8u/jdk8u-dev/ 8u-dev
+       requesting all changes
+       adding changesets
+       adding manifests
+       adding file changes
+       added 997 changesets with 1477 changes to 138 files
+       updating to branch default
+       82 files updated, 0 files merged, 0 files removed, 0 files unresolved
+
+   Then clone the repositories in the forest:
+
+       $ cd 8u-dev
+       $ sh ./get_source.sh
+
+Regardless of how the forest was cloned, this is the resulting populated forest.
+
+    $ ls
+    ASSEMBLY_EXCEPTION  hotspot    LICENSE   README-builds.html
+    common              jaxp       make      test
+    configure           jaxws      Makefile  THIRD_PARTY_README
+    corba               jdk        nashorn
+    get_source.sh       langtools  README
+
+### Cloning a Single Repository {#cloneSingle}
+
+If the source for the Project is contained within a single repository or reading a limited portion of the source is the only goal, it's possible to clone a single repository (even if it's part of a forest). For instance, this example shows how to clone the `langtools` repository from `jdk8u/jdk8u-dev` into the default destination directory.
+
+    $ hg clone http://hg.openjdk.java.net/jdk8u/jdk8u-dev/langtools
+    destination directory: langtools
+    requesting all changes
+    adding changesets
+    adding manifests
+    adding file changes
+    added 2289 changesets with 21194 changes to 7004 files
+    updating to branch default
+    6212 files updated, 0 files merged, 0 files removed, 0 files unresolved
+
+## Creating a Mercurial Changeset
 
 The timing for creating a changeset is important. Creating the changeset long before it gets pushed into the parent repository may require complex merges. If a changeset is created before sufficient review or testing, a rollback may be required and a new changeset may be required to correct previous mistakes. The [mq extension](http://hgbook.red-bean.com/hgbookch12.html#x16-26500012) is recommended for managing changes before they become committed to a changeset.
 
-In the examples below, the script `common/bin/hgforest.sh` can be used to apply the Mercurial command to all the repositories in the forest. So when you see _**`hg`**_, if you are dealing with one repository, just use "`hg`", if it's a forest, use "`sh common/bin/hgforest.sh`".
-
+In the examples below, the script `common/bin/hgforest.sh` can be used to apply the Mercurial command to all the repositories in the forest. So when you see `hg`, if you are dealing with one repository, just use "`hg`", if it's a forest, use "`sh common/bin/hgforest.sh`".
 
 Each repository in the forest is managed independently. After editing files in the individual cloned repositories of the forest, the `hg status` command may be used to see the changes in a single repository.
 
@@ -1535,15 +1562,15 @@ Each repository in the forest is managed independently. After editing files in t
     $ hg status
     A duke/images/DukeTubbingSmall.png
 
-To see changes made to the repositories use _**`hg`**_ `status`:
+To see changes made to the repositories use `hg status`:
 
     $ hg status
     [.]
     A duke/images/DukeTubbingSmall.png
 
-In this example, the repository was previously cloned as described in [Cloning a Sandbox Repository](#clone). A new file `DukeTubbingSmall.png` was added to a new subdirectory.
+In this example, a new file `DukeTubbingSmall.png` was added to a new subdirectory.
 
-#### Formatting a Changeset Comment
+### Formatting a Changeset Comment
 
 A single change is described by a block of text of the following form:
 
@@ -1558,7 +1585,8 @@ The _summary_ line is optional, but authors are strongly encouraged to include o
 
 A _reviewed-by_ line is required. Reviewers must have the ability to deal with any adverse consequences of the change, and so must themselves be authors. They are therefore identified by their OpenJDK usernames rather than full e-mail addresses.
 
-The _contributed-by_ line is optional. If present, it's a list of comma-separated email addresses. It should be included only when the author or authors of the change don't have commit rights to the target repository and thus would not otherwise receive acknowledgment.
+The _contributed-by_ line is optional. If present, it's a list of comma-separated email addresses. It should be included only when the author of the
+change doesn't have commit rights to the target repository and thus would not otherwise receive acknowledgment, or when there are multiple authors.
 
 There will be exceptions for merge changesets, tag changesets, etc.
 
@@ -1571,9 +1599,9 @@ Example:
 
 If a changeset contains multiple unrelated changes (this is frowned upon, but may happen from time to time) then its comment will contain multiple blocks of the above form, separated by blank lines.
 
-The required format of the comments will be enforced whenever the changeset is pushed into the JDK master or team repository forests. Other Projects may copy these conventions, adopt some other conventions, or have no conventions, depending upon their goals.
+The required format of the comments will be enforced whenever the changeset is pushed into the JDK forests. Other Projects may copy these conventions, adopt some other conventions, or have no conventions, depending upon their goals.
 
-#### Committing a Changeset
+### Committing a Changeset
 
 The following commands commit all of the changes in a repository to a changeset.
 
@@ -1592,77 +1620,55 @@ The following commands commit all of the changes in a repository to a changeset.
     date:        Wed Dec 12 21:05:59 2007 -0800
     summary:     1111111: Missing Duke gif
 
-## Merging
+## Merging Mercurial Changesets
 
 It's often necessary to merge local changes with those made in the parent repositories. The first step in a merge process is to retrieve (or pull) the collection of changesets which have been pushed since the last merge or initial clone. If there if there are merge conflicts, then they must be resolved. [Chapter 3](http://hgbook.red-bean.com/hgbookch3.html#x7-530003) of the Mercurial book contains detailed information on the merging process.
 
 There are two basic ways to update the working set files in the repositories:
 
-Option 1: _**`hg`**_ `pull`
+Option 1: `hg pull`
 
-> One way to merge the parent repository with the working set of files is to use _**`hg`**_ `pull` all by itself. This option allows merging off-line or at a later time.
+> One way to merge the parent repository with the working set of files is to use `hg pull` all by itself. This option allows merging off-line or at a later time.
 >
 >     $ hg pull
 >     [.]
->     pulling from http://hg.openjdk.java.net/sandbox/box
+>     pulling from http://hg.openjdk.java.net/jdk8u/jdk8u-dev
 >     searching for changes
 >     no changes found
 >
-> In Mercurial, pulling changesets will not update or merge into the working set of files. To update the clone, run _**`hg`**_ `update`. If the update reports conflicts, run _**`hg`**_ `merge` to resolve them.
+> In Mercurial, pulling changesets will not update or merge into the working set of files. To update the clone, run `hg update`. If the update reports conflicts, run `hg merge` to resolve them.
 
-Option 2: _**`hg`**_ `fetch`
+Option 2: `hg fetch`
 
-> Alternatively, use _**`hg`**_ `fetch` to pull the changes, update the working set files, and create simple merge changesets as necessary. The fetch extension is distributed with Mercurial but needs to be enabled. Edit the `.hgrc` to include the following entries:
+> Alternatively, use `hg fetch` to pull the changes, update the working set files, and create simple merge changesets as necessary. The fetch extension is distributed with Mercurial but needs to be enabled. Edit the `.hgrc` to include the following entries:
 >
 >     [extensions]
 >     fetch=
 >
-> Once the fetch extension has been enabled, _**`hg`**_ `fetch` may be invoked as follows:
+> Once the fetch extension has been enabled, `hg fetch` may be invoked as follows:
 >
 >     $ hg fetch
 >     [.]
->     pulling from http://hg.openjdk.java.net/sandbox/box
+>     pulling from http://hg.openjdk.java.net/jdk8u/jdk8u-dev
 >     searching for changes
 >     no changes found
 
 > ---
+>
 > Actual file merging will be done with the selected Mercurial merging tool see [MergeProgram](https://www.selenic.com/mercurial/wiki/index.cgi/MergeProgram) for the details on how to define the selected merge tool in ` ~/.hgrc`.
-
+>
 > ---
 
-## Pushing
+## Pushing Mercurial Changesets
 
 In order to push changesets into the parent repository, some additional configuration is required. The following sections describe the operations that will be performed by users with push access.
 
-#### Generating an SSH Key
+### Get Your SSH key Installed
 
-All pushes require an ssh key which must be installed on the Mercurial server. The `ssh-keygen` command generates an ssh key. The `-b` option overrides the default number of bits for the key. Allow a few minutes to generate a 4096 bit key; a key of at least 2048 bits is recommended. While it's possible to use ssh without a passphrase, this is **strongly** discouraged. Empty or insecure passphrases may be reset using `ssh-keygen -p`; this doesn't change the keys.
-
-    $ ssh-keygen -t rsa -b 4096
-    Enter file in which to save the key(/u/iris/.ssh/id_rsa):
-    Generating public/private rsa key pair.
-    Enter passphrase(empty for no passphrase):
-    Enter same passphrase again:
-    Your identification has been saved in /u/iris/.ssh/id_rsa.
-    Your public key has been saved in /u/iris/.ssh/id_rsa.pub.
-    The key fingerprint is:
-    md5 4096 c2:b7:00:e6:4b:da:ea:ec:32:30:f5:bd:12:26:04:83 iris@duke
-    The key's randomart image is:
-    +--[ RSA 4096]----+
-    |    E.=          |
-    |     . *         |
-    |      o .   .    |
-    |         + o     |
-    |        S + .    |
-    |       .   + .   |
-    |        + + +..  |
-    |       * . oo+.  |
-    |      o . .o..   |
-    +-----------------+
-
-The `~/.ssh/id_rsa.pub` is a text file containing the public ssh key. This file should be mailed as an attachment along with the JDK username to [keys(at)openjdk.java.net](mailto:keys-at-openjdk.java.net). An administrator will install your key on the server and notify you on completion. This process may take a couple of days.
+First you should create a new SSH key. See [Generating an SSH key] for guidance on how to do that. Your public key (`~/.ssh/id_rsa.pub`) should be mailed as an attachment along with your JDK username to [keys(at)openjdk.java.net](mailto:keys-at-openjdk.java.net). An administrator will install your key on the server and notify you on completion. This process may take a couple of days.
 
 > ---
+>
 > Users behind a SOCKS firewall can add a directive to the `~/.ssh/config` file to connect to the OpenJDK Mercurial server:
 >
 >     Host *.openjdk.java.net
@@ -1671,47 +1677,10 @@ The `~/.ssh/id_rsa.pub` is a text file containing the public ssh key. This file 
 > See the `ssh-socks5-proxy-connect` man page and `ssh-config` man page for more information. Other systems may require proxy access via other programs. Some Linux distributions provide the `corkscrew` package which provides ssh access through HTTP proxies.
 >
 > **It's recommended that all users check with their network administrators before installing any kind of TCP forwarding tool on their network. Many corporations and institutions have strict security policies in this area.**
-
+>
 > ---
 
-#### SSH Shortcuts
-
-The following section provides some tips for improving the usability of ssh-related operations.
-
-* _Using SSH in multiple shells_
-
-  To avoid having to constantly type in the passphrase, use the ssh-agent on your local client to cache your pashphrase:
-
-      $ eval `ssh-agent`
-      Agent pid 17450
-      $ ssh-add
-      Enter passphrase for /u/iris/.ssh/id_rsa:
-      Identity added: /u/iris/.ssh/id_rsa(/u/iris/.ssh/id_rsa)
-
-  The same ssh-agent process can be shared with multiple shells. There are various ways to do this. Bash users can accomplish this with the following code in `.bashrc`:
-
-      if [ "$PS1" -a -d $HOME/.ssh ]; then
-        if [ "x$SSH_AUTH_SOCK" = x ]; then
-          eval `ssh-agent | grep -v 'echo Agent pid'`
-          ssh-add
-          trap "echo Killing SSH agent $SSH_AGENT_PID; kill $SSH_AGENT_PID" 0
-        fi
-      fi
-
-  For secure operation, only start an ssh-agent when needed and kill it off when the shell completes. Test this by running `ssh 'hostname' echo hello` multiple times.
-
-* _Logging in without a password_
-
-  To avoid needing to constantly type in the password, add the public key to the list of ssh authorized keys.
-
-      $ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
-      $ chmod 600 ~/.ssh/authorized_keys
-
-#### Setting the `default-push` Path to the Server Repositories
-
-<!--
-#. Option 1: Add default-push path to every <code>.hg/hgrc</code>
--->
+### Setting the `default-push` Path to the Server Repositories
 
 This is the typical development model:
 
@@ -1719,18 +1688,18 @@ This is the typical development model:
 ~~~{.mermaid caption="Diagram of server repos and user's clone" format=svg theme=neutral}
 graph TD
     subgraph hg.openjdk.java.net
-        origin(jdk9/dev)
+        origin(jdk8u/jdk8u-dev)
     end
-    origin --> |clone| local(9dev)
+    origin --> |clone| local(8u-dev)
     local --> |push| origin
 ~~~
 :::
 
-Changesets need to be _pushed_ via ssh to the read/write repository which resides on the OpenJDK Mercurial server. The easiest way to do this is to have each repository define the "default-push" path in every repository's `.hg/hgrc` file. The `.hg/hgrc` file in isn't a managed file - it's private to the repository. The following example defines the "default" and "default-push" paths for clones of the jdk9/dev team repository.
+Changesets need to be _pushed_ via ssh to the read/write repository which resides on the OpenJDK Mercurial server. The easiest way to do this is to have each repository define the "default-push" path in every repository's `.hg/hgrc` file. The `.hg/hgrc` file isn't a managed file - it's private to the repository. The following example defines the "default" and "default-push" paths for clones of the `jdk8u/jdk8u-dev` repository.
 
     [paths]
-    default = http://hg.openjdk.java.net/jdk9/dev
-    default-push = ssh://<JDK_username>@hg.openjdk.java.net/jdk9/dev
+    default = http://hg.openjdk.java.net/jdk8u/jdk8u-dev
+    default-push = ssh://<JDK_username>@hg.openjdk.java.net/jdk8u/jdk8u-dev
 
 Given a `JDK_username` this simple script will attempt to do this for all the repositories:
 
@@ -1757,29 +1726,9 @@ Given a `JDK_username` this simple script will attempt to do this for all the re
     done
     exit 0
 
-<!--
-#. Option 2: Use the <code>defpath</code> ExtensionAnother way to setup the default-push path is to use the Mercurial defpath extension, which is available in /java/jdk/lib/hgext/defpath.py. To enable this extension add the following to the <code>~/hgrc</code> file:
-<blockquote><pre>
-[extensions]
-defpath = /java/jdk/lib/hgext/defpath.py  # Or the pathname of a local copy
-</pre></blockquote>
-     The defpath extension actually adds two new Mercurial subcommands:
-    defpath to operate upon a single repository and fdefpath for an entire
-    forest. hg help defpath or hg help fdefpath will tell you more. For a
-    freshly cloned open/closed forest the command you probably want is
-<blockquote><pre>
-$ hg fdefpath -dgv
-</pre></blockquote>
-     Be sure to try this with the -n flag first to see if it will do what
-    you actually expect. If your OpenJDK username differs from your Oracle
-    username then add -u name to the command line.
-     The defpath extension defines the default-push path, which is the path
-    that Mercurial uses by default in push operations.
--->
+### Performing the Push
 
-#### Pushing a Changeset
-
-[Committers](https://openjdk.java.net/bylaws#committer) can use the _**hg**_ `push` command to propagate changesets into the repositories.
+[Committers](https://openjdk.java.net/bylaws#committer) can use the `hg push` command to propagate changesets into the repositories.
 
 Most developers will only find a need to create changesets in one or two repositories. However, it's important that before any changesets are pushed, the corresponding forest pull and merge with the destination forest be performed; otherwise there is a risk of breaking the build.
 
@@ -1788,14 +1737,15 @@ Most developers will only find a need to create changesets in one or two reposit
 After the push has been accepted, an automatic e-mail notification will be sent to the [mailing list](https://mail.openjdk.java.net) associated with the repository. In most cases notifications are sent to the Project's _-dev_ mailing list. Some Projects with high traffic _-dev_ mailing lists use a dedicated _-changes_ list for notifications.
 
 > ---
+>
 > Who has push access?
 >
 > All of a Project's [Committers](https://openjdk.java.net/bylaws#committer) can push to all of the the Project's repositories.
 >
 > Some Projects may chose to restrict the set of Committers with push to key repositories. For instance, JDK Release Projects restrict push access to MASTER repositories to Committers who are either integrators or members of the Release Engineering Team.
 >
-> Refer to the [Nominating a Contributor or Author to be a Committer](https://openjdk.java.net/projects/index.html#project-committer) section of the [Project](https://openjdk.java.net/projects/index.html) page for information about becoming a Project Committer.
-
+> See [Becoming a Committer] for information about becoming a Project Committer.
+>
 > ---
 
 # The JDK Release process
@@ -2068,11 +2018,11 @@ Comments and questions may be sent to [guide-dev (at) openjdk.java.net](mailto:g
 
 # Glossary
 
-[**accepted**]{#accepted} (by the CCC)
-:   The stage of the CCC process after "DRAFT", and "PROPOSED". At this stage the primary goals are to ensure that the proposed changes are suitable for the release in a general sense and that the requisite JCK and SQE resources will be available.
+[**provisional**]{#provisional} (in the CSR)
+:   The stage of the CSR process after "DRAFT", and "PROPOSED". At this stage the primary goals are to ensure that the proposed changes are suitable for the release in a general sense.
 
-[**approved**]{#approved} (by the CCC)
-:   The stage of the CCC process after "FINAL". The CCC has approved the final version of the request which permits push into the project forest.
+[**approved**]{#approved} (by the CSR)
+:   The stage of the CSR process after "FINALIZED". The CSR has approved the final version of the request which permits push into the project repository.
 
 [**changeset**]{#changeset}
 :   A collection of changes with respect to the current clone of a repository.
