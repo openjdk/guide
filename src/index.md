@@ -1312,7 +1312,7 @@ After a failure is handled by excluding a test, the main JBS issue should be re-
 
 ## Backing out a change
 
-If a change causes a regression that can't be fixed within reasonable time, the best way to handle the regression can be to back out the change. Backing out means that the inverse (anti-delta) of the change is pushed to effectively undo the change in the repository. There are two parts to this task, how to do the bookkeeping in JBS, and how to do the actual backout in git or mercurial.
+If a change causes a regression that can't be fixed within reasonable time, the best way to handle the regression can be to back out the change. Backing out means that the inverse (anti-delta) of the change is pushed to effectively undo the change in the repository. There are two parts to this task, how to do the bookkeeping in JBS, and how to do the actual backout in git or Mercurial.
 
 The backout is a regular change and will have to go through the standard code review process, but is considered a [trivial](#trivial) change. The rationale is that a backout is usually urgent in nature and the change itself is automatically generated. In areas where two reviewers are normally required, only one additional Reviewer is required for a backout since the person who is performing the backout also will review the change.
 
@@ -1385,7 +1385,7 @@ index 4961acb2126..399e7cc311f 100644
  [online documentation](https://openjdk.java.net/groups/build/doc/building.html),
 ~~~
 
-### How to work with mercurial when a change is backed out
+### How to work with Mercurial when a change is backed out
 
 In order to backout a change, the `hg backout` command is recommended, which essentially applies the anti-delta of the change. Make sure you perform the backout in the most upstream repository the change has escaped to.
 
@@ -1464,7 +1464,7 @@ After the initial release of the JDK source code into OpenJDK in 2007 the OpenJD
 
 This document assumes familiarity with the first two chapters of the free on-line book [Mercurial: The Definitive Guide](http://hgbook.red-bean.com).
 
-## Installing and configuring mercurial
+## Installing and configuring Mercurial
 
 Source bundles and binary packages for Mercurial are available at [https://www.selenic.com/mercurial/wiki/index.cgi](https://www.selenic.com/mercurial/wiki/index.cgi/Mercurial). The OpenJDK repositories recommend installation of Mercurial 2.6.3 (or later). A Mercurial installation is sufficient to clone a repository. Contributors who wish to submit changes will need some additional configuration as described below.
 
