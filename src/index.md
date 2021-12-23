@@ -206,7 +206,7 @@ If you need to change your registered email address, or if you have any other pr
 
 [JBS](https://bugs.openjdk.java.net/) is a public issue tracker used by many OpenJDK projects. It's open for anyone to read and search. In order to get write access you need to be registered in the [OpenJDK Census](https://openjdk.java.net/census), for instance by becoming an [Author](https://openjdk.java.net/bylaws#author) in an OpenJDK [Project](https://openjdk.java.net/bylaws#project).
 
-## Filing a Bug
+## Filing a bug
 
 When a new failure is found in the JDK a bug should be filed to describe and track the issue. Depending on your role in OpenJDK you can either use the [Bug Report Tool](https://bugreport.java.com/) or, if you are registered in the [OpenJDK Census](https://openjdk.java.net/census), report the bug directly in [JBS](https://bugs.openjdk.java.net/). Try to make the bug report as complete as possible to make it easier to triage and investigate the bug.
 
@@ -239,15 +239,16 @@ A few things to keep in mind when filing a new bug:
 
 To find out which component to use for different bugs, consult the [directory to area mapping](#directory-to-area-mapping).
 
-## How to fix an incorrect backport creation
+## How to fix an incorrect backport creation in JBS
 
-If a main bug is targeted to a release and the fix is pushed to a different release, then a backport bug is automatically created. Usually this is a "good thing", e.g., when you are backporting a fix to an earlier release, but not always... If the main bug is targeted to a later release (due to schedule planning), but someone finds the time to fix that bug in the current release, then the bug should be retargeted to the current release before pushing the fix. However, sometimes we forget to do that.
+If a main bug is targeted to a release and a fix referring to that main bug is pushed to a different release, then a backport bug is automatically created in JBS. Usually this is a "good thing", e.g., when you are backporting a fix to an earlier release, but not always... If the main bug is targeted to a later release (due to schedule planning), but someone finds the time to fix that bug in the current release, then the bug should be retargeted to the current release before pushing the fix. However, sometimes we forget to do that.
 
 Here's how to fix that:
 
 > ---
-> In this example a fix was pushed to JDK N (a.k.a. the current release) while the JBS bug was targeted to JDK N+1 (a.k.a. a future release).
-
+>
+> In this example a fix was pushed to JDK N (a.k.a. the current release) while the JBS bug was targeted to JDK N+1 (a.k.a. a future release). The same procedure can be used in the opposite situation, when a fix has been pushed to JDK N+1 when the JBS bug was targeted to JDK N, by switching N and N+1 below. Remember, to keep the record clean for the future what maters the most is that the bug id used in the commit comment is the main bug, and that the "backports" (regardless of if they are to earlier or later releases) are Backport type issues of that main issue.
+>
 > ---
 
 #. Reopen the _backport_ bug that was created automatically
@@ -283,9 +284,10 @@ This table contains some frequently used JBS labels and their meaning. Please he
 Labels are an open namespace, which means that anyone can create new labels at any time. In order to avoid confusion, however, it's best to reuse existing labels where possible. This can be done by editing the "labels" field of a bug and entering the first few characters of the label you want to add. JIRA will pop up an autocomplete window with existing labels that match that prefix. Then choose one of the existing labels. Using the autocomplete window is preferable to typing the whole label name (even if you're a good typist) because it's easy for minor spelling errors to creep in, which can inadvertently introduce multiple labels with spurious spelling variations.
 
 > ---
+>
 > ### Labels are case sensitive
 > When using labels in Jira gadgets (like pie charts, heat maps, and statistics tables) Jira will be case sensitive and treat e.g. OpenJDK and openjdk as two different labels. Searching however is case insensitive. This means that if you group a set of issues in a gadget based on a label, and then click one of the groups to see the list of issues, that list will contain more results than the gadget if there are usages of the label with different casing. This can be very confusing and for this reason the recommendation is to stick with the commonly used case for all labels, regardless of your personal taste for upper or lower case letters. Most labels are lower case only, but there are examples where upper case letters are used in the most common version of a label. Use of the autocomplete popup window (described above) when adding labels will avoid inadvertent introduction of labels with differing case.
-
+>
 > ---
 
 <table class="dictionary" summary="JBS Label Dictionary">
@@ -768,8 +770,9 @@ Examples:  If a bug fix only corrects a change in the build system, then add the
 This is the list of steps which should be performed when fixing a small bug. Small bugs include typos in code or specification, algorithm improvements for correctness or performance, and code changes required to correctly implement the specification.
 
 > ---
+>
 > Some steps refer to operations which can't be performed directly without the assistance of a [Project Committer](https://openjdk.java.net/bylaws#committer). For example, any changes to the [bug database](https://bugs.openjdk.java.net) fall into this category. Since these steps are required, [Contributors](https://openjdk.java.net/bylaws#contributor) are urged to work with their [Sponsors](https://openjdk.java.net/sponsor/) to complete these tasks.
-
+>
 > ---
 
 For the purposes of brevity this document will use the term "bug" to refer to both bugs and enhancements unless otherwise noted. Hence "fix for a bug" could also imply "implementation for an enhancement".
@@ -1062,15 +1065,15 @@ There are many other targets available as well. Use `make help` to find out more
 [Quick Links]{.boxheader}
 
 * [Using the run-test Framework](https://openjdk.java.net/groups/build/doc/testing.html)
-* [JTReg Harness Documentation](https://openjdk.java.net/jtreg/)
+* [jtreg Harness Documentation](https://openjdk.java.net/jtreg/)
 * [Google Test Documentation](https://github.com/google/googletest/blob/master/googletest/docs/primer.md)
 :::
 
-In addition to your own Java applications, OpenJDK have support for two test frameworks, JTReg and GTest. JTReg is a Java regression test framework that is used for most of the tests that are included in the OpenJDK source repository. The Google Test (GTest) framework is intended for unit testing of the C++ native code. Currently only JVM testing is supported by the GTest framework. Other areas use JTReg for unit testing of C++ code.
+In addition to your own Java applications, OpenJDK have support for two test frameworks, jtreg and GTest. jtreg is a Java regression test framework that is used for most of the tests that are included in the OpenJDK source repository. The Google Test (GTest) framework is intended for unit testing of the C++ native code. Currently only JVM testing is supported by the GTest framework. Other areas use jtreg for unit testing of C++ code.
 
 This section provides a brief summary of how to get started with testing in OpenJDK. For more information on configuration and how to use the OpenJDK test framework, a.k.a. "run-test framework", see [`doc/testing.md`](https://github.com/openjdk/jdk/blob/master/doc/testing.md).
 
-In general all changes should come with a regression test so if you're writing product code you should also be writing test code. There are a few examples where it doesn't make sence to write an explicit regression test. These should be tagged in JBS with one of the [noreg-labels](#noreg).
+In general all changes should come with a regression test so if you're writing product code you should also be writing test code. There are a few examples where it doesn't make sense to write an explicit regression test. These should be tagged in JBS with one of the [noreg-labels](#noreg).
 
 A few key items to think about when writing a regression test:
 
@@ -1080,13 +1083,13 @@ A few key items to think about when writing a regression test:
 * Binary files shouldn't be checked in, if your test needs to use one, the test should create it in some fashion
 * Avoid shell scripts and relying on external commands as much as possible
 
-The JTReg documentation has a section on [how to write good JTReg tests](https://openjdk.java.net/jtreg/writetests.html).
+The jtreg documentation has a section on [how to write good jtreg tests](https://openjdk.java.net/jtreg/writetests.html).
 
-## JTReg
+## jtreg
 
-In-depth documentation about the JTReg framework is found here: [JTReg harness](https://openjdk.java.net/jtreg/). JTReg itself is available in the [Code Tools Project](https://openjdk.java.net/projects/code-tools/).
+In-depth documentation about the jtreg framework is found here: [jtreg harness](https://openjdk.java.net/jtreg/). jtreg itself is available in the [Code Tools Project](https://openjdk.java.net/projects/code-tools/).
 
-Below is a small example of a JTReg test. It’s a clean Java class with a main method that is called from the test harness. If the test fails we throw a RuntimeException. This is picked up by the harness and is reported as a test failure. Try to always write a meaningful message in the exception. One that actually helps with understanding what went wrong once the test fails.
+Below is a small example of a jtreg test. It’s a clean Java class with a main method that is called from the test harness. If the test fails we throw a RuntimeException. This is picked up by the harness and is reported as a test failure. Try to always write a meaningful message in the exception. One that actually helps with understanding what went wrong once the test fails.
 
     /*
      * @test
@@ -1102,13 +1105,13 @@ Below is a small example of a JTReg test. It’s a clean Java class with a main 
         }
     }
 
-This example only utilizes three JTReg specific tags, `@test`, `@summary`, and `@run`. `@test` simply tells JTReg that this class is a test, and `@summary` provides a description of the test. `@run` tells JTReg how to execute the test. In this case we simply tell JTReg to execute the main method of the class `TestXY`. `@run` isn't strictly necessary for JTReg to execute the test, an implicit `@run` tag will be added if none exists. However, for clarity and in order to avoid bugs it's recommended to always explicitly use the `@run` tag.
+This example only utilizes three jtreg specific tags, `@test`, `@summary`, and `@run`. `@test` simply tells jtreg that this class is a test, and `@summary` provides a description of the test. `@run` tells jtreg how to execute the test. In this case we simply tell jtreg to execute the main method of the class `TestXY`. `@run` isn't strictly necessary for jtreg to execute the test, an implicit `@run` tag will be added if none exists. However, for clarity and in order to avoid bugs it's recommended to always explicitly use the `@run` tag.
 
-There are several other tags that can be used in JTReg tests. You can for instance associate the test with a specific bug that this test is a regression test for.
+There are several other tags that can be used in jtreg tests. You can for instance associate the test with a specific bug that this test is a regression test for.
 
     @bug 7000001
 
-Or you can specify a number of requirements that must be fulfilled for JTReg to execute the test.
+Or you can specify a number of requirements that must be fulfilled for jtreg to execute the test.
 
     @requires docker.support
     @requires os.family != ”windows”
@@ -1122,7 +1125,7 @@ You can also specify if the test requires specific modules, and you can specify 
 
 Note that you can have several `@run` tags in the same test with different command line options.
 
-JTReg also have support for labeling tests with keys using the `@key` tag. These keywords can then be used to filter the test selection. For instance if you have a UI test which needs to display a window you'll want to make sure the test harness doesn't try to run this test on a system which doesn't support headful tests. You do this by specifying
+jtreg also have support for labeling tests with keys using the `@key` tag. These keywords can then be used to filter the test selection. For instance if you have a UI test which needs to display a window you'll want to make sure the test harness doesn't try to run this test on a system which doesn't support headful tests. You do this by specifying
 
     @key headful
 
@@ -1130,22 +1133,22 @@ Another example is `@key randomness` that should be used to indicate that a test
 
 There are many other keywords in use and their usage may differ between areas in the JDK. Make sure you understand the conventions for the particular area you are testing since these are just examples.
 
-The [JTReg documentation](https://openjdk.java.net/jtreg/) provides information on many more tags like these.
+The [jtreg documentation](https://openjdk.java.net/jtreg/) provides information on many more tags like these.
 
 The [compiler group](https://openjdk.java.net/groups/compiler/) has a section in their wiki with [Guidelines for "langtools" tests](https://openjdk.java.net/groups/compiler/tests.html).
 
-### Running OpenJDK JTReg Tests
+### Running OpenJDK jtreg tests
 
-When configuring the OpenJDK build you can tell it where your JTReg installation is located. When providing this information you can later run `make run-test` to execute JTReg tests.
+When configuring the OpenJDK build you can tell it where your jtreg installation is located. When providing this information you can later run `make run-test` to execute jtreg tests.
 
     sh ./configure --with-jtreg=/path/to/jtreg
     make run-test TEST=tier1
 
-In the OpenJDK source tree you can find a directory called `test`. There are a large number of tests in this directory that are written to be used with JTReg.
+In the OpenJDK source tree you can find a directory called `test`. There are a large number of tests in this directory that are written to be used with jtreg.
 
     make run-test TEST=test/jdk/java/lang/String/
 
-You can also run JTReg without invoking make. In this case you’ll need to tell JTReg which JDK to test.
+You can also run jtreg without invoking make. In this case you’ll need to tell jtreg which JDK to test.
 
     jtreg -jdk:/path/to/jdk /path/to/test
 
@@ -1199,7 +1202,7 @@ You can also use a regular expression to filter which tests to run:
 
 The second example above runs tests which match the regexp `$X.*` on a specific variant of the JVM. The variant is one of client, server, etc.
 
-## Excluding a Test
+## Excluding a test
 
 Sometimes tests break. It could be e.g. due to bugs in the test itself, due to changed functionality in the code that the test is testing, or changes in the environment where the test is executed. While working on a fix, it can be useful to stop the test from being executed in everyone else's testing to reduce noise, especially if the test is expected to fail for more than a day. There are two ways to stop a test from being run in standard test runs: ProblemListing and using the `@ignore` keyword. Removing tests isn't the standard way to remove a failure. A failing test is often a regression and should ideally be handled with high urgency.
 
@@ -1207,7 +1210,7 @@ I'll say it right away so that it's not forgotten at the end: Remember to remove
 
 ### ProblemListing jtreg tests
 
-ProblemListing should be used for a short term exclusion while a test is being fixed, and for the exclusion of intermittently failing tests that cause too much noise, but can still be useful to run on an ad-hoc basis. ProblemListing is done in the file `ProblemList.txt`. There are actually several ProblemList files to choose from. Their location and name hint about what area or feature each file belongs to. Each file has sections for different components. All ProblemList files complement each other to build the total set of tests to exclude in JTReg runs.
+ProblemListing should be used for a short term exclusion while a test is being fixed, and for the exclusion of intermittently failing tests that cause too much noise, but can still be useful to run on an ad-hoc basis. ProblemListing is done in the file `ProblemList.txt`. There are actually several ProblemList files to choose from. Their location and name hint about what area or feature each file belongs to. Each file has sections for different components. All ProblemList files complement each other to build the total set of tests to exclude in jtreg runs.
 
 ~~~
 test/hotspot/jtreg/ProblemList.txt
@@ -1307,7 +1310,7 @@ The fix for the main issue should remove the test from the ProblemList or remove
 
 After a failure is handled by excluding a test, the main JBS issue should be re-triaged and possibly given a new priority. This should be handled by the standard triage process. A test exclusion results in an outage in our testing. This outage should be taken into consideration when triaging, in addition to the impact of the bug itself.
 
-## Backing Out a Change
+## Backing out a change
 
 If a change causes a regression that can't be fixed within reasonable time, the best way to handle the regression can be to back out the change. Backing out means that the inverse (anti-delta) of the change is pushed to effectively undo the change in the repository. There are two parts to this task, how to do the bookkeeping in JBS, and how to do the actual backout in git or mercurial.
 
@@ -1442,7 +1445,7 @@ If the update release is in rampdown, changes are pushed to the release reposito
 
 The Skara tooling includes support for backports. [The official Skara documentation](https://wiki.openjdk.java.net/display/SKARA/Backports) describes in detail how to work with the tooling to create backport PRs on GitHub or using the CLI tools. As described in the documentation, the [`/backport`](https://wiki.openjdk.java.net/display/SKARA/Commit+Commands#CommitCommands-/backport) command can be used on a commit (not a PR!) to create the backport PR. If a backport PR is manually created, set the PR title to `Backport <original commit hash>`. This ensures that the bots will recognize it as a backport as opposed to a main fix specifically targeting an older release. One can tell whether or not the bots recognized a PR as a backport by the `backport` label being added if it's recognized.
 
-# Working with the legacy Mercurial servers
+# Working With the Legacy Mercurial Servers
 
 ::: {.box}
 [Quick Links]{.boxheader}
@@ -1461,7 +1464,7 @@ After the initial release of the JDK source code into OpenJDK in 2007 the OpenJD
 
 This document assumes familiarity with the first two chapters of the free on-line book [Mercurial: The Definitive Guide](http://hgbook.red-bean.com).
 
-## Installing and Configuring Mercurial
+## Installing and configuring mercurial
 
 Source bundles and binary packages for Mercurial are available at [https://www.selenic.com/mercurial/wiki/index.cgi](https://www.selenic.com/mercurial/wiki/index.cgi/Mercurial). The OpenJDK repositories recommend installation of Mercurial 2.6.3 (or later). A Mercurial installation is sufficient to clone a repository. Contributors who wish to submit changes will need some additional configuration as described below.
 
@@ -1474,7 +1477,7 @@ _openjdk\_username_ is in general the same as your GitHub user name. (See [Contr
 
 Some Projects may recommend additional tools or scripts that help with repository manipulation and code development. For instance, in JDK 8u, the utility script `common/bin/hgforest.sh` may be used to apply commands to all the repositories in the [forest](#forest). Some useful Mercurial extensions for OpenJDK developers are [jcheck](https://openjdk.java.net/projects/code-tools/jcheck/), [trees](https://openjdk.java.net/projects/code-tools/trees/), and [Mercurial Queues](http://hgbook.red-bean.com/read/managing-change-with-mercurial-queues.html) (mq). Note that `trees` is enabled on the OpenJDK Mercurial server.
 
-### Verifying the Configuration
+### Verifying the configuration
 
 After installing and configuring Mercurial, validate the configuration using the following steps.
 
@@ -1499,7 +1502,7 @@ After installing and configuring Mercurial, validate the configuration using the
 
 At this point, it should be possible to start retrieving source from the repositories.
 
-## Cloning a Mercurial Repository
+## Cloning a Mercurial repository
 
 Some Projects organized their code into multiple Mercurial repositories. For instance, [JDK 8](https://openjdk.java.net/projects/jdk8) uses a forest of multiple related repositories which contain components of the entire JDK. If a Project uses a forest, It's strongly recommended for developers to clone an entire forest, rather than a single repository. This is the only means to ensure consistency in builds. The following examples illustrate two alternatives for cloning the entire `jdk8u/jdk8u-dev` forest into the directory `8u-dev`.
 
@@ -1532,7 +1535,7 @@ Regardless of how the forest was cloned, this is the resulting populated forest.
     corba               jdk        nashorn
     get_source.sh       langtools  README
 
-### Cloning a Single Repository {#cloneSingle}
+### Cloning a single repository {#cloneSingle}
 
 If the source for the Project is contained within a single repository or reading a limited portion of the source is the only goal, it's possible to clone a single repository (even if it's part of a forest). For instance, this example shows how to clone the `langtools` repository from `jdk8u/jdk8u-dev` into the default destination directory.
 
@@ -1546,7 +1549,7 @@ If the source for the Project is contained within a single repository or reading
     updating to branch default
     6212 files updated, 0 files merged, 0 files removed, 0 files unresolved
 
-## Creating a Mercurial Changeset
+## Creating a Mercurial changeset
 
 The timing for creating a changeset is important. Creating the changeset long before it gets pushed into the parent repository may require complex merges. If a changeset is created before sufficient review or testing, a rollback may be required and a new changeset may be required to correct previous mistakes. The [mq extension](http://hgbook.red-bean.com/hgbookch12.html#x16-26500012) is recommended for managing changes before they become committed to a changeset.
 
@@ -1570,7 +1573,7 @@ To see changes made to the repositories use `hg status`:
 
 In this example, a new file `DukeTubbingSmall.png` was added to a new subdirectory.
 
-### Formatting a Changeset Comment
+### Formatting a changeset comment
 
 A single change is described by a block of text of the following form:
 
@@ -1601,7 +1604,7 @@ If a changeset contains multiple unrelated changes (this is frowned upon, but ma
 
 The required format of the comments will be enforced whenever the changeset is pushed into the JDK forests. Other Projects may copy these conventions, adopt some other conventions, or have no conventions, depending upon their goals.
 
-### Committing a Changeset
+### Committing a changeset
 
 The following commands commit all of the changes in a repository to a changeset.
 
@@ -1620,7 +1623,7 @@ The following commands commit all of the changes in a repository to a changeset.
     date:        Wed Dec 12 21:05:59 2007 -0800
     summary:     1111111: Missing Duke gif
 
-## Merging Mercurial Changesets
+## Merging Mercurial changesets
 
 It's often necessary to merge local changes with those made in the parent repositories. The first step in a merge process is to retrieve (or pull) the collection of changesets which have been pushed since the last merge or initial clone. If there if there are merge conflicts, then they must be resolved. [Chapter 3](http://hgbook.red-bean.com/hgbookch3.html#x7-530003) of the Mercurial book contains detailed information on the merging process.
 
@@ -1659,11 +1662,11 @@ Option 2: `hg fetch`
 >
 > ---
 
-## Pushing Mercurial Changesets
+## Pushing Mercurial changesets
 
 In order to push changesets into the parent repository, some additional configuration is required. The following sections describe the operations that will be performed by users with push access.
 
-### Get Your SSH key Installed
+### Get your SSH key installed
 
 First you should create a new SSH key. See [Generating an SSH key] for guidance on how to do that. Your public key (`~/.ssh/id_rsa.pub`) should be mailed as an attachment along with your JDK username to [keys(at)openjdk.java.net](mailto:keys-at-openjdk.java.net). An administrator will install your key on the server and notify you on completion. This process may take a couple of days.
 
@@ -1680,7 +1683,7 @@ First you should create a new SSH key. See [Generating an SSH key] for guidance 
 >
 > ---
 
-### Setting the `default-push` Path to the Server Repositories
+### Setting the `default-push` path to the server repositories
 
 This is the typical development model:
 
@@ -1726,7 +1729,7 @@ Given a `JDK_username` this simple script will attempt to do this for all the re
     done
     exit 0
 
-### Performing the Push
+### Performing the push
 
 [Committers](https://openjdk.java.net/bylaws#committer) can use the `hg push` command to propagate changesets into the repositories.
 
@@ -1748,7 +1751,7 @@ After the push has been accepted, an automatic e-mail notification will be sent 
 >
 > ---
 
-# The JDK Release process
+# The JDK Release Process
 
 ::: {.box}
 [Quick Links]{.boxheader}
@@ -2010,7 +2013,7 @@ This list is intended to make it easier to identify which email list to include 
 * `sample` –
 * `utils` –
 
-# About this Guide
+# About This Guide
 
 This guide is being maintained through the [OpenJDK Developers' Guide Project](https://openjdk.java.net/census#guide). The [source repository](https://github.com/openjdk/guide) is available at GitHub. The revision hash at the bottom of each page refers to the latest change that modified that particular page.
 
