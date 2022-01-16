@@ -206,7 +206,7 @@ If you need to change your registered email address, or if you have any other pr
 
 [JBS](https://bugs.openjdk.java.net/) is a public issue tracker used by many OpenJDK projects. It's open for anyone to read and search. In order to get write access you need to be registered in the [OpenJDK Census](https://openjdk.java.net/census), for instance by becoming an [Author](https://openjdk.java.net/bylaws#author) in an OpenJDK [Project](https://openjdk.java.net/bylaws#project).
 
-## Filing a Bug
+## Filing a bug
 
 When a new failure is found in the JDK a bug should be filed to describe and track the issue. Depending on your role in OpenJDK you can either use the [Bug Report Tool](https://bugreport.java.com/) or, if you are registered in the [OpenJDK Census](https://openjdk.java.net/census), report the bug directly in [JBS](https://bugs.openjdk.java.net/). Try to make the bug report as complete as possible to make it easier to triage and investigate the bug.
 
@@ -239,15 +239,16 @@ A few things to keep in mind when filing a new bug:
 
 To find out which component to use for different bugs, consult the [directory to area mapping](#directory-to-area-mapping).
 
-## How to fix an incorrect backport creation
+## How to fix an incorrect backport creation in JBS
 
-If a main bug is targeted to a release and the fix is pushed to a different release, then a backport bug is automatically created. Usually this is a "good thing", e.g., when you are backporting a fix to an earlier release, but not always... If the main bug is targeted to a later release (due to schedule planning), but someone finds the time to fix that bug in the current release, then the bug should be retargeted to the current release before pushing the fix. However, sometimes we forget to do that.
+If a main bug is targeted to a release and a fix referring to that main bug is pushed to a different release, then a backport bug is automatically created in JBS. Usually this is a "good thing", e.g., when you are backporting a fix to an earlier release, but not always... If the main bug is targeted to a later release (due to schedule planning), but someone finds the time to fix that bug in the current release, then the bug should be retargeted to the current release before pushing the fix. However, sometimes we forget to do that.
 
 Here's how to fix that:
 
 > ---
-> In this example a fix was pushed to JDK N (a.k.a. the current release) while the JBS bug was targeted to JDK N+1 (a.k.a. a future release).
-
+>
+> In this example a fix was pushed to JDK N (a.k.a. the current release) while the JBS bug was targeted to JDK N+1 (a.k.a. a future release). The same procedure can be used in the opposite situation, when a fix has been pushed to JDK N+1 when the JBS bug was targeted to JDK N, by switching N and N+1 below. Remember, to keep the record clean for the future what maters the most is that the bug id used in the commit comment is the main bug, and that the "backports" (regardless of if they are to earlier or later releases) are Backport type issues of that main issue.
+>
 > ---
 
 #. Reopen the _backport_ bug that was created automatically
@@ -283,9 +284,10 @@ This table contains some frequently used JBS labels and their meaning. Please he
 Labels are an open namespace, which means that anyone can create new labels at any time. In order to avoid confusion, however, it's best to reuse existing labels where possible. This can be done by editing the "labels" field of a bug and entering the first few characters of the label you want to add. JIRA will pop up an autocomplete window with existing labels that match that prefix. Then choose one of the existing labels. Using the autocomplete window is preferable to typing the whole label name (even if you're a good typist) because it's easy for minor spelling errors to creep in, which can inadvertently introduce multiple labels with spurious spelling variations.
 
 > ---
+>
 > ### Labels are case sensitive
 > When using labels in Jira gadgets (like pie charts, heat maps, and statistics tables) Jira will be case sensitive and treat e.g. OpenJDK and openjdk as two different labels. Searching however is case insensitive. This means that if you group a set of issues in a gadget based on a label, and then click one of the groups to see the list of issues, that list will contain more results than the gadget if there are usages of the label with different casing. This can be very confusing and for this reason the recommendation is to stick with the commonly used case for all labels, regardless of your personal taste for upper or lower case letters. Most labels are lower case only, but there are examples where upper case letters are used in the most common version of a label. Use of the autocomplete popup window (described above) when adding labels will avoid inadvertent introduction of labels with differing case.
-
+>
 > ---
 
 <table class="dictionary" summary="JBS Label Dictionary">
@@ -768,8 +770,9 @@ Examples:  If a bug fix only corrects a change in the build system, then add the
 This is the list of steps which should be performed when fixing a small bug. Small bugs include typos in code or specification, algorithm improvements for correctness or performance, and code changes required to correctly implement the specification.
 
 > ---
+>
 > Some steps refer to operations which can't be performed directly without the assistance of a [Project Committer](https://openjdk.java.net/bylaws#committer). For example, any changes to the [bug database](https://bugs.openjdk.java.net) fall into this category. Since these steps are required, [Contributors](https://openjdk.java.net/bylaws#contributor) are urged to work with their [Sponsors](https://openjdk.java.net/sponsor/) to complete these tasks.
-
+>
 > ---
 
 For the purposes of brevity this document will use the term "bug" to refer to both bugs and enhancements unless otherwise noted. Hence "fix for a bug" could also imply "implementation for an enhancement".
@@ -1062,15 +1065,15 @@ There are many other targets available as well. Use `make help` to find out more
 [Quick Links]{.boxheader}
 
 * [Using the run-test Framework](https://openjdk.java.net/groups/build/doc/testing.html)
-* [JTReg Harness Documentation](https://openjdk.java.net/jtreg/)
+* [jtreg Harness Documentation](https://openjdk.java.net/jtreg/)
 * [Google Test Documentation](https://github.com/google/googletest/blob/master/googletest/docs/primer.md)
 :::
 
-In addition to your own Java applications, OpenJDK have support for two test frameworks, JTReg and GTest. JTReg is a Java regression test framework that is used for most of the tests that are included in the OpenJDK source repository. The Google Test (GTest) framework is intended for unit testing of the C++ native code. Currently only JVM testing is supported by the GTest framework. Other areas use JTReg for unit testing of C++ code.
+In addition to your own Java applications, OpenJDK have support for two test frameworks, jtreg and GTest. jtreg is a Java regression test framework that is used for most of the tests that are included in the OpenJDK source repository. The Google Test (GTest) framework is intended for unit testing of the C++ native code. Currently only JVM testing is supported by the GTest framework. Other areas use jtreg for unit testing of C++ code.
 
 This section provides a brief summary of how to get started with testing in OpenJDK. For more information on configuration and how to use the OpenJDK test framework, a.k.a. "run-test framework", see [`doc/testing.md`](https://github.com/openjdk/jdk/blob/master/doc/testing.md).
 
-In general all changes should come with a regression test so if you're writing product code you should also be writing test code. There are a few examples where it doesn't make sence to write an explicit regression test. These should be tagged in JBS with one of the [noreg-labels](#noreg).
+In general all changes should come with a regression test so if you're writing product code you should also be writing test code. There are a few examples where it doesn't make sense to write an explicit regression test. These should be tagged in JBS with one of the [noreg-labels](#noreg).
 
 A few key items to think about when writing a regression test:
 
@@ -1080,13 +1083,13 @@ A few key items to think about when writing a regression test:
 * Binary files shouldn't be checked in, if your test needs to use one, the test should create it in some fashion
 * Avoid shell scripts and relying on external commands as much as possible
 
-The JTReg documentation has a section on [how to write good JTReg tests](https://openjdk.java.net/jtreg/writetests.html).
+The jtreg documentation has a section on [how to write good jtreg tests](https://openjdk.java.net/jtreg/writetests.html).
 
-## JTReg
+## jtreg
 
-In-depth documentation about the JTReg framework is found here: [JTReg harness](https://openjdk.java.net/jtreg/). JTReg itself is available in the [Code Tools Project](https://openjdk.java.net/projects/code-tools/).
+In-depth documentation about the jtreg framework is found here: [jtreg harness](https://openjdk.java.net/jtreg/). jtreg itself is available in the [Code Tools Project](https://openjdk.java.net/projects/code-tools/).
 
-Below is a small example of a JTReg test. It’s a clean Java class with a main method that is called from the test harness. If the test fails we throw a RuntimeException. This is picked up by the harness and is reported as a test failure. Try to always write a meaningful message in the exception. One that actually helps with understanding what went wrong once the test fails.
+Below is a small example of a jtreg test. It’s a clean Java class with a main method that is called from the test harness. If the test fails we throw a RuntimeException. This is picked up by the harness and is reported as a test failure. Try to always write a meaningful message in the exception. One that actually helps with understanding what went wrong once the test fails.
 
     /*
      * @test
@@ -1102,13 +1105,13 @@ Below is a small example of a JTReg test. It’s a clean Java class with a main 
         }
     }
 
-This example only utilizes three JTReg specific tags, `@test`, `@summary`, and `@run`. `@test` simply tells JTReg that this class is a test, and `@summary` provides a description of the test. `@run` tells JTReg how to execute the test. In this case we simply tell JTReg to execute the main method of the class `TestXY`. `@run` isn't strictly necessary for JTReg to execute the test, an implicit `@run` tag will be added if none exists. However, for clarity and in order to avoid bugs it's recommended to always explicitly use the `@run` tag.
+This example only utilizes three jtreg specific tags, `@test`, `@summary`, and `@run`. `@test` simply tells jtreg that this class is a test, and `@summary` provides a description of the test. `@run` tells jtreg how to execute the test. In this case we simply tell jtreg to execute the main method of the class `TestXY`. `@run` isn't strictly necessary for jtreg to execute the test, an implicit `@run` tag will be added if none exists. However, for clarity and in order to avoid bugs it's recommended to always explicitly use the `@run` tag.
 
-There are several other tags that can be used in JTReg tests. You can for instance associate the test with a specific bug that this test is a regression test for.
+There are several other tags that can be used in jtreg tests. You can for instance associate the test with a specific bug that this test is a regression test for.
 
     @bug 7000001
 
-Or you can specify a number of requirements that must be fulfilled for JTReg to execute the test.
+Or you can specify a number of requirements that must be fulfilled for jtreg to execute the test.
 
     @requires docker.support
     @requires os.family != ”windows”
@@ -1122,7 +1125,7 @@ You can also specify if the test requires specific modules, and you can specify 
 
 Note that you can have several `@run` tags in the same test with different command line options.
 
-JTReg also have support for labeling tests with keys using the `@key` tag. These keywords can then be used to filter the test selection. For instance if you have a UI test which needs to display a window you'll want to make sure the test harness doesn't try to run this test on a system which doesn't support headful tests. You do this by specifying
+jtreg also have support for labeling tests with keys using the `@key` tag. These keywords can then be used to filter the test selection. For instance if you have a UI test which needs to display a window you'll want to make sure the test harness doesn't try to run this test on a system which doesn't support headful tests. You do this by specifying
 
     @key headful
 
@@ -1130,22 +1133,22 @@ Another example is `@key randomness` that should be used to indicate that a test
 
 There are many other keywords in use and their usage may differ between areas in the JDK. Make sure you understand the conventions for the particular area you are testing since these are just examples.
 
-The [JTReg documentation](https://openjdk.java.net/jtreg/) provides information on many more tags like these.
+The [jtreg documentation](https://openjdk.java.net/jtreg/) provides information on many more tags like these.
 
 The [compiler group](https://openjdk.java.net/groups/compiler/) has a section in their wiki with [Guidelines for "langtools" tests](https://openjdk.java.net/groups/compiler/tests.html).
 
-### Running OpenJDK JTReg Tests
+### Running OpenJDK jtreg tests
 
-When configuring the OpenJDK build you can tell it where your JTReg installation is located. When providing this information you can later run `make run-test` to execute JTReg tests.
+When configuring the OpenJDK build you can tell it where your jtreg installation is located. When providing this information you can later run `make run-test` to execute jtreg tests.
 
     sh ./configure --with-jtreg=/path/to/jtreg
     make run-test TEST=tier1
 
-In the OpenJDK source tree you can find a directory called `test`. There are a large number of tests in this directory that are written to be used with JTReg.
+In the OpenJDK source tree you can find a directory called `test`. There are a large number of tests in this directory that are written to be used with jtreg.
 
     make run-test TEST=test/jdk/java/lang/String/
 
-You can also run JTReg without invoking make. In this case you’ll need to tell JTReg which JDK to test.
+You can also run jtreg without invoking make. In this case you’ll need to tell jtreg which JDK to test.
 
     jtreg -jdk:/path/to/jdk /path/to/test
 
@@ -1199,7 +1202,7 @@ You can also use a regular expression to filter which tests to run:
 
 The second example above runs tests which match the regexp `$X.*` on a specific variant of the JVM. The variant is one of client, server, etc.
 
-## Excluding a Test
+## Excluding a test
 
 Sometimes tests break. It could be e.g. due to bugs in the test itself, due to changed functionality in the code that the test is testing, or changes in the environment where the test is executed. While working on a fix, it can be useful to stop the test from being executed in everyone else's testing to reduce noise, especially if the test is expected to fail for more than a day. There are two ways to stop a test from being run in standard test runs: ProblemListing and using the `@ignore` keyword. Removing tests isn't the standard way to remove a failure. A failing test is often a regression and should ideally be handled with high urgency.
 
@@ -1207,7 +1210,7 @@ I'll say it right away so that it's not forgotten at the end: Remember to remove
 
 ### ProblemListing jtreg tests
 
-ProblemListing should be used for a short term exclusion while a test is being fixed, and for the exclusion of intermittently failing tests that cause too much noise, but can still be useful to run on an ad-hoc basis. ProblemListing is done in the file `ProblemList.txt`. There are actually several ProblemList files to choose from. Their location and name hint about what area or feature each file belongs to. Each file has sections for different components. All ProblemList files complement each other to build the total set of tests to exclude in JTReg runs.
+ProblemListing should be used for a short term exclusion while a test is being fixed, and for the exclusion of intermittently failing tests that cause too much noise, but can still be useful to run on an ad-hoc basis. ProblemListing is done in the file `ProblemList.txt`. There are actually several ProblemList files to choose from. Their location and name hint about what area or feature each file belongs to. Each file has sections for different components. All ProblemList files complement each other to build the total set of tests to exclude in jtreg runs.
 
 ~~~
 test/hotspot/jtreg/ProblemList.txt
@@ -1307,349 +1310,9 @@ The fix for the main issue should remove the test from the ProblemList or remove
 
 After a failure is handled by excluding a test, the main JBS issue should be re-triaged and possibly given a new priority. This should be handled by the standard triage process. A test exclusion results in an outage in our testing. This outage should be taken into consideration when triaging, in addition to the impact of the bug itself.
 
-# HotSpot development
+## Backing out a change
 
-## Logging
-
-::: {.box}
-[Quick Links]{.boxheader}
-
-* [JEP 158: Unified JVM Logging](https://openjdk.java.net/jeps/158)
-:::
-
-While developing your fix, your might want your code to output some diagnostic information. You might even want to leave some logging in the code you check in, to facilitate future diagnostics.
-
-The appropriate way to print logging output from HotSpot is through the [Unified Logging Framework (JEP 158)](https://openjdk.java.net/jeps/158). It gives you a lot of nice features and enables common command-line options for all logging. Messages can also be "decorated" with e.g. uptime, level, tags. The JEP contains a thorough description of the feature, but a quick example might look like:
-
-~~~c++
-log_info(gc, marking)("Mark Stack Usage: " SIZE_FORMAT "M", _mark_stack_usage / M);
-~~~
-
-Where 'gc' and 'marking' are tags, and 'info' is the log level. This would be visible if the JVM were run with any of the following flags:
-
-~~~c++
--Xlog:gc+marking=info
--Xlog:gc+marking
--Xlog:gc*
-~~~
-
-The API should be similar to:
-
-~~~c++
-log_<level>(Tag1[,...])(fmtstr, ...)
-~~~
-
-At the time of writing, the different log levels can be found in [src/hotspot/share/logging/log.hpp](https://github.com/openjdk/jdk/blob/master/src/hotspot/share/logging/log.hpp).
-
-# Working with the legacy Mercurial servers
-
-::: {.box}
-[Quick Links]{.boxheader}
-
-* [Mercurial: The Definitive Guide](http://hgbook.red-bean.com/)
-* [OpenJDK Mercurial Server](https://hg.openjdk.java.net/)
-:::
-
-After the initial release of the JDK source code into OpenJDK in 2007 the OpenJDK project moved from TeamWare to using Mercurial. Starting in 2019 the source revision control has been moved to Git and GitHub. Even though most large projects have moved to Git by now, some still use the Mercurial servers. To access these projects some additional setup is required.
-
-> ---
->
->  There used to be a sandbox repository that could be used for testing purposes. With the move to Git this has been replaced by GitHub Actions.
->
-> ---
-
-This document assumes familiarity with the first two chapters of the free on-line book [Mercurial: The Definitive Guide](http://hgbook.red-bean.com).
-
-## Installing and Configuring Mercurial
-
-Source bundles and binary packages for Mercurial are available at [https://www.selenic.com/mercurial/wiki/index.cgi](https://www.selenic.com/mercurial/wiki/index.cgi/Mercurial). The OpenJDK repositories recommend installation of Mercurial 2.6.3 (or later). A Mercurial installation is sufficient to clone a repository. Contributors who wish to submit changes will need some additional configuration as described below.
-
-Once Mercurial is installed, create and edit the `~/.hgrc` file to minimally contain the following entry:
-
-    [ui]
-    username = <openjdk_username>
-
-_openjdk\_username_ is in general the same as your GitHub user name. (See [Contributing to an OpenJDK Project] for more information.) If you don't have a GitHub user name, you choose your OpenJDK user name when you sign the OCA. The user name should be a plain lowercase, alphanumeric token (not an e-mail address) with twelve characters or less. The first character should be alphabetic. This username will be publicly visible in all Mercurial changeset logs. It will be used to verify that the changeset author is at least an [Author](https://openjdk.java.net/bylaws#author) for the Project and that the person pushing the changeset is at least a [Committer](https://openjdk.java.net/bylaws#committer). It's recommended that the _openjdk\_username_ be somehow related to the Author's full name, such as the first character of the Author's first name followed by the Author's last name.
-
-Some Projects may recommend additional tools or scripts that help with repository manipulation and code development. For instance, in JDK 8u, the utility script `common/bin/hgforest.sh` may be used to apply commands to all the repositories in the [forest](#forest). Some useful Mercurial extensions for OpenJDK developers are [jcheck](https://openjdk.java.net/projects/code-tools/jcheck/), [trees](https://openjdk.java.net/projects/code-tools/trees/), and [Mercurial Queues](http://hgbook.red-bean.com/read/managing-change-with-mercurial-queues.html) (mq). Note that `trees` is enabled on the OpenJDK Mercurial server.
-
-### Verifying the Configuration
-
-After installing and configuring Mercurial, validate the configuration using the following steps.
-
-#. Verify that Mercurial is version 2.6.3 (or newer).
-
-       $ hg version
-       Mercurial Distributed SCM (version 2.9)
-       (see http://mercurial.selenic.com for more information)
-
-       Copyright (C) 2005-2014 Matt Mackall and others
-       This is free software; see the source for copying conditions. There is NO
-       warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-
-#. Verify that the list of enabled extensions includes fetch and mq.
-
-       $ hg help
-
-#. Verify that the `~/.hgrc` configuration looks correct. Minimally it should contain the following entries:
-
-       $ hg showconfig
-       ui.username=iris
-
-At this point, it should be possible to start retrieving source from the repositories.
-
-## Cloning a Mercurial Repository
-
-Some Projects organized their code into multiple Mercurial repositories. For instance, [JDK 8](https://openjdk.java.net/projects/jdk8) uses a forest of multiple related repositories which contain components of the entire JDK. If a Project uses a forest, It's strongly recommended for developers to clone an entire forest, rather than a single repository. This is the only means to ensure consistency in builds. The following examples illustrate two alternatives for cloning the entire `jdk8u/jdk8u-dev` forest into the directory `8u-dev`.
-
-#. To clone the forest using the [trees](https://openjdk.java.net/projects/code-tools/trees/) extension just use `tclone`:
-
-       $ hg tclone http://hg.openjdk.java.net/jdk8u/jdk8u-dev/ 8u-dev
-
-#. To clone the forest using `get_source.sh`, first clone the main tree:
-
-       $ hg clone http://hg.openjdk.java.net/jdk8u/jdk8u-dev/ 8u-dev
-       requesting all changes
-       adding changesets
-       adding manifests
-       adding file changes
-       added 997 changesets with 1477 changes to 138 files
-       updating to branch default
-       82 files updated, 0 files merged, 0 files removed, 0 files unresolved
-
-   Then clone the repositories in the forest:
-
-       $ cd 8u-dev
-       $ sh ./get_source.sh
-
-Regardless of how the forest was cloned, this is the resulting populated forest.
-
-    $ ls
-    ASSEMBLY_EXCEPTION  hotspot    LICENSE   README-builds.html
-    common              jaxp       make      test
-    configure           jaxws      Makefile  THIRD_PARTY_README
-    corba               jdk        nashorn
-    get_source.sh       langtools  README
-
-### Cloning a Single Repository {#cloneSingle}
-
-If the source for the Project is contained within a single repository or reading a limited portion of the source is the only goal, it's possible to clone a single repository (even if it's part of a forest). For instance, this example shows how to clone the `langtools` repository from `jdk8u/jdk8u-dev` into the default destination directory.
-
-    $ hg clone http://hg.openjdk.java.net/jdk8u/jdk8u-dev/langtools
-    destination directory: langtools
-    requesting all changes
-    adding changesets
-    adding manifests
-    adding file changes
-    added 2289 changesets with 21194 changes to 7004 files
-    updating to branch default
-    6212 files updated, 0 files merged, 0 files removed, 0 files unresolved
-
-## Creating a Mercurial Changeset
-
-The timing for creating a changeset is important. Creating the changeset long before it gets pushed into the parent repository may require complex merges. If a changeset is created before sufficient review or testing, a rollback may be required and a new changeset may be required to correct previous mistakes. The [mq extension](http://hgbook.red-bean.com/hgbookch12.html#x16-26500012) is recommended for managing changes before they become committed to a changeset.
-
-In the examples below, the script `common/bin/hgforest.sh` can be used to apply the Mercurial command to all the repositories in the forest. So when you see `hg`, if you are dealing with one repository, just use "`hg`", if it's a forest, use "`sh common/bin/hgforest.sh`".
-
-Each repository in the forest is managed independently. After editing files in the individual cloned repositories of the forest, the `hg status` command may be used to see the changes in a single repository.
-
-    $ hg root
-    /u/iris/sandbox/box
-    $ hg status
-    ? duke/images/DukeTubbingSmall.png
-    $ hg add duke/images/DukeTubbingSmall.png
-    $ hg status
-    A duke/images/DukeTubbingSmall.png
-
-To see changes made to the repositories use `hg status`:
-
-    $ hg status
-    [.]
-    A duke/images/DukeTubbingSmall.png
-
-In this example, a new file `DukeTubbingSmall.png` was added to a new subdirectory.
-
-### Formatting a Changeset Comment
-
-A single change is described by a block of text of the following form:
-
-    <bugid>: <synopsis-of-symptom>
-    Summary: <summary-of-code-change>
-    Reviewed-by: <reviewer>+
-    Contributed-by: <contributor-email>
-
-There may be more than one _bugid_ line, but there must be at least one.
-
-The _summary_ line is optional, but authors are strongly encouraged to include one if the nature of the change isn't obvious from the synopsis. It's just one line, meant to give the reader a clue as to how the code changed. A more complete description of the change belongs in the bug report.
-
-A _reviewed-by_ line is required. Reviewers must have the ability to deal with any adverse consequences of the change, and so must themselves be authors. They are therefore identified by their OpenJDK usernames rather than full e-mail addresses.
-
-The _contributed-by_ line is optional. If present, it's a list of comma-separated email addresses. It should be included only when the author of the
-change doesn't have commit rights to the target repository and thus would not otherwise receive acknowledgment, or when there are multiple authors.
-
-There will be exceptions for merge changesets, tag changesets, etc.
-
-Example:
-
-    1234567: NPE thrown on FileInputStream("")
-    Summary: Rewrite precondition-checking code in io.c
-    Reviewed-by: mr
-    Contributed-by: Ben Bitdiddle <ben at bits.org>
-
-If a changeset contains multiple unrelated changes (this is frowned upon, but may happen from time to time) then its comment will contain multiple blocks of the above form, separated by blank lines.
-
-The required format of the comments will be enforced whenever the changeset is pushed into the JDK forests. Other Projects may copy these conventions, adopt some other conventions, or have no conventions, depending upon their goals.
-
-### Committing a Changeset
-
-The following commands commit all of the changes in a repository to a changeset.
-
-    $ cat ../message
-    1111111: Missing Duke gif
-    Summary:  Add missing file
-    Reviewed-by: iag
-    $ hg commit -l ../message
-    $ hg toutgoing
-    [.]
-    comparing with http://hg.openjdk.java.net/sandbox/box
-    searching for changes
-    changeset:   23:fb12953f3a35
-    tag:         tip
-    user:        iris
-    date:        Wed Dec 12 21:05:59 2007 -0800
-    summary:     1111111: Missing Duke gif
-
-## Merging Mercurial Changesets
-
-It's often necessary to merge local changes with those made in the parent repositories. The first step in a merge process is to retrieve (or pull) the collection of changesets which have been pushed since the last merge or initial clone. If there if there are merge conflicts, then they must be resolved. [Chapter 3](http://hgbook.red-bean.com/hgbookch3.html#x7-530003) of the Mercurial book contains detailed information on the merging process.
-
-There are two basic ways to update the working set files in the repositories:
-
-Option 1: `hg pull`
-
-> One way to merge the parent repository with the working set of files is to use `hg pull` all by itself. This option allows merging off-line or at a later time.
->
->     $ hg pull
->     [.]
->     pulling from http://hg.openjdk.java.net/jdk8u/jdk8u-dev
->     searching for changes
->     no changes found
->
-> In Mercurial, pulling changesets will not update or merge into the working set of files. To update the clone, run `hg update`. If the update reports conflicts, run `hg merge` to resolve them.
-
-Option 2: `hg fetch`
-
-> Alternatively, use `hg fetch` to pull the changes, update the working set files, and create simple merge changesets as necessary. The fetch extension is distributed with Mercurial but needs to be enabled. Edit the `.hgrc` to include the following entries:
->
->     [extensions]
->     fetch=
->
-> Once the fetch extension has been enabled, `hg fetch` may be invoked as follows:
->
->     $ hg fetch
->     [.]
->     pulling from http://hg.openjdk.java.net/jdk8u/jdk8u-dev
->     searching for changes
->     no changes found
-
-> ---
->
-> Actual file merging will be done with the selected Mercurial merging tool see [MergeProgram](https://www.selenic.com/mercurial/wiki/index.cgi/MergeProgram) for the details on how to define the selected merge tool in ` ~/.hgrc`.
->
-> ---
-
-## Pushing Mercurial Changesets
-
-In order to push changesets into the parent repository, some additional configuration is required. The following sections describe the operations that will be performed by users with push access.
-
-### Get Your SSH key Installed
-
-First you should create a new SSH key. See [Generating an SSH key] for guidance on how to do that. Your public key (`~/.ssh/id_rsa.pub`) should be mailed as an attachment along with your JDK username to [keys(at)openjdk.java.net](mailto:keys-at-openjdk.java.net). An administrator will install your key on the server and notify you on completion. This process may take a couple of days.
-
-> ---
->
-> Users behind a SOCKS firewall can add a directive to the `~/.ssh/config` file to connect to the OpenJDK Mercurial server:
->
->     Host *.openjdk.java.net
->     ProxyCommand /usr/lib/ssh/ssh-socks5-proxy-connect -h [socks_proxy_address] %h %p
->
-> See the `ssh-socks5-proxy-connect` man page and `ssh-config` man page for more information. Other systems may require proxy access via other programs. Some Linux distributions provide the `corkscrew` package which provides ssh access through HTTP proxies.
->
-> **It's recommended that all users check with their network administrators before installing any kind of TCP forwarding tool on their network. Many corporations and institutions have strict security policies in this area.**
->
-> ---
-
-### Setting the `default-push` Path to the Server Repositories
-
-This is the typical development model:
-
-::: {style="text-align:center;"}
-~~~{.mermaid caption="Diagram of server repos and user's clone" format=svg theme=neutral}
-graph TD
-    subgraph hg.openjdk.java.net
-        origin(jdk8u/jdk8u-dev)
-    end
-    origin --> |clone| local(8u-dev)
-    local --> |push| origin
-~~~
-:::
-
-Changesets need to be _pushed_ via ssh to the read/write repository which resides on the OpenJDK Mercurial server. The easiest way to do this is to have each repository define the "default-push" path in every repository's `.hg/hgrc` file. The `.hg/hgrc` file isn't a managed file - it's private to the repository. The following example defines the "default" and "default-push" paths for clones of the `jdk8u/jdk8u-dev` repository.
-
-    [paths]
-    default = http://hg.openjdk.java.net/jdk8u/jdk8u-dev
-    default-push = ssh://<JDK_username>@hg.openjdk.java.net/jdk8u/jdk8u-dev
-
-Given a `JDK_username` this simple script will attempt to do this for all the repositories:
-
-    #!/bin/sh
-    username=$1
-    hgdirs="`find . -type d -name .hg`"
-    for i in ${hgdirs}; do
-      d="`dirname ${i}`"
-      defpush="`(cd ${d} && hg paths default-push 2> /dev/null)`"
-      if [ "${defpush}" = "" ] ; then
-        defpath="`(cd ${d} && hg paths default 2> /dev/null)`"
-        if [ "${defpath}" != "" ] ; then
-          defpush="`echo ${defpath} | sed -e 's@http://\([^/]*/[^/]*/[^/]*\)/\(.*\)@ssh://$username\@\1/\2@'`"
-          cp ${i}/hgrc ${i}/hgrc.orig
-          echo "default-push = ${defpush}" >> ${i}/hgrc
-          echo "Added default-push: ${defpush}"
-        fi
-      fi
-    done
-    for i in ${hgdirs}; do
-      d="`dirname ${i}`"
-      echo "(cd ${d} && hg paths)"
-      (cd ${d} && hg paths)
-    done
-    exit 0
-
-### Performing the Push
-
-[Committers](https://openjdk.java.net/bylaws#committer) can use the `hg push` command to propagate changesets into the repositories.
-
-Most developers will only find a need to create changesets in one or two repositories. However, it's important that before any changesets are pushed, the corresponding forest pull and merge with the destination forest be performed; otherwise there is a risk of breaking the build.
-
-    $ hg push
-
-After the push has been accepted, an automatic e-mail notification will be sent to the [mailing list](https://mail.openjdk.java.net) associated with the repository. In most cases notifications are sent to the Project's _-dev_ mailing list. Some Projects with high traffic _-dev_ mailing lists use a dedicated _-changes_ list for notifications.
-
-> ---
->
-> Who has push access?
->
-> All of a Project's [Committers](https://openjdk.java.net/bylaws#committer) can push to all of the the Project's repositories.
->
-> Some Projects may chose to restrict the set of Committers with push to key repositories. For instance, JDK Release Projects restrict push access to MASTER repositories to Committers who are either integrators or members of the Release Engineering Team.
->
-> See [Becoming a Committer] for information about becoming a Project Committer.
->
-> ---
-
-## Backing Out a Change
-
-If a change causes a regression that can't be fixed within reasonable time the best way to handle the regression can be to back out the change. Backing out means that the inverse (anti-delta) of the change is pushed to effectively undo the change in the repository. There are two parts to this task, how to do the bookkeeping in JBS, and how to do the actual backout in git or mercurial.
+If a change causes a regression that can't be fixed within reasonable time, the best way to handle the regression can be to back out the change. Backing out means that the inverse (anti-delta) of the change is pushed to effectively undo the change in the repository. There are two parts to this task, how to do the bookkeeping in JBS, and how to do the actual backout in git or Mercurial.
 
 The backout is a regular change and will have to go through the standard code review process, but is considered a [trivial](#trivial) change. The rationale is that a backout is usually urgent in nature and the change itself is automatically generated. In areas where two reviewers are normally required, only one additional Reviewer is required for a backout since the person who is performing the backout also will review the change.
 
@@ -1722,9 +1385,9 @@ index 4961acb2126..399e7cc311f 100644
  [online documentation](https://openjdk.java.net/groups/build/doc/building.html),
 ~~~
 
-### How to work with mercurial when a change is backed out
+### How to work with Mercurial when a change is backed out
 
-In order to backout a change, the `hg backout` command is recommended, which essentially applies the anti-delta of the change. Make sure you perform the backout in the most upstream repostiory the change has escaped to.
+In order to backout a change, the `hg backout` command is recommended, which essentially applies the anti-delta of the change. Make sure you perform the backout in the most upstream repository the change has escaped to.
 
 ~~~
 hg backout [OPTION]... [-r] REV
@@ -1739,7 +1402,390 @@ reverse effect of earlier changeset
     merged result is left uncommitted.
 ~~~
 
-# The JDK Release process
+# Backporting
+
+::: {.box}
+[Quick Links]{.boxheader}
+
+* [Push approval for JDK updates](https://openjdk.java.net/projects/jdk-updates/approval.html)
+* [Skara documentation on backports](https://wiki.openjdk.java.net/display/SKARA/Backports)
+:::
+
+Development of the latest version of the JDK often results in bug fixes that might be interesting to include in some of the JDK update releases still being maintained. Moving a fix from a more recent release train (e.g. JDK 17) to an older release train (e.g. JDK 11) is called *backporting*.
+
+The guideline for what to backport into a specific update release will vary over the lifetime of that release. Initially more fixes are expected to be backported as new features and large changes introduced in a mainline release stabilize. Over time the focus will shift from stabilization to keeping it stable - the release will go into maintenance mode. This means that bug fixes that require larger disruptive changes are more likely to be made in mainline and backported to more recent release trains only, and not to older release trains.
+
+Over time it's likely that the code base will diverge between mainline and any given update release, and the cost of backporting will increase. The cost in this case is not only the effort needed to perform the actual backport, but also the cost inferred by bugs introduced by the backport. This should be taken into consideration when deciding if a change should be backported or not. For more details on how to reason around what to backport, [this email from JDK 8 Updates Project lead Andrew Haley](https://mail.openjdk.java.net/pipermail/jdk8u-dev/2020-June/012002.html) has some guidelines for JDK 8u. The reasoning in this mail is specific to JDK 8u, but will in general apply to any JDK release in maintenance mode.
+
+Any change that originally required a CSR will require a new CSR to be backported unless the backport was covered by the initial CSR. Changes to Java SE specifications cannot be made in an update release without a Java SE Maintenance Release. CSR-related issues affect interfaces and behavior and must be very carefully scrutinized.
+
+## Working with backports in JBS
+
+::: {.box}
+[Terminology]{.boxheader}
+
+Main issue - The top issue in a backport hierarchy. Eg. [JDK-8272373](https://bugs.openjdk.java.net/browse/JDK-8272373) is a main issue, while [JDK-8277498](https://bugs.openjdk.java.net/browse/JDK-8277498) and [JDK-8277499](https://bugs.openjdk.java.net/browse/JDK-8277499) are backport issues of this main issue.
+:::
+
+In general there is no need to create backport issues in JBS manually. All work that is done in JBS in preparation for a backport (requesting approvals etc) is done in the main issue. The backport issue will be created automatically by the bots when you integrate the change to the source code repository.
+
+There can be cases where it's desirable to create a backport issue before the fix is done, e.g. if a CSR needs to be filed. In these cases set the fix version of the backport to `N-pool`, where `N` is the release train the backport is targeting. E.g. `17-pool`. Please note that even if a backport issue is created ahead of time, all work done in JBS is still done in the main issue.
+
+Obviously it's possible to set the fix version to the exact release the backport is targeting, but this isn't recommended. When a change is pushed, the bots will look at the main issue as indicated in the PR title, and look for backports with the current `N.0.x` release version as fix version, if no such backport is found they will look for `N-pool`, and if that isn't found either, a new backport issue will be created. This means that if the backport has an exact fix version set, but is delayed and misses the release indicated by the fix version, a new backport issue is created with a small mess as the result.
+
+Setting the fix version of a backport to `N` is always wrong. JDK `N` has already been released (or you wouldn't be backporting to it) and can't get any more fixes.
+
+## Requesting approvals for backports
+
+In order to be allowed to push a change to one of the OpenJDK update development repositories (e.g. [`jdk17u-dev`](https://github.com/openjdk/jdk17u-dev)), an approval is required. The [official process for how to request push approval for a backport](https://openjdk.java.net/projects/jdk-updates/approval.html) describes in detail how to work with JBS when requesting approvals. In short, there's a label `jdk<release>u-fix-request` that should be added to the main JBS issue. Also put a motivation as to why the issue needs to be backported as a comment in the main issue. Once the label and motivation has been added, wait for the maintainers of the release to approve your request. The approval will be indicated with a label, `jdk<release>u-fix-yes`, added to the main issue.
+
+If the update release is in rampdown, changes are pushed to the release repository (e.g. [`jdk17u`](https://github.com/openjdk/jdk17u)). During rampdown the bar to get changes in are significantly higher and fixes need to be approved with `jdk<release>u-critical-request` / `jdk<release>u-critical-yes`.
+
+## Using the Skara tooling to help with backports
+
+The Skara tooling includes support for backports. [The official Skara documentation](https://wiki.openjdk.java.net/display/SKARA/Backports) describes in detail how to work with the tooling to create backport PRs on GitHub or using the CLI tools. As described in the documentation, the [`/backport`](https://wiki.openjdk.java.net/display/SKARA/Commit+Commands#CommitCommands-/backport) command can be used on a commit (not a PR!) to create the backport PR. If a backport PR is manually created, set the PR title to `Backport <original commit hash>`. This ensures that the bots will recognize it as a backport as opposed to a main fix specifically targeting an older release. One can tell whether or not the bots recognized a PR as a backport by the `backport` label being added if it's recognized.
+
+# HotSpot development
+
+## Logging
+
+::: {.box}
+[Quick Links]{.boxheader}
+
+* [JEP 158: Unified JVM Logging](https://openjdk.java.net/jeps/158)
+:::
+
+While developing your fix, your might want your code to output some diagnostic information. You might even want to leave some logging in the code you check in, to facilitate future diagnostics.
+
+The appropriate way to print logging output from HotSpot is through the [Unified Logging Framework (JEP 158)](https://openjdk.java.net/jeps/158). It gives you a lot of nice features and enables common command-line options for all logging. Messages can also be "decorated" with e.g. uptime, level, tags. The JEP contains a thorough description of the feature, but a quick example might look like:
+
+~~~c++
+log_info(gc, marking)("Mark Stack Usage: " SIZE_FORMAT "M", _mark_stack_usage / M);
+~~~
+
+Where 'gc' and 'marking' are tags, and 'info' is the log level. This would be visible if the JVM were run with any of the following flags:
+
+~~~c++
+-Xlog:gc+marking=info
+-Xlog:gc+marking
+-Xlog:gc*
+~~~
+
+The API should be similar to:
+
+~~~c++
+log_<level>(Tag1[,...])(fmtstr, ...)
+~~~
+
+At the time of writing, the different log levels can be found in [src/hotspot/share/logging/log.hpp](https://github.com/openjdk/jdk/blob/master/src/hotspot/share/logging/log.hpp).
+
+# Working With the Legacy Mercurial Servers
+
+::: {.box}
+[Quick Links]{.boxheader}
+
+* [Mercurial: The Definitive Guide](http://hgbook.red-bean.com/)
+* [OpenJDK Mercurial Server](https://hg.openjdk.java.net/)
+:::
+
+After the initial release of the JDK source code into OpenJDK in 2007 the OpenJDK project moved from TeamWare to using Mercurial. Starting in 2019 the source revision control has been moved to Git and GitHub. Even though most large projects have moved to Git by now, some still use the Mercurial servers. To access these projects some additional setup is required.
+
+> ---
+>
+>  There used to be a sandbox repository that could be used for testing purposes. With the move to Git this has been replaced by GitHub Actions.
+>
+> ---
+
+This document assumes familiarity with the first two chapters of the free on-line book [Mercurial: The Definitive Guide](http://hgbook.red-bean.com).
+
+## Installing and configuring Mercurial
+
+Source bundles and binary packages for Mercurial are available at [https://www.selenic.com/mercurial/wiki/index.cgi](https://www.selenic.com/mercurial/wiki/index.cgi/Mercurial). The OpenJDK repositories recommend installation of Mercurial 2.6.3 (or later). A Mercurial installation is sufficient to clone a repository. Contributors who wish to submit changes will need some additional configuration as described below.
+
+Once Mercurial is installed, create and edit the `~/.hgrc` file to minimally contain the following entry:
+
+    [ui]
+    username = <openjdk_username>
+
+_openjdk\_username_ is in general the same as your GitHub user name. (See [Contributing to an OpenJDK Project] for more information.) If you don't have a GitHub user name, you choose your OpenJDK user name when you sign the OCA. The user name should be a plain lowercase, alphanumeric token (not an e-mail address) with twelve characters or less. The first character should be alphabetic. This username will be publicly visible in all Mercurial changeset logs. It will be used to verify that the changeset author is at least an [Author](https://openjdk.java.net/bylaws#author) for the Project and that the person pushing the changeset is at least a [Committer](https://openjdk.java.net/bylaws#committer). It's recommended that the _openjdk\_username_ be somehow related to the Author's full name, such as the first character of the Author's first name followed by the Author's last name.
+
+Some Projects may recommend additional tools or scripts that help with repository manipulation and code development. For instance, in JDK 8u, the utility script `common/bin/hgforest.sh` may be used to apply commands to all the repositories in the [forest](#forest). Some useful Mercurial extensions for OpenJDK developers are [jcheck](https://openjdk.java.net/projects/code-tools/jcheck/), [trees](https://openjdk.java.net/projects/code-tools/trees/), and [Mercurial Queues](http://hgbook.red-bean.com/read/managing-change-with-mercurial-queues.html) (mq). Note that `trees` is enabled on the OpenJDK Mercurial server.
+
+### Verifying the configuration
+
+After installing and configuring Mercurial, validate the configuration using the following steps.
+
+#. Verify that Mercurial is version 2.6.3 (or newer).
+
+       $ hg version
+       Mercurial Distributed SCM (version 2.9)
+       (see http://mercurial.selenic.com for more information)
+
+       Copyright (C) 2005-2014 Matt Mackall and others
+       This is free software; see the source for copying conditions. There is NO
+       warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+#. Verify that the list of enabled extensions includes fetch and mq.
+
+       $ hg help
+
+#. Verify that the `~/.hgrc` configuration looks correct. Minimally it should contain the following entries:
+
+       $ hg showconfig
+       ui.username=iris
+
+At this point, it should be possible to start retrieving source from the repositories.
+
+## Cloning a Mercurial repository
+
+Some Projects organized their code into multiple Mercurial repositories. For instance, [JDK 8](https://openjdk.java.net/projects/jdk8) uses a forest of multiple related repositories which contain components of the entire JDK. If a Project uses a forest, It's strongly recommended for developers to clone an entire forest, rather than a single repository. This is the only means to ensure consistency in builds. The following examples illustrate two alternatives for cloning the entire `jdk8u/jdk8u-dev` forest into the directory `8u-dev`.
+
+#. To clone the forest using the [trees](https://openjdk.java.net/projects/code-tools/trees/) extension just use `tclone`:
+
+       $ hg tclone http://hg.openjdk.java.net/jdk8u/jdk8u-dev/ 8u-dev
+
+#. To clone the forest using `get_source.sh`, first clone the main tree:
+
+       $ hg clone http://hg.openjdk.java.net/jdk8u/jdk8u-dev/ 8u-dev
+       requesting all changes
+       adding changesets
+       adding manifests
+       adding file changes
+       added 997 changesets with 1477 changes to 138 files
+       updating to branch default
+       82 files updated, 0 files merged, 0 files removed, 0 files unresolved
+
+   Then clone the repositories in the forest:
+
+       $ cd 8u-dev
+       $ sh ./get_source.sh
+
+Regardless of how the forest was cloned, this is the resulting populated forest.
+
+    $ ls
+    ASSEMBLY_EXCEPTION  hotspot    LICENSE   README-builds.html
+    common              jaxp       make      test
+    configure           jaxws      Makefile  THIRD_PARTY_README
+    corba               jdk        nashorn
+    get_source.sh       langtools  README
+
+### Cloning a single repository {#cloneSingle}
+
+If the source for the Project is contained within a single repository or reading a limited portion of the source is the only goal, it's possible to clone a single repository (even if it's part of a forest). For instance, this example shows how to clone the `langtools` repository from `jdk8u/jdk8u-dev` into the default destination directory.
+
+    $ hg clone http://hg.openjdk.java.net/jdk8u/jdk8u-dev/langtools
+    destination directory: langtools
+    requesting all changes
+    adding changesets
+    adding manifests
+    adding file changes
+    added 2289 changesets with 21194 changes to 7004 files
+    updating to branch default
+    6212 files updated, 0 files merged, 0 files removed, 0 files unresolved
+
+## Creating a Mercurial changeset
+
+The timing for creating a changeset is important. Creating the changeset long before it gets pushed into the parent repository may require complex merges. If a changeset is created before sufficient review or testing, a rollback may be required and a new changeset may be required to correct previous mistakes. The [mq extension](http://hgbook.red-bean.com/hgbookch12.html#x16-26500012) is recommended for managing changes before they become committed to a changeset.
+
+In the examples below, the script `common/bin/hgforest.sh` can be used to apply the Mercurial command to all the repositories in the forest. So when you see `hg`, if you are dealing with one repository, just use "`hg`", if it's a forest, use "`sh common/bin/hgforest.sh`".
+
+Each repository in the forest is managed independently. After editing files in the individual cloned repositories of the forest, the `hg status` command may be used to see the changes in a single repository.
+
+    $ hg root
+    /u/iris/sandbox/box
+    $ hg status
+    ? duke/images/DukeTubbingSmall.png
+    $ hg add duke/images/DukeTubbingSmall.png
+    $ hg status
+    A duke/images/DukeTubbingSmall.png
+
+To see changes made to the repositories use `hg status`:
+
+    $ hg status
+    [.]
+    A duke/images/DukeTubbingSmall.png
+
+In this example, a new file `DukeTubbingSmall.png` was added to a new subdirectory.
+
+### Formatting a changeset comment
+
+A single change is described by a block of text of the following form:
+
+    <bugid>: <synopsis-of-symptom>
+    Summary: <summary-of-code-change>
+    Reviewed-by: <reviewer>+
+    Contributed-by: <contributor-email>
+
+There may be more than one _bugid_ line, but there must be at least one.
+
+The _summary_ line is optional, but authors are strongly encouraged to include one if the nature of the change isn't obvious from the synopsis. It's just one line, meant to give the reader a clue as to how the code changed. A more complete description of the change belongs in the bug report.
+
+A _reviewed-by_ line is required. Reviewers must have the ability to deal with any adverse consequences of the change, and so must themselves be authors. They are therefore identified by their OpenJDK usernames rather than full e-mail addresses.
+
+The _contributed-by_ line is optional. If present, it's a list of comma-separated email addresses. It should be included only when the author of the
+change doesn't have commit rights to the target repository and thus would not otherwise receive acknowledgment, or when there are multiple authors.
+
+There will be exceptions for merge changesets, tag changesets, etc.
+
+Example:
+
+    1234567: NPE thrown on FileInputStream("")
+    Summary: Rewrite precondition-checking code in io.c
+    Reviewed-by: mr
+    Contributed-by: Ben Bitdiddle <ben at bits.org>
+
+If a changeset contains multiple unrelated changes (this is frowned upon, but may happen from time to time) then its comment will contain multiple blocks of the above form, separated by blank lines.
+
+The required format of the comments will be enforced whenever the changeset is pushed into the JDK forests. Other Projects may copy these conventions, adopt some other conventions, or have no conventions, depending upon their goals.
+
+### Committing a changeset
+
+The following commands commit all of the changes in a repository to a changeset.
+
+    $ cat ../message
+    1111111: Missing Duke gif
+    Summary:  Add missing file
+    Reviewed-by: iag
+    $ hg commit -l ../message
+    $ hg toutgoing
+    [.]
+    comparing with http://hg.openjdk.java.net/sandbox/box
+    searching for changes
+    changeset:   23:fb12953f3a35
+    tag:         tip
+    user:        iris
+    date:        Wed Dec 12 21:05:59 2007 -0800
+    summary:     1111111: Missing Duke gif
+
+## Merging Mercurial changesets
+
+It's often necessary to merge local changes with those made in the parent repositories. The first step in a merge process is to retrieve (or pull) the collection of changesets which have been pushed since the last merge or initial clone. If there if there are merge conflicts, then they must be resolved. [Chapter 3](http://hgbook.red-bean.com/hgbookch3.html#x7-530003) of the Mercurial book contains detailed information on the merging process.
+
+There are two basic ways to update the working set files in the repositories:
+
+Option 1: `hg pull`
+
+> One way to merge the parent repository with the working set of files is to use `hg pull` all by itself. This option allows merging off-line or at a later time.
+>
+>     $ hg pull
+>     [.]
+>     pulling from http://hg.openjdk.java.net/jdk8u/jdk8u-dev
+>     searching for changes
+>     no changes found
+>
+> In Mercurial, pulling changesets will not update or merge into the working set of files. To update the clone, run `hg update`. If the update reports conflicts, run `hg merge` to resolve them.
+
+Option 2: `hg fetch`
+
+> Alternatively, use `hg fetch` to pull the changes, update the working set files, and create simple merge changesets as necessary. The fetch extension is distributed with Mercurial but needs to be enabled. Edit the `.hgrc` to include the following entries:
+>
+>     [extensions]
+>     fetch=
+>
+> Once the fetch extension has been enabled, `hg fetch` may be invoked as follows:
+>
+>     $ hg fetch
+>     [.]
+>     pulling from http://hg.openjdk.java.net/jdk8u/jdk8u-dev
+>     searching for changes
+>     no changes found
+
+> ---
+>
+> Actual file merging will be done with the selected Mercurial merging tool see [MergeProgram](https://www.selenic.com/mercurial/wiki/index.cgi/MergeProgram) for the details on how to define the selected merge tool in ` ~/.hgrc`.
+>
+> ---
+
+## Pushing Mercurial changesets
+
+In order to push changesets into the parent repository, some additional configuration is required. The following sections describe the operations that will be performed by users with push access.
+
+### Get your SSH key installed
+
+First you should create a new SSH key. See [Generating an SSH key] for guidance on how to do that. Your public key (`~/.ssh/id_rsa.pub`) should be mailed as an attachment along with your JDK username to [keys(at)openjdk.java.net](mailto:keys-at-openjdk.java.net). An administrator will install your key on the server and notify you on completion. This process may take a couple of days.
+
+> ---
+>
+> Users behind a SOCKS firewall can add a directive to the `~/.ssh/config` file to connect to the OpenJDK Mercurial server:
+>
+>     Host *.openjdk.java.net
+>     ProxyCommand /usr/lib/ssh/ssh-socks5-proxy-connect -h [socks_proxy_address] %h %p
+>
+> See the `ssh-socks5-proxy-connect` man page and `ssh-config` man page for more information. Other systems may require proxy access via other programs. Some Linux distributions provide the `corkscrew` package which provides ssh access through HTTP proxies.
+>
+> **It's recommended that all users check with their network administrators before installing any kind of TCP forwarding tool on their network. Many corporations and institutions have strict security policies in this area.**
+>
+> ---
+
+### Setting the `default-push` path to the server repositories
+
+This is the typical development model:
+
+::: {style="text-align:center;"}
+~~~{.mermaid caption="Diagram of server repos and user's clone" format=svg theme=neutral}
+graph TD
+    subgraph hg.openjdk.java.net
+        origin(jdk8u/jdk8u-dev)
+    end
+    origin --> |clone| local(8u-dev)
+    local --> |push| origin
+~~~
+:::
+
+Changesets need to be _pushed_ via ssh to the read/write repository which resides on the OpenJDK Mercurial server. The easiest way to do this is to have each repository define the "default-push" path in every repository's `.hg/hgrc` file. The `.hg/hgrc` file isn't a managed file - it's private to the repository. The following example defines the "default" and "default-push" paths for clones of the `jdk8u/jdk8u-dev` repository.
+
+    [paths]
+    default = http://hg.openjdk.java.net/jdk8u/jdk8u-dev
+    default-push = ssh://<JDK_username>@hg.openjdk.java.net/jdk8u/jdk8u-dev
+
+Given a `JDK_username` this simple script will attempt to do this for all the repositories:
+
+    #!/bin/sh
+    username=$1
+    hgdirs="`find . -type d -name .hg`"
+    for i in ${hgdirs}; do
+      d="`dirname ${i}`"
+      defpush="`(cd ${d} && hg paths default-push 2> /dev/null)`"
+      if [ "${defpush}" = "" ] ; then
+        defpath="`(cd ${d} && hg paths default 2> /dev/null)`"
+        if [ "${defpath}" != "" ] ; then
+          defpush="`echo ${defpath} | sed -e 's@http://\([^/]*/[^/]*/[^/]*\)/\(.*\)@ssh://$username\@\1/\2@'`"
+          cp ${i}/hgrc ${i}/hgrc.orig
+          echo "default-push = ${defpush}" >> ${i}/hgrc
+          echo "Added default-push: ${defpush}"
+        fi
+      fi
+    done
+    for i in ${hgdirs}; do
+      d="`dirname ${i}`"
+      echo "(cd ${d} && hg paths)"
+      (cd ${d} && hg paths)
+    done
+    exit 0
+
+### Performing the push
+
+[Committers](https://openjdk.java.net/bylaws#committer) can use the `hg push` command to propagate changesets into the repositories.
+
+Most developers will only find a need to create changesets in one or two repositories. However, it's important that before any changesets are pushed, the corresponding forest pull and merge with the destination forest be performed; otherwise there is a risk of breaking the build.
+
+    $ hg push
+
+After the push has been accepted, an automatic e-mail notification will be sent to the [mailing list](https://mail.openjdk.java.net) associated with the repository. In most cases notifications are sent to the Project's _-dev_ mailing list. Some Projects with high traffic _-dev_ mailing lists use a dedicated _-changes_ list for notifications.
+
+> ---
+>
+> Who has push access?
+>
+> All of a Project's [Committers](https://openjdk.java.net/bylaws#committer) can push to all of the the Project's repositories.
+>
+> Some Projects may chose to restrict the set of Committers with push to key repositories. For instance, JDK Release Projects restrict push access to MASTER repositories to Committers who are either integrators or members of the Release Engineering Team.
+>
+> See [Becoming a Committer] for information about becoming a Project Committer.
+>
+> ---
+
+# The JDK Release Process
 
 ::: {.box}
 [Quick Links]{.boxheader}
@@ -2001,7 +2047,7 @@ This list is intended to make it easier to identify which email list to include 
 * `sample` –
 * `utils` –
 
-# About this Guide
+# About This Guide
 
 This guide is being maintained through the [OpenJDK Developers' Guide Project](https://openjdk.java.net/census#guide). The [source repository](https://github.com/openjdk/guide) is available at GitHub. The revision hash at the bottom of each page refers to the latest change that modified that particular page.
 
