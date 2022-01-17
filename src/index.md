@@ -1445,6 +1445,40 @@ If the update release is in rampdown, changes are pushed to the release reposito
 
 The Skara tooling includes support for backports. [The official Skara documentation](https://wiki.openjdk.java.net/display/SKARA/Backports) describes in detail how to work with the tooling to create backport PRs on GitHub or using the CLI tools. As described in the documentation, the [`/backport`](https://wiki.openjdk.java.net/display/SKARA/Commit+Commands#CommitCommands-/backport) command can be used on a commit (not a PR!) to create the backport PR. If a backport PR is manually created, set the PR title to `Backport <original commit hash>`. This ensures that the bots will recognize it as a backport as opposed to a main fix specifically targeting an older release. One can tell whether or not the bots recognized a PR as a backport by the `backport` label being added if it's recognized.
 
+# HotSpot development
+
+## Logging
+
+::: {.box}
+[Quick Links]{.boxheader}
+
+* [JEP 158: Unified JVM Logging](https://openjdk.java.net/jeps/158)
+:::
+
+While developing your fix, your might want your code to output some diagnostic information. You might even want to leave some logging in the code you check in, to facilitate future diagnostics.
+
+The appropriate way to print logging output from HotSpot is through the [Unified Logging Framework (JEP 158)](https://openjdk.java.net/jeps/158). It gives you a lot of nice features and enables common command-line options for all logging. Messages can also be "decorated" with e.g. uptime, level, tags. The JEP contains a thorough description of the feature, but a quick example might look like:
+
+~~~c++
+log_info(gc, marking)("Mark Stack Usage: " SIZE_FORMAT "M", _mark_stack_usage / M);
+~~~
+
+Where 'gc' and 'marking' are tags, and 'info' is the log level. This would be visible if the JVM were run with any of the following flags:
+
+~~~c++
+-Xlog:gc+marking=info
+-Xlog:gc+marking
+-Xlog:gc*
+~~~
+
+The API should be similar to:
+
+~~~c++
+log_<level>(Tag1[,...])(fmtstr, ...)
+~~~
+
+At the time of writing, the different log levels can be found in [src/hotspot/share/logging/log.hpp](https://github.com/openjdk/jdk/blob/master/src/hotspot/share/logging/log.hpp).
+
 # Working With the Legacy Mercurial Servers
 
 ::: {.box}
