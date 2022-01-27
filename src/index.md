@@ -66,6 +66,10 @@ Instead of describing the significant change (because that's quite difficult to 
 * Larger changes where only a non-significant portion of the work was done by the Contributor under vote
 * Trivial backports of someone else's changes
 
+::: {.box}
+[To the top](#){.boxheader}
+:::
+
 # Contributing to an OpenJDK Project
 
 Contributing to OpenJDK can take many forms. Writing code and providing patches is just one of them. A big part of developing a feature or a bugfix is testing and code review. Anything you can do to help out in these areas will be recognized as a contribution. Join the [mailing lists](#mailing-lists) to engage in design discussions and reviews, and download the latest EA builds or project repositories to try out new features and give feedback. If you see some misbehavior, or if you see somebody mention some misbehavior on some internet forum, try to track it down. Good bug reports with reproducible test cases are extremely valuable and make excellent contributions.
@@ -140,6 +144,10 @@ Java and the JDK are very popular products, and just about every Java developer 
 
 For reasons like these it’s quite possible that your change, even though it adds value to you, isn’t deemed to add enough value to the larger community.
 
+::: {.box}
+[To the top](#){.boxheader}
+:::
+
 # Mailing Lists
 
 ::: {.box}
@@ -186,6 +194,10 @@ There are a few different types of lists. The list name has two parts to explain
 
 If you need to change your registered email address, or if you have any other problems with the mailing lists, please contact [mailman@openjdk.java.net](mailto:mailman@openjdk.java.net).
 
+::: {.box}
+[To the top](#){.boxheader}
+:::
+
 # Code Conventions
 
 ::: {.box}
@@ -193,6 +205,10 @@ If you need to change your registered email address, or if you have any other pr
 
 * [Java Code Conventions](https://www.oracle.com/technetwork/java/codeconvtoc-136057.html)
 * [HotSpot C++ Code Conventions](https://github.com/openjdk/jdk/blob/master/doc/hotspot-style.md)
+:::
+
+::: {.box}
+[To the top](#){.boxheader}
 :::
 
 # JBS - JDK Bug System
@@ -247,7 +263,7 @@ Here's how to fix that:
 
 > ---
 >
-> In this example a fix was pushed to JDK N (a.k.a. the current release) while the JBS bug was targeted to JDK N+1 (a.k.a. a future release). The same procedure can be used in the opposite situation, when a fix has been pushed to JDK N+1 when the JBS bug was targeted to JDK N, by switching N and N+1 below. Remember, to keep the record clean for the future what maters the most is that the bug id used in the commit comment is the main bug, and that the "backports" (regardless of if they are to earlier or later releases) are Backport type issues of that main issue.
+> In this example a fix was pushed to JDK N (a.k.a. the current release) while the JBS bug was targeted to JDK N+1 (a.k.a. a future release). The same procedure can be used in the opposite situation, when a fix has been pushed to JDK N+1 when the JBS bug was targeted to JDK N, by switching N and N+1 below. Remember, to keep the record clean for the future, what maters the most is that the bug id used in the commit comment is the main bug, and that the "backports" (regardless of if they are to earlier or later releases) are Backport type issues of that main issue.
 >
 > ---
 
@@ -765,6 +781,10 @@ Examples:  If a bug fix only corrects a change in the build system, then add the
   </tr>
 </table>
 
+::: {.box}
+[To the top](#){.boxheader}
+:::
+
 # Fixing a Bug
 
 This is the list of steps which should be performed when fixing a small bug. Small bugs include typos in code or specification, algorithm improvements for correctness or performance, and code changes required to correctly implement the specification.
@@ -882,6 +902,10 @@ For the purposes of brevity this document will use the term "bug" to refer to bo
 
 _Congratulations!_ Your changeset will now make its way towards a promoted build. When the changeset becomes part of a promoted build, the bug's "Resolved in Build" will have a value of \"b\[1-9\]\[0-9\]&ast;\" to indicate the build number.
 
+::: {.box}
+[To the top](#){.boxheader}
+:::
+
 # Cloning the JDK
 
 ::: {.box}
@@ -979,6 +1003,10 @@ For security reasons you should always create new keys and use different keys wi
 
 Now you are ready to clone your [openjdk/jdk](https://github.com/openjdk/jdk) fork using SSH.
 
+::: {.box}
+[To the top](#){.boxheader}
+:::
+
 # Building the JDK
 
 ::: {.box}
@@ -1058,6 +1086,10 @@ In the example above we built a `relase` image. To build a debug image as well w
 | `dist-clean` | Removes all files, including configuration. |
 
 There are many other targets available as well. Use `make help` to find out more.
+
+::: {.box}
+[To the top](#){.boxheader}
+:::
 
 # Testing the JDK
 
@@ -1402,6 +1434,10 @@ reverse effect of earlier changeset
     merged result is left uncommitted.
 ~~~
 
+::: {.box}
+[To the top](#){.boxheader}
+:::
+
 # Backporting
 
 ::: {.box}
@@ -1427,6 +1463,17 @@ Any change that originally required a CSR will require a new CSR to be backporte
 Main issue - The top issue in a backport hierarchy. Eg. [JDK-8272373](https://bugs.openjdk.java.net/browse/JDK-8272373) is a main issue, while [JDK-8277498](https://bugs.openjdk.java.net/browse/JDK-8277498) and [JDK-8277499](https://bugs.openjdk.java.net/browse/JDK-8277499) are backport issues of this main issue.
 :::
 
+::: {style="text-align:center;"}
+~~~{.mermaid caption="Example of backport hierarchy" format=svg theme=neutral}
+graph TD
+  main(JDK-8272373)
+  backport1(JDK-8277498)
+  backport2(JDK-8277499)
+  main --> |backport| backport1
+  main --> |backport| backport2
+~~~
+:::
+
 In general there is no need to create backport issues in JBS manually. All work that is done in JBS in preparation for a backport (requesting approvals etc) is done in the main issue. The backport issue will be created automatically by the bots when you integrate the change to the source code repository.
 
 There can be cases where it's desirable to create a backport issue before the fix is done, e.g. if a CSR needs to be filed. In these cases set the fix version of the backport to `N-pool`, where `N` is the release train the backport is targeting. E.g. `17-pool`. Please note that even if a backport issue is created ahead of time, all work done in JBS is still done in the main issue.
@@ -1444,6 +1491,10 @@ If the update release is in rampdown, changes are pushed to the release reposito
 ## Using the Skara tooling to help with backports
 
 The Skara tooling includes support for backports. [The official Skara documentation](https://wiki.openjdk.java.net/display/SKARA/Backports) describes in detail how to work with the tooling to create backport PRs on GitHub or using the CLI tools. As described in the documentation, the [`/backport`](https://wiki.openjdk.java.net/display/SKARA/Commit+Commands#CommitCommands-/backport) command can be used on a commit (not a PR!) to create the backport PR. If a backport PR is manually created, set the PR title to `Backport <original commit hash>`. This ensures that the bots will recognize it as a backport as opposed to a main fix specifically targeting an older release. One can tell whether or not the bots recognized a PR as a backport by the `backport` label being added if it's recognized.
+
+::: {.box}
+[To the top](#){.boxheader}
+:::
 
 # HotSpot development
 
@@ -1478,6 +1529,10 @@ log_<level>(Tag1[,...])(fmtstr, ...)
 ~~~
 
 At the time of writing, the different log levels can be found in [src/hotspot/share/logging/log.hpp](https://github.com/openjdk/jdk/blob/master/src/hotspot/share/logging/log.hpp).
+
+::: {.box}
+[To the top](#){.boxheader}
+:::
 
 # Working With the Legacy Mercurial Servers
 
@@ -1785,6 +1840,10 @@ After the push has been accepted, an automatic e-mail notification will be sent 
 >
 > ---
 
+::: {.box}
+[To the top](#){.boxheader}
+:::
+
 # The JDK Release Process
 
 ::: {.box}
@@ -1808,7 +1867,7 @@ Integrating early in a release is preferable, but all new features can't be inte
 Throughout the release there are a number of milestones and phases that define where in the release cycle we are.
 
 [**The start of a release**]{#release-start}
-:    Since development is always ongoing in the mainline repository ([openjdk/jdk](https://github.com/openjdk/jdk)), the start of a new release can be said to be when the former release is forked from the mainline. After the start of the release follows six months of development to implement and integrate all the cool stuff that will go into the next release. After these six months ramp down begins.
+:    Since development is always ongoing in the mainline repository ([openjdk/jdk](https://github.com/openjdk/jdk)), the start of a new release can be said to be when the former release is forked from mainline. After the start of the release follows six months of development to implement and integrate all the cool stuff that will go into the next release. After these six months ramp down begins.
 
 [**Ramp Down Phase 1 (RDP1)**]{#rdp1}
 :    The ramp down of a release starts with a fork of the mainline repository. A clone of the entire code base is made and hosted in a separate ramp down repository (e.g. [openjdk/jdk17](https://github.com/openjdk/jdk17)). During the ramp down of a release we focus on bug fixing and stabilization in order to get the JDK ready for release. In RDP1 you may continue to fix P1-P3 product bugs (and some other issues) in the stabilization repo. For detailed information on what can be fixed when, see [JEP 3](https://openjdk.java.net/jeps/3). The start of RDP1 is essentially the deadline for integrating JEPs and enhancements into this particular release.
@@ -1835,19 +1894,23 @@ Please note that the priority of a bug doesn't change just because you want to g
 
 During the rampdown of a release there are two repositories in play, the stabilization fork for the outgoing release, and the mainline repository where the next release is being developed. Any bugfix going into the stabilization fork is likely to be desired in mainline as well. As a developer you should push your fix to the stabilization fork **only**, even if you intend for it to go to both repositories. Your fix will be forward ported to mainline.
 
-All fixes that are pushed to the stabilization fork are forward ported to mainline. If you have a fix that is only intended for the stabilization fork you will have to manually back it out from mainline once it has been forward ported. In order to remember to do this you should file a backout isue in JBS before pushing your change to the stabilization fork. E.g., To push JDK-xxx to the stabilization fork but not to the mainline, you need to file an issue, JDK-yyy, in JBS to back out the fix after it has been merged into the mainline. Make sure the two JBS issues (JDK-xxx and JDK-yyy) are related so that it's easy to find one from the other.
+_All_ fixes that are pushed to the stabilization fork are forward ported to mainline. If you have a fix that is only intended for the stabilization fork you will have to **manually** back it out from mainline once it has been forward ported. In order to remember to do this you should file a backout isue in JBS before pushing your change to the stabilization fork. E.g., To push JDK-xxx to the stabilization fork but not to mainline, you need to file an issue, JDK-yyy, in JBS to back out the fix after it has been merged into mainline. Make sure the two JBS issues (JDK-xxx and JDK-yyy) are related so that it's easy to find one from the other.
 
-To clarify, as soon as you know that there is a fix that needs to go into the stabilization fork but not the mainline, you should do the following:
+To clarify, as soon as you know that there is a fix that needs to go into the stabilization fork but not mainline, you should do the following:
 
 * File a bug, JDK-yyy, to cover the backout work
 * Link JDK-yyy to JDK-xxx using a "relates to" link
-* Set JDK-yyy's Fix Version to the next release
+* Set JDK-yyy's Fix Version to the release currently being developed in mainline
 * Add a comment describing the situation
 * Set the priority to be relatively high (e.g., P3)
 
-Then, you have to wait until the JDK-xxx fix is forward ported to the mainline before actually fixing JDK-yyy. Making these settings in JDK-yyy will help ensure that it won't be missed.
+Then, you have to wait until the JDK-xxx fix is forward ported to mainline before actually fixing JDK-yyy. Making these settings in JDK-yyy will help ensure that it won't be missed.
 
-There are also examples in JBS where JDK-yyy has been created as a sub-task of JDK-xxx. This works but is not recommended since JDK-yyy stands a higher risk of being missed when it's not of type *Bug* but rather a *sub-task* of an already closed issue. Also see [Backing out a change](#backing-out-a-change) for reference.
+There are also examples in JBS where JDK-yyy has been created as a sub-task of JDK-xxx. This works, but is not recommended since JDK-yyy stands a higher risk of being missed when it's not of type *Bug* but rather a *sub-task* of an already closed issue. Also see [Backing out a change](#backing-out-a-change) for reference.
+
+::: {.box}
+[To the top](#){.boxheader}
+:::
 
 # Code Owners
 
@@ -2047,6 +2110,10 @@ This list is intended to make it easier to identify which email list to include 
 * `sample` –
 * `utils` –
 
+::: {.box}
+[To the top](#){.boxheader}
+:::
+
 # About This Guide
 
 This guide is being maintained through the [OpenJDK Developers' Guide Project](https://openjdk.java.net/census#guide). The [source repository](https://github.com/openjdk/guide) is available at GitHub. The revision hash at the bottom of each page refers to the latest change that modified that particular page.
@@ -2087,3 +2154,7 @@ Comments and questions may be sent to [guide-dev (at) openjdk.java.net](mailto:g
 
 [**webrev**]{#webrev}
 :   A tool and its output. In JDK release forests, the script, [`webrev.ksh`](https://hg.openjdk.java.net/code-tools/webrev/raw-file/tip/webrev.ksh), examines a forest or repository to generate a set of web-based views of differences.
+
+::: {.box}
+[To the top](#){.boxheader}
+:::
