@@ -263,7 +263,7 @@ Here's how to fix that:
 
 > ---
 >
-> In this example a fix was pushed to JDK N (a.k.a. the current release) while the JBS bug was targeted to JDK N+1 (a.k.a. a future release). The same procedure can be used in the opposite situation, when a fix has been pushed to JDK N+1 when the JBS bug was targeted to JDK N, by switching N and N+1 below. Remember, to keep the record clean for the future, what maters the most is that the bug id used in the commit comment is the main bug, and that the "backports" (regardless of if they are to earlier or later releases) are Backport type issues of that main issue.
+> In this example a fix was pushed to JDK N (a.k.a. the current release) while the JBS bug was targeted to JDK N+1 (a.k.a. a future release). The same procedure can be used in the opposite situation, when a fix has been pushed to JDK N+1 when the JBS bug was targeted to JDK N, by switching N and N+1 below. Remember, to keep the record clean for the future, what matters the most is that the bug id used in the commit comment is the main bug, and that the "backports" (regardless of if they are to earlier or later releases) are Backport type issues of that main issue.
 >
 > ---
 
