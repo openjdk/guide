@@ -1350,22 +1350,22 @@ The backout is a regular change and will have to go through the standard code re
 
 ### How to work with JBS when a change is backed out
 
-#. Close the original JBS issue **(O)**.
+#. Close the original (failed) JBS issue **(O)**.
    * "Verify" the issue and choose "Fix Failed".
 #. If the intention is to fix the change and submit it again, create a redo-issue **(R)** to track that the work still needs to be done.
    * Clone **(O)** and add the prefix `[REDO]` on the summary - the clone becomes the redo-issue **(R)**.
    * Make sure relevant information is brought to **(R)**.
-   * Remember that comments aren't brought over when cloning.
+   * Remember that comments aren't automatically brought over when cloning.
 #. Create a backout-issue **(B)**:
    * Alternative 1 - the regression is identified directly.
-     * Create a sub-task to **(R)** with the same summary, prefix with `[BACKOUT]`.
-   * Alternative 2 - an investigation issue is created **(I)**, and during the investigation backing out the change is identified as the best solution.
+     * Create a sub-task to **(R)** with the same summary prefixed with `[BACKOUT]`.
+   * Alternative 2 - an investigation issue was created **(I)**, and during the investigation backing out the change is identified as the best solution.
      * Use the investigation issue **(I)** for the backout.
      * Change summary of **(I)** to the same as **(O)** and prefix with `[BACKOUT]`.
      * Move and change type of **(I)** to become a sub-task of **(R)**.
    * Alternative 3 - no redo issue was created.
      * Create a backout-issue **(B)** with the same summary as **(O)**, prefix with `[BACKOUT]`.
-     * Link **(B)** and **(O)**.
+     * Add a _relates to_ link between **(B)** and **(O)**.
 
 ProblemList entries and `@ignore` keywords will continue to point to the original bug (unless updated at back out). This is accepted since there is a clone link to follow.
 
@@ -1433,6 +1433,57 @@ reverse effect of earlier changeset
     committed automatically. Otherwise, hg needs to merge the changes and the
     merged result is left uncommitted.
 ~~~
+
+## Backing out a backport
+
+In rare cases it may be necessary to back out a backport from an update release without backing out the original fix in mainline. This will require a somewhat different procedure and will result in a small mess in JBS. It's extremely important to add comments in all relevant issues explaining exactly what's happened.
+
+The steps to take in order to do this are described below. **(M)** used below refers to the main bug entry - the first fix that was later backported.
+
+#. Close the original (failed) JBS backport issue **(O)**.
+   * "Verify" the issue and choose "Fix Failed".
+#. If the intention is to fix the backport and submit it again, create a redo-issue **(R)** to track that the work still needs to be done.
+   * Clone **(M)** and add the prefix `[REDO BACKPORT]` on the summary - the clone becomes the redo-issue **(R)**.
+   * Add a _relates to_ link between **(R)** and **(O)**.
+   * Set Fix Version of **(R)** to the target release for the backport - either the exact release if known, or `<N>-pool` if it's not critical which release the fixed backport goes into.
+#. Create a backout-issue **(B)**:
+   * Alternative 1 - the broken backport is identified directly.
+     * Create a sub-task to **(R)** with the same summary, but prefixed with `[BACKOUT BACKPORT]`.
+   * Alternative 2 - an investigation issue was created **(I)**, and during the investigation backing out the backport is identified as the best solution.
+     * Use the investigation issue **(I)** for the backout.
+     * Change summary of **(I)** to the same as **(M)** and prefix with `[BACKOUT BACKPORT]`.
+     * Move and change type of **(I)** to become a sub-task of **(R)**.
+   * Alternative 3 - no redo issue was created.
+     * Create a backout-issue **(B)** with the same summary as **(M)** and prefix with `[BACKOUT BACKPORT]`.
+     * Add a _relates to_ link between **(B)** and **(M)**.
+#. Add comments to **(M)**, **(R)** and **(O)** explaining the situation.
+
+The end result in JBS should look like this:
+
+::: {style="text-align:center;"}
+~~~{.mermaid caption="JBS structure after backout and redo of a backport" format=svg theme=neutral}
+flowchart TD
+  main("Main issue <b>(M)</b><br>JDK-8272373: Example JBS Issue<br>Issue type: Bug<br>Fix version: 18")
+  backport("Initial backport <b>(O)</b><br>JDK-8280986: Example JBS Issue<br>Issue type: Backport<br>Fix version: 15.0.2<br>Verification: Fix failed")
+  backout("Backout of JDK-8280986 <b>(B)</b><br>JDK-8280996: [BACKOUT BACKPORT] Example JBS Issue<br>Issue type: Sub-task<br>Fix version: 15.0.2")
+  redo("Redo of backport <b>(R)</b><br>JDK-8280989: [REDO BACKPORT] Example JBS Issue<br>Issue type: Bug<br>Fix version: 15.0.2")
+  main --> |backported by| backport
+  redo --> |clones| main
+  backport <--> |relates to| redo
+  redo --> |sub-task| backout
+~~~
+:::
+
+For this example in JBS see the 15.0.2 backport of [JDK-8272373](https://bugs.openjdk.java.net/browse/JDK-8272373).
+
+### Rationale for using this model
+
+The approach described here has both advantages and disadvantages. The key invariants that lead to this model are:
+
+* A _backported by_ link should only refer to issues of type Backport
+* A bug id should never be reused for different patches in the same repository
+
+Disadvantages of this model are that the list of backports in JBS will still list the old (failed) backport as the 15.0.2 backport, and the new backport will not be linked to using a _backported by_ link. It is assumed that the advantages above outweigths the disadvantages and that the capital letter prefixes for the backout and the redo will be visible enough in JBS to alert that something fishy is going on.
 
 ::: {.box}
 [To the top](#){.boxheader}
