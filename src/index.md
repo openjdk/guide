@@ -687,7 +687,7 @@ Examples:  If a bug fix only corrects a change in the build system, then add the
       [~~**`release-note=done`**~~]{#release-note-done}
     </td>
     <td class="dictionary">
-      Used to indicate wether a change requires a release note or not. The labels are always placed on the main JBS issue, never on the actual release note issue. See [Release Notes](#release-notes).
+      Used to indicate whether a change requires a release note or not. The labels are always placed on the main JBS issue, never on the actual release note issue. See [Release Notes](#release-notes).
 
       **`release-note=done`** is deprecated and should no longer be used.
     </td>
@@ -1537,21 +1537,23 @@ The Skara tooling includes support for backports. [The official Skara documentat
 * [release-note label description](#release-note)
 :::
 
-Release notes for a product (e.g. the JDK) are published together with a release of the given product. Release notes describe changes that are important for a user of the product to know about. This is usually things that may affect the user's choice to upgrade to the specific version.
+Release notes for a product (e.g. the JDK) are part of the release deliverables. They describe changes that are important for a user of the product to know about. This is usually things that may affect the user's decision to upgrade to the specific version.
 
-When you write a release note for your feature, be prepared for rather picky review comments about grammar, typos, and wording. This is for the sake of the Java community as a whole, as the language of the release note sets the tone for many blogs and news articles. For a widely used product like the JDK, the release notes are often copied (word by word, including typos) and published to highlight news in the release. This means that we need to take extra care to make sure the text in the release note is correct and has a professional language.
+When writing a release note for your feature, be prepared for rather picky review comments about grammar, typos, and wording. This is for the sake of the Java community as a whole, as the language of the release note sets the tone for many blogs and news articles. For a widely used product like the JDK, the release notes are often copied (word by word, including typos) and published to highlight news in the release. This means that we need to take extra care to make sure the text in the release note is correct and has a professional language.
 
 The release note itself is written in a JBS sub-task to the issue that is used to push the change. There are a few steps to follow in order for the release note to find its way from JBS to the actual release note document.
 
-#. Add the label `release-note=yes` on the main JBS issue you want a release note for. That is, the JBS issue that is used to push the change, **not** the CSR (if there is one).
-#. Create a sub-task of the same JBS issue that you want a release note for (not of the CSR).
-   * Prefix the name of the sub-task with "Release Note:".
-   * The title of the release note sub-task should be a one sentence synopsis that is informative (and concise) enough to attract the attention of users, developers, and maintainers who might be impacted by the change.
-   * Add the `release-note` label to the sub-task.
-   * Add the proper `RN-`label (see below) to the release note sub-task.
-   * Assign the sub-task to the person who should write the release note.
-   * Set the Fix Version of the sub-task to the same value that the main issue has.
-   * Enter the text of the release note in the **Description** field. Some markdown formatting is available (even though it's not rendered in JBS).
+#. Do these steps for the main issue, that is, the JBS issue that is used to push the original change, **not** on backports or the CSR (if there is one).
+   * Add the label `release-note=yes`.
+   * Create a sub-task.
+#. For the newly created sub-task do these steps:
+   * The **Summary** should be a one sentence synopsis that is informative (and concise) enough to attract the attention of users, developers, and maintainers who might be impacted by the change. The **Summary** should succinctly describe what has actually changed, not be the original bug title, nor describe the problem that was being solved. It should read well as a sub-section heading in a document.
+   * Prefix the **Summary** with "Release Note:".
+   * Add the `release-note` label.
+   * Add the proper `RN-`label (see below).
+   * Add an **Assignee**.
+   * Set the **Fix Version** to the same value that the main issue has.
+   * Enter the text of the release note in the **Description** field using markdown formatting (even though it won't be rendered in JBS).
 #. Ask your Reviewers to have a look at the release note.
 #. When you are done, Resolve the release note sub-task as "Delivered".
 
