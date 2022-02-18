@@ -677,33 +677,7 @@ Examples:  If a bug fix only corrects a change in the build system, then add the
       [**`release-note`**]{#release-note}
     </td>
     <td class="dictionary">
-      Used to indicate that the issue is a release note. The release-note issue is a sub-task to the main JBS issue containing the text to be used in the release note. The release note must also have one of the following labels:
-
-[**`RN-NewFeature`**]{#RN-NewFeature}
-:   New Feature or enhancement.
-
-[**`RN-IssueFixed`**]{#RN-IssueFixed}
-:   A significant issue which has been fixed, would normally be a regression or an issue which unknowingly released in a new feature.
-
-[**`RN-KnownIssue`**]{#RN-KnownIssue}
-:   An issue that wasn't possible to fix by the time the release was GA'd.
-
-[**`RN-Removed`**]{#RN-Removed}
-:   Covers an API, feature, tool etc. which has been removed from the JDK.
-
-[**`RN-Deprecated`**]{#RN-Deprecated}
-:   Covers an API that has been marked as deprecated in the release.
-
-[**`RN-Important`**]{#RN-Important}
-:   Used to indicate that the release note should be highlighted in some fashion, such as listing it at the beginning of the release notes.
-
-[**`RN-`(distro)**]{#RN-distro}
-:   Used to indicate that the release note is only relevant for a specific JDK distribution. E.g. RN-Oracle
-
-[~~**`RN-Change`**~~]{#RN-Change}
-:   Deprecated.
-
-<!-- Comment needed due to bug in Pandoc. -->
+      Used to indicate that the issue is a release note. See [Release Notes](#release-notes).
     </td>
   </tr>
   <tr>
@@ -713,9 +687,17 @@ Examples:  If a bug fix only corrects a change in the build system, then add the
       [~~**`release-note=done`**~~]{#release-note-done}
     </td>
     <td class="dictionary">
-      Used to indicate wether a change requires a release note or not. The labels are always placed on the main JBS issue, never on the actual release note issue.
+      Used to indicate wether a change requires a release note or not. The labels are always placed on the main JBS issue, never on the actual release note issue. See [Release Notes](#release-notes).
 
       **`release-note=done`** is deprecated and should no longer be used.
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [**`RN-`**`.*`]{#rn}
+    </td>
+    <td class="dictionary">
+      Used to indicate what kind of change the release note is for. See [Release Notes](#release-notes).
     </td>
   </tr>
   <tr>
@@ -1547,7 +1529,63 @@ The Skara tooling includes support for backports. [The official Skara documentat
 [To the top](#){.boxheader}
 :::
 
-# HotSpot development
+# Release Notes
+
+::: {.box}
+[Quick Links]{.boxheader}
+
+* [release-note label description](#release-note)
+:::
+
+Release notes for a product (e.g. the JDK) are published together with a release of the given product. Release notes describe changes that are important for a user of the product to know about. This is usually things that may affect the user's choice to upgrade to the specific version.
+
+When you write a release note for your feature, be prepared for rather picky review comments about grammar, typos, and wording. This is for the sake of the Java community as a whole, as the language of the release note sets the tone for many blogs and news articles. For a widely used product like the JDK, the release notes are often copied (word by word, including typos) and published to highlight news in the release. This means that we need to take extra care to make sure the text in the release note is correct and has a professional language.
+
+The release note itself is written in a JBS sub-task to the issue that is used to push the change. There are a few steps to follow in order for the release note to find its way from JBS to the actual release note document.
+
+#. Add the label `release-note=yes` on the main JBS issue you want a release note for. That is, the JBS issue that is used to push the change, **not** the CSR (if there is one).
+#. Create a sub-task of the same JBS issue that you want a release note for (not of the CSR).
+   * Prefix the name of the sub-task with "Release Note:".
+   * The title of the release note sub-task should be a one sentence synopsis that is informative (and concise) enough to attract the attention of users, developers, and maintainers who might be impacted by the change.
+   * Add the `release-note` label to the sub-task.
+   * Add the proper `RN-`label (see below) to the release note sub-task.
+   * Assign the sub-task to the person who should write the release note.
+   * Set the Fix Version of the sub-task to the same value that the main issue has.
+   * Enter the text of the release note in the **Description** field. Some markdown formatting is available (even though it's not rendered in JBS).
+#. Ask your Reviewers to have a look at the release note.
+#. When you are done, Resolve the release note sub-task as "Delivered".
+
+## RN-labels
+
+The RN-label is used to indicate what kind of change the release note is for. All release note sub-tasks must have at least one of these labels.
+
+[**`RN-NewFeature`**]{#RN-NewFeature}
+:   New Feature or enhancement.
+
+[**`RN-IssueFixed`**]{#RN-IssueFixed}
+:   A significant issue which has been fixed, would normally be a regression or an issue which unknowingly released in a new feature.
+
+[**`RN-KnownIssue`**]{#RN-KnownIssue}
+:   An issue that wasn't possible to fix by the time the release was GA'd.
+
+[**`RN-Removed`**]{#RN-Removed}
+:   Covers an API, feature, tool etc. which has been removed from the JDK.
+
+[**`RN-Deprecated`**]{#RN-Deprecated}
+:   Covers an API that has been marked as deprecated in the release.
+
+[**`RN-Important`**]{#RN-Important}
+:   Used to indicate that the release note should be highlighted in some fashion, such as listing it at the beginning of the release notes.
+
+[**`RN-`(distro)**]{#RN-distro}
+:   Used to indicate that the release note is only relevant for a specific JDK distribution. E.g. RN-Oracle
+
+[~~**`RN-Change`**~~]{#RN-Change}
+:   Deprecated.
+
+Also see [release-note](#release-note).
+
+# HotSpot Development
 
 ## Logging
 
