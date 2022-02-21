@@ -1558,6 +1558,8 @@ The release note itself is written in a JBS sub-task to the issue that is used t
 #. Ask your Reviewers to have a look at the release note.
 #. When you are done, Resolve the release note sub-task as "Delivered".
 
+For an example of a well written release note issue in JBS, see [JDK-8276929](https://bugs.openjdk.java.net/browse/JDK-8276929).
+
 ## RN-labels
 
 The RN-label is used to indicate what kind of change the release note is for. All release note sub-tasks must have at least one of these labels.
@@ -1585,8 +1587,6 @@ The RN-label is used to indicate what kind of change the release note is for. Al
 
 [~~**`RN-Change`**~~]{#RN-Change}
 :   Deprecated.
-
-For examples of JDK release notes, see [JDK Release Notes](https://www.oracle.com/java/technologies/javase/jdk-relnotes-index.html).
 
 # HotSpot Development
 
