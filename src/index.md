@@ -1534,14 +1534,15 @@ The Skara tooling includes support for backports. [The official Skara documentat
 ::: {.box}
 [Quick Links]{.boxheader}
 
+* [JDK Release Notes](https://www.oracle.com/java/technologies/javase/jdk-relnotes-index.html)
 * [release-note label description](#release-note)
 :::
 
-Release notes for a product (e.g. the JDK) are part of the release deliverables. They describe changes that are important for a user of the product to know about. This is usually things that may affect the user's decision to upgrade to the specific version.
+Release notes for a product (e.g. the JDK) are part of the release deliverables. They describe changes that are important for a user of the product to know. These are usually things that may affect the user's decision to upgrade to the specific version.
 
-When writing a release note for your feature, be prepared for rather picky review comments about grammar, typos, and wording. This is for the sake of the Java community as a whole, as the language of the release note sets the tone for many blogs and news articles. For a widely used product like the JDK, the release notes are often copied (word by word, including typos) and published to highlight news in the release. This means that we need to take extra care to make sure the text in the release note is correct and has a professional language.
+When writing a release note for your feature, be prepared for rather picky review comments about grammar, typos, and wording. This is for the sake of the Java community as a whole, as the language of the release note sets the tone for many blogs and news articles. For a widely used product like the JDK, the release notes are often copied verbatim (including typos) and published to highlight news in the release. This means that we need to take extra care to make sure the text in the release note is correct and has a professional language.
 
-The release note itself is written in a JBS sub-task to the issue that is used to push the change. There are a few steps to follow in order for the release note to find its way from JBS to the actual release note document.
+The release note itself is written in a JBS sub-task to the issue that is used to push the change. There are a few steps to follow for the release note to find its way from JBS to the actual release note document.
 
 #. Do these steps for the main issue, that is, the JBS issue that is used to push the original change, **not** on backports or the CSR (if there is one).
    * Add the label `release-note=yes`.
@@ -1585,7 +1586,7 @@ The RN-label is used to indicate what kind of change the release note is for. Al
 [~~**`RN-Change`**~~]{#RN-Change}
 :   Deprecated.
 
-Also see [release-note](#release-note).
+For examples of JDK release notes, see [JDK Release Notes](https://www.oracle.com/java/technologies/javase/jdk-relnotes-index.html).
 
 # HotSpot Development
 
