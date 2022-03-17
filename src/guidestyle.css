@@ -48,6 +48,19 @@ pre > code {
     color: #437291;
 }
 
+/* JBS field names */
+.jbs {
+    font-weight: bold;
+    color: #333;
+}
+
+/* JBS labels */
+.label {
+    font-family: monospace;
+    font-weight: bold;
+    color: #060
+}
+
 table {
     border-spacing: 0px;
 }
