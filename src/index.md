@@ -272,7 +272,7 @@ Here's how to fix that:
 ~~~
 Fix was pushed while main bug was targeted to 'N+1'. Reset the main bug to fixed in 'N', reset this bug to fix in 'N+1' and closed as 'Not An Issue' since JDK N+1 will automatically get this fix from JDK N.
 ~~~
-   * Change the 'Fix Version/s' from 'N' to 'N+1'.
+   * Change the 'Fix Version/s' from 'N' to 'na'.
    * Close the _backport_ bug as "Not an Issue".
 #. Clean up the _main_ bug
    * Copy the push notification comment from the _backport_ bug to the _main_ bug, e.g.:
