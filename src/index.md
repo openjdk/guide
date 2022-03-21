@@ -1542,7 +1542,7 @@ The Skara tooling includes support for backports. [The official Skara documentat
 
 Release notes for a product such as the JDK are part of the release deliverables providing a way to highlight information about a fix, such as when it may have changed behavior, or when it's decided not to fix something. While what should go into a release note isn't something that can be precisely defined, it should describe changes that are important for a user to take into account when they are upgrading to the specific version. While release notes should not duplicate information in other documents, they can serve to highlight that a change has been made.
 
-Release notes are associated with a JBS issue that has been fixed (or in some cases not been fixed) in a release. In the past these notes have been added as comments to the issue and collected at the end of a release into the official release notes. In order to allow the release notes to be generated during the course of the release (for each build) the model is now that the content of a release note is provided in a sub-task linked with the appropriate JBS issue. In OpenJDK, release notes are currently being generated for the JDK and JDK Updates projects.
+Release notes are associated with a JBS issue that has been fixed (or in some cases not been fixed) in a release and are generated with each build of a release. Any note should be considered as an integral part of the fix process, rather than waiting until the end of the release to determine what to write. In OpenJDK, release notes are currently being generated for the JDK and JDK Updates projects.
 
 ## Writing a release note
 
