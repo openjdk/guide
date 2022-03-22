@@ -1550,17 +1550,17 @@ Writing the release note is the responsibility of the engineer who owns the issu
 
 When writing a release note, be prepared for rather picky review comments about grammar, typos, and wording. This is for the sake of the Java community as a whole, as the language of the release note sets the tone for many blogs and news articles. For a widely used product like the JDK, the release notes are often copied verbatim (including typos) and published to highlight news in the release. This means that we need to take extra care to make sure the text in the release note is correct and follows a similar style.
 
-The release note itself is written in a [JBS](#jbs---jdk-bug-system) sub-task to the issue that is used to push the change. There are a few steps to follow for the release note to find its way from JBS to the actual release note document.
+The release note itself is written in a [JBS](#jbs---jdk-bug-system) sub-task of the issue that is used to push the change. There are a few steps to follow for the release note to find its way from JBS to the actual release note document.
 
 #. Create a sub-task (More &rightarrow; Create Sub-Task) for the issue that requires a release note - the main issue, that is, the JBS issue that is used to push the original change, **not** for backports or the CSR (if there is one).
-#. For the newly created sub-task follow these steps:
+#. For the newly created sub-task, follow these steps:
    * The [Summary]{.jbs} should be a one sentence synopsis that is informative (and concise) enough to attract the attention of users, developers, and maintainers who might be impacted by the change. It should succinctly describe what has actually changed, not be the original bug title, nor describe the problem that was being solved. It should read well as a sub-section heading in a document.
    * Prefix the [Summary]{.jbs} with "Release Note:".
    * Add the [release-note]{.label} label. This is required for the release note to be included in the release notes.
    * Add the proper [RN-]{.label}label if applicable to indicate what section of the release notes it should be included in (see [RN-labels](#rn-labels) below).
    * Set the [Assignee]{.jbs} to the same person who owns the main issue.
    * Set [Affects Version]{.jbs} to the release versions for which the release note should be published.
-   * Set the [Fix Version]{.jbs} to the same value that the main issue - in almost all cases this will be the version of the mainline.
+   * Set the [Fix Version]{.jbs} to the same value that the main issue - in almost all cases this will be the version of mainline.
    * Enter the text of the release note in the [Description]{.jbs} field using markdown formatting, following the [CommonMark specification](https://spec.commonmark.org/current/). While the markdown won't be rendered in JBS, you can use [dingus](https://spec.commonmark.org/dingus/) to see what the release note will look like. Note that [Github stlye ascii table formatting](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables) is supported but will not display correctly in the dingus page. For more information see [General Conventions for Release Notes](#general-conventions-for-release-notes) below.
    * While the [Priority]{.jbs} of the sub-task is set by default to be the same as the priority of the issue itself, it can be changed to adjust in what order the release note is listed compared to other release notes in the same build or release note section.
 #. Have the release note ready to be reviewed at the same time as the code is reviewed. If it's later determined that a release note is necessary, then go back to the same engineers who reviewed the fix to review the release note.  Special care should be taken when writing a release note that will cover changes related to a vulnerability fix in order to avoid describing technical details of how it could have been exploited.
@@ -1601,7 +1601,7 @@ The following are general practices that should be followed when creating releas
 
 ## RN-labels
 
-Unless tagged otherwise it will be assumed that the release note documents a change in behavior (will have likely required a CSR) or other item which should be included in the release notes. If the note covers a more specific type of change, then one of the following labels can be included (notes of a similar type will be listed together).
+Unless labeled otherwise it will be assumed that the release note documents a change in behavior (will have likely required a CSR) or other item which should be included in the release notes. If the note covers a more specific type of change, then one of the following labels can be included (notes of a similar type will be listed together).
 
 [[RN-NewFeature]{.label}]{#RN-NewFeature}
 :   A New Feature or enhancement in the release.
