@@ -1546,7 +1546,7 @@ Release notes are associated with a JBS issue that has been fixed (or in some ca
 
 ## Writing a release note
 
-Writing the release note is the responsibility of the engineer who owns the issue. The note should be generated before the fix is reviewed, or when it's determined that a fix won't be addressed in the release it was found - in the case of known issues.
+Writing the release note is the responsibility of the engineer who owns the issue. The note should be generated before the fix is reviewed, or in the case of known issues, when it's determined that a fix won't be possible in the release the issue was found in.
 
 When writing a release note, be prepared for rather picky review comments about grammar, typos, and wording. This is for the sake of the Java community as a whole, as the language of the release note sets the tone for many blogs and news articles. For a widely used product like the JDK, the release notes are often copied verbatim (including typos) and published to highlight news in the release. This means that we need to take extra care to make sure the text in the release note is correct and has a professional language.
 
