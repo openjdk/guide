@@ -49,13 +49,13 @@ pre > code {
 }
 
 /* JBS field names */
-.jbs {
+.jbs-field {
     font-weight: bold;
     color: #333;
 }
 
 /* JBS labels */
-.label {
+.jbs-label {
     font-family: monospace;
     font-weight: bold;
     color: #060
