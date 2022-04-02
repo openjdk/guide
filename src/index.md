@@ -230,18 +230,18 @@ A few things to keep in mind when filing a new bug:
 
 * Before filing a bug, verify that there isn't already a bug filed for this issue.
   * Search [JBS](https://bugs.openjdk.java.net/) for things like the name of the failing test, assert messages, the name of the source code file where a crash occurred etc.
-* If you suspect that the bug is a vulnerability, don't file a JBS issue. Instead send your bug report to [vuln-report@openjdk.java.net](mailto:vuln-report@openjdk.java.net).
+* If you suspect that the bug is a vulnerability, **don't file a JBS issue**. Instead send your bug report to [vuln-report@openjdk.java.net](mailto:vuln-report@openjdk.java.net).
   * Please do *not* report or discuss potential vulnerabilities on any open lists or other public channels.
   * See [OpenJDK Vulnerabilities](https://openjdk.java.net/groups/vulnerability/report) for more information.
 * Make a reasonable attempt to narrow down which build or release the failure first appeared in.
-* Add relevant labels like [`intermittent`](#intermittent), [`regression`](#regression), [`noreg-self`](#noreg-self), [`tier1`](#tier) etc.
+* Add relevant [Labels]{.jbs-field} like [[intermittent]{.jbs-label}](#intermittent), [[regression]{.jbs-label}](#regression), [[noreg-self]{.jbs-label}](#noreg-self), [[tier1]{.jbs-label}](#tier) etc.
   * To find relevant labels see the [JBS Label Dictionary](#jbs-label-dictionary)
-* Set affects version to the JDK version(s) where the failure was seen.
+* Set [Affects Version/s]{.jbs-field} to the JDK version(s) where the failure was seen.
   * If the failure is found in an update train of the JDK (e.g. 11.0.x), please make an effort to see if the bug is also present in [mainline](https://hg.openjdk.java.net/jdk/jdk/).
 * Set priority
   * It's not the reporter's responsibility to set a correct priority, but a qualified guess is always better than a default value.
   * To help with setting the right priority consider things like how the bug impacts the product and our testing, how likely is it that the bug triggers, how difficult is it to work around the bug if it's not fixed soon, and whether it's a regression, since that may break existing applications. Regressions are often higher priority than long standing bugs and may block a release if not fixed.
-* In the description, always include (if possible):
+* In the [Description]{.jbs-field}, always include (if possible):
   * full name of the failing tests
   * error messages
   * assert messages
@@ -249,7 +249,7 @@ A few things to keep in mind when filing a new bug:
   * command line information
   * relevant information from the logs
 * If the failure isn't reproducible with an existing OpenJDK test, attach a reproducer if possible.
-* Only set CPU and/or OS fields if the bug **ONLY** happens on that particular platform.
+* Only set [CPU]{.jbs-field} and/or [OS]{.jbs-field} fields if the bug **ONLY** happens on that particular platform.
 * Always file separate bugs for different issues.
   * If two crashes looks related but not similar enough to for sure be the same, it's easier to close a bug as a duplicate than it is to extract the relevant info from a bug to create a new one later.
 
@@ -263,16 +263,16 @@ Here's how to fix that:
 
 > ---
 >
-> In this example a fix was pushed to JDK N (a.k.a. the current release) while the JBS bug was targeted to JDK N+1 (a.k.a. a future release). The same procedure can be used in the opposite situation, when a fix has been pushed to JDK N+1 when the JBS bug was targeted to JDK N, by switching N and N+1 below. Remember, to keep the record clean for the future, what matters the most is that the bug id used in the commit comment is the main bug, and that the "backports" (regardless of if they are to earlier or later releases) are Backport type issues of that main issue.
+> In this example a fix was pushed to JDK N (a.k.a. the current release) while the JBS bug was targeted to JDK N+1 (a.k.a. a future release). The same procedure can be used in the opposite situation, when a fix has been pushed to JDK N+1 when the JBS bug was targeted to JDK N, by switching N and N+1 below. Remember, to keep the record clean for the future, what matters the most is that the bug id used in the commit comment is the main bug, and that the "backports" (regardless of if they are to earlier or later releases) are Backport type issues of that main issue. Also make sure there are never more than one Backport issue targeted to any given release.
 >
 > ---
 
 #. Reopen the _backport_ bug that was created automatically
    * Use a comment like the following (in the reopen dialog):
 ~~~
-Fix was pushed while main bug was targeted to 'N+1'. Reset the main bug to fixed in 'N', reset this bug to fix in 'N+1' and closed as 'Not An Issue' since JDK N+1 will automatically get this fix from JDK N.
+Fix was pushed while main bug was targeted to 'N+1'. Reset the main bug to fixed in 'N', reset this bug to fix in 'na' and closed as 'Not An Issue' since JDK N+1 will automatically get this fix from JDK N later.
 ~~~
-   * Change the 'Fix Version/s' from 'N' to 'na'.
+   * Change the [Fix Version/s]{.jbs-field} from 'N' to 'na'.
    * Close the _backport_ bug as "Not an Issue".
 #. Clean up the _main_ bug
    * Copy the push notification comment from the _backport_ bug to the _main_ bug, e.g.:
@@ -286,7 +286,7 @@ URL: https://git.openjdk.java.net/jdk/commit/12345678
 ~~~
 Fix was pushed while main bug was targeted to 'N+1'. Reset the main bug to fixed in 'N' and copied the Robo Duke entry here.
 ~~~
-   * Reset the _main_ bug 'Fix Version/s' from 'N+1' to 'N'.
+   * Reset the _main_ bug [Fix Version/s]{.jbs-field} from 'N+1' to 'N'.
    * Resolve the _main_ bug as "Fixed" in build "team" or in build "master" depending on where the fix was pushed - or to an actual build number if the change has already made it to a promoted build (look in the _backport_ bug if you are unsure). Pushes to 'openjdk/jdk' are fixed in build "master" and pushes to project repositories are fixed in build "team".
 
 ## Resolved - Incomplete
@@ -310,53 +310,53 @@ Labels are an open namespace, which means that anyone can create new labels at a
   <tr style="text-align:left;"><th>Label</th><th>Description</th></tr>
   <tr>
     <td class="dictionary">
-      [*(Area)***`-interest`**]{#area-interest}
+      [*(Area)*[-interest]{.jbs-label}]{#area-interest}
     </td>
     <td class="dictionary">
-      Used to indicate that an area (usually a team or project) is interested in the issue. This label doesn't indicate ownership of the issue. E.g., **`redhat-interest`**, **`azul-interest`**, **`coin-interest`**
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [*(Area)***`-related`**]{#area-related}
-    </td>
-    <td class="dictionary">
-      Used to indicate that an issue is related to a specific area (usually a feature or project). This label doesn't indicate ownership of the issue. E.g., **`graal-related`**, **`testcolo-related`**, **`doc-related`**
+      Used to indicate that an area (usually a team or project) is interested in the issue. This label doesn't indicate ownership of the issue. E.g., [redhat-interest]{.jbs-label}, [azul-interest]{.jbs-label}, [coin-interest]{.jbs-label}
     </td>
   </tr>
   <tr>
     <td class="dictionary">
-      [*(Rel)***`-bp`**]{#rel-bp}
+      [*(Area)*[-related]{.jbs-label}]{#area-related}
     </td>
     <td class="dictionary">
-      Used to indicate that a bug would be suitable for backport to a release *(Rel)*. This isn't a decision to backport, just a suggestion / recommendation. E.g., **`11-bp`**
+      Used to indicate that an issue is related to a specific area (usually a feature or project). This label doesn't indicate ownership of the issue. E.g., [graal-related]{.jbs-label}, [testcolo-related]{.jbs-label}, [doc-related]{.jbs-label}
     </td>
   </tr>
   <tr>
     <td class="dictionary">
-      [*(Rel)***`-critical-request`**]{#rel-critical-request}<br />
-      [*(Rel)***`-critical-approved`**]{#rel-critical-approved}<br />
-      [*(Rel)***`-critical-watch`**]{#rel-critical-watch}
+      [*(Rel)*[-bp]{.jbs-label}]{#rel-bp}
     </td>
     <td class="dictionary">
-      Used in the rampdown phases of specific releases to request approval of changes that requires project lead approval (or similar) to be included. *(Rel)* is the release in question. E.g., **`jdk11-critical-request`**
+      Used to indicate that a bug would be suitable for backport to a release *(Rel)*. This isn't a decision to backport, just a suggestion / recommendation. E.g., [11-bp]{.jbs-label}
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [*(Rel)*[-critical-request]{.jbs-label}]{#rel-critical-request}<br />
+      [*(Rel)*[-critical-approved]{.jbs-label}]{#rel-critical-approved}<br />
+      [*(Rel)*[-critical-watch]{.jbs-label}]{#rel-critical-watch}
+    </td>
+    <td class="dictionary">
+      Used in the rampdown phases of specific releases to request approval of changes that requires project lead approval (or similar) to be included. *(Rel)* is the release in question. E.g., [jdk11-critical-request]{.jbs-label}
 
-      *(Rel)***`-critical-approved`** is used to signal that the change has been approved for inclusion. E.g., **`jdk11-critical-approved`**<br />
-      *(Rel)***`-critical-watch`** is used for issues that must get into a specific release but risk running late. The label is used while the issue is still in progress and is replaced with *(Rel)***`-critical-request`** once the issue is resolved. E.g., **`jdk11-critical-watch`**
+      *(Rel)*[-critical-approved]{.jbs-label} is used to signal that the change has been approved for inclusion. E.g., [jdk11-critical-approved]{.jbs-label}<br />
+      *(Rel)*[-critical-watch]{.jbs-label} is used for issues that must get into a specific release but risk running late. The label is used while the issue is still in progress and is replaced with *(Rel)*[-critical-request]{.jbs-label} once the issue is resolved. E.g., [jdk11-critical-watch]{.jbs-label}
 
       These labels are always placed on the main JBS issue (the bug), never on backports or subtasks.
     </td>
   </tr>
   <tr>
     <td class="dictionary">
-      [*(Rel)***`-defer-request`**]{#rel-defer-request}<br />
-      [*(Rel)***`-defer-yes`**]{#rel-defer-yes}<br />
-      [*(Rel)***`-defer-no`**]{#rel-defer-no}
+      [*(Rel)*[-defer-request]{.jbs-label}]{#rel-defer-request}<br />
+      [*(Rel)*[-defer-yes]{.jbs-label}]{#rel-defer-yes}<br />
+      [*(Rel)*[-defer-no]{.jbs-label}]{#rel-defer-no}
     </td>
     <td class="dictionary">
-      Used to request deferral of changes that requires project lead approval (or similar) to defer. *(Rel)* is the release in question. E.g., **`jdk12-defer-request`**
+      Used to request deferral of changes that requires project lead approval (or similar) to defer. *(Rel)* is the release in question. E.g., [jdk12-defer-request]{.jbs-label}
 
-      *(Rel)***`-defer-yes`** and *(Rel)***`-defer-no`** are used to indicate wether the deferral has been approved or not. E.g., **`jdk12-defer-yes`**
+      *(Rel)*[-defer-yes]{.jbs-label} and *(Rel)*[-defer-no]{.jbs-label} are used to indicate wether the deferral has been approved or not. E.g., [jdk12-defer-yes]{.jbs-label}
 
       These labels are always placed on the main JBS issue (the bug), never on backports or subtasks.
       Further details are found in the [JDK Release Process](https://openjdk.java.net/jeps/3#Bug-Deferral-Process).
@@ -364,14 +364,14 @@ Labels are an open namespace, which means that anyone can create new labels at a
   </tr>
   <tr>
     <td class="dictionary">
-      [*(Rel)***`-enhancement-request`**]{#rel-enhancement-request}<br />
-      [*(Rel)***`-enhancement-yes`**]{#rel-enhancement-yes}<br />
-      [*(Rel)***`-enhancement-no`**]{#rel-enhancement-no}
+      [*(Rel)*[-enhancement-request]{.jbs-label}]{#rel-enhancement-request}<br />
+      [*(Rel)*[-enhancement-yes]{.jbs-label}]{#rel-enhancement-yes}<br />
+      [*(Rel)*[-enhancement-no]{.jbs-label}]{#rel-enhancement-no}
     </td>
     <td class="dictionary">
-      Used in the rampdown phases to request the late inclusion of an enhancement. *(Rel)* is the release in question. E.g., **`jdk10-enhancement-request`**
+      Used in the rampdown phases to request the late inclusion of an enhancement. *(Rel)* is the release in question. E.g., [jdk10-enhancement-request]{.jbs-label}
 
-      *(Rel)***`-enhancement-yes`** and *(Rel)***`-enhancement-no`** are used to indicate the response on the request. E.g., **`jdk10-enhancement-yes`**, **`jdk10-enhancement-no`**
+      *(Rel)*[-enhancement-yes]{.jbs-label} and *(Rel)*[-enhancement-no]{.jbs-label} are used to indicate the response on the request. E.g., [jdk10-enhancement-yes]{.jbs-label}, [jdk10-enhancement-no]{.jbs-label}
 
       These labels are always placed on the main JBS issue (the bug), never on backports or subtasks.
       Further details are found in the [JDK Release Process](http://openjdk.java.net/jeps/3#Late-Enhancement-Request-Process).
@@ -379,16 +379,16 @@ Labels are an open namespace, which means that anyone can create new labels at a
   </tr>
   <tr>
     <td class="dictionary">
-      [*(Rel)***`-fix-request`**]{#rel-fix-request}<br />
-      [*(Rel)***`-fix-SQE-ok`**]{#rel-fix-SQE-ok}<br />
-      [*(Rel)***`-fix-yes`**]{#rel-fix-yes}<br />
-      [*(Rel)***`-fix-no`**]{#rel-fix-no}
+      [*(Rel)*[-fix-request]{.jbs-label}]{#rel-fix-request}<br />
+      [*(Rel)*[-fix-SQE-ok]{.jbs-label}]{#rel-fix-SQE-ok}<br />
+      [*(Rel)*[-fix-yes]{.jbs-label}]{#rel-fix-yes}<br />
+      [*(Rel)*[-fix-no]{.jbs-label}]{#rel-fix-no}
     </td>
     <td class="dictionary">
-      Used in rampdown phase 2 to indicate that an issue would be of interest to get integrated into release *(Rel)*. E.g., **`jdk12u-fix-request`**
+      Used in rampdown phase 2 to indicate that an issue would be of interest to get integrated into release *(Rel)*. E.g., [jdk12u-fix-request]{.jbs-label}
 
-      *(Rel)***`-fix-SQE-ok`** is used to indicate that the issue will be covered by the test plan for *(Rel)*. E.g., **`jdk12u-fix-SQE-ok`**<br />
-      *(Rel)***`-fix-yes`** and *(Rel)***`-fix-no`** are used to indicate wether an issue has been approved for backport to *(Rel)*. E.g., **`jdk12u-fix-yes`**
+      *(Rel)*[-fix-SQE-ok]{.jbs-label} is used to indicate that the issue will be covered by the test plan for *(Rel)*. E.g., [jdk12u-fix-SQE-ok]{.jbs-label}<br />
+      *(Rel)*[-fix-yes]{.jbs-label} and *(Rel)*[-fix-no]{.jbs-label} are used to indicate wether an issue has been approved for backport to *(Rel)*. E.g., [jdk12u-fix-yes]{.jbs-label}
 
       These labels are always placed on the main JBS issue (the bug), never on backports or subtasks.
       Further details are found in the [JDK Release Process](http://openjdk.java.net/jeps/3#Fix-Request-Process).
@@ -396,7 +396,7 @@ Labels are an open namespace, which means that anyone can create new labels at a
   </tr>
   <tr>
     <td class="dictionary">
-      [*(Rel)***`-na`**]{#rel-na}
+      [*(Rel)*[-na]{.jbs-label}]{#rel-na}
     </td>
     <td class="dictionary">
       Used to indicate that the issue doesn't affect release *(Rel)* or later. Could for instance be a bug in code that was removed in *(Rel)*.
@@ -404,17 +404,17 @@ Labels are an open namespace, which means that anyone can create new labels at a
   </tr>
   <tr>
     <td class="dictionary">
-      [*(Team)***`-triage-`***(Rel)*]{#team-triage-rel}
+      [*(Team)*[-triage-]{.jbs-label}*(Rel)*]{#team-triage-rel}
     </td>
     <td class="dictionary">
-      Used to indicate that *(Team)* has triaged this issue for release *(Rel)*. It's encouraged that all open bugs are triaged on a regular basis so that old bugs aren't forgotten. It's therefore common to see several triage labels on the same issue which helps keeping track of which bugs has been triaged for each release. E.g., **`oracle-triage-13`**
+      Used to indicate that *(Team)* has triaged this issue for release *(Rel)*. It's encouraged that all open bugs are triaged on a regular basis so that old bugs aren't forgotten. It's therefore common to see several triage labels on the same issue which helps keeping track of which bugs has been triaged for each release. E.g., [oracle-triage-13]{.jbs-label}
 
       There are many label variants that include the word triage in some form. The form described above is the only one recommended. Please refrain from using other forms.
     </td>
   </tr>
   <tr>
     <td class="dictionary">
-      [**`aot`**]{#aot}
+      [[aot]{.jbs-label}]{#aot}
     </td>
     <td class="dictionary">
       Used to indicate that an issue is related to Ahead of Time Compilation.
@@ -422,15 +422,15 @@ Labels are an open namespace, which means that anyone can create new labels at a
   </tr>
   <tr>
     <td class="dictionary">
-     [~~**`appcds`**~~]{#appcds}
+     [[~~appcds~~]{.jbs-label}]{#appcds}
     </td>
     <td class="dictionary">
-      **Deprecated.** Was used to indicate that an issue was related to Application Class-Data Sharing. The **`cds`** label is now used instead.
+      **Deprecated.** Was used to indicate that an issue was related to Application Class-Data Sharing. The [cds]{.jbs-label} label is now used instead.
     </td>
   </tr>
   <tr>
     <td class="dictionary">
-      [**`c1`**]{#c1}
+      [[c1]{.jbs-label}]{#c1}
     </td>
     <td class="dictionary">
       Used to indicate that an issue is related to the C1 JIT compiler.
@@ -438,18 +438,18 @@ Labels are an open namespace, which means that anyone can create new labels at a
   </tr>
   <tr>
     <td class="dictionary">
-      [**`c2`**]{#c2}<br />
-      **`c2-`**`.*`
+      [[c2]{.jbs-label}]{#c2}<br />
+      [c2-]{.jbs-label}`.*`
     </td>
     <td class="dictionary">
       Used to indicate that an issue is related to the C2 JIT compiler.
 
-      **`c2-`**`.*` labels are used to identify different c2 features. E.g., **`c2-intrinsic`**, **`c2-loopopts`**
+      [c2-]{.jbs-label}`.*` labels are used to identify different c2 features. E.g., [c2-intrinsic]{.jbs-label}, [c2-loopopts]{.jbs-label}
     </td>
   </tr>
   <tr>
     <td class="dictionary">
-      [**`cds`**]{#cds}
+      [[cds]{.jbs-label}]{#cds}
     </td>
     <td class="dictionary">
       Used to indicate that an issue is related to Class Data Sharing.
@@ -457,15 +457,15 @@ Labels are an open namespace, which means that anyone can create new labels at a
   </tr>
   <tr>
     <td class="dictionary">
-      [**`cleanup`**]{#cleanup}
+      [[cleanup]{.jbs-label}]{#cleanup}
     </td>
     <td class="dictionary">
-      The **`cleanup`** label is used to indicate enhancements which has no semantic changes, whose only purpose is to make the code more maintainable or better looking.
+      The [cleanup]{.jbs-label} label is used to indicate enhancements which has no semantic changes, whose only purpose is to make the code more maintainable or better looking.
     </td>
   </tr>
   <tr>
     <td class="dictionary">
-      [**`docker`**]{#docker}
+      [[docker]{.jbs-label}]{#docker}
     </td>
     <td class="dictionary">
       Used to indicate that an issue is related to docker support.
@@ -473,17 +473,17 @@ Labels are an open namespace, which means that anyone can create new labels at a
   </tr>
   <tr>
     <td class="dictionary">
-      [**`gc-`**`.*`]{#gc}
+      [[gc-]{.jbs-label}`.*`]{#gc}
     </td>
     <td class="dictionary">
-      Used to indicate that an issue is related to a specific garbage collector in the JVM. E.g., **`gc-g1`**, **`gc-shenandoah`**, **`gc-serial`**, **`gc-epsilon`**
+      Used to indicate that an issue is related to a specific garbage collector in the JVM. E.g., [gc-g1]{.jbs-label}, [gc-shenandoah]{.jbs-label}, [gc-serial]{.jbs-label}, [gc-epsilon]{.jbs-label}
 
-      There are also labels in use to identify different GC features or areas rather than GC algorithms. E.g., **`gc-g1-fullgc`**, **`gc-largeheap`**, **`gc-performance`**
+      There are also labels in use to identify different GC features or areas rather than GC algorithms. E.g., [gc-g1-fullgc]{.jbs-label}, [gc-largeheap]{.jbs-label}, [gc-performance]{.jbs-label}
     </td>
   </tr>
   <tr>
     <td class="dictionary">
-      [**`graal`**]{#graal}
+      [[graal]{.jbs-label}]{#graal}
     </td>
     <td class="dictionary">
       Used to indicate that this is a Graal issue. (Something that needs to be fixed in Graal rather than in OpenJDK.)
@@ -491,7 +491,7 @@ Labels are an open namespace, which means that anyone can create new labels at a
   </tr>
   <tr>
     <td class="dictionary">
-      [**`graal-integration`**]{#graal-integration}
+      [[graal-integration]{.jbs-label}]{#graal-integration}
     </td>
     <td class="dictionary">
       Reserved for Graal integration umbrella bugs. The automated integration script will break if this label is used for other bugs.
@@ -499,7 +499,7 @@ Labels are an open namespace, which means that anyone can create new labels at a
   </tr>
   <tr>
     <td class="dictionary">
-      [**`hgupdate-sync`**]{#hgupdate-sync}
+      [[hgupdate-sync]{.jbs-label}]{#hgupdate-sync}
     </td>
     <td class="dictionary">
       Used to identify backport issues automatically created by HG Updater (a script that monitors the hg repositories for changes).
@@ -507,15 +507,15 @@ Labels are an open namespace, which means that anyone can create new labels at a
   </tr>
   <tr>
     <td class="dictionary">
-      [~~**`hs-nightly`**~~]{#hs-nightly}
+      [[~~hs-nightly~~]{.jbs-label}]{#hs-nightly}
     </td>
     <td class="dictionary">
-      **Deprecated.** Was used to tag bugs found in the HotSpot nightly testing. Since we are now running tiered testing there is no more nightly HotSpot testing. See **`tier`**`[1-8]`.
+      **Deprecated.** Was used to tag bugs found in the HotSpot nightly testing. Since we are now running tiered testing there is no more nightly HotSpot testing. See [tier]{.jbs-label}`[1-8]`.
     </td>
   </tr>
   <tr>
     <td class="dictionary">
-      [**`hs-sbr`**]{#hs-sbr}
+      [[hs-sbr]{.jbs-label}]{#hs-sbr}
     </td>
     <td class="dictionary">
       Used to tag bugs that are found in the "same binary runs", a stress testing method used to find intermittent failures.
@@ -523,23 +523,23 @@ Labels are an open namespace, which means that anyone can create new labels at a
   </tr>
   <tr>
     <td class="dictionary">
-      [~~**`hs-tier`**`[1-8]`~~]{#hs-tier}
+      [~~[hs-tier]{.jbs-label}`[1-8]`~~]{#hs-tier}
     </td>
     <td class="dictionary">
-      **Deprecated.** Was used to identify which HotSpot tier a test failure was seen in. We don't separate HotSpot tiers from the JDK tiers anymore. See **`tier`**`[1-8]`.
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [**`i18n`**]{#i18n}
-    </td>
-    <td class="dictionary">
-      Used to indicate that an issue is related to internationalization.
+      **Deprecated.** Was used to identify which HotSpot tier a test failure was seen in. We don't separate HotSpot tiers from the JDK tiers anymore. See [tier]{.jbs-label}`[1-8]`.
     </td>
   </tr>
   <tr>
     <td class="dictionary">
-      [**`integration-blocker`**]{#integration-blocker}
+      [[i18n]{.jbs-label}]{#i18n}
+    </td>
+    <td class="dictionary">
+      Used to indicate that an issue is related to internationalization. i18n is short for internationalization meaning "i 18 letters and an n".
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [[integration-blocker]{.jbs-label}]{#integration-blocker}
     </td>
     <td class="dictionary">
       Used to indicate that a bug is present in a downstream repository but not present in the upstream repository and is therefore blocking integration of downstream changes into upstream.
@@ -547,21 +547,21 @@ Labels are an open namespace, which means that anyone can create new labels at a
   </tr>
   <tr>
     <td class="dictionary">
-      [**`intermittent`**]{#intermittent}<br />
-      [**`intermittent-environment`**]{#intermittent-environment}<br />
-      [**`intermittent-hardware`**]{#intermittent-hardware}
+      [[intermittent]{.jbs-label}]{#intermittent}<br />
+      [[intermittent-environment]{.jbs-label}]{#intermittent-environment}<br />
+      [[intermittent-hardware]{.jbs-label}]{#intermittent-hardware}
     </td>
     <td class="dictionary">
       An intermittent issue is one that fails sometimes but not always. The exact reason for the intermittent failure is per definition unknown. Once the reason has been identified the issue is no more considered intermittent. An issue isn't intermittent if some characteristics has been found that triggers the failure consistently, even if the actual cause for the failure hasn't been found. For instance if a test fails every time it's executed on a specific host but not on other hosts it wouldn't be considered intermittent as it fails consistently on that specific host. In other cases it may be that we know that a test sometimes is unlucky in some respect and fails due to this. This test could still be considered intermittent even though we know what the reason is if the reason itself appears intermittently.
 
-      Some issues may seem intermittent when looking at test results, even though the reason for failing is actually known. One example is where a test fails consistently on a specific host, or due to specific conditions in the environment. These failures shouldn't be considered intermittent but it may still be valuable to tag these in JBS with one of the labels **`intermittent-hardware`** or **`intermittent-environment`**. This will help to faster identify that the cause of the failure is known without having to read through the entire bug.
+      Some issues may seem intermittent when looking at test results, even though the reason for failing is actually known. One example is where a test fails consistently on a specific host, or due to specific conditions in the environment. These failures shouldn't be considered intermittent but it may still be valuable to tag these in JBS with one of the labels [intermittent-hardware]{.jbs-label} or [intermittent-environment]{.jbs-label}. This will help to faster identify that the cause of the failure is known without having to read through the entire bug.
 
-      A test that should be platform agnostic but is consistently failing on a specific OS would for instance be labeled with **`intermittent-environment`**, while a test that fails every time it's run on some specific hardware would be labeled with **`intermittent-hardware`**.
+      A test that should be platform agnostic but is consistently failing on a specific OS would for instance be labeled with [intermittent-environment]{.jbs-label}, while a test that fails every time it's run on some specific hardware would be labeled with [intermittent-hardware]{.jbs-label}.
     </td>
   </tr>
   <tr>
     <td class="dictionary">
-      [**`maintainer-pain`**]{#maintainer-pain}
+      [[maintainer-pain]{.jbs-label}]{#maintainer-pain}
     </td>
     <td class="dictionary">
 Used to tag bugs that for some reason is wasting time or in other ways are causing pain for the OpenJDK maintainers. Examples of issues that could be considered a pain:
@@ -576,73 +576,73 @@ Used to tag bugs that for some reason is wasting time or in other ways are causi
 
 There are other cases as well and there is some flexibility in the definition. If you see a problem that is causing pain for a large number of maintainers, add an explanation in the JBS issue to why you think the issue is a pain and add the label.
 
-If you have a **`maintainer-pain`** bug assigned to you please consider fixing it asap. If you chose not to work on the issue, you should at least be aware that you are choosing to waste others' time and people will be affected by this choice.
+If you have a [maintainer-pain]{.jbs-label} bug assigned to you please consider fixing it asap. If you chose not to work on the issue, you should at least be aware that you are choosing to waste others' time and people will be affected by this choice.
 
-As with any issue the best way to deal with a **`maintainer-pain`** issue is to fix it. Another way to reduce the noise is to [exclude the failing test](#excluding-a-test). This is a viable option if there is a limited set of tests that are failing and the bug is actively investigated. When excluding a **`maintainer-pain`** issue, remember to move the **`maintainer-pain`** label to the JBS issue used to exclude. Leaving the label on the closed exclude-issue is helpful for tracking purposes.
+As with any issue the best way to deal with a [maintainer-pain]{.jbs-label} issue is to fix it. Another way to reduce the noise is to [exclude the failing test](#excluding-a-test). This is a viable option if there is a limited set of tests that are failing and the bug is actively investigated. When excluding a [maintainer-pain]{.jbs-label} issue, remember to move the [maintainer-pain]{.jbs-label} label to the JBS issue used to exclude. Leaving the label on the closed exclude-issue is helpful for tracking purposes.
     </td>
   </tr>
   <tr>
     <td class="dictionary">
-      [**`noreg-`**`.*`]{#noreg}<br />
-      [**`nounit-`**`.*`]{#nounit}
+      [[noreg-]{.jbs-label}`.*`]{#noreg}<br />
+      [[nounit-]{.jbs-label}`.*`]{#nounit}
     </td>
     <td class="dictionary">
-      The **`noreg-`**`.*` and **`nounit-`**`.*` labels are used to explain why a bugfix doesn't need/have a regression test or a unit test. The suffix of the label is described below.
+      The [noreg-]{.jbs-label}`.*` and [nounit-]{.jbs-label}`.*` labels are used to explain why a bugfix doesn't need/have a regression test or a unit test. The suffix of the label is described below.
 
-[**`-sqe`**]{#noreg-sqe}
+[[-sqe]{.jbs-label}]{#noreg-sqe}
 :    Change can be verified by running an existing SQE test suite; the bug should identify the suite and the specific test case(s).
 
-[**`-jck`**]{#noreg-jck}
+[[-jck]{.jbs-label}]{#noreg-jck}
 :    Change can be verified by running the JCK; the bug should identify the specific test case(s).
 
-[**`-external`**]{#noreg-external}
+[[-external]{.jbs-label}]{#noreg-external}
 :    Change can be verified by running an existing external test suite; the bug should identify the suite and the specific test case(s).
 
-[**`-doc`**]{#noreg-doc}
+[[-doc]{.jbs-label}]{#noreg-doc}
 :    Change only affects documentation.
 
-[**`-demo`**]{#noreg-demo}
+[[-demo]{.jbs-label}]{#noreg-demo}
 :    Change only affects demo code.
 
-[**`-build`**]{#noreg-build}
+[[-build]{.jbs-label}]{#noreg-build}
 :    Change only affects build infrastructure (makefiles, copyrights, scripts, etc.).
 
-[**`-self`**]{#noreg-self}
+[[-self]{.jbs-label}]{#noreg-self}
 :    Change is a fix to a regression or unit test itself.
 
-[**`-perf`**]{#noreg-perf}
+[[-perf]{.jbs-label}]{#noreg-perf}
 :    Change is for a performance bug for which writing a regression test is infeasible; the bug should describe how to verify the fix.
 
-[**`-hard`**]{#noreg-hard}
+[[-hard]{.jbs-label}]{#noreg-hard}
 :    It's too hard to write a regression or unit test for this bug (e.g., theoretical race condition, complex setup, reboot required, editing of installed files required, specific graphics card required); the bug should explain why.
 
-[**`-long`**]{#noreg-long}
+[[-long]{.jbs-label}]{#noreg-long}
 :    Testing requires a very long running time (e.g., more than a few minutes).
 
-[**`-big`**]{#noreg-big}
+[[-big]{.jbs-label}]{#noreg-big}
 :    Testing requires an unreasonable quantity of resources (e.g., tens of gigabytes of filesystem space).
 
-[**`-trivial`**]{#noreg-trivial}
+[[-trivial]{.jbs-label}]{#noreg-trivial}
 :    Change is so trivial that nothing could possibly go wrong with it.
 
-[**`-cleanup`**]{#noreg-cleanup}
+[[-cleanup]{.jbs-label}]{#noreg-cleanup}
 :    Change is a cleanup or refactoring of existing code that is covered by existing tests.
 
-[**`-l10n`**]{#noreg-l10n}
+[[-l10n]{.jbs-label}]{#noreg-l10n}
 :    Change only affects localized text.
 
-[**`-undo`**]{#noreg-undo}
+[[-undo]{.jbs-label}]{#noreg-undo}
 :    Change is a reversion of a previous faulty change.
 
-[**`-other`**]{#noreg-other}
+[[-other]{.jbs-label}]{#noreg-other}
 :    Regression or unit test is unnecessary or infeasible for some other reason; the bug report should explain why.
 
-Examples:  If a bug fix only corrects a change in the build system, then add the **`noreg-build`** label to the corresponding bug. If the change improves loop optimizations in HotSpot, then add **`nounit-perf`** to the corresponding bug.
+Examples:  If a bug fix only corrects a change in the build system, then add the [noreg-build]{.jbs-label} label to the corresponding bug. If the change improves loop optimizations in HotSpot, then add [nounit-perf]{.jbs-label} to the corresponding bug.
     </td>
   </tr>
   <tr>
     <td class="dictionary">
-      [**`performance`**]{#performance}
+      [[performance]{.jbs-label}]{#performance}
     </td>
     <td class="dictionary">
       Used to identify a bug with noticeable performance impact. Either positive or negative.
@@ -650,15 +650,15 @@ Examples:  If a bug fix only corrects a change in the build system, then add the
   </tr>
   <tr>
     <td class="dictionary">
-      [~~**`pit`**~~]{#pit}
+      [[~~pit~~]{.jbs-label}]{#pit}
     </td>
     <td class="dictionary">
-      **Deprecated.** Was used to indicate that a failure happened in product integration testing (PIT). Since we are now running tiered testing there is no more PIT. See **`tier`**`[1-8]`.
+      **Deprecated.** Was used to indicate that a failure happened in product integration testing (PIT). Since we are now running tiered testing there is no more PIT. See [tier]{.jbs-label}`[1-8]`.
     </td>
   </tr>
   <tr>
     <td class="dictionary">
-      [**`problemlist`**]{#problemlist}
+      [[problemlist]{.jbs-label}]{#problemlist}
     </td>
     <td class="dictionary">
       One or more tests has been problemlisted due to this bug.
@@ -666,7 +666,7 @@ Examples:  If a bug fix only corrects a change in the build system, then add the
   </tr>
   <tr>
     <td class="dictionary">
-      [**`regression`**]{#regression}
+      [[regression]{.jbs-label}]{#regression}
     </td>
     <td class="dictionary">
       A regression is a bug that didn't exist in the previous release. Ideally all regressions must be fixed in order to release the next major version.
@@ -674,7 +674,7 @@ Examples:  If a bug fix only corrects a change in the build system, then add the
   </tr>
   <tr>
     <td class="dictionary">
-      [**`release-note`**]{#release-note}
+      [[release-note]{.jbs-label}]{#release-note}
     </td>
     <td class="dictionary">
       Used to indicate that the issue is a release note. See [Release Notes](#release-notes).
@@ -682,19 +682,19 @@ Examples:  If a bug fix only corrects a change in the build system, then add the
   </tr>
   <tr>
     <td class="dictionary">
-      [**`release-note=yes`**]{#release-note-yes}<br />
-      [**`release-note=no`**]{#release-note-no}<br />
-      [~~**`release-note=done`**~~]{#release-note-done}
+      [[release-note=yes]{.jbs-label}]{#release-note-yes}<br />
+      [[release-note=no]{.jbs-label}]{#release-note-no}<br />
+      [[~~release-note=done~~]{.jbs-label}]{#release-note-done}
     </td>
     <td class="dictionary">
       Used to indicate whether a change requires a release note or not. The labels are always placed on the main JBS issue, never on the actual release note issue. See [Release Notes](#release-notes).
 
-      **`release-note=done`** is deprecated and should no longer be used.
+      [release-note=done]{.jbs-label} is deprecated and should no longer be used.
     </td>
   </tr>
   <tr>
     <td class="dictionary">
-      [**`RN-`**`.*`]{#rn}
+      [[RN-]{.jbs-label}`.*`]{#rn}
     </td>
     <td class="dictionary">
       Used to indicate what kind of change the release note is for. See [Release Notes](#release-notes).
@@ -702,7 +702,7 @@ Examples:  If a bug fix only corrects a change in the build system, then add the
   </tr>
   <tr>
     <td class="dictionary">
-      [**`starter`**]{#starter}
+      [[starter]{.jbs-label}]{#starter}
     </td>
     <td class="dictionary">
       A starter bug is a well contained, small issue that is suitable for someone new to the codebase.
@@ -710,7 +710,7 @@ Examples:  If a bug fix only corrects a change in the build system, then add the
   </tr>
   <tr>
     <td class="dictionary">
-      [**`startup`**]{#startup}
+      [[startup]{.jbs-label}]{#startup}
     </td>
     <td class="dictionary">
       Used to identify a bug as affecting Java SE startup performance.
@@ -718,36 +718,38 @@ Examples:  If a bug fix only corrects a change in the build system, then add the
   </tr>
   <tr>
     <td class="dictionary">
-      [**`tck-red-`***(Rel)*]{#tck-red-rel}<br />
-      [~~**`tck-red`**~~]{#tck-red}
+      [[tck-red-]{.jbs-label}*(Rel)*]{#tck-red-rel}<br />
+      [[~~tck-red~~]{.jbs-label}]{#tck-red}
     </td>
     <td class="dictionary">
-      Used to identify TCK conformance stoppers (e.g. failure of a valid TCK test that exists in a shipped TCK). The release number indicates which release of the TCK that failed. E.g., **`tck-red-11`**
+      Used to identify TCK conformance stoppers (e.g. failure of a valid TCK test that exists in a shipped TCK). The release number indicates which release of the TCK that failed. E.g., [tck-red-11]{.jbs-label}
 
-      There are **`tck-red`** labels without the release number out there as well. This usage is deprecated.
+      There are [tck-red]{.jbs-label} labels without the release number out there as well. This usage is deprecated.
     </td>
   </tr>
   <tr>
     <td class="dictionary">
-      [~~**`test`**~~]{#test}<br />
-      [~~**`test-only`**~~]{#test-only}<br />
-      [~~**`testbug`**~~]{#testbug}
+      [[~~test~~]{.jbs-label}]{#test}<br />
+      [[~~test-only~~]{.jbs-label}]{#test-only}<br />
+      [[~~testbug~~]{.jbs-label}]{#testbug}
     </td>
     <td class="dictionary">
-      The labels **`test`**, **`test-only`**, and **`testbug`** are deprecated and should no longer be used. Use [**`noreg-self`**](#noreg) to indicate that an issue is a bug in test code.
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">
-      [**`tier`**`[1-8]`]{#tier}
-    </td>
-    <td class="dictionary">
-      Used to indicate which tier in the jdk/jdk CI pipeline a test failure has been seen in. Lower tiers would in general mean higher urgency to fix the issue. E.g., **`tier1`**, **`tier2`**
+      The labels [test]{.jbs-label}, [test-only]{.jbs-label}, and [testbug]{.jbs-label} are deprecated and should no longer be used. Use [[noreg-self]{.jbs-label}](#noreg) to indicate that an issue is a bug in test code.
     </td>
   </tr>
   <tr>
     <td class="dictionary">
-      [**`webbug`**]{#webbug}
+      [[tier]{.jbs-label}`[1-8]`]{#tier}
+    </td>
+    <td class="dictionary">
+      Used to indicate which tier in the `jdk/jdk` CI pipeline a test failure has been seen in. Lower tiers would in general mean higher urgency to fix the issue. E.g., [tier1]{.jbs-label}, [tier2]{.jbs-label}
+
+      Please note that these labels are reserved for bugs seen in the `jdk/jdk` CI pipeline. Use *(Rel)*[-tier1] for other CI pipelines, where *(Rel)* is the name of the pipeline. E.g. [8u-tier1]{.jbs-label}
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
+      [[webbug]{.jbs-label}]{#webbug}
     </td>
     <td class="dictionary">
       Used to identify a bug as submitted on [bugs.java.com](https://bugs.java.com/bugdatabase/).
@@ -755,7 +757,7 @@ Examples:  If a bug fix only corrects a change in the build system, then add the
   </tr>
   <tr>
     <td class="dictionary">
-      [**`zgc`**]{#zgc}
+      [[zgc]{.jbs-label}]{#zgc}
     </td>
     <td class="dictionary">
       Used to indicate that an issue is related to ZGC.
@@ -819,7 +821,7 @@ For the purposes of brevity this document will use the term "bug" to refer to bo
    :   An entirely new test (or tests) may not be required. For example, if the bug is an existing regression test failure, then when fixing the bug you should just add the new bug ID to the list of space-delimited bugs in the [\@bug tag](https://openjdk.java.net/jtreg/tag-spec.html#INFORMATIONAL_TAGS) of the failing regression test, even if the test didn't need to be updated.
 
    **No**
-   :   An explanation for why a test is unnecessary or infeasible is required. Such an explanation is recorded by adding a label, and possibly a comment, to the bug report. The label has the prefix **`noreg`** for regression tests and **`nounit`** for unit tests. The suffix of the label is described in detail in the [JBS Label Dictionary](#noreg)
+   :   An explanation for why a test is unnecessary or infeasible is required. Such an explanation is recorded by adding a label, and possibly a comment, to the bug report. The label has the prefix [noreg]{.jbs-label} for regression tests and [nounit]{.jbs-label} for unit tests. The suffix of the label is described in detail in the [JBS Label Dictionary](#noreg)
 
 #. **Is modification of shared Java code needed?**
 
@@ -1042,7 +1044,7 @@ Through the configure flags you will select what configuration of the JDK to bui
 
 `--with-debug-level` is one example of a configure option that will change the output directory name. Sometimes it makes sense to have several different configurations in parallel. For example while debugging some code you might want to have both a debug build and a release build to be able to test it properly. The directory naming scheme makes this very easy. Simply configure and build the JDKs you need and they will end up next to each other in the build directory.
 
-In the example above we built a `relase` image. To build a debug image as well we can configure with `--with-debug-level=slowdebug`. This will give us a JDK where for instance asserts in the JDK source code are enabled. To select which JDK to work with in later calls to `make` add `CONF=<configuration>`.
+In the example above we built a `release` image. To build a debug image as well we can configure with `--with-debug-level=slowdebug`. This will give us a JDK where for instance asserts in the JDK source code are enabled. To select which JDK to work with in later calls to `make` add `CONF=<configuration>`.
 
     $ sh ./configure --with-boot-jdk=$HOME/jdk-16/ --with-debug-level=slowdebug
     $ make CONF=slowdebug images
@@ -1054,8 +1056,8 @@ In the example above we built a `relase` image. To build a debug image as well w
 
 `make images`, as used in the example above, will build a JDK image which is very close to what you'd get from any JDK provider. There are several other make targets you can use depending on what you're looking for. The table below contains some commonly used make targets.
 
-| Target | What it does      |
-|:-------|:----------|
+| Target | What it does |
+|:-------|:-------------|
 | `exploded-image` | This is the default make target that you'll get if you simply invoke `make`. |
 | `image` | Builds a complete JDK image. A good target to use if you want to build a JDK for general usage or if you want to test something closer to the shipping product. This can also be a good target to use if doing something which might have a build aspect to it. |
 | `<name>-image` | Build just the image for any of jdk, test, docs, symbols, etc. |
@@ -1267,6 +1269,8 @@ foo/bar/MyTest.java                        4710,4711   generic-all,windows-all
 
 Although `windows-all` isn't strictly required in this example, it's preferable to specify platforms for each bugid (unless they are all `generic-all`), this makes it easier to remove one of the bugs from the list.
 
+Remember to always add a [problemlist]{.jbs-label} label in the JBS issue referenced in the ProblemList entry.
+
 #### ProblemListing some, but not all, test cases in a file
 
 Some tests contain several test cases and there may be a need to ProblemList only a few of them. To do this use the full test name, i.e. `<filename> + # + <test case id>`, where test case id can be specified in the test header. If no id is specified each test case can be referenced with `id` + ordinary number of the test case in the test file.
@@ -1316,7 +1320,7 @@ In this example, `MyTest.java` is excluded, tracked by bug `JDK-4711`. `@ignore`
 ProblemListing and `@ignore`-ing are done in the JDK source tree, that means a check-in into the repository is needed. This in turn means that a unique JBS issue and a code review are needed. This is a good thing since it makes test problems visible.
 
 * **Code review**: ProblemListing a test is considered a [trivial](#trivial) change.
-* **JBS issue**: A JBS issue is obviously created for the bug that caused the failure, we call this the _main issue_. To exclude the test, create a subtask to the main issue. Also add the label [`problemlist`](#problemlist) to the main issue.
+* **JBS issue**: A JBS issue is obviously created for the bug that caused the failure, we call this the _main issue_. To exclude the test, create a subtask to the main issue. Also add the label [[problemlist]{.jbs-label}](#problemlist) to the main issue.
 
 The fix for the main issue should remove the test from the ProblemList or remove the `@ignore` keyword from the test.
 
@@ -1507,19 +1511,19 @@ graph TD
 ~~~
 :::
 
-In general there is no need to create backport issues in JBS manually. All work that is done in JBS in preparation for a backport (requesting approvals etc) is done in the main issue. The backport issue will be created automatically by the bots when you integrate the change to the source code repository.
+In general there's no need to create backport issues in JBS manually. All work that's done in JBS in preparation for a backport (requesting approvals etc) is done in the main issue. The backport issue will be created automatically by the bots when you integrate the change to the source code repository.
 
-There can be cases where it's desirable to create a backport issue before the fix is done, e.g. if a CSR needs to be filed. In these cases set the fix version of the backport to `N-pool`, where `N` is the release train the backport is targeting. E.g. `17-pool`. Please note that even if a backport issue is created ahead of time, all work done in JBS is still done in the main issue.
+There can be cases where it's desirable to create a backport issue before the fix is done, e.g. if a CSR needs to be filed. In these cases set the [Fix Version/s]{.jbs-field} of the backport to `N-pool`, where `N` is the release train the backport is targeting. E.g. `17-pool`. Please note that even if a backport issue is created ahead of time, all work done in JBS is still done in the main issue.
 
-Obviously it's possible to set the fix version to the exact release the backport is targeting, but this isn't recommended. When a change is pushed, the bots will look at the main issue as indicated in the PR title, and look for backports with the current `N.0.x` release version as fix version, if no such backport is found they will look for `N-pool`, and if that isn't found either, a new backport issue will be created. This means that if the backport has an exact fix version set, but is delayed and misses the release indicated by the fix version, a new backport issue is created with a small mess as the result.
+Obviously it's possible to set the [Fix Version/s]{.jbs-field} to the exact release the backport is targeting, but this isn't recommended. When a change is pushed, the bots will look at the main issue as indicated in the PR title, and look for backports with the current `N.0.x` release version as [Fix Version/s]{.jbs-field}, if no such backport is found they will look for `N-pool`, and if that isn't found either, a new backport issue will be created. This means that if the backport has an exact [Fix Version/s]{.jbs-field} set, but is delayed and misses the release indicated by this [Fix Version/s]{.jbs-field}, a new backport issue is created with a small mess as the result.
 
-Setting the fix version of a backport to `N` is always wrong. JDK `N` has already been released (or you wouldn't be backporting to it) and can't get any more fixes.
+Setting the [Fix Version/s]{.jbs-field} of a backport to `N` is always wrong. JDK `N` has already been released (or you wouldn't be trying to backport to it) and can't get any more fixes.
 
 ## Requesting approvals for backports
 
-In order to be allowed to push a change to one of the OpenJDK update development repositories (e.g. [`jdk17u-dev`](https://github.com/openjdk/jdk17u-dev)), an approval is required. The [official process for how to request push approval for a backport](https://openjdk.java.net/projects/jdk-updates/approval.html) describes in detail how to work with JBS when requesting approvals. In short, there's a label [jdk<release>u-fix-request]{.label} that should be added to the main JBS issue. Also put a motivation as to why the issue needs to be backported as a comment in the main issue. Once the label and motivation has been added, wait for the maintainers of the release to approve your request. The approval will be indicated with a label, [jdk<release>u-fix-yes]{.label}, added to the main issue.
+In order to be allowed to push a change to one of the OpenJDK update development repositories (e.g. [`jdk17u-dev`](https://github.com/openjdk/jdk17u-dev)), an approval is required. The [official process for how to request push approval for a backport](https://openjdk.java.net/projects/jdk-updates/approval.html) describes in detail how to work with JBS when requesting approvals. In short, there's a label [jdk&lt;release&gt;u-fix-request]{.jbs-label} that should be added to the main JBS issue. Also put a motivation as to why the issue needs to be backported as a comment in the main issue. Once the label and motivation has been added, wait for the maintainers of the release to approve your request. The approval will be indicated with a label, [jdk&lt;release&gt;u-fix-yes]{.jbs-label}, added to the main issue.
 
-If the update release is in rampdown, changes are pushed to the release repository (e.g. [`jdk17u`](https://github.com/openjdk/jdk17u)). During rampdown the bar to get changes in are significantly higher and fixes need to be approved with [jdk<release>u-critical-request]{.label} / [jdk<release>u-critical-yes]{.label}.
+If the update release is in rampdown, changes are pushed to the release repository (e.g. [`jdk17u`](https://github.com/openjdk/jdk17u)). During rampdown the bar to get changes in are significantly higher and fixes need to be approved with [jdk&lt;release&gt;u-critical-request]{.jbs-label} / [jdk&lt;release&gt;u-critical-yes]{.jbs-label}.
 
 ## Using the Skara tooling to help with backports
 
@@ -1554,19 +1558,19 @@ The release note itself is written in a [JBS](#jbs---jdk-bug-system) sub-task of
 
 #. Create a sub-task (More &rightarrow; Create Sub-Task) for the issue that requires a release note - the main issue, that is, the JBS issue that is used to push the original change, **not** for backports or the CSR (if there is one).
 #. For the newly created sub-task, follow these steps:
-   * The [Summary]{.jbs} should be a one sentence synopsis that is informative (and concise) enough to attract the attention of users, developers, and maintainers who might be impacted by the change. It should succinctly describe what has actually changed, not be the original bug title, nor describe the problem that was being solved. It should read well as a sub-section heading in a document.
-   * Prefix the [Summary]{.jbs} with "Release Note:".
-   * Add the [release-note]{.label} label. This is required for the release note to be included in the release notes.
-   * Add the proper [RN-]{.label}label if applicable to indicate what section of the release notes it should be included in (see [RN-labels](#rn-labels) below).
-   * Set the [Assignee]{.jbs} to the same person who owns the main issue.
-   * Set [Affects Version]{.jbs} to the release versions for which the release note should be published.
-   * Set the [Fix Version]{.jbs} to the same value that the main issue - in almost all cases this will be the version of mainline.
-   * Enter the text of the release note in the [Description]{.jbs} field using markdown formatting, following the [CommonMark specification](https://spec.commonmark.org/current/). While the markdown won't be rendered in JBS, you can use [dingus](https://spec.commonmark.org/dingus/) to see what the release note will look like. Note that [Github stlye ascii table formatting](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables) is supported but will not display correctly in the dingus page. For more information see [General Conventions for Release Notes](#general-conventions-for-release-notes) below.
-   * While the [Priority]{.jbs} of the sub-task is set by default to be the same as the priority of the issue itself, it can be changed to adjust in what order the release note is listed compared to other release notes in the same build or release note section.
+   * The [Summary]{.jbs-field} should be a one sentence synopsis that is informative (and concise) enough to attract the attention of users, developers, and maintainers who might be impacted by the change. It should succinctly describe what has actually changed, not be the original bug title, nor describe the problem that was being solved. It should read well as a sub-section heading in a document.
+   * Prefix the [Summary]{.jbs-field} with "Release Note:".
+   * Add the [release-note]{.jbs-label} label. This is required for the release note to be included in the release notes.
+   * Add the proper [RN-]{.jbs-label}label if applicable to indicate what section of the release notes it should be included in (see [RN-labels](#rn-labels) below).
+   * Set the [Assignee]{.jbs-field} to the same person who owns the main issue.
+   * Set [Affects Version/s]{.jbs-field} to the release versions for which the release note should be published.
+   * Set the [Fix Version/s]{.jbs-field} to the same value that the main issue - in almost all cases this will be the version of mainline.
+   * Enter the text of the release note in the [Description]{.jbs-field} field using markdown formatting, following the [CommonMark specification](https://spec.commonmark.org/current/). While the markdown won't be rendered in JBS, you can use [dingus](https://spec.commonmark.org/dingus/) to see what the release note will look like. Note that [Github stlye ascii table formatting](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables) is supported but will not display correctly in the dingus page. For more information see [General Conventions for Release Notes](#general-conventions-for-release-notes) below.
+   * While the [Priority]{.jbs-field} of the sub-task is set by default to be the same as the priority of the issue itself, it can be changed to adjust in what order the release note is listed compared to other release notes in the same build or release note section.
 #. Have the release note ready to be reviewed at the same time as the code is reviewed. If it's later determined that a release note is necessary, then go back to the same engineers who reviewed the fix to review the release note.  Special care should be taken when writing a release note that will cover changes related to a vulnerability fix in order to avoid describing technical details of how it could have been exploited.
 #. When you are done, _Resolve_ the release note sub-task as `Delivered`. Only release notes where the sub-task has been resolved as `Delivered` is considered to be part of the EA/GA release notes. To avoid mixing up the release notes with the code fixes that have gone into a particular release or build, we don't use `Resolved/Fixed`.
 
-If you see an issue you feel should have a release note but you are not the assignee of the bug, then add the label [release-note=yes]{.label} to the main bug (not on a backport nor a sub-task). This acts as a flag to make sure that the release note is considered. This can be done even with fixes that have been shipped already if it's noticed that there is confusion around the change. If, after discussion, it's decided that a release note isn't required either remove the label, or change it to [release-note=no]{.label} if it makes sense to have a clear indication that a release note isn't required for the fix. The label [release-note=yes]{.label} can be removed once the release note sub-task has been created.
+If you see an issue you feel should have a release note but you are not the assignee of the bug, then add the label [release-note=yes]{.jbs-label} to the main bug (not on a backport nor a sub-task). This acts as a flag to make sure that the release note is considered. This can be done even with fixes that have been shipped already if it's noticed that there is confusion around the change. If, after discussion, it's decided that a release note isn't required either remove the label, or change it to [release-note=no]{.jbs-label} if it makes sense to have a clear indication that a release note isn't required for the fix. The label [release-note=yes]{.jbs-label} can be removed once the release note sub-task has been created.
 
 For examples of well written release note issues in JBS, see [JDK-8276929](https://bugs.openjdk.java.net/browse/JDK-8276929) or [JDK-8278458](https://bugs.openjdk.java.net/browse/JDK-8278458).
 
@@ -1579,67 +1583,67 @@ The following are general practices that should be followed when creating releas
 * Note that where the changes are more fully documented in the JDK documentation, then refer to that document for details. When covering a change in behavior provide some idea to what can be done if a developer or user encounters problems from the change.
 * Don't include graphics etc. Refer to the main docs if there are more details that need explaining.
 * Don't include your name or affiliation, make sure however, you are the assignee of the release note sub-task.
-* If you have a < in the [Summary]{.jbs} then use `&lt;`. For <'s in the [Description]{.jbs} surround them by back-ticks.
+* If you have a < in the [Summary]{.jbs-field} then use `&lt;`. For <'s in the [Description]{.jbs-field} surround them by back-ticks.
 
 * Avoid using Latin and abbreviations in the release note.
   * Use "also known as" instead of "aka"
   * Use "that is" or "to be specific" instead of "i.e."
   * Use "for example" instead of "e.g."
 
-* The [Summary]{.jbs} should be in title case instead of sentence case.
+* The [Summary]{.jbs-field} should be in title case instead of sentence case.
   * Example: Decode Error with Tomcat Version 7.x
 
-* The [Description]{.jbs} should be standardized to follow this pattern:
+* The [Description]{.jbs-field} should be standardized to follow this pattern:
   * Sentence stating the change that was made
   * Background info/context
   * Example: A new system property, `jdk.disableLastUsageTracking`, has been introduced to disable JRE last usage tracking for a running VM.
 
 * Special case: JEP release note
-  * [Summary]{.jbs} - If the change is an actual JEP, use the JEP title.
-  * [Description]{.jbs} - the JEP Summary text have already been heavily reviewed and also approved by the project lead. It should be the first sentence in the release note description. That would be analogous to the "change that was made" sentence in other release note descriptions. The remaining text would be composed of the background info from the JEP.
-  * [Description]{.jbs} - The JEP release note description should contain the link to the JEP.
+  * [Summary]{.jbs-field} - If the change is an actual JEP, use the JEP title.
+  * [Description]{.jbs-field} - the JEP Summary text have already been heavily reviewed and also approved by the project lead. It should be the first sentence in the release note description. That would be analogous to the "change that was made" sentence in other release note descriptions. The remaining text would be composed of the background info from the JEP.
+  * [Description]{.jbs-field} - The JEP release note description should contain the link to the JEP.
 
 ## RN-labels
 
 Unless labeled otherwise it will be assumed that the release note documents a change in behavior (will have likely required a CSR) or other item which should be included in the release notes. If the note covers a more specific type of change, then one of the following labels can be included (notes of a similar type will be listed together).
 
-[[RN-NewFeature]{.label}]{#RN-NewFeature}
+[[RN-NewFeature]{.jbs-label}]{#RN-NewFeature}
 :   A New Feature or enhancement in the release.
-    The [Summary]{.jbs} must be the item/API or new functionality.
-    The [Description]{.jbs} must contain the name of the new feature, its intended function, and how a user can utilize it.
+    The [Summary]{.jbs-field} must be the item/API or new functionality.
+    The [Description]{.jbs-field} must contain the name of the new feature, its intended function, and how a user can utilize it.
     Example: [JDK-8193026](https://bugs.openjdk.java.net/browse/JDK-8193026)
 
-[[RN-IssueFixed]{.label}]{#RN-IssueFixed}
+[[RN-IssueFixed]{.jbs-label}]{#RN-IssueFixed}
 :   A significant issue which has been fixed. This would normally be a regression or an issue which was unknowingly released in a new feature.
-    The [Summary]{.jbs} must be a summary of the error that was fixed.
-    The [Description]{.jbs} must contain a statement about what was fixed, how the fix effects the user, and any special conditions that a user should be aware of regarding the fix.
+    The [Summary]{.jbs-field} must be a summary of the error that was fixed.
+    The [Description]{.jbs-field} must contain a statement about what was fixed, how the fix effects the user, and any special conditions that a user should be aware of regarding the fix.
     Example: [JDK-8184172](https://bugs.openjdk.java.net/browse/JDK-8184172)
 
-[[RN-KnownIssue]{.label}]{#RN-KnownIssue}
+[[RN-KnownIssue]{.jbs-label}]{#RN-KnownIssue}
 :   An issue that wasn't possible to fix by the time the release was GA'd.
-    The [Summary]{.jbs} must be a summary of the error that the user sees.
-    The [Description]{.jbs} must contain details about the error, how it effects the user, and workarounds if any exist.
+    The [Summary]{.jbs-field} must be a summary of the error that the user sees.
+    The [Description]{.jbs-field} must contain details about the error, how it effects the user, and workarounds if any exist.
     Example: [JDK-8191040](https://bugs.openjdk.java.net/browse/JDK-8191040)
 
-[[RN-Removed]{.label}]{#RN-Removed}
+[[RN-Removed]{.jbs-label}]{#RN-Removed}
 :   Only for major releases. The release note covers an API, feature, tool etc. which has been removed from the JDK.
-    The [Summary]{.jbs} must be of the form "Removal of" Item/API.
-    The [Description]{.jbs} must contain the list or name of the removed items/API with (optional) the reason for its removal. Include any special conditions that a user should be aware of regarding the removal.
+    The [Summary]{.jbs-field} must be of the form "Removal of" Item/API.
+    The [Description]{.jbs-field} must contain the list or name of the removed items/API with (optional) the reason for its removal. Include any special conditions that a user should be aware of regarding the removal.
     Example: [JDK-8185066](https://bugs.openjdk.java.net/browse/JDK-8185066)
 
-[[RN-Deprecated]{.label}]{#RN-Deprecated}
+[[RN-Deprecated]{.jbs-label}]{#RN-Deprecated}
 :   Only for major releases. The release notes cover an API, feature, tool etc. that has been marked as deprecated in the release.
-    The [Summary]{.jbs} must be of the form "Deprecated" Item/API.
-    The [Description]{.jbs} must contain the name of the item that has been deprecated, the reason for its deprecation, and (optional) any special conditions that a user should be aware of regarding the possible future removal.
+    The [Summary]{.jbs-field} must be of the form "Deprecated" Item/API.
+    The [Description]{.jbs-field} must contain the name of the item that has been deprecated, the reason for its deprecation, and (optional) any special conditions that a user should be aware of regarding the possible future removal.
     Example: [JDK-8179909](https://bugs.openjdk.java.net/browse/JDK-8179909)
 
-[[RN-Important]{.label}]{#RN-Important}
+[[RN-Important]{.jbs-label}]{#RN-Important}
 :   Used to indicate that the release note should be highlighted in some fashion, such as listing it at the beginning of the release notes.
 
-[[RN-]{.label}_(distro)_]{#RN-distro}
+[[RN-]{.jbs-label}_(distro)_]{#RN-distro}
 :   Used to indicate that the release note is only relevant for a specific JDK distribution. E.g. [RN-Oracle]{.label}
 
-[[~~RN-Change~~]{.label}]{#RN-Change}
+[[~~RN-Change~~]{.jbs-label}]{#RN-Change}
 :   Deprecated.
 
 ## Querying the Release Notes
@@ -2055,14 +2059,14 @@ _All_ fixes that are pushed to the stabilization fork are forward ported to main
 To clarify, as soon as you know that there is a fix that needs to go into the stabilization fork but not mainline, you should do the following:
 
 * File a bug, JDK-yyy, to cover the backout work
-* Link JDK-yyy to JDK-xxx using a "relates to" link
-* Set JDK-yyy's Fix Version to the release currently being developed in mainline
+* [Link]{.jbs-field} JDK-yyy to JDK-xxx using a `relates to` link
+* Set JDK-yyy's [Fix Version/s]{.jbs-field} to the release currently being developed in mainline
 * Add a comment describing the situation
-* Set the priority to be relatively high (e.g., P3)
+* Set the [Priority]{.jbs-field} to be relatively high (e.g., P3)
 
 Then, you have to wait until the JDK-xxx fix is forward ported to mainline before actually fixing JDK-yyy. Making these settings in JDK-yyy will help ensure that it won't be missed.
 
-There are also examples in JBS where JDK-yyy has been created as a sub-task of JDK-xxx. This works, but is not recommended since JDK-yyy stands a higher risk of being missed when it's not of type *Bug* but rather a *sub-task* of an already closed issue. Also see [Backing out a change](#backing-out-a-change) for reference.
+There are also examples in JBS where JDK-yyy has been created as a sub-task of JDK-xxx. This works, but isn't recommended since JDK-yyy stands a higher risk of being missed when it's not of type *Bug* but rather a *sub-task* of an already closed issue. Also see [Backing out a change](#backing-out-a-change) for reference.
 
 ::: {.box}
 [To the top](#){.boxheader}
@@ -2287,20 +2291,8 @@ Comments and questions may be sent to [guide-dev (at) openjdk.java.net](mailto:g
 [**changeset**]{#changeset}
 :   A collection of changes with respect to the current clone of a repository.
 
-[**development freeze**]{#developmentfreeze}
-:   The date by which all planned work should be complete for a particular line of development. After a line's development freeze, only exit-criteria bugs may be fixed in that line.
-
 [**forest**]{#forest}
 :   A collection of Mercurial repositories which can be managed as a set of nested repositories. The name "Forest" originally came from the Mercurial "Forest Extension" which can be used with some versions of Mercurial, but in general is no longer recommended. The script `common/bin/hgforest.sh` can be used to apply a Mercurial `hg` command to all the repositories in a forest.
-
-[**Group**]{#group}
-:   A collection of [Participants](https://openjdk.java.net/bylaws#participant) who engage in open conversation about a common interest. That interest may be in the creation, enhancement, or maintenance of a specific body of code or it may lie in other areas, e.g., quality, documentation, or evangelism. See the [Group overview](https://openjdk.java.net/groups/).
-
-[**Mercurial**]{#mercurial}
-:   A free, cross-platform, distributed source management tool. Source bundles and binary packages for Mercurial are available at [https://www.selenic.com/mercurial/wiki/index.cgi](https://www.selenic.com/mercurial/wiki/index.cgi/Mercurial). The main Mercurial documentation is available at [http://hgbook.red-bean.com](https://hgbook.red-bean.com/).
-
-[**Project**]{#project}
-:   A collaborative effort to produce a specific artifact, which may be a body of code, or documentation, or some other material. See the [Project overview](https://openjdk.java.net/projects/).
 
 [**repository**]{#repository}
 :   A directory tree in the filesystem that Mercurial treats specially. This tree contains the source files and their revision history.
