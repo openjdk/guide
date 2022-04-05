@@ -255,49 +255,15 @@ A few things to keep in mind when filing a new bug:
 
 To find out which component to use for different bugs, consult the [directory to area mapping](#directory-to-area-mapping).
 
-## How to fix an incorrect backport creation in JBS
-
-If a main bug is targeted to a release and a fix referring to that main bug is pushed to a different release, then a backport bug is automatically created in JBS. Usually this is a "good thing", e.g., when you are backporting a fix to an earlier release, but not always... If the main bug is targeted to a later release (due to schedule planning), but someone finds the time to fix that bug in the current release, then the bug should be retargeted to the current release before pushing the fix. However, sometimes we forget to do that.
-
-Here's how to fix that:
-
-> ---
->
-> In this example a fix was pushed to JDK N (a.k.a. the current release) while the JBS bug was targeted to JDK N+1 (a.k.a. a future release). The same procedure can be used in the opposite situation, when a fix has been pushed to JDK N+1 when the JBS bug was targeted to JDK N, by switching N and N+1 below. Remember, to keep the record clean for the future, what matters the most is that the bug id used in the commit comment is the main bug, and that the "backports" (regardless of if they are to earlier or later releases) are Backport type issues of that main issue. Also make sure there are never more than one Backport issue targeted to any given release.
->
-> ---
-
-#. Reopen the _backport_ bug that was created automatically
-   * Use a comment like the following (in the reopen dialog):
-~~~
-Fix was pushed while main bug was targeted to 'N+1'. Reset the main bug to fixed in 'N', reset this bug to fix in 'na' and closed as 'Not An Issue' since JDK N+1 will automatically get this fix from JDK N later.
-~~~
-   * Change the [Fix Version/s]{.jbs-field} from 'N' to 'na'.
-   * Close the _backport_ bug as "Not an Issue".
-#. Clean up the _main_ bug
-   * Copy the push notification comment from the _backport_ bug to the _main_ bug, e.g.:
-~~~
-Changeset: 12345678
-Author: Duke <duke@openjdk.org>
-Date: 2020-10-23 15:37:46 +0000
-URL: https://git.openjdk.java.net/jdk/commit/12345678
-~~~
-   * Add a comment like the following to the _main_ bug:
-~~~
-Fix was pushed while main bug was targeted to 'N+1'. Reset the main bug to fixed in 'N' and copied the Robo Duke entry here.
-~~~
-   * Reset the _main_ bug [Fix Version/s]{.jbs-field} from 'N+1' to 'N'.
-   * Resolve the _main_ bug as "Fixed" in build "team" or in build "master" depending on where the fix was pushed - or to an actual build number if the change has already made it to a promoted build (look in the _backport_ bug if you are unsure). Pushes to 'openjdk/jdk' are fixed in build "master" and pushes to project repositories are fixed in build "team".
-
 ## Resolved - Incomplete
 
 To resolve an issue as `Incomplete` is JBS lingo for "Need More Information". An issue that is `Resolved - Incomplete` is *not* closed but more information is needed to be able to work on it. If no more information is obtained within reasonable time the issue should be closed (`Closed - Incomplete`). Closing a resolved issue is done using the `Verify` option.
 
-## JBS Label Dictionary
+## JBS Labels
 
-This table contains some frequently used JBS labels and their meaning. Please help keeping this dictionary up to date by adding your favorite labels. This table doesn’t dictate how to use labels, but rather document how they are used. That said, obviously it will help everyone if we try to follow a common standard and use similar labels in the same way across all entities that use JBS.
+JBS labels are used to tag and group related issues. JBS labels are an open namespace, which means that anyone can create new labels at any time. In order to avoid confusion, however, it's best to reuse existing labels where possible. Most areas have their commonly used labels to identify issues in their respective area. Make an effort to find and use these labels. This can be done by editing the [Labels]{.jbs-field} field of a bug and entering the first few characters of the label you want to add. JIRA will pop up an autocomplete window with existing labels that match that prefix. Then choose one of the existing labels. Using the autocomplete window is preferable to typing the whole label name (even if you're a good typist) because it's easy for minor spelling errors to creep in, which can inadvertently introduce multiple labels with spurious spelling variations.
 
-Labels are an open namespace, which means that anyone can create new labels at any time. In order to avoid confusion, however, it's best to reuse existing labels where possible. This can be done by editing the "labels" field of a bug and entering the first few characters of the label you want to add. JIRA will pop up an autocomplete window with existing labels that match that prefix. Then choose one of the existing labels. Using the autocomplete window is preferable to typing the whole label name (even if you're a good typist) because it's easy for minor spelling errors to creep in, which can inadvertently introduce multiple labels with spurious spelling variations.
+JBS labels should not be used to write documentation - don't try to write sentences using labels. Adding a number of random labels is unlikely to be helpful to anyone.
 
 > ---
 >
@@ -305,6 +271,10 @@ Labels are an open namespace, which means that anyone can create new labels at a
 > When using labels in Jira gadgets (like pie charts, heat maps, and statistics tables) Jira will be case sensitive and treat e.g. OpenJDK and openjdk as two different labels. Searching however is case insensitive. This means that if you group a set of issues in a gadget based on a label, and then click one of the groups to see the list of issues, that list will contain more results than the gadget if there are usages of the label with different casing. This can be very confusing and for this reason the recommendation is to stick with the commonly used case for all labels, regardless of your personal taste for upper or lower case letters. Most labels are lower case only, but there are examples where upper case letters are used in the most common version of a label. Use of the autocomplete popup window (described above) when adding labels will avoid inadvertent introduction of labels with differing case.
 >
 > ---
+
+## JBS Label Dictionary
+
+This table contains some frequently used JBS labels and their meaning. Please help keeping this dictionary up to date by adding your favorite labels. This table doesn’t dictate how to use labels, but rather document how they are used. That said, obviously it will help everyone if we try to follow a common standard and use similar labels in the same way across all entities that use JBS.
 
 <table class="dictionary" summary="JBS Label Dictionary">
   <tr style="text-align:left;"><th>Label</th><th>Description</th></tr>
@@ -1532,6 +1502,40 @@ The Skara tooling includes support for backports. [The official Skara documentat
 ::: {.box}
 [To the top](#){.boxheader}
 :::
+
+## How to fix an incorrect backport creation in JBS
+
+If a main bug is targeted to a release and a fix referring to that main bug is pushed to a different release, then a backport bug is automatically created in JBS. Usually this is a "good thing", e.g., when you are backporting a fix to an earlier release, but not always... If the main bug is targeted to a later release (due to schedule planning), but someone finds the time to fix that bug in the current release, then the bug should be retargeted to the current release before pushing the fix. However, sometimes we forget to do that.
+
+Here's how to fix that:
+
+> ---
+>
+> In this example a fix was pushed to JDK N (a.k.a. the current release) while the JBS bug was targeted to JDK N+1 (a.k.a. a future release). The same procedure can be used in the opposite situation, when a fix has been pushed to JDK N+1 when the JBS bug was targeted to JDK N, by switching N and N+1 below. Remember, to keep the record clean for the future, what matters the most is that the bug id used in the commit comment is the main bug, and that the "backports" (regardless of if they are to earlier or later releases) are Backport type issues of that main issue. Also make sure there are never more than one Backport issue targeted to any given release.
+>
+> ---
+
+#. Reopen the _backport_ bug that was created automatically
+   * Use a comment like the following (in the reopen dialog):
+~~~
+Fix was pushed while main bug was targeted to 'N+1'. Reset the main bug to fixed in 'N', reset this bug to fix in 'na' and closed as 'Not An Issue' since JDK N+1 will automatically get this fix from JDK N later.
+~~~
+   * Change the [Fix Version/s]{.jbs-field} from 'N' to 'na'.
+   * Close the _backport_ bug as "Not an Issue".
+#. Clean up the _main_ bug
+   * Copy the push notification comment from the _backport_ bug to the _main_ bug, e.g.:
+~~~
+Changeset: 12345678
+Author: Duke <duke@openjdk.org>
+Date: 2020-10-23 15:37:46 +0000
+URL: https://git.openjdk.java.net/jdk/commit/12345678
+~~~
+   * Add a comment like the following to the _main_ bug:
+~~~
+Fix was pushed while main bug was targeted to 'N+1'. Reset the main bug to fixed in 'N' and copied the Robo Duke entry here.
+~~~
+   * Reset the _main_ bug [Fix Version/s]{.jbs-field} from 'N+1' to 'N'.
+   * Resolve the _main_ bug as "Fixed" in build "team" or in build "master" depending on where the fix was pushed - or to an actual build number if the change has already made it to a promoted build (look in the _backport_ bug if you are unsure). Pushes to 'openjdk/jdk' are fixed in build "master" and pushes to project repositories are fixed in build "team".
 
 # Release Notes
 
