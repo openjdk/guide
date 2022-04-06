@@ -1445,6 +1445,48 @@ Disadvantages of this model are that the list of backports in JBS will still lis
 [To the top](#){.boxheader}
 :::
 
+# Working With Pull Requests
+
+::: {.box}
+[Quick Links]{.boxheader}
+
+* [Skara documentation on PR commands](https://wiki.openjdk.java.net/display/SKARA/Pull+Request+Commands)
+:::
+
+Once you have made a change that you want to integrate into an OpenJDK code base you need to create a _Pull Request_ (PR) on GitHub. This guide assumes that you have previous experience from using git and GitHub and won't go into details of how things work. Still, the aim is of course to provide a useful guide, so speak up if more details are needed.
+
+## Rebase before creating the PR
+
+It's likely that other people have pushed changes to the code base since you created your branch. Make sure to pull the latest changes and rebase your fix on top of that before creating your PR. This is a courtesy issue. Your reviewers shouldn't have to read your patch on top of old code that has since changed. This is hopefully obvious in cases where the upstream code has gone through cleanups or refactorings, and your patch may need similar cleanups in order to even compile. But even in cases where only smaller changes has been done, the reviewers shouldn't have to react to issues like "that line of code was moved last week, why is it back there?".
+
+~~~
+git rebase master
+~~~
+
+After the PR has been published, rebasing, force-pushing, and similar actions is strongly discouraged. Such actions will disrupt the workflow for reviewers who fetch the PR branch. Pushing new changes is fine (and even merging if necessary) for a PR under review. Incremental diffs and other tools will help your reviewers see what you have changed. In the end, all commits will be squashed into a single commit automatically, so there're actually no drawbacks what so ever to making several commits to a PR branch during review.
+
+## Life of a PR
+
+#. **Write a useful description**
+
+   The description of the PR should state what problem is being solved and shortly describe how it's solved. Reviewers and other interested readers are referred to the text in the JBS issue for details, but the description should be enough to give an overview.
+
+#. **Make sure all relevant groups are included**
+
+   The bots will make an attempt to include the groups that need to review your change based on the location of the source code you have changed. There may be aspects of your change that are relevant to other groups as well, and the mapping from source to groups isn't always perfect, so make sure all relevant groups have been included, and add new labels using [`/label`](https://wiki.openjdk.java.net/display/SKARA/Pull+Request+Commands#PullRequestCommands-/label) if needed.
+
+#. **Allow enough time for review**
+
+   In general all PRs should be open for at least 24 hours to allow for reviewers in all time zones to get a chance to see it. In some areas [trivial](#trivial) changes are allowed to be pushed without the 24 hour delay. Ask your reviewers if you think this applies to your change.
+
+#. **Merge the latest changes**
+
+   Before pushing you should always fetch and merge the latest changes from the target repository.
+
+#. **Integrate your change**
+
+   When you have the required reviews and have made sure all relevant areas have had a chance to look at your change, integrate by entering the command [`/integrate`](https://wiki.openjdk.java.net/display/SKARA/Pull+Request+Commands#PullRequestCommands-/integrate) in a comment on the PR. If you are not yet a Committer in the project, ask your sponsor to enter the command [`/sponsor`](https://wiki.openjdk.java.net/display/SKARA/Pull+Request+Commands#PullRequestCommands-/sponsor) in the PR as well in order for your change to be allowed to be integrated.
+
 # Backporting
 
 ::: {.box}
