@@ -1481,7 +1481,7 @@ After the PR has been published, rebasing, force-pushing, and similar actions is
 
 #. **Merge the latest changes**
 
-   Before pushing you should always fetch and merge the latest changes from the target repository.
+   Before pushing you should always fetch and merge the latest changes from the target repository. If your PR is out for review for a longer time it is a good habit to pull from the target repository regularly to keep the change up to date.
 
 #. **Integrate your change**
 
