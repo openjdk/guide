@@ -1515,7 +1515,7 @@ If you have an actual reason to create a PR before the change is all done, make 
 
 #. **Merge the latest changes**
 
-   If your PR is out for review for a longer time it's a good habit to pull from the target repository regularly to keep the change up to date. This will make it easier to review the change and it will help you find issues caused by other changes sooner. If there are upstream changes that might affect your change, it's likely a good idea to rerun relevant testing as well. The GHA testing that is done automatically by GitHub should only be seen as a smoke test that finds the most sever problems with your change. It's highly unlikely that it will test your actual change in any greater detail - or even run the code that you have changed in most cases.
+   If your PR is out for review for a longer time it's a good habit to pull from the target repository regularly to keep the change up to date. This will make it easier to review the change and it will help you find issues caused by other changes sooner. If there are upstream changes that might affect your change, it's likely a good idea to rerun relevant testing as well. The GHA testing that is done automatically by GitHub should only be seen as a smoke test that finds the most severe problems with your change. It's highly unlikely that it will test your actual change in any greater detail - or even run the code that you have changed in most cases.
 
 #. **Integrate your change**
 
