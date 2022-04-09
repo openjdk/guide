@@ -1453,35 +1453,69 @@ Disadvantages of this model are that the list of backports in JBS will still lis
 * [Skara documentation on PR commands](https://wiki.openjdk.java.net/display/SKARA/Pull+Request+Commands)
 :::
 
-Once you have made a change that you want to integrate into an OpenJDK code base you need to create a _Pull Request_ (PR) on GitHub. This guide assumes that you have previous experience from using git and GitHub and won't go into details of how things work. Still, the aim is of course to provide a useful guide, so speak up if more details are needed.
+Once you have made a change that you want to integrate into an OpenJDK code base you need to create a _Pull Request_ (PR) on GitHub. This guide assumes that you have previous experience from using git and GitHub and won't go into details of how those work. Still, the aim is of course to provide a useful guide, so [send an email](#about-this-guide) if more details are needed.
 
 ## Rebase before creating the PR
 
-It's likely that other people have pushed changes to the code base since you created your branch. Make sure to pull the latest changes and rebase your fix on top of that before creating your PR. This is a courtesy issue. Your reviewers shouldn't have to read your patch on top of old code that has since changed. This is hopefully obvious in cases where the upstream code has gone through cleanups or refactorings, and your patch may need similar cleanups in order to even compile. But even in cases where only smaller changes has been done, the reviewers shouldn't have to react to issues like "that line of code was moved last week, why is it back there?".
+It's likely that other people have pushed changes to the code base since you created your branch. Make sure to pull the latest changes and rebase your fix on top of that before creating your PR. This is a courtesy issue. Your reviewers shouldn't have to read your patch on top of old code that has since changed. This is hopefully obvious in cases where the upstream code has gone through cleanups or refactorings, and your patch may need similar cleanups in order to even compile. But even in cases where only smaller changes have been done, the reviewers shouldn't have to react to issues like "that line of code was moved last week, why is it back there?".
 
 ~~~
 git rebase master
 ~~~
 
-After the PR has been published, rebasing, force-pushing, and similar actions is strongly discouraged. Such actions will disrupt the workflow for reviewers who fetch the PR branch. Pushing new changes is fine (and even merging if necessary) for a PR under review. Incremental diffs and other tools will help your reviewers see what you have changed. In the end, all commits will be squashed into a single commit automatically, so there're actually no drawbacks what so ever to making several commits to a PR branch during review.
+After the PR has been published, rebasing, force-pushing, and similar actions are strongly discouraged. Such actions will disrupt the workflow for reviewers who fetch the PR branch. Pushing new changes is fine (and even merging if necessary) for a PR under review. Incremental diffs and other tools will help your reviewers see what you have changed. In the end, all commits will be squashed into a single commit automatically, so there're actually no drawbacks whatsoever to making commits to a PR branch during review.
+
+## Final check before creating the PR
+
+Creating the PR is essentially the same as asking a large group of people to start reviewing your change. Before doing that, you want to make sure your change is done in every detail you have the power to control. These are a few of the things you should think about in order to avoid wasting people's time on an unfinished change. (You may think that some of these are too obvious to even mention, but all of them are things that in the past have caused actual failures that broke the JDK for **all** developers out there.)
+
+* Is the copyright statement at the top of each modified source file correct?
+
+* Did you run all relevant tests on the final version of the change? (Yes, I mean final! If you only knew how many times people _only changed a comment_ and caused a build failure.)
+
+* Did you `git add` all new files?
+
+* Did you add regression tests for your change?
+
+* Did you run those new regression tests?
+
+If you are unsure of any of these things but still want to go ahead and create the PR, **don't!**
+
+If you have an actual reason to create a PR before the change is all done, make sure to create it in `DRAFT` mode. The bot won't add the `rfr` label or send emails as long as the PR is in `DRAFT` mode.
 
 ## Life of a PR
 
+#. **Make sure the PR is reviewable**
+
+   There are changes that span across several areas, for example wide spread cleanups or the introduction of a new langauge feature. Accordingly, the number of lines of code touched can be quite large, which makes it harder to review the entire PR. In such cases, it may make sense to split the change into several PRs, most commonly by grouping them by module or area.
+
+#. **Set a correctly formatted title**
+
+   The title of the PR should be of the form "`nnnnnnn: Title of JBS issue`" where `nnnnnnn` is the JBS issue id of the main JBS issue that is being fixed, and the `Title of JBS issue` is the exact title of the issue as written in JBS. In fact, the title can be set to _only_ the JBS issue id (`nnnnnnn`) in which case the bot will fetch the title from JBS automatically. If you are creating a backport PR, see [Using the Skara tooling to help with backports](#using-the-skara-tooling-to-help-with-backports) for more details on the title requirements.
+
 #. **Write a useful description**
 
-   The description of the PR should state what problem is being solved and shortly describe how it's solved. Reviewers and other interested readers are referred to the text in the JBS issue for details, but the description should be enough to give an overview.
+   The description of the PR should state what problem is being solved and shortly describe how it's solved. Reviewers and other interested readers are referred to the text in the JBS issue for details, but the description should be enough to give an overview. This assumes there's useful information in the JBS issue, like an evaluation etc. If not, add it.
+
+   Remember that the description is included in many emails sent to lists with many receivers, so a too long description can cause a lot of noise, while of course a too short description won't give the reader enough information to perform the review. If you have a lot of information you wish to add to your PR, like performance evaluations, you can put that in a separate comment in the PR.
+
+#. **Finish the change before publishing it**
+
+   Each update to a published PR will result in emails being sent to all relevant lists. This is per design and it's how we want it to be, but it also mean that if you publish a PR before you have gone through the final check mentioned above, and later find that a few more updates are necessary, a lot of people will get a lot of emails.
 
 #. **Make sure all relevant groups are included**
 
-   The bots will make an attempt to include the groups that need to review your change based on the location of the source code you have changed. There may be aspects of your change that are relevant to other groups as well, and the mapping from source to groups isn't always perfect, so make sure all relevant groups have been included, and add new labels using [`/label`](https://wiki.openjdk.java.net/display/SKARA/Pull+Request+Commands#PullRequestCommands-/label) if needed.
+   The bot will make an attempt to include the groups that need to review your change based on the location of the source code you have changed. There may be aspects of your change that are relevant to other groups as well, and the mapping from source to groups isn't always perfect, so make sure all relevant groups have been included, and add new labels using [`/label`](https://wiki.openjdk.java.net/display/SKARA/Pull+Request+Commands#PullRequestCommands-/label) if needed.
 
 #. **Allow enough time for review**
 
-   In general all PRs should be open for at least 24 hours to allow for reviewers in all time zones to get a chance to see it. In some areas [trivial](#trivial) changes are allowed to be pushed without the 24 hour delay. Ask your reviewers if you think this applies to your change.
+   In general all PRs should be open for at least 24 hours to allow for reviewers in all time zones to get a chance to see it. It may actually happen that even 24 hours isn't enough. Take into account weekends, holidays, and vacation times throughout the world and you'll realize that a change that requires more than just a trivial review may have to be open for a while. In some areas [trivial](#trivial) changes are allowed to be pushed without the 24 hour delay. Ask your reviewers if you think this applies to your change.
+
+   At least one reviewer should be knowledgeable in the area being changed. Some areas (e.g. client and hotspot) require two reviewers in most cases, so be sure to read the relevant OpenJDK group pages for advice or ask your sponsor.
 
 #. **Merge the latest changes**
 
-   Before pushing you should always fetch and merge the latest changes from the target repository. If your PR is out for review for a longer time it is a good habit to pull from the target repository regularly to keep the change up to date.
+   If your PR is out for review for a longer time it's a good habit to pull from the target repository regularly to keep the change up to date. This will make it easier to review the change and it will help you find issues caused by other changes sooner. If there are upstream changes that might affect your change, it's likely a good idea to rerun relevant testing as well. The GHA testing that is done automatically by GitHub should only be seen as a smoke test that finds the most sever problems with your change. It's highly unlikely that it will test your actual change in any greater detail - or even run the code that you have changed in most cases.
 
 #. **Integrate your change**
 
