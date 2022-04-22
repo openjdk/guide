@@ -1523,7 +1523,7 @@ If you have an actual reason to create a PR before the change is all done, make 
 
    If your PR is out for review for a longer time it's a good habit to pull from the target repository regularly to keep the change up to date. This will make it easier to review the change and it will help you find issues caused by other changes sooner. Typically this involves fetching changes from the master branch of the main JDK repo, merging them into your local branch, resolving conflicts if necessary, and then pushing these changes to the PR branch. Pushing additional commits and merges into the PR branch is fine; they will be squashed into a single commit when the PR is integrated. Avoid rebasing changes, and prefer merging instead.
 
-   If there are upstream changes that might affect your change, it's likely a good idea to rerun relevant testing as well. The GHA testing that's done automatically by GitHub should only be seen as a smoke test that finds the most sever problems with your change. It's highly unlikely that it will test your actual change in any greater detail - or even at all execute the code that you have changed in most cases.
+   If there are upstream changes that might affect your change, it's likely a good idea to rerun relevant testing as well. The GHA testing that's done automatically by GitHub should only be seen as a smoke test that finds the most severe problems with your change. It's highly unlikely that it will test your actual change in any greater detail - or even at all execute the code that you have changed in most cases.
 
 #. **Integrate your change**
 
