@@ -1298,6 +1298,14 @@ The fix for the main issue should remove the test from the ProblemList or remove
 
 After a failure is handled by excluding a test, the main JBS issue should be re-triaged and possibly given a new priority. This should be handled by the standard triage process. A test exclusion results in an outage in our testing. This outage should be taken into consideration when triaging, in addition to the impact of the bug itself.
 
+## GitHub Actions
+
+GitHub has a feature called **GitHub Actions** (GHA) that can be used to automate testing. The GHA is executed whenever a PR is created or updated in the repository. The GHA in the JDK project is configured to run a set of tests that is commonly known as **tier 1**. This is a relatively fast, small set of tests that tries to verify that your change didn't break the JDK completely. In tier 1 the JDK is built on a small set of platforms including (but not necessarily limited to) Linux, Windows, and MacOS, and a few tests are executed using these builds.
+
+In addition to the testing you run manually before publishing your changes, it's recommended that you take advantage of this automated testing that the GHA offers. To enable this on your personal fork of the JDK on GitHub go to the "Actions" tab and click the big green button saying "I understand my workflows, go ahead and enable them". If you don't understand these workflows there's a link to the actual file that describes them right below the green button.
+
+Please keep in mind that the tier 1 tests run by the GHA should only be seen as a smoke test that finds the most critical breakages, like build errors or if the JDK is DOA. These tests can never replace the targeted testing that you always must do on your changes.
+
 ## Backing out a change
 
 If a change causes a regression that can't be fixed within reasonable time, the best way to handle the regression can be to back out the change. Backing out means that the inverse (anti-delta) of the change is pushed to effectively undo the change in the repository. There are two parts to this task, how to do the bookkeeping in JBS, and how to do the actual backout in git or Mercurial.
