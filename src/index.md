@@ -1300,7 +1300,7 @@ After a failure is handled by excluding a test, the main JBS issue should be re-
 
 ## GitHub Actions
 
-GitHub has a feature called **GitHub Actions** (GHA) that can be used to automate testing. The GHA is executed whenever a PR is created or updated in the repository. The GHA in the JDK project is configured to run a set of tests that is commonly known as **tier 1**. This is a relatively fast, small set of tests that tries to verify that your change didn't break the JDK completely. In tier 1 the JDK is built on a small set of platforms including (but not necessarily limited to) Linux, Windows, and MacOS, and a few tests are executed using these builds.
+GitHub has a feature called **GitHub Actions** (GHA) that can be used to automate testing. The GHA is executed whenever a push is made to a branch in your repository. The bots will show the results of the GHA in your PR when you create or update it. The GHA in the JDK project is configured to run a set of tests that is commonly known as **tier 1**. This is a relatively fast, small set of tests that tries to verify that your change didn't break the JDK completely. In tier 1 the JDK is built on a small set of platforms including (but not necessarily limited to) Linux, Windows, and MacOS, and a few tests are executed using these builds.
 
 In addition to the testing you run manually before publishing your changes, it's recommended that you take advantage of this automated testing that the GHA offers. To enable this on your personal fork of the JDK on GitHub go to the "Actions" tab and click the big green button saying "I understand my workflows, go ahead and enable them". If you don't understand these workflows there's a link to the actual file that describes them right below the green button.
 
