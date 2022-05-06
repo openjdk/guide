@@ -1304,6 +1304,8 @@ GitHub has a feature called **GitHub Actions** (GHA) that can be used to automat
 
 In addition to the testing you run manually before publishing your changes, it's recommended that you take advantage of this automated testing that the GHA offers. To enable this on your personal fork of the JDK on GitHub go to the "Actions" tab and click the big green button saying "I understand my workflows, go ahead and enable them". If you don't understand these workflows there's a link to the actual file that describes them right below the green button.
 
+In case of failures in the GHA it's always a good start to try to reproduce the failure locally on a machine where you have better control and easier access to a debug environment. There has been cases where the GHA has failed due to issues unrelated to the change being tested, e.g. because the GHA environment was updated and changes was needed to the JDK GHA configuration. The configuration is in general updated fairly quickly, so in cases were you can't reproduce the failure locally, consider re-running the GHA later.
+
 Please keep in mind that the tier 1 tests run by the GHA should only be seen as a smoke test that finds the most critical breakages, like build errors or if the JDK is DOA. These tests can never replace the targeted testing that you always must do on your changes.
 
 ## Backing out a change
