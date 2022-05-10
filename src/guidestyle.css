@@ -15,8 +15,24 @@ h1 {
     background: #f4f8ff;
 }
 
+p {
+    margin-top: 0em;
+}
+
 p ~ h1 {
     margin-top: 2em;
+}
+
+ul {
+    margin: 1em;
+}
+
+ul ul {
+    margin: 0em;
+}
+
+li p ~ ul {
+    margin-top: -1em;
 }
 
 /* Spacing between consecutive code blocks */
@@ -58,7 +74,8 @@ pre > code {
 .jbs-label {
     font-family: monospace;
     font-weight: bold;
-    color: #060
+    color: #060;
+    white-space: nowrap;
 }
 
 table {
