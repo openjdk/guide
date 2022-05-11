@@ -35,7 +35,7 @@ A Contributor can have different roles in different projects. When you're new to
 
 ### Becoming an Author
 
-Becoming an [Author](https://openjdk.java.net/bylaws#author) is the first step. To achieve this you need to contribute two changes to the project in which you wish to become an Author. Once your changes are pushed into the code base and has been vetted enough to determine that the changes were indeed good changes you can go ahead and send an email to the project lead of that particular project and ask to be added as an Author.
+Becoming an [Author](https://openjdk.java.net/bylaws#author) is the first step. To achieve this you need to contribute two changes to the project in which you wish to become an Author. Once your changes are pushed into the code base and has been vetted enough to determine that the changes were indeed good changes you can go ahead and send an email to the project lead of that particular project and ask to be added as an Author. The [OpenJDK Project description](https://openjdk.java.net/projects/#project-author) has a template for such an email.
 
 As an Author you have the formal right to produce changesets for inclusion into the projects code base, but you will need a sponsor to perform the actual push. You'll also have write access to [JBS](#jbs---jdk-bug-system) and the [OpenJDK wiki](https://wiki.openjdk.java.net) related to the project in question.
 
@@ -43,7 +43,7 @@ As an Author you have the formal right to produce changesets for inclusion into 
 
 To become a [Committer](https://openjdk.java.net/bylaws#committer) you should show that you can produce non-trivial changes that are accepted for inclusion into the project code base. The number eight has been seen as a formal lower limit on the number of changes, but since the changes must be non-trivial, or "significant" as the [OpenJDK Project description](https://openjdk.java.net/projects/) says, and the definition of significant is subjective, the general recommendation is to wait with a Committer nomination until there's at least 10-12 changes pushed to have some margin for different interpretations of "significant". It's always a good idea to seek the advice of a sponsor who can guide you through the process to becoming a Committer - you will need one later to run the Committer vote anyway. They probably will have a better idea of what constitutes a "significant" change.
 
-Once you have the required changes, a Committer in the project can start a vote by sending an email proposing that you should become a Committer. The email should follow the template found in the [OpenJDK Project description](https://openjdk.java.net/projects/).
+Once you have the required changes, a Committer in the project can start a vote by sending an email proposing that you should become a Committer. The email should follow the template found in the [OpenJDK Project description](https://openjdk.java.net/projects/#project-committer).
 
 A Committer is allowed to push changes without the aid of a sponsor. A Committer is also allowed to nominate other non-Committers to become Committers in the project.
 
@@ -53,7 +53,7 @@ To become a [Reviewer](https://openjdk.java.net/bylaws#reviewer) you must show a
 
 The assumption is that after having produced 32 significant changes one should have become familiar with the process around reviews and the requirements around getting a change approved. This should really be seen as a minimum requirement though. A more practical consideration would be to look at whether the non-trivial commits of a potential Reviewer are accepted largely intact or whether they are always being refined by the review process. There may be cases where it will take significantly more than 32 changes for a Committer to be ready to become a Reviewer.
 
-Once you are deemed ready, a Reviewer in the project can start a vote by sending an email proposing that you should become a Reviewer. The email should follow the template found in the [OpenJDK Project description](https://openjdk.java.net/projects/).
+Once you are deemed ready, a Reviewer in the project can start a vote by sending an email proposing that you should become a Reviewer. The email should follow the template found in the [OpenJDK Project description](https://openjdk.java.net/projects/#project-reviewer).
 
 ### Non-trivial/Significant changes
 
@@ -387,7 +387,7 @@ This table contains some frequently used JBS labels and their meaning. Please he
       [[aot]{.jbs-label}]{#aot}
     </td>
     <td class="dictionary">
-      Used to indicate that an issue is related to Ahead of Time Compilation.
+      Used to identify issues in Ahead of Time Compilation.
     </td>
   </tr>
   <tr>
@@ -395,7 +395,7 @@ This table contains some frequently used JBS labels and their meaning. Please he
      [[~~appcds~~]{.jbs-label}]{#appcds}
     </td>
     <td class="dictionary">
-      **Deprecated.** Was used to indicate that an issue was related to Application Class-Data Sharing. The [cds]{.jbs-label} label is now used instead.
+      **Deprecated.** Was used to identify issues in Application Class-Data Sharing. The [cds]{.jbs-label} label is now used instead.
     </td>
   </tr>
   <tr>
@@ -403,7 +403,7 @@ This table contains some frequently used JBS labels and their meaning. Please he
       [[c1]{.jbs-label}]{#c1}
     </td>
     <td class="dictionary">
-      Used to indicate that an issue is related to the C1 JIT compiler.
+      Used to identify issues in the C1 JIT compiler.
     </td>
   </tr>
   <tr>
@@ -412,7 +412,7 @@ This table contains some frequently used JBS labels and their meaning. Please he
       [c2-]{.jbs-label}`.*`
     </td>
     <td class="dictionary">
-      Used to indicate that an issue is related to the C2 JIT compiler.
+      Used to identify issues in the C2 JIT compiler.
 
       [c2-]{.jbs-label}`.*` labels are used to identify different c2 features. E.g., [c2-intrinsic]{.jbs-label}, [c2-loopopts]{.jbs-label}
     </td>
@@ -422,7 +422,7 @@ This table contains some frequently used JBS labels and their meaning. Please he
       [[cds]{.jbs-label}]{#cds}
     </td>
     <td class="dictionary">
-      Used to indicate that an issue is related to Class Data Sharing.
+      Used to identify issues in Class Data Sharing.
     </td>
   </tr>
   <tr>
@@ -438,7 +438,7 @@ This table contains some frequently used JBS labels and their meaning. Please he
       [[docker]{.jbs-label}]{#docker}
     </td>
     <td class="dictionary">
-      Used to indicate that an issue is related to docker support.
+      Used to identify issues in docker support.
     </td>
   </tr>
   <tr>
@@ -446,7 +446,7 @@ This table contains some frequently used JBS labels and their meaning. Please he
       [[gc-]{.jbs-label}`.*`]{#gc}
     </td>
     <td class="dictionary">
-      Used to indicate that an issue is related to a specific garbage collector in the JVM. E.g., [gc-g1]{.jbs-label}, [gc-shenandoah]{.jbs-label}, [gc-serial]{.jbs-label}, [gc-epsilon]{.jbs-label}
+      Used to identify issues in specific garbage collectors in the JVM. E.g., [gc-g1]{.jbs-label}, [gc-shenandoah]{.jbs-label}, [gc-serial]{.jbs-label}, [gc-epsilon]{.jbs-label}
 
       There are also labels in use to identify different GC features or areas rather than GC algorithms. E.g., [gc-g1-fullgc]{.jbs-label}, [gc-largeheap]{.jbs-label}, [gc-performance]{.jbs-label}
     </td>
@@ -488,7 +488,7 @@ This table contains some frequently used JBS labels and their meaning. Please he
       [[hs-sbr]{.jbs-label}]{#hs-sbr}
     </td>
     <td class="dictionary">
-      Used to tag bugs that are found in the "same binary runs", a stress testing method used to find intermittent failures.
+      Used to identify issues that are found in the "same binary runs", a stress testing method used to find intermittent failures.
     </td>
   </tr>
   <tr>
@@ -504,7 +504,7 @@ This table contains some frequently used JBS labels and their meaning. Please he
       [[i18n]{.jbs-label}]{#i18n}
     </td>
     <td class="dictionary">
-      Used to indicate that an issue is related to internationalization. i18n is short for internationalization meaning "i 18 letters and an n".
+      Used to identify issue in internationalization. i18n is short for internationalization meaning "i 18 letters and an n".
     </td>
   </tr>
   <tr>
@@ -615,7 +615,7 @@ Examples:  If a bug fix only corrects a change in the build system, then add the
       [[performance]{.jbs-label}]{#performance}
     </td>
     <td class="dictionary">
-      Used to identify a bug with noticeable performance impact. Either positive or negative.
+      Used to identify an issue with noticeable performance impact. Either positive or negative.
     </td>
   </tr>
   <tr>
@@ -639,7 +639,7 @@ Examples:  If a bug fix only corrects a change in the build system, then add the
       [[regression]{.jbs-label}]{#regression}
     </td>
     <td class="dictionary">
-      A regression is a bug that didn't exist in the previous release. Ideally all regressions must be fixed in order to release the next major version.
+      Used to identify regressions. A regression is a bug that didn't exist in the previous release. Ideally all regressions must be fixed in order to release the next major version.
     </td>
   </tr>
   <tr>
@@ -683,7 +683,7 @@ Examples:  If a bug fix only corrects a change in the build system, then add the
       [[startup]{.jbs-label}]{#startup}
     </td>
     <td class="dictionary">
-      Used to identify a bug as affecting Java SE startup performance.
+      Used to identify an issue as affecting Java SE startup performance.
     </td>
   </tr>
   <tr>
@@ -719,6 +719,14 @@ Examples:  If a bug fix only corrects a change in the build system, then add the
   </tr>
   <tr>
     <td class="dictionary">
+      [[vthreads]{.jbs-label}]{#vthreads}
+    </td>
+    <td class="dictionary">
+      Used to identify an issue in the virtual thread implementation.
+    </td>
+  </tr>
+  <tr>
+    <td class="dictionary">
       [[webbug]{.jbs-label}]{#webbug}
     </td>
     <td class="dictionary">
@@ -730,7 +738,7 @@ Examples:  If a bug fix only corrects a change in the build system, then add the
       [[zgc]{.jbs-label}]{#zgc}
     </td>
     <td class="dictionary">
-      Used to indicate that an issue is related to ZGC.
+      Used to identify an issue in ZGC.
     </td>
   </tr>
 </table>
@@ -1606,6 +1614,7 @@ Fix was pushed while main bug was targeted to 'N+1'. Reset the main bug to fixed
 ~~~
    * Change the [Fix Version/s]{.jbs-field} from 'N' to 'na'.
    * Close the _backport_ bug as "Not an Issue".
+
 #. Clean up the _main_ bug
    * Copy the push notification comment from the _backport_ bug to the _main_ bug, e.g.:
 ~~~
@@ -1645,6 +1654,7 @@ When writing a release note, be prepared for rather picky review comments about 
 The release note itself is written in a [JBS](#jbs---jdk-bug-system) sub-task of the issue that is used to push the change. There are a few steps to follow for the release note to find its way from JBS to the actual release note document.
 
 #. Create a sub-task (More &rightarrow; Create Sub-Task) for the issue that requires a release note - the main issue, that is, the JBS issue that is used to push the original change, **not** for backports or the CSR (if there is one).
+
 #. For the newly created sub-task, follow these steps:
    * The [Summary]{.jbs-field} should be a one sentence synopsis that is informative (and concise) enough to attract the attention of users, developers, and maintainers who might be impacted by the change. It should succinctly describe what has actually changed, not be the original bug title, nor describe the problem that was being solved. It should read well as a sub-section heading in a document.
    * Prefix the [Summary]{.jbs-field} with "Release Note:".
@@ -1655,7 +1665,9 @@ The release note itself is written in a [JBS](#jbs---jdk-bug-system) sub-task of
    * Set the [Fix Version/s]{.jbs-field} to the same value that the main issue - in almost all cases this will be the version of mainline.
    * Enter the text of the release note in the [Description]{.jbs-field} field using markdown formatting, following the [CommonMark specification](https://spec.commonmark.org/current/). While the markdown won't be rendered in JBS, you can use [dingus](https://spec.commonmark.org/dingus/) to see what the release note will look like. Note that [Github stlye ascii table formatting](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables) is supported but will not display correctly in the dingus page. For more information see [General Conventions for Release Notes](#general-conventions-for-release-notes) below.
    * While the [Priority]{.jbs-field} of the sub-task is set by default to be the same as the priority of the issue itself, it can be changed to adjust in what order the release note is listed compared to other release notes in the same build or release note section.
+
 #. Have the release note ready to be reviewed at the same time as the code is reviewed. If it's later determined that a release note is necessary, then go back to the same engineers who reviewed the fix to review the release note.  Special care should be taken when writing a release note that will cover changes related to a vulnerability fix in order to avoid describing technical details of how it could have been exploited.
+
 #. When you are done, _Resolve_ the release note sub-task as `Delivered`. Only release notes where the sub-task has been resolved as `Delivered` is considered to be part of the EA/GA release notes. To avoid mixing up the release notes with the code fixes that have gone into a particular release or build, we don't use `Resolved/Fixed`.
 
 If you see an issue you feel should have a release note but you are not the assignee of the bug, then add the label [release-note=yes]{.jbs-label} to the main bug (not on a backport nor a sub-task). This acts as a flag to make sure that the release note is considered. This can be done even with fixes that have been shipped already if it's noticed that there is confusion around the change. If, after discussion, it's decided that a release note isn't required either remove the label, or change it to [release-note=no]{.jbs-label} if it makes sense to have a clear indication that a release note isn't required for the fix. The label [release-note=yes]{.jbs-label} can be removed once the release note sub-task has been created.
