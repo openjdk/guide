@@ -22,6 +22,11 @@ ALL_RESULT := $(LEGACY_RESULT) $(GUIDE_RESULT)
 
 UTF8_HTML := $(patsubst build/dist/%.html, build/support/utf-8/%.html, $(ALL_RESULT))
 
+FOUND_GUIDE_CHAPTERS := $(wildcard src/guide/*.md)
+ifneq ($(sort $(FOUND_GUIDE_CHAPTERS)), $(sort $(GUIDE_CHAPTER_FILES)))
+  $(error "The guide chapters in src/guide do not match the chapters in src/toc.conf")
+endif
+
 ifneq ($(DEBUG_MAKE),)
   .SECONDARY: $(LEGACY_FOOTER) $(GUIDE_CONCATENATED) $(GUIDE_FOOTER) $(UTF8_HTML)
 endif
