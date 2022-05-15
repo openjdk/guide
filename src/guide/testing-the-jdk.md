@@ -298,7 +298,8 @@ commit aa371b4f02c2f809eb9cd3e52aa12b639bed1ef5 (HEAD -> master)
 Author: Jesper Wilhelmsson <jesper.wilhelmsson@oracle.com>
 Date:   Wed Jun 23 20:31:32 2021 +0200
 
-    My change
+    8272373: Make the JDK mine
+    Reviewed-by: duke
 
 diff --git a/README.md b/README.md
 index 399e7cc311f..4961acb2126 100644
@@ -312,7 +313,7 @@ index 399e7cc311f..4961acb2126 100644
  [online documentation](https://openjdk.java.net/groups/build/doc/building.html),
 
 $ git revert aa371b4f02c2f809eb9cd3e52aa12b639bed1ef5
-[master d454489052d] Revert "My change"
+[master d454489052d] 8280996: [BACKOUT] Make the JDK mine Reviewed-by: duke
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 $ git show d454489052dc6ff69a21ad9c8f56b67fdeb435ee
@@ -320,9 +321,8 @@ commit d454489052dc6ff69a21ad9c8f56b67fdeb435ee (HEAD -> master)
 Author: Jesper Wilhelmsson <jesper.wilhelmsson@oracle.com>
 Date:   Wed Jun 23 20:32:08 2021 +0200
 
-    Revert "My change"
-
-    This reverts commit aa371b4f02c2f809eb9cd3e52aa12b639bed1ef5.
+    8280996: [BACKOUT] Make the JDK mine
+    Reviewed-by: duke
 
 diff --git a/README.md b/README.md
 index 4961acb2126..399e7cc311f 100644
