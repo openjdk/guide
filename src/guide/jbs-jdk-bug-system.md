@@ -156,7 +156,7 @@ This table contains some frequently used JBS labels and their meaning. Please he
       [*(Rel)*[-na]{.jbs-label}]{#rel-na}
     </td>
     <td class="dictionary">
-      Used to indicate that the issue doesn't affect release *(Rel)* or later. Could for instance be a bug in code that was removed in *(Rel)*.
+      Used to indicate that the issue doesn't affect release *(Rel)* or later. Could for instance be a bug in code that was removed in *(Rel)*. Note that there should only be **one** *(Rel)*[-na]{.jbs-label} label on any JBS issue. The [Affects Version/s]{.jbs-field} field is used to indicate the releases where the issue has been seen.
     </td>
   </tr>
   <tr>
