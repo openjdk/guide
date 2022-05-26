@@ -7,10 +7,6 @@ endef
 
 TITLE := The OpenJDK Developers' Guide
 
-LEGACY_MD := $(wildcard src/*.md)
-LEGACY_FOOTER := $(patsubst src/%.md, build/support/footers/%.html, $(LEGACY_MD))
-LEGACY_RESULT := $(patsubst src/%.md, build/dist/%.html, $(LEGACY_MD))
-
 GUIDE_CHAPTERS := $(shell cat src/toc.conf)
 GUIDE_CHAPTER_FILES := $(addprefix src/guide/, $(GUIDE_CHAPTERS))
 GUIDE_CONCATENATED := build/support/index.md
@@ -18,9 +14,7 @@ GUIDE_FOOTER := build/support/footers/index.html
 GUIDE_UTF8 := build/support/utf-8/index.html
 GUIDE_RESULT := build/dist/index.html
 
-ALL_RESULT := $(LEGACY_RESULT) $(GUIDE_RESULT)
-
-UTF8_HTML := $(patsubst build/dist/%.html, build/support/utf-8/%.html, $(ALL_RESULT))
+UTF8_HTML := $(patsubst build/dist/%.html, build/support/utf-8/%.html, $(GUIDE_RESULT))
 
 FOUND_GUIDE_CHAPTERS := $(wildcard src/guide/*.md)
 ifneq ($(sort $(FOUND_GUIDE_CHAPTERS)), $(sort $(GUIDE_CHAPTER_FILES)))
@@ -68,6 +62,7 @@ ConvertToLatin1 = \
 
 $(GUIDE_CONCATENATED): $(GUIDE_CHAPTER_FILES)
 	rm -f $@.tmp
+	mkdir -p build/support
 	$(foreach s, $^, \
 		cat $s >> $@.tmp $(NEWLINE) \
 		printf "\n" >> $@.tmp $(NEWLINE) \
@@ -82,14 +77,6 @@ $(GUIDE_UTF8): $(GUIDE_CONCATENATED) $(GUIDE_FOOTER)
 	mkdir -p build/support/utf-8
 	$(call RunPandoc, $<, $@)
 
-build/support/footers/%.html: src/%.md
-	mkdir -p build/support/footers
-	$(call GenerateFooter, $@, $(call GetHash, $<), $<)
-
-build/support/utf-8/%.html: src/%.md build/support/footers/%.html
-	mkdir -p build/support/utf-8
-	$(call RunPandoc, $<, $@)
-
 build/dist/%.html: build/support/utf-8/%.html
 	mkdir -p build/dist
 	$(call ConvertToLatin1, $<, $@)
@@ -98,7 +85,7 @@ build/dist/guidestyle.css: src/guidestyle.css
 	mkdir -p build/dist
 	cp $< $@
 
-all: $(ALL_RESULT) build/dist/guidestyle.css
+all: $(GUIDE_RESULT) build/dist/guidestyle.css
 
 clean:
 	rm -rf build
