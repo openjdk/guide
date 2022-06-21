@@ -40,7 +40,7 @@ The release note itself is written in a [JBS](#jbs---jdk-bug-system) sub-task of
 
 If you see an issue you feel should have a release note but you are not the assignee of the bug, then add the label [release-note=yes]{.jbs-label} to the main bug (not on a backport nor a sub-task). This acts as a flag to make sure that the release note is considered. This can be done even with fixes that have been shipped already if it's noticed that there is confusion around the change. If, after discussion, it's decided that a release note isn't required either remove the label, or change it to [release-note=no]{.jbs-label} if it makes sense to have a clear indication that a release note isn't required for the fix. The label [release-note=yes]{.jbs-label} can be removed once the release note sub-task has been created.
 
-For examples of well written release note issues in JBS, see [JDK-8276929](https://bugs.openjdk.java.net/browse/JDK-8276929) or [JDK-8278458](https://bugs.openjdk.java.net/browse/JDK-8278458).
+For examples of well written release note issues in JBS, see [JDK-8276929](https://bugs.openjdk.org/browse/JDK-8276929) or [JDK-8278458](https://bugs.openjdk.org/browse/JDK-8278458).
 
 ## General Conventions for Release Notes
 
@@ -79,31 +79,31 @@ Unless labeled otherwise it will be assumed that the release note documents a ch
 :   A New Feature or enhancement in the release.
     The [Summary]{.jbs-field} must be the item/API or new functionality.
     The [Description]{.jbs-field} must contain the name of the new feature, its intended function, and how a user can utilize it.
-    Example: [JDK-8193026](https://bugs.openjdk.java.net/browse/JDK-8193026)
+    Example: [JDK-8193026](https://bugs.openjdk.org/browse/JDK-8193026)
 
 [[RN-IssueFixed]{.jbs-label}]{#RN-IssueFixed}
 :   A significant issue which has been fixed. This would normally be a regression or an issue which was unknowingly released in a new feature.
     The [Summary]{.jbs-field} must be a summary of the error that was fixed.
     The [Description]{.jbs-field} must contain a statement about what was fixed, how the fix effects the user, and any special conditions that a user should be aware of regarding the fix.
-    Example: [JDK-8184172](https://bugs.openjdk.java.net/browse/JDK-8184172)
+    Example: [JDK-8184172](https://bugs.openjdk.org/browse/JDK-8184172)
 
 [[RN-KnownIssue]{.jbs-label}]{#RN-KnownIssue}
 :   An issue that wasn't possible to fix by the time the release was GA'd.
     The [Summary]{.jbs-field} must be a summary of the error that the user sees.
     The [Description]{.jbs-field} must contain details about the error, how it effects the user, and workarounds if any exist.
-    Example: [JDK-8191040](https://bugs.openjdk.java.net/browse/JDK-8191040)
+    Example: [JDK-8191040](https://bugs.openjdk.org/browse/JDK-8191040)
 
 [[RN-Removed]{.jbs-label}]{#RN-Removed}
 :   Only for major releases. The release note covers an API, feature, tool etc. which has been removed from the JDK.
     The [Summary]{.jbs-field} must be of the form "Removal of" Item/API.
     The [Description]{.jbs-field} must contain the list or name of the removed items/API with (optional) the reason for its removal. Include any special conditions that a user should be aware of regarding the removal.
-    Example: [JDK-8185066](https://bugs.openjdk.java.net/browse/JDK-8185066)
+    Example: [JDK-8185066](https://bugs.openjdk.org/browse/JDK-8185066)
 
 [[RN-Deprecated]{.jbs-label}]{#RN-Deprecated}
 :   Only for major releases. The release notes cover an API, feature, tool etc. that has been marked as deprecated in the release.
     The [Summary]{.jbs-field} must be of the form "Deprecated" Item/API.
     The [Description]{.jbs-field} must contain the name of the item that has been deprecated, the reason for its deprecation, and (optional) any special conditions that a user should be aware of regarding the possible future removal.
-    Example: [JDK-8179909](https://bugs.openjdk.java.net/browse/JDK-8179909)
+    Example: [JDK-8179909](https://bugs.openjdk.org/browse/JDK-8179909)
 
 [[RN-Important]{.jbs-label}]{#RN-Important}
 :   Used to indicate that the release note should be highlighted in some fashion, such as listing it at the beginning of the release notes.

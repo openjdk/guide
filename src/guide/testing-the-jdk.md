@@ -3,8 +3,8 @@
 ::: {.box}
 [Quick Links]{.boxheader}
 
-* [Using the run-test Framework](https://openjdk.java.net/groups/build/doc/testing.html)
-* [jtreg Harness Documentation](https://openjdk.java.net/jtreg/)
+* [Using the run-test Framework](https://openjdk.org/groups/build/doc/testing.html)
+* [jtreg Harness Documentation](https://openjdk.org/jtreg/)
 * [Google Test Documentation](https://github.com/google/googletest/blob/master/googletest/docs/primer.md)
 :::
 
@@ -22,11 +22,11 @@ A few key items to think about when writing a regression test:
 * Binary files shouldn't be checked in, if your test needs to use one, the test should create it in some fashion
 * Avoid shell scripts and relying on external commands as much as possible
 
-The jtreg documentation has a section on [how to write good jtreg tests](https://openjdk.java.net/jtreg/writetests.html).
+The jtreg documentation has a section on [how to write good jtreg tests](https://openjdk.org/jtreg/writetests.html).
 
 ## jtreg
 
-In-depth documentation about the jtreg framework is found here: [jtreg harness](https://openjdk.java.net/jtreg/). jtreg itself is available in the [Code Tools Project](https://openjdk.java.net/projects/code-tools/).
+In-depth documentation about the jtreg framework is found here: [jtreg harness](https://openjdk.org/jtreg/). jtreg itself is available in the [Code Tools Project](https://openjdk.org/projects/code-tools/).
 
 Below is a small example of a jtreg test. It’s a clean Java class with a main method that is called from the test harness. If the test fails we throw a RuntimeException. This is picked up by the harness and is reported as a test failure. Try to always write a meaningful message in the exception. One that actually helps with understanding what went wrong once the test fails.
 
@@ -72,9 +72,9 @@ Another example is `@key randomness` that should be used to indicate that a test
 
 There are many other keywords in use and their usage may differ between areas in the JDK. Make sure you understand the conventions for the particular area you are testing since these are just examples.
 
-The [jtreg documentation](https://openjdk.java.net/jtreg/) provides information on many more tags like these.
+The [jtreg documentation](https://openjdk.org/jtreg/) provides information on many more tags like these.
 
-The [compiler group](https://openjdk.java.net/groups/compiler/) has a section in their wiki with [Guidelines for "langtools" tests](https://openjdk.java.net/groups/compiler/tests.html).
+The [compiler group](https://openjdk.org/groups/compiler/) has a section in their wiki with [Guidelines for "langtools" tests](https://openjdk.org/groups/compiler/tests.html).
 
 ### Running OpenJDK jtreg tests
 
@@ -176,7 +176,7 @@ foo/bar/MyTest.java                        4711   windows-all
 
 In this example, `MyTest.java` is ProblemListed on windows, tracked by bug `JDK-4711`.
 
-Currently there's [no support for multiple lines for the same test](https://bugs.openjdk.java.net/browse/CODETOOLS-7902481). For this reason it's important to always make sure there's no existing entry for the test before adding a new one, as multiple entries might lead to unexpected results, e.g.
+Currently there's [no support for multiple lines for the same test](https://bugs.openjdk.org/browse/CODETOOLS-7902481). For this reason it's important to always make sure there's no existing entry for the test before adding a new one, as multiple entries might lead to unexpected results, e.g.
 
 ~~~
 foo/bar/MyTest.java                        4710   generic-all
@@ -215,7 +215,7 @@ foo/bar/MyTest.java#fancy_name   4721  generic-all
 foo/bar/MyTest.java#id2          4722  generic-all
 ~~~
 
-Due to an issue described in [CODETOOLS-7902712](https://bugs.openjdk.java.net/browse/CODETOOLS-7902712) tests that contains more than one `@test` must actually use this way to specify all test cases if all of them should be ProblemListed. Specifying just the test name will not work.
+Due to an issue described in [CODETOOLS-7902712](https://bugs.openjdk.org/browse/CODETOOLS-7902712) tests that contains more than one `@test` must actually use this way to specify all test cases if all of them should be ProblemListed. Specifying just the test name will not work.
 
 #### Running ProblemListed tests
 
@@ -310,7 +310,7 @@ index 399e7cc311f..4961acb2126 100644
 +# Welcome to my modified JDK!
 
  For build instructions please see the
- [online documentation](https://openjdk.java.net/groups/build/doc/building.html),
+ [online documentation](https://openjdk.org/groups/build/doc/building.html),
 
 $ git revert aa371b4f02c2f809eb9cd3e52aa12b639bed1ef5
 [master d454489052d] 8280996: [BACKOUT] Make the JDK mine Reviewed-by: duke
@@ -333,7 +333,7 @@ index 4961acb2126..399e7cc311f 100644
 +# Welcome to the JDK!
 
  For build instructions please see the
- [online documentation](https://openjdk.java.net/groups/build/doc/building.html),
+ [online documentation](https://openjdk.org/groups/build/doc/building.html),
 ~~~
 
 ### How to work with Mercurial when a change is backed out
@@ -393,7 +393,7 @@ flowchart TD
 ~~~
 :::
 
-For this example in JBS see the 15.0.2 backport of [JDK-8272373](https://bugs.openjdk.java.net/browse/JDK-8272373).
+For this example in JBS see the 15.0.2 backport of [JDK-8272373](https://bugs.openjdk.org/browse/JDK-8272373).
 
 ### Rationale for using this model
 

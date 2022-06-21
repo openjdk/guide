@@ -4,7 +4,7 @@
 [Quick Links]{.boxheader}
 
 * [OpenJDK Mainline GitHub project](https://github.com/openjdk/jdk)
-* [Skara Documentation](https://wiki.openjdk.java.net/display/SKARA)
+* [Skara Documentation](https://wiki.openjdk.org/display/SKARA)
 :::
 
 The complete source code for the JDK is hosted at [GitHub](https://github.com). You can browse the code directly in the [openjdk/jdk repository](https://github.com/openjdk/jdk), or download the code for offline browsing, editing, and building using `git clone`.
@@ -54,7 +54,7 @@ Here we create a new branch called `JDK-8272373` based on the `master` branch an
 `git switch` was introduced in Git version 2.23. For earlier versions of Git `git checkout` can be used instead. However it is always recommended to use the latest versions of all your tools when possible.
 
 ::: {.box}
-More information about how to work with git and the dedicated tooling that is available for OpenJDK can be found in the [Project Skara Documentation](https://wiki.openjdk.java.net/display/SKARA). If you're new to git you can also read more about how to work with it in one of the many fine git tutorials available on the Internet. For instance the [Pro Git book](https://git-scm.com/book/en/v2). This guide doesn't aspire to become another git guide.
+More information about how to work with git and the dedicated tooling that is available for OpenJDK can be found in the [Project Skara Documentation](https://wiki.openjdk.org/display/SKARA). If you're new to git you can also read more about how to work with it in one of the many fine git tutorials available on the Internet. For instance the [Pro Git book](https://git-scm.com/book/en/v2). This guide doesn't aspire to become another git guide.
 :::
 
 ## Generating an SSH key

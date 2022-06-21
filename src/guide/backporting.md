@@ -3,15 +3,15 @@
 ::: {.box}
 [Quick Links]{.boxheader}
 
-* [Push approval for JDK updates](https://openjdk.java.net/projects/jdk-updates/approval.html)
-* [Skara documentation on backports](https://wiki.openjdk.java.net/display/SKARA/Backports)
+* [Push approval for JDK updates](https://openjdk.org/projects/jdk-updates/approval.html)
+* [Skara documentation on backports](https://wiki.openjdk.org/display/SKARA/Backports)
 :::
 
 Development of the latest version of the JDK often results in bug fixes that might be interesting to include in some of the JDK update releases still being maintained. Moving a fix from a more recent release train (e.g. JDK 17) to an older release train (e.g. JDK 11) is called *backporting*.
 
 The guideline for what to backport into a specific update release will vary over the lifetime of that release. Initially more fixes are expected to be backported as new features and large changes introduced in a mainline release stabilize. Over time the focus will shift from stabilization to keeping it stable - the release will go into maintenance mode. This means that bug fixes that require larger disruptive changes are more likely to be made in mainline and backported to more recent release trains only, and not to older release trains.
 
-Over time it's likely that the code base will diverge between mainline and any given update release, and the cost of backporting will increase. The cost in this case is not only the effort needed to perform the actual backport, but also the cost inferred by bugs introduced by the backport. This should be taken into consideration when deciding if a change should be backported or not. For more details on how to reason around what to backport, [this email from JDK 8 Updates Project lead Andrew Haley](https://mail.openjdk.java.net/pipermail/jdk8u-dev/2020-June/012002.html) has some guidelines for JDK 8u. The reasoning in this mail is specific to JDK 8u, but will in general apply to any JDK release in maintenance mode.
+Over time it's likely that the code base will diverge between mainline and any given update release, and the cost of backporting will increase. The cost in this case is not only the effort needed to perform the actual backport, but also the cost inferred by bugs introduced by the backport. This should be taken into consideration when deciding if a change should be backported or not. For more details on how to reason around what to backport, [this email from JDK 8 Updates Project lead Andrew Haley](https://mail.openjdk.org/pipermail/jdk8u-dev/2020-June/012002.html) has some guidelines for JDK 8u. The reasoning in this mail is specific to JDK 8u, but will in general apply to any JDK release in maintenance mode.
 
 Any change that originally required a CSR will require a new CSR to be backported unless the backport was covered by the initial CSR. Changes to Java SE specifications cannot be made in an update release without a Java SE Maintenance Release. CSR-related issues affect interfaces and behavior and must be very carefully scrutinized.
 
@@ -20,7 +20,7 @@ Any change that originally required a CSR will require a new CSR to be backporte
 ::: {.box}
 [Terminology]{.boxheader}
 
-Main issue - The top issue in a backport hierarchy. Eg. [JDK-8272373](https://bugs.openjdk.java.net/browse/JDK-8272373) is a main issue, while [JDK-8277498](https://bugs.openjdk.java.net/browse/JDK-8277498) and [JDK-8277499](https://bugs.openjdk.java.net/browse/JDK-8277499) are backport issues of this main issue.
+Main issue - The top issue in a backport hierarchy. Eg. [JDK-8272373](https://bugs.openjdk.org/browse/JDK-8272373) is a main issue, while [JDK-8277498](https://bugs.openjdk.org/browse/JDK-8277498) and [JDK-8277499](https://bugs.openjdk.org/browse/JDK-8277499) are backport issues of this main issue.
 :::
 
 ::: {style="text-align:center;"}
@@ -44,13 +44,13 @@ Setting the [Fix Version/s]{.jbs-field} of a backport to `N` is always wrong. JD
 
 ## Requesting approvals for backports
 
-In order to be allowed to push a change to one of the OpenJDK update development repositories (e.g. [`jdk17u-dev`](https://github.com/openjdk/jdk17u-dev)), an approval is required. The [official process for how to request push approval for a backport](https://openjdk.java.net/projects/jdk-updates/approval.html) describes in detail how to work with JBS when requesting approvals. In short, there's a label [jdk&lt;release&gt;u-fix-request]{.jbs-label} that should be added to the main JBS issue. Also put a motivation as to why the issue needs to be backported as a comment in the main issue. Once the label and motivation has been added, wait for the maintainers of the release to approve your request. The approval will be indicated with a label, [jdk&lt;release&gt;u-fix-yes]{.jbs-label}, added to the main issue.
+In order to be allowed to push a change to one of the OpenJDK update development repositories (e.g. [`jdk17u-dev`](https://github.com/openjdk/jdk17u-dev)), an approval is required. The [official process for how to request push approval for a backport](https://openjdk.org/projects/jdk-updates/approval.html) describes in detail how to work with JBS when requesting approvals. In short, there's a label [jdk&lt;release&gt;u-fix-request]{.jbs-label} that should be added to the main JBS issue. Also put a motivation as to why the issue needs to be backported as a comment in the main issue. Once the label and motivation has been added, wait for the maintainers of the release to approve your request. The approval will be indicated with a label, [jdk&lt;release&gt;u-fix-yes]{.jbs-label}, added to the main issue.
 
 If the update release is in rampdown, changes are pushed to the release repository (e.g. [`jdk17u`](https://github.com/openjdk/jdk17u)). During rampdown the bar to get changes in are significantly higher and fixes need to be approved with [jdk&lt;release&gt;u-critical-request]{.jbs-label} / [jdk&lt;release&gt;u-critical-yes]{.jbs-label}.
 
 ## Using the Skara tooling to help with backports
 
-The Skara tooling includes support for backports. [The official Skara documentation](https://wiki.openjdk.java.net/display/SKARA/Backports) describes in detail how to work with the tooling to create backport PRs on GitHub or using the CLI tools. As described in the documentation, the [`/backport`](https://wiki.openjdk.java.net/display/SKARA/Commit+Commands#CommitCommands-/backport) command can be used on a commit (not a PR!) to create the backport PR. If a backport PR is manually created, set the PR title to `Backport <original commit hash>`. This ensures that the bots will recognize it as a backport as opposed to a main fix specifically targeting an older release. One can tell whether or not the bots recognized a PR as a backport by the [backport]{.label} label being added if it's recognized.
+The Skara tooling includes support for backports. [The official Skara documentation](https://wiki.openjdk.org/display/SKARA/Backports) describes in detail how to work with the tooling to create backport PRs on GitHub or using the CLI tools. As described in the documentation, the [`/backport`](https://wiki.openjdk.org/display/SKARA/Commit+Commands#CommitCommands-/backport) command can be used on a commit (not a PR!) to create the backport PR. If a backport PR is manually created, set the PR title to `Backport <original commit hash>`. This ensures that the bots will recognize it as a backport as opposed to a main fix specifically targeting an older release. One can tell whether or not the bots recognized a PR as a backport by the [backport]{.label} label being added if it's recognized.
 
 ::: {.box}
 [To the top](#){.boxheader}
@@ -82,7 +82,7 @@ Fix was pushed while main bug was targeted to 'N+1'. Reset the main bug to fixed
 Changeset: 12345678
 Author: Duke <duke@openjdk.org>
 Date: 2020-10-23 15:37:46 +0000
-URL: https://git.openjdk.java.net/jdk/commit/12345678
+URL: https://git.openjdk.org/jdk/commit/12345678
 ~~~
    * Add a comment like the following to the _main_ bug:
 ~~~

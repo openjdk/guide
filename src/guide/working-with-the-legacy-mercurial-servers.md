@@ -26,9 +26,9 @@ Once Mercurial is installed, create and edit the `~/.hgrc` file to minimally con
     [ui]
     username = <openjdk_username>
 
-_openjdk\_username_ is in general the same as your GitHub user name. (See [Contributing to an OpenJDK Project] for more information.) If you don't have a GitHub user name, you choose your OpenJDK user name when you sign the OCA. The user name should be a plain lowercase, alphanumeric token (not an e-mail address) with twelve characters or less. The first character should be alphabetic. This username will be publicly visible in all Mercurial changeset logs. It will be used to verify that the changeset author is at least an [Author](https://openjdk.java.net/bylaws#author) for the Project and that the person pushing the changeset is at least a [Committer](https://openjdk.java.net/bylaws#committer). It's recommended that the _openjdk\_username_ be somehow related to the Author's full name, such as the first character of the Author's first name followed by the Author's last name.
+_openjdk\_username_ is in general the same as your GitHub user name. (See [Contributing to an OpenJDK Project] for more information.) If you don't have a GitHub user name, you choose your OpenJDK user name when you sign the OCA. The user name should be a plain lowercase, alphanumeric token (not an e-mail address) with twelve characters or less. The first character should be alphabetic. This username will be publicly visible in all Mercurial changeset logs. It will be used to verify that the changeset author is at least an [Author](https://openjdk.org/bylaws#author) for the Project and that the person pushing the changeset is at least a [Committer](https://openjdk.org/bylaws#committer). It's recommended that the _openjdk\_username_ be somehow related to the Author's full name, such as the first character of the Author's first name followed by the Author's last name.
 
-Some Projects may recommend additional tools or scripts that help with repository manipulation and code development. For instance, in JDK 8u, the utility script `common/bin/hgforest.sh` may be used to apply commands to all the repositories in the [forest](#forest). Some useful Mercurial extensions for OpenJDK developers are [jcheck](https://openjdk.java.net/projects/code-tools/jcheck/), [trees](https://openjdk.java.net/projects/code-tools/trees/), and [Mercurial Queues](http://hgbook.red-bean.com/read/managing-change-with-mercurial-queues.html) (mq). Note that `trees` is enabled on the OpenJDK Mercurial server.
+Some Projects may recommend additional tools or scripts that help with repository manipulation and code development. For instance, in JDK 8u, the utility script `common/bin/hgforest.sh` may be used to apply commands to all the repositories in the [forest](#forest). Some useful Mercurial extensions for OpenJDK developers are [jcheck](https://openjdk.org/projects/code-tools/jcheck/), [trees](https://openjdk.org/projects/code-tools/trees/), and [Mercurial Queues](http://hgbook.red-bean.com/read/managing-change-with-mercurial-queues.html) (mq). Note that `trees` is enabled on the OpenJDK Mercurial server.
 
 ### Verifying the configuration
 
@@ -57,9 +57,9 @@ At this point, it should be possible to start retrieving source from the reposit
 
 ## Cloning a Mercurial repository
 
-Some Projects organized their code into multiple Mercurial repositories. For instance, [JDK 8](https://openjdk.java.net/projects/jdk8) uses a forest of multiple related repositories which contain components of the entire JDK. If a Project uses a forest, It's strongly recommended for developers to clone an entire forest, rather than a single repository. This is the only means to ensure consistency in builds. The following examples illustrate two alternatives for cloning the entire `jdk8u/jdk8u-dev` forest into the directory `8u-dev`.
+Some Projects organized their code into multiple Mercurial repositories. For instance, [JDK 8](https://openjdk.org/projects/jdk8) uses a forest of multiple related repositories which contain components of the entire JDK. If a Project uses a forest, It's strongly recommended for developers to clone an entire forest, rather than a single repository. This is the only means to ensure consistency in builds. The following examples illustrate two alternatives for cloning the entire `jdk8u/jdk8u-dev` forest into the directory `8u-dev`.
 
-#. To clone the forest using the [trees](https://openjdk.java.net/projects/code-tools/trees/) extension just use `tclone`:
+#. To clone the forest using the [trees](https://openjdk.org/projects/code-tools/trees/) extension just use `tclone`:
 
        $ hg tclone http://hg.openjdk.java.net/jdk8u/jdk8u-dev/ 8u-dev
 
@@ -221,13 +221,13 @@ In order to push changesets into the parent repository, some additional configur
 
 ### Get your SSH key installed
 
-First you should create a new SSH key. See [Generating an SSH key] for guidance on how to do that. Your public key (`~/.ssh/id_rsa.pub`) should be mailed as an attachment along with your JDK username to [keys(at)openjdk.java.net](mailto:keys-at-openjdk.java.net). An administrator will install your key on the server and notify you on completion. This process may take a couple of days.
+First you should create a new SSH key. See [Generating an SSH key] for guidance on how to do that. Your public key (`~/.ssh/id_rsa.pub`) should be mailed as an attachment along with your JDK username to [keys(at)openjdk.org](mailto:keys-at-openjdk.org). An administrator will install your key on the server and notify you on completion. This process may take a couple of days.
 
 > ---
 >
 > Users behind a SOCKS firewall can add a directive to the `~/.ssh/config` file to connect to the OpenJDK Mercurial server:
 >
->     Host *.openjdk.java.net
+>     Host *.openjdk.org
 >     ProxyCommand /usr/lib/ssh/ssh-socks5-proxy-connect -h [socks_proxy_address] %h %p
 >
 > See the `ssh-socks5-proxy-connect` man page and `ssh-config` man page for more information. Other systems may require proxy access via other programs. Some Linux distributions provide the `corkscrew` package which provides ssh access through HTTP proxies.
@@ -284,19 +284,19 @@ Given a `JDK_username` this simple script will attempt to do this for all the re
 
 ### Performing the push
 
-[Committers](https://openjdk.java.net/bylaws#committer) can use the `hg push` command to propagate changesets into the repositories.
+[Committers](https://openjdk.org/bylaws#committer) can use the `hg push` command to propagate changesets into the repositories.
 
 Most developers will only find a need to create changesets in one or two repositories. However, it's important that before any changesets are pushed, the corresponding forest pull and merge with the destination forest be performed; otherwise there is a risk of breaking the build.
 
     $ hg push
 
-After the push has been accepted, an automatic e-mail notification will be sent to the [mailing list](https://mail.openjdk.java.net) associated with the repository. In most cases notifications are sent to the Project's _-dev_ mailing list. Some Projects with high traffic _-dev_ mailing lists use a dedicated _-changes_ list for notifications.
+After the push has been accepted, an automatic e-mail notification will be sent to the [mailing list](https://mail.openjdk.org) associated with the repository. In most cases notifications are sent to the Project's _-dev_ mailing list. Some Projects with high traffic _-dev_ mailing lists use a dedicated _-changes_ list for notifications.
 
 > ---
 >
 > Who has push access?
 >
-> All of a Project's [Committers](https://openjdk.java.net/bylaws#committer) can push to all of the the Project's repositories.
+> All of a Project's [Committers](https://openjdk.org/bylaws#committer) can push to all of the the Project's repositories.
 >
 > Some Projects may chose to restrict the set of Committers with push to key repositories. For instance, JDK Release Projects restrict push access to MASTER repositories to Committers who are either integrators or members of the Release Engineering Team.
 >

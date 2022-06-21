@@ -4,33 +4,33 @@ This list is intended to make it easier to identify which email list to include 
 
 ## Area mailing lists
 
-* Build: [`build-dev@openjdk.java.net`](mailto:build-dev@openjdk.java.net)
+* Build: [`build-dev@openjdk.org`](mailto:build-dev@openjdk.org)
 * Client
-  * AWT: [`awt-dev@openjdk.java.net`](mailto:awt-dev@openjdk.java.net)
-  * Beans: [`beans-dev@openjdk.java.net`](mailto:beans-dev@openjdk.java.net)
-  * Java 2D: [`2d-dev@openjdk.java.net`](mailto:2d-dev@openjdk.java.net)
-  * Java FX: [`openjfx-dev@openjdk.java.net`](mailto:openjfx-dev@openjdk.java.net)
-  * jpackage: [`core-libs-dev@openjdk.java.net`](mailto:core-libs-dev@openjdk.java.net)
-  * Sound: [`sound-dev@openjdk.java.net`](mailto:sound-dev@openjdk.java.net)
-  * Swing: [`swing-dev@openjdk.java.net`](mailto:swing-dev@openjdk.java.net)
-* Core Libs: [`core-libs-dev@openjdk.java.net`](mailto:core-libs-dev@openjdk.java.net)
-  * Net: [`net-dev@openjdk.java.net`](mailto:net-dev@openjdk.java.net)
-  * NIO: [`nio-dev@openjdk.java.net`](mailto:nio-dev@openjdk.java.net)
-* HotSpot: [`hotspot-dev@openjdk.java.net`](mailto:hotspot-dev@openjdk.java.net)
-  * Compiler: [`hotspot-compiler-dev@openjdk.java.net`](mailto:hotspot-compiler-dev@openjdk.java.net)
-  * GC: [`hotspot-gc-dev@openjdk.java.net`](mailto:hotspot-gc-dev@openjdk.java.net)
-  * Runtime: [`hotspot-runtime-dev@openjdk.java.net`](mailto:hotspot-runtime-dev@openjdk.java.net)
-  * JFR: [`hotspot-jfr-dev@openjdk.java.net`](mailto:hotspot-jfr-dev@openjdk.java.net)
-  * Serviceability: [`serviceability-dev@openjdk.java.net`](mailto:serviceability-dev@openjdk.java.net)
-* I18n: [`i18n-dev@openjdk.java.net`](mailto:i18n-dev@openjdk.java.net)
+  * AWT: [`awt-dev@openjdk.org`](mailto:awt-dev@openjdk.org)
+  * Beans: [`beans-dev@openjdk.org`](mailto:beans-dev@openjdk.org)
+  * Java 2D: [`2d-dev@openjdk.org`](mailto:2d-dev@openjdk.org)
+  * Java FX: [`openjfx-dev@openjdk.org`](mailto:openjfx-dev@openjdk.org)
+  * jpackage: [`core-libs-dev@openjdk.org`](mailto:core-libs-dev@openjdk.org)
+  * Sound: [`sound-dev@openjdk.org`](mailto:sound-dev@openjdk.org)
+  * Swing: [`swing-dev@openjdk.org`](mailto:swing-dev@openjdk.org)
+* Core Libs: [`core-libs-dev@openjdk.org`](mailto:core-libs-dev@openjdk.org)
+  * Net: [`net-dev@openjdk.org`](mailto:net-dev@openjdk.org)
+  * NIO: [`nio-dev@openjdk.org`](mailto:nio-dev@openjdk.org)
+* HotSpot: [`hotspot-dev@openjdk.org`](mailto:hotspot-dev@openjdk.org)
+  * Compiler: [`hotspot-compiler-dev@openjdk.org`](mailto:hotspot-compiler-dev@openjdk.org)
+  * GC: [`hotspot-gc-dev@openjdk.org`](mailto:hotspot-gc-dev@openjdk.org)
+  * Runtime: [`hotspot-runtime-dev@openjdk.org`](mailto:hotspot-runtime-dev@openjdk.org)
+  * JFR: [`hotspot-jfr-dev@openjdk.org`](mailto:hotspot-jfr-dev@openjdk.org)
+  * Serviceability: [`serviceability-dev@openjdk.org`](mailto:serviceability-dev@openjdk.org)
+* I18n: [`i18n-dev@openjdk.org`](mailto:i18n-dev@openjdk.org)
 * LangTools
-  * Amber Project: [`amber-dev@openjdk.java.net`](mailto:amber-dev@openjdk.java.net)
-  * Javac: [`compiler-dev@openjdk.java.net`](mailto:compiler-dev@openjdk.java.net)
-  * Javadoc: [`javadoc-dev@openjdk.java.net`](mailto:javadoc-dev@openjdk.java.net)
-  * JShell: [`kulla-dev@openjdk.java.net`](mailto:kulla-dev@openjdk.java.net)
-  * Panama Project: [`panama-dev@openjdk.java.net`](mailto:panama-dev@openjdk.java.net)
-  * Valhalla Project: [`valhalla-dev@openjdk.java.net`](mailto:valhalla-dev@openjdk.java.net)
-* Security: [`security-dev@openjdk.java.net`](mailto:security-dev@openjdk.java.net)
+  * Amber Project: [`amber-dev@openjdk.org`](mailto:amber-dev@openjdk.org)
+  * Javac: [`compiler-dev@openjdk.org`](mailto:compiler-dev@openjdk.org)
+  * Javadoc: [`javadoc-dev@openjdk.org`](mailto:javadoc-dev@openjdk.org)
+  * JShell: [`kulla-dev@openjdk.org`](mailto:kulla-dev@openjdk.org)
+  * Panama Project: [`panama-dev@openjdk.org`](mailto:panama-dev@openjdk.org)
+  * Valhalla Project: [`valhalla-dev@openjdk.org`](mailto:valhalla-dev@openjdk.org)
+* Security: [`security-dev@openjdk.org`](mailto:security-dev@openjdk.org)
 
 ## Directory to area mapping
 
@@ -97,7 +97,7 @@ This list is intended to make it easier to identify which email list to include 
     * `common` –
     * `include` – Runtime, Core Libs
     * `jspawnhelper` – LangTools
-    * `launcher` – LangTools
+    * `launcher` – LangToolsopenjdk.org
     * `libfdlibm` – Core Libs
     * `libjava` – Core Libs
     * `libjimage` – LangTools, Core Libs
@@ -112,8 +112,8 @@ This list is intended to make it easier to identify which email list to include 
 * `java.datatransfer` – AWT
 * `java.desktop` – Client
   * Many files in the awt directories are shared between 2D and AWT
-    * See [https://openjdk.java.net/groups/2d/2dawtfiles.html](https://openjdk.java.net/groups/2d/2dawtfiles.html)
-    * And see [https://openjdk.java.net/groups/2d](https://openjdk.java.net/groups/2d)
+    * See [https://openjdk.org/groups/2d/2dawtfiles.html](https://openjdk.org/groups/2d/2dawtfiles.html)
+    * And see [https://openjdk.org/groups/2d](https://openjdk.org/groups/2d)
   * `color`, `font`, `freetype`, `geom`, `imageio`, `java2d`, `jpeg`, `lcms`, `mlib`, `print`, graphics primitives – 2D
   * `splashscreen`, `dnd`, `eawt`, `lwawt` – AWT
   * `im`, input methods – I18n, AWT
