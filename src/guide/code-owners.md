@@ -97,7 +97,7 @@ This list is intended to make it easier to identify which email list to include 
     * `common` –
     * `include` – Runtime, Core Libs
     * `jspawnhelper` – LangTools
-    * `launcher` – LangToolsopenjdk.org
+    * `launcher` – LangTools
     * `libfdlibm` – Core Libs
     * `libjava` – Core Libs
     * `libjimage` – LangTools, Core Libs
