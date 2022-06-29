@@ -14,8 +14,8 @@ If you're in a position to choose what programming language to use in a project,
 [Quick Links]{.boxheader}
 
 * [Oracle Contributor Agreement (OCA)](https://www.oracle.com/technical-resources/oracle-contributor-agreement.html)
-* [JDK Bug System (JBS)](https://bugs.openjdk.java.net/)
-* [OpenJDK Project Roles](https://openjdk.java.net/bylaws#project-roles)
+* [JDK Bug System (JBS)](https://bugs.openjdk.org/)
+* [OpenJDK Project Roles](https://openjdk.org/bylaws#project-roles)
 :::
 
 In many GitHub projects the standard way to propose a change is to create a pull request (PR) and discuss the patch in the PR. For OpenJDK projects the situation is somewhat different. The JDK is used for mission critical applications and by millions of developers, the bar to contributing changes is high. Please follow the steps outlined below to make sure your change passes above the bar before creating a PR.
@@ -24,7 +24,7 @@ In many GitHub projects the standard way to propose a change is to create a pull
 
 Oracle is the steward of OpenJDK. In order to make your patch available for review you must first sign the [Oracle Contributor Agreement](https://oca.opensource.oracle.com/) (OCA). This agreement gives Oracle and you as a contributor joint copyright interests in the code. You will retain your copyright while also granting those rights to Oracle.
 
-When you sign the OCA, please make sure that you specify your GitHub user name in the `Username` field of the OCA. If you try to create a PR before you have signed the OCA, or if you didn't specify your GitHub user name, you'll get instructions telling you to do so, and the PR won't be published until this is done. OCA registration is a manual process. Please allow for up to several days to have your OCA application processed, even though it's normally processed swiftly. An alphabetical list of all of the assigned OpenJDK usernames may be found on the [OpenJDK people](https://db.openjdk.java.net/people) list.
+When you sign the OCA, please make sure that you specify your GitHub user name in the `Username` field of the OCA. If you try to create a PR before you have signed the OCA, or if you didn't specify your GitHub user name, you'll get instructions telling you to do so, and the PR won't be published until this is done. OCA registration is a manual process. Please allow for up to several days to have your OCA application processed, even though it's normally processed swiftly. An alphabetical list of all of the assigned OpenJDK usernames may be found on the [OpenJDK people](https://db.openjdk.org/people) list.
 
 ### 2. Socialize your change
 
@@ -36,7 +36,7 @@ Socializing your change on the mailing lists also prevents the surprise that wou
 
 ### 4. Create a tracking issue in JBS
 
-Many OpenJDK projects require a tracking issue to be filed in the [JDK Bug System (JBS)](https://bugs.openjdk.java.net/) before a change can be pushed. This is the case for instance for the JDK and the JDK-Updates projects. In order to get write access to JBS you need to be an [Author](https://openjdk.java.net/bylaws#author) in an OpenJDK project (see [Becoming an Author](#becoming-an-author)). For your first changes, ask your sponsor to help you create the issue or file the bug through the [Bug Report Tool](https://bugreport.java.com/).
+Many OpenJDK projects require a tracking issue to be filed in the [JDK Bug System (JBS)](https://bugs.openjdk.org/) before a change can be pushed. This is the case for instance for the JDK and the JDK-Updates projects. In order to get write access to JBS you need to be an [Author](https://openjdk.org/bylaws#author) in an OpenJDK project (see [Becoming an Author](#becoming-an-author)). For your first changes, ask your sponsor to help you create the issue or file the bug through the [Bug Report Tool](https://bugreport.java.com/).
 
 ### 5. Get acquainted with local process
 
@@ -49,7 +49,7 @@ Even though we strive to unify how things are done within OpenJDK, different are
 
 * [Java Language and Virtual Machine Specifications](https://docs.oracle.com/javase/specs/)
 * [Java API Specification](https://docs.oracle.com/en/java/javase/15/docs/api/index.html)
-* [CSR Process](https://wiki.openjdk.java.net/display/csr/Main)
+* [CSR Process](https://wiki.openjdk.org/display/csr/Main)
 :::
 
 Java and the JDK are very popular products, and just about every Java developer out there has an idea or two for how to enhance something. And (obviously not referring to you) believe it or not, not every idea is a good idea. Even though many ideas are indeed good, we must be quite restrictive on what we actually include into the JDK. There are many reasons for this.
@@ -66,7 +66,7 @@ Java and the JDK are very popular products, and just about every Java developer 
 
 * **Javadoc comments are specifications**. The Java API Specification is authored in the form of javadoc comments, so even apparently innocuous changes to comments can be quite significant. It's not always easy to tell what comments are part of the specification and what parts are merely code comments. Briefly, documentation comments on public packages, classes, and class members of exported modules are specifications.
 
-* **Specification changes**. It's possible to change the API specifications, and this is done regularly. However, these changes require even more scrutiny than code changes. This extra review is handled by the [CSR Process](https://wiki.openjdk.java.net/display/csr/Main). Specifications are written in stylized, somewhat formal language, and they don't simply describe what the code does. Writing specifications is a separate skill from coding.
+* **Specification changes**. It's possible to change the API specifications, and this is done regularly. However, these changes require even more scrutiny than code changes. This extra review is handled by the [CSR Process](https://wiki.openjdk.org/display/csr/Main). Specifications are written in stylized, somewhat formal language, and they don't simply describe what the code does. Writing specifications is a separate skill from coding.
 
 * **Compatibility**. Changes should also adhere to high standards of binary, source, and behavioral compatibility. The compatibility impact of apparently innocuous changes is sometimes startling.
 

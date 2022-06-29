@@ -3,7 +3,7 @@
 ::: {.box}
 [Quick Links]{.boxheader}
 
-* [Skara documentation on PR commands](https://wiki.openjdk.java.net/display/SKARA/Pull+Request+Commands)
+* [Skara documentation on PR commands](https://wiki.openjdk.org/display/SKARA/Pull+Request+Commands)
 :::
 
 Once you have made a change that you want to integrate into an OpenJDK code base you need to create a _Pull Request_ (PR) on GitHub. This guide assumes that you have previous experience from using git and GitHub and won't go into details of how those work. Still, the aim is of course to provide a useful guide, so [send an email](#about-this-guide) if more details are needed.
@@ -58,7 +58,7 @@ If you have an actual reason to create a PR before the change is all done, make 
 
 #. **Make sure all relevant groups are included**
 
-   The bot will make an attempt to include the groups that need to review your change based on the location of the source code you have changed. There may be aspects of your change that are relevant to other groups as well, and the mapping from source to groups isn't always perfect, so make sure all relevant groups have been included, and add new labels using [`/label`](https://wiki.openjdk.java.net/display/SKARA/Pull+Request+Commands#PullRequestCommands-/label) if needed.
+   The bot will make an attempt to include the groups that need to review your change based on the location of the source code you have changed. There may be aspects of your change that are relevant to other groups as well, and the mapping from source to groups isn't always perfect, so make sure all relevant groups have been included, and add new labels using [`/label`](https://wiki.openjdk.org/display/SKARA/Pull+Request+Commands#PullRequestCommands-/label) if needed.
 
 #. **Allow enough time for review**
 
@@ -80,7 +80,7 @@ If you have an actual reason to create a PR before the change is all done, make 
 
 #. **Integrate your change**
 
-   When you have the required reviews and have made sure all relevant areas have had a chance to look at your change, integrate by entering the command [`/integrate`](https://wiki.openjdk.java.net/display/SKARA/Pull+Request+Commands#PullRequestCommands-/integrate) in a comment on the PR. If you are not yet a Committer in the project, ask your sponsor to enter the command [`/sponsor`](https://wiki.openjdk.java.net/display/SKARA/Pull+Request+Commands#PullRequestCommands-/sponsor) in the PR as well in order for your change to be allowed to be integrated.
+   When you have the required reviews and have made sure all relevant areas have had a chance to look at your change, integrate by entering the command [`/integrate`](https://wiki.openjdk.org/display/SKARA/Pull+Request+Commands#PullRequestCommands-/integrate) in a comment on the PR. If you are not yet a Committer in the project, ask your sponsor to enter the command [`/sponsor`](https://wiki.openjdk.org/display/SKARA/Pull+Request+Commands#PullRequestCommands-/sponsor) in the PR as well in order for your change to be allowed to be integrated.
 
 ## Webrevs
 
@@ -88,7 +88,7 @@ If you have an actual reason to create a PR before the change is all done, make 
 [Quick Links]{.boxheader}
 
 * [Webrev Source Repository](https://github.com/openjdk/webrev)
-* [Webrev Mailing List](https://mail.openjdk.java.net/pipermail/webrev-dev/)
+* [Webrev Mailing List](https://mail.openjdk.org/pipermail/webrev-dev/)
 :::
 
 As all OpenJDK projects are hosted on GitHub, most code reviews takes place there. When you publish a PR to an OpenJDK repository the corresponding JBS issue will get a link to the code review in the PR, making this the natural place to go for review. OpenJDK do however provide other tools and infrastructure for code reviews as well: The **webrevs**.
@@ -103,7 +103,7 @@ The `cr.openjdk.java.net` server provides storage and display of code review mat
 
 Any OpenJDK Author can publish materials on the `cr.openjdk.java.net` server. Users can upload files to temporary storage using secure methods (`rsync`, `scp`, and `sftp`).
 
-This site is for open source materials related to the OpenJDK Community only. Users uploading inappropriate materials will lose access and the material will be deleted. Please review the [Terms of Use](https://openjdk.java.net/legal/terms.html) before using this server.
+This site is for open source materials related to the OpenJDK Community only. Users uploading inappropriate materials will lose access and the material will be deleted. Please review the [Terms of Use](https://openjdk.org/legal/terms.html) before using this server.
 
 ::: {.box}
 [To the top](#){.boxheader}

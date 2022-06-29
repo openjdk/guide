@@ -3,10 +3,10 @@
 ::: {.box}
 [Quick Links]{.boxheader}
 
-* [JEP 3: JDK Release Process](https://openjdk.java.net/jeps/3)
+* [JEP 3: JDK Release Process](https://openjdk.org/jeps/3)
 :::
 
-The JDK project has a well defined release process. [JEP 3](https://openjdk.java.net/jeps/3) describes this process in detail. This section intends to clarify some topics that often cause questions.
+The JDK project has a well defined release process. [JEP 3](https://openjdk.org/jeps/3) describes this process in detail. This section intends to clarify some topics that often cause questions.
 
 ## Release cycle
 
@@ -24,13 +24,13 @@ Throughout the release there are a number of milestones and phases that define w
 :    Since development is always ongoing in the mainline repository ([openjdk/jdk](https://github.com/openjdk/jdk)), the start of a new release can be said to be when the former release is forked from mainline. After the start of the release follows six months of development to implement and integrate all the cool stuff that will go into the next release. After these six months ramp down begins.
 
 [**Ramp Down Phase 1 (RDP1)**]{#rdp1}
-:    The ramp down of a release starts with a fork of the mainline repository. A clone of the entire code base is made and hosted in a separate ramp down repository (e.g. [openjdk/jdk17](https://github.com/openjdk/jdk17)). During the ramp down of a release we focus on bug fixing and stabilization in order to get the JDK ready for release. In RDP1 you may continue to fix P1-P3 product bugs (and some other issues) in the stabilization repo. For detailed information on what can be fixed when, see [JEP 3](https://openjdk.java.net/jeps/3). The start of RDP1 is essentially the deadline for integrating JEPs and enhancements into this particular release.
+:    The ramp down of a release starts with a fork of the mainline repository. A clone of the entire code base is made and hosted in a separate ramp down repository (e.g. [openjdk/jdk17](https://github.com/openjdk/jdk17)). During the ramp down of a release we focus on bug fixing and stabilization in order to get the JDK ready for release. In RDP1 you may continue to fix P1-P3 product bugs (and some other issues) in the stabilization repo. For detailed information on what can be fixed when, see [JEP 3](https://openjdk.org/jeps/3). The start of RDP1 is essentially the deadline for integrating JEPs and enhancements into this particular release.
 
 [**All Tests Run (ATR)**]{#atr}
 :    ATR is not a milestone described in JEP 3, but it's still a concept that might be mentioned in discussions on this topic and is therefore good to know about. ATR (a.k.a. ATR Start) is the start of an approximately six week long test period where all tests in the test plan for the given release is ran. ATR usually starts at the same time as RDP1.
 
 [**Ramp Down Phase 2 (RPD2)**]{#rdp2}
-:    In RDP2 the bar is higher to get changes into the release. For product bugs, only P1:s and P2:s are supposed to be fixed here, and to do so an approval is needed. See the [Fix-Request Process](https://openjdk.java.net/jeps/3#Fix-Request-Process) for details on how to obtain one. All other product bugs should be deferred. Again, see [JEP 3](https://openjdk.java.net/jeps/3) for more details.
+:    In RDP2 the bar is higher to get changes into the release. For product bugs, only P1:s and P2:s are supposed to be fixed here, and to do so an approval is needed. See the [Fix-Request Process](https://openjdk.org/jeps/3#Fix-Request-Process) for details on how to obtain one. All other product bugs should be deferred. Again, see [JEP 3](https://openjdk.org/jeps/3) for more details.
 
 [**Release Candidate (RC)**]{#rc}
 :    Towards the end of the release cycle, when there are no more open product bugs targeted to the release, a stable build is selected to be the release candidate. This build will go through additional testing and if no more issues are found it will be the build released. If new bugs are found these are investigated and hopefully fixed, and a new build becomes the release candidate. The RC phase has a few milestones with a deadline for finding a candidate build, and another for making sure the build is ready to go live.

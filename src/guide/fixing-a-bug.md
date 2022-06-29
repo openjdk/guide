@@ -4,7 +4,7 @@ This is the list of steps which should be performed when fixing a small bug. Sma
 
 > ---
 >
-> Some steps refer to operations which can't be performed directly without the assistance of a [Project Committer](https://openjdk.java.net/bylaws#committer). For example, any changes to the [bug database](https://bugs.openjdk.java.net) fall into this category. Since these steps are required, [Contributors](https://openjdk.java.net/bylaws#contributor) are urged to work with their [Sponsors](https://openjdk.java.net/sponsor/) to complete these tasks.
+> Some steps refer to operations which can't be performed directly without the assistance of a [Project Committer](https://openjdk.org/bylaws#committer). For example, any changes to the [bug database](https://bugs.openjdk.org) fall into this category. Since these steps are required, [Contributors](https://openjdk.org/bylaws#contributor) are urged to work with their [Sponsors](https://openjdk.org/sponsor/) to complete these tasks.
 >
 > ---
 
@@ -45,9 +45,9 @@ For the purposes of brevity this document will use the term "bug" to refer to bo
 #. [**Is it possible to write a test to detect the bug?**]
 
    **Yes**
-   :   For bugs, provide a [jtreg](https://openjdk.java.net/jtreg/) regression test as part of the changeset. For enhancements that directly affect one or more exported interfaces, add an adequate set of jtreg unit tests as part of the changeset. By convention all regression and unit tests should contain a [\@bug tag](https://openjdk.java.net/jtreg/tag-spec.html#INFORMATIONAL_TAGS9) referencing at least one bugid.
+   :   For bugs, provide a [jtreg](https://openjdk.org/jtreg/) regression test as part of the changeset. For enhancements that directly affect one or more exported interfaces, add an adequate set of jtreg unit tests as part of the changeset. By convention all regression and unit tests should contain a [\@bug tag](https://openjdk.org/jtreg/tag-spec.html#INFORMATIONAL_TAGS9) referencing at least one bugid.
 
-   :   An entirely new test (or tests) may not be required. For example, if the bug is an existing regression test failure, then when fixing the bug you should just add the new bug ID to the list of space-delimited bugs in the [\@bug tag](https://openjdk.java.net/jtreg/tag-spec.html#INFORMATIONAL_TAGS) of the failing regression test, even if the test didn't need to be updated.
+   :   An entirely new test (or tests) may not be required. For example, if the bug is an existing regression test failure, then when fixing the bug you should just add the new bug ID to the list of space-delimited bugs in the [\@bug tag](https://openjdk.org/jtreg/tag-spec.html#INFORMATIONAL_TAGS) of the failing regression test, even if the test didn't need to be updated.
 
    **No**
    :   An explanation for why a test is unnecessary or infeasible is required. Such an explanation is recorded by adding a label, and possibly a comment, to the bug report. The label has the prefix [noreg]{.jbs-label} for regression tests and [nounit]{.jbs-label} for unit tests. The suffix of the label is described in detail in the [JBS Label Dictionary](#noreg)
@@ -86,9 +86,9 @@ For the purposes of brevity this document will use the term "bug" to refer to bo
 
 #. **Request a review of the changes by sending an e-mail to the development alias**
 
-   A patch can be submitted as described in [Contributing](https://openjdk.java.net/contribute/). Alternatively, a ["webrev"](webrevHelp.html) may be generated and uploaded to the [community code review](https://cr.openjdk.java.net/) server. The complete webrev generation and upload procedure is described at [https://cr.openjdk.java.net](https://cr.openjdk.java.net/).
+   A patch can be submitted as described in [Contributing](https://openjdk.org/contribute/). Alternatively, a ["webrev"](webrevHelp.html) may be generated and uploaded to the [community code review](https://cr.openjdk.java.net/) server. The complete webrev generation and upload procedure is described at [https://cr.openjdk.java.net](https://cr.openjdk.java.net/).
 
-   Changeset pushes before the [Feature Complete](https://openjdk.java.net/projects/jdk8/milestones#Feature_Complete) require at least one [Reviewer](https://openjdk.java.net/bylaws#reviewer); pushes after the Feature Complete require at least two Reviewers. In either case, the more the merrier. Some teams may require more Reviewers. Check with members of the Project.
+   Changeset pushes before the [Feature Complete](https://openjdk.org/projects/jdk8/milestones#Feature_Complete) require at least one [Reviewer](https://openjdk.org/bylaws#reviewer); pushes after the Feature Complete require at least two Reviewers. In either case, the more the merrier. Some teams may require more Reviewers. Check with members of the Project.
 
    Reviewers should examine not only the code being added or changed but also the relevant unit or regression tests.
 

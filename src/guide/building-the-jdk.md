@@ -3,7 +3,7 @@
 ::: {.box}
 [Quick Links]{.boxheader}
 
-* [Official build instructions](https://openjdk.java.net/groups/build/doc/building.html)
+* [Official build instructions](https://openjdk.org/groups/build/doc/building.html)
 * [openjdk/jdk GitHub project](https://github.com/openjdk/jdk)
 * [JDK 16 General-Availability Release](https://jdk.java.net/16/)
 :::

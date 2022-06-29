@@ -4,27 +4,27 @@
 [Quick Links]{.boxheader}
 
 * [Bug Report Tool](https://bugreport.java.com/)
-* [JDK Bug System (JBS)](https://bugs.openjdk.java.net/)
+* [JDK Bug System (JBS)](https://bugs.openjdk.org/)
 :::
 
-[JBS](https://bugs.openjdk.java.net/) is a public issue tracker used by many OpenJDK projects. It's open for anyone to read and search. In order to get write access you need to be registered in the [OpenJDK Census](https://openjdk.java.net/census), for instance by becoming an [Author](https://openjdk.java.net/bylaws#author) in an OpenJDK [Project](https://openjdk.java.net/bylaws#project).
+[JBS](https://bugs.openjdk.org/) is a public issue tracker used by many OpenJDK projects. It's open for anyone to read and search. In order to get write access you need to be registered in the [OpenJDK Census](https://openjdk.org/census), for instance by becoming an [Author](https://openjdk.org/bylaws#author) in an OpenJDK [Project](https://openjdk.org/bylaws#project).
 
 ## Filing a bug
 
-When a new failure is found in the JDK a bug should be filed to describe and track the issue. Depending on your role in OpenJDK you can either use the [Bug Report Tool](https://bugreport.java.com/) or, if you are registered in the [OpenJDK Census](https://openjdk.java.net/census), report the bug directly in [JBS](https://bugs.openjdk.java.net/). Try to make the bug report as complete as possible to make it easier to triage and investigate the bug.
+When a new failure is found in the JDK a bug should be filed to describe and track the issue. Depending on your role in OpenJDK you can either use the [Bug Report Tool](https://bugreport.java.com/) or, if you are registered in the [OpenJDK Census](https://openjdk.org/census), report the bug directly in [JBS](https://bugs.openjdk.org/). Try to make the bug report as complete as possible to make it easier to triage and investigate the bug.
 
 A few things to keep in mind when filing a new bug:
 
 * Before filing a bug, verify that there isn't already a bug filed for this issue.
-  * Search [JBS](https://bugs.openjdk.java.net/) for things like the name of the failing test, assert messages, the name of the source code file where a crash occurred etc.
-* If you suspect that the bug is a vulnerability, **don't file a JBS issue**. Instead send your bug report to [vuln-report@openjdk.java.net](mailto:vuln-report@openjdk.java.net).
+  * Search [JBS](https://bugs.openjdk.org/) for things like the name of the failing test, assert messages, the name of the source code file where a crash occurred etc.
+* If you suspect that the bug is a vulnerability, **don't file a JBS issue**. Instead send your bug report to [vuln-report@openjdk.org](mailto:vuln-report@openjdk.org).
   * Please do *not* report or discuss potential vulnerabilities on any open lists or other public channels.
-  * See [OpenJDK Vulnerabilities](https://openjdk.java.net/groups/vulnerability/report) for more information.
+  * See [OpenJDK Vulnerabilities](https://openjdk.org/groups/vulnerability/report) for more information.
 * Make a reasonable attempt to narrow down which build or release the failure first appeared in.
 * Add relevant [Labels]{.jbs-field} like [[intermittent]{.jbs-label}](#intermittent), [[regression]{.jbs-label}](#regression), [[noreg-self]{.jbs-label}](#noreg-self), [[tier1]{.jbs-label}](#tier) etc.
   * To find relevant labels see the [JBS Label Dictionary](#jbs-label-dictionary)
 * Set [Affects Version/s]{.jbs-field} to the JDK version(s) where the failure was seen.
-  * If the failure is found in an update train of the JDK (e.g. 11.0.x), please make an effort to see if the bug is also present in [mainline](https://hg.openjdk.java.net/jdk/jdk/).
+  * If the failure is found in an update train of the JDK (e.g. 11.0.x), please make an effort to see if the bug is also present in [mainline](https://github.com/openjdk/jdk).
 * Set priority
   * It's not the reporter's responsibility to set a correct priority, but a qualified guess is always better than a default value.
   * To help with setting the right priority consider things like how the bug impacts the product and our testing, how likely is it that the bug triggers, how difficult is it to work around the bug if it's not fixed soon, and whether it's a regression, since that may break existing applications. Regressions are often higher priority than long standing bugs and may block a release if not fixed.
@@ -116,7 +116,7 @@ This table contains some frequently used JBS labels and their meaning. Please he
       *(Rel)*[-defer-yes]{.jbs-label} and *(Rel)*[-defer-no]{.jbs-label} are used to indicate wether the deferral has been approved or not. E.g., [jdk12-defer-yes]{.jbs-label}
 
       These labels are always placed on the main JBS issue (the bug), never on backports or subtasks.
-      Further details are found in the [JDK Release Process](https://openjdk.java.net/jeps/3#Bug-Deferral-Process).
+      Further details are found in the [JDK Release Process](https://openjdk.org/jeps/3#Bug-Deferral-Process).
     </td>
   </tr>
   <tr>
@@ -131,7 +131,7 @@ This table contains some frequently used JBS labels and their meaning. Please he
       *(Rel)*[-enhancement-yes]{.jbs-label} and *(Rel)*[-enhancement-no]{.jbs-label} are used to indicate the response on the request. E.g., [jdk10-enhancement-yes]{.jbs-label}, [jdk10-enhancement-no]{.jbs-label}
 
       These labels are always placed on the main JBS issue (the bug), never on backports or subtasks.
-      Further details are found in the [JDK Release Process](http://openjdk.java.net/jeps/3#Late-Enhancement-Request-Process).
+      Further details are found in the [JDK Release Process](http://openjdk.org/jeps/3#Late-Enhancement-Request-Process).
     </td>
   </tr>
   <tr>
@@ -148,7 +148,7 @@ This table contains some frequently used JBS labels and their meaning. Please he
       *(Rel)*[-fix-yes]{.jbs-label} and *(Rel)*[-fix-no]{.jbs-label} are used to indicate wether an issue has been approved for backport to *(Rel)*. E.g., [jdk12u-fix-yes]{.jbs-label}
 
       These labels are always placed on the main JBS issue (the bug), never on backports or subtasks.
-      Further details are found in the [JDK Release Process](http://openjdk.java.net/jeps/3#Fix-Request-Process).
+      Further details are found in the [JDK Release Process](http://openjdk.org/jeps/3#Fix-Request-Process).
     </td>
   </tr>
   <tr>
@@ -156,7 +156,7 @@ This table contains some frequently used JBS labels and their meaning. Please he
       [*(Rel)*[-na]{.jbs-label}]{#rel-na}
     </td>
     <td class="dictionary">
-      Used to indicate that the issue doesn't affect release *(Rel)* or later. Could for instance be a bug in code that was removed in *(Rel)*.
+      Used to indicate that the issue doesn't affect release *(Rel)* or later. Could for instance be a bug in code that was removed in *(Rel)*. Note that there should only be **one** *(Rel)*[-na]{.jbs-label} label on any JBS issue. The [Affects Version/s]{.jbs-field} field is used to indicate the releases where the issue has been seen.
     </td>
   </tr>
   <tr>
