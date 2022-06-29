@@ -6,13 +6,9 @@ This list is intended to make it easier to identify which email list to include 
 
 * Build: [`build-dev@openjdk.org`](mailto:build-dev@openjdk.org)
 * Client
-  * AWT: [`awt-dev@openjdk.org`](mailto:awt-dev@openjdk.org)
-  * Beans: [`beans-dev@openjdk.org`](mailto:beans-dev@openjdk.org)
-  * Java 2D: [`2d-dev@openjdk.org`](mailto:2d-dev@openjdk.org)
+  * Client Libs: [`client-libs-dev@openjdk.org`](mailto:client-libs-dev@openjdk.org)
   * Java FX: [`openjfx-dev@openjdk.org`](mailto:openjfx-dev@openjdk.org)
   * jpackage: [`core-libs-dev@openjdk.org`](mailto:core-libs-dev@openjdk.org)
-  * Sound: [`sound-dev@openjdk.org`](mailto:sound-dev@openjdk.org)
-  * Swing: [`swing-dev@openjdk.org`](mailto:swing-dev@openjdk.org)
 * Core Libs: [`core-libs-dev@openjdk.org`](mailto:core-libs-dev@openjdk.org)
   * Net: [`net-dev@openjdk.org`](mailto:net-dev@openjdk.org)
   * NIO: [`nio-dev@openjdk.org`](mailto:nio-dev@openjdk.org)
@@ -109,16 +105,8 @@ This list is intended to make it easier to identify which email list to include 
     * `libverify` – LangTools
     * `libzip` – Core Libs
 * `java.compiler` – LangTools
-* `java.datatransfer` – AWT
-* `java.desktop` – Client
-  * Many files in the awt directories are shared between 2D and AWT
-    * See [https://openjdk.org/groups/2d/2dawtfiles.html](https://openjdk.org/groups/2d/2dawtfiles.html)
-    * And see [https://openjdk.org/groups/2d](https://openjdk.org/groups/2d)
-  * `color`, `font`, `freetype`, `geom`, `imageio`, `java2d`, `jpeg`, `lcms`, `mlib`, `print`, graphics primitives – 2D
-  * `splashscreen`, `dnd`, `eawt`, `lwawt` – AWT
-  * `im`, input methods – I18n, AWT
-  * `libjsound`, `sound` – Sound
-  * `accessibility`, `laf` – Swing
+* `java.datatransfer` – Client Libs
+* `java.desktop` – Client Libs
 * `java.instrument` – Serviceability
 * `java.logging` – Core Libs
 * `java.management` – Serviceability
@@ -137,7 +125,7 @@ This list is intended to make it easier to identify which email list to include 
 * `java.transaction.xa` – Core Libs
 * `java.xml` – Core Libs
 * `java.xml.crypto` – Security
-* `jdk.accessibility` – Swing
+* `jdk.accessibility` – Client Libs
 * `jdk.aot` – HotSpot Compiler
 * `jdk.attach` – Serviceability
 * `jdk.charsets` – I18n, Core Libs
@@ -152,7 +140,6 @@ This list is intended to make it easier to identify which email list to include 
 * `jdk.httpserver` – Net
 * `jdk.incubator.foreign` – LangTools
 * `jdk.incubator.httpclient` – Net
-* `jdk.incubator.jpackage` – Client
 * `jdk.incubator.vector` – HotSpot Compiler
 * `jdk.internal.ed` – LangTools
 * `jdk.internal.jvmstat` – Serviceability
@@ -170,7 +157,7 @@ This list is intended to make it easier to identify which email list to include 
 * `jdk.jdwp.agent` – Serviceability
 * `jdk.jfr` – JFR
 * `jdk.jlink` – LangTools
-* `jdk.jpackage` – Client
+* `jdk.jpackage` – Client / jpackage
 * `jdk.jshell` – LangTools
 * `jdk.jsobject` – LangTools
 * `jdk.jstatd` – Serviceability
@@ -190,7 +177,7 @@ This list is intended to make it easier to identify which email list to include 
 * `jdk.security.auth` – Security
 * `jdk.security.jgss` – Security
 * `jdk.unsupported` – Core Libs
-* `jdk.unsupported.desktop` – Swing
+* `jdk.unsupported.desktop` – Client Libs
 * `jdk.xml.dom` – Core Libs
 * `jdk.zipfs` – Core Libs
 * `sample` –
