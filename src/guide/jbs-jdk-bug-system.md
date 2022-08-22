@@ -46,7 +46,7 @@ To find out which component to use for different bugs, consult the [directory to
 
 To resolve an issue as `Incomplete` is JBS lingo for "Need More Information". An issue that is `Resolved - Incomplete` is *not* closed but more information is needed to be able to work on it. If no more information is obtained within reasonable time the issue should be closed (`Closed - Incomplete`). Closing a resolved issue is done using the `Verify` option.
 
-## JBS Labels
+## JBS labels
 
 JBS labels are used to tag and group related issues. JBS labels are an open namespace, which means that anyone can create new labels at any time. In order to avoid confusion, however, it's best to reuse existing labels where possible. Most areas have their commonly used labels to identify issues in their respective area. Make an effort to find and use these labels. This can be done by editing the [Labels]{.jbs-field} field of a bug and entering the first few characters of the label you want to add. JIRA will pop up an autocomplete window with existing labels that match that prefix. Then choose one of the existing labels. Using the autocomplete window is preferable to typing the whole label name (even if you're a good typist) because it's easy for minor spelling errors to creep in, which can inadvertently introduce multiple labels with spurious spelling variations.
 
@@ -59,7 +59,7 @@ JBS labels should not be used to write documentation - don't try to write senten
 >
 > ---
 
-## JBS Label Dictionary
+## JBS label dictionary
 
 This table contains some frequently used JBS labels and their meaning. Please help keeping this dictionary up to date by adding your favorite labels. This table doesn’t dictate how to use labels, but rather document how they are used. That said, obviously it will help everyone if we try to follow a common standard and use similar labels in the same way across all entities that use JBS.
 
@@ -345,6 +345,9 @@ As with any issue the best way to deal with a [maintainer-pain]{.jbs-label} issu
     </td>
     <td class="dictionary">
       The [noreg-]{.jbs-label}`.*` and [nounit-]{.jbs-label}`.*` labels are used to explain why a bugfix doesn't need/have a regression test or a unit test. The suffix of the label is described below.
+
+      Please note that the [noreg-]{.jbs-label} namespace is closed, meaning that no new [noreg-]{.jbs-label} labels should be added unless properly
+      motivated, discussed, and agreed upon.
 
 [[-sqe]{.jbs-label}]{#noreg-sqe}
 :    Change can be verified by running an existing SQE test suite; the bug should identify the suite and the specific test case(s).
