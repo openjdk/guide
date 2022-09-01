@@ -30,43 +30,53 @@ In-depth documentation about the jtreg framework is found here: [jtreg harness](
 
 Below is a small example of a jtreg test. It’s a clean Java class with a main method that is called from the test harness. If the test fails we throw a RuntimeException. This is picked up by the harness and is reported as a test failure. Try to always write a meaningful message in the exception. One that actually helps with understanding what went wrong once the test fails.
 
-    /*
-     * @test
-     * @summary Make sure feature X handles Y correctly
-     * @run main TestXY
-     */
-    public class TestXY {
-        public static void main(String[] args) throws Exception {
-            var result = X.y();
-            if (result != expected_result) {
-                throw new RuntimeException("X.y() gave " + result + ", expected " + expected_result);
-            }
+~~~Java
+/*
+ * @test
+ * @summary Make sure feature X handles Y correctly
+ * @run main TestXY
+ */
+public class TestXY {
+    public static void main(String[] args) throws Exception {
+        var result = X.y();
+        if (result != expected_result) {
+            throw new RuntimeException("X.y() gave " + result + ", expected " + expected_result);
         }
     }
+}
+~~~
 
 This example only utilizes three jtreg specific tags, `@test`, `@summary`, and `@run`. `@test` simply tells jtreg that this class is a test, and `@summary` provides a description of the test. `@run` tells jtreg how to execute the test. In this case we simply tell jtreg to execute the main method of the class `TestXY`. `@run` isn't strictly necessary for jtreg to execute the test, an implicit `@run` tag will be added if none exists. However, for clarity and in order to avoid bugs it's recommended to always explicitly use the `@run` tag.
 
 There are several other tags that can be used in jtreg tests. You can for instance associate the test with a specific bug that this test is a regression test for.
 
-    @bug 7000001
+~~~
+@bug 7000001
+~~~
 
 Or you can specify a number of requirements that must be fulfilled for jtreg to execute the test.
 
-    @requires docker.support
-    @requires os.family != ”windows”
-    @requires os.maxMemory > 3G
-    @requires os.arch=="x86_64" | os.arch=="amd64"
+~~~
+@requires docker.support
+@requires os.family != ”windows”
+@requires os.maxMemory > 3G
+@requires os.arch=="x86_64" | os.arch=="amd64"
+~~~
 
 You can also specify if the test requires specific modules, and you can specify command line flags and run the test in several different ways.
 
-    @modules java.base/jdk.internal.misc
-    @run main/othervm -Xmx128m TestXY
+~~~
+@modules java.base/jdk.internal.misc
+@run main/othervm -Xmx128m TestXY
+~~~
 
 Note that you can have several `@run` tags in the same test with different command line options.
 
 jtreg also have support for labeling tests with keys using the `@key` tag. These keywords can then be used to filter the test selection. For instance if you have a UI test which needs to display a window you'll want to make sure the test harness doesn't try to run this test on a system which doesn't support headful tests. You do this by specifying
 
-    @key headful
+~~~
+@key headful
+~~~
 
 Another example is `@key randomness` that should be used to indicate that a test is using randomness - i.e. is intentionally non-deterministic.
 
@@ -80,48 +90,58 @@ The [compiler group](https://openjdk.org/groups/compiler/) has a section in thei
 
 When configuring the OpenJDK build you can tell it where your jtreg installation is located. When providing this information you can later run `make run-test` to execute jtreg tests.
 
-    sh ./configure --with-jtreg=/path/to/jtreg
-    make run-test TEST=tier1
+~~~
+sh ./configure --with-jtreg=/path/to/jtreg
+make run-test TEST=tier1
+~~~
 
 In the OpenJDK source tree you can find a directory called `test`. There are a large number of tests in this directory that are written to be used with jtreg.
 
-    make run-test TEST=test/jdk/java/lang/String/
+~~~
+make run-test TEST=test/jdk/java/lang/String/
+~~~
 
 You can also run jtreg without invoking make. In this case you’ll need to tell jtreg which JDK to test.
 
-    jtreg -jdk:/path/to/jdk /path/to/test
+~~~
+jtreg -jdk:/path/to/jdk /path/to/test
+~~~
 
 ## GTest
 
 As mentioned the Google test framework is mainly used for C++ unit tests. There are several of these in the `test/hotspot` directory. Currently, only the C++ code in the JVM area is supported by the OpenJDK GTest framework. The tests can be run without starting the JVM, which enables testing of JVM data structures that would be fragile to play with in a running JVM.
 
-    static int demo_comparator(int a, int b) {
-      if (a == b) {
-        return 0;
-      }
-      if (a < b) {
-        return -1;
-      }
-      return 1;
-    }
+~~~Java
+static int demo_comparator(int a, int b) {
+  if (a == b) {
+    return 0;
+  }
+  if (a < b) {
+    return -1;
+  }
+  return 1;
+}
 
-    TEST(Demo, quicksort) {
-      int test_array[] = {7,1,5,3,6,9,8,2,4,0};
-      int expected_array[] = {0,1,2,3,4,5,6,7,8,9};
+TEST(Demo, quicksort) {
+  int test_array[] = {7,1,5,3,6,9,8,2,4,0};
+  int expected_array[] = {0,1,2,3,4,5,6,7,8,9};
 
-      QuickSort::sort(test_array, 10, demo_comparator, false);
-      for (int i = 0; i < 10; i++) {
-        ASSERT_EQ(expected_array[i], test_array[i]);
-      }
-    }
+  QuickSort::sort(test_array, 10, demo_comparator, false);
+  for (int i = 0; i < 10; i++) {
+    ASSERT_EQ(expected_array[i], test_array[i]);
+  }
+}
+~~~
 
 `ASSERT_EQ` is one example of an assertion that can be used in the test. Below are a few other examples. A full list is found in the [Google Test Documentation](https://github.com/google/googletest/blob/master/googletest/docs/primer.md).
 
-    ASSERT_TRUE(condition);
-    ASSERT_FALSE(condition);
-    EXPECT_EQ(expected, actual);
-    EXPECT_LT(val1, val2);
-    EXPECT_STREQ(expected_str, actual_str);
+~~~Java
+ASSERT_TRUE(condition);
+ASSERT_FALSE(condition);
+EXPECT_EQ(expected, actual);
+EXPECT_LT(val1, val2);
+EXPECT_STREQ(expected_str, actual_str);
+~~~
 
 `ASSERT` is a fatal assertion and will interrupt execution of the current sub-routine. `EXPECT` is a nonfatal assertion and will report the error but continues to run the test. All assertions have both an `ASSERT` and an `EXPECT` variant.
 
@@ -131,13 +151,17 @@ For more information on how to write good GTests in HotSpot, see [`doc/hotspot-u
 
 When configuring the OpenJDK build you can tell it where your GTest installation is located. Once configured, use make to run GTests.
 
-    sh ./configure --with-gtest=/path/to/gtest
-    make test TEST=gtest
+~~~
+sh ./configure --with-gtest=/path/to/gtest
+make test TEST=gtest
+~~~
 
 You can also use a regular expression to filter which tests to run:
 
-    make test TEST=gtest:code.*:os.*
-    make test TEST=gtest:$X/$variant
+~~~
+make test TEST=gtest:code.*:os.*
+make test TEST=gtest:$X/$variant
+~~~
 
 The second example above runs tests which match the regexp `$X.*` on a specific variant of the JVM. The variant is one of client, server, etc.
 
@@ -149,7 +173,9 @@ I'll say it right away so that it's not forgotten at the end: Remember to remove
 
 ### ProblemListing jtreg tests
 
-ProblemListing should be used for a short term exclusion while a test is being fixed, and for the exclusion of intermittently failing tests that cause too much noise, but can still be useful to run on an ad-hoc basis. ProblemListing is done in the file `ProblemList.txt`. There are actually several ProblemList files to choose from. Their location and name hint about what area or feature each file belongs to. Each file has sections for different components. All ProblemList files complement each other to build the total set of tests to exclude in jtreg runs.
+ProblemListing should be used for a short term exclusion while a test is being fixed, and for the exclusion of intermittently failing tests that cause too much noise, but can still be useful to run on an ad-hoc basis. ProblemListing is done in the file `ProblemList.txt`. For more details about the `ProblemList.txt` file see the [jtreg FAQ](https://openjdk.org/jtreg/faq.html#what-is-a-problemlist.txt-file).
+
+There are actually several ProblemList files to choose from in the JDK. Their location and name hint about what area or feature each file belongs to. Each file has sections for different components. All ProblemList files complement each other to build the total set of tests to exclude in jtreg runs.
 
 ~~~
 test/hotspot/jtreg/ProblemList.txt
@@ -251,9 +277,9 @@ The fix for the main issue should remove the test from the ProblemList or remove
 
 After a failure is handled by excluding a test, the main JBS issue should be re-triaged and possibly given a new priority. This should be handled by the standard triage process. A test exclusion results in an outage in our testing. This outage should be taken into consideration when triaging, in addition to the impact of the bug itself.
 
-## GitHub Actions
+## GitHub actions
 
-GitHub has a feature called **GitHub Actions** (GHA) that can be used to automate testing. The GHA is executed whenever a push is made to a branch in your repository. The bots will show the results of the GHA in your PR when you create or update it. The GHA in the JDK project is configured to run a set of tests that is commonly known as **tier 1**. This is a relatively fast, small set of tests that tries to verify that your change didn't break the JDK completely. In tier 1 the JDK is built on a small set of platforms including (but not necessarily limited to) Linux, Windows, and MacOS, and a few tests are executed using these builds.
+GitHub has a feature called **GitHub actions** (GHA) that can be used to automate testing. The GHA is executed whenever a push is made to a branch in your repository. The bots will show the results of the GHA in your PR when you create or update it. The GHA in the JDK project is configured to run a set of tests that is commonly known as **tier 1**. This is a relatively fast, small set of tests that tries to verify that your change didn't break the JDK completely. In tier 1 the JDK is built on a small set of platforms including (but not necessarily limited to) Linux, Windows, and MacOS, and a few tests are executed using these builds.
 
 In addition to the testing you run manually before publishing your changes, it's recommended that you take advantage of this automated testing that the GHA offers. This will for instance allow you to run tests on platforms that you may not otherwise have access to. To enable this on your personal fork of the JDK on GitHub go to the "Actions" tab and click the big green button saying "I understand my workflows, go ahead and enable them". If you don't understand these workflows there's a link to the actual file that describes them right below the green button.
 

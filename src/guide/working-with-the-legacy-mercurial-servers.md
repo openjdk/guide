@@ -221,7 +221,7 @@ In order to push changesets into the parent repository, some additional configur
 
 ### Get your SSH key installed
 
-First you should create a new SSH key. See [Generating an SSH key] for guidance on how to do that. Your public key (`~/.ssh/id_rsa.pub`) should be mailed as an attachment along with your JDK username to [keys(at)openjdk.org](mailto:keys-at-openjdk.org). An administrator will install your key on the server and notify you on completion. This process may take a couple of days.
+First you should create a new SSH key. See [Generating an SSH key] for guidance on how to do that. Your public key (`~/.ssh/id_rsa.pub`) should be mailed as an attachment along with your JDK username to [keys@openjdk.org](mailto:keys@openjdk.org). An administrator will install your key on the server and notify you on completion. This process may take a couple of days.
 
 > ---
 >

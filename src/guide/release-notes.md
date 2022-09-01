@@ -42,7 +42,7 @@ If you see an issue you feel should have a release note but you are not the assi
 
 For examples of well written release note issues in JBS, see [JDK-8276929](https://bugs.openjdk.org/browse/JDK-8276929) or [JDK-8278458](https://bugs.openjdk.org/browse/JDK-8278458).
 
-## General Conventions for Release Notes
+## General conventions for release notes
 
 The following are general practices that should be followed when creating release notes.
 
@@ -114,7 +114,7 @@ Unless labeled otherwise it will be assumed that the release note documents a ch
 [[~~RN-Change~~]{.jbs-label}]{#RN-Change}
 :   Deprecated.
 
-## Querying the Release Notes
+## Querying the release notes
 
 The Release Notes for a particular release can be found using the JBS query
 
