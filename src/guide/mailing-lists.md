@@ -23,7 +23,7 @@ There are a few different types of lists. The list name has two parts to explain
 > :    Technical discussions around the usage of the project artifacts.
 
 > `-discuss`
-> :    General discussions around the project. The special case `discuss@openjdk.org` is used for general discussions around OpenJDK. Discussions around new project proposals usually happens here.
+> :    General discussions around the project. The special case `discuss@openjdk.org` is used for general discussions around OpenJDK. Discussions around new project proposals usually happen here.
 
 >  `-changes`
 > :    Changeset notifications from the source code repositories maintained by the project.
