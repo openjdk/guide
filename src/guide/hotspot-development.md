@@ -13,8 +13,7 @@ While developing your fix, your might want your code to output some diagnostic i
 The appropriate way to print logging output from HotSpot is through the [Unified Logging Framework (JEP 158)](https://openjdk.org/jeps/158).
 It gives you a lot of nice features and enables common command-line options for all logging.
 
-
-A basic log message can be output like this.
+A basic log message can be output like this:
 
 ~~~c++
 log_info(gc, marking)("Mark Stack Usage: " SIZE_FORMAT "M", _mark_stack_usage / M);
@@ -31,7 +30,7 @@ log_<level>(Tag1[,...])(fmtstr, ...)
 ~~~
 
 Sometimes single line printf-style logging isn't enough.
-For example, it can be useful to group several log lines together or to use Hotspot's output stream API.
+For example, it can be useful to group several log lines together or to use HotSpot's output stream API.
 UL supports both of these use cases using `LogMessage` and `LogStream`, respectively.
 
 ~~~c++
@@ -50,8 +49,10 @@ if (lm.is_info()) {
 ResourceMark rm;
 LogStream st(Log(gc, marking)::info());
 if(st.is_enabled()) {
+  // Print without newline
   st.print("I'm printing a lot of %s ", "arguments");
   st.print("With a lot of extra info %d ", 3);
+  // Print with newline (cr stands for carriage return)
   st.print_cr("and so it's useful to use a stream");
 }
 ~~~
@@ -64,22 +65,44 @@ LogMessage(gc) lm;
 NonInterleavingLogStream st{LogLevelType::Info, lm};
 if(st.is_enabled()) {
   st.print_cr("Line one: %d %d %d ", 1, 2, 3);
-  st.print("Still line one: %d %d %d", 4, 5, 6);
-  st.print_cr("Line two: %d %d %d", 7, 8, 9);
+  st.print("Line two: %d %d %d", 4, 5, 6);
+  st.print_cr(" still line two: %d %d %d", 7, 8, 9);
 }
 ~~~
 
+### Enabling logging
 
-You turn on logging by starting the JVM with the `-Xlog` command line option specified.
-For example, the messages from the examples would be visible if the JVM were run with any of the following flags:
+You enable logging in the JVM by using the `-Xlog` command line option specified.
+For example, the messages from the examples would be visible if the JVM were run with any of the following options:
 
-~~~c++
+~~~
 -Xlog:gc+marking=info
 -Xlog:gc+marking
 -Xlog:gc*
 ~~~
 
-A full description of the syntax of `-Xlog` is available in [JEP 158](https://openjdk.java.net/jeps/158), also mentioned above.
+You can have multiple `-Xlog` options, these are applied in an additive manner. Consider this example:
+
+~~~
+-Xlog:gc+marking=info:stdout -Xlog:alloc=warning:stderr -Xlog:breakpoint=error:breakpoint.txt:level
+~~~
+
+This specifies that:
+
+1. Log messages with info level and up with tags gc and marking to stdout.
+2. Log messages with warning level and up with tag alloc to stderr.
+3. Log messages with error level and up with tag breakpoint to file breakpoint.txt with the decorator level.
+
+UL automatically applies a default argument of `-Xlog:all=warning:stdout:uptime,level,tags` when logging is enabled. This can be disabled by
+prepending `-Xlog:disable` to your arguments.
+
+~~~
+-Xlog:disable -Xlog:gc+marking=info -Xlog:alloc=warning
+~~~
+
+Starting the JVM with the option `-Xlog:help` outputs more information and more examples.
+
+A full description of the syntax of `-Xlog` is available in [JEP 158](https://openjdk.java.net/jeps/158).
 
 ::: {.box}
 [To the top](#){.boxheader}
