@@ -47,7 +47,7 @@ git push --set-upstream origin Merge_mainline
 
 Now it's time to create the PR on GitHub. Just opening the PR page in your browser will most often be enough to see a message about new code that was pushed to your personal fork, with a question if you want to create a PR. You do.
 
-Make sure the name of the PR starts with "Merge". You may have noticed that when you integrate a "normal" PR into an OpenJDK repository, all commits that has been done in that PR will be squashed into a single commit. For normal changes this is a good thing as each PR normally correspond to a single JBS issue, but for a merge it would be highly undesirable to squash all the different commits that you pull in from mainline. A PR with a name that starts with "Merge" won't be squashed. That means that all the changes that you brought over will remain separate changes.
+Make sure the name of the PR starts with "Merge". You may have noticed that when you integrate a "normal" PR into an OpenJDK repository, all commits that have been done in that PR will be squashed into a single commit. For normal changes this is a good thing as each PR normally corresponds to a single JBS issue, but for a merge it would be highly undesirable to squash all the different commits that you pull in from mainline. A PR with a name that starts with "Merge" won't be squashed. That means that all the changes that you brought over will remain separate changes.
 
 Wether a merge requires a review or not is up to your project lead to decide. Many projects don't require this so the GitHub bots will allow you to push the merge as soon as the [GHA](#github-actions)s are done. (They actually allow you to push even before the GHAs are done, but that's in general not a good idea.)
 
