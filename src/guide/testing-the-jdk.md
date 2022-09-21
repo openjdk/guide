@@ -58,7 +58,7 @@ Or you can specify a number of requirements that must be fulfilled for jtreg to 
 
 ~~~
 @requires docker.support
-@requires os.family != ”windows”
+@requires os.family != "windows"
 @requires os.maxMemory > 3G
 @requires os.arch=="x86_64" | os.arch=="amd64"
 ~~~
