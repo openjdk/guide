@@ -51,7 +51,7 @@ Make sure the name of the PR starts with "Merge". You may have noticed that when
 
 Wether a merge requires a review or not is up to your project lead to decide. Many projects don't require this so the GitHub bots will allow you to push the merge as soon as the [GHA](#github-actions)s are done. (They actually allow you to push even before the GHAs are done, but that's in general not a good idea.)
 
-Once the PR has been integrated you can go back to your local clone and clean it up in preparation for the next merge.
+Once the PR has been integrated, you can clean up your fork and its clone in preparation for the next merge.
 
 ~~~
 git switch master
