@@ -65,36 +65,30 @@ This table contains some frequently used JBS labels and their meaning. Please he
 
 <table class="dictionary" summary="JBS Label Dictionary">
   <tr style="text-align:left;"><th>Label</th><th>Description</th></tr>
+  <!-- Area -->
   <tr>
-    <td class="dictionary">
-      [*(Area)*[-interest]{.jbs-label}]{#area-interest}
-    </td>
+    <td class="dictionary">[*(Area)*[-interest]{.jbs-label}]{#area-interest}</td>
     <td class="dictionary">
       Used to indicate that an area (usually a team or project) is interested in the issue. This label doesn't indicate ownership of the issue. E.g., [redhat-interest]{.jbs-label}, [azul-interest]{.jbs-label}, [coin-interest]{.jbs-label}
     </td>
   </tr>
   <tr>
-    <td class="dictionary">
-      [*(Area)*[-related]{.jbs-label}]{#area-related}
-    </td>
+    <td class="dictionary">[*(Area)*[-related]{.jbs-label}]{#area-related}</td>
     <td class="dictionary">
       Used to indicate that an issue is related to a specific area (usually a feature or project). This label doesn't indicate ownership of the issue. E.g., [graal-related]{.jbs-label}, [testcolo-related]{.jbs-label}, [doc-related]{.jbs-label}
     </td>
   </tr>
+  <!-- Release -->
   <tr>
-    <td class="dictionary">
-      [*(Rel)*[-bp]{.jbs-label}]{#rel-bp}
-    </td>
+    <td class="dictionary">[*(Rel)*[-bp]{.jbs-label}]{#rel-bp}</td>
     <td class="dictionary">
       Used to indicate that a bug would be suitable for backport to a release *(Rel)*. This isn't a decision to backport, just a suggestion / recommendation. E.g., [11-bp]{.jbs-label}
     </td>
   </tr>
   <tr>
-    <td class="dictionary">
-      [*(Rel)*[-critical-request]{.jbs-label}]{#rel-critical-request}<br />
-      [*(Rel)*[-critical-approved]{.jbs-label}]{#rel-critical-approved}<br />
-      [*(Rel)*[-critical-watch]{.jbs-label}]{#rel-critical-watch}
-    </td>
+    <td class="dictionary">[*(Rel)*[-critical-request]{.jbs-label}]{#rel-critical-request}<br />
+                           [*(Rel)*[-critical-approved]{.jbs-label}]{#rel-critical-approved}<br />
+                           [*(Rel)*[-critical-watch]{.jbs-label}]{#rel-critical-watch}</td>
     <td class="dictionary">
       Used in the rampdown phases of specific releases to request approval of changes that requires project lead approval (or similar) to be included. *(Rel)* is the release in question. E.g., [jdk11-critical-request]{.jbs-label}
 
@@ -105,11 +99,9 @@ This table contains some frequently used JBS labels and their meaning. Please he
     </td>
   </tr>
   <tr>
-    <td class="dictionary">
-      [*(Rel)*[-defer-request]{.jbs-label}]{#rel-defer-request}<br />
-      [*(Rel)*[-defer-yes]{.jbs-label}]{#rel-defer-yes}<br />
-      [*(Rel)*[-defer-no]{.jbs-label}]{#rel-defer-no}
-    </td>
+    <td class="dictionary">[*(Rel)*[-defer-request]{.jbs-label}]{#rel-defer-request}<br />
+                           [*(Rel)*[-defer-yes]{.jbs-label}]{#rel-defer-yes}<br />
+                           [*(Rel)*[-defer-no]{.jbs-label}]{#rel-defer-no}</td>
     <td class="dictionary">
       Used to request deferral of changes that requires project lead approval (or similar) to defer. *(Rel)* is the release in question. E.g., [jdk12-defer-request]{.jbs-label}
 
@@ -120,11 +112,9 @@ This table contains some frequently used JBS labels and their meaning. Please he
     </td>
   </tr>
   <tr>
-    <td class="dictionary">
-      [*(Rel)*[-enhancement-request]{.jbs-label}]{#rel-enhancement-request}<br />
-      [*(Rel)*[-enhancement-yes]{.jbs-label}]{#rel-enhancement-yes}<br />
-      [*(Rel)*[-enhancement-no]{.jbs-label}]{#rel-enhancement-no}
-    </td>
+    <td class="dictionary">[*(Rel)*[-enhancement-request]{.jbs-label}]{#rel-enhancement-request}<br />
+                           [*(Rel)*[-enhancement-yes]{.jbs-label}]{#rel-enhancement-yes}<br />
+                           [*(Rel)*[-enhancement-no]{.jbs-label}]{#rel-enhancement-no}</td>
     <td class="dictionary">
       Used in the rampdown phases to request the late inclusion of an enhancement. *(Rel)* is the release in question. E.g., [jdk10-enhancement-request]{.jbs-label}
 
@@ -135,12 +125,10 @@ This table contains some frequently used JBS labels and their meaning. Please he
     </td>
   </tr>
   <tr>
-    <td class="dictionary">
-      [*(Rel)*[-fix-request]{.jbs-label}]{#rel-fix-request}<br />
-      [*(Rel)*[-fix-SQE-ok]{.jbs-label}]{#rel-fix-SQE-ok}<br />
-      [*(Rel)*[-fix-yes]{.jbs-label}]{#rel-fix-yes}<br />
-      [*(Rel)*[-fix-no]{.jbs-label}]{#rel-fix-no}
-    </td>
+    <td class="dictionary">[*(Rel)*[-fix-request]{.jbs-label}]{#rel-fix-request}<br />
+                           [*(Rel)*[-fix-SQE-ok]{.jbs-label}]{#rel-fix-SQE-ok}<br />
+                           [*(Rel)*[-fix-yes]{.jbs-label}]{#rel-fix-yes}<br />
+                           [*(Rel)*[-fix-no]{.jbs-label}]{#rel-fix-no}</td>
     <td class="dictionary">
       Used in rampdown phase 2 to indicate that an issue would be of interest to get integrated into release *(Rel)*. E.g., [jdk12u-fix-request]{.jbs-label}
 
@@ -152,86 +140,92 @@ This table contains some frequently used JBS labels and their meaning. Please he
     </td>
   </tr>
   <tr>
-    <td class="dictionary">
-      [*(Rel)*[-na]{.jbs-label}]{#rel-na}
-    </td>
+    <td class="dictionary">[*(Rel)*[-na]{.jbs-label}]{#rel-na}</td>
     <td class="dictionary">
       Used to indicate that the issue doesn't affect release *(Rel)* or later. Could for instance be a bug in code that was removed in *(Rel)*. Note that there should only be **one** *(Rel)*[-na]{.jbs-label} label on any JBS issue. The [Affects Version/s]{.jbs-field} field is used to indicate the releases where the issue has been seen.
     </td>
   </tr>
+  <!-- Team -->
   <tr>
-    <td class="dictionary">
-      [*(Team)*[-triage-]{.jbs-label}*(Rel)*]{#team-triage-rel}
-    </td>
+    <td class="dictionary">[*(Team)*[-triage-]{.jbs-label}*(Rel)*]{#team-triage-rel}</td>
     <td class="dictionary">
       Used to indicate that *(Team)* has triaged this issue for release *(Rel)*. It's encouraged that all open bugs are triaged on a regular basis so that old bugs aren't forgotten. It's therefore common to see several triage labels on the same issue which helps keeping track of which bugs has been triaged for each release. E.g., [oracle-triage-13]{.jbs-label}
 
       There are many label variants that include the word triage in some form. The form described above is the only one recommended. Please refrain from using other forms.
     </td>
   </tr>
+  <!-- A -->
   <tr>
+    <td class="dictionary">[[aot]{.jbs-label}]{#aot}</td>
     <td class="dictionary">
-      [[aot]{.jbs-label}]{#aot}
-    </td>
-    <td class="dictionary">
-      Used to identify issues in Ahead of Time Compilation.
+      Used to identify issues in the JVM feature Ahead of Time Compilation.
     </td>
   </tr>
   <tr>
-    <td class="dictionary">
-     [[~~appcds~~]{.jbs-label}]{#appcds}
-    </td>
+    <td class="dictionary">[[~~appcds~~]{.jbs-label}]{#appcds}</td>
     <td class="dictionary">
       **Deprecated.** Was used to identify issues in Application Class-Data Sharing. The [cds]{.jbs-label} label is now used instead.
     </td>
   </tr>
+  <!-- B -->
+  <!-- C -->
   <tr>
+    <td class="dictionary">[[c1]{.jbs-label}]{#c1}</td>
     <td class="dictionary">
-      [[c1]{.jbs-label}]{#c1}
-    </td>
-    <td class="dictionary">
-      Used to identify issues in the C1 JIT compiler.
+      Used to identify issues in the JVM JIT compiler C1.
     </td>
   </tr>
   <tr>
+    <td class="dictionary">[[c2]{.jbs-label}]{#c2}<br />
+                           [c2-]{.jbs-label}`.*`</td>
     <td class="dictionary">
-      [[c2]{.jbs-label}]{#c2}<br />
-      [c2-]{.jbs-label}`.*`
-    </td>
-    <td class="dictionary">
-      Used to identify issues in the C2 JIT compiler.
+      Used to identify issues in the JVM JIT compiler C2.
 
       [c2-]{.jbs-label}`.*` labels are used to identify different c2 features. E.g., [c2-intrinsic]{.jbs-label}, [c2-loopopts]{.jbs-label}
     </td>
   </tr>
   <tr>
+    <td class="dictionary">[[cds]{.jbs-label}]{#cds}</td>
     <td class="dictionary">
-      [[cds]{.jbs-label}]{#cds}
-    </td>
-    <td class="dictionary">
-      Used to identify issues in Class Data Sharing.
+      Used to identify issues in the JVM feature Class Data Sharing.
     </td>
   </tr>
   <tr>
-    <td class="dictionary">
-      [[cleanup]{.jbs-label}]{#cleanup}
-    </td>
+    <td class="dictionary">[[cleanup]{.jbs-label}]{#cleanup}</td>
     <td class="dictionary">
       The [cleanup]{.jbs-label} label is used to indicate enhancements which has no semantic changes, whose only purpose is to make the code more maintainable or better looking.
     </td>
   </tr>
   <tr>
+    <td class="dictionary">[[compilercontrol]{.jbs-label}]{#compilercontrol}</td>
     <td class="dictionary">
-      [[docker]{.jbs-label}]{#docker}
+      Used to identify issues in the JVM Compiler Control feature.
     </td>
+  </tr>
+  <tr>
+    <td class="dictionary">[[conformance]{.jbs-label}]{#conformance}</td>
+    <td class="dictionary">
+      Used to identify all TCK related conformance issues.
+    </td>
+  </tr>
+  <!-- D -->
+  <tr>
+    <td class="dictionary">[[docker]{.jbs-label}]{#docker}</td>
     <td class="dictionary">
       Used to identify issues in docker support.
     </td>
   </tr>
+  <!-- E -->
+  <!-- F -->
   <tr>
+    <td class="dictionary">[[footprint]{.jbs-label}]{#footprint}</td>
     <td class="dictionary">
-      [[gc-]{.jbs-label}`.*`]{#gc}
+      Used to identify issues affecting Java SE footprint. Issues with this label should also have a [performance]{.jbs-label} label.
     </td>
+  </tr>
+  <!-- G -->
+  <tr>
+    <td class="dictionary">[[gc-]{.jbs-label}`.*`]{#gc}</td>
     <td class="dictionary">
       Used to identify issues in specific garbage collectors in the JVM. E.g., [gc-g1]{.jbs-label}, [gc-shenandoah]{.jbs-label}, [gc-serial]{.jbs-label}, [gc-epsilon]{.jbs-label}
 
@@ -239,74 +233,59 @@ This table contains some frequently used JBS labels and their meaning. Please he
     </td>
   </tr>
   <tr>
-    <td class="dictionary">
-      [[graal]{.jbs-label}]{#graal}
-    </td>
+    <td class="dictionary">[[graal]{.jbs-label}]{#graal}</td>
     <td class="dictionary">
       Used to indicate that this is a Graal issue. (Something that needs to be fixed in Graal rather than in OpenJDK.)
     </td>
   </tr>
   <tr>
-    <td class="dictionary">
-      [[graal-integration]{.jbs-label}]{#graal-integration}
-    </td>
+    <td class="dictionary">[[graal-integration]{.jbs-label}]{#graal-integration}</td>
     <td class="dictionary">
       Reserved for Graal integration umbrella bugs. The automated integration script will break if this label is used for other bugs.
     </td>
   </tr>
+  <!-- H -->
   <tr>
+    <td class="dictionary">[[hgupdate-sync]{.jbs-label}]{#hgupdate-sync}</td>
     <td class="dictionary">
-      [[hgupdate-sync]{.jbs-label}]{#hgupdate-sync}
-    </td>
-    <td class="dictionary">
-      Used to identify backport issues automatically created by HG Updater (a script that monitors the hg repositories for changes).
+      Used to identify backport issues created as part of automatic syncing between releases.
     </td>
   </tr>
   <tr>
-    <td class="dictionary">
-      [[~~hs-nightly~~]{.jbs-label}]{#hs-nightly}
-    </td>
+    <td class="dictionary">[[~~hs-nightly~~]{.jbs-label}]{#hs-nightly}</td>
     <td class="dictionary">
       **Deprecated.** Was used to tag bugs found in the HotSpot nightly testing. Since we are now running tiered testing there is no more nightly HotSpot testing. See [tier]{.jbs-label}`[1-8]`.
     </td>
   </tr>
   <tr>
-    <td class="dictionary">
-      [[hs-sbr]{.jbs-label}]{#hs-sbr}
-    </td>
+    <td class="dictionary">[[hs-sbr]{.jbs-label}]{#hs-sbr}</td>
     <td class="dictionary">
       Used to identify issues that are found in the "same binary runs", a stress testing method used to find intermittent failures.
     </td>
   </tr>
   <tr>
-    <td class="dictionary">
-      [~~[hs-tier]{.jbs-label}`[1-8]`~~]{#hs-tier}
-    </td>
+    <td class="dictionary">[~~[hs-tier]{.jbs-label}`[1-8]`~~]{#hs-tier}</td>
     <td class="dictionary">
       **Deprecated.** Was used to identify which HotSpot tier a test failure was seen in. We don't separate HotSpot tiers from the JDK tiers anymore. See [tier]{.jbs-label}`[1-8]`.
     </td>
   </tr>
+  <!-- I -->
   <tr>
+    <td class="dictionary">[[i18n]{.jbs-label}]{#i18n}</td>
     <td class="dictionary">
-      [[i18n]{.jbs-label}]{#i18n}
-    </td>
-    <td class="dictionary">
-      Used to identify issue in internationalization. i18n is short for internationalization meaning "i 18 letters and an n".
+      Used to identify issues in internationalization. i18n is short for internationalization meaning "i 18 letters and an n". Used for bugs whose impact varies depending on a user's writing system, language, or locale, but aren't just a matter of locale data. The label isn't needed for classes_text, classes_util_i18n, classes_awt_im, classes_fontprop, or char_encodings.
     </td>
   </tr>
   <tr>
-    <td class="dictionary">
-      [[integration-blocker]{.jbs-label}]{#integration-blocker}
-    </td>
+    <td class="dictionary">[[integration-blocker]{.jbs-label}]{#integration-blocker}</td>
     <td class="dictionary">
       Used to indicate that a bug is present in a downstream repository but not present in the upstream repository and is therefore blocking integration of downstream changes into upstream.
     </td>
   </tr>
   <tr>
-    <td class="dictionary">
-      [[intermittent]{.jbs-label}]{#intermittent}<br />
-      [[intermittent-environment]{.jbs-label}]{#intermittent-environment}<br />
-      [[intermittent-hardware]{.jbs-label}]{#intermittent-hardware}
+    <td class="dictionary">[[intermittent]{.jbs-label}]{#intermittent}<br />
+                           [[intermittent-environment]{.jbs-label}]{#intermittent-environment}<br />
+                           [[intermittent-hardware]{.jbs-label}]{#intermittent-hardware}
     </td>
     <td class="dictionary">
       An intermittent issue is one that fails sometimes but not always. The exact reason for the intermittent failure is per definition unknown. Once the reason has been identified the issue is no more considered intermittent. An issue isn't intermittent if some characteristics has been found that triggers the failure consistently, even if the actual cause for the failure hasn't been found. For instance if a test fails every time it's executed on a specific host but not on other hosts it wouldn't be considered intermittent as it fails consistently on that specific host. In other cases it may be that we know that a test sometimes is unlucky in some respect and fails due to this. This test could still be considered intermittent even though we know what the reason is if the reason itself appears intermittently.
@@ -316,10 +295,18 @@ This table contains some frequently used JBS labels and their meaning. Please he
       A test that should be platform agnostic but is consistently failing on a specific OS would for instance be labeled with [intermittent-environment]{.jbs-label}, while a test that fails every time it's run on some specific hardware would be labeled with [intermittent-hardware]{.jbs-label}.
     </td>
   </tr>
+  <!-- J -->
   <tr>
+    <td class="dictionary">[[jvmci]{.jbs-label}]{#jvmci}</td>
     <td class="dictionary">
-      [[maintainer-pain]{.jbs-label}]{#maintainer-pain}
+      Used to identify issues in the JVM Compiler Interface.
     </td>
+  </tr>
+  <!-- K -->
+  <!-- L -->
+  <!-- M -->
+  <tr>
+    <td class="dictionary">[[maintainer-pain]{.jbs-label}]{#maintainer-pain}</td>
     <td class="dictionary">
 Used to tag bugs that for some reason is wasting time or in other ways are causing pain for the OpenJDK maintainers. Examples of issues that could be considered a pain:
 
@@ -338,11 +325,10 @@ If you have a [maintainer-pain]{.jbs-label} bug assigned to you please consider 
 As with any issue the best way to deal with a [maintainer-pain]{.jbs-label} issue is to fix it. Another way to reduce the noise is to [exclude the failing test](#excluding-a-test). This is a viable option if there is a limited set of tests that are failing and the bug is actively investigated. When excluding a [maintainer-pain]{.jbs-label} issue, remember to move the [maintainer-pain]{.jbs-label} label to the JBS issue used to exclude. Leaving the label on the closed exclude-issue is helpful for tracking purposes.
     </td>
   </tr>
+  <!-- N -->
   <tr>
-    <td class="dictionary">
-      [[noreg-]{.jbs-label}`.*`]{#noreg}<br />
-      [[nounit-]{.jbs-label}`.*`]{#nounit}
-    </td>
+    <td class="dictionary">[[noreg-]{.jbs-label}`.*`]{#noreg}<br />
+                           [[nounit-]{.jbs-label}`.*`]{#nounit}</td>
     <td class="dictionary">
       The [noreg-]{.jbs-label}`.*` and [nounit-]{.jbs-label}`.*` labels are used to explain why a bugfix doesn't need/have a regression test or a unit test. The suffix of the label is described below.
 
@@ -400,52 +386,44 @@ As with any issue the best way to deal with a [maintainer-pain]{.jbs-label} issu
 Examples:  If a bug fix only corrects a change in the build system, then add the [noreg-build]{.jbs-label} label to the corresponding bug. If the change improves loop optimizations in HotSpot, then add [nounit-perf]{.jbs-label} to the corresponding bug.
     </td>
   </tr>
+  <!-- O -->
+  <!-- P -->
   <tr>
-    <td class="dictionary">
-      [[performance]{.jbs-label}]{#performance}
-    </td>
+    <td class="dictionary">[[performance]{.jbs-label}]{#performance}</td>
     <td class="dictionary">
       Used to identify an issue with noticeable performance impact. Either positive or negative.
     </td>
   </tr>
   <tr>
-    <td class="dictionary">
-      [[~~pit~~]{.jbs-label}]{#pit}
-    </td>
+    <td class="dictionary">[[~~pit~~]{.jbs-label}]{#pit}</td>
     <td class="dictionary">
       **Deprecated.** Was used to indicate that a failure happened in product integration testing (PIT). Since we are now running tiered testing there is no more PIT. See [tier]{.jbs-label}`[1-8]`.
     </td>
   </tr>
   <tr>
-    <td class="dictionary">
-      [[problemlist]{.jbs-label}]{#problemlist}
-    </td>
+    <td class="dictionary">[[problemlist]{.jbs-label}]{#problemlist}</td>
     <td class="dictionary">
       One or more tests has been problemlisted due to this bug.
     </td>
   </tr>
+  <!-- Q -->
+  <!-- R -->
   <tr>
+    <td class="dictionary">[[regression]{.jbs-label}]{#regression}</td>
     <td class="dictionary">
-      [[regression]{.jbs-label}]{#regression}
-    </td>
-    <td class="dictionary">
-      Used to identify regressions. A regression is a bug that didn't exist in the previous release. Ideally all regressions must be fixed in order to release the next major version.
+      Used to identify regressions. A regression is a bug that didn't exist in the previous release. Ideally all regressions must be fixed in the following release. All regressions must have the [Affects Version/s]{.jbs-field} set.
     </td>
   </tr>
   <tr>
-    <td class="dictionary">
-      [[release-note]{.jbs-label}]{#release-note}
-    </td>
+    <td class="dictionary">[[release-note]{.jbs-label}]{#release-note}</td>
     <td class="dictionary">
       Used to indicate that the issue is a release note. See [Release Notes](#release-notes).
     </td>
   </tr>
   <tr>
-    <td class="dictionary">
-      [[release-note=yes]{.jbs-label}]{#release-note-yes}<br />
-      [[release-note=no]{.jbs-label}]{#release-note-no}<br />
-      [[~~release-note=done~~]{.jbs-label}]{#release-note-done}
-    </td>
+    <td class="dictionary">[[release-note=yes]{.jbs-label}]{#release-note-yes}<br />
+                           [[release-note=no]{.jbs-label}]{#release-note-no}<br />
+                           [[~~release-note=done~~]{.jbs-label}]{#release-note-done}</td>
     <td class="dictionary">
       Used to indicate whether a change requires a release note or not. The labels are always placed on the main JBS issue, never on the actual release note issue. See [Release Notes](#release-notes).
 
@@ -453,34 +431,28 @@ Examples:  If a bug fix only corrects a change in the build system, then add the
     </td>
   </tr>
   <tr>
-    <td class="dictionary">
-      [[RN-]{.jbs-label}`.*`]{#rn}
-    </td>
+    <td class="dictionary">[[RN-]{.jbs-label}`.*`]{#rn}</td>
     <td class="dictionary">
       Used to indicate what kind of change the release note is for. See [Release Notes](#release-notes).
     </td>
   </tr>
+  <!-- S -->
   <tr>
-    <td class="dictionary">
-      [[starter]{.jbs-label}]{#starter}
-    </td>
+    <td class="dictionary">[[starter]{.jbs-label}]{#starter}</td>
     <td class="dictionary">
       A starter bug is a well contained, small issue that is suitable for someone new to the codebase.
     </td>
   </tr>
   <tr>
+    <td class="dictionary">[[startup]{.jbs-label}]{#startup}</td>
     <td class="dictionary">
-      [[startup]{.jbs-label}]{#startup}
-    </td>
-    <td class="dictionary">
-      Used to identify an issue as affecting Java SE startup performance.
+      Used to identify an issue as affecting Java SE startup performance. Issues with this label should also have a [performance]{.jbs-label} label.
     </td>
   </tr>
+  <!-- T -->
   <tr>
-    <td class="dictionary">
-      [[tck-red-]{.jbs-label}*(Rel)*]{#tck-red-rel}<br />
-      [[~~tck-red~~]{.jbs-label}]{#tck-red}
-    </td>
+    <td class="dictionary">[[tck-red-]{.jbs-label}*(Rel)*]{#tck-red-rel}<br />
+                           [[~~tck-red~~]{.jbs-label}]{#tck-red}</td>
     <td class="dictionary">
       Used to identify TCK conformance stoppers (e.g. failure of a valid TCK test that exists in a shipped TCK). The release number indicates which release of the TCK that failed. E.g., [tck-red-11]{.jbs-label}
 
@@ -488,45 +460,41 @@ Examples:  If a bug fix only corrects a change in the build system, then add the
     </td>
   </tr>
   <tr>
-    <td class="dictionary">
-      [[~~test~~]{.jbs-label}]{#test}<br />
-      [[~~test-only~~]{.jbs-label}]{#test-only}<br />
-      [[~~testbug~~]{.jbs-label}]{#testbug}
-    </td>
+    <td class="dictionary">[[~~test~~]{.jbs-label}]{#test}<br />
+                           [[~~test-only~~]{.jbs-label}]{#test-only}<br />
+                           [[~~testbug~~]{.jbs-label}]{#testbug}</td>
     <td class="dictionary">
       The labels [test]{.jbs-label}, [test-only]{.jbs-label}, and [testbug]{.jbs-label} are deprecated and should no longer be used. Use [[noreg-self]{.jbs-label}](#noreg) to indicate that an issue is a bug in test code.
     </td>
   </tr>
   <tr>
-    <td class="dictionary">
-      [[tier]{.jbs-label}`[1-8]`]{#tier}
-    </td>
+    <td class="dictionary">[[tier]{.jbs-label}`[1-8]`]{#tier}</td>
     <td class="dictionary">
       Used to indicate which tier in the `jdk/jdk` CI pipeline a test failure has been seen in. Lower tiers would in general mean higher urgency to fix the issue. E.g., [tier1]{.jbs-label}, [tier2]{.jbs-label}
 
       Please note that these labels are reserved for bugs seen in the `jdk/jdk` CI pipeline. Use *(Rel)*[-tier1] for other CI pipelines, where *(Rel)* is the name of the pipeline. E.g. [8u-tier1]{.jbs-label}
     </td>
   </tr>
+  <!-- U -->
+  <!-- V -->
   <tr>
-    <td class="dictionary">
-      [[vthreads]{.jbs-label}]{#vthreads}
-    </td>
+    <td class="dictionary">[[vthreads]{.jbs-label}]{#vthreads}</td>
     <td class="dictionary">
       Used to identify an issue in the virtual thread implementation.
     </td>
   </tr>
+  <!-- W -->
   <tr>
-    <td class="dictionary">
-      [[webbug]{.jbs-label}]{#webbug}
-    </td>
+    <td class="dictionary">[[webbug]{.jbs-label}]{#webbug}</td>
     <td class="dictionary">
       Used to identify a bug as submitted on [bugs.java.com](https://bugs.java.com/bugdatabase/).
     </td>
   </tr>
+  <!-- X -->
+  <!-- Y -->
+  <!-- Z -->
   <tr>
-    <td class="dictionary">
-      [[zgc]{.jbs-label}]{#zgc}
-    </td>
+    <td class="dictionary">[[zgc]{.jbs-label}]{#zgc}</td>
     <td class="dictionary">
       Used to identify an issue in ZGC.
     </td>
