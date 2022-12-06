@@ -10,8 +10,7 @@
 
 While developing your fix, your might want your code to output some diagnostic information. You might even want to leave some logging in the code you check in, to facilitate future diagnostics.
 
-The appropriate way to print logging output from HotSpot is through the [Unified Logging Framework (JEP 158)](https://openjdk.org/jeps/158).
-It gives you a lot of nice features and enables common command-line options for all logging.
+The appropriate way to print logging output from HotSpot is through the [Unified Logging Framework (JEP 158)](https://openjdk.org/jeps/158). It gives you a lot of nice features and enables common command-line options for all logging.
 
 A basic log message can be output like this:
 
@@ -19,9 +18,7 @@ A basic log message can be output like this:
 log_info(gc, marking)("Mark Stack Usage: " SIZE_FORMAT "M", _mark_stack_usage / M);
 ~~~
 
-Where 'gc' and 'marking' are tags, and 'info' is the log level. Tags associate log messages with certain subsystems or features and the log level
-determines the importance and verbosity of the message. The most verbose output is trace, and the least is error. The full list of tags is available
-[here](https://github.com/openjdk/jdk/blob/master/src/hotspot/share/logging/logTag.hpp) and the full list of levels [here](https://github.com/openjdk/jdk/blob/master/src/hotspot/share/logging/logLevel.hpp).
+Where 'gc' and 'marking' are tags, and 'info' is the log level. Tags associate log messages with certain subsystems or features and the log level determines the importance and verbosity of the message. The most verbose output is trace, and the least is error. The full list of tags is available [here](https://github.com/openjdk/jdk/blob/master/src/hotspot/share/logging/logTag.hpp) and the full list of levels [here](https://github.com/openjdk/jdk/blob/master/src/hotspot/share/logging/logLevel.hpp).
 
 The basic log API looks as follows:
 
@@ -70,8 +67,7 @@ if(st.is_enabled()) {
 
 ### Enabling logging
 
-You enable logging in the JVM by using the `-Xlog` command line option specified.
-For example, the messages from the examples would be visible if the JVM were run with any of the following options:
+You enable logging in the JVM by using the `-Xlog` command line option specified. For example, the messages from the examples would be visible if the JVM were run with any of the following options:
 
 ~~~
 -Xlog:gc+marking=info
@@ -91,8 +87,7 @@ This specifies that:
 2. Log messages with warning level and up with tag alloc to stderr.
 3. Log messages with error level and up with tag breakpoint to file breakpoint.txt with the decorator level.
 
-UL automatically applies a default argument of `-Xlog:all=warning:stdout:uptime,level,tags` when logging is enabled. This can be disabled by
-prepending `-Xlog:disable` to your arguments.
+UL automatically applies a default argument of `-Xlog:all=warning:stdout:uptime,level,tags` when logging is enabled. This can be disabled by prepending `-Xlog:disable` to your arguments.
 
 ~~~
 -Xlog:disable -Xlog:gc+marking=info -Xlog:alloc=warning
