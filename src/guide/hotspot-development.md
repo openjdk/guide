@@ -46,7 +46,6 @@ if (lm.is_info()) {
 `LogStream` is typically used when a single printf-style format string becomes unwieldy.
 
 ~~~c++
-ResourceMark rm;
 LogStream st(Log(gc, marking)::info());
 if(st.is_enabled()) {
   // Print without newline
@@ -60,7 +59,6 @@ if(st.is_enabled()) {
 If you need to print multiple lines grouped together with complex formatting requirements then `NonInterleavingLogStream` is probably what you want.
 
 ~~~c++
-ResourceMark rm;
 LogMessage(gc) lm;
 NonInterleavingLogStream st{LogLevelType::Info, lm};
 if(st.is_enabled()) {
