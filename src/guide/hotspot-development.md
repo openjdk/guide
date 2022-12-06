@@ -26,9 +26,7 @@ The basic log API looks as follows:
 log_<level>(Tag1[,...])(fmtstr, ...)
 ~~~
 
-Sometimes single line printf-style logging isn't enough.
-For example, it can be useful to group several log lines together or to use HotSpot's output stream API.
-UL supports both of these use cases using `LogMessage` and `LogStream`, respectively.
+Sometimes single line printf-style logging isn't enough. For example, it can be useful to group several log lines together or to use HotSpot's outputstream API. UL supports both of these use cases using `LogMessage` and `LogStream`, respectively.
 
 ~~~c++
 LogMessage(gc, marking) lm;
