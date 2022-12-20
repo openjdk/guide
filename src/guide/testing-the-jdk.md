@@ -262,7 +262,8 @@ The `@ignore` keyword is used in the test source code. This is mainly used for t
  */
 ~~~
 
-In this example, `MyTest.java` is excluded, tracked by bug `JDK-4711`. `@ignore` should always be placed directly before the first `@run` line in the test.
+In this example, `MyTest.java` is excluded, tracked by bug `JDK-4711`. `@ignore` should generally be placed directly before the first "action" tag (e.g. `@compile`, `@run`) if any in the test.
+
 
 ### Dealing with JBS bugs for test exclusion
 
