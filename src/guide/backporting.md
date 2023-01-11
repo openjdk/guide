@@ -52,10 +52,6 @@ If the update release is in rampdown, changes are pushed to the release reposito
 
 The Skara tooling includes support for backports. [The official Skara documentation](https://wiki.openjdk.org/display/SKARA/Backports) describes in detail how to work with the tooling to create backport PRs on GitHub or using the CLI tools. As described in the documentation, the [`/backport`](https://wiki.openjdk.org/display/SKARA/Commit+Commands#CommitCommands-/backport) command can be used on a commit (not a PR!) to create the backport PR. If a backport PR is manually created, set the PR title to `Backport <original commit hash>`. This ensures that the bots will recognize it as a backport as opposed to a main fix specifically targeting an older release. One can tell whether or not the bots recognized a PR as a backport by the [backport]{.label} label being added if it's recognized.
 
-::: {.box}
-[To the top](#){.boxheader}
-:::
-
 ## How to fix an incorrect backport creation in JBS
 
 If a main bug is targeted to a release and a fix referring to that main bug is pushed to a different release, then a backport bug is automatically created in JBS. Usually this is a "good thing", e.g., when you are backporting a fix to an earlier release, but not always... If the main bug is targeted to a later release (due to schedule planning), but someone finds the time to fix that bug in the current release, then the bug should be retargeted to the current release before pushing the fix. However, sometimes we forget to do that.
@@ -90,3 +86,7 @@ Fix was pushed while main bug was targeted to 'N+1'. Reset the main bug to fixed
 ~~~
    * Reset the _main_ bug [Fix Version/s]{.jbs-field} from 'N+1' to 'N'.
    * Resolve the _main_ bug as "Fixed" in build "team" or in build "master" depending on where the fix was pushed - or to an actual build number if the change has already made it to a promoted build (look in the _backport_ bug if you are unsure). Pushes to 'openjdk/jdk' are fixed in build "master" and pushes to project repositories are fixed in build "team".
+
+::: {.box}
+[To the top](#){.boxheader}
+:::

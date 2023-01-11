@@ -72,6 +72,8 @@ If you have an actual reason to create a PR before the change is all done, make 
 
    If the set of files in the PR has changed, this may affect the groups that need to review the PR. Make sure to adjust the PR labels accordingly.
 
+   If you want to update the title of the PR, remember that the one and only truth is the JBS issue, so the title must first be changed there.
+
 #. **Merge the latest changes**
 
    If your PR is out for review for a longer time it's a good habit to pull from the target repository regularly to keep the change up to date. This will make it easier to review the change and it will help you find issues caused by other changes sooner. Typically this involves fetching changes from the master branch of the main JDK repo, merging them into your local branch, resolving conflicts if necessary, and then pushing these changes to the PR branch. Pushing additional commits and merges into the PR branch is fine; they will be squashed into a single commit when the PR is integrated. Avoid rebasing changes, and prefer merging instead.
