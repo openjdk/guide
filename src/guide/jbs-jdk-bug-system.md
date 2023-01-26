@@ -42,6 +42,12 @@ A few things to keep in mind when filing a new bug:
 
 To find out which component to use for different bugs, consult the [directory to area mapping](#directory-to-area-mapping).
 
+### Sensitive information (e.g. hs_err.log)
+
+It may sound obvious, but avoid placing sensitive information in bug reports. Things like user names, IP addresses, host names, and exact version information of third party libraries etc may be crucial to be able to debug in some cases, but could also help an attacker gain information about your system. JBS is a public database that anyone can search, so be mindful of what you place there. In particular when attaching log files like the hs_err.log you should make sure that you are comfortable with sharing the details exposed in it. Sometimes it may be better to leave a comment saying that these details can be obtained on request.
+
+If you file a bug through the [Bug Report Tool](https://bugreport.java.com/) there's a specific field that should be used to place sensitive information like this. Information placed there will not be part of the public bug report.
+
 ## Resolved - Incomplete
 
 To resolve an issue as `Incomplete` is JBS lingo for "Need More Information". An issue that is `Resolved - Incomplete` is *not* closed but more information is needed to be able to work on it. If no more information is obtained within reasonable time the issue should be closed (`Closed - Incomplete`). Closing a resolved issue is done using the `Verify` option.

@@ -63,10 +63,11 @@ To clarify, as soon as you know that there is a fix that needs to go into the st
 * Set JDK-yyy's [Fix Version/s]{.jbs-field} to the release currently being developed in mainline
 * Add a comment describing the situation
 * Set the [Priority]{.jbs-field} to be relatively high (e.g., P3)
+* Make yourself a watcher of JDK-xxx so that you get a notification when it's forward ported
 
 Then, you have to wait until the JDK-xxx fix is forward ported to mainline before actually fixing JDK-yyy. Making these settings in JDK-yyy will help ensure that it won't be missed.
 
-There are also examples in JBS where JDK-yyy has been created as a sub-task of JDK-xxx. This works, but isn't recommended since JDK-yyy stands a higher risk of being missed when it's not of type *Bug* but rather a *sub-task* of an already closed issue. Also see [Backing out a change](#backing-out-a-change) for reference.
+There are examples in JBS where JDK-yyy has been created as a sub-task of JDK-xxx. This is **not** recommended since JDK-yyy stands a higher risk of being missed when it's not of type *Bug* but rather a *sub-task* of an already closed issue. In general it's not recommended to have open sub-tasks of closed issues - an issue shouldn't be closed unless all it's sub-tasks are closed. Also see [Backing out a change](#backing-out-a-change) for reference.
 
 ::: {.box}
 [To the top](#){.boxheader}
