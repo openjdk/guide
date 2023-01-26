@@ -42,7 +42,7 @@ A few things to keep in mind when filing a new bug:
 
 To find out which component to use for different bugs, consult the [directory to area mapping](#directory-to-area-mapping).
 
-### Sensitive information (hs_err.log)
+### Sensitive information (e.g. hs_err.log)
 
 It may sound obvious, but avoid placing sensitive information in bug reports. Things like user names, IP addresses, host names, and exact version information of third party libraries etc may be crucial to be able to debug in some cases, but could also help an attacker gain information about your system. JBS is a public database that anyone can search, so be mindful of what you place there. In particular when attaching log files like the hs_err.log you should make sure that you are comfortable with sharing the details exposed in it. Sometimes it may be better to leave a comment saying that these details can be obtained on request.
 
