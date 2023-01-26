@@ -54,7 +54,7 @@ There are several other tags that can be used in jtreg tests. You can for instan
 @bug 8272373
 ~~~
 
-You can add several bug ids in the same `@bug` tag, separated by a single space. These bug ids should refer to bugs that are reproduced by this test. JBS issues that track changes to the test itself are not listed here.
+You can add several bug ids in the same `@bug` tag, separated by a single space. These bug ids listed here should refer to bugs for which this test is verifying the fix. JBS issues that track changes to the test itself are not listed here.
 
 You can also specify a number of requirements that must be fulfilled for jtreg to execute the test.
 
