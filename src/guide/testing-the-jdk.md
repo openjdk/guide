@@ -48,13 +48,15 @@ public class TestXY {
 
 This example only utilizes three jtreg specific tags, `@test`, `@summary`, and `@run`. `@test` simply tells jtreg that this class is a test, and `@summary` provides a description of the test. `@run` tells jtreg how to execute the test. In this case we simply tell jtreg to execute the main method of the class `TestXY`. `@run` isn't strictly necessary for jtreg to execute the test, an implicit `@run` tag will be added if none exists. However, for clarity and in order to avoid bugs it's recommended to always explicitly use the `@run` tag.
 
-There are several other tags that can be used in jtreg tests. You can for instance associate the test with a specific bug that this test is a regression test for.
+There are several other tags that can be used in jtreg tests. You can for instance associate the test with a specific bug that this test is a regression test for. The bug id is written without the `JDK-` prefix.
 
 ~~~
-@bug 7000001
+@bug 8272373
 ~~~
 
-Or you can specify a number of requirements that must be fulfilled for jtreg to execute the test.
+You can add several bug ids in the same `@bug` tag, separated by a single space. These bug ids refer to product bugs for which a fix is verified by this test. JBS issues that track changes to the test itself are not listed here.
+
+You can also specify a number of requirements that must be fulfilled for jtreg to execute the test.
 
 ~~~
 @requires docker.support
@@ -63,7 +65,7 @@ Or you can specify a number of requirements that must be fulfilled for jtreg to 
 @requires os.arch=="x86_64" | os.arch=="amd64"
 ~~~
 
-You can also specify if the test requires specific modules, and you can specify command line flags and run the test in several different ways.
+And you can specify if the test requires specific modules, or command line flags to run the test in several different ways.
 
 ~~~
 @modules java.base/jdk.internal.misc
