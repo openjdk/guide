@@ -2,7 +2,7 @@
 
 New developers in the OpenJDK community doesn't have the permissions needed to push changes to the repositories. This is a feature that ensures that all developers get familiar with the code, processes, and community before being allowed to actually make changes. To get the first changes in, the new Contributor needs the help of a Sponsor. The Sponsor's role is to offer constructive advice and eventually push the sponsored contribution into the repository.
 
-To Sponsor a change there are a number of things you should do.
+There are many different reasons to sponsor a change and depending on the situation the exact steps involved may differ significantly. A developer hired into a larger team of experienced OpenJDK developers is likely to get the required information in new hire training or similar and will likely need less help from a sponsor than the entusiast sitting at home with no prior experience of large scale software development. This text aims to highlight the steps involved in sponsoring a change but can't cover all possible scenarios. As always, common sense takes precedence where the assumptions made here doesn't apply to your use case.
 
 ## Subscribe to OpenJDK mailing lists
 
@@ -12,13 +12,13 @@ As a Sponsor, Contributors will look up to you for guidance to get their contrib
 
 ## Volunteer to sponsor a contribution
 
-Opportunities to sponsor contributions occur in the OpenJDK mail lists. Since Contributors are encouraged to discuss their intended changes before they submit a patch, the ideal time to declare your sponsorship is during that initial conversation. As a Sponsor you should offer advice and collaborate with the contributor as necessary to produce a high-quality patch. In addition to sponsoring changes to code you regularly maintain, there may be other areas where you can serve as a Sponsor.
+Opportunities to sponsor contributions can occur in the OpenJDK mail lists. Since Contributors are encouraged to discuss their intended changes before they submit a patch, the ideal time to declare your sponsorship is during that initial conversation. As a Sponsor you should offer advice and collaborate with the contributor as necessary to produce a high-quality patch. In addition to sponsoring changes to code you regularly maintain, there may be other areas where you can serve as a Sponsor.
 
-After publicly committing to sponsoring a contribution, you need to "claim the sponsorship request" in [JBS](#jbs---jdk-bug-system). To do that you need to perform three steps:
+After publicly committing to sponsoring a contribution, you need to "claim the sponsorship request" in [JBS](#jbs---jdk-bug-system) unless the Contributor already has a JBS account and can assign the bug to themself. To do that you need to perform three steps:
 
 * first assign the bug to yourself,
 * then add a comment providing the name of the Contributor and a summary of the approach to solving the problem,
-* and finally set the bug's status to "In Progress".
+* and finally set the bug's [Status]{.jbs-field} to `In Progress`.
 
 If the contribution doesn't already have an associated OpenJDK bug then create one in [JBS](#jbs---jdk-bug-system).
 
