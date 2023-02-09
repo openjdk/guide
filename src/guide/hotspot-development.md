@@ -8,9 +8,7 @@
 * [JEP 158: Unified JVM Logging](https://openjdk.org/jeps/158)
 :::
 
-While developing your fix, your might want your code to output some diagnostic information. You might even want to leave some logging in the code you check in, to facilitate future diagnostics.
-
-The appropriate way to print logging output from HotSpot is through the [Unified Logging Framework (JEP 158)](https://openjdk.org/jeps/158). It gives you a lot of nice features and enables common command-line options for all logging.
+While developing your fix, you might want your code to output some diagnostic information. You might even want to leave some logging in the code you check in, to facilitate future diagnostics. The appropriate way to print logging output from HotSpot is through the [Unified Logging Framework (JEP 158)](https://openjdk.org/jeps/158). It gives you a lot of nice features and enables common command-line options for all logging.
 
 A basic log message can be output like this:
 
@@ -42,7 +40,7 @@ if (lm.is_info()) {
 
 ~~~c++
 LogStream st(Log(gc, marking)::info());
-if(st.is_enabled()) {
+if (st.is_enabled()) {
   // Print without newline
   st.print("I'm printing a lot of %s ", "arguments");
   st.print("With a lot of extra info %d ", 3);
@@ -56,7 +54,7 @@ If you need to print multiple lines grouped together with complex formatting req
 ~~~c++
 LogMessage(gc) lm;
 NonInterleavingLogStream st{LogLevelType::Info, lm};
-if(st.is_enabled()) {
+if (st.is_enabled()) {
   st.print_cr("Line one: %d %d %d ", 1, 2, 3);
   st.print("Line two: %d %d %d", 4, 5, 6);
   st.print_cr(" still line two: %d %d %d", 7, 8, 9);
@@ -81,9 +79,9 @@ You can have multiple `-Xlog` options, these are applied in an additive manner. 
 
 This specifies that:
 
-1. Log messages with info level and up with tags gc and marking to stdout.
-2. Log messages with warning level and up with tag alloc to stderr.
-3. Log messages with error level and up with tag breakpoint to file breakpoint.txt with the decorator level.
+1. Log messages with info level and up, with tags gc and marking, to stdout.
+2. Log messages with warning level and up, with tag alloc, to stderr.
+3. Log messages with error level and up, with tag breakpoint, to file breakpoint.txt, with the decorator level.
 
 UL automatically applies a default argument of `-Xlog:all=warning:stdout:uptime,level,tags` when logging is enabled. This can be disabled by prepending `-Xlog:disable` to your arguments.
 
