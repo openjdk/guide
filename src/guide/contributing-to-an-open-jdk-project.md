@@ -82,9 +82,7 @@ Even though we strive to unify how things are done within OpenJDK, different are
 * [CSR Process](https://wiki.openjdk.org/display/csr/Main)
 :::
 
-Only the best patches submitted will actually make it all the way into the JDK code base. The goal is not to take in the maximum number of contributions possible, but rather to accept only the highest-quality contributions. The JDK is used daily by millions of people and thousands of businesses, often in mission-critical applications, and so we can't afford to accept anything less than the very best.
-
-Just about every Java developer out there has an idea or two for how to enhance something. And (obviously not referring to you) believe it or not, not every idea is a good idea. Even though many ideas are indeed good, we must be quite restrictive on what we actually include into the JDK. There are many reasons for this.
+Just about every Java developer out there has an idea or two for how to enhance something. And (obviously not referring to you) believe it or not, not every idea is a good idea. Even though many ideas are indeed good, we must be quite restrictive on what we actually include into the JDK. The goal is not to take in the maximum number of contributions possible, but rather to accept only the highest-quality contributions. The JDK is used daily by millions of people and thousands of businesses, often in mission-critical applications, and so every change must be scrutinized in detail. There are many reasons for this.
 
 * **Hidden constraints and assumptions**. Many sections of code have constraints and assumptions that aren't necessarily visible at first glance. This might preclude certain changes, even those that might seem obvious.
 
