@@ -12,7 +12,7 @@ In addition to your own Java applications, OpenJDK have support for two test fra
 
 This section provides a brief summary of how to get started with testing in OpenJDK. For more information on configuration and how to use the OpenJDK test framework, a.k.a. "run-test framework", see [`doc/testing.md`](https://github.com/openjdk/jdk/blob/master/doc/testing.md).
 
-In general all changes should come with a regression test so if you're writing product code you should also be writing test code. There are a few examples where it doesn't make sense to write an explicit regression test. These should be tagged in JBS with one of the [noreg-labels](#noreg).
+Please note that what's mentioned later in this section, like [GHA](#github-actions) and tier 1 testing, will only run a set of smoke-tests to ensure your change compiles and runs on a variety of platforms. They won't do any targeted testing on the particular code you have changed. You must always make sure your change works as expected before pushing, using targeted testing. In general all changes should come with a regression test, so if you're writing product code you should also be writing test code. Including the new tests (in the right places) in your change will ensure your tests will be run as part of your testing on all platforms and in the future.
 
 A few key items to think about when writing a regression test:
 
@@ -23,6 +23,8 @@ A few key items to think about when writing a regression test:
 * Avoid shell scripts and relying on external commands as much as possible
 
 The jtreg documentation has a section on [how to write good jtreg tests](https://openjdk.org/jtreg/writetests.html).
+
+There are a few examples where it doesn't make sense to write an explicit regression test. These should be tagged in JBS with one of the [noreg-labels](#noreg).
 
 ## jtreg
 
@@ -167,6 +169,16 @@ make test TEST=gtest:$X/$variant
 
 The second example above runs tests which match the regexp `$X.*` on a specific variant of the JVM. The variant is one of client, server, etc.
 
+## GitHub actions
+
+GitHub has a feature called **GitHub actions** (GHA) that can be used to automate testing. The GHA is executed whenever a push is made to a branch in your repository. The bots will show the results of the GHA in your PR when you create or update it. The GHA in the JDK project is configured to run a set of tests that is commonly known as **tier 1**. This is a relatively fast, small set of tests that tries to verify that your change didn't break the JDK completely. In tier 1 the JDK is built on a small set of platforms including (but not necessarily limited to) Linux, Windows, and MacOS, and a few tests are executed using these builds.
+
+In addition to the testing you run manually before publishing your changes, it's recommended that you take advantage of this automated testing that the GHA offers. This will for instance allow you to run tests on platforms that you may not otherwise have access to. To enable this on your personal fork of the JDK on GitHub go to the "Actions" tab and click the big green button saying "I understand my workflows, go ahead and enable them". If you don't understand these workflows there's a link to the actual file that describes them right below the green button.
+
+In case of failures in the GHA it's always a good start to try to reproduce the failure locally on a machine where you have better control and easier access to a debug environment. There have been cases where the GHA has failed due to issues unrelated to the change being tested, e.g. because the GHA environment was updated and changes were needed to the JDK GHA configuration. The configuration is in general updated fairly quickly, so in cases were you can't reproduce the failure locally, consider re-running the GHA later.
+
+Please keep in mind that the tier 1 tests run by the GHA should only be seen as a smoke test that finds the most critical breakages, like build errors or if the JDK is DOA. These tests can never replace the targeted testing that you always must do on your changes. There are several areas of the JDK that aren't part of tier 1 at all. To see exactly what tier 1 includes, please see the various TEST.groups files that you will find in the subdirectories of [`jdk/test/`](https://github.com/openjdk/jdk/tree/master/test).
+
 ## Excluding a test
 
 Sometimes tests break. It could be e.g. due to bugs in the test itself, due to changed functionality in the code that the test is testing, or changes in the environment where the test is executed. While working on a fix, it can be useful to stop the test from being executed in everyone else's testing to reduce noise, especially if the test is expected to fail for more than a day. There are two ways to stop a test from being run in standard test runs: ProblemListing and using the `@ignore` keyword. Removing tests isn't the standard way to remove a failure. A failing test is often a regression and should ideally be handled with high urgency.
@@ -279,16 +291,6 @@ The fix for the main issue should remove the test from the ProblemList or remove
 #### Triage excluded issues
 
 After a failure is handled by excluding a test, the main JBS issue should be re-triaged and possibly given a new priority. This should be handled by the standard triage process. A test exclusion results in an outage in our testing. This outage should be taken into consideration when triaging, in addition to the impact of the bug itself.
-
-## GitHub actions
-
-GitHub has a feature called **GitHub actions** (GHA) that can be used to automate testing. The GHA is executed whenever a push is made to a branch in your repository. The bots will show the results of the GHA in your PR when you create or update it. The GHA in the JDK project is configured to run a set of tests that is commonly known as **tier 1**. This is a relatively fast, small set of tests that tries to verify that your change didn't break the JDK completely. In tier 1 the JDK is built on a small set of platforms including (but not necessarily limited to) Linux, Windows, and MacOS, and a few tests are executed using these builds.
-
-In addition to the testing you run manually before publishing your changes, it's recommended that you take advantage of this automated testing that the GHA offers. This will for instance allow you to run tests on platforms that you may not otherwise have access to. To enable this on your personal fork of the JDK on GitHub go to the "Actions" tab and click the big green button saying "I understand my workflows, go ahead and enable them". If you don't understand these workflows there's a link to the actual file that describes them right below the green button.
-
-In case of failures in the GHA it's always a good start to try to reproduce the failure locally on a machine where you have better control and easier access to a debug environment. There have been cases where the GHA has failed due to issues unrelated to the change being tested, e.g. because the GHA environment was updated and changes were needed to the JDK GHA configuration. The configuration is in general updated fairly quickly, so in cases were you can't reproduce the failure locally, consider re-running the GHA later.
-
-Please keep in mind that the tier 1 tests run by the GHA should only be seen as a smoke test that finds the most critical breakages, like build errors or if the JDK is DOA. These tests can never replace the targeted testing that you always must do on your changes. There are several areas of the JDK that aren't part of tier 1 at all. To see exactly what tier 1 includes, please see the various TEST.groups files that you will find in the subdirectories of [`jdk/test/`](https://github.com/openjdk/jdk/tree/master/test).
 
 ## Backing out a change
 
