@@ -112,7 +112,7 @@ Unless labeled otherwise it will be assumed that the release note documents a ch
 :   Used to indicate that the release note is only relevant for a specific JDK distribution. E.g. [RN-Oracle]{.label}
 
 [[~~RN-Change~~]{.jbs-label}]{#RN-Change}
-:   Deprecated.
+:   Deprecated. This is the default and no label is needed to indicate this.
 
 ## Querying the release notes
 
