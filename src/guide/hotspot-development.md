@@ -16,7 +16,7 @@ A basic log message can be output like this:
 log_info(gc, marking)("Mark Stack Usage: " SIZE_FORMAT "M", _mark_stack_usage / M);
 ~~~
 
-Where 'gc' and 'marking' are tags, and 'info' is the log level. Tags associate log messages with certain subsystems or features and the log level determines the importance and verbosity of the message. The most verbose output is trace, and the least is error. The full list of tags is available [here](https://github.com/openjdk/jdk/blob/master/src/hotspot/share/logging/logTag.hpp) and the full list of levels [here](https://github.com/openjdk/jdk/blob/master/src/hotspot/share/logging/logLevel.hpp).
+Where 'gc' and 'marking' are tags, and 'info' is the log level. Tags associate log messages with certain subsystems or features and the log level determines the importance and verbosity of the message. The most verbose output is trace, and the least is error. The full list of tags and levels are available via `-Xlog:help`.
 
 The basic log API looks as follows:
 
