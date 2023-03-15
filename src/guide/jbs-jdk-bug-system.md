@@ -386,7 +386,7 @@ This table contains some frequently used JBS labels and their meaning. Please he
   <tr>
     <td class="dictionary">[*(Rel)*[-na]{.jbs-label}]{#rel-na}</td>
     <td class="dictionary">
-      The [Affects Version/s]{.jbs-field} field is used to indicate the releases where an issue has been seen - it is implied that the issue is also applicable to newer releases. Where this is not the case - for instance a bug in code that was removed in *(Rel)* - then use the *(Rel)-na* to indicate this. Note that there should only be **one** *(Rel)*[-na]{.jbs-label} label on any JBS issue. 
+      The [Affects Version/s]{.jbs-field} field is used to indicate the releases where an issue has been seen - it is implied that the issue is also applicable to newer releases. Where this is not the case - for instance a bug in code that was removed in *(Rel)* - then use the *(Rel)-na* to indicate this. Note that there should only be **one** *(Rel)*[-na]{.jbs-label} label on any JBS issue.
     </td>
   </tr>
   <!-- Team -->
