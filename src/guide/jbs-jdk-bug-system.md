@@ -20,20 +20,25 @@ When filing an Issue, try to make the report as complete as possible in order to
 
 #### Types of Issues
 
-The most common Issue types are:
+The most common [Issue]{.jbs-field} types are:
 <br />
-<table class="dictionary" summary="JBS Label Dictionary">
-  <tr style="text-align:left;"><th>Type</th><th>Covers</th></tr>
+<table class="dictionary" summary="JBS Issue Types">
+<tr style="text-align:left;"><th>Issue Type</th><th>Covers</th></tr>
 <tr>
     <td class="dictionary">[Bug]{.jbs-field}</td>
     <td class="dictionary">Used when reporting a problem: crashes; hangs; failures of functionality etc.</td>
 </tr>
 <tr>
-    <td class="dictionary"><i>Improvement</i></td>
-    <td class="dictionary">When requesting an improvement in the JDK, the issue type used depends on the size/scope of the improvement:<br />
-    ([Enhancement]{.jbs-field}) - for a small improvement to existing functionality<br />
-    ([New Feature]{.jbs-field}) - not recommended to use<br />
-([JEP]{.jbs-field}) - for a proposal for a significant change or new feature which will take 4 weeks or more of work - see [JEP-1](https://openjdk.org/jeps/1)</td>
+    <td class="dictionary">[Enhancement]{.jbs-field}</td>
+    <td class="dictionary">For a small improvement to existing functionality<br />
+</tr>
+<tr>
+    <td class="dictionary">[New Feature]{.jbs-field}</td>
+    <td class="dictionary">Not recommended to use<br /></td>
+</tr>
+<tr>
+    <td class="dictionary">[JEP]{.jbs-field}</td>
+    <td class="dictionary">For a proposal for a significant change or new feature which will take 4 weeks or more of work - see [JEP-1](https://openjdk.org/jeps/1)</td>
 </tr>
 <tr>
     <td class="dictionary">[Sub-task]{.jbs-field}</td>
@@ -41,13 +46,10 @@ The most common Issue types are:
 </tr>
 <tr>
     <td class="dictionary">[Task]{.jbs-field}</td>
-    <td class="dictionary">Where something needs to happen other than a code change - a request for a new JBS version value for example</td>
-</tr>
-<tr>
-    <td class="dictionary"><i>Vulnerability</i></td>
-    <td class="dictionary">If you suspect that the issue is a vulnerability, **don't file a JBS issue**, instead send your report to [vuln-report@openjdk.org](mailto:vuln-report@openjdk.org). <br>Please do *not* report or discuss potential vulnerabilities on any open lists or other public channels. <br>See [OpenJDK Vulnerabilities](https://openjdk.org/groups/vulnerability/report) for more information.</td>
+    <td class="dictionary">Where something needs to happen other than a code change - for example a request for a new JBS version, or other work associated with a release</td>
 </tr>
 </table>
+Note: If you suspect that the issue is a vulnerability, **don't file a JBS issue**, instead send your report to [vuln-report@openjdk.org](mailto:vuln-report@openjdk.org), also use this alias if you find an existing report which may be a vulnerability. Please do *not* report or discuss potential vulnerabilities on any open lists or other public channels - see [OpenJDK Vulnerabilities](https://openjdk.org/groups/vulnerability/report) for more information.
 
 <br>
 A few things to keep in mind when filing an issue to report a problem:
@@ -87,10 +89,10 @@ Things to keep in mind when requesting an improvement:
 To find out which component to use for different bugs, consult the [directory to area mapping](#directory-to-area-mapping).
 
 ### Implementing a Large Change
-When managing the work for a large change, especially when the work involves multiple engineers, it is recommended that the work is distributed across one or more "implementation" issues which should be linked to the main [Enhancement]{.jbs-field} with a "blocks" link along with any relevant CSRs. The [Enhancement]{.jbs-field} should not be considered done until all the blocking element are completed.  The use of subTasks for [Enhancement]{.jbs}s is not recommended unless all the [Sub-task]{.jbs-field}s are relevant to the fix, if it were to be backported.
+When managing the work for a large change, especially when the work involves multiple engineers, it is recommended that the work is distributed across one or more "implementation" issues which should be linked to the main [Enhancement]{.jbs-field} with a "blocks" link along with any relevant CSRs. The [Enhancement]{.jbs-field} should not be considered done until all the blocking elements are completed.  The use of subTasks for [Enhancement]{.jbs}s is not recommended unless all the [Sub-task]{.jbs-field}s are relevant to the fix, if it were to be backported.
 
 ### Implementing a JEP
-It recommended that for [JEP]{.jbs-field}s the implementation is spread across one or more [Enhancement]{.jbs-field}s as above.
+It recommended that for [JEP]{.jbs-field}s that the implementation is spread across one or more [Enhancement]{.jbs-field}s as above.
 
 ## Issue states
 
@@ -103,15 +105,15 @@ JBS only has a few states in which an issue can be in:
     <td class="dictionary">Initial state after an issue is filed. [Bugs]{.jbs-field} in the JDK Project must be taken out of the [New]{.jbs-field} state (Triaged - see below) in a timely manner. In general, this is recommended to be done for all issue types and projects as a sign that the issue is correctly filed, and will be seen by the right group - this is especially important towards the end of a release.</td>
 </tr>
 <tr>
-    <td class="dictionary">Open</td>
-    <td class="dictionary">Most straightforward issues stay in this state until they are closed.  If the issue has some attention then use "In Progress" to show more clearly that the issue is being worked</td>
+    <td class="dictionary">[Open]{.jbs-field}</td>
+    <td class="dictionary">Most straightforward issues stay in this state until they are closed.  If the issue has some attention then use [In Progress]{.jbs-field} to show more clearly that the issue is being worked</td>
 </tr>
 <tr>
-    <td class="dictionary">In Progress</td>
-    <td class="dictionary">The <i>In Progress</i> state has the option of the sub-states ([Understanding]{.jbs-field}): [Cause Known]{.jbs-field}, [Fix Understood]{.jbs-field}, [In Review]{.jbs-field}.</td>
+    <td class="dictionary">[In Progress]{.jbs-field}</td>
+    <td class="dictionary">The [In Progress]{.jbs-field} state has the option of the sub-states ([Understanding]{.jbs-field}): [Cause Known]{.jbs-field}, [Fix Understood]{.jbs-field}, [In Review]{.jbs-field}.</td>
 </tr>
 <tr>
-    <td class="dictionary">Closed/Resolved</td>
+    <td class="dictionary">[Closed]{.jbs-field}/[Resolved]{.jbs-field}</td>
     <td class="dictionary">While [Closed]{.jbs-field} and [Resolved]{.jbs-field} are essentially equivalent, when it comes to fixing issues there is an additional [Verify]{.jbs-field} step available between the [Resolved]{.jbs-field} and [Closed]{.jbs-field} states</td>
 </tr>
 </table>
@@ -147,9 +149,9 @@ Closed
   Open <--> InProgress(<font color=blue>IN PROGRESS)
   InProgress --> states
 
-  states(Fixed, Won't Fix, Duplicate etc.) --> Closed
+  states[Fixed, Won't Fix, Duplicate etc.] --> Closed
   states --> Resolved
-  Resolved[<font color=white>RESOLVED] -.-> Verify(Verify)
+  Resolved(<font color=white>RESOLVED) -.-> Verify[Verify]
   Verify --> Closed(<font color=green>CLOSED)
 end
 
@@ -168,11 +170,11 @@ style ClosedIncomplete fill:lightgreen
 
 ## Triaging an issue
 
-First give the issue a general [Review]{.jbs-field}
+First give the issue a general review
 
 1. If the issue is a duplicate, close it as such.
 1. If the issue belongs to a different area (it was filed in libraries, but it is an HotSpot issue), transfer it to the correct component/subcomponent making sure that the state remains [New]{.jbs-field}.
-1. If the issue is incomplete, add a comment noting what is needed and close the bug as [Resolved]{.jbs-field} - 'Incomplete'. If no more information is obtained within reasonable time, the issue should be closed (`Closed - Incomplete`).
+1. If the issue is incomplete, add a comment noting what is needed and close the bug as [Resolved]{.jbs-field} - 'Incomplete'. If no more information is obtained within reasonable time, the issue should be closed ([Closed]{.jbs-field} - `Incomplete`).
 
 Now that the issue is in the right component and has the basic information, the analysis continues to get a more detailed understanding of the issue, and what should be done:
 
@@ -205,16 +207,15 @@ If you file a bug through the [Bug Report Tool](https://bugreport.java.com/) the
 
 ## Updating an issue while fixing
 
-Once you are made, or you make yourself, the assignee of an Issue you take on the responsibility of moving the issue through to resolution and providing the current status, and ultimately leaving a record for others in the future to understand what happened.  There are no real rules for how you manage the bug while you are assigned to it, as it depends on the type and importance of an issue.  A simple update to the doc needs little to be done, fix the problem and close the issue; an intricate timing issue or crash should be handled differently - documenting your progress in identifying the problem (for example
+Once you are made, or you make yourself, the assignee of an Issue you take on the responsibility of moving the issue through to resolution and providing the current status, and ultimately leaving a record for others in the future to understand what happened.  There are no set rules for how you manage the bug while you are assigned to it, as it depends on the type and importance of an issue.  A simple update to the doc needs little to be done, fix the problem and close the issue; an intricate timing issue or crash should be handled differently - documenting your progress in identifying the problem (for example
 [JDK-8212207](https://bugs.openjdk.org/browse/JDK-8212207),
 [JDK-6984895](https://bugs.openjdk.org/browse/JDK-6984895),
 [JDK-8287982](https://bugs.openjdk.org/browse/JDK-8287982)
-), this is especially helpful if you ultimately move the Issue to a different area as you have found that the problem lies elsewhere or is closed as [Will Not Fix]{.jbs-field}.  Your updates can provide a resource to others to better understand the code. See [The Importance of Writing Stuff Down](https://stuartmarks.wordpress.com/2023/02/22/the-importance-of-writing-stuff-down) for a good explanation as to why it is also important to write an evaluation when something is not fixed.
-
+), this is especially helpful if you ultimately move the Issue to a different area as you have found that the problem lies elsewhere, or is closed as [Will Not Fix]{.jbs-field}.  Your updates then provide a resource to others to better understand what has been done or the code. See [The Importance of Writing Stuff Down](https://stuartmarks.wordpress.com/2023/02/22/the-importance-of-writing-stuff-down) for a good explanation as to why it is also important to write an evaluation when something is not fixed.
 
 Some additional fields should be filled in as you get a better understanding of the issue:
 - for a regression, if you identify the fix that caused it add a link to that issue (and add a [regression_]{.jbs-field}*(ID)* label) and set the _Introduced in Release_ field.
-- The description usually explains what went wrong and how the failure was found, then there's some investigation and eventually the root cause is found. At this point the Summary should be updated to correctly describe the bug. The Description however should remain a description of how the failure was found.
+- The [Description]{.jbs-field} usually explains what went wrong and how the failure was found, then there's some investigation and eventually the root cause is found. At this point the [Summary]{.jbs-field} should be updated to correctly describe the bug. The [Description]{.jbs-field} however should remain a description of how the failure was found.
 
 ## Resolving an issue
 
@@ -246,7 +247,7 @@ Once the work on an issue has been completed this should be indicated in JBS by 
 </tr>
 <tr>
     <td class="dictionary">[Cannot Reproduce]{.jbs-field}</td>
-    <td class="dictionary">Use when a reproducer is provided (or clear steps) but it is not possible to see the same behavior. Where feasible try on the release the issue was reported against, as a way of confirming that it is indeed addressed, rather than you not having the right environment in which to reproduce the issue</td>
+    <td class="dictionary">Use when a reproducer is provided (or clear steps) but it is not possible to see the same behavior. When you can't reproduce an issue, where feasible try on the release the issue was reported against, as a way of confirming that it is indeed addressed on the latest release, rather than you not having the right environment in which to reproduce the issue</td>
 </tr>
 <tr>
     <td class="dictionary">[Other]{.jbs-field}</td>
@@ -254,7 +255,7 @@ Once the work on an issue has been completed this should be indicated in JBS by 
 </tr>
 <tr>
     <td class="dictionary">[Future Project]{.jbs-field}</td>
-    <td class="dictionary"></td>
+    <td class="dictionary">This status is not recommended</td>
 </tr>
 <tr>
     <td class="dictionary">[External]{.jbs-field}</td>
@@ -278,7 +279,7 @@ Once the work on an issue has been completed this should be indicated in JBS by 
 </tr>
 <tr>
     <td class="dictionary">[Delivered]{.jbs-field}</td>
-    <td class="dictionary">Use to close out issues where a changeset is not produced, common examples are Release Notes</td>
+    <td class="dictionary">Use to close out issues where a change to the code is not required, common examples are Release Notes</td>
 </tr>
 <tr>
     <td class="dictionary">[Approved]{.jbs-field}</td>
