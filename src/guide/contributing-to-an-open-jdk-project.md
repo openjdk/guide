@@ -8,6 +8,26 @@ If you have a success story where Java solved your problem, or if you successful
 
 If you're in a position to choose what programming language to use in a project, in a tutorial, or in a class, you have the power to enlarge the Java community in a very direct way, and your colleagues or students will get an opportunity to learn one of the most used programming languages in the world.
 
+## Things to consider before changing OpenJDK code
+
+Every change in JDK code carries risk of changes in behavior which adversely affect applications. Generally we're looking to improve the functionality and capability and sometimes performance of the platform without that negative consequence. We do have many thousands of tests, but they're inevitably incomplete in coverage. So we need to ask ourselves whether each change is worthwhile - and some may not be no matter how well intentioned.
+
+The single most important question you need to answer before making any change is: **What is the main intention of your change?**
+
+Depending on your answer to that question you will need to consider one or more of the following paragraphs.
+
+* **Correctness** If your change improves program correctness, that's important. And to broaden this, fixing of all kinds of bugs that really make things better for applications in ways they can detect is important.
+
+* **Robustness** Updating code to use a newer platform API can be a good change. Moving away from APIs that are being deprecated or that are no longer maintained is likely desired. Do note though that supposedly equivalent APIs may not be the drop in replacement you think they are. You'll need to prove that the code has the same behavior after the change through extensive testing.
+
+* **Security** If you intend to increase the overall security of the platform, changes following secure coding practices and using appropriate platform APIs for that are usually welcome. The exception might be if it's a potentially destabilizing change in code where there's only a theoretical problem. Please note: If you think you found a real security bug that might compromise the platform you should follow the process [here](https://openjdk.org/groups/vulnerability/report).
+
+* **Refactoring / Clean up** Making code easier to understand may be a good change in areas that are under active development. Stable code however isn't a good candidate for refactoring regardless of what the code looks like. The OpenJDK has evolved over many years and some parts have been stable for decades. If there's no immediate need to work on the code for other reasons, then what will a cleanup actually achieve?
+
+* **Performance** Can you demonstrate a user perceptible change? If you can't measure the change, or a user can't notice the change, or the change only improves code that is used infrequently, then maybe it isn't worth it.
+
+* **Modernizing** Changing code purely for the sake of using a new language feature isn't usually a good change. Be a subject matter expert, not just a language expert. Writing code in "a better way" is not guaranteed to be safe. A change of behavior is always possible and unless you understand the code you are changing at more than the core language/API level, and have looked into appropriate tests and can speak to the risks, then you should first find a subject matter expert to discuss it with. Keep in mind that the OpenJDK code is developed by a large community. If a new language feature is introduced, all developers working in that code must learn this new feature and understand the implications of using it.
+
 ## I have a patch, what do I do?
 
 ::: {.box}
