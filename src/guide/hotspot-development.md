@@ -1,5 +1,10 @@
 # HotSpot Development
 
+See [Working With Pull Requests](#working-with-pull-requests) for generic guidance and requirements around pushing changes. For the HotSpot codebase there are a few additional requirements:
+
+* Your change must have been approved by two reviewers out of which at least one is also a Reviewer
+* Your change must have passed through HotSpot tier 1 testing with zero failures (See tier1 definition in `test/hotspot/jtreg/TEST.groups`.)
+
 ## Logging
 
 ::: {.box}

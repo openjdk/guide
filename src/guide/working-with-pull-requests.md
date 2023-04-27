@@ -24,7 +24,7 @@ Creating the PR is essentially the same as asking a large group of people to sta
 
 * Is the copyright statement at the top of each modified source file correct?
 
-* Did you run all relevant tests on the final version of the change? (Yes, I mean final! If you only knew how many times people _only changed a comment_ and caused a build failure.)
+* Did you run a full build and all relevant tests on the **final** version of the change? It's important to do this on the truly final version, as even an apparently trivial change in a comment can break the build.
 
 * Did you `git add` all new files?
 
@@ -34,7 +34,7 @@ Creating the PR is essentially the same as asking a large group of people to sta
 
 If you are unsure of any of these things but still want to go ahead and create the PR, **don't!**
 
-If you have an actual reason to create a PR before the change is all done, make sure to create it in `DRAFT` mode. The bot won't add the `rfr` label or send emails as long as the PR is in `DRAFT` mode.
+If you have an actual reason to create a PR before the change is all done, make sure to create it in `DRAFT` mode. The bot won't add the `rfr` label or send emails to labeled groups as long as the PR is in `DRAFT` mode.
 
 ## Life of a PR
 
@@ -83,6 +83,10 @@ If you have an actual reason to create a PR before the change is all done, make 
 #. **Integrate your change**
 
    When you have the required reviews and have made sure all relevant areas have had a chance to look at your change, integrate by entering the command [`/integrate`](https://wiki.openjdk.org/display/SKARA/Pull+Request+Commands#PullRequestCommands-/integrate) in a comment on the PR. If you are not yet a Committer in the project, ask your sponsor to enter the command [`/sponsor`](https://wiki.openjdk.org/display/SKARA/Pull+Request+Commands#PullRequestCommands-/sponsor) in the PR as well in order for your change to be allowed to be integrated.
+
+#. **After integration**
+
+   After you have integrated your change you are expected to stay around in case there are any issues with it. As mentioned above, you are expected to have run all relevant testing on your change before creating your PR, but regardless of how thorough you test it, things might slip through. After your change has been integrated an automatic pipeline of tests is triggered and your change will be tested on a variety of platforms and in a variety of different modes that the JDK can be executed in. A change that causes failures in later testing may be backed out if a fix can not be provided fast enough, or if the developer is not responsive when noticed about the failure. Note that this directive should be interpreted as "it is a really bad idea to push a change the last thing you do before bedtime, or the day before going on vacation".
 
 ## Webrevs
 
