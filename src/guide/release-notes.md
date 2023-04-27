@@ -123,3 +123,7 @@ affectedversion = <version> and type = sub-task and labels = release-note
 ~~~
 
 where `<version>` is the appropriate release value, e.g. 17.
+
+::: {.box}
+[To the top](#){.boxheader}
+:::
