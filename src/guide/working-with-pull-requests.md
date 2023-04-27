@@ -72,6 +72,8 @@ If you have an actual reason to create a PR before the change is all done, make 
 
    At least one reviewer should be knowledgeable in the area being changed. Some areas (e.g. client and hotspot) require two reviewers in most cases, so be sure to read the relevant OpenJDK group pages for advice or ask your sponsor.
 
+   Be open to comments and polite in replies. Remember that the reviewer wants to improve the world just as much as you do, only in a slightly different way. If you don't understand some comment, ask the reviewer to clarify. Accept authority when applicable. If you're making changes in an area where you're not the area expert, acknowledge that your reviewers may be. Take their advice seriously, even if it is to not make the change. There are many reasons [why a change may get rejected](#why-is-my-change-rejected). And you did read the section [Things to consider before changing OpenJDK code](#things-to-consider-before-changing-openjdk-code), right?
+
 #. **Updating the PR**
 
    You may need to change the code in response to review comments. To do this, simply commit new changes and push them onto the PR branch. The PR will be updated automatically. Multiple commits to the branch will be squashed into a single commit when the PR is eventually integrated.
