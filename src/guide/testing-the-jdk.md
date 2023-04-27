@@ -183,7 +183,7 @@ Please keep in mind that the tier 1 tests run by the GHA should only be seen as 
 
 Sometimes tests break. It could be e.g. due to bugs in the test itself, due to changed functionality in the code that the test is testing, or changes in the environment where the test is executed. While working on a fix, it can be useful to stop the test from being executed in everyone else's testing to reduce noise, especially if the test is expected to fail for more than a day. There are two ways to stop a test from being run in standard test runs: ProblemListing and using the `@ignore` keyword. Removing tests isn't the standard way to remove a failure. A failing test is often a regression and should ideally be handled with high urgency.
 
-I'll say it right away so that it's not forgotten at the end: Remember to remove the JBS id from the ProblemList or the test when the bug is closed. This is especially easy to forget if a bug is closed as a duplicate or 'Will Not Fix'. jcheck will report an error and prohibit a push if a PR is created for an issue that is found in a ProblemList if the fix doesn't remove the bug ID from the ProblemList.
+Remember to remove the JBS id from the ProblemList or the test when the bug is closed. This is especially easy to forget if a bug is closed as a duplicate or 'Will Not Fix'. jcheck will report an error and prohibit a push if a PR is created for an issue that is found in a ProblemList if the fix doesn't remove the bug ID from the ProblemList.
 
 ### ProblemListing jtreg tests
 

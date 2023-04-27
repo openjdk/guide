@@ -24,7 +24,7 @@ Creating the PR is essentially the same as asking a large group of people to sta
 
 * Is the copyright statement at the top of each modified source file correct?
 
-* Did you run all relevant tests on the final version of the change? **Yes, I mean final!** If you knew how many times people _only changed a comment_ and caused a build failure you wouldn't question this.
+* Did you run a full build and all relevant tests on the **final** version of the change? It's important to do this on the truly final version, as even an apparently trivial change in a comment can break the build.
 
 * Did you `git add` all new files?
 
