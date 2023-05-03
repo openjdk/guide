@@ -14,7 +14,7 @@ All code reviews in OpenJDK are done in public. Once you open your PR for public
 
 It's also worth taking the extra time to see if the change can be split into a few different separate changes. A large change will take more effort and thus attract fewer Reviewers. Smaller changes will get reviewed faster and get better quality reviews. You can compare proposing a single large change to proposing ten individual small unrelated changes. What happens in practice when all these ten changes are presented as one PR is that there's a focus on say 5-6 of these smaller changes and no one really looks hard at the other 4-5. For complexity, even small changes that are hard to understand and test may be risky.
 
-The timing of your change will also affect the availability of reviewers. The JDK runs on a [six-months release cadence](#release-cycle). During the months around the start of the ramp down phase most area experts will be bussy working on their own changes and reviewing major features that are planned for the release. If you propose a change during this period (basically May-June, or November-December) it may take a long time before you get the required reviews.
+The timing of your change will also affect the availability of reviewers. The JDK runs on a [six-months release cadence](#release-cycle). During the months around the start of the ramp down phase most area experts will be busy working on their own changes and reviewing major features that are planned for the release. If you propose a change during this period (basically May-June, or November-December) it may take a long time before you get the required reviews.
 
 ## Rebase before creating the PR
 

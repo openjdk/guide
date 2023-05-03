@@ -10,7 +10,7 @@ If you're in a position to choose what programming language to use in a project,
 
 ## Things to consider before proposing changes to OpenJDK code
 
-Every change in JDK code carries risk of changes in behavior which adversely affect applications. Generally we're looking to improve the functionality and capability and sometimes performance of the platform without that negative consequence. We do have many thousands of tests, but they're inevitably incomplete in coverage. So we need to ask ourselves whether each change is worthwhile - and some may not be no matter how well intentioned.
+Every change to JDK code carries a risk of changes in behavior which may adversely affect applications. Generally we're looking to improve the functionality and capability and sometimes performance of the platform without that negative consequence. So we need to ask ourselves whether each change is worthwhile - and some may not be no matter how well intentioned.
 
 One question to ask yourself is: **What problem are you trying to solve?**
 
