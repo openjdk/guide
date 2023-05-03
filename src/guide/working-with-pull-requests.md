@@ -8,6 +8,14 @@
 
 Once you have made a change that you want to integrate into an OpenJDK code base you need to create a _Pull Request_ (PR) on GitHub. This guide assumes that you have previous experience from using git and GitHub and won't go into details of how those work. Still, the aim is of course to provide a useful guide, so [send an email](#about-this-guide) if more details are needed.
 
+## Think once more
+
+All code reviews in OpenJDK are done in public. Once you open your PR for public review the internet can see it and comment on it. Make sure your code is ready for it. Look through your comments, make sure that temporary code is gone, and make sure you have sanitized your method and variable names.
+
+It's also worth taking the extra time to see if the change can be split into a few different separate changes. A large change will take more effort and thus attract fewer Reviewers. Smaller changes will get reviewed faster and get better quality reviews. You can compare proposing a single large change to proposing ten individual small unrelated changes. What happens in practice when all these ten changes are presented as one PR is that there's a focus on say 5-6 of these smaller changes and no one really looks hard at the other 4-5. For complexity, even small changes that are hard to understand and test may be risky.
+
+The timing of your change will also affect the availability of reviewers. The JDK runs on a [six-months release cadence](#release-cycle). During the months around the start of the ramp down phase most area experts will be busy working on their own changes and reviewing major features that are planned for the release. If you propose a change during this period (basically May-June, or November-December) it may take a long time before you get the required reviews.
+
 ## Rebase before creating the PR
 
 It's likely that other people have pushed changes to the code base since you created your branch. Make sure to pull the latest changes and rebase your fix on top of that before creating your PR. This is a courtesy issue. Your reviewers shouldn't have to read your patch on top of old code that has since changed. This is hopefully obvious in cases where the upstream code has gone through cleanups or refactorings, and your patch may need similar cleanups in order to even compile. But even in cases where only smaller changes have been done, the reviewers shouldn't have to react to issues like "that line of code was moved last week, why is it back there?".
@@ -65,6 +73,8 @@ If you have an actual reason to create a PR before the change is all done, make 
    In general all PRs should be open for at least 24 hours to allow for reviewers in all time zones to get a chance to see it. It may actually happen that even 24 hours isn't enough. Take into account weekends, holidays, and vacation times throughout the world and you'll realize that a change that requires more than just a trivial review may have to be open for a while. In some areas [trivial](#trivial) changes are allowed to be pushed without the 24 hour delay. Ask your reviewers if you think this applies to your change.
 
    At least one reviewer should be knowledgeable in the area being changed. Some areas (e.g. client and hotspot) require two reviewers in most cases, so be sure to read the relevant OpenJDK group pages for advice or ask your sponsor.
+
+   Be open to comments and polite in replies. Remember that the reviewer wants to improve the world just as much as you do, only in a slightly different way. If you don't understand some comment, ask the reviewer to clarify. Accept authority when applicable. If you're making changes in an area where you're not the area expert, acknowledge that your reviewers may be. Take their advice seriously, even if it is to not make the change. There are many reasons [why a change may get rejected](#why-is-my-change-rejected). And you did read the section [Things to consider before changing OpenJDK code](#things-to-consider-before-changing-openjdk-code), right?
 
 #. **Updating the PR**
 
