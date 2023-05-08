@@ -20,17 +20,17 @@ When filing an Issue, try to make the report as complete as possible in order to
 
 #### Types of Issues
 
-The most common [Issue]{.jbs-field} types are:
+The most common **Issue** types are:
 <br />
 <table class="dictionary" summary="JBS Issue Types">
 <tr style="text-align:left;"><th>Issue Type</th><th>Covers</th></tr>
 <tr>
     <td class="dictionary">[Bug]{.jbs-field}</td>
-    <td class="dictionary">Used when reporting a problem: crashes; hangs; failures of functionality etc.</td>
+    <td class="dictionary">A "bug" should relate to functional correctness - a deviation from behavior that can be tied back to a specification. Anything else, including performance concerns, is generally not a bug, but an enhancement. Though it is not clear cut as a significant performance regression may be classified as a "bug", for example</td>
 </tr>
 <tr>
     <td class="dictionary">[Enhancement]{.jbs-field}</td>
-    <td class="dictionary">For a small improvement to existing functionality<br />
+    <td class="dictionary">For a small to medium improvement to existing functionality<br />
 </tr>
 <tr>
     <td class="dictionary">[New Feature]{.jbs-field}</td>
@@ -46,10 +46,13 @@ The most common [Issue]{.jbs-field} types are:
 </tr>
 <tr>
     <td class="dictionary">[Task]{.jbs-field}</td>
-    <td class="dictionary">Where something needs to happen other than a code change - for example a request for a new JBS version, or other work associated with a release</td>
+    <td class="dictionary"> Tasks are used to track work that is not expected to result in a change in any code repository. They are used to track non-repo changes or related activities such as a new JBS version number, a build request, an update to a document etc.</td>
 </tr>
 </table>
-Note: If you suspect that the issue is a vulnerability, **don't file a JBS issue**, instead send your report to [vuln-report@openjdk.org](mailto:vuln-report@openjdk.org), also use this alias if you find an existing report which may be a vulnerability. Please do *not* report or discuss potential vulnerabilities on any open lists or other public channels - see [OpenJDK Vulnerabilities](https://openjdk.org/groups/vulnerability/report) for more information.
+Notes:
+
+* If you suspect that the issue is a vulnerability, **don't file a JBS issue**, instead send your report to [vuln-report@openjdk.org](mailto:vuln-report@openjdk.org), also use this alias if you find an existing report which may be a vulnerability. Please do *not* report or discuss potential vulnerabilities on any open lists or other public channels - see [OpenJDK Vulnerabilities](https://openjdk.org/groups/vulnerability/report) for more information.
+* a [Bug]{.jbs} or [Enhancement]{.jbs-field} should only be used if the work is expected to result in a change in a code repository. A [Bug]{.jbs-field} or [Enhancement]{.jbs-field} with resolution Fixed is required to have a corresponding changeset in one of the OpenJDK repositories.
 
 <br>
 A few things to keep in mind when filing an issue to report a problem:
@@ -170,7 +173,9 @@ style ClosedIncomplete fill:lightgreen
 
 ## Triaging an issue
 
-First give the issue a general review
+For the most OpenJDK groups Triage is performed on a regular basis (at least weekly) by triage teams. Each triage team consists of contributors who are area experts for that group of issues. If you haven't been selected to be part of a triage team for a specific area you shouldn't be triaging bugs in that area, unless you are the assignee.
+
+When triaging an issue, first give it a general review
 
 1. If the issue is a duplicate, close it as such.
 1. If the issue belongs to a different area (it was filed in libraries, but it is an HotSpot issue), transfer it to the correct component/subcomponent making sure that the state remains [New]{.jbs-field}.
@@ -188,8 +193,8 @@ Now that the issue is in the right component and has the basic information, the 
     1. a bug should be fixed first in the most recent version where it exists, if you don't know what version it will go into set it to `tbd`
     1. if the bug also exists in older versions it may require backporting
         * the decision to backport should be made inline with the guidelines of the lead for the release
-        * There are two options for creating backport issue(s) to track the backport: one is to create it manually once it is agreed that the bug should be backported; the second, is to let the bots create the backport issue once you push the fix to the repo.
-    1. Only one fixversion should ever be set, if the issue is to be fixed in additional releases then a separate backport must be created (See Working with backports in JBS).  There are exceptions to this rule for: CSRs; and, Release Notes.
+        * There are two options for creating backport issue(s) to track the backport: one is to create it manually once it is agreed that the bug should be backported; the second, is to let the bots create the backport issue once you push the fix to the repo (see [Working with backports in JBS](#working-with-backports-in-jbs).
+    1. Only one fixversion should ever be set, if the issue is to be fixed in additional releases then a separate backport must be created (see [Working with backports in JBS](#working-with-backports-in-jbs)).  There are exceptions to this rule for: CSRs; and, Release Notes.
 1. make sure the bug has all the required labels – JBS Label Dictionary
     1. bugs that are new in the current release: 'regression'
     1. bugs that do not affect product code, but are only against the regression test: 'noreg-self'
@@ -197,7 +202,7 @@ Now that the issue is in the right component and has the basic information, the 
     1. RFEs that are pure cleanups: 'noreg-cleanup'
     1. project specific issues usually have their own labels as well
 
-At this point move the issue into the [Open]{.jbs-field} state, bring high priority (P1, P2) bugs to the attention of the team.
+At this point move the issue into the [Open]{.jbs-field} state.
 
 ### Sensitive information (e.g. hs_err.log)
 
