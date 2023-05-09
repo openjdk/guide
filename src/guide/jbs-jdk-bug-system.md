@@ -7,7 +7,7 @@
 * [JDK Bug System (JBS)](https://bugs.openjdk.org/)
   :::
 
-[JBS](https://bugs.openjdk.org/) is a public issue tracker used by many OpenJDK projects and is open for anyone to read and search. In order to get write access you need to be registered in the [OpenJDK Census](https://openjdk.org/census) by becoming, for instance, an [Author](https://openjdk.org/bylaws#author) in an OpenJDK [Project](https://openjdk.org/bylaws#project).
+[JBS](https://bugs.openjdk.org/) is a public issue tracker used by many OpenJDK projects and is open for anyone to read and search. To get write access you need to be registered in the [OpenJDK Census](https://openjdk.org/census) by becoming, for instance, an [Author](https://openjdk.org/bylaws#author) in an OpenJDK [Project](https://openjdk.org/bylaws#project).
 
 ## Filing an issue
 
@@ -34,11 +34,11 @@ The most common **Issue** types are:
 </tr>
 <tr>
     <td class="dictionary">[New Feature]{.jbs-field}</td>
-    <td class="dictionary">Not recommended to use<br /></td>
+    <td class="dictionary">Not recommended for use<br /></td>
 </tr>
 <tr>
     <td class="dictionary">[JEP]{.jbs-field}</td>
-    <td class="dictionary">For a proposal for a significant change or new feature which will take 4 weeks or more of work - see [JEP-1](https://openjdk.org/jeps/1)</td>
+    <td class="dictionary">For a proposal of a significant change or new feature which will take 4 weeks or more of work - see [JEP-1](https://openjdk.org/jeps/1)</td>
 </tr>
 <tr>
     <td class="dictionary">[Sub-task]{.jbs-field}</td>
@@ -80,9 +80,9 @@ A few things to keep in mind when filing an issue to report a problem:
     * logs which may include sensitive data
 * If the failure isn't reproducible with an existing OpenJDK test, attach a reproducer if possible, while in a number of cases it isn't possible, having a test case will decrease the time required to resolve the issue.
 * Only set [CPU]{.jbs-field} and/or [OS]{.jbs-field} fields if the bug **ONLY** happens on that particular platform or set of platforms.
-* Including the java -fullversion is encouraged for bugs in the JVM, hangs, network issues where the exact version can be critical to determine what fixes may be missing from an older version.
+* Provide the output of `java -version`  whenever possible - this version information is particularly critical for hangs, JVM bugs, and network issues.
 * Always file separate bugs for different issues.
-    * If two crashes looks related, but not similar enough to be sure they are the same, it's easier to later close a bug as a duplicate than it is to separate out one bug into two.
+    * If two crashes look related, but not similar enough to be sure they are the same, it's easier to later close a bug as a duplicate than it is to separate out one bug into two.
 
 Things to keep in mind when requesting an improvement:
 
@@ -173,7 +173,7 @@ style ClosedIncomplete fill:lightgreen
 
 ## Triaging an issue
 
-For the most OpenJDK groups Triage is performed on a regular basis (at least weekly) by triage teams. Each triage team consists of contributors who are area experts for that group of issues. If you haven't been selected to be part of a triage team for a specific area you shouldn't be triaging bugs in that area, unless you are the assignee.
+For the most OpenJDK groups Triage is performed on a regular basis (at least weekly) by triage teams. Each triage team consists of contributors who are area experts for that group of issues. If you haven't been selected to be part of a triage team for a specific area you shouldn't be triaging bugs in that area.
 
 When triaging an issue, first give it a general review
 
@@ -224,7 +224,7 @@ Some additional fields should be filled in as you get a better understanding of 
 
 ## Resolving an issue
 
-Once the work on an issue has been completed this should be indicated in JBS by moving the issue to a "closed" state.  There are two "closed" states: [Resolved]{.jbs-field} and [Closed]{.jbs-field} which can be used interchangeably except in the case of [Fixed]{.jbs-field}, or when flagged as  [Incomplete]{.jbs-field} (See Triaging).
+Once the work on an issue has been completed the issue should be in a "closed" state.  There are two "closed" states: [Resolved]{.jbs-field} and [Closed]{.jbs-field} which can be used interchangeably except in the case of [Fixed]{.jbs-field}, or when flagged as  [Incomplete]{.jbs-field} (See Triaging).
 
 <table class="dictionary" summary="JBS Label Dictionary">
   <tr style="text-align:left;"><th>Type</th><th>Covers</th></tr>
@@ -264,7 +264,7 @@ Once the work on an issue has been completed this should be indicated in JBS by 
 </tr>
 <tr>
     <td class="dictionary">[External]{.jbs-field}</td>
-    <td class="dictionary">Use where the issue is due to a problem in a Java library (not shipped with the JDK) or an IDE or other external tool</td>
+    <td class="dictionary">Use where the issue is due to a problem in a Java library (not shipped with the JDK), an IDE or other external tool etc. where known it is good to provide a link to the site where the issue should be reported.</td>
 </tr>
 <tr>
     <td class="dictionary">[Not an Issue]{.jbs-field}</td>
