@@ -195,8 +195,8 @@ Now that the issue is in the right component and has the basic information, the 
         * the decision to backport should be made inline with the guidelines of the lead for the release
         * There are two options for creating backport issue(s) to track the backport: one is to create it manually once it is agreed that the bug should be backported; the second, is to let the bots create the backport issue once you push the fix to the repo (see [Working with backports in JBS](#working-with-backports-in-jbs).
     1. Only one fixversion should ever be set, if the issue is to be fixed in additional releases then a separate backport must be created (see [Working with backports in JBS](#working-with-backports-in-jbs)).  There are exceptions to this rule for: CSRs; and, Release Notes.
-1. make sure the bug has all the required labels – JBS Label Dictionary
-    1. bugs that are new in the current release: 'regression'
+1. make sure the bug has all the required labels – see [JBS Label Dictionary](#jbs-label-dictionary)
+    1. bugs where behavior has _incorrectly_ changed from a previous release : 'regression'
     1. bugs that do not affect product code, but are only against the regression test: 'noreg-self'
     1. issues that seem to be trivial to fix: 'starter'
     1. RFEs that are pure cleanups: 'noreg-cleanup'
@@ -661,7 +661,7 @@ Examples:  If a bug fix only corrects a change in the build system, then add the
   <tr>
     <td class="dictionary">[[regression]{.jbs-label}]{#regression}</td>
     <td class="dictionary">
-      Used to identify regressions. A regression is a bug that didn't exist in the previous release. Ideally all regressions must be fixed in the following release. All regressions must have the [Affects Version/s]{.jbs-field} set.
+      Used to identify regressions. A regression is where behavior has _incorrectly_ changed from a previous release. Ideally all regressions must be fixed in the following release. All regressions must have the [Affects Version/s]{.jbs-field} set.
     </td>
   </tr>
   <tr>
