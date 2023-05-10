@@ -91,8 +91,8 @@ Things to keep in mind when requesting an improvement:
 
 To find out which component to use for different bugs, consult the [directory to area mapping](#directory-to-area-mapping).
 
-### Implementing a Large Change
-When managing the work for a large change, especially when the work involves multiple engineers, it is recommended that the work is distributed across one or more "implementation" issues which should be linked to the main [Enhancement]{.jbs-field} with a "blocks" link along with any relevant CSRs. The [Enhancement]{.jbs-field} should not be considered done until all the blocking elements are completed.  The use of subTasks for [Enhancement]{.jbs}s is not recommended unless all the [Sub-task]{.jbs-field}s are relevant to the fix, if it were to be backported.
+### Implementing a large change
+When managing the work for a large change, especially when the work involves multiple engineers, it is recommended that the work is distributed across one or more "implementation" issues which should be linked to the main [Enhancement]{.jbs-field} with a "blocks" link along with any relevant CSRs. The [Enhancement]{.jbs-field} should not be considered done until all the blocking elements are completed.  The use of subTasks for [Enhancement]{.jbs}s is not recommended unless all the [Sub-task]{.jbs-field}s are relevant to the fix, if it were to be backported, for example [JDK-8231641](https://bugs.openjdk.org/browse/JDK-8231641) or [JDK-8171407](https://bugs.openjdk.org/browse/JDK-8171407),
 
 ### Implementing a JEP
 It recommended that for [JEP]{.jbs-field}s that the implementation is spread across one or more [Enhancement]{.jbs-field}s as above.
