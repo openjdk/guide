@@ -78,7 +78,7 @@ A few things to keep in mind when filing an issue to report a problem:
     * personal information
     * passwords, logins, machine names
     * logs which may include sensitive data
-* If the failure isn't reproducible with an existing OpenJDK test, attach a reproducer if possible, while in a number of cases it isn't possible, having a test case will decrease the time required to resolve the issue.
+* If the failure isn't reproducible with an existing OpenJDK test, attach a reproducer if possible, having a test case will decrease the time required to resolve the issue.
 * Only set [CPU]{.jbs-field} and/or [OS]{.jbs-field} fields if the bug **ONLY** happens on that particular platform or set of platforms.
 * Provide the output of `java -version`  whenever possible - this version information is particularly critical for hangs, JVM bugs, and network issues.
 * Always file separate bugs for different issues.
@@ -179,7 +179,7 @@ When triaging an issue, first give it a general review
 
 1. If the issue is a duplicate, close it as such.
 1. If the issue belongs to a different area (it was filed in libraries, but it is an HotSpot issue), transfer it to the correct component/subcomponent making sure that the state remains [New]{.jbs-field}.
-1. If the issue is incomplete, add a comment noting what is needed and close the bug as [Resolved]{.jbs-field} - 'Incomplete'. If no more information is obtained within reasonable time, the issue should be closed ([Closed]{.jbs-field} - `Incomplete`).
+1. If the issue is incomplete, add a comment noting what is needed and close the bug as [Resolved]{.jbs-field} - `Incomplete`. If no more information is obtained within reasonable time, the issue should be closed ([Closed]{.jbs-field} - `Incomplete`).
 
 Now that the issue is in the right component and has the basic information, the analysis continues to get a more detailed understanding of the issue, and what should be done:
 
@@ -196,7 +196,7 @@ Now that the issue is in the right component and has the basic information, the 
         * There are two options for creating backport issue(s) to track the backport: one is to create it manually once it is agreed that the bug should be backported; the second, is to let the bots create the backport issue once you push the fix to the repo (see [Working with backports in JBS](#working-with-backports-in-jbs).
     1. Only one fixversion should ever be set, if the issue is to be fixed in additional releases then a separate backport must be created (see [Working with backports in JBS](#working-with-backports-in-jbs)).  There are exceptions to this rule for: CSRs; and, Release Notes.
 1. make sure the bug has all the required labels – see [JBS Label Dictionary](#jbs-label-dictionary)
-    1. bugs where behavior has _incorrectly_ changed from a previous release : 'regression'
+    1. bugs where behavior has _incorrectly_ changed from a previous build or release : 'regression'
     1. bugs that do not affect product code, but are only against the regression test: 'noreg-self'
     1. issues that seem to be trivial to fix: 'starter'
     1. RFEs that are pure cleanups: 'noreg-cleanup'
@@ -216,7 +216,7 @@ Once you are made, or you make yourself, the assignee of an Issue you take on th
 [JDK-8212207](https://bugs.openjdk.org/browse/JDK-8212207),
 [JDK-6984895](https://bugs.openjdk.org/browse/JDK-6984895),
 [JDK-8287982](https://bugs.openjdk.org/browse/JDK-8287982)
-), this is especially helpful if you ultimately move the Issue to a different area as you have found that the problem lies elsewhere, or is closed as [Will Not Fix]{.jbs-field}.  Your updates then provide a resource to others to better understand what has been done or the code. See [The Importance of Writing Stuff Down](https://stuartmarks.wordpress.com/2023/02/22/the-importance-of-writing-stuff-down) for a good explanation as to why it is also important to write an evaluation when something is not fixed.
+), this is especially helpful if you ultimately move the Issue to a different area as you have found that the problem lies elsewhere, or is closed as [Will Not Fix]{.jbs-field}.  Your updates then provide a resource to others to better understand what has been done or the code. See [The Importance of Writing Stuff Down](https://stuartmarks.wordpress.com/2023/02/22/the-importance-of-writing-stuff-down) for a good explanation as to why it is important.
 
 Some additional fields should be filled in as you get a better understanding of the issue:
 - for a regression, if you identify the fix that caused it add a link to that issue (and add a [regression_]{.jbs-field}*(ID)* label) and set the _Introduced in Release_ field.
@@ -244,7 +244,7 @@ Once the work on an issue has been completed the issue should be in a "closed" s
 </tr>
 <tr>
     <td class="dictionary">[Duplicate]{.jbs-field}</td>
-    <td class="dictionary">Where the same issue is described in another issue then close one against the other as a [Duplicate]{.jbs-field}. In general the new issue is closed as a duplicate of the older one, but where the newer issue has a clearer description then doing it the other way round is ok</td>
+    <td class="dictionary">Where the same issue is described in another issue then close one against the other as a [Duplicate]{.jbs-field}. In general the new issue is closed as a duplicate of the older one, but where the newer issue has a clearer description then doing it the other way round is ok. Remember to add a [duplicates]{.jbs-field} link - not a [relates to]{.jbs-field} link</td>
 </tr>
 <tr>
     <td class="dictionary">[Incomplete]{.jbs-field}</td>
@@ -264,7 +264,7 @@ Once the work on an issue has been completed the issue should be in a "closed" s
 </tr>
 <tr>
     <td class="dictionary">[External]{.jbs-field}</td>
-    <td class="dictionary">Use where the issue is due to a problem in a Java library (not shipped with the JDK), an IDE or other external tool etc. where known it is good to provide a link to the site where the issue should be reported.</td>
+    <td class="dictionary">Use where the issue is due to a problem in a Java library (not shipped with the JDK), an IDE or other external tool etc. where known, it is good to provide a link to the site where the issue should be reported.</td>
 </tr>
 <tr>
     <td class="dictionary">[Not an Issue]{.jbs-field}</td>
@@ -661,7 +661,7 @@ Examples:  If a bug fix only corrects a change in the build system, then add the
   <tr>
     <td class="dictionary">[[regression]{.jbs-label}]{#regression}</td>
     <td class="dictionary">
-      Used to identify regressions. A regression is where behavior has _incorrectly_ changed from a previous release. Ideally all regressions must be fixed in the following release. All regressions must have the [Affects Version/s]{.jbs-field} set.
+      Used to identify regressions. A regression is where behavior has _incorrectly_ changed from a previous build or release. Ideally all regressions must be fixed in the following release. All regressions must have the [Affects Version/s]{.jbs-field} set.
     </td>
   </tr>
   <tr>
