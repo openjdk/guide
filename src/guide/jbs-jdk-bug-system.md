@@ -55,10 +55,11 @@ Notes:
 * a [Bug]{.jbs} or [Enhancement]{.jbs-field} should only be used if the work is expected to result in a change in a code repository. A [Bug]{.jbs-field} or [Enhancement]{.jbs-field} with resolution Fixed is required to have a corresponding changeset in one of the OpenJDK repositories.
 
 <br>
-A few things to keep in mind when filing an issue to report a problem:
+A few things to keep in mind when filing an issue:
 
-* Before filing, verify that there isn't an issue already filed.
+* Before filing, verify that there isn't an open issue already filed,
     * Search [JBS](https://bugs.openjdk.org/) for things like the name of the failing test, assert messages, the name of the source code file where a crash occurred etc.
+    * if you find a similar issue that was closed as "not reproducible" then it may be appropriate to re-open that one - if you don't have direct access to JBS you can file a bug at [bugs.java.com](https://java.bugs.com) requesting that it be reopened.
 * Make a reasonable attempt to narrow down which build or release the failure first appeared in.
 * Add relevant [Labels]{.jbs-field} like [[intermittent]{.jbs-label}](#intermittent), [[regression]{.jbs-label}](#regression), [[noreg-self]{.jbs-label}](#noreg-self), [[tier1]{.jbs-label}](#tier) etc.
     * For more information see the [JBS Label Dictionary](#jbs-label-dictionary)
@@ -74,12 +75,13 @@ A few things to keep in mind when filing an issue to report a problem:
     * command line information
     * relevant information from the logs
     * full name of any failing tests
+* If the information provided is long it should be added as attachments
 * Avoid including in the description or comments:
     * personal information
     * passwords, logins, machine names
     * logs which may include sensitive data
 * If the failure isn't reproducible with an existing OpenJDK test, attach a reproducer if possible, having a test case will decrease the time required to resolve the issue.
-* Only set [CPU]{.jbs-field} and/or [OS]{.jbs-field} fields if the bug **ONLY** happens on that particular platform or set of platforms.
+* In general the [CPU]{.jbs-field} and/or [OS]{.jbs-field} fields should not be set. **ONLY** use them if you know that the issue is only relevant to a particular platform or set of platforms.
 * Provide the output of `java -version`  whenever possible - this version information is particularly critical for hangs, JVM bugs, and network issues.
 * Always file separate bugs for different issues.
     * If two crashes look related, but not similar enough to be sure they are the same, it's easier to later close a bug as a duplicate than it is to separate out one bug into two.
@@ -109,7 +111,7 @@ JBS only has a few states in which an issue can be in:
 </tr>
 <tr>
     <td class="dictionary">[Open]{.jbs-field}</td>
-    <td class="dictionary">Most straightforward issues stay in this state until they are closed.  If the issue has some attention then use [In Progress]{.jbs-field} to show more clearly that the issue is being worked</td>
+    <td class="dictionary">Once the issue has been triaged it will be in the [Open]{.jbs-field} state and will stay here until the assignee decides to work on it, at which point it is encouraged that the "Start Work" option be selected to move it to [In Progress]{.jbs-field}</td>
 </tr>
 <tr>
     <td class="dictionary">[In Progress]{.jbs-field}</td>
