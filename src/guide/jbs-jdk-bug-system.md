@@ -66,8 +66,9 @@ A few things to keep in mind when filing an issue:
 * Set [Affects Version/s]{.jbs-field} to the earliest JDK version(s) where the failure was seen.
     * If the failure is found in an update train of the JDK (e.g. 11.0.x), please make an effort to see if it is also present in [mainline](https://github.com/openjdk/jdk).
 * Set the priority
-    * It's not the reporter's responsibility to set a correct priority, but a qualified guess is always better than the default.
-    * To help with setting the right priority, consider things like how the bug impacts the product and our testing, how likely is it that the bug is triggered, how difficult is it to work around, and whether it's a regression, since that may break existing applications. Regressions are often higher priority than long-standing bugs and may block a release if not fixed. An example of a P1 would be an issue that is blocking a build or a release, whereas a P5 would be a minor typo in a code comment - most bugs will be P3 or P4.
+    * It's not the reporter's responsibility to set a correct priority, but a qualified guess is always better than the default - in JBS the range of priorities go from P1 (High/Important) to P5 (Very Low/Not Important), with the default being P4.
+    *  If you have a sense that the issue is critical, or not critical at all, then adjusting the priority higher or lower makes sense, otherwise leave it as the default.
+    * When setting the priority, consider things like how the bug impacts the product and our testing, how likely is it that the bug is triggered, how difficult is it to work around, and whether it's a regression, since that may break existing applications. Regressions are often higher priority than long-standing bugs and may block a release if not fixed. An example of a P1 would be an issue that is blocking a build or a release, whereas a P5 would be a minor typo in a code comment.
 * In the [Description]{.jbs-field}, always include (if possible):
     * error messages
     * assert messages
