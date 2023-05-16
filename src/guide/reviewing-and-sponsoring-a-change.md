@@ -1,4 +1,4 @@
-# Sponsoring a Change
+# Reviewing and Sponsoring a Change
 
 New developers in the OpenJDK community don't have the permissions needed to push changes to the repositories. This is a feature that ensures that all developers get familiar with the code, processes, and community before being allowed to actually make changes. To get the first changes in, the new Contributor needs the help of a Sponsor. The Sponsor's role is to offer constructive advice and eventually push the sponsored contribution into the repository.
 
