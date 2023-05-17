@@ -16,11 +16,11 @@ Depending on your role in OpenJDK you can either use the [Bug Report Tool](https
 are registered in the [OpenJDK Census](https://openjdk.org/census), you can report the issue directly in [JBS](https://bugs.
 openjdk.org/).
 
-When filing an Issue, try to make the report as complete as possible in order to make it easier to triage, investigate and resolve the issue.
+When filing an issue, try to make the report as complete as possible in order to make it easier to triage, investigate and resolve the issue.
 
-#### Types of Issues
+#### Types of issues
 
-The most common **Issue** types are:
+The most common **issue** types are:
 <br />
 <table class="dictionary" summary="JBS Issue Types">
 <tr style="text-align:left;"><th>Issue Type</th><th>Covers</th></tr>
@@ -38,7 +38,7 @@ The most common **Issue** types are:
 </tr>
 <tr>
     <td class="dictionary">[JEP]{.jbs-field}</td>
-    <td class="dictionary">For a proposal of a significant change or new feature which will take 4 weeks or more of work - see [JEP-1](https://openjdk.org/jeps/1).</td>
+    <td class="dictionary">For a proposal of a significant change or new feature which will take 4 or more weeks of work - see [JEP-1](https://openjdk.org/jeps/1).</td>
 </tr>
 <tr>
     <td class="dictionary">[Sub-task]{.jbs-field}</td>
@@ -46,13 +46,13 @@ The most common **Issue** types are:
 </tr>
 <tr>
     <td class="dictionary">[Task]{.jbs-field}</td>
-    <td class="dictionary"> Tasks are used to track work that is not expected to result in a change in any code repository. They are used to track non-repo changes or related activities such as a new JBS version number, a build request, an update to a document etc.</td>
+    <td class="dictionary"> Tasks are used to track work that is not expected to result in a change in any code repository. They are used related activities such as a new JBS version number, a build request, an update to a document etc.</td>
 </tr>
 </table>
 Notes:
 
-* If you suspect that the issue is a vulnerability, **don't file a JBS issue**, instead send your report to [vuln-report@openjdk.org](mailto:vuln-report@openjdk.org), also use this alias if you find an existing report which may be a vulnerability. Please do *not* report or discuss potential vulnerabilities on any open lists or other public channels - see [OpenJDK Vulnerabilities](https://openjdk.org/groups/vulnerability/report) for more information.
-* a [Bug]{.jbs} or [Enhancement]{.jbs-field} should only be used if the work is expected to result in a change in a code repository. A [Bug]{.jbs-field} or [Enhancement]{.jbs-field} with resolution Fixed is required to have a corresponding changeset in one of the OpenJDK repositories.
+* If you suspect that the issue is a vulnerability, **don't file a JBS issue**, instead send your report to [vuln-report@openjdk.org](mailto:vuln-report@openjdk.org). Also use this alias if you find an existing report which may be a vulnerability - please do *not* report or discuss potential vulnerabilities on any open lists or other public channels - see [OpenJDK Vulnerabilities](https://openjdk.org/groups/vulnerability/report) for more information.
+* A [Bug]{.jbs} or [Enhancement]{.jbs-field} should only be used if the work is expected to result in a change in a code repository. A [Bug]{.jbs-field} or [Enhancement]{.jbs-field} with resolution Fixed is required to have a corresponding changeset in one of the OpenJDK repositories.
 
 <br>
 A few things to keep in mind when filing an issue:
@@ -76,7 +76,7 @@ A few things to keep in mind when filing an issue:
     * command line information
     * relevant information from the logs
     * full name of any failing tests
-* If the information provided is long it should be added as attachments
+    * If the information provided is long it should be added as attachments
 * Avoid including in the description or comments:
     * personal information
     * passwords, logins, machine names
@@ -89,7 +89,7 @@ A few things to keep in mind when filing an issue:
 
 Things to keep in mind when requesting an improvement:
 
-* Unlike reporting a problem, when it comes to improvements what constitutes a reasonable request can take discussion, and in general it is encouraged that the mailing list for the area is used to suggest an improvement before filing.
+* Unlike reporting a problem, when it comes to improvements, what constitutes a reasonable request can take discussion, and in general it is encouraged that the mailing list for the area is used to suggest an improvement before filing.
 * Enhancements to The Java Language Specification and The JVM Specification are managed through the [Java Community Process](http://jcp.org/).
 
 To find out which component to use for different bugs, consult the [directory to area mapping](#directory-to-area-mapping).
@@ -98,7 +98,7 @@ To find out which component to use for different bugs, consult the [directory to
 When managing the work for a large change, especially when the work involves multiple engineers, it is recommended that the work is distributed across one or more "implementation" issues which should be linked to the main [Enhancement]{.jbs-field} with a "blocks" link along with any relevant CSRs. The [Enhancement]{.jbs-field} should not be considered done until all the blocking elements are completed.  The use of subTasks for [Enhancement]{.jbs}s is not recommended unless all the [Sub-task]{.jbs-field}s are relevant to the fix, if it were to be backported, for example [JDK-8231641](https://bugs.openjdk.org/browse/JDK-8231641) or [JDK-8171407](https://bugs.openjdk.org/browse/JDK-8171407),
 
 ### Implementing a JEP
-It recommended that for [JEP]{.jbs-field}s that the implementation is spread across one or more [Enhancement]{.jbs-field}s as above.
+It is recommended that for [JEP]{.jbs-field}s that the implementation is spread across one or more [Enhancement]{.jbs-field}s as above.
 
 ## Issue states
 
@@ -187,12 +187,12 @@ When triaging an issue, first give it a general review
 Now that the issue is in the right component and has the basic information, the analysis continues to get a more detailed understanding of the issue, and what should be done:
 
 1. Ensure the priority is correct - an approach that has been used for getting a consistent view of priority is to consider three aspects of the issue: [Impact]{.jbs-field} or issue; [Likelihood]{.jbs-field} of it occurring; and, whether there is a [Workaround]{.jbs-field}. The higher the [Impact]{.jbs-field} and [Likelihood]{.jbs-field} the higher the priority; then, having a [Workaround]{.jbs-field} reduces that priority - but mostly where the Impact and Likelihood are not that severe.
-1. Ensure the 'Affects Version/s' field is correct (within reason)
+1. Ensure the [Affects Version]{jbs-field}/s field is correct (within reason)
     1. This may involve reproducing the bug, if doing so is fast and easy.
     1. In addition to the version where the bug was found, take special care to also investigate if the bug affects the supported releases - the latest LTS release and the latest six-month release.
     1. The affects version is not meant to be an exhaustive list of releases the issue is relevant to - it should initially be set to the release the issue was reproduced or identified on, and by implication it will be relevant on all releases past that point (see (Rel)-na label). If it is later found to be applicable to an earlier release family then adding that earlier release is encouraged if the issue needs to be fixed in that release.
     1.  Do not add additional release values to `Affected Versions` for the same release family: if there is the value 11.0.2 do not add 11.0.5, 11.0.7 etc.  Adding an additional value for a separate release family where it is still reproducible, 12 say, is not necessary but ok, especially if the bug is old (reported on 8 say) but still relevant to the latest release (20 say).
-1. Set the 'Fix Version'
+1. Set the [Fix Version]{.jbs-field}
     1. A bug should be fixed first in the most recent version where it exists, if you don't know what version it will go into set it to `tbd`.
     1. If the bug also exists in older versions it may require backporting
         * The decision to backport should be made inline with the guidelines of the lead for the release
@@ -202,7 +202,7 @@ Now that the issue is in the right component and has the basic information, the 
     1. Bugs where behavior has _incorrectly_ changed from a previous build or release : 'regression'
     1. Bugs that do not affect product code, but are only against the regression test: 'noreg-self'
     1. Issues that seem to be trivial to fix: 'starter'
-    1. RFEs that are pure cleanups: 'noreg-cleanup'
+    1. Enhancements that are pure cleanups: 'noreg-cleanup'
     1. Project specific issues usually have their own labels as well
 
 At this point move the issue into the [Open]{.jbs-field} state.
@@ -215,14 +215,14 @@ If you file a bug through the [Bug Report Tool](https://bugreport.java.com/) the
 
 ## Updating an issue while fixing
 
-Once you are made, or you make yourself, the assignee of an Issue you take on the responsibility of moving the issue through to resolution and providing the current status, and ultimately leaving a record for others in the future to understand what happened.  There are no set rules for how you manage the bug while you are assigned to it, as it depends on the type and importance of an issue.  A simple update to the doc needs little to be done, fix the problem and close the issue; an intricate timing issue or crash should be handled differently - documenting your progress in identifying the problem (for example
+Once you are made, or you make yourself, the assignee of an issue you take on the responsibility of moving the issue through to resolution - providing the current status, and ultimately leaving a record for others in the future to understand what happened.  There are no set rules for how you manage the bug while you are assigned to it, as it depends on the type and importance of an issue.  A simple update to the doc needs little to be done, fix the problem and close the issue; an intricate timing issue or crash should be handled differently - documenting your progress in identifying the problem (for example
 [JDK-8212207](https://bugs.openjdk.org/browse/JDK-8212207),
 [JDK-6984895](https://bugs.openjdk.org/browse/JDK-6984895),
 [JDK-8287982](https://bugs.openjdk.org/browse/JDK-8287982)
-), this is especially helpful if you ultimately move the Issue to a different area as you have found that the problem lies elsewhere, or is closed as [Will Not Fix]{.jbs-field}.  Your updates then provide a resource to others to better understand what has been done or the code. See [The Importance of Writing Stuff Down](https://stuartmarks.wordpress.com/2023/02/22/the-importance-of-writing-stuff-down) for a good explanation as to why it is important.
+), this is especially helpful if you ultimately move the issue to a different area as you have found that the problem lies elsewhere, or is closed as [Will Not Fix]{.jbs-field}.  Your updates then provide a resource to others to better understand what has been done or the code itself. See [The Importance of Writing Stuff Down](https://stuartmarks.wordpress.com/2023/02/22/the-importance-of-writing-stuff-down) for a good explanation as to why it is important.
 
 Some additional fields should be filled in as you get a better understanding of the issue:
-- for a regression, if you identify the fix that caused it add a link to that issue (and add a [regression_]{.jbs-field}*(ID)* label) and set the _Introduced in Release_ field.
+- for a regression, if you identify the fix that caused it, add a link to that issue (and add a [regression_]{.jbs-field}*(ID)* label) and set the _Introduced in Release_ field.
 - The [Description]{.jbs-field} usually explains what went wrong and how the failure was found, then there's some investigation and eventually the root cause is found. At this point the [Summary]{.jbs-field} should be updated to correctly describe the bug. The [Description]{.jbs-field} however should remain a description of how the failure was found.
 
 ## Resolving an issue
@@ -235,7 +235,7 @@ Once the work on an issue has been completed the issue should be in a "closed" s
     <td class="dictionary">[Fixed]{.jbs-field}</td>
     <td class="dictionary">If a change is required in a repo to address an issue then the [Fixed]{.jbs-field} status should be used - for the JDK project in almost all cases the bots will transition the issue to [Fixed]{.jbs-field} when the changeset is pushed to the repo.<br />
 <ul>
-        <li>Once a bug is marked as fixed there is now the option of someone, other than the person that fixed it, marking it as [Verified]{.jbs-field} to confirm that the issue is fix after testing; marking it as [Fix Failed]{.jbs-field} if it did not solve the issue; or, [Not Verified]{.jbs-field} to indicate that it wasn't explicitly tested.  Note that the UI does not highlight when [Fix Failed]{.jbs-field} has been set, you need to look for the [Verification]{.jbs-label} Field at the bottom of the left-hand colum in the Details section.</li>
+        <li>Once a bug is marked as fixed there is now the option of someone, other than the person that fixed it, of marking it as [Verified]{.jbs-field} to confirm that the issue is fixed after testing; marking it as [Fix Failed]{.jbs-field} if it did not solve the issue; or, [Not Verified]{.jbs-field} to indicate that it wasn't explicitly tested.  Note that the UI does not highlight when [Fix Failed]{.jbs-field} has been set, you need to look for the [Verification]{.jbs-label} field at the bottom of the left-hand colum in the Details section.</li>
 </ul><br />
     If there is not a fix in the repo (and so no associated changeset) then the issue should not be marked as [Fixed]{.jbs-field}, but set to [Delivered]{.jbs-field}.<br />
     If you know that an issue was fixed, try searching for the issue that resolved it and close it as a duplicate of that issue. If that would entail a significant effort, and/or it isn't a critical issue, close it out as Not Reproducible.<br />
@@ -247,8 +247,8 @@ Once the work on an issue has been completed the issue should be in a "closed" s
 </tr>
 <tr>
     <td class="dictionary">[Duplicate]{.jbs-field}</td>
-    <td class="dictionary">Where the same issue is described in another issue then close one against the other as a [Duplicate]{.jbs-field}. In general the new issue is closed as a duplicate of the older one, but where the newer issue has a clearer description then doing it the other way round is ok. <br />
-     Note: if you use "Close" button then you get the UI that allows you to set the Resolution as "Duplicate" and link to the issue which is duplicated. However, if you use "Resolve" then the ability to add the link in the UI is not there, and you need to make sure you remember to manually link in the duplicate issue.</td>
+    <td class="dictionary">Where the same issue is described in another issue then close one against the other as a [Duplicate]{.jbs-field}. In general the newer issue is closed as a duplicate of the older one, but where the newer issue has a clearer description then doing it the other way round is ok. <br />
+     Note: if you use "Close" button when closing the issue, then you get the UI that allows you to set the Resolution as [Duplicate]{.jbs-field} and link to the issue which is duplicated; however, if you use "Resolve" then the ability to add the link in the UI is not there, and you need to make sure you remember to manually link in the duplicate issue.</td>
 </tr>
 <tr>
     <td class="dictionary">[Incomplete]{.jbs-field}</td>
@@ -665,7 +665,7 @@ Examples:  If a bug fix only corrects a change in the build system, then add the
   <tr>
     <td class="dictionary">[[regression]{.jbs-label}]{#regression}</td>
     <td class="dictionary">
-      Used to identify regressions. A regression is where behavior has _incorrectly_ changed from a previous build or release. Ideally all regressions must be fixed in the following release. All regressions must have the [Affects Version/s]{.jbs-field} set.
+      Used to identify regressions. A regression is where behavior has _incorrectly_ changed from a previous build or release. Ideally all regressions are identified and fixed before they are released, if not they must be fixed at latest in the following release after they are identified. All regressions must have the [Affects Version/s]{.jbs-field} set.
     </td>
   </tr>
   <tr>
