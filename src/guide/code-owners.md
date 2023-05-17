@@ -56,7 +56,7 @@ This list is intended to make it easier to identify which email list to include 
     * `libadt` – Compiler
     * `logging` – Runtime
     * `memory` – Runtime, GC
-    * `metaprogramming` – Runtime
+    * `metaprogramming` – HotSpot
     * `oops` – GC, Runtime
     * `opto` – Compiler
     * `precompiled` – HotSpot
@@ -81,7 +81,7 @@ This list is intended to make it easier to identify which email list to include 
       * `jrtfs` – Core Libs
       * `loader` – Core Libs
       * `logger` – Core Libs
-      * `math` – Java Language
+      * `math` – Core Libs
       * `misc` – Core Libs, HotSpot
       * `module` – Core Libs
       * `org/objectweb` – Core Libs
@@ -89,7 +89,7 @@ This list is intended to make it easier to identify which email list to include 
       * `perf` – Runtime
       * `platform` – HotSpot
       * `ref` – Core Libs, GC
-      * `reflect` – Java Language
+      * `reflect` – Core Libs
       * `util/random` – Core Libs
       * `util/regex` – Core Libs
       * `util/xml` – Core Libs
@@ -98,7 +98,7 @@ This list is intended to make it easier to identify which email list to include 
     * `io` – NIO
     * `java`
       * `lang` – Core Libs
-      * `math` – Java Language
+      * `math` – Core Libs
       * `time` – Core Libs
     * `launcher` – JDK Tools
     * `META-INF/services` – Core Libs
@@ -116,7 +116,7 @@ This list is intended to make it easier to identify which email list to include 
   * `legal` –
   * `lib/security` – Security
   * `man`
-    * `java.1` – JDK Tools
+    * `java.1` – JDK Tools, HotSpot
     * `keytool.1` – Security
   * `native`
     * `common` –
