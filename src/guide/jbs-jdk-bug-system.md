@@ -26,23 +26,23 @@ The most common **Issue** types are:
 <tr style="text-align:left;"><th>Issue Type</th><th>Covers</th></tr>
 <tr>
     <td class="dictionary">[Bug]{.jbs-field}</td>
-    <td class="dictionary">A "bug" should relate to functional correctness - a deviation from behavior that can be tied back to a specification. Anything else, including performance concerns, is generally not a bug, but an enhancement. Though it is not clear cut as a significant performance regression may be classified as a "bug", for example</td>
+    <td class="dictionary">A "bug" should relate to functional correctness - a deviation from behavior that can be tied back to a specification. Anything else, including performance concerns, is generally not a bug, but an enhancement. Though it is not clear cut as a significant performance regression may be classified as a "bug", for example.</td>
 </tr>
 <tr>
     <td class="dictionary">[Enhancement]{.jbs-field}</td>
-    <td class="dictionary">For a small to medium improvement to existing functionality<br />
+    <td class="dictionary">For a small to medium improvement to existing functionality.<br />
 </tr>
 <tr>
     <td class="dictionary">[New Feature]{.jbs-field}</td>
-    <td class="dictionary">Not recommended for use<br /></td>
+    <td class="dictionary">Not recommended for use.<br /></td>
 </tr>
 <tr>
     <td class="dictionary">[JEP]{.jbs-field}</td>
-    <td class="dictionary">For a proposal of a significant change or new feature which will take 4 weeks or more of work - see [JEP-1](https://openjdk.org/jeps/1)</td>
+    <td class="dictionary">For a proposal of a significant change or new feature which will take 4 weeks or more of work - see [JEP-1](https://openjdk.org/jeps/1).</td>
 </tr>
 <tr>
     <td class="dictionary">[Sub-task]{.jbs-field}</td>
-    <td class="dictionary">Can be used to break up the work for an issue, such as the changes to the docs, tests etc. This is not recommended as a way to break up a large amount of code change associated with a new feature - see "Implementing a JEP or any Large Change" below</td>
+    <td class="dictionary">Can be used to break up the work for an issue, such as the changes to the docs, tests etc. This is not recommended as a way to break up a large amount of code change associated with a new feature - see "Implementing a JEP or any Large Change" below.</td>
 </tr>
 <tr>
     <td class="dictionary">[Task]{.jbs-field}</td>
@@ -59,15 +59,15 @@ A few things to keep in mind when filing an issue:
 
 * Before filing, verify that there isn't an open issue already filed,
     * Search [JBS](https://bugs.openjdk.org/) for things like the name of the failing test, assert messages, the name of the source code file where a crash occurred etc.
-    * if you find a similar issue that was closed as "not reproducible" then it may be appropriate to re-open that one - if you don't have direct access to JBS you can file a bug at [bugs.java.com](https://java.bugs.com) requesting that it be reopened.
+    * If you find a similar issue that was closed as "not reproducible" then it may be appropriate to re-open that one - if you don't have direct access to JBS you can file a bug at [bugs.java.com](https://java.bugs.com) requesting that it be reopened.
 * Make a reasonable attempt to narrow down which build or release the failure first appeared in.
 * Add relevant [Labels]{.jbs-field} like [[intermittent]{.jbs-label}](#intermittent), [[regression]{.jbs-label}](#regression), [[noreg-self]{.jbs-label}](#noreg-self), [[tier1]{.jbs-label}](#tier) etc.
-    * For more information see the [JBS Label Dictionary](#jbs-label-dictionary)
+    * For more information see the [JBS Label Dictionary](#jbs-label-dictionary).
 * Set [Affects Version/s]{.jbs-field} to the earliest JDK version(s) where the failure was seen.
     * If the failure is found in an update train of the JDK (e.g. 11.0.x), please make an effort to see if it is also present in [mainline](https://github.com/openjdk/jdk).
 * Set the priority
     * It's not the reporter's responsibility to set a correct priority, but a qualified guess is always better than the default - in JBS the range of priorities go from P1 (High/Important) to P5 (Very Low/Not Important), with the default being P4.
-    *  If you have a sense that the issue is critical, or not critical at all, then adjusting the priority higher or lower makes sense, otherwise leave it as the default.
+    * If you have a sense that the issue is critical, or not critical at all, then adjusting the priority higher or lower makes sense, otherwise leave it as the default.
     * When setting the priority, consider things like how the bug impacts the product and our testing, how likely is it that the bug is triggered, how difficult is it to work around, and whether it's a regression, since that may break existing applications. Regressions are often higher priority than long-standing bugs and may block a release if not fixed. An example of a P1 would be an issue that is blocking a build or a release, whereas a P5 would be a minor typo in a code comment.
 * In the [Description]{.jbs-field}, always include (if possible):
     * error messages
@@ -90,7 +90,7 @@ A few things to keep in mind when filing an issue:
 Things to keep in mind when requesting an improvement:
 
 * Unlike reporting a problem, when it comes to improvements what constitutes a reasonable request can take discussion, and in general it is encouraged that the mailing list for the area is used to suggest an improvement before filing.
-* Enhancements to The Java Language Specification and The JVM Specification are managed through the [Java Community Process](http://jcp.org/)
+* Enhancements to The Java Language Specification and The JVM Specification are managed through the [Java Community Process](http://jcp.org/).
 
 To find out which component to use for different bugs, consult the [directory to area mapping](#directory-to-area-mapping).
 
@@ -112,7 +112,7 @@ JBS only has a few states in which an issue can be in:
 </tr>
 <tr>
     <td class="dictionary">[Open]{.jbs-field}</td>
-    <td class="dictionary">Once the issue has been triaged it will be in the [Open]{.jbs-field} state and will stay here until the assignee decides to work on it, at which point it is encouraged that the "Start Work" option be selected to move it to [In Progress]{.jbs-field}</td>
+    <td class="dictionary">Once the issue has been triaged it will be in the [Open]{.jbs-field} state and will stay here until the assignee decides to work on it, at which point it is encouraged that the "Start Work" option be selected to move it to [In Progress]{.jbs-field}.</td>
 </tr>
 <tr>
     <td class="dictionary">[In Progress]{.jbs-field}</td>
@@ -120,7 +120,7 @@ JBS only has a few states in which an issue can be in:
 </tr>
 <tr>
     <td class="dictionary">[Closed]{.jbs-field}/[Resolved]{.jbs-field}</td>
-    <td class="dictionary">While [Closed]{.jbs-field} and [Resolved]{.jbs-field} are essentially equivalent, when it comes to fixing issues there is an additional [Verify]{.jbs-field} step available between the [Resolved]{.jbs-field} and [Closed]{.jbs-field} states</td>
+    <td class="dictionary">While [Closed]{.jbs-field} and [Resolved]{.jbs-field} are essentially equivalent, when it comes to fixing issues there is an additional [Verify]{.jbs-field} step available between the [Resolved]{.jbs-field} and [Closed]{.jbs-field} states.</td>
 </tr>
 </table>
 
@@ -176,7 +176,7 @@ style ClosedIncomplete fill:lightgreen
 
 ## Triaging an issue
 
-For the most OpenJDK groups Triage is performed on a regular basis (at least weekly) by triage teams. Each triage team consists of contributors who are area experts for that group of issues. If you haven't been selected to be part of a triage team for a specific area you shouldn't be triaging bugs in that area.
+For most OpenJDK groups Triage is performed on a regular basis (at least weekly) by triage teams. Each triage team consists of contributors who are area experts for that group of issues. If you haven't been selected to be part of a triage team for a specific area you shouldn't be triaging bugs in that area.
 
 When triaging an issue, first give it a general review
 
@@ -186,24 +186,24 @@ When triaging an issue, first give it a general review
 
 Now that the issue is in the right component and has the basic information, the analysis continues to get a more detailed understanding of the issue, and what should be done:
 
-1. ensure the priority is correct - an approach that has been used for getting a consistent view of priority is to consider three aspects of the issue: [Impact]{.jbs-field} or issue; [Likelihood]{.jbs-field} of it occurring; and, whether there is a [Workaround]{.jbs-field}. The higher the [Impact]{.jbs-field} and [Likelihood]{.jbs-field} the higher the priority; then, having a [Workaround]{.jbs-field} reduces that priority - but mostly where the Impact and Likelihood are not that severe.
-1. ensure the 'Affects Version/s' field is correct (within reason)
-    1. this may involve reproducing the bug, if doing so is fast and easy
+1. Ensure the priority is correct - an approach that has been used for getting a consistent view of priority is to consider three aspects of the issue: [Impact]{.jbs-field} or issue; [Likelihood]{.jbs-field} of it occurring; and, whether there is a [Workaround]{.jbs-field}. The higher the [Impact]{.jbs-field} and [Likelihood]{.jbs-field} the higher the priority; then, having a [Workaround]{.jbs-field} reduces that priority - but mostly where the Impact and Likelihood are not that severe.
+1. Ensure the 'Affects Version/s' field is correct (within reason)
+    1. This may involve reproducing the bug, if doing so is fast and easy.
     1. In addition to the version where the bug was found, take special care to also investigate if the bug affects the supported releases - the latest LTS release and the latest six-month release.
     1. The affects version is not meant to be an exhaustive list of releases the issue is relevant to - it should initially be set to the release the issue was reproduced or identified on, and by implication it will be relevant on all releases past that point (see (Rel)-na label). If it is later found to be applicable to an earlier release family then adding that earlier release is encouraged if the issue needs to be fixed in that release.
     1.  Do not add additional release values to `Affected Versions` for the same release family: if there is the value 11.0.2 do not add 11.0.5, 11.0.7 etc.  Adding an additional value for a separate release family where it is still reproducible, 12 say, is not necessary but ok, especially if the bug is old (reported on 8 say) but still relevant to the latest release (20 say).
-1. set the 'Fix Version'
-    1. a bug should be fixed first in the most recent version where it exists, if you don't know what version it will go into set it to `tbd`
-    1. if the bug also exists in older versions it may require backporting
-        * the decision to backport should be made inline with the guidelines of the lead for the release
-        * There are two options for creating backport issue(s) to track the backport: one is to create it manually once it is agreed that the bug should be backported; the second, is to let the bots create the backport issue once you push the fix to the repo (see [Working with backports in JBS](#working-with-backports-in-jbs).
+1. Set the 'Fix Version'
+    1. A bug should be fixed first in the most recent version where it exists, if you don't know what version it will go into set it to `tbd`.
+    1. If the bug also exists in older versions it may require backporting
+        * The decision to backport should be made inline with the guidelines of the lead for the release
+        * There are two options for creating backport issue(s) to track the backport: one is to create it manually once it is agreed that the bug should be backported; the second, is to let the bots create the backport issue once you push the fix to the repo (see [Working with backports in JBS](#working-with-backports-in-jbs)).
     1. Only one fixversion should ever be set, if the issue is to be fixed in additional releases then a separate backport must be created (see [Working with backports in JBS](#working-with-backports-in-jbs)).  There are exceptions to this rule for: CSRs; and, Release Notes.
-1. make sure the bug has all the required labels – see [JBS Label Dictionary](#jbs-label-dictionary)
-    1. bugs where behavior has _incorrectly_ changed from a previous build or release : 'regression'
-    1. bugs that do not affect product code, but are only against the regression test: 'noreg-self'
-    1. issues that seem to be trivial to fix: 'starter'
+1. Make sure the bug has all the required labels – see [JBS Label Dictionary](#jbs-label-dictionary)
+    1. Bugs where behavior has _incorrectly_ changed from a previous build or release : 'regression'
+    1. Bugs that do not affect product code, but are only against the regression test: 'noreg-self'
+    1. Issues that seem to be trivial to fix: 'starter'
     1. RFEs that are pure cleanups: 'noreg-cleanup'
-    1. project specific issues usually have their own labels as well
+    1. Project specific issues usually have their own labels as well
 
 At this point move the issue into the [Open]{.jbs-field} state.
 
@@ -237,33 +237,34 @@ Once the work on an issue has been completed the issue should be in a "closed" s
 <ul>
         <li>Once a bug is marked as fixed there is now the option of someone, other than the person that fixed it, marking it as [Verified]{.jbs-field} to confirm that the issue is fix after testing; marking it as [Fix Failed]{.jbs-field} if it did not solve the issue; or, [Not Verified]{.jbs-field} to indicate that it wasn't explicitly tested.  Note that the UI does not highlight when [Fix Failed]{.jbs-field} has been set, you need to look for the [Verification]{.jbs-label} Field at the bottom of the left-hand colum in the Details section.</li>
 </ul><br />
-    If there is not a fix in the repo (and so no associated changeset) then the issue should not be marked as [Fixed]{.jbs-field}, but set to [Delivered]{.jbs-field}<br />
+    If there is not a fix in the repo (and so no associated changeset) then the issue should not be marked as [Fixed]{.jbs-field}, but set to [Delivered]{.jbs-field}.<br />
     If you know that an issue was fixed, try searching for the issue that resolved it and close it as a duplicate of that issue. If that would entail a significant effort, and/or it isn't a critical issue, close it out as Not Reproducible.<br />
     </td>
 </tr>
 <tr>
     <td class="dictionary">[Won't Fix]{.jbs-field}</td>
-    <td class="dictionary">Used when the issue is describing behavior which, while maybe problematic or not ideal, is not going to be changed - for compatibility reasons for example</td>
+    <td class="dictionary">Used when the issue is describing behavior which, while maybe problematic or not ideal, is not going to be changed - for compatibility reasons for example.</td>
 </tr>
 <tr>
     <td class="dictionary">[Duplicate]{.jbs-field}</td>
-    <td class="dictionary">Where the same issue is described in another issue then close one against the other as a [Duplicate]{.jbs-field}. In general the new issue is closed as a duplicate of the older one, but where the newer issue has a clearer description then doing it the other way round is ok. Remember to add a [duplicates]{.jbs-field} link - not a [relates to]{.jbs-field} link</td>
+    <td class="dictionary">Where the same issue is described in another issue then close one against the other as a [Duplicate]{.jbs-field}. In general the new issue is closed as a duplicate of the older one, but where the newer issue has a clearer description then doing it the other way round is ok. <br />
+     Note: if you use "Close" button then you get the UI that allows you to set the Resolution as "Duplicate" and link to the issue which is duplicated. However, if you use "Resolve" then the ability to add the link in the UI is not there, and you need to make sure you remember to manually link in the duplicate issue.</td>
 </tr>
 <tr>
     <td class="dictionary">[Incomplete]{.jbs-field}</td>
-    <td class="dictionary">Described above</td>
+    <td class="dictionary">Described above.</td>
 </tr>
 <tr>
     <td class="dictionary">[Cannot Reproduce]{.jbs-field}</td>
-    <td class="dictionary">Use when a reproducer is provided (or clear steps) but it is not possible to see the same behavior. When you can't reproduce an issue, where feasible try on the release the issue was reported against, as a way of confirming that it is indeed addressed on the latest release, rather than you not having the right environment in which to reproduce the issue</td>
+    <td class="dictionary">Use when a reproducer is provided (or clear steps) but it is not possible to see the same behavior. When you can't reproduce an issue, where feasible try on the release the issue was reported against, as a way of confirming that it is indeed addressed on the latest release, rather than you not having the right environment in which to reproduce the issue.</td>
 </tr>
 <tr>
     <td class="dictionary">[Other]{.jbs-field}</td>
-    <td class="dictionary">Used where none of the other statuses fit the situation</td>
+    <td class="dictionary">Used where none of the other statuses fit the situation.</td>
 </tr>
 <tr>
     <td class="dictionary">[Future Project]{.jbs-field}</td>
-    <td class="dictionary">This status is not recommended</td>
+    <td class="dictionary">This status is not recommended.</td>
 </tr>
 <tr>
     <td class="dictionary">[External]{.jbs-field}</td>
@@ -271,7 +272,7 @@ Once the work on an issue has been completed the issue should be in a "closed" s
 </tr>
 <tr>
     <td class="dictionary">[Not an Issue]{.jbs-field}</td>
-    <td class="dictionary">Use when the behavior is expected and valid (cf. [Won't Fix]{.jbs-field}) and the reporter perhaps has misunderstood what the behavior should be</td>
+    <td class="dictionary">Use when the behavior is expected and valid (cf. [Won't Fix]{.jbs-field}) and the reporter perhaps has misunderstood what the behavior should be.</td>
 </tr>
 <tr>
     <td class="dictionary">[Migrated]{.jbs-field}</td>
@@ -279,23 +280,23 @@ Once the work on an issue has been completed the issue should be in a "closed" s
 </tr>
 <tr>
     <td class="dictionary">[Rejected]{.jbs-field}</td>
-    <td class="dictionary">This status should not be used</td>
+    <td class="dictionary">This status should not be used.</td>
 </tr>
 <tr>
     <td class="dictionary">[Withdrawn]{.jbs-field}</td>
-    <td class="dictionary">Is essentially the partner state to Delivered for issues that would not have resulted in a fix to the repo, and also part of the [CSR](https://wiki.openjdk.org/display/csr/Main) and Release Note process</td>
+    <td class="dictionary">Is essentially the partner state to Delivered for issues that would not have resulted in a fix to the repo, and also part of the [CSR](https://wiki.openjdk.org/display/csr/Main) and Release Note process.</td>
 </tr>
 <tr>
     <td class="dictionary">[Delivered]{.jbs-field}</td>
-    <td class="dictionary">Use to close out issues where a change to the code is not required, common examples are Release Notes</td>
+    <td class="dictionary">Use to close out issues where a change to the code is not required, common examples are Release Notes.</td>
 </tr>
 <tr>
     <td class="dictionary">[Approved]{.jbs-field}</td>
-    <td class="dictionary">Used as part of the [CSR process](https://wiki.openjdk.org/display/csr/Main)
+    <td class="dictionary">Used as part of the [CSR process](https://wiki.openjdk.org/display/csr/Main).
 </tr>
 <tr>
     <td class="dictionary">Challenge States</td>
-    <td class="dictionary">[Exclude [Challenge]]{.jbs-field}, [Alternative Tests [Challenge]]{.jbs-field}, and [Reject [Challenge]]{.jbs-field} are only relevant within the context of the JCK Project</td>
+    <td class="dictionary">[Exclude [Challenge]]{.jbs-field}, [Alternative Tests [Challenge]]{.jbs-field}, and [Reject [Challenge]]{.jbs-field} are only relevant within the context of the JCK Project.</td>
 </tr>
 </table>
 
