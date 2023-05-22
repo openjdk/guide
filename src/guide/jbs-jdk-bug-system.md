@@ -26,7 +26,7 @@ The most common **issue** types are:
 <tr style="text-align:left;"><th>Issue Type</th><th>Covers</th></tr>
 <tr>
     <td class="dictionary">[Bug]{.jbs-field}</td>
-    <td class="dictionary">A "bug" should relate to functional correctness - a deviation from behavior that can be tied back to a specification. Anything else, including performance concerns, is generally not a bug, but an enhancement. Though it is not clear cut as a significant performance regression may be classified as a "bug", for example.</td>
+    <td class="dictionary">A "bug" should relate to functional correctness - a deviation from behavior that can be tied back to a specification. Anything else, including performance concerns, is generally not a bug, but an enhancement. Though it is not clear-cut as a significant performance regression may be classified as a "bug", for example.</td>
 </tr>
 <tr>
     <td class="dictionary">[Enhancement]{.jbs-field}</td>
@@ -209,7 +209,7 @@ At this point move the issue into the [Open]{.jbs-field} state.
 
 ### Sensitive information (e.g. hs_err.log)
 
-It may sound obvious, but avoid placing sensitive information in bug reports. Things like user names, IP addresses, host names, and exact version information of third party libraries etc may be crucial to be able to debug in some cases, but could also help an attacker gain information about your system. JBS is a public database that anyone can search, so be mindful of what you place there. In particular when attaching log files like the hs_err.log you should make sure that you are comfortable with sharing the details exposed in it. Sometimes it may be better to leave a comment saying that these details can be obtained on request.
+It may sound obvious, but avoid placing sensitive information in bug reports. Things like usernames, IP addresses, host names, and exact version information of third party libraries etc. may be crucial to be able to debug in some cases, but could also help an attacker gain information about your system. JBS is a public database that anyone can search, so be mindful of what you place there. In particular when attaching log files like the hs_err.log you should make sure that you are comfortable sharing the details exposed in it. Sometimes it may be better to leave a comment saying that these details can be obtained on request.
 
 If you file a bug through the [Bug Report Tool](https://bugreport.java.com/) there's a specific field that should be used to place sensitive information like this. Information placed there will not be part of the public bug report.
 
@@ -240,7 +240,7 @@ Once the work on an issue has been completed the issue should be in a "closed" s
         <li>Once a bug is marked as fixed there is now the option of someone, other than the person that fixed it, of marking it as [Verified]{.jbs-field} to confirm that the issue is fixed after testing; marking it as [Fix Failed]{.jbs-field} if it did not solve the issue; or, [Not Verified]{.jbs-field} to indicate that it wasn't explicitly tested.  Note that the UI does not highlight when [Fix Failed]{.jbs-field} has been set, you need to look for the [Verification]{.jbs-label} field at the bottom of the left-hand colum in the Details section.</li>
 </ul><br />
     If there is not a fix in the repo (and so no associated changeset) then the issue should not be marked as [Fixed]{.jbs-field}, but set to [Delivered]{.jbs-field}.<br />
-    If you know that an issue was fixed, try searching for the issue that resolved it and close it as a duplicate of that issue. If that would entail a significant effort, and/or it isn't a critical issue, close it out as Not Reproducible.<br />
+    If you know that an issue was fixed, try searching for the issue that resolved it and close it as a duplicate of that issue. If that entails a significant effort, and/or it isn't a critical issue, close it out as Not Reproducible.<br />
     </td>
 </tr>
 <tr>
@@ -405,7 +405,7 @@ This table contains some frequently used JBS labels and their meaning. Please he
   <tr>
     <td class="dictionary">[*(Team)*[-triage-]{.jbs-label}*(Rel)*]{#team-triage-rel}</td>
     <td class="dictionary">
-      Used to indicate that *(Team)* has triaged this issue for release *(Rel)*. It's encouraged that all open bugs are triaged on a regular basis so that old bugs aren't forgotten. It's therefore common to see several triage labels on the same issue which helps keeping track of which bugs has been triaged for each release. E.g., [oracle-triage-13]{.jbs-label}
+      Used to indicate that *(Team)* has triaged this issue for release *(Rel)*. It's encouraged that all open bugs are triaged on a regular basis so that old bugs aren't forgotten. It's therefore common to see several triage labels on the same issue which helps keeping track of which bugs have been triaged for each release. E.g., [oracle-triage-13]{.jbs-label}
 
       There are many label variants that include the word triage in some form. The form described above is the only one recommended. Please refrain from using other forms.
     </td>
