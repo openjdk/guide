@@ -225,6 +225,8 @@ Some additional fields should be filled in as you get a better understanding of 
 - for a regression, if you identify the fix that caused it, add a link to that issue (and add a [regression_]{.jbs-field}*(ID)* label) and set the _Introduced in Release_ field.
 - The [Description]{.jbs-field} usually explains what went wrong and how the failure was found, then there's some investigation and eventually the root cause is found. At this point the [Summary]{.jbs-field} should be updated to correctly describe the bug. The [Description]{.jbs-field} however should remain a description of how the failure was found.
 
+Note: if during your investigation of the bug you determine that the issue is in the wrong component, make sure to move it back to the [New]{.jbs-field} state before moving it to the new component, so that it will be picked up by the component's Triage team. Make sure there is a comment outlining the reason for the move, as explained above.
+
 ## Resolving an issue
 
 Once the work on an issue has been completed the issue should be in a "closed" state.  There are two "closed" states: [Resolved]{.jbs-field} and [Closed]{.jbs-field} which can be used interchangeably except in the case of [Fixed]{.jbs-field}, or when flagged as  [Incomplete]{.jbs-field} (See Triaging).
