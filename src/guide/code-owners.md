@@ -7,8 +7,7 @@ This list is intended to make it easier to identify which email list to include 
 * Generic JDK Development: [`jdk-dev`](https://mail.openjdk.org/mailman/listinfo/jdk-dev)
 
 * Build: [`build-dev`](https://mail.openjdk.org/mailman/listinfo/build-dev)
-* Client
-  * Client Libs: [`client-libs-dev`](https://mail.openjdk.org/mailman/listinfo/client-libs-dev)
+* Client Libs: [`client-libs-dev`](https://mail.openjdk.org/mailman/listinfo/client-libs-dev)
 * Core Libs: [`core-libs-dev`](https://mail.openjdk.org/mailman/listinfo/core-libs-dev)
   * Net: [`net-dev`](https://mail.openjdk.org/mailman/listinfo/net-dev)
   * NIO: [`nio-dev`](https://mail.openjdk.org/mailman/listinfo/nio-dev)
@@ -19,13 +18,12 @@ This list is intended to make it easier to identify which email list to include 
   * Runtime: [`hotspot-runtime-dev`](https://mail.openjdk.org/mailman/listinfo/hotspot-runtime-dev)
   * JFR: [`hotspot-jfr-dev`](https://mail.openjdk.org/mailman/listinfo/hotspot-jfr-dev)
   * Serviceability: [`serviceability-dev`](https://mail.openjdk.org/mailman/listinfo/serviceability-dev)
-* Java Language
-  * Javac: [`compiler-dev`](https://mail.openjdk.org/mailman/listinfo/compiler-dev)
-* JDK Tools
+* Javac: [`compiler-dev`](https://mail.openjdk.org/mailman/listinfo/compiler-dev)
+* Security: [`security-dev`](https://mail.openjdk.org/mailman/listinfo/security-dev)
+* Tools
   * Javadoc: [`javadoc-dev`](https://mail.openjdk.org/mailman/listinfo/javadoc-dev)
   * JShell: [`kulla-dev`](https://mail.openjdk.org/mailman/listinfo/kulla-dev)
   * Nashorn: [`nashorn-dev`](https://mail.openjdk.org/mailman/listinfo/nashorn-dev)
-* Security: [`security-dev`](https://mail.openjdk.org/mailman/listinfo/security-dev)
 
 ## Directory to area mapping
 
@@ -200,7 +198,9 @@ This list is intended to make it easier to identify which email list to include 
   * `jdk.unsupported.desktop` – Client Libs
   * `jdk.xml.dom` – Core Libs
   * `jdk.zipfs` – Core Libs
-* `test` – The test directories follow to a large part the same structure as the source code in `src`. The owners are the same for directories with the same names.
+  * `utils` –
+* `test`
+  * The test directories follow to a large part the same structure as the source code in `src`. The owners are the same for directories with the same names.
 
 ### Directories removed
 * hotspot
