@@ -202,7 +202,7 @@ Now that the issue is in the right component and has the basic information, the 
     1. Bugs where behavior has _incorrectly_ changed from a previous build or release : 'regression'
     1. Bugs that do not affect product code, but are only against the regression test: 'noreg-self'
     1. Issues that seem to be trivial to fix: 'starter'
-    1. Enhancements that are pure cleanups: 'noreg-cleanup'
+    1. Enhancements that are pure cleanups: 'cleanup'
     1. Project specific issues usually have their own labels as well
 
 At this point move the issue into the [Open]{.jbs-field} state.
