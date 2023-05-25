@@ -5,7 +5,7 @@
 
 * [Bug Report Tool](https://bugreport.java.com/)
 * [JDK Bug System (JBS)](https://bugs.openjdk.org/)
-  :::
+:::
 
 [JBS](https://bugs.openjdk.org/) is a public issue tracker used by many OpenJDK projects and is open for anyone to read and search. To get write access you need to be registered in the [OpenJDK Census](https://openjdk.org/census) by becoming, for instance, an [Author](https://openjdk.org/bylaws#author) in an OpenJDK [Project](https://openjdk.org/bylaws#project).
 
