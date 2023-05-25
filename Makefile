@@ -11,6 +11,8 @@ GUIDE_CHAPTERS := $(shell cat src/toc.conf)
 GUIDE_CHAPTER_FILES := $(addprefix src/guide/, $(GUIDE_CHAPTERS))
 GUIDE_CONCATENATED := build/support/index.md
 GUIDE_FOOTER := build/support/footers/index.html
+GUIDE_IMAGES := $(shell cat src/images.conf)
+GUIDE_IMAGE_FILES := $(addprefix src/guide/, $(GUIDE_IMAGES))
 GUIDE_UTF8 := build/support/utf-8/index.html
 GUIDE_RESULT := build/dist/index.html
 
@@ -85,7 +87,11 @@ build/dist/guidestyle.css: src/guidestyle.css
 	mkdir -p build/dist
 	cp $< $@
 
-all: $(GUIDE_RESULT) build/dist/guidestyle.css
+CopyImages: 
+	mkdir -p build/dist
+	cp $(GUIDE_IMAGE_FILES) build/dist
+
+all: CopyImages build/dist/guidestyle.css $(GUIDE_RESULT)
 
 clean:
 	rm -rf build
