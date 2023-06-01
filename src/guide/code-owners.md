@@ -169,7 +169,7 @@ This list is intended to make it easier to identify which email list to include 
   * `jdk.internal.vm.ci` – Compiler
   * `jdk.internal.vm.compiler` – Compiler
   * `jdk.internal.vm.compiler.management` – Compiler
-  * `jdk.jartool` – Generic List, Security
+  * `jdk.jartool` – Core Libs, Security
   * `jdk.javadoc` – Javadoc
   * `jdk.jcmd` – Serviceability
   * `jdk.jconsole` – Serviceability
