@@ -7,13 +7,17 @@
 * [Skara documentation on backports](https://wiki.openjdk.org/display/SKARA/Backports)
 :::
 
-Development of the latest version of the JDK often results in bug fixes that might be interesting to include in some of the JDK update releases still being maintained. Moving a fix from a more recent release train (e.g. JDK 17) to an older release train (e.g. JDK 11) is called *backporting*.
+Development of the latest version of the JDK often results in bug fixes that might be interesting to include in some of the JDK update releases still being maintained or in a feature release stabilization repository. Moving a fix from a more recent release train (e.g. JDK 17) to an older release train (e.g. JDK 11) is called *backporting*.
 
-The guideline for what to backport into a specific update release will vary over the lifetime of that release. Initially more fixes are expected to be backported as new features and large changes introduced in a mainline release stabilize. Over time the focus will shift from stabilization to keeping it stable - the release will go into maintenance mode. This means that bug fixes that require larger disruptive changes are more likely to be made in mainline and backported to more recent release trains only, and not to older release trains.
+The guideline for what to backport into a specific release will vary over the lifetime of that release. Initially more fixes are expected to be backported as new features and large changes introduced in a mainline release stabilize. Over time the focus will shift from stabilization to keeping it stable - the release will go into maintenance mode. This means that bug fixes that require larger disruptive changes are more likely to be made in mainline and backported to more recent release trains only, and not to older release trains.
 
 Over time it's likely that the code base will diverge between mainline and any given update release, and the cost of backporting will increase. The cost in this case is not only the effort needed to perform the actual backport, but also the cost inferred by bugs introduced by the backport. This should be taken into consideration when deciding if a change should be backported or not. For more details on how to reason around what to backport, [this email from JDK 8 Updates Project lead Andrew Haley](https://mail.openjdk.org/pipermail/jdk8u-dev/2020-June/012002.html) has some guidelines for JDK 8u. The reasoning in this mail is specific to JDK 8u, but will in general apply to any JDK release in maintenance mode.
 
 Any change that originally required a CSR will require a new CSR to be backported unless the backport was covered by the initial CSR. Changes to Java SE specifications cannot be made in an update release without a Java SE Maintenance Release. CSR-related issues affect interfaces and behavior and must be very carefully scrutinized.
+
+## Backporting to a feature release stabilization repository
+
+During rampdown of a feature release there are two repositories in play, the release stabilization repository for the outgoing release, and the mainline repository where the next release is being developed. Any change going into the release stabilization repository is likely to be desired in mainline as well. When making a change intended both for the stabilization release and the mainline repository, you should always create your pull request targeting the mainline repository first, and then, once the pull request is integrated, backport the resulting commit to the release stabilization repository.
 
 ## Working with backports in JBS
 
