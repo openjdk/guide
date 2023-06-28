@@ -17,7 +17,9 @@ Any change that originally required a CSR will require a new CSR to be backporte
 
 ## Backporting to a feature release stabilization repository
 
-During rampdown of a feature release there are two repositories in play, the release stabilization repository for the outgoing release, and the mainline repository where the next release is being developed. Any change going into the release stabilization repository is likely to be desired in mainline as well. When making a change intended both for the stabilization release and the mainline repository, you should always create your pull request targeting the mainline repository first, and then, once the pull request is integrated, backport the resulting commit to the release stabilization repository.
+During rampdown of a feature release there are two repositories in play, the release stabilization repository for the outgoing release, and the mainline repository where the next release is being developed. Any change going into the release stabilization repository is likely to be desired in mainline as well. When making a change intended both for the stabilization release and the mainline repository, you should always create your pull request targeting the mainline repository first, and then, once the pull request is integrated, backport the resulting commit to the release stabilization repository. For bugfixes that are **only** applicable to the release stablization repository, regular pull requests targeting the stabilization fork should be created.
+
+Please note that special rules applies during rampdown regarding what can and can't be included into the rampdown repository. See the [The JDK Release Process](#the-jdk-release-process) for more information.
 
 ## Working with backports in JBS
 
