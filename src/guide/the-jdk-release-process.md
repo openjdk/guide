@@ -50,25 +50,6 @@ Even though there's nothing explicitly written in the process about deferring P1
 
 Please note that the priority of a bug doesn't change just because you want to get your fix in late in the release, or if you want to be able to defer it. The priority is based on the severity of the bug and if it was deemed to be a P2 before, you better have a really good explanation to why that conveniently has changed by the end of the release. Being hard to fix is **not** a reason to lower the priority of a bug.
 
-## Forward ports
-
-During the rampdown of a release there are two repositories in play, the stabilization fork for the outgoing release, and the mainline repository where the next release is being developed. Any bugfix going into the stabilization fork is likely to be desired in mainline as well. As a developer you should push your fix to the stabilization fork **only**, even if you intend for it to go to both repositories. Your fix will be forward ported to mainline.
-
-_All_ fixes that are pushed to the stabilization fork are forward ported to mainline. If you have a fix that is only intended for the stabilization fork you will have to **manually** back it out from mainline once it has been forward ported. In order to remember to do this you should file a backout isue in JBS before pushing your change to the stabilization fork. E.g., To push JDK-xxx to the stabilization fork but not to mainline, you need to file an issue, JDK-yyy, in JBS to back out the fix after it has been merged into mainline. Make sure the two JBS issues (JDK-xxx and JDK-yyy) are related so that it's easy to find one from the other.
-
-To clarify, as soon as you know that there is a fix that needs to go into the stabilization fork but not mainline, you should do the following:
-
-* File a bug, JDK-yyy, to cover the backout work
-* [Link]{.jbs-field} JDK-yyy to JDK-xxx using a `relates to` link
-* Set JDK-yyy's [Fix Version/s]{.jbs-field} to the release currently being developed in mainline
-* Add a comment describing the situation
-* Set the [Priority]{.jbs-field} to be relatively high (e.g., P3)
-* Make yourself a watcher of JDK-xxx so that you get a notification when it's forward ported
-
-Then, you have to wait until the JDK-xxx fix is forward ported to mainline before actually fixing JDK-yyy. Making these settings in JDK-yyy will help ensure that it won't be missed.
-
-There are examples in JBS where JDK-yyy has been created as a sub-task of JDK-xxx. This is **not** recommended since JDK-yyy stands a higher risk of being missed when it's not of type *Bug* but rather a *sub-task* of an already closed issue. In general it's not recommended to have open sub-tasks of closed issues - an issue shouldn't be closed unless all it's sub-tasks are closed. Also see [Backing out a change](#backing-out-a-change) for reference.
-
 ::: {.box}
 [To the top](#){.boxheader}
 :::
