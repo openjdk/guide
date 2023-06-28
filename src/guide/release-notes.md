@@ -76,7 +76,7 @@ The following are general practices that should be followed when creating releas
 Unless labeled otherwise it will be assumed that the release note documents a change in behavior (will have likely required a CSR) or other item which should be included in the release notes. If the note covers a more specific type of change, then one of the following labels can be included (notes of a similar type will be listed together).
 
 [[RN-NewFeature]{.jbs-label}]{#RN-NewFeature}
-:   A New Feature or enhancement in the release.
+:   A new feature or enhancement in the release.
     The [Summary]{.jbs-field} must be the item/API or new functionality.
     The [Description]{.jbs-field} must contain the name of the new feature, its intended function, and how a user can utilize it.
     Example: [JDK-8193026](https://bugs.openjdk.org/browse/JDK-8193026)

@@ -70,6 +70,12 @@ pre > code {
     color: #333;
 }
 
+/* JBS field values */
+.jbs-value {
+    font-weight: bold;
+    color: #013;
+}
+
 /* JBS labels */
 .jbs-label {
     font-family: monospace;
