@@ -54,7 +54,7 @@ The Skara tooling includes support for backports. [The official Skara documentat
 
 ## How to fix an incorrect backport creation in JBS
 
-If an issue is targeted to a release and a fix referring to that issue is pushed to a different release repository, then a backport issue is automatically created in JBS. Usually this is a "good thing", e.g., when you are backporting a fix to an earlier release, but not always... If the main issue is targeted to a later release (due to schedule planning) but someone finds the time to fix that issue in the current release, or if the main issue is targeted to a feature release in rampdown and the fix is pushed to the mainline repository, then the issue should be retargeted to the correct release before pushing the fix. However, sometimes we forget to do that.
+If an issue is targeted to a release and a fix referring to that issue is pushed to a different release repository, then a backport issue is automatically created in JBS. Usually this is a "good thing", e.g., when you are backporting a fix to an earlier release, but not always... If the main issue is targeted to a later release (due to schedule planning) but someone finds the time to fix that issue in the current release, or if the main issue is targeted to a feature release in rampdown and the fix is pushed to the mainline repository, then the issue should be retargeted to the correct release before pushing the fix. However, sometimes we forget.
 
 Here's how to fix that:
 

@@ -90,7 +90,7 @@ JBS only has a few states in which a bug or enhancement can be in:
 | Type | Covers |
 |:-|:----------|
 | [New]{.jbs-value} | Initial state after an issue is filed. Bugs in the JDK Project must be taken out of the [New]{.jbs-value} state ("Triaged" - see below) in a timely manner. In general, triaging is recommended to be done for all issue types and projects as a sign that the issue is correctly filed, and will be seen by the right developers - this is especially important towards the end of a release. |
-| [Open]{.jbs-value} | Once the issue has been triaged it will be in the [Open]{.jbs-value} state and will stay here until the assignee decides to work on it, at which point it's encouraged that the "Start Work" option be selected to move it to [In Progress]{.jbs-value}. |
+| [Open]{.jbs-value} | Once the issue has been triaged it will be in the [Open]{.jbs-value} state and will stay here until an assignee decides to work on it, at which point it's encouraged that the "Start Work" option be selected to move it to [In Progress]{.jbs-value}. |
 | [In Progress]{.jbs-value} | The [In Progress]{.jbs-value} state is used to show that the assignee is actively working on the issue. It has the optional sub-states ([Understanding]{.jbs-field}): [Cause Known]{.jbs-value}, [Fix Understood]{.jbs-value}, [In Review]{.jbs-value}. |
 | [Closed]{.jbs-value}/[Resolved]{.jbs-value} | While [Closed]{.jbs-value} and [Resolved]{.jbs-value} are essentially equivalent, when it comes to fixing issues there is an additional verify step available between the [Resolved]{.jbs-value} and [Closed]{.jbs-value} states. |
 
