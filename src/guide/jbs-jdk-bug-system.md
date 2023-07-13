@@ -152,27 +152,28 @@ When triaging an issue, first give it a general review.
 
 1. If the issue is a duplicate, close it as such.
 1. If the issue belongs to a different area (it was filed in libraries, but it's an HotSpot issue), transfer it to the correct component/subcomponent making sure that the state remains [New]{.jbs-value}.
-1. If the issue is incomplete, add a comment noting what is needed and close the bug as [Resolved]{.jbs-value} - [Incomplete]{.jbs-value}. If no more information is obtained within reasonable time, the issue should be closed ([Closed]{.jbs-value} - [Incomplete]{.jbs-value}).
+1. If the issue is incomplete, add a comment noting what is needed and close the bug as [Resolved]{.jbs-value} - [Incomplete]{.jbs-value}. This is the JBS way of saying "need more information". If no more information is obtained within reasonable time, the issue should be closed ([Closed]{.jbs-value} - [Incomplete]{.jbs-value}).
 
 Now that the issue is in the right component and has the basic information, the analysis continues to get a more detailed understanding of the issue, and what should be done:
 
 1. Ensure the priority is correct.
-   * An approach that has been used for getting a consistent view of priority is to consider three aspects of the issue: **Impact** or issue; **Likelihood** of it occurring; and, whether there is a **Workaround**. The higher the impact and likelihood the higher the priority; then, having a workaround reduces that priority - but mostly where the impact and likelihood aren't that severe.
+   * An approach that has been used for getting a consistent view of priority is to consider three aspects of the issue: **Impact** of the issue; **Likelihood** of it occurring; and, whether there is a **Workaround**. The higher the impact and likelihood the higher the priority; then, having a workaround reduces that priority - but mostly where the impact and likelihood aren't that severe.
 1. Ensure the [Affects Version/s]{.jbs-field} field is correct (within reason).
    * This may involve reproducing the bug, if doing so is fast and easy.
-   * In addition to the version where the bug was found, take special care to also investigate if the bug affects the generally supported releases - e.g. the latest LTS release and the latest six-month release.
+   * In addition to the version where the bug was found, take special care to also investigate if the bug affects the generally supported releases - e.g. the latest "LTS" release and the latest six-month release.
    * The [Affects Version/s]{.jbs-field} isn't meant to be an exhaustive list of releases the issue is relevant to - it should initially be set to the release the issue was reproduced or identified on, and by implication it will be relevant on all releases past that point (see the [(Rel)[-na]{.jbs-label}](#rel-na) label). If it's later found to be applicable to an earlier release family then adding that earlier release is encouraged if the issue needs to be fixed in that release.
-   * Do not add additional release values to [Affects Version/s]{.jbs-field} for the same release family. E.g. If there is the value 11.0.2, don't add 11.0.5, 11.0.7 etc. Adding an additional value for a separate release family where it's still reproducible, e.g. 12, isn't necessary but ok, especially if the bug is old (e.g. reported on 8) but still relevant to the latest mainline release.
+   * Do not add additional release values to [Affects Version/s]{.jbs-field} for the same release family. E.g. If there is the value [11.0.2]{.jbs-value}, don't add [11.0.5]{.jbs-value}, [11.0.7]{.jbs-value} etc. Adding an additional value for a separate release family where it's still reproducible, e.g. [12]{.jbs-value}, isn't necessary but ok, especially if there's been a few releases since the latest version noted. E.g. [Affects Version/s]{.jbs-field} is [8]{.jbs-value} but its still relevant to the latest mainline release.
 1. Set the [Fix Version/s]{.jbs-field}.
-   * A bug should be fixed first in the most recent version where it exists, if you don't know what version it will go into set it to [tbd]{.jbs-value}.
+   * A bug should be fixed first in the most recent version where it exists. If you don't know what version the fix will go into set the [Fix Version/s]{.jbs-field} to [tbd]{.jbs-value}.
    * If the bug also exists in older versions it may require [backporting](#backporting).
-     * The decision to backport should be made inline with the guidelines of the lead for the release.
+     * The decision to backport to a release should be made inline with the guidelines of the lead for that release.
      * There are two options for creating backport issues to track the backport: one is to create it manually once it's agreed that the bug should be backported; the second, is to let the bots create the backport issue once you push the fix to the repo (see [Working with backports in JBS](#working-with-backports-in-jbs)). In most cases, letting the bots create the backport issue is preferred.
+   * For project internal changes intended to be pushed to a project repository rather than the JDK or JDK Updates repositories, the fix version should be set to [internal]{.jbs-value}, or if the project is large enough to have its own [repo-*]{.jbs-value} fix version, use that.
    * Only one fixversion should ever be set, if the issue is to be fixed in additional releases then a separate backport must be created (see [Working with backports in JBS](#working-with-backports-in-jbs)). There are exceptions to this rule for CSRs and Release Notes.
 1. Make sure the bug has all the required labels – see [JBS Label Dictionary](#jbs-label-dictionary).
    * Bugs where behavior has _incorrectly_ changed from a previous build or release: [[regression]{.jbs-label}](#regression)
    * Changes that don't affect product code, but are only against the regression test, or problem-listing: [[noreg-self]{.jbs-label}](#noreg-self)
-   * Changes that don't affect product code, but are olny against documentation: [[noreg-doc]{.jbs-label}](#noreg-doc)
+   * Changes that don't affect product code, but are only against documentation: [[noreg-doc]{.jbs-label}](#noreg-doc)
    * Issues that seem to be trivial to fix: [[starter]{.jbs-label}](#starter)
    * Enhancements that are pure cleanups: [[cleanup]{.jbs-label}](#cleanup)
    * Project specific issues usually have their own labels as well
@@ -197,7 +198,7 @@ Some additional fields should be filled out or updated as you get a better under
 
 **Note:** If during your investigation of the bug you determine that the issue is in the wrong component, make sure to move it back to the [New]{.jbs-value} state before moving it to the new component, so that it will be picked up by the component's triage team. Make sure there is a comment outlining the reason for the move, as explained above.
 
-## Resolving an issue
+## Resolving or Closing an issue
 
 Once the work on an issue has been completed the issues [Status]{.jbs-field} should be in a "completed" state. There are two "completed" states: [Resolved]{.jbs-value} and [Closed]{.jbs-value}. These are accompanied by a [Resolution]{.jbs-field}. Which combination of [Status]{.jbs-field} and [Resolution]{.jbs-field} you should use depends on how the issue is completed.
 
@@ -205,8 +206,8 @@ Once the work on an issue has been completed the issues [Status]{.jbs-field} sho
 |:-|:-|:----------|
 | [Fixed]{.jbs-value} | [Resolved]{.jbs-value} / [Closed]{.jbs-value} | The [Fixed]{.jbs-value} resolution should be used **only** if a change has been integrated in a repo to address the issue. For the JDK project in almost all cases the bots will transition the issue to [Resolved]{.jbs-value}/[Fixed]{.jbs-value} when the changeset is pushed to the repo. An issue in [Resolved]{.jbs-value}/[Fixed]{.jbs-value} state needs to go through [verification](#verifying-an-issue) to end up as [Closed]{.jbs-value}/[Fixed]{.jbs-value}.<br />If there isn't a fix in the repo (and so no associated changeset) then the issue should not be marked as [Fixed]{.jbs-field}, but rather set to [Delivered]{.jbs-field}. |
 | [Won't Fix]{.jbs-value} | [Closed]{.jbs-value} | Used when the issue is describing behavior which, while maybe problematic or not ideal, isn't going to be changed - for compatibility reasons for example. |
-| [Duplicate]{.jbs-value} | [Closed]{.jbs-value} | Where the same issue is described in another JBS issue then close one against the other as [Closed]{.jbs-value}/[Duplicate]{.jbs-value}. In general the newer issue is closed as a [Duplicate]{.jbs-value} of the older one, but where the newer issue has a clearer description then doing it the other way round is ok as long as none of them has been [Fixed]{.jbs-value} already. If one of the issues has been [Fixed]{.jbs-value} the other one should be closed as a [Duplicate]{.jbs-value} of the [Fixed]{.jbs-value} issue.<br />**Note:** Any issue closed as a [Duplicate]{.jbs-value} must have a "Duplicates" link to the duplicating issue.|
-| [Incomplete]{.jbs-value} | [Resolved]{.jbs-value} / [Closed]{.jbs-value} | Used to indicate that the JBS issue doesn't contain enough information to work on the issue. See [Triaging an issue](#triaging-an-issue) for more information. |
+| [Duplicate]{.jbs-value} | [Closed]{.jbs-value} | Used to indicate that the same issue is described in another JBS issue. See [Closing issues as duplicates](#closing-issues-as-duplicates) for more information. |
+| [Incomplete]{.jbs-value} | [Resolved]{.jbs-value} / [Closed]{.jbs-value} | Used to indicate that the JBS issue doesn't contain enough information to work on the issue. See [Closing incomplete issues](#closing-incomplete-issues) for more information. |
 | [Cannot Reproduce]{.jbs-value} | [Closed]{.jbs-value} | Use when a reproducer is provided (or clear steps) but it's not possible to see the faulty behavior. When you can't reproduce an issue, where feasible try on the release the issue was reported against as a way of confirming that it's indeed addressed on the latest release, rather than you not having the right environment in which to reproduce the issue. |
 | [Other]{.jbs-value} | [Closed]{.jbs-value} | Used in rare cases where none of the other statuses fit the situation. |
 | [Future Project]{.jbs-value} | --- | This status is not recommended for use. |
@@ -218,6 +219,16 @@ Once the work on an issue has been completed the issues [Status]{.jbs-field} sho
 | [Delivered]{.jbs-value} | [Resolved]{.jbs-value} / [Closed]{.jbs-value} | Used to close out issues where a change to the code isn't required, common examples are Release Notes and umbrella issues for larger projects. |
 | [Approved]{.jbs-value} | [Closed]{.jbs-value} | Used as part of the [CSR process](https://wiki.openjdk.org/display/csr/Main). |
 | Challenge States | --- | [Exclude [Challenge]]{.jbs-value}, [Alternative Tests [Challenge]]{.jbs-value}, and [Reject [Challenge]]{.jbs-value} are only relevant within the context of the JCK Project. |
+
+### Closing issues as duplicates
+
+If the same issue is described in another JBS issue then close one against the other as [Closed]{.jbs-value}/[Duplicate]{.jbs-value}. In general the newer issue is closed as a [Duplicate]{.jbs-value} of the older one, but where the newer issue has a clearer description then doing it the other way round is ok as long as none of them has been [Fixed]{.jbs-value} already. If one of the issues has been [Fixed]{.jbs-value} the other one should be closed as a [Duplicate]{.jbs-value} of the [Fixed]{.jbs-value} issue.
+
+**Note:** Any issue closed as a [Duplicate]{.jbs-value} **must** have a "Duplicates" link to the duplicating issue.
+
+### Closing incomplete issues
+
+As mentioned above, issues that lack the information needed to investigate the problem are placed in status [Resolved]{.jbs-value} - [Incomplete]{.jbs-value}. Triage teams should monitor incomplete issues in their area and if needed ping the relevant person. If the required information hasn't been obtained within reasonable time (3-4 weeks) the bug should be closed as [Incomplete]{.jbs-value}.
 
 ## Verifying an issue
 
