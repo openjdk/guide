@@ -8,7 +8,7 @@
 * [Google Test Documentation](https://github.com/google/googletest/blob/master/googletest/docs/primer.md)
 :::
 
-In addition to your own Java applications, OpenJDK have support for two test frameworks, jtreg and GTest. jtreg is a Java regression test framework that is used for most of the tests that are included in the OpenJDK source repository. The Google Test (GTest) framework is intended for unit testing of the C++ native code. Currently only JVM testing is supported by the GTest framework. Other areas use jtreg for unit testing of C++ code.
+In addition to your own Java applications, OpenJDK has support for two test frameworks to test the JDK, jtreg and GTest. jtreg is a Java regression test framework that is used for most of the tests that are included in the OpenJDK source repository. The Google Test (GTest) framework is intended for unit testing of the C++ native code. Currently only JVM testing is supported by the GTest framework. Other areas use jtreg for unit testing of C++ code.
 
 This section provides a brief summary of how to get started with testing in OpenJDK. For more information on configuration and how to use the OpenJDK test framework, a.k.a. "run-test framework", see [`doc/testing.md`](https://github.com/openjdk/jdk/blob/master/doc/testing.md).
 
