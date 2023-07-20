@@ -232,6 +232,8 @@ foo/bar/MyTest.java                        4710,4711   generic-all,windows-all
 
 Although `windows-all` isn't strictly required in this example, it's preferable to specify platforms for each bugid (unless they are all `generic-all`), this makes it easier to remove one of the bugs from the list.
 
+A common way to handle the JBS issue used to problemlist a test is to create a [Sub-task]{.jbs-value} of the bug that needs to be fixed to be able to remove the test from the problem list again.
+
 Remember to always add a [problemlist]{.jbs-label} label in the JBS issue referenced in the ProblemList entry.
 
 #### ProblemListing some, but not all, test cases in a file
