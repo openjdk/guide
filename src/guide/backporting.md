@@ -19,7 +19,7 @@ Any change that originally required a CSR will require a new CSR to be backporte
 
 During rampdown of a feature release there are two repositories in play, the release stabilization repository for the outgoing release, and the mainline repository where the next release is being developed. Any change going into the release stabilization repository is likely to be desired in mainline as well. When making a change intended both for the stabilization release and the mainline repository, you should always create your pull request targeting the mainline repository first, and then, once the pull request is integrated, backport the resulting commit to the release stabilization repository. For bugfixes that are **only** applicable to the release stabilization repository, regular pull requests targeting the stabilization fork should be created.
 
-Please note that special rules applies during rampdown regarding what can and can't be included into the rampdown repository. See the [The JDK Release Process](#the-jdk-release-process) for more information.
+Please note that special rules applies during rampdown regarding what can and can't be included into the rampdown repository. See the [The JDK Release Process] for more information.
 
 ## Working with backports in JBS
 
@@ -44,7 +44,7 @@ In general there's no need to create backport issues in JBS manually. All work t
 
 There can be cases where it's desirable to create a backport issue before the fix is done, e.g. if a CSR needs to be filed. In these cases set the [Fix Version/s]{.jbs-field} of the backport to `N` or `N-pool`, where `N` is the release train the backport is targeting. E.g. `17-pool`. Please note that even if a backport issue is created ahead of time, all work done in JBS for approvals and similar is still done in the main issue.
 
-Obviously it's possible to set the [Fix Version/s]{.jbs-field} to the exact release the backport is targeting, but in general this isn't recommended unless you are targeting a feature release in rampdown. When a change is pushed to an update release repository, the bots will look at the main issue as indicated in the PR title, and look for backports with the current `N.0.x` release version as [Fix Version/s]{.jbs-field}, if no such backport is found they will look for `N-pool`, and if that isn't found either, a new backport issue will be created. This means that if the backport has an exact [Fix Version/s]{.jbs-field} set, but is delayed and misses the release indicated by this [Fix Version/s]{.jbs-field}, a new backport issue is created with a small mess as the result. (See [How to fix an incorrect backport creation in JBS](#how-to-fix-an-incorrect-backport-creation-in-jbs).)
+Obviously it's possible to set the [Fix Version/s]{.jbs-field} to the exact release the backport is targeting, but in general this isn't recommended unless you are targeting a feature release in rampdown. When a change is pushed to an update release repository, the bots will look at the main issue as indicated in the PR title, and look for backports with the current `N.0.x` release version as [Fix Version/s]{.jbs-field}, if no such backport is found they will look for `N-pool`, and if that isn't found either, a new backport issue will be created. This means that if the backport has an exact [Fix Version/s]{.jbs-field} set, but is delayed and misses the release indicated by this [Fix Version/s]{.jbs-field}, a new backport issue is created with a small mess as the result. (See [How to fix an incorrect backport creation in JBS].)
 
 Setting the [Fix Version/s]{.jbs-field} of a backport targeted to an update release to `N` is always wrong. JDK `N` has already been released (or it wouldn't be an update release) and can't get any more fixes.
 
@@ -64,11 +64,9 @@ If an issue is targeted to a release and a fix referring to that issue is pushed
 
 Here's how to fix that:
 
-> ---
->
-> In this example a fix was pushed to JDK N+1 (the mainline repository) while the JBS bug was targeted to JDK N (a feature release in rampdown). The same procedure can be used in the opposite situation, when a fix has been pushed to JDK N when the JBS bug was targeted to JDK N+1, by switching N and N+1 below. Remember, to keep the record clean for the future, what matters the most is that the **bug id used in the commit comment is the main bug**, and that **the "backports"** (regardless of if they are to earlier or later releases) **are Backport type issues of that main issue**. Also make sure there are never more than one Backport issue of the same main issue targeted to any given release.
->
-> ---
+::: {.note}
+In this example a fix was pushed to JDK N+1 (the mainline repository) while the JBS bug was targeted to JDK N (a feature release in rampdown). The same procedure can be used in the opposite situation, when a fix has been pushed to JDK N when the JBS bug was targeted to JDK N+1, by switching N and N+1 below. Remember, to keep the record clean for the future, what matters the most is that the **bug id used in the commit comment is the main bug**, and that **the "backports"** (regardless of if they are to earlier or later releases) **are Backport type issues of that main issue**. Also make sure there are never more than one Backport issue of the same main issue targeted to any given release.
+:::
 
 #. Reopen the _backport_ issue that was created automatically
    * Use a comment like the following (in the reopen dialog):
