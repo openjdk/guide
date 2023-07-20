@@ -8,7 +8,7 @@
 
 Once you have made a change that you want to integrate into an OpenJDK code base you need to create a _Pull Request_ (PR) on GitHub. This section assumes that you have previous experience from using git and GitHub and won't go into details of how those work. Still, the aim is of course to provide a useful guide, so [send an email](#about-this-guide) if more details are needed.
 
-This section also assumes that you have already read [I have a patch, what do I do?](#i-have-a-patch-what-do-i-do) and followed **all** the steps there.
+This section also assumes that you have already read [I have a patch, what do I do?] and followed **all** the steps there.
 
 ## Think once more
 
@@ -54,7 +54,7 @@ If you have an actual reason to create a PR before the change is all done, make 
 
 #. **Set a correctly formatted title**
 
-   The title of the PR should be of the form "`nnnnnnn: Title of JBS issue`" where `nnnnnnn` is the JBS issue id of the main JBS issue that is being fixed, and the `Title of JBS issue` is the exact title of the issue as written in JBS. In fact, the title can be set to _only_ the JBS issue id (`nnnnnnn`) in which case the bot will fetch the title from JBS automatically. If you are creating a backport PR, see [Using the Skara tooling to help with backports](#using-the-skara-tooling-to-help-with-backports) for more details on the title requirements.
+   The title of the PR should be of the form "`nnnnnnn: Title of JBS issue`" where `nnnnnnn` is the JBS issue id of the main JBS issue that is being fixed, and the `Title of JBS issue` is the exact title of the issue as written in JBS. In fact, the title can be set to _only_ the JBS issue id (`nnnnnnn`) in which case the bot will fetch the title from JBS automatically. If you are creating a backport PR, see [Using the Skara tooling to help with backports] for more details on the title requirements.
 
 #. **Write a useful description**
 
@@ -72,13 +72,13 @@ If you have an actual reason to create a PR before the change is all done, make 
 
 #. **Allow enough time for review**
 
-   In general all PRs should be open for at least 24 hours to allow for reviewers in all time zones to get a chance to see it. It may actually happen that even 24 hours isn't enough. Take into account weekends, holidays, and vacation times throughout the world and you'll realize that a change that requires more than just a trivial review may have to be open for a while. In some areas [trivial](#trivial) changes are allowed to be pushed without the 24 hour delay. Ask your reviewers if you think this applies to your change.
+   In general all PRs should be open for at least 24 hours to allow for reviewers in all time zones to get a chance to see it. It may actually happen that even 24 hours isn't enough. Take into account weekends, holidays, and vacation times throughout the world and you'll realize that a change that requires more than just a trivial review may have to be open for a while. In some areas [trivial] changes are allowed to be pushed without the 24 hour delay. Ask your reviewers if you think this applies to your change.
 
 #. **Get the required reviews**
 
    At least one Reviewer knowledgeable in each area being changed must approve every change. Some areas (e.g. Client and HotSpot) require two reviewers in most cases, so be sure to read the relevant OpenJDK group pages for advice or ask your sponsor.
 
-   Be open to comments and polite in replies. Remember that the reviewer wants to improve the world just as much as you do, only in a slightly different way. If you don't understand some comment, ask the reviewer to clarify. Accept authority when applicable. If you're making changes in an area where you're not the area expert, acknowledge that your reviewers may be. Take their advice seriously, even if it is to not make the change. There are many reasons [why a change may get rejected](#why-is-my-change-rejected). And you did read the section [Things to consider before changing OpenJDK code](#things-to-consider-before-changing-openjdk-code), right?
+   Be open to comments and polite in replies. Remember that the reviewer wants to improve the world just as much as you do, only in a slightly different way. If you don't understand some comment, ask the reviewer to clarify. Accept authority when applicable. If you're making changes in an area where you're not the area expert, acknowledge that your reviewers may be. Take their advice seriously, even if it is to not make the change. There are many reasons [why a change may get rejected](#why-is-my-change-rejected). And you did read the section [Things to consider before changing OpenJDK code], right?
 
 #. **Updating the PR**
 

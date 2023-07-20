@@ -232,6 +232,8 @@ foo/bar/MyTest.java                        4710,4711   generic-all,windows-all
 
 Although `windows-all` isn't strictly required in this example, it's preferable to specify platforms for each bugid (unless they are all `generic-all`), this makes it easier to remove one of the bugs from the list.
 
+A common way to handle the JBS issue used to problemlist a test is to create a [Sub-task]{.jbs-value} of the bug that needs to be fixed to be able to remove the test from the problem list again.
+
 Remember to always add a [problemlist]{.jbs-label} label in the JBS issue referenced in the ProblemList entry.
 
 #### ProblemListing some, but not all, test cases in a file
@@ -283,7 +285,7 @@ In this example, `MyTest.java` is excluded, tracked by bug `JDK-4711`. `@ignore`
 
 ProblemListing and `@ignore`-ing are done in the JDK source tree, that means a check-in into the repository is needed. This in turn means that a unique JBS issue and a code review are needed. This is a good thing since it makes test problems visible.
 
-* **Code review**: ProblemListing a test is considered a [trivial](#trivial) change.
+* **Code review**: ProblemListing a test is considered a [trivial] change.
 * **JBS issue**: A JBS issue is obviously created for the bug that caused the failure, we call this the _main issue_. To exclude the test, create a subtask to the main issue. Also add the label [[problemlist]{.jbs-label}](#problemlist) to the main issue.
 
 The fix for the main issue should remove the test from the ProblemList or remove the `@ignore` keyword from the test.
@@ -296,7 +298,7 @@ After a failure is handled by excluding a test, the main JBS issue should be re-
 
 If a change causes a regression that can't be fixed within reasonable time, the best way to handle the regression can be to back out the change. Backing out means that the inverse (anti-delta) of the change is pushed to effectively undo the change in the repository. There are two parts to this task, how to do the bookkeeping in JBS, and how to do the actual backout in git or Mercurial.
 
-The backout is a regular change and will have to go through the standard code review process, but is considered a [trivial](#trivial) change. The rationale is that a backout is usually urgent in nature and the change itself is automatically generated. In areas where two reviewers are normally required, only one additional Reviewer is required for a backout since the person who is performing the backout also will review the change.
+The backout is a regular change and will have to go through the standard code review process, but is considered a [trivial] change. The rationale is that a backout is usually urgent in nature and the change itself is automatically generated. In areas where two reviewers are normally required, only one additional Reviewer is required for a backout since the person who is performing the backout also will review the change.
 
 ### How to work with JBS when a change is backed out
 
