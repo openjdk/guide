@@ -13,11 +13,9 @@ The complete source code for the JDK is hosted at [GitHub](https://github.com). 
 
 `openjdk/jdk` is the mainline JDK development repository where the next major release of the JDK is being developed. Other projects have their own repositories on GitHub.
 
-> ---
->
-> Note that source may be available from other locations, for example `src.zip` from a full JDK distribution. However, OpenJDK contributions must use source from the appropriate OpenJDK GitHub repository since other source distributions may contain older code or code which differs due to licensing. Consult the Project's documentation or [mailing list](#mailing-lists) to determine the appropriate repository, development conventions, and helpful tools.
->
-> ---
+::: {.note}
+Note that source may be available from other locations, for example `src.zip` from a full JDK distribution. However, OpenJDK contributions must use source from the appropriate OpenJDK GitHub repository since other source distributions may contain older code or code which differs due to licensing. Consult the Project's documentation or [mailing list] to determine the appropriate repository, development conventions, and helpful tools.
+:::
 
 If you intend to contribute patches, you should first *fork* the repository on GitHub and clone your own *personal fork* as shown below. To fork a project on GitHub, go to the GitHub project page and click the 'Fork' button in the upper right corner, then follow the on screen instructions.
 
@@ -53,7 +51,7 @@ Here we create a new branch called `JDK-8272373` based on the `master` branch an
 
 `git switch` was introduced in Git version 2.23. For earlier versions of Git `git checkout` can be used instead. However it is always recommended to use the latest versions of all your tools when possible.
 
-::: {.box}
+::: {.note}
 More information about how to work with git and the dedicated tooling that is available for OpenJDK can be found in the [Project Skara Documentation](https://wiki.openjdk.org/display/SKARA). If you're new to git you can also read more about how to work with it in one of the many fine git tutorials available on the Internet. For instance the [Pro Git book](https://git-scm.com/book/en/v2). This guide doesn't aspire to become another git guide.
 :::
 

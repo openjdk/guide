@@ -6,7 +6,9 @@
 * [Skara documentation on PR commands](https://wiki.openjdk.org/display/SKARA/Pull+Request+Commands)
 :::
 
-Once you have made a change that you want to integrate into an OpenJDK code base you need to create a _Pull Request_ (PR) on GitHub. This guide assumes that you have previous experience from using git and GitHub and won't go into details of how those work. Still, the aim is of course to provide a useful guide, so [send an email](#about-this-guide) if more details are needed.
+Once you have made a change that you want to integrate into an OpenJDK code base you need to create a _Pull Request_ (PR) on GitHub. This section assumes that you have previous experience from using git and GitHub and won't go into details of how those work. Still, the aim is of course to provide a useful guide, so [send an email](#about-this-guide) if more details are needed.
+
+This section also assumes that you have already read [I have a patch, what do I do?] and followed **all** the steps there.
 
 ## Think once more
 
@@ -52,7 +54,7 @@ If you have an actual reason to create a PR before the change is all done, make 
 
 #. **Set a correctly formatted title**
 
-   The title of the PR should be of the form "`nnnnnnn: Title of JBS issue`" where `nnnnnnn` is the JBS issue id of the main JBS issue that is being fixed, and the `Title of JBS issue` is the exact title of the issue as written in JBS. In fact, the title can be set to _only_ the JBS issue id (`nnnnnnn`) in which case the bot will fetch the title from JBS automatically. If you are creating a backport PR, see [Using the Skara tooling to help with backports](#using-the-skara-tooling-to-help-with-backports) for more details on the title requirements.
+   The title of the PR should be of the form "`nnnnnnn: Title of JBS issue`" where `nnnnnnn` is the JBS issue id of the main JBS issue that is being fixed, and the `Title of JBS issue` is the exact title of the issue as written in JBS. In fact, the title can be set to _only_ the JBS issue id (`nnnnnnn`) in which case the bot will fetch the title from JBS automatically. If you are creating a backport PR, see [Using the Skara tooling to help with backports] for more details on the title requirements.
 
 #. **Write a useful description**
 
@@ -66,15 +68,17 @@ If you have an actual reason to create a PR before the change is all done, make 
 
 #. **Make sure all relevant groups are included**
 
-   The bot will make an attempt to include the groups that need to review your change based on the location of the source code you have changed. There may be aspects of your change that are relevant to other groups as well, and the mapping from source to groups isn't always perfect, so make sure all relevant groups have been included, and add new labels using [`/label`](https://wiki.openjdk.org/display/SKARA/Pull+Request+Commands#PullRequestCommands-/label) if needed.
+   The bot will make an attempt to include the groups that need to review your change based on the location of the source code you have changed. There may be aspects of your change that are relevant to other groups as well, and the mapping from source to groups isn't always perfect, so make sure all relevant groups have been included, and add new labels using [`/label`](https://wiki.openjdk.org/display/SKARA/Pull+Request+Commands#PullRequestCommands-/label) if needed. Consult the [Code Owners]{#code-owners} section if you are unsure of who owns the code you are changing.
 
 #. **Allow enough time for review**
 
-   In general all PRs should be open for at least 24 hours to allow for reviewers in all time zones to get a chance to see it. It may actually happen that even 24 hours isn't enough. Take into account weekends, holidays, and vacation times throughout the world and you'll realize that a change that requires more than just a trivial review may have to be open for a while. In some areas [trivial](#trivial) changes are allowed to be pushed without the 24 hour delay. Ask your reviewers if you think this applies to your change.
+   In general all PRs should be open for at least 24 hours to allow for reviewers in all time zones to get a chance to see it. It may actually happen that even 24 hours isn't enough. Take into account weekends, holidays, and vacation times throughout the world and you'll realize that a change that requires more than just a trivial review may have to be open for a while. In some areas [trivial] changes are allowed to be pushed without the 24 hour delay. Ask your reviewers if you think this applies to your change.
 
-   At least one reviewer should be knowledgeable in the area being changed. Some areas (e.g. client and hotspot) require two reviewers in most cases, so be sure to read the relevant OpenJDK group pages for advice or ask your sponsor.
+#. **Get the required reviews**
 
-   Be open to comments and polite in replies. Remember that the reviewer wants to improve the world just as much as you do, only in a slightly different way. If you don't understand some comment, ask the reviewer to clarify. Accept authority when applicable. If you're making changes in an area where you're not the area expert, acknowledge that your reviewers may be. Take their advice seriously, even if it is to not make the change. There are many reasons [why a change may get rejected](#why-is-my-change-rejected). And you did read the section [Things to consider before changing OpenJDK code](#things-to-consider-before-changing-openjdk-code), right?
+   At least one Reviewer knowledgeable in each area being changed must approve every change. Some areas (e.g. Client and HotSpot) require two reviewers in most cases, so be sure to read the relevant OpenJDK group pages for advice or ask your sponsor.
+
+   Be open to comments and polite in replies. Remember that the reviewer wants to improve the world just as much as you do, only in a slightly different way. If you don't understand some comment, ask the reviewer to clarify. Accept authority when applicable. If you're making changes in an area where you're not the area expert, acknowledge that your reviewers may be. Take their advice seriously, even if it is to not make the change. There are many reasons [why a change may get rejected](#why-is-my-change-rejected). And you did read the section [Things to consider before changing OpenJDK code], right?
 
 #. **Updating the PR**
 
@@ -96,7 +100,7 @@ If you have an actual reason to create a PR before the change is all done, make 
 
 #. **After integration**
 
-   After you have integrated your change you are expected to stay around in case there are any issues with it. As mentioned above, you are expected to have run all relevant testing on your change before creating your PR, but regardless of how thorough you test it, things might slip through. After your change has been integrated an automatic pipeline of tests is triggered and your change will be tested on a variety of platforms and in a variety of different modes that the JDK can be executed in. A change that causes failures in later testing may be backed out if a fix can not be provided fast enough, or if the developer is not responsive when noticed about the failure. Note that this directive should be interpreted as "it is a really bad idea to push a change the last thing you do before bedtime, or the day before going on vacation".
+   After you have integrated your change you are expected to stay around in case there are any issues with it. As mentioned above, you are expected to have run all relevant testing on your change before creating your PR, but regardless of how thorough you test it, things might slip through. After your change has been integrated an automatic pipeline of tests is triggered and your change will be tested on a variety of platforms and in a variety of different modes that the JDK can be executed in. A change that causes failures in this testing may be backed out if a fix can't be provided fast enough, or if the developer isn't responsive when noticed about the failure. Note that this directive should be interpreted as "it's a really bad idea to push a change the last thing you do before bedtime, or the day before going on vacation".
 
 ## Webrevs
 

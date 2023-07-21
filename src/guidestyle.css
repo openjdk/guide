@@ -64,10 +64,25 @@ pre > code {
     color: #437291;
 }
 
+.note {
+    background-color: #f4f8ff;
+    border-width: 2px;
+    border-color: #437291;
+    border-style: solid none;
+    margin: 1em;
+    padding: 1em 1em 0em 1em;
+}
+
 /* JBS field names */
 .jbs-field {
     font-weight: bold;
     color: #333;
+}
+
+/* JBS field values */
+.jbs-value {
+    font-weight: bold;
+    color: #013;
 }
 
 /* JBS labels */

@@ -10,7 +10,7 @@ In this example we'll use a separate clone of the project repository to perform 
 
 ### Init - done once
 
-First set up your personal fork of the project repository, in this example called `my-project`. If you already are a Contributor to the project you most likely have this set up. If not, see [Cloning the JDK](#cloning-the-jdk) for details on how to do that.
+First set up your personal fork of the project repository, in this example called `my-project`. If you already are a Contributor to the project you most likely have this set up. If not, see [Cloning the JDK] for details on how to do that.
 
 ~~~shell
 git clone git@github.com:OpenDuke/my-project.git project-merge
@@ -61,7 +61,7 @@ git merge $TAG
 
 The commands above will likely run without a hitch up until the final `git merge`. This is where you need to combine the changes that were made in mainline with the changes that have been made in your project repository. If there are no conflicts you're in luck, then the merge will be completely automated and you will end up with a committed merge. If there are conflicts however you'll need to manually go through the files where the conflicts are and make sure you select the correct version for each change. Using `git status` you can see what files that need to be merged. Depending on how much code your project has touched, this can be quite a bit of work.
 
-For complicated merges, see [Sharing the work](#sharing-the-work) below.
+For complicated merges, see [Sharing the work] below.
 
 ### Test before push
 
