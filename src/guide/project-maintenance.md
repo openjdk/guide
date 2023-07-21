@@ -10,7 +10,7 @@ In this example we'll use a separate clone of the project repository to perform 
 
 ### Init - done once
 
-First set up your personal fork of the project repository, in this example called `my-project`. If you already are a contributor to the project you most likely have this set up. If not, see [Cloning the JDK] for details on how to do that.
+First set up your personal fork of the project repository, in this example called `my-project`. If you already are a Contributor to the project you most likely have this set up. If not, see [Cloning the JDK] for details on how to do that.
 
 ~~~shell
 git clone git@github.com:OpenDuke/my-project.git project-merge
@@ -98,7 +98,7 @@ These commands will remove the temporary branch that we created to perform the m
 
 ### Sharing the work
 
-When conflicts take place in areas requiring specialized knowledge you may need help from other contributors. Backing up the original conflicts will help if you find yourself "in too deep", and need assistance from other contributors. You can add and later remove these backups, along with a readme describing the merge status, to the actual merge branch to aid communication (i.e. you may not be able to compile certain components).
+When conflicts take place in areas requiring specialized knowledge you may need help from other Contributors. Backing up the original conflicts will help if you find yourself "in too deep", and need assistance from other Contributors. You can add and later remove these backups, along with a readme describing the merge status, to the actual merge branch to aid communication (i.e. you may not be able to compile certain components).
 
 Something like the following shell one-liner can be used to perform the backup.
 
@@ -110,7 +110,7 @@ Below are two different methods of collaborating on a merge described. Please no
 
 #### 1. Parking a merge with conflicts in place
 
-"Park" the conflicts, unresolved, in a personal fork, and let others do the further work (by sending you a patch, or opening your personal fork up to push from other contributors). Do this by keeping a list of unresolved conflicts (perhaps checking in said list to describe the merge state), and then marking them as resolved in git, committing, and pushing them to your personal fork. E.g. `git add $UNRESOLVED_FILES; git commit; git push`
+"Park" the conflicts, unresolved, in a personal fork, and let others do the further work (by sending you a patch, or opening your personal fork up to push from other Contributors). Do this by keeping a list of unresolved conflicts (perhaps checking in said list to describe the merge state), and then marking them as resolved in git, committing, and pushing them to your personal fork. E.g. `git add $UNRESOLVED_FILES; git commit; git push`
 
 **Pros:** All unresolved conflicts are stated and can be worked on by multiple parties, all at once.
 
@@ -126,7 +126,7 @@ An alternative to parking a merge with conflicts in place, is to incrementally m
 * Find the troublesome change: `git log --topo-order --pretty=oneline --reverse $(current_branch)..$TAG`
 * Merge up to the previous change, commit and push.
 * Ask others to continue the merge from the troubled change forward, how far forward is up you of course, either just that troublesome change, or the rest of the merge up to the $TAG.
-* Rinse and repeat: There may appear further conflicts requiring other contributors help.
+* Rinse and repeat: There may appear further conflicts requiring other Contributors help.
 
 **Pros:** All commits in the merge branch compile and test, you always have a working branch.
 
