@@ -2,11 +2,9 @@
 
 This is the list of steps which should be performed when fixing a small bug. Small bugs include typos in code or specification, algorithm improvements for correctness or performance, and code changes required to correctly implement the specification.
 
-> ---
->
-> Some steps refer to operations which can't be performed directly without the assistance of a [Project Committer](https://openjdk.org/bylaws#committer). For example, any changes to the [bug database](https://bugs.openjdk.org) fall into this category. Since these steps are required, [Contributors](https://openjdk.org/bylaws#contributor) are urged to work with their [Sponsors](https://openjdk.org/sponsor/) to complete these tasks.
->
-> ---
+::: {.note}
+Some steps refer to operations which can't be performed directly without the assistance of a [Project Committer](https://openjdk.org/bylaws#committer). For example, any changes to the [bug database](https://bugs.openjdk.org) fall into this category. Since these steps are required, [Contributors](https://openjdk.org/bylaws#contributor) are urged to work with their [Sponsors](https://openjdk.org/sponsor/) to complete these tasks.
+:::
 
 For the purposes of brevity this document will use the term "bug" to refer to both bugs and enhancements unless otherwise noted. Hence "fix for a bug" could also imply "implementation for an enhancement".
 
@@ -33,7 +31,7 @@ For the purposes of brevity this document will use the term "bug" to refer to bo
 #. **Does the fix for the bug require a specification change, directly affect an external interface, or otherwise have a compatibility impact?**
 
    **Yes**
-   :   Submission of a CSR request is required. The CSR must be [approved](#approved) before the bug fix is pushed to a feature release or update release repository. The work may begin concurrently with the CSR review, but may need to be modified in response to CSR feedback.
+   :   Submission of a CSR request is required. The CSR must be [approved] before the bug fix is pushed to a feature release or update release repository. The work may begin concurrently with the CSR review, but may need to be modified in response to CSR feedback.
 
    **No**
    :   Continue
@@ -96,7 +94,7 @@ For the purposes of brevity this document will use the term "bug" to refer to bo
 
 #. **Create a changeset**
 
-   Follow the instructions in [Producing a Changeset](#producing-a-changeset).
+   Follow the instructions in [Producing a Changeset].
 
 #. **Update the bug content**
 
@@ -104,7 +102,7 @@ For the purposes of brevity this document will use the term "bug" to refer to bo
 
 #. **Push the changeset into the Project's forest**
 
-   Follow the instructions in [Producing a Changeset](#producing-a-changeset). If working with a Sponsor, send the changeset to the development mailing list so that they can handle the final push.
+   Follow the instructions in [Producing a Changeset]. If working with a Sponsor, send the changeset to the development mailing list so that they can handle the final push.
 
    The push will trigger a update to the bug which will make the following changes:
 
