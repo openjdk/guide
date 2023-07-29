@@ -95,6 +95,7 @@ all: CopyImages build/dist/guidestyle.css $(GUIDE_RESULT)
 
 clean:
 	rm -rf build
+	rm mermaid-filter.err
 
 validate: build/dist/index.html
 	tidy -q -ascii -asxhtml -n --doctype omit --tidy-mark n build/dist/index.html > /dev/null
