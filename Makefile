@@ -87,11 +87,11 @@ build/dist/guidestyle.css: src/guidestyle.css
 	mkdir -p build/dist
 	cp $< $@
 
-CopyImages: 
+copyimages:
 	mkdir -p build/dist
 	cp $(GUIDE_IMAGE_FILES) build/dist
 
-all: CopyImages build/dist/guidestyle.css $(GUIDE_RESULT)
+all: $(GUIDE_RESULT) build/dist/guidestyle.css copyimages
 
 clean:
 	rm -rf build
