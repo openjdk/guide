@@ -11,8 +11,7 @@ GUIDE_CHAPTERS := $(shell cat src/toc.conf)
 GUIDE_CHAPTER_FILES := $(addprefix src/guide/, $(GUIDE_CHAPTERS))
 GUIDE_CONCATENATED := build/support/index.md
 GUIDE_FOOTER := build/support/footers/index.html
-GUIDE_IMAGES := $(shell cat src/images.conf)
-GUIDE_IMAGE_FILES := $(addprefix src/guide/, $(GUIDE_IMAGES))
+GUIDE_IMAGE_FILES := $(shell ls src/images/*)
 GUIDE_UTF8 := build/support/utf-8/index.html
 GUIDE_RESULT := build/dist/index.html
 
