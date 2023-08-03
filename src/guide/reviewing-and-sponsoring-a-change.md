@@ -8,7 +8,7 @@
 
 Two of the most important contributions you can make in the OpenJDK community are to review and sponsor changes for other developers. All changes needs to be reviewed. Many changes even need to be reviewed by more than one person. This means that in order to enable a fast-pased development experience, all developers need to review more changes then they produce themself.
 
-If you are new to an area, reviewing changes is also a great way to learn the code and see what general styles and types of changes that are relevant in the area.
+If you are new to an area, reviewing changes is also a great way to learn the code and see what general styles and types of changes that are relevant in the area. Be mindful though, if you don't know the area well you should state this in your review comments. As a **R**eviewer you have a responsibility to make sure changes are sound and goes in line with the general direction of the area. If you, as a **R**eviever, review a change in an area that you don't know well you probably shouldn't be the one to approve the change.
 
 New developers in the OpenJDK community don't have the permissions needed to push changes to the repositories. This is a feature that ensures that all developers get familiar with the code, processes, and community before being allowed to actually make changes. To get the first changes in, the new Contributor needs the help of a Sponsor. The Sponsor's role is to offer constructive advice and eventually push the sponsored contribution into the repository.
 
