@@ -11,6 +11,7 @@ GUIDE_CHAPTERS := $(shell cat src/toc.conf)
 GUIDE_CHAPTER_FILES := $(addprefix src/guide/, $(GUIDE_CHAPTERS))
 GUIDE_CONCATENATED := build/support/index.md
 GUIDE_FOOTER := build/support/footers/index.html
+GUIDE_IMAGE_FILES := $(shell ls src/images/*)
 GUIDE_UTF8 := build/support/utf-8/index.html
 GUIDE_RESULT := build/dist/index.html
 
@@ -85,10 +86,15 @@ build/dist/guidestyle.css: src/guidestyle.css
 	mkdir -p build/dist
 	cp $< $@
 
-all: $(GUIDE_RESULT) build/dist/guidestyle.css
+copyimages:
+	mkdir -p build/dist
+	cp $(GUIDE_IMAGE_FILES) build/dist
+
+all: $(GUIDE_RESULT) build/dist/guidestyle.css copyimages
 
 clean:
 	rm -rf build
+	rm mermaid-filter.err
 
 validate: build/dist/index.html
 	tidy -q -ascii -asxhtml -n --doctype omit --tidy-mark n build/dist/index.html > /dev/null
