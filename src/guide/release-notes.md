@@ -72,13 +72,13 @@ The following are general practices that should be followed when creating releas
     * [Description]{.jbs-field} - the JEP Summary text have already been heavily reviewed and also approved by the project lead. It should be the first sentence in the release note description. That would be analogous to the "change that was made" sentence in other release note descriptions. The remaining text would be composed of the background info from the JEP.
     * [Description]{.jbs-field} - The JEP release note description should contain the link to the JEP.
   * Single release note for multiple changes
-    * A link to the parent issue the note [Sub-task]{.jbs-field} will be placed alongside the summary in the releasenotes.  If note relates to addition changes, then add them as [Relates]{.jbs-field} links to the note and add the label [RN-multiple-links]{.jbs-label} - see [JDK-8284975](https://bugs.openjdk.org/browse/JDK-8284975) as an example.
+    * A link to the parent issue that the note is a sub-task of, will be placed alongside the summary in the releasenotes. If note relates to additional changes, then add them as [Relates]{.jbs-field} links to the note and add the label [RN-multiple-links]{.jbs-label} - see [JDK-8284975](https://bugs.openjdk.org/browse/JDK-8284975) as an example.
   * Multiple release notes for the same change
       * If more than one release note is required for the same set of fixes, then open additional sub-tasks with the same [Affects Version]{.jbs-field} - see [JDK-8073861](https://bugs.openjdk.org/browse/JDK-8073861) as an example.
   * Release notes across backports
     * If an issue is backported to earlier releases the same note will be used - just add the new release version in the [Affects Version]{.jbs-field} field of the relese note.
     * Where a different release note is required, then create a separate note with the [Affects Version]{.jbs-field} for the new release - see [JDK-8254631](https://bugs.openjdk.org/browse/JDK-8254631) as an example.
-            
+
 ## RN-labels
 
 Unless labeled otherwise it will be assumed that the release note documents a change in behavior (will have likely required a CSR) or other item which should be included in the release notes. If the note covers a more specific type of change, then one of the following labels can be included (notes of a similar type will be listed together).
@@ -123,7 +123,7 @@ Unless labeled otherwise it will be assumed that the release note documents a ch
 :   Deprecated. This is the default and no label is needed to indicate this.
 
 [[RN-multiple-links]{.jbs-label}]{#RN-multiple-links}
-:   Used to indicate that the release note should refer to multiple changes - see _Advanced options_ section above.
+:   Used to indicate that the release note should refer to multiple changes - see [_Advanced options_](#advanced-options) section above.
 
 
 ## Querying the release notes
