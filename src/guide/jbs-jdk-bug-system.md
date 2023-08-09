@@ -247,7 +247,7 @@ Once a bug is marked as fixed there is now the option of someone, other than the
 
 Removing a JBS issue is a rare extreme case that shouldn't be part of the normal workflow. For this reason, removing issues is restricted to admins only. If you for some reason need to remove an issue, send an email to [ops@openjdk.org](mailto:ops@openjdk.org). You need to provide the bug id and a well thought through reason to why the issue should be removed.
 
-Note that JBS issues are not removed just because something was a bad idea, or reported an issue that turned out to be an embarrassing user mistake. Such issues are simply closed.
+Note that JBS issues are not removed just because something was a bad idea, or a reported issue turned out to be an embarrassing user mistake. Such issues are simply closed.
 
 ## JBS labels
 
