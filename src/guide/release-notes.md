@@ -123,7 +123,7 @@ Unless labeled otherwise it will be assumed that the release note documents a ch
 :   Deprecated. This is the default and no label is needed to indicate this.
 
 [[RN-multiple-links]{.jbs-label}]{#RN-multiple-links}
-:   Used to indicate that the release note should refer to multiple changes - see [_Advanced options_](#advanced-options) section above.
+:   Used to indicate that the release note should refer to multiple changes - see [Advanced options](#advanced-options) section.
 
 
 ## Querying the release notes
