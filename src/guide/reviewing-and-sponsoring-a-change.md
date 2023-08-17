@@ -30,7 +30,11 @@ The Conversation section is where all discussion around the PR happens. Note tha
 
 You can either reply to existing comments by using the text field beneath each comment, or add a new comment by scrolling to the bottom of the page and use the larger text field where it says "Leave a comment".
 
-Reviews take time for everyone involved. Your opinions are much appreciated as long as they are on-topic and of a constructive nature. A comment of the form "I don't like this" won't help anyone to improve the change. Instead express what it is that you don't like and give exmaples of how to do it differently. Always be polite and make sure you read through all previous comments before adding your own, the answer you are looking for may already have been given.
+Reviews take time for everyone involved. Your opinions are much appreciated as long as they are on-topic and of a constructive nature. A comment of the form "I don't like this" won't help anyone to improve the change. Instead express what it is that you don't like and give examples of how to do it differently. Always be polite and make sure you read through all previous comments before adding your own, the answer you are looking for may already have been given.
+
+:::{.note}
+Note that GitHub will collapse comments if there are many of them, and if an issue is marked as resolved. This means that you have to be observant and may have to dig around a bit to find all comments in the PR.
+:::
 
 Never ask the author of a change to fix unrelated issues in the code that you find during your review. Such issues should be handled through a separate JBS issue and PR.
 
@@ -40,7 +44,7 @@ The Files changed-section is where the actual change is presented. On the left h
 
 The diff view is pretty straight forward, red stuff has been removed, green stuff has been added. You can configure (among other things) if you want a unified diff or a split view, if you want to hide whitespace changes, what types of files you want to show, and if you want to show the entire change or just what's happened since your last review.
 
-When you hover the text in the change a blue square with a plus sign pops up to the left of the line. Click it to add a comment about the change on the corresponding line. When you create your first comment you have the option to simply add a single comment or to start a review. In general you want to start a review so that all your comments are gathered in the same context when emails are sent out etc. You can also attach a comment to a file rather than to a specific line in the file by using the speach bubble icon at the top right.
+When you hover the text in the change a blue square with a plus sign pops up to the left of the line. Click it to add a comment about the change on the corresponding line. When you create your first comment you have the option to simply add a single comment or to start a review. In general you want to start a review so that all your comments are gathered in the same context when emails are sent out etc. You can also attach a comment to a file rather than to a specific line in the file by using the speech bubble icon at the top right.
 
 When a complete file has been reviewed there's a "viewed" checkbox at the top right that can be used to hide the files that you are done with. This is useful for changes that involve many files.
 
@@ -64,7 +68,7 @@ It should be noted that claiming the sponsorship can take many other forms. In c
 
 As a sponsor, you aren't technically required to review the change, other Reviewers may already have looked at it or signed up to review. But it will be your name on the commit so you should do whatever you feel is needed to be comfortable with that. You may need to work with the Contributor to make any necessary changes, until you and the Contributor are satisfied with the result, and you are satisfied that the proposed contribution will pass any relevant review and testing. That may take more than one iteration in the worst case. You may also need to help out with any process or practical questions around the OCA, GitHub PRs, and specific requirements in the area or project.
 
-To integrate the change the Contributor should use the command `/integrate` on the PR as prompted by the bots. Once that is done, you as a sponsor enters the command `/sponsor` in a comment on the PR.
+To integrate the change the Contributor should use the command `/integrate` on the PR as prompted by the bots. Once that is done, you as a sponsor enter the command `/sponsor` in a comment on the PR.
 
 Once the change has been integrated you may need to keep an eye out for any reported test failures and be prepared to investigate if such failures stem from the change you sponsored, and if so, work with the Contributor to resolve the issue.
 
