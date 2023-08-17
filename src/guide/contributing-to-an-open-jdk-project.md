@@ -62,7 +62,7 @@ Socializing your change on the mailing lists also prevents the surprise that wou
 
 ### 4. Create a tracking issue in JBS
 
-Many OpenJDK projects require a tracking issue to be filed in the [JDK Bug System (JBS)](https://bugs.openjdk.org/) before a change can be pushed. This is the case for instance for the JDK and the JDK-Updates projects. In order to get write access to JBS you need to be an [Author](https://openjdk.org/bylaws#author) in an OpenJDK project (see [Becoming an Author]). For your first changes, ask your sponsor to help you create the issue or file the bug through the [Bug Report Tool](https://bugreport.java.com/).
+Many OpenJDK projects require a tracking issue to be filed in the [JDK Bug System (JBS)](https://bugs.openjdk.org/) before a change can be pushed. This is the case for instance for the JDK and the JDK Updates projects. In order to obtain write access to JBS you need to be an [Author](https://openjdk.org/bylaws#author) in an OpenJDK project (see [Becoming an Author]). For your first changes, ask your sponsor to help you create the issue or file the bug through the [Bug Report Tool](https://bugreport.java.com/).
 
 ### 5. Get acquainted with local process
 

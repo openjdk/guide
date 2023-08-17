@@ -66,10 +66,18 @@ The following are general practices that should be followed when creating releas
   * Background info/context
   * Example: A new system property, `jdk.disableLastUsageTracking`, has been introduced to disable JRE last usage tracking for a running VM.
 
-* Special case: JEP release note
-  * [Summary]{.jbs-field} - If the change is an actual JEP, use the JEP title.
-  * [Description]{.jbs-field} - the JEP Summary text have already been heavily reviewed and also approved by the project lead. It should be the first sentence in the release note description. That would be analogous to the "change that was made" sentence in other release note descriptions. The remaining text would be composed of the background info from the JEP.
-  * [Description]{.jbs-field} - The JEP release note description should contain the link to the JEP.
+## Advanced options
+  * JEP release notes
+    * [Summary]{.jbs-field} - If the change is an actual JEP, use the JEP title.
+    * [Description]{.jbs-field} - the JEP Summary text have already been heavily reviewed and also approved by the project lead. It should be the first sentence in the release note description. That would be analogous to the "change that was made" sentence in other release note descriptions. The remaining text would be composed of the background info from the JEP.
+    * [Description]{.jbs-field} - The JEP release note description should contain the link to the JEP.
+  * Single release note for multiple changes
+    * A link to the parent issue that the note is a sub-task of, will be placed alongside the summary in the releasenotes. If note relates to additional changes, then add them as [Relates]{.jbs-field} links to the note and add the label [RN-multiple-links]{.jbs-label} - see [JDK-8284975](https://bugs.openjdk.org/browse/JDK-8284975) as an example.
+  * Multiple release notes for the same change
+      * If more than one release note is required for the same set of fixes, then open additional sub-tasks with the same [Affects Version]{.jbs-field} - see [JDK-8073861](https://bugs.openjdk.org/browse/JDK-8073861) as an example.
+  * Release notes across backports
+    * If an issue is backported to earlier releases the same note will be used - just add the new release version in the [Affects Version]{.jbs-field} field of the relese note.
+    * Where a different release note is required, then create a separate note with the [Affects Version]{.jbs-field} for the new release - see [JDK-8254631](https://bugs.openjdk.org/browse/JDK-8254631) as an example.
 
 ## RN-labels
 
@@ -113,6 +121,10 @@ Unless labeled otherwise it will be assumed that the release note documents a ch
 
 [[~~RN-Change~~]{.jbs-label}]{#RN-Change}
 :   Deprecated. This is the default and no label is needed to indicate this.
+
+[[RN-multiple-links]{.jbs-label}]{#RN-multiple-links}
+:   Used to indicate that the release note should refer to multiple changes - see [Advanced options](#advanced-options) section.
+
 
 ## Querying the release notes
 

@@ -243,6 +243,12 @@ As mentioned above, issues that lack the information needed to investigate the p
 
 Once a bug is marked as fixed there is now the option of someone, other than the person that fixed it, of marking it as [Verified]{.jbs-value} to confirm that the issue is fixed after testing; marking it as [Fix Failed]{.jbs-value} if it didn't solve the issue; or, [Not Verified]{.jbs-value} to indicate that it wasn't explicitly tested. Note that the JBS UI doesn't highlight when [Fix Failed]{.jbs-value} has been set, you need to look for the [Verification]{.jbs-field} field at the bottom of the left-hand column in the Details section.
 
+## Removing an issue
+
+Removing a JBS issue is a rare extreme case that shouldn't be part of the normal workflow. For this reason, removing issues is restricted to admins only. If you for some reason need to remove an issue, send an email to [ops@openjdk.org](mailto:ops@openjdk.org). You need to provide the bug id and a well considered reason the issue should be removed.
+
+Note that JBS issues are not removed just because something was a bad idea, or a reported issue turned out to be an embarrassing user mistake. Such issues are simply closed.
+
 ## JBS labels
 
 JBS labels are used to tag and group related issues. JBS labels are an open namespace, which means that anyone can create new labels at any time. In order to avoid confusion, however, it's best to reuse existing labels where possible. Most areas have their commonly used labels to identify issues in their respective area. Make an effort to find and use these labels. This can be done by editing the [Labels]{.jbs-field} field of a bug and entering the first few characters of the label you want to add. JIRA will pop up an autocomplete window with existing labels that match that prefix. Then choose one of the existing labels. Using the autocomplete window is preferable to typing the whole label name (even if you're a good typist) because it's easy for minor spelling errors to creep in, which can inadvertently introduce multiple labels with spurious spelling variations.
