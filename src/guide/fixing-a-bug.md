@@ -94,7 +94,7 @@ For the purposes of brevity this document will use the term "bug" to refer to bo
 
 #. **Create a changeset**
 
-   Follow the instructions in [Producing a Changeset].
+   Follow the instructions in [Working With Pull Requests].
 
 #. **Update the bug content**
 
@@ -102,7 +102,7 @@ For the purposes of brevity this document will use the term "bug" to refer to bo
 
 #. **Push the changeset into the Project's forest**
 
-   Follow the instructions in [Producing a Changeset]. If working with a Sponsor, send the changeset to the development mailing list so that they can handle the final push.
+   Follow the instructions in [Working With Pull Requests]. If working with a Sponsor, send the changeset to the development mailing list so that they can handle the final push.
 
    The push will trigger a update to the bug which will make the following changes:
 
