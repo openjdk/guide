@@ -87,7 +87,7 @@ Unless labeled otherwise it will be assumed that the release note documents a ch
 :   A new feature or enhancement in the release.
     The [Summary]{.jbs-field} must be the item/API or new functionality.
     The [Description]{.jbs-field} must contain the name of the new feature, its intended function, and how a user can utilize it.
-    Example: [JDK-8193026](https://bugs.openjdk.org/browse/JDK-8193026)
+    Example: [JDK-8315443](https://bugs.openjdk.org/browse/JDK-8315443)
 
 [[RN-IssueFixed]{.jbs-label}]{#RN-IssueFixed}
 :   A significant issue which has been fixed. This would normally be a regression or an issue which was unknowingly released in a new feature.
