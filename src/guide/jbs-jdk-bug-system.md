@@ -46,7 +46,8 @@ A few things to keep in mind when filing an issue:
   * If you find a similar issue that was closed as [Cannot Reproduce]{.jbs-value} then it may be appropriate to re-open that one - if you don't have direct access to JBS you can file a bug using the [Bug Report Tool](https://bugreport.java.com/) requesting that it be reopened.
 * Make a reasonable attempt to narrow down which build or release the failure first appeared in.
 * Set [Affects Version/s]{.jbs-field} to the earliest JDK version(s) where the failure was seen.
-  * If the failure is found in an update train of the JDK (e.g. 11.0.x), please make an effort to see if it's also present in [mainline](https://github.com/openjdk/jdk).
+  * If the failure is found in an update train of the JDK (e.g. 11.0.x), if possible please see if it's also present in [mainline](https://github.com/openjdk/jdk).
+  * For enhancements the [Affects Version]{.jbs-field} should be left empty, unless it is only relevant to a specific release family.
 * Add relevant [Labels]{.jbs-field} like [[intermittent]{.jbs-label}](#intermittent), [[regression]{.jbs-label}](#regression), [[noreg-self]{.jbs-label}](#noreg-self), [[tier1]{.jbs-label}](#tier) etc.
   * For more information see the [JBS Label Dictionary].
 * Set the priority.
@@ -163,9 +164,10 @@ Now that the issue is in the right component and has the basic information, the 
    * An approach that has been used for getting a consistent view of priority is to consider three aspects of the issue: **Impact** of the issue; **Likelihood** of it occurring; and, whether there is a **Workaround**. The higher the impact and likelihood the higher the priority; then, having a workaround reduces that priority - but mostly where the impact and likelihood aren't that severe.
 1. Ensure the [Affects Version/s]{.jbs-field} field is correct (within reason).
    * This may involve reproducing the bug, if doing so is fast and easy.
-   * In addition to the version where the bug was found, take special care to also investigate if the bug affects the generally supported releases - e.g. the latest "LTS" release and the latest six-month release.
+   * In addition to the version where the bug was found, take special care to also investigate if the bug affects mainline.
    * The [Affects Version/s]{.jbs-field} isn't meant to be an exhaustive list of releases the issue is relevant to - it should initially be set to the release the issue was reproduced or identified on, and by implication it will be relevant on all releases past that point (see the [(Rel)[-na]{.jbs-label}](#rel-na) label). If it's later found to be applicable to an earlier release family then adding that earlier release is encouraged if the issue needs to be fixed in that release.
    * Do not add additional release values to [Affects Version/s]{.jbs-field} for the same release family. E.g. If there is the value [11.0.2]{.jbs-value}, don't add [11.0.5]{.jbs-value}, [11.0.7]{.jbs-value} etc. Adding an additional value for a separate release family where it's still reproducible, e.g. [12]{.jbs-value}, isn't necessary but ok, especially if there's been a few releases since the latest version noted. E.g. [Affects Version/s]{.jbs-field} is [8]{.jbs-value} but its still relevant to the latest mainline release.
+   * For enhancements the [Affects Version]{.jbs-field} should be empty unless you feel that it is only relevant to a particular release family, and should not go into a future mainline release.
 1. Set the [Fix Version/s]{.jbs-field}.
    * A bug should be fixed first in the most recent version where it exists. If you don't know what version the fix will go into set the [Fix Version/s]{.jbs-field} to [tbd]{.jbs-value}.
    * If the bug also exists in older versions it may require [backporting].
