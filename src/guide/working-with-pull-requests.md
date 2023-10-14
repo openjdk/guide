@@ -68,7 +68,7 @@ If you have an actual reason to create a PR before the change is all done, make 
 
 #. **Make sure all relevant groups are included**
 
-   The bot will make an attempt to include the groups that need to review your change based on the location of the source code you have changed. There may be aspects of your change that are relevant to other groups as well, and the mapping from source to groups isn't always perfect, so make sure all relevant groups have been included, and add new labels using [`/label`](https://wiki.openjdk.org/display/SKARA/Pull+Request+Commands#PullRequestCommands-/label) if needed. Consult the [Code Owners]{#code-owners} section if you are unsure of who owns the code you are changing.
+   The bot will make an attempt to include the groups that need to review your change based on the location of the source code you have changed. There may be aspects of your change that are relevant to other groups as well, and the mapping from source to groups isn't always perfect, so make sure all relevant groups have been included, and add new labels using [`/label`](https://wiki.openjdk.org/display/SKARA/Pull+Request+Commands#PullRequestCommands-/label) if needed. Consult the [Code Owners](#code-owners) section if you are unsure of who owns the code you are changing.
 
 #. **Allow enough time for review**
 
