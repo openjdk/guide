@@ -197,7 +197,7 @@ Once you are made, or you make yourself, the assignee of an issue you take on th
 
 Some additional fields should be filled out or updated as you get a better understanding of the issue:
 
-* For a regression, if you identify the fix that caused it, add a relates-to link to that issue (and add a [[regression_]{.jbs-label}(ID)](#regression-id) label) and set the [Introduced in Build]{.jbs-field} or [Introduced in Version]{.jbs-field} field.
+* For a regression, if you identify the fix that caused it, add a relates-to link to that issue (and add a [[regression_]{.jbs-label}(ID)](#regression_id) label) and set the [Introduced in Build]{.jbs-field} or [Introduced in Version]{.jbs-field} field.
 * The [Description]{.jbs-field} usually explains what went wrong and how the failure was found, then there's some investigation and eventually the root cause is found. At this point the [Summary]{.jbs-field} should be updated to correctly describe the bug. The [Description]{.jbs-field} however should remain a description of how the failure was found.
 * The [Affects Version/s]{.jbs-field} should be updated if you in your investigation finds that the issue is older than what is indicated by the current [Affects Version/s]{.jbs-field}.
 
@@ -624,7 +624,7 @@ Examples:  If a bug fix only corrects a change in the build system, then add the
     </td>
   </tr>
   <tr>
-    <td class="dictionary">[[regression_]{.jbs-label}*(ID)*]{#regressionId}</td>
+    <td class="dictionary">[[regression_]{.jbs-label}*(ID)*]{#regression_id}</td>
     <td class="dictionary">
       Used to identify the fix that caused the regression, where known.
     </td>

@@ -72,7 +72,7 @@ The following are general practices that should be followed when creating releas
     * [Description]{.jbs-field} - the JEP Summary text have already been heavily reviewed and also approved by the project lead. It should be the first sentence in the release note description. That would be analogous to the "change that was made" sentence in other release note descriptions. The remaining text would be composed of the background info from the JEP.
     * [Description]{.jbs-field} - The JEP release note description should contain the link to the JEP.
   * Single release note for multiple changes
-    * A link to the parent issue that the note is a sub-task of, will be placed alongside the summary in the releasenotes. If note relates to additional changes, then add them as [Relates]{.jbs-field} links to the note and add the label [RN-multiple-links]{.jbs-label} - see [JDK-8284975](https://bugs.openjdk.org/browse/JDK-8284975) as an example.
+    * A link to the parent issue that the note is a sub-task of, will be placed alongside the summary in the releasenotes. If note relates to additional changes, then add them as [Relates]{.jbs-field} links to the note and add the label [RN-MultipleLinks]{.jbs-label} - see [JDK-8284975](https://bugs.openjdk.org/browse/JDK-8284975) as an example.
   * Multiple release notes for the same change
       * If more than one release note is required for the same set of fixes, then open additional sub-tasks with the same [Affects Version]{.jbs-field} - see [JDK-8073861](https://bugs.openjdk.org/browse/JDK-8073861) as an example.
   * Release notes across backports
@@ -119,11 +119,11 @@ Unless labeled otherwise it will be assumed that the release note documents a ch
 [[RN-]{.jbs-label}_(distro)_]{#RN-distro}
 :   Used to indicate that the release note is only relevant for a specific JDK distribution. E.g. [RN-Oracle]{.label}
 
+[[RN-MultipleLinks]{.jbs-label}]{#RN-MultipleLinks}
+:   Used to indicate that the release note should refer to multiple changes - see [Advanced options](#advanced-options) section.
+
 [[~~RN-Change~~]{.jbs-label}]{#RN-Change}
 :   Deprecated. This is the default and no label is needed to indicate this.
-
-[[RN-multiple-links]{.jbs-label}]{#RN-multiple-links}
-:   Used to indicate that the release note should refer to multiple changes - see [Advanced options](#advanced-options) section.
 
 
 ## Querying the release notes
