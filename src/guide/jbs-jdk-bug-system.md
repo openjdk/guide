@@ -349,6 +349,8 @@ This table contains some frequently used JBS labels and their meaning. Please he
 
       The [Affects Version/s]{.jbs-field} field is used to indicate the releases where an issue has been seen - it's implied that the issue is also applicable to newer releases. Where this isn't the case - for instance a bug in code that was removed in *(Rel)* - then use *(Rel)*[-na]{.jbs-label} to indicate this. Note that there should only be **one** *(Rel)*[-na]{.jbs-label} label on any JBS issue.
 
+      It's not recommended to specify update releases like 17u4 or 21u in the label. Please stick to labels like [17-na]{.jbs-label} and [21-na]{.jbs-label}.
+
       Don't use the label to indicate that a bug isn't relevant to an earlier release. If a bug is not present in an earlier release you can use [Introduced in Version]{.jbs-field} to indicate where the bug was introduced. If a bug is present in an earlier release, but shouldn't be fixed there, use [*(Rel)*[-wnf]{.jbs-label}]{#rel-wnf}.
     </td>
   </tr>
