@@ -46,8 +46,8 @@ A few things to keep in mind when filing an issue:
   * If you find a similar issue that was closed as [Cannot Reproduce]{.jbs-value} then it may be appropriate to re-open that one - if you don't have direct access to JBS you can file a bug using the [Bug Report Tool](https://bugreport.java.com/) requesting that it be reopened.
 * Make a reasonable attempt to narrow down which build or release the failure first appeared in.
 * Set [Affects Version/s]{.jbs-field} to the earliest JDK version(s) where the failure was seen.
-  * If the failure is found in an update train of the JDK (e.g. 11.0.x), please see (if possible) if it's also present in [mainline](https://github.com/openjdk/jdk).
-  * For enhancements the [Affects Version]{.jbs-field} should be left empty, unless it is only relevant to a specific release family.
+  * If the failure is found in an update train of the JDK (e.g. 11.0.x), please see (if possible) if it's also present in [mainline](https://github.com/openjdk/jdk). If it is, adding the mainline version as well to the [Affects Version/s]{.jbs-field} can be a good idea.
+  * For enhancements the [Affects Version]{.jbs-field} should be left empty, unless the enhancement is only relevant to a specific release family.
 * Add relevant [Labels]{.jbs-field} like [[intermittent]{.jbs-label}](#intermittent), [[regression]{.jbs-label}](#regression), [[noreg-self]{.jbs-label}](#noreg-self), [[tier1]{.jbs-label}](#tier) etc.
   * For more information see the [JBS Label Dictionary].
 * Set the priority.
@@ -166,8 +166,8 @@ Now that the issue is in the right component and has the basic information, the 
    * This may involve reproducing the bug, if doing so is fast and easy.
    * In addition to the version where the bug was found, take special care to also investigate if the bug affects mainline.
    * The [Affects Version/s]{.jbs-field} isn't meant to be an exhaustive list of releases the issue is relevant to - it should initially be set to the release the issue was reproduced or identified on, and by implication it will be relevant on all releases past that point (see the [(Rel)[-na]{.jbs-label}](#rel-na) label). If it's later found to be applicable to an earlier release family then adding that earlier release is encouraged if the issue needs to be fixed in that release.
-   * Do not add additional release values to [Affects Version/s]{.jbs-field} for the same release family. E.g. If there is the value [11.0.2]{.jbs-value}, don't add [11.0.5]{.jbs-value}, [11.0.7]{.jbs-value} etc. Adding an additional value for a separate release family where it's still reproducible, e.g. [12]{.jbs-value}, isn't necessary but ok, especially if there's been a few releases since the latest version noted. E.g. [Affects Version/s]{.jbs-field} is [8]{.jbs-value} but its still relevant to the latest mainline release.
-   * For enhancements the [Affects Version]{.jbs-field} should be empty unless you feel that it is only relevant to a particular release family, and should not go into a future mainline release.
+   * Do not add additional release values to [Affects Version/s]{.jbs-field} for the same release family. E.g. If there is the value [11.0.2]{.jbs-value}, don't add [11.0.5]{.jbs-value}, [11.0.7]{.jbs-value} etc. Adding an additional value for a separate release family where it's still reproducible, e.g. [12]{.jbs-value}, isn't necessary but ok, especially if there's been a few releases since the latest version noted. E.g. [Affects Version/s]{.jbs-field} is [11]{.jbs-value} but its still relevant to the latest mainline release.
+   * For enhancements the [Affects Version]{.jbs-field} should be empty unless you feel that the enhancement is only relevant to a particular release family, and shouldn't go into a future mainline release.
 1. Set the [Fix Version/s]{.jbs-field}.
    * A bug should be fixed first in the most recent version where it exists. If you don't know what version the fix will go into set the [Fix Version/s]{.jbs-field} to [tbd]{.jbs-value}.
    * If the bug also exists in older versions it may require [backporting].
@@ -347,11 +347,11 @@ This table contains some frequently used JBS labels and their meaning. Please he
     <td class="dictionary">
       Labels of the form [11-na]{.jbs-label} or [21-na]{.jbs-label} should be used when a bug is not applicable to a **more recent** release family.
 
-      The [Affects Version/s]{.jbs-field} field is used to indicate the releases where an issue has been seen - it's implied that the issue is also applicable to newer releases. Where this isn't the case - for instance a bug in code that was removed in *(Rel)* - then use *(Rel)*[-na]{.jbs-label} to indicate this. Note that there should only be **one** *(Rel)*[-na]{.jbs-label} label on any JBS issue.
+      The [Affects Version/s]{.jbs-field} field is used to indicate the releases where an issue has been seen - it's implied that the issue is also applicable to newer releases. Where this isn't the case - for instance a bug in code that was removed in *(Rel)* - then use *(Rel)*[-na]{.jbs-label} to indicate this. Note that there should only be **one** *(Rel)*[-na]{.jbs-label} label on any JBS issue. The label indicates the first known release where the issue is not present. If it's found that the issue is not present in an earlier release, change the label to indicate this.
 
       It's not recommended to specify update releases like 17u4 or 21u in the label. Please stick to labels like [17-na]{.jbs-label} and [21-na]{.jbs-label}.
 
-      Don't use the label to indicate that a bug isn't relevant to an earlier release. If a bug is not present in an earlier release you can use [Introduced in Version]{.jbs-field} to indicate where the bug was introduced. If a bug is present in an earlier release, but shouldn't be fixed there, use [*(Rel)*[-wnf]{.jbs-label}]{#rel-wnf}.
+      Don't use this label to indicate that a bug isn't relevant to an earlier release where it's present in a later release. If a bug is not present in an earlier release you can use [Introduced in Version]{.jbs-field} to indicate where the bug was introduced. If a bug is present in an earlier release, but shouldn't be fixed there, use [*(Rel)*[-wnf]{.jbs-label}]{#rel-wnf}.
     </td>
   </tr>
   <tr>
