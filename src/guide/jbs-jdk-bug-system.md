@@ -39,15 +39,15 @@ The most common issue types are:
 A [Bug]{.jbs-value} or [Enhancement]{.jbs-value} should only be used if the work is expected to result in a change in a code repository. A [Bug]{.jbs-value} or [Enhancement]{.jbs-value} with resolution [Fixed]{.jbs-value} is required to have a corresponding changeset in one of the OpenJDK repositories.
 :::
 
-A few things to keep in mind when filing an issue:
+#### Things to keep in mind when filing an issue
 
 * Before filing, verify that there isn't an open issue already filed.
   * Search [JBS](https://bugs.openjdk.org/) for things like the name of the failing test, assert messages, the name of the source code file where a crash occurred etc.
   * If you find a similar issue that was closed as [Cannot Reproduce]{.jbs-value} then it may be appropriate to re-open that one - if you don't have direct access to JBS you can file a bug using the [Bug Report Tool](https://bugreport.java.com/) requesting that it be reopened.
 * Make a reasonable attempt to narrow down which build or release the failure first appeared in.
 * Set [Affects Version/s]{.jbs-field} to the earliest JDK version(s) where the failure was seen.
-  * If the failure is found in an update train of the JDK (e.g. 11.0.x), if possible please see if it's also present in [mainline](https://github.com/openjdk/jdk).
-  * For enhancements the [Affects Version]{.jbs-field} should be left empty, unless it is only relevant to a specific release family.
+  * If the failure is found in an update train of the JDK (e.g. 11.0.x), if possible please see if it's also present in [mainline](https://github.com/openjdk/jdk). See [Indicating what releases an issue is applicable to](#indicating-what-releases-an-issue-is-applicable-to) for more details
+  * For an enhancement the [Affects Version]{.jbs-field} should be left empty, unless it is only relevant to a specific release family.
 * Add relevant [Labels]{.jbs-field} like [[intermittent]{.jbs-label}](#intermittent), [[regression]{.jbs-label}](#regression), [[noreg-self]{.jbs-label}](#noreg-self), [[tier1]{.jbs-label}](#tier) etc.
   * For more information see the [JBS Label Dictionary].
 * Set the priority.
@@ -72,7 +72,51 @@ A few things to keep in mind when filing an issue:
 * Always file separate bugs for different issues.
   * If two crashes look related, but not similar enough to be sure they are the same, it's easier to later close a bug as a duplicate than it is to separate out one bug into two.
 
-Things to keep in mind when requesting an improvement:
+#### Indicating what releases an issue is applicable to
+
+Knowing when an issue was introduced is important to determine the impact of the issue and where it needs to be resolved. While in some cases it may be clear, it is likely that on submission and during triage this won't be known, instead we will have one or two data points from which we can begin to understand the range of releases which the issue impacts.
+
+The [Affects Version]{.jbs-field} field is used to indicate which releases an issue is applicable to, and to avoid having to set it to an exhaustive list of impacted releases the following assumptions are used to give that range:
+
+1) If a issue applicable to a feature release N it is assumed to be applicable to all (more recent) releases unless indicated otherwise (see (Rel)-na below).
+  - Note that if it is reported against an update release then all we can say is that it applicable to all the following update releases, not necessarily the next feature release as it may have been introduced in an update.  Given this, it is always important to try and reproduce the issue in either the corresponding feature release or the following.
+
+1) If an issue is applicable to release N, then it can't be assumed that it is applicable to older releases less than N. It may be, but in general this is less important to know this as the majority of issues are only fixed in the latest feature release.  If the issue is a crash or important in another way, then it becomes worthwhile to take the time to determine if it is relevant to earlier LTS releases.
+
+Another aspect of an issue is when, the feature it is a part of, was added or removed from the JDK, which in either case limits the range of releases the issue impacts.  Knowing that a feature was removed before the oldest currently supported release means it can be resolved as will-not-fix.,
+
+##### Setting the Affects Versions field
+Set the [Affects Versions]{.jbs-field} field to the lowest release value that the bug is known to be reproducible on.
+
+* The [Affects Version/s]{.jbs-field} isn't meant to be an exhaustive list of releases the issue is relevant to - it should initially be set to the release the issue was reproduced or identified on, and by implication it will be relevant on all releases past that point (see the [Usage of (Rel)[-na]{.jbs-label} Label](#usage-of-rel-na-label)). If it's later found to be applicable to an earlier release family then adding that earlier release is encouraged if the issue needs to be fixed in that release.
+* Do not add additional release values to [Affects Version/s]{.jbs-field} for the same release family. E.g. If there is the value [11.0.2]{.jbs-value}, don't add [11.0.5]{.jbs-value}, [11.0.7]{.jbs-value} etc. Adding an additional value for a separate release family where it's still reproducible, e.g. JDK [21]{.jbs-value}, is encouraged, especially if there is not currently a feature release value set, or, it has been a few releases since it was last reproduced/reviewed. E.g. [Affects Version/s]{.jbs-field} is JDK [8]{.jbs-value} but it is still relevant to the latest mainline release.
+
+##### Usage of (Rel)-na Label
+
+Labels of the form [12-na]{.jbs-label} or [18-na]{.jbs-label} should be used when a bug is not applicable to a more recent release family.
+
+[Affects Version]{.jbs-field}: `7u111, 8u131`
+
+add the label [9-na]{.jbs-label} if the issue is not relevant to JDK 9 and above.
+Reasons why this would be the case include the fact that the source has been removed from a later release or rewritten such that the issue is no longer relevant.
+
+Do not:
+
+- use the label to indicate that a bug is not relevant to an earlier release, for example<br>[Affects Version]{.jbs-field}: `11.0.20, 17`<br> the label [8-na]{.jbs-label} would not be needed - as it doesn't have a JDK 8 release, or earlier, value in the [Affects Versions]{.jbs-field}, it is not relevant to JDK 8
+- add multiple -na labels: you only need one, for example `9-na, 10-na` is not need as [9-na]{.jbs-label} implies any following releases
+
+##### Usage of (Rel)-wnf Label
+
+labels of the form [7-wnf]{.jbs-label} or [9-wnf]{.jbs-label} should be used to indicate that a bug is not going to be fixed in a release that it is applicable to, both explicitly ([11-wnf]{.jbs-label} states it won't be fixed in JDK 11) or implicitly ([11-wnf]{.jbs-label} indicates it won't be fixed in JDK 8).
+
+Add a comment when adding a (Rel)-wnf label so that it is clear for those looking at the issue, why it won't be fixed
+in that release.
+
+##### Examples
+
+![Guidelines for setting Affects Version](affects_versions.png)
+
+#### Things to keep in mind when requesting an improvement
 
 * Unlike reporting a problem, when it comes to improvements, what constitutes a reasonable request can take discussion, and in general it's encouraged that the mailing list for the area is used to suggest an improvement before filing.
 * Enhancements to The Java Language Specification and The JVM Specification are managed through the [Java Community Process](http://jcp.org/).
@@ -163,11 +207,10 @@ Now that the issue is in the right component and has the basic information, the 
 1. Ensure the priority is correct.
    * An approach that has been used for getting a consistent view of priority is to consider three aspects of the issue: **Impact** of the issue; **Likelihood** of it occurring; and, whether there is a **Workaround**. The higher the impact and likelihood the higher the priority; then, having a workaround reduces that priority - but mostly where the impact and likelihood aren't that severe.
 1. Ensure the [Affects Version/s]{.jbs-field} field is correct (within reason).
-   * This may involve reproducing the bug, if doing so is fast and easy.
-   * In addition to the version where the bug was found, take special care to also investigate if the bug affects mainline.
-   * The [Affects Version/s]{.jbs-field} isn't meant to be an exhaustive list of releases the issue is relevant to - it should initially be set to the release the issue was reproduced or identified on, and by implication it will be relevant on all releases past that point (see the [(Rel)[-na]{.jbs-label}](#rel-na) label). If it's later found to be applicable to an earlier release family then adding that earlier release is encouraged if the issue needs to be fixed in that release.
-   * Do not add additional release values to [Affects Version/s]{.jbs-field} for the same release family. E.g. If there is the value [11.0.2]{.jbs-value}, don't add [11.0.5]{.jbs-value}, [11.0.7]{.jbs-value} etc. Adding an additional value for a separate release family where it's still reproducible, e.g. [12]{.jbs-value}, isn't necessary but ok, especially if there's been a few releases since the latest version noted. E.g. [Affects Version/s]{.jbs-field} is [8]{.jbs-value} but its still relevant to the latest mainline release.
-   * For enhancements the [Affects Version]{.jbs-field} should be empty unless you feel that it is only relevant to a particular release family, and should not go into a future mainline release.
+  * This may involve reproducing the bug, if doing so is fast and easy.
+  * In addition to the version where the bug was found, take special care to also investigate if the bug affects mainline.
+   * See [Indicating what releases an issue is applicable to](#indicating-what-releases-an-issue-is-applicable-to) for more details
+  * For enhancements the [Affects Version]{.jbs-field} should be empty unless you feel that it is only relevant to a particular release family, and should not go into a future mainline release.
 1. Set the [Fix Version/s]{.jbs-field}.
    * A bug should be fixed first in the most recent version where it exists. If you don't know what version the fix will go into set the [Fix Version/s]{.jbs-field} to [tbd]{.jbs-value}.
    * If the bug also exists in older versions it may require [backporting].
