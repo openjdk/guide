@@ -78,22 +78,22 @@ Knowing when an issue was introduced is important to determine the impact of the
 
 The [Affects Version]{.jbs-field} field is used to indicate which releases an issue is applicable to, and to avoid having to set it to an exhaustive list of impacted releases the following assumptions are used to give that range:
 
-1) If a issue applicable to a feature release N it is assumed to be applicable to all (more recent) releases unless indicated otherwise (see (Rel)-na below).
-  - Note that if it is reported against an update release then all we can say is that it applicable to all the following update releases, not necessarily the next feature release as it may have been introduced in an update.  Given this, it is always important to try and reproduce the issue in either the corresponding feature release or the following.
+1) If an issue applicable to a feature release N it is assumed to be applicable to all (more recent) releases unless indicated otherwise (see (Rel)-na below).
+  - Note that if it is reported against an update release then all we can say is that it is applicable to all the following update releases, not necessarily the next feature release as it may have been introduced in an update.  Given this, it is always important to try and reproduce the issue in either the corresponding feature release or the following.
 
-1) If an issue is applicable to release N, then it can't be assumed that it is applicable to older releases less than N. It may be, but in general this is less important to know this as the majority of issues are only fixed in the latest feature release.  If the issue is a crash or important in another way, then it becomes worthwhile to take the time to determine if it is relevant to earlier LTS releases.
+1) If an issue is applicable to release N, then it can't be assumed that it is applicable to older releases less than N. It may be, but in general this is less important to know, as the majority of issues are only fixed in the latest feature release.  If the issue is a crash or important in another way, then it becomes worthwhile to take the time to determine if it is relevant to earlier LTS releases.
 
-Another aspect of an issue is when, the feature it is a part of, was added or removed from the JDK, which in either case limits the range of releases the issue impacts.  Knowing that a feature was removed before the oldest currently supported release means it can be resolved as will-not-fix.,
+Another aspect of an issue is when, the feature it is a part of, was added or removed from the JDK, which in either case limits the range of releases the issue impacts.  Knowing that a feature was removed before the oldest currently supported release means it can be resolved as will-not-fix.
 
 ##### Setting the Affects Versions field
 Set the [Affects Versions]{.jbs-field} field to the lowest release value that the bug is known to be reproducible on.
 
-* The [Affects Version/s]{.jbs-field} isn't meant to be an exhaustive list of releases the issue is relevant to - it should initially be set to the release the issue was reproduced or identified on, and by implication it will be relevant on all releases past that point (see the [Usage of (Rel)[-na]{.jbs-label} Label](#usage-of-rel-na-label)). If it's later found to be applicable to an earlier release family then adding that earlier release is encouraged if the issue needs to be fixed in that release.
+* The [Affects Version/s]{.jbs-field} isn't meant to be an exhaustive list of releases the issue is relevant to - it should initially be set to the release the issue was reproduced or identified on, and by implication it will be relevant to all releases past that point (see the [Usage of (Rel)[-na]{.jbs-label} Label](#usage-of-rel-na-label)). If it's later found to be applicable to an earlier release family then adding that earlier release is encouraged if the issue needs to be fixed in that release.
 * Do not add additional release values to [Affects Version/s]{.jbs-field} for the same release family. E.g. If there is the value [11.0.2]{.jbs-value}, don't add [11.0.5]{.jbs-value}, [11.0.7]{.jbs-value} etc. Adding an additional value for a separate release family where it's still reproducible, e.g. JDK [21]{.jbs-value}, is encouraged, especially if there is not currently a feature release value set, or, it has been a few releases since it was last reproduced/reviewed. E.g. [Affects Version/s]{.jbs-field} is JDK [8]{.jbs-value} but it is still relevant to the latest mainline release.
 
 ##### Usage of (Rel)-na Label
 
-Labels of the form [12-na]{.jbs-label} or [18-na]{.jbs-label} should be used when a bug is not applicable to a more recent release family.
+Labels of the form [(Rel)-na]{.jbs-label} (eg. [17-na]{.jbs-label}) should be used when a bug is not applicable to a more recent release family. For example:
 
 [Affects Version]{.jbs-field}: `7u111, 8u131`
 
@@ -102,12 +102,12 @@ Reasons why this would be the case include the fact that the source has been rem
 
 Do not:
 
-- use the label to indicate that a bug is not relevant to an earlier release, for example<br>[Affects Version]{.jbs-field}: `11.0.20, 17`<br> the label [8-na]{.jbs-label} would not be needed - as it doesn't have a JDK 8 release, or earlier, value in the [Affects Versions]{.jbs-field}, it is not relevant to JDK 8
-- add multiple -na labels: you only need one, for example `9-na, 10-na` is not need as [9-na]{.jbs-label} implies any following releases
+- use the label to indicate that a bug is not relevant to an earlier release, for example<br>[Affects Version]{.jbs-field}: `11.0.20, 17`<br> the label [8-na]{.jbs-label} would not be needed - as it doesn't have a JDK 8 release, or earlier, value in the [Affects Versions]{.jbs-field}, it is not relevant to JDK 8.
+- add multiple `-na` labels: you only need one, for example `9-na, 10-na` is not needed as [9-na]{.jbs-label} implies any following releases.
 
 ##### Usage of (Rel)-wnf Label
 
-labels of the form [7-wnf]{.jbs-label} or [9-wnf]{.jbs-label} should be used to indicate that a bug is not going to be fixed in a release that it is applicable to, both explicitly ([11-wnf]{.jbs-label} states it won't be fixed in JDK 11) or implicitly ([11-wnf]{.jbs-label} indicates it won't be fixed in JDK 8).
+labels of the form [(Rel)-wnf]{.jbs-label} (e.g. [11-wnf]{.jbs-label}) should be used to indicate that a bug is not going to be fixed in a release that it is applicable to, or any earlier releases. For example, [11-wnf]{.jbs-label} states it won't be fixed in JDK 11 and implicitly indicates it won't be fixed in JDK 8 either).
 
 Add a comment when adding a (Rel)-wnf label so that it is clear for those looking at the issue, why it won't be fixed
 in that release.
@@ -209,7 +209,7 @@ Now that the issue is in the right component and has the basic information, the 
 1. Ensure the [Affects Version/s]{.jbs-field} field is correct (within reason).
   * This may involve reproducing the bug, if doing so is fast and easy.
   * In addition to the version where the bug was found, take special care to also investigate if the bug affects mainline.
-   * See [Indicating what releases an issue is applicable to](#indicating-what-releases-an-issue-is-applicable-to) for more details
+    * See [Indicating what releases an issue is applicable to](#indicating-what-releases-an-issue-is-applicable-to) for more details
   * For enhancements the [Affects Version]{.jbs-field} should be empty unless you feel that it is only relevant to a particular release family, and should not go into a future mainline release.
 1. Set the [Fix Version/s]{.jbs-field}.
    * A bug should be fixed first in the most recent version where it exists. If you don't know what version the fix will go into set the [Fix Version/s]{.jbs-field} to [tbd]{.jbs-value}.
