@@ -26,7 +26,7 @@ When you arrive at a pull request there are a few different sections that you ca
 
 ### Conversation
 
-The Conversation section is where all discussion around the PR happens. Note that this section is intended for technical discussion around the actual implementation of a change. This is not the place to discuss the appropriateness of the change or have overarching design discussions, that should happen on the appropriate [mailing lists].
+The Conversation section is where all discussion around the PR happens. Note that this section is intended for technical discussion around the actual implementation of a change. This is in general not the place to discuss the appropriateness of the change or have overarching design discussions, that should happen on the appropriate [mailing lists]. Yes, PR comments will be sent to the mailing lists as well, but it's unlikely that all the right people will see it. PR mails sent to the mailing lists will have a subject indicating that it's about the specific implementation in the PR. If the discussion is larger than just about the specific implementation, for instance around the design or future of the feature, then a much larger audience needs to be made aware of the discussion. A separate email thread with a proper subject is preferred in such cases.
 
 You can either reply to existing comments by using the text field beneath each comment, or add a new comment by scrolling to the bottom of the page and use the larger text field where it says "Leave a comment".
 
