@@ -103,7 +103,7 @@ Reasons why this would be the case include the fact that the source has been rem
 Do not:
 
 - use the label to indicate that a bug is not relevant to an earlier release, for example<br>[Affects Version]{.jbs-field}: [11.0.20]{.jbs-value}, [17]{.jbs-value}<br> the label [8-na]{.jbs-label} would not be needed - as it doesn't have a JDK 8 release, or earlier, value in the [Affects Versions]{.jbs-field}, it is not relevant to JDK 8.
-- add multiple [-na]{.jbs-label} labels: you only need one, for don't add both [9-na]{.jbs-label} and [11-na]{.jbs-label} — [9-na]{.jbs-label} implies all following releases therefore [11-na]{.jbs-label}, [17-na]{.jbs-label} etc. is not needed.
+- add multiple [-na]{.jbs-label} labels: you only need one, for example don't add both [9-na]{.jbs-label} and [11-na]{.jbs-label} — [9-na]{.jbs-label} implies all following releases therefore [11-na]{.jbs-label}, or [17-na]{.jbs-label} etc. are not needed.
 
 ##### Usage of (Rel)-wnf Label
 
@@ -209,7 +209,7 @@ Now that the issue is in the right component and has the basic information, the 
     * This may involve reproducing the bug, if doing so is fast and easy.
     * In addition to the version where the bug was found, take special care to also investigate if the bug affects mainline.
       * See [Indicating what releases an issue is applicable to](#indicating-what-releases-an-issue-is-applicable-to) for more details.
-    * For enhancements the [Affects Version]{.jbs-field} should be empty, unless you feel that it is only relevant to a particular release family, and should not go into a future mainline release.
+    * For enhancements the [Affects Version]{.jbs-field} should be empty unless it is only relevant to a particular release family, and should not go into a future mainline release.
 1. Set the [Fix Version/s]{.jbs-field}.
    * A bug should be fixed first in the most recent version where it exists. If you don't know what version the fix will go into set the [Fix Version/s]{.jbs-field} to [tbd]{.jbs-value}.
    * If the bug also exists in older versions it may require [backporting].
