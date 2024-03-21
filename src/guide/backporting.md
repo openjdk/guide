@@ -73,7 +73,7 @@ In this example a fix was pushed to JDK N+1 (the mainline repository) while the 
 #. Reopen the _backport_ issue that was created automatically
    * Use a comment like the following (in the reopen dialog):
 ~~~
-Fix was pushed while main issue was targeted to 'N'. Reset the main issue to fixed in 'N+1', reset this issue to fix in 'na' and closed as [Not An Issue]{.jbs-value} to avoid confusion.
+Fix was pushed while main issue was targeted to 'N'. Reset the main issue to fixed in 'N+1', reset this issue to fix in 'na' and closed as Not An Issue to avoid confusion.
 ~~~
    * Change the [Fix Version/s]{.jbs-field} from 'N+1' to 'na'.
    * Close the _backport_ issue as [Not an Issue]{.jbs-value}. Note: [Closed]{.jbs-value}, **not** [Resolved]{.jbs-value}
@@ -90,7 +90,7 @@ URL: https://git.openjdk.org/jdk/commit/12345678
 ~~~
    * Add a comment like the following to the _main_ issue:
 ~~~
-Fix was pushed while main issue was targeted to 'N'. Reset the main issue to fixed in 'N+1' and copied the Robo Duke entry here.
+Fix was pushed to 'N+1' while this main issue was targeted to 'N'. Reset this issue to fixed in 'N+1' and copied the Robo Duke entry here.
 ~~~
    * Reset the _main_ issue [Fix Version/s]{.jbs-field} from 'N' to 'N+1'.
    * Resolve the _main_ issue as [Fixed]{.jbs-value} in build "team" or in build "master" depending on where the fix was pushed - or to an actual build number if the change has already made it to a promoted build (look in the _backport_ issue if you are unsure). Pushes to 'openjdk/jdk' are fixed in build "master" and pushes to project repositories are fixed in build "team".
