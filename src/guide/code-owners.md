@@ -50,30 +50,32 @@ This list is intended to make it easier to identify which email list to include 
     * [jvmci](https://github.com/openjdk/jdk/tree/master/src/hotspot/share/jvmci) - Compiler
     * [libadt](https://github.com/openjdk/jdk/tree/master/src/hotspot/share/libadt) - Compiler
     * [logging](https://github.com/openjdk/jdk/tree/master/src/hotspot/share/logging) - Runtime
-    * [memory](https://github.com/openjdk/jdk/tree/master/src/hotspot/share/memory) - Runtime, GC
+    * [memory](https://github.com/openjdk/jdk/tree/master/src/hotspot/share/memory) - GC, Runtime
     * [metaprogramming](https://github.com/openjdk/jdk/tree/master/src/hotspot/share/metaprogramming) - HotSpot
+    * [nmt](https://github.com/openjdk/jdk/tree/master/src/hotspot/share/nmt) - Runtime
     * [oops](https://github.com/openjdk/jdk/tree/master/src/hotspot/share/oops) - GC, Runtime
     * [opto](https://github.com/openjdk/jdk/tree/master/src/hotspot/share/opto) - Compiler
     * [precompiled](https://github.com/openjdk/jdk/tree/master/src/hotspot/share/precompiled) - HotSpot
     * [prims](https://github.com/openjdk/jdk/tree/master/src/hotspot/share/prims) - Runtime, Serviceability
     * [runtime](https://github.com/openjdk/jdk/tree/master/src/hotspot/share/runtime) - Runtime
+    * [sanitizers](https://github.com/openjdk/jdk/tree/master/src/hotspot/share/sanitizers) - Runtime
     * [services](https://github.com/openjdk/jdk/tree/master/src/hotspot/share/services) - Runtime
     * [utilities](https://github.com/openjdk/jdk/tree/master/src/hotspot/share/utilities) - GC, Runtime
 * [java.base](https://github.com/openjdk/jdk/tree/master/src/java.base)
   * Core Libs should almost always be included but Java Language, HotSpot, Security and/or I18n may also be involved.
   * [[aix](https://github.com/openjdk/jdk/tree/master/java.base/aix/classes), [linux](https://github.com/openjdk/jdk/tree/master/java.base/linux/classes), [macosx](https://github.com/openjdk/jdk/tree/master/java.base/macosx/classes), [share](https://github.com/openjdk/jdk/tree/master/java.base/share/classes), [unix](https://github.com/openjdk/jdk/tree/master/java.base/unix/classes), [windows](https://github.com/openjdk/jdk/tree/master/java.base/windows/classes)]/classes
-    * [com/sun/crypto/provider](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/com/sun/crypto/provider) - Security
-    * [com/sun/security/ntlm](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/com/sun/security/ntlm) - Security
+    * [com/sun/crypto](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/com/sun/crypto) - Security
+    * [com/sun/security](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/com/sun/security) - Security
     * [crypto](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/javax/crypto) - Security
     * [[linux](https://github.com/openjdk/jdk/tree/master/java.base/linux/classes/jdk/internal), [macosx](https://github.com/openjdk/jdk/tree/master/java.base/macosx/classes/jdk/internal), [share](https://github.com/openjdk/jdk/tree/master/java.base/share/classes/jdk/internal), [unix](https://github.com/openjdk/jdk/tree/master/java.base/unix/classes/jdk/internal), [windows](https://github.com/openjdk/jdk/tree/master/java.base/windows/classes/jdk/internal)]/internal
       * [access](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/access) - Core Libs, Security
       * [event](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/event) - JFR
       * [foreign](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/foreign) - Core Libs
       * [icu](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/icu) - Core Libs
-      * [io](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/io) - NIO
+      * [io](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/io) - Core Libs
       * [javac](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/javac) - Java Language (javac)
-      * [jimage](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/jimage) - Client Libs
-      * [jmod](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/jmod) - HotSpot
+      * [jimage](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/jimage) - Core Libs
+      * [jmod](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/jmod) - Core Libs
       * [jrtfs](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/jrtfs) - Core Libs
       * [[macosx](https://github.com/openjdk/jdk/tree/master/java.base/macosx/classes/jdk/internal/loader), [share](https://github.com/openjdk/jdk/tree/master/java.base/share/classes/jdk/internal/loader), [unix](https://github.com/openjdk/jdk/tree/master/java.base/unix/classes/jdk/internal/loader), [windows](https://github.com/openjdk/jdk/tree/master/java.base/windows/classes/jdk/internal/loader)]/loader - Core Libs
       * [logger](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/logger) - Core Libs
@@ -91,12 +93,12 @@ This list is intended to make it easier to identify which email list to include 
       * [util/xml](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/util/xml) - Core Libs
       * [vm](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/vm) - HotSpot
     * [invoke](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/sun/invoke) - Core Libs
-    * [[share](https://github.com/openjdk/jdk/tree/master/java.base/share/classes/java/io), [sun](https://github.com/openjdk/jdk/tree/master/java.base/windows/classes/sun/io), [unix](https://github.com/openjdk/jdk/tree/master/java.base/unix/classes/java/io)]/io - NIO
+    * [[share](https://github.com/openjdk/jdk/tree/master/java.base/share/classes/java/io), [sun](https://github.com/openjdk/jdk/tree/master/java.base/windows/classes/sun/io), [unix](https://github.com/openjdk/jdk/tree/master/java.base/unix/classes/java/io)]/io - Core Libs
     * [[macosx](https://github.com/openjdk/jdk/tree/master/java.base/macosx/classes/java), [share](https://github.com/openjdk/jdk/tree/master/java.base/share/classes/java), [unix](https://github.com/openjdk/jdk/tree/master/java.base/unix/classes/java), [windows](https://github.com/openjdk/jdk/tree/master/java.base/windows/classes/java)]/java
       * [[share](https://github.com/openjdk/jdk/tree/master/java.base/share/classes/java/lang), [unix](https://github.com/openjdk/jdk/tree/master/java.base/unix/classes/java/lang), [windows](https://github.com/openjdk/jdk/tree/master/java.base/windows/classes/java/lang)]/lang - Core Libs
       * [math](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/java/math) - Core Libs
       * [time](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/java/time) - Core Libs
-    * [launcher](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/sun/launcher) - Tools
+    * [launcher](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/sun/launcher) - Tools, Core Libs
     * [META-INF/services](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/META-INF/services) - Core Libs
     * [[javax](https://github.com/openjdk/jdk/tree/master/java.base/share/classes/javax/net), [macosx](https://github.com/openjdk/jdk/tree/master/java.base/macosx/classes/java/net)]/net - Net
     * [[aix](https://github.com/openjdk/jdk/tree/master/java.base/aix/classes/sun/nio), [java](https://github.com/openjdk/jdk/tree/master/java.base/share/classes/java/nio), [linux](https://github.com/openjdk/jdk/tree/master/java.base/linux/classes/sun/nio), [macosx](https://github.com/openjdk/jdk/tree/master/java.base/macosx/classes/sun/nio), [unix](https://github.com/openjdk/jdk/tree/master/java.base/unix/classes/sun/nio), [windows](https://github.com/openjdk/jdk/tree/master/java.base/windows/classes/sun/nio)]/nio - NIO
@@ -119,7 +121,7 @@ This list is intended to make it easier to identify which email list to include 
     * [[share](https://github.com/openjdk/jdk/tree/master/java.base/share/native/launcher), [unix](https://github.com/openjdk/jdk/tree/master/java.base/unix/native/launcher), [windows](https://github.com/openjdk/jdk/tree/master/java.base/windows/native/launcher)]/launcher - Tools
     * [[aix](https://github.com/openjdk/jdk/tree/master/java.base/aix/native/libjava), [linux](https://github.com/openjdk/jdk/tree/master/java.base/linux/native/libjava), [macosx](https://github.com/openjdk/jdk/tree/master/java.base/macosx/native/libjava), [share](https://github.com/openjdk/jdk/tree/master/java.base/share/native/libjava), [unix](https://github.com/openjdk/jdk/tree/master/java.base/unix/native/libjava), [windows](https://github.com/openjdk/jdk/tree/master/java.base/windows/native/libjava)]/libjava - Core Libs
     * [[share](https://github.com/openjdk/jdk/tree/master/java.base/share/native/libjimage), [unix](https://github.com/openjdk/jdk/tree/master/java.base/unix/native/libjimage), [windows](https://github.com/openjdk/jdk/tree/master/java.base/windows/native/libjimage)]/libjimage - Core Libs
-    * [[aix](https://github.com/openjdk/jdk/tree/master/java.base/aix/native/libjli), [macosx](https://github.com/openjdk/jdk/tree/master/java.base/macosx/native/libjli), [share](https://github.com/openjdk/jdk/tree/master/java.base/share/native/libjli), [unix](https://github.com/openjdk/jdk/tree/master/java.base/unix/native/libjli), [windows](https://github.com/openjdk/jdk/tree/master/java.base/windows/native/libjli)]/libjli - Tools
+    * [[aix](https://github.com/openjdk/jdk/tree/master/java.base/aix/native/libjli), [macosx](https://github.com/openjdk/jdk/tree/master/java.base/macosx/native/libjli), [share](https://github.com/openjdk/jdk/tree/master/java.base/share/native/libjli), [unix](https://github.com/openjdk/jdk/tree/master/java.base/unix/native/libjli), [windows](https://github.com/openjdk/jdk/tree/master/java.base/windows/native/libjli)]/libjli - Tools, Core Libs
     * [libjsig](https://github.com/openjdk/jdk/tree/master/src/java.base/unix/native/libjsig) - HotSpot
     * [[macosx](https://github.com/openjdk/jdk/tree/master/java.base/macosx/native/libnet), [share](https://github.com/openjdk/jdk/tree/master/java.base/share/native/libnet), [unix](https://github.com/openjdk/jdk/tree/master/java.base/unix/native/libnet), [windows](https://github.com/openjdk/jdk/tree/master/java.base/windows/native/libnet)]/libnet - Net
     * [[aix](https://github.com/openjdk/jdk/tree/master/java.base/aix/native/libnio), [linux](https://github.com/openjdk/jdk/tree/master/java.base/linux/native/libnio), [macosx](https://github.com/openjdk/jdk/tree/master/java.base/macosx/native/libnio), [share](https://github.com/openjdk/jdk/tree/master/java.base/share/native/libnio), [unix](https://github.com/openjdk/jdk/tree/master/java.base/unix/native/libnio), [windows](https://github.com/openjdk/jdk/tree/master/java.base/windows/native/libnio)]/libnio - NIO
@@ -165,6 +167,7 @@ This list is intended to make it easier to identify which email list to include 
 * [jdk.crypto.mscapi](https://github.com/openjdk/jdk/tree/master/src/jdk.crypto.mscapi) - Security
 * [jdk.dynalink](https://github.com/openjdk/jdk/tree/master/src/jdk.dynalink) - Tools
 * [jdk.editpad](https://github.com/openjdk/jdk/tree/master/src/jdk.editpad) - JShell
+* [[jdk.graal.compiler](https://github.com/openjdk/jdk/tree/master/jdk.graal.compiler), [jdk.graal.compiler.management](https://github.com/openjdk/jdk/tree/master/jdk.graal.compiler.management)]/jdk.graal.* - Compiler
 * [jdk.hotspot.agent](https://github.com/openjdk/jdk/tree/master/src/jdk.hotspot.agent) - Serviceability
 * [jdk.httpserver](https://github.com/openjdk/jdk/tree/master/src/jdk.httpserver) - Net
 * [jdk.incubator.vector](https://github.com/openjdk/jdk/tree/master/src/jdk.incubator.vector) - Compiler
