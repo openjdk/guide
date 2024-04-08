@@ -115,6 +115,12 @@ Add a comment when adding a [(Rel)-wnf]{.jbs-label} label so that it is clear fo
 
 ![Guidelines for setting Affects Version](affects_versions.png)
 
+1. Issue relevant to JDK 8 and all future releases.
+2. No need to add additional releases as they are implied.<br>
+3. Adding the occasional LTS release value is ok.<br>
+4. Use N-na to indicate that the issue is no longer relevant from that release, which could be due to the feature or platform being removed or the code being rewritten.<br>
+5. Use N-wnf to indicate that a fix will not be backported to that release, or earlier.
+
 #### Things to keep in mind when requesting an improvement
 
 * Unlike reporting a problem, when it comes to improvements, what constitutes a reasonable request can take discussion, and in general it's encouraged that the mailing list for the area is used to suggest an improvement before filing.
