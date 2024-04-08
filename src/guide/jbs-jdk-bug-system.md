@@ -46,7 +46,7 @@ A few things to keep in mind when filing an issue:
   * If you find a similar issue that was closed as [Cannot Reproduce]{.jbs-value} then it may be appropriate to re-open that one - if you don't have direct access to JBS you can file a bug using the [Bug Report Tool](https://bugreport.java.com/) requesting that it be reopened.
 * Make a reasonable attempt to narrow down which build or release the failure first appeared in.
 * Set [Affects Version/s]{.jbs-field} to the earliest JDK version(s) where the failure was seen.
-  * If the failure is found in an update train of the JDK (e.g. 11.0.x), if possible please see if it's also present in [mainline](https://github.com/openjdk/jdk). See [Indicating what releases an issue is applicable to](#indicating-what-releases-an-issue-is-applicable-to) for more details.
+  * If the failure is found in an update train of the JDK (e.g. 11.0.x), please see (if possible) if it's also present in [mainline](https://github.com/openjdk/jdk). See [Indicating what releases an issue is applicable to](#indicating-what-releases-an-issue-is-applicable-to) for more details.
   * For enhancements the [Affects Version]{.jbs-field} should be left empty, unless it is only relevant to a specific release family.
 * Add relevant [Labels]{.jbs-field} like [[intermittent]{.jbs-label}](#intermittent), [[regression]{.jbs-label}](#regression), [[noreg-self]{.jbs-label}](#noreg-self), [[tier1]{.jbs-label}](#tier) etc.
   * For more information see the [JBS Label Dictionary].
