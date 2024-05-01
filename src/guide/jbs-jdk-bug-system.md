@@ -30,10 +30,10 @@ The most common issue types are:
 |:-|:----------|
 | [Bug]{.jbs-value} | A [Bug]{.jbs-value} should relate to functional correctness - a deviation from behavior that can be tied back to a specification. Anything else, including performance concerns, is generally not a bug, but an enhancement. Though it's not clear-cut as a significant performance regression may be classified as a [Bug]{.jbs-value}, for example. |
 | [Enhancement]{.jbs-value} | An [Enhancement]{.jbs-value} is a small to medium improvement to existing functionality. |
-| [New Feature]{.jbs-value} | Not recommended for use. |
 | [JEP]{.jbs-value} | The [JEP]{.jbs-value} issue type is used for a proposal of a significant change or new feature which will take four or more weeks of work - see [JEP-1](https://openjdk.org/jeps/1). |
 | [Sub-task]{.jbs-value} | Sub-tasks can be used to break up the work for an issue, such as the changes to the docs, tests etc. This is not recommended as a way to break up a large amount of code change associated with a new feature - see [Implementing a JEP] or [Implementing a large change] below. |
 | [Task]{.jbs-value} | Tasks are used to track work that isn't expected to result in a change in any code repository. They are used for related activities such as a new JBS version number, a build request, an update to a document etc. |
+| [New Feature]{.jbs-value} | Not recommended for use. |
 
 ::: {.note}
 A [Bug]{.jbs-value} or [Enhancement]{.jbs-value} should only be used if the work is expected to result in a change in a code repository. A [Bug]{.jbs-value} or [Enhancement]{.jbs-value} with resolution [Fixed]{.jbs-value} is required to have a corresponding changeset in one of the OpenJDK repositories.
@@ -263,7 +263,7 @@ Once the work on an issue has been completed the issues [Status]{.jbs-field} sho
 
 | Resolution | Use with status | Covers |
 |:-|:-|:----------|
-| [Fixed]{.jbs-value} | [Resolved]{.jbs-value} / [Closed]{.jbs-value} | The [Fixed]{.jbs-value} resolution should be used **only** if a change has been integrated in a repo to address the issue. For the JDK project in almost all cases the bots will transition the issue to [Resolved]{.jbs-value}/[Fixed]{.jbs-value} when the changeset is pushed to the repo. An issue in [Resolved]{.jbs-value}/[Fixed]{.jbs-value} state needs to go through [verification](#verifying-an-issue) to end up as [Closed]{.jbs-value}/[Fixed]{.jbs-value}.<br />If there isn't a fix in the repo (and so no associated changeset) then the issue should not be marked as [Fixed]{.jbs-field}. |
+| [Fixed]{.jbs-value} | [Resolved]{.jbs-value} / [Closed]{.jbs-value} | The [Fixed]{.jbs-value} resolution should be used **only** if a change has been integrated in a repo to address the issue. For the JDK project in almost all cases the bots will transition the issue to [Resolved]{.jbs-value}/[Fixed]{.jbs-value} when the changeset is pushed to the repo. An issue in [Resolved]{.jbs-value}/[Fixed]{.jbs-value} state needs to go through [verification](#verifying-an-issue) to end up as [Closed]{.jbs-value}/[Fixed]{.jbs-value}.<br />If there isn't a fix in the repo (and so no associated changeset) then the issue should **not** be marked as [Fixed]{.jbs-field}. |
 | [Won't Fix]{.jbs-value} | [Closed]{.jbs-value} | Used when the issue is describing behavior which, while maybe problematic or not ideal, isn't going to be changed - for compatibility reasons for example. |
 | [Duplicate]{.jbs-value} | [Closed]{.jbs-value} | Used to indicate that the same issue is described in another JBS issue. See [Closing issues as duplicates] for more information. |
 | [Incomplete]{.jbs-value} | [Resolved]{.jbs-value} / [Closed]{.jbs-value} | Used to indicate that the JBS issue doesn't contain enough information to work on the issue. See [Closing incomplete issues] for more information. |
@@ -283,7 +283,9 @@ Once the work on an issue has been completed the issues [Status]{.jbs-field} sho
 
 If the same issue is described in another JBS issue then close one against the other as [Closed]{.jbs-value}/[Duplicate]{.jbs-value}. In general the newer issue is closed as a [Duplicate]{.jbs-value} of the older one, but where the newer issue has a clearer description, or more useful, up-to-date comments then doing it the other way round is ok as long as none of them has been [Fixed]{.jbs-value} already. If one of the issues has been [Fixed]{.jbs-value} the other one should be closed as a [Duplicate]{.jbs-value} of the [Fixed]{.jbs-value} issue. There may be other reasons to choose to close one or the other issue as the [Duplicate]{.jbs-value}. As always - use your best judgement to make the end result as good as possible.
 
-**Note:** Any issue closed as a [Duplicate]{.jbs-value} **must** have a "Duplicates" link to the duplicating issue.
+::: {.note}
+Any issue closed as a [Duplicate]{.jbs-value} **must** have a "Duplicates" link to the duplicating issue.
+:::
 
 ### Closing incomplete issues
 
