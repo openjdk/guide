@@ -594,7 +594,7 @@ There are other cases as well and there is some flexibility in the definition. I
 If you have a [maintainer-pain]{.jbs-label} bug assigned to you please consider fixing it asap. If you chose not to work on the issue, you should at least be aware that you are choosing to waste others' time and people will be affected by this choice.
 
 As with any issue the best way to deal with a [maintainer-pain]{.jbs-label} issue is to fix it. Another way to reduce the noise is to [exclude the failing test](#excluding-a-test). This is a viable option if there is a limited set of tests that are failing and the bug is actively investigated. When excluding a [maintainer-pain]{.jbs-label} issue, remember to move the [maintainer-pain]{.jbs-label} label to the JBS issue used to exclude. Leaving the label on the closed exclude-issue is helpful for tracking purposes.
-</td>
+    </td>
   </tr>
   <!-- N -->
   <tr>
@@ -655,7 +655,7 @@ As with any issue the best way to deal with a [maintainer-pain]{.jbs-label} issu
 :    Regression or unit test is unnecessary or infeasible for some other reason; the bug report should explain why.
 
 Examples:  If a bug fix only corrects a change in the build system, then add the [noreg-build]{.jbs-label} label to the corresponding bug. If the change improves loop optimizations in HotSpot, then add [nounit-perf]{.jbs-label} to the corresponding bug.
-</td>
+    </td>
   </tr>
   <!-- O -->
   <!-- P -->

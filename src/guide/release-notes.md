@@ -125,7 +125,6 @@ Unless labeled otherwise it will be assumed that the release note documents a ch
 [[~~RN-Change~~]{.jbs-label}]{#RN-Change}
 :   Deprecated. This is the default and no label is needed to indicate this.
 
-
 ## Querying the release notes
 
 The Release Notes for a particular release can be found using the JBS query

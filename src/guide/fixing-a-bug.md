@@ -31,7 +31,7 @@ For the purposes of brevity this document will use the term "bug" to refer to bo
 #. **Does the fix for the bug require a specification change, directly affect an external interface, or otherwise have a compatibility impact?**
 
    **Yes**
-   :   Submission of a CSR request is required. The CSR must be [approved] before the bug fix is pushed to a feature release or update release repository. The work may begin concurrently with the CSR review, but may need to be modified in response to CSR feedback.
+   :   Submission of a CSR request is required. The CSR must be [approved](#approved) before the bug fix is pushed to a feature release or update release repository. The work may begin concurrently with the CSR review, but may need to be modified in response to CSR feedback.
 
    **No**
    :   Continue
@@ -40,7 +40,7 @@ For the purposes of brevity this document will use the term "bug" to refer to bo
 
    Assuming that the development team approves of the intended approach, begin working on the code using the latest source available from the appropriate OpenJDK Project [repository](https://hg.openjdk.java.net).
 
-#. [**Is it possible to write a test to detect the bug?**]
+#. **Is it possible to write a test to detect the bug?**
 
    **Yes**
    :   For bugs, provide a [jtreg](https://openjdk.org/jtreg/) regression test as part of the changeset. For enhancements that directly affect one or more exported interfaces, add an adequate set of jtreg unit tests as part of the changeset. By convention all regression and unit tests should contain a [\@bug tag](https://openjdk.org/jtreg/tag-spec.html#INFORMATIONAL_TAGS9) referencing at least one bugid.
