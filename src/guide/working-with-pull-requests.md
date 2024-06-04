@@ -22,9 +22,13 @@ The timing of your change will also affect the availability of reviewers. The JD
 
 It's likely that other people have pushed changes to the code base since you created your branch. Make sure to pull the latest changes and rebase your fix on top of that before creating your PR. This is a courtesy issue. Your reviewers shouldn't have to read your patch on top of old code that has since changed. This is hopefully obvious in cases where the upstream code has gone through cleanups or refactorings, and your patch may need similar cleanups in order to even compile. But even in cases where only smaller changes have been done, the reviewers shouldn't have to react to issues like "that line of code was moved last week, why is it back there?".
 
+Most changes are made to the `master` branch of the mainline repository. In these cases, rebase using:
+
 ~~~
 git rebase master
 ~~~
+
+Note that if you are working on a backport to a stabilization branch you should replace `master` above with the name of the branch you are targeting. This would be the same name as when you cloned the branch.
 
 After the PR has been published, rebasing, force-pushing, and similar actions are strongly discouraged. Such actions will disrupt the workflow for reviewers who fetch the PR branch. Pushing new changes is fine (and even merging if necessary) for a PR under review. Incremental diffs and other tools will help your reviewers see what you have changed. In the end, all commits will be squashed into a single commit automatically, so there're actually no drawbacks whatsoever to making commits to a PR branch during review.
 
@@ -90,9 +94,10 @@ If you have an actual reason to create a PR before the change is all done, make 
 
 #. **Merge the latest changes**
 
-   If your PR is out for review for a longer time it's a good habit to pull from the target repository regularly to keep the change up to date. This will make it easier to review the change and it will help you find issues caused by other changes sooner. Typically this involves fetching changes from the master branch of the main JDK repo, merging them into your local branch, resolving conflicts if necessary, and then pushing these changes to the PR branch. Pushing additional commits and merges into the PR branch is fine; they will be squashed into a single commit when the PR is integrated. Avoid rebasing changes, and prefer merging instead.
+   If your PR is out for review for a longer time it's a good habit to pull from the target repository regularly to keep the change up to date. This will make it easier to review the change and it will help you find issues caused by other changes sooner. Typically this involves fetching changes from the `master` branch of the main JDK repo, merging them into your local branch, resolving conflicts if necessary, and then pushing these changes to the PR branch. Pushing additional commits and merges into the PR branch is fine; they will be squashed into a single commit when the PR is integrated. Avoid rebasing changes, and prefer merging instead.
 
    If there are upstream changes that might affect your change, it's likely a good idea to rerun relevant testing as well. The [GHA testing](#github-actions) that's done automatically by GitHub should only be seen as a smoke test that finds the most severe problems with your change. It's highly unlikely that it will test your actual change in any greater detail - or even at all execute the code that you have changed in most cases.
+   If your clone was based on some other branch than `master`, make sure to pull from the correct upstream branch. Verify that your PR doesn't include changes from some other branch (e.g. `master`) that aren't supposed to be there.
 
 #. **Integrate your change**
 
@@ -100,7 +105,7 @@ If you have an actual reason to create a PR before the change is all done, make 
 
 #. **After integration**
 
-   After you have integrated your change you are expected to stay around in case there are any issues with it. As mentioned above, you are expected to have run all relevant testing on your change before creating your PR, but regardless of how thorough you test it, things might slip through. After your change has been integrated an automatic pipeline of tests is triggered and your change will be tested on a variety of platforms and in a variety of different modes that the JDK can be executed in. A change that causes failures in this testing may be backed out if a fix can't be provided fast enough, or if the developer isn't responsive when noticed about the failure. Note that this directive should be interpreted as "it's a really bad idea to push a change the last thing you do before bedtime, or the day before going on vacation".
+   After you have integrated your change you are expected to stay around in case there are any issues with it. As mentioned above, you are expected to have run all relevant testing on your change before integrating your PR, but regardless of how thorough you test it, things might slip through. After your change has been integrated an automatic pipeline of tests is triggered and your change will be tested on a variety of platforms and in a variety of different modes that the JDK can be executed in. A change that causes failures in this testing may be backed out if a fix can't be provided fast enough, or if the developer isn't responsive when noticed about the failure. Note that this directive should be interpreted as "it's a really bad idea to push a change the last thing you do before bedtime, or the day before going on vacation".
 
 ## Webrevs
 
