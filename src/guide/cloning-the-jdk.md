@@ -43,11 +43,17 @@ Pushes to your personal fork can be made either using HTTPS or SSH. These exampl
 
 In the example above Duke cloned his personal fork of the JDK mainline repository using SSH. You should of course use your own GitHub username instead. Then, by adding a new *remote* named 'upstream', the clone is associated with [openjdk/jdk](https://github.com/openjdk/jdk). Doing this will allow the tooling to automatically create a PR on [openjdk/jdk](https://github.com/openjdk/jdk) whenever a change is pushed to the personal fork. The way that works is that once the change has been pushed to the personal fork, and you navigate to the [openjdk/jdk](https://github.com/openjdk/jdk) repository on GitHub, there will be a message saying that you just pushed a change and asking if you want to create a PR.
 
+## Working with git branches
+
 It is **strongly** recommended to always create a new branch for any change you intend to implement. If your PR gets accepted, it will be squashed and pushed by the OpenJDK bots. This means that if you make changes to your `master` branch, it will diverge from the upstream `master` branch. This in turn means that your repo will forever be out of sync with the upstream repo, which will cause merge conflicts every single time you want to update your repo from upstream. Having a separate branch for each change also means that you can easily work on many different changes in parallel in the same code repository. Unless you know what you are doing, the recommendation is also to always base your new branch on the `master` branch.
 
     $ git switch -c JDK-8272373 master
 
 Here we create a new branch called `JDK-8272373` based on the `master` branch and set the repository up to work in that new branch.
+
+If you intend to work on a backport to a feature release stabilization branch, your new local branch should of course be based on the stabilization branch instead of `master`.
+
+    $ git switch -c JDK-8272373 origin/jdk23u
 
 `git switch` was introduced in Git version 2.23. For earlier versions of Git `git checkout` can be used instead. However it is always recommended to use the latest versions of all your tools when possible.
 
