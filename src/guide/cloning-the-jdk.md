@@ -53,7 +53,7 @@ Here we create a new branch called `JDK-8272373` based on the `master` branch an
 
 If you intend to work on a backport to a feature release stabilization branch, your new local branch should of course be based on the stabilization branch instead of `master`.
 
-    $ git switch -c JDK-8272373 origin/jdk23u
+    $ git switch -c JDK-8272373 jdk23
 
 `git switch` was introduced in Git version 2.23. For earlier versions of Git `git checkout` can be used instead. However it is always recommended to use the latest versions of all your tools when possible.
 
