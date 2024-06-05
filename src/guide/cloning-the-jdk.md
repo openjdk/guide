@@ -47,13 +47,13 @@ In the example above Duke cloned his personal fork of the JDK mainline repositor
 
 It is **strongly** recommended to always create a new branch for any change you intend to implement. If your PR gets accepted, it will be squashed and pushed by the OpenJDK bots. This means that if you make changes to your `master` branch, it will diverge from the upstream `master` branch. This in turn means that your repo will forever be out of sync with the upstream repo, which will cause merge conflicts every single time you want to update your repo from upstream. Having a separate branch for each change also means that you can easily work on many different changes in parallel in the same code repository. Unless you know what you are doing, the recommendation is also to always base your new branch on the `master` branch.
 
-:::{.note}
-If you intend to work on a backport to a feature release stabilization branch, your new local branch should of course be based on the stabilization branch instead of `master`.
-:::
-
     $ git switch -c JDK-8272373 master
 
 Here we create a new branch called `JDK-8272373` based on the `master` branch and set the repository up to work in that new branch.
+
+If you intend to work on a backport to a feature release stabilization branch, your new local branch should of course be based on the stabilization branch instead of `master`.
+
+    $ git switch -c JDK-8272373 origin/jdk23u
 
 `git switch` was introduced in Git version 2.23. For earlier versions of Git `git checkout` can be used instead. However it is always recommended to use the latest versions of all your tools when possible.
 

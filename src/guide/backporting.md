@@ -17,9 +17,9 @@ Any change that originally required a CSR will require a new CSR to be backporte
 
 ## Backporting to a feature release stabilization branch
 
-During ramp down of a feature release there are two branches of the mainline repository in play, the release stabilization branch for the outgoing release, and the master branch where the next release is being developed. Any change going into the release stabilization branch is likely to be desired in the master branch as well. When making a change intended for both the stabilization and the master branches, you should always create your pull request targeting the master branch first, and then, once the pull request is integrated, backport the resulting commit to the release stabilization branch. For bug fixes that are **only** applicable to the release stabilization branch, regular pull requests targeting the stabilization branch should be created.
+During ramp down of a feature release there are two branches of the mainline repository in play, the release stabilization branch for the outgoing release, and the `master` branch where the next release is being developed. Any change going into the release stabilization branch is likely to be desired in `master` as well. When making a change intended for both the stabilization branch and `master`, you should always create your pull request targeting `master` first, and then, once the pull request is integrated, backport the resulting commit to the release stabilization branch. For bug fixes that are **only** applicable to the release stabilization branch, regular pull requests targeting the stabilization branch should be created.
 
-Please note that special rules applies during ramp down regarding what can and can't be included into the ramp down branch. See the [The JDK Release Process] for more information.
+Please note that special rules applies during ramp down regarding what can and can't be included into the stabilization branch. See the [The JDK Release Process] for more information.
 
 ## Working with backports in JBS
 
@@ -62,7 +62,7 @@ The Skara tooling includes support for backports. [The official Skara documentat
 
 ## How to fix an incorrect backport creation in JBS
 
-If an issue is targeted to a release and a fix referring to that issue is pushed to a different release repository, then a backport issue is automatically created in JBS. Usually this is a "good thing", e.g., when you are backporting a fix to an earlier release, but not always... If the main issue is targeted to a later release (due to schedule planning) but someone finds the time to fix that issue in the current release, or if the main issue is targeted to a feature release in ramp down and the fix is pushed to the mainline master branch, then the issue should be retargeted to the correct release before pushing the fix. However, sometimes we forget.
+If an issue is targeted to a release and a fix referring to that issue is pushed to a different release repository, then a backport issue is automatically created in JBS. Usually this is a "good thing", e.g., when you are backporting a fix to an earlier release, but not always... If the main issue is targeted to a later release (due to schedule planning) but someone finds the time to fix that issue in the current release, or if the main issue is targeted to a feature release in ramp down and the fix is pushed to the master branch, then the issue should be retargeted to the correct release before pushing the fix. However, sometimes we forget.
 
 Here's how to fix that:
 

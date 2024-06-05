@@ -21,7 +21,7 @@ Integrating early in a release is preferable, but all new features can't be inte
 Throughout the release there are a number of milestones and phases that define where in the release cycle we are.
 
 [**The start of a release**]{#release-start}
-:    Since development is always ongoing in the master branch of the mainline repository ([openjdk/jdk](https://github.com/openjdk/jdk)), the start of a new release can be said to be when the former release is branched out. After the start of the release follows six months of development to implement and integrate all the cool stuff that will go into the next release. After these six months ramp down begins.
+:    Since development is always ongoing in the master branch of the mainline repository ([openjdk/jdk](https://github.com/openjdk/jdk)), the start of a new release can be said to be when the former release is branched for stabilization. After the start of the release follows six months of development to implement and integrate all the cool stuff that will go into the next release. After these six months ramp down begins.
 
 [**Ramp Down Phase 1 (RDP1)**]{#rdp1}
 :    The ramp down of a release starts with a new branch being created (the stabilization branch) from the master branch in the mainline repository. During the ramp down of a release we focus on bug fixing and stabilization in order to get the JDK ready for release. In RDP1 you may continue to fix P1-P3 product bugs (and some other issues) in the stabilization branch. For detailed information on what can be fixed when, see [Push or defer during ramp down] below. The start of RDP1 is essentially the deadline for integrating JEPs and enhancements into a particular release.
