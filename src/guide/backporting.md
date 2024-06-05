@@ -60,7 +60,7 @@ If your request to backport a change is denied, but you for some reason already 
 
 The Skara tooling includes support for backports. [The official Skara documentation](https://wiki.openjdk.org/display/SKARA/Backports) describes in detail how to work with the tooling to create backport PRs on [GitHub](https://github.com) or using the CLI tools. As described in the documentation, the [`/backport`](https://wiki.openjdk.org/display/SKARA/Commit+Commands#CommitCommands-/backport) command can be used on a commit or a PR to create the backport PR:
 
-    /backport jdk21u
+    /backport jdk21u-dev
     /backport jdk jdk23
     /backport :jdk23
 
