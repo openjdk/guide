@@ -64,7 +64,7 @@ The Skara tooling includes support for backports. [The official Skara documentat
     /backport jdk jdk23
     /backport :jdk23
 
-In the first example we backport the change to JDK 21. To backport to other update releases, replace `jdk21u` with the corresponding name for the target update repository.
+In the first example we backport the change to the JDK 21 update release. To backport to other update releases, replace `jdk21u` with the corresponding name for the target update repository.
 
 The second and third example above will backport the change to a stabilization branch, in this case JDK 23. As before `jdk` is the name of the target repository, and `jdk23` is the name of the stabilization branch.
 
