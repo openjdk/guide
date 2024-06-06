@@ -12,6 +12,29 @@ The target audience for this document is anyone in the OpenJDK Community who aim
 
 To engage in the development of the Developers' Guide itself, create a private fork and join the dedicated [guide-dev mail list](https://mail.openjdk.java.net/mailman/listinfo/guide-dev).
 
+### Language in the Developers' Guide
+
+The OpenJDK Developers' Guide is written in American English. The Guide is meant to be an informal document. This is reflected in the language used. For instance, contractions are commonly used.
+
+### Keywords and links
+
+All terms defined in the OpenJDK Bylaws are considered keywords, and should be capitalized. Company and organization names are also considered keywords and follow the same rules. A keyword should be linked to the definition of that term if the keyword is referring to the defined term. Additional words that build a noun phrase should be included in the link.
+
+E.g. The word **Project** is defined in the Bylaws, therefore when writing about OpenJDK Projects there should be a link and a capital **P**. However when writing about other projects no link is required and the case of **p** follow normal grammar rules.
+
+To clarify further, a few examples:
+
+* A [Project](https://openjdk.org/bylaws#project) may produce code. --- The word "Project" refers to an OpenJDK Project as defined in the Bylaws.
+* Y is an [OpenJDK Project](https://openjdk.org/bylaws#project). --- "OpenJDK Project" is a noun phrase and all of it should be included in the link.
+* The Project repository contains code. --- Here "Project repository" refers to the code repository, not the Project, but the Project is still an OpenJDK Project, so it's capitalized but has no link.
+* A [GitHub](https://github.com) project is a different thing. --- Not an OpenJDK Project, however GitHub is a keyword and has is therefore correctly capitalized and has it's own link. If we were writing about a specific GitHub project then a link to that project would be appropriate.
+
+Section headers do not contain links since this mess with our ability to link to said sections.
+
+### CSS formats
+
+There are styles defined in the file `src/guidestyle.css`. These styles should be used exactly for what they are intended for. No more, no less. Always use the correct style when writing words covered by these styles, never use the styles for anything else. The comments in `guidestyle.css` should be obvious enough to understand what the style should be used for.
+
 ## Building the Developers' Guide
 
 The project comes with a `Makefile`. Simply type `make` to generate HTML files from the source Markdown. The build requires the tools `pandoc`, `iconv`, and `perl` and assumes a POSIX environment. We recommend using at least pandoc 2.0.

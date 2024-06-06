@@ -11,7 +11,7 @@
 
 Release notes for a product such as the JDK are part of the release deliverables providing a way to highlight information about a fix, such as when it may have changed behavior, or when it's decided not to fix something. While what should go into a release note isn't something that can be precisely defined, it should describe changes that are important for a user to take into account when they are upgrading to the specific version. While release notes should not duplicate information in other documents, they can serve to highlight that a change has been made.
 
-Release notes are associated with a JBS issue that has been fixed (or in some cases not been fixed) in a release and are generated with each build of a release. Any note should be considered as an integral part of the fix process, rather than waiting until the end of the release to determine what to write. In OpenJDK, release notes are currently being generated for the JDK and JDK Updates projects.
+Release notes are associated with a JBS issue that has been fixed (or in some cases not been fixed) in a release and are generated with each build of a release. Any note should be considered as an integral part of the fix process, rather than waiting until the end of the release to determine what to write. In OpenJDK, release notes are currently being generated for the JDK and JDK Updates Projects.
 
 ## Writing a release note
 
@@ -69,7 +69,7 @@ The following are general practices that should be followed when creating releas
 ## Advanced options
   * JEP release notes
     * [Summary]{.jbs-field} - If the change is an actual JEP, use the JEP title.
-    * [Description]{.jbs-field} - the JEP Summary text have already been heavily reviewed and also approved by the project lead. It should be the first sentence in the release note description. That would be analogous to the "change that was made" sentence in other release note descriptions. The remaining text would be composed of the background info from the JEP.
+    * [Description]{.jbs-field} - the JEP Summary text have already been heavily reviewed and also approved by the Project lead. It should be the first sentence in the release note description. That would be analogous to the "change that was made" sentence in other release note descriptions. The remaining text would be composed of the background info from the JEP.
     * [Description]{.jbs-field} - The JEP release note description should contain the link to the JEP.
   * Single release note for multiple changes
     * A link to the parent issue that the note is a sub-task of, will be placed alongside the summary in the release notes. If note relates to additional changes, then add them as [Relates]{.jbs-field} links to the note and add the label [RN-MultipleLinks]{.jbs-label} - see [JDK-8284975](https://bugs.openjdk.org/browse/JDK-8284975) as an example.

@@ -7,14 +7,11 @@
 * [JDK Bug System (JBS)](https://bugs.openjdk.org/)
 :::
 
-[JBS](https://bugs.openjdk.org/) is a public issue tracker used by many OpenJDK projects and is open for anyone to read and search. To get write access you need to be registered in the [OpenJDK Census](https://openjdk.org/census) by becoming, for instance, an [Author](https://openjdk.org/bylaws#author) in an OpenJDK [Project](https://openjdk.org/bylaws#project).
+[JBS](https://bugs.openjdk.org/) is a public issue tracker used by many [OpenJDK Projects](https://openjdk.org/bylaws#project) and is open for anyone to read and search. To get write access you need to be registered in the [OpenJDK Census](https://openjdk.org/census) by becoming, for instance, an [Author](https://openjdk.org/bylaws#author) in an [OpenJDK Project](https://openjdk.org/bylaws#project).
 
 ## Filing an issue
 
-When a new failure is found, or an improvement identified, an issue should be filed to describe and track its resolution.
-Depending on your role in OpenJDK you can either use the [Bug Report Tool](https://bugreport.java.com/) or, if you
-are registered in the [OpenJDK Census](https://openjdk.org/census), you can report the issue directly in [JBS](https://bugs.
-openjdk.org/).
+When a new failure is found, or an improvement identified, an issue should be filed to describe and track its resolution. Depending on your role in OpenJDK you can either use the [Bug Report Tool](https://bugreport.java.com/) or, if you are registered in the [OpenJDK Census](https://openjdk.org/census), you can report the issue directly in [JBS](https://bugs.openjdk.org/).
 
 When filing an issue, try to make the report as complete as possible in order to make it easier to triage, investigate and resolve the issue.
 
@@ -199,7 +196,7 @@ style ClosedIncomplete fill:lightgreen
 
 ## Triaging an issue
 
-For most JDK areas, triage is performed on a regular basis (at least weekly) by triage teams. Each triage team consists of contributors who are area experts for a specific area or feature. If you haven't been selected to be part of a triage team for a specific area *you shouldn't be triaging bugs in that area*.
+For most JDK areas, triage is performed on a regular basis (at least weekly) by triage teams. Each triage team consists of [Contributors](https://openjdk.org/bylaws#contributor) who are area experts for a specific area or feature. If you haven't been selected to be part of a triage team for a specific area *you shouldn't be triaging bugs in that area*.
 
 When triaging an issue, first give it a general review.
 
@@ -221,8 +218,8 @@ Now that the issue is in the right component and has the basic information, the 
    * If the bug also exists in older versions it may require [backporting].
      * The decision to backport to a release should be made inline with the guidelines of the lead for that release.
      * There are two options for creating backport issues to track the backport: one is to create it manually once it's agreed that the bug should be backported; the second, is to let the bots create the backport issue once you push the fix to the repo (see [Working with backports in JBS]). In most cases, letting the bots create the backport issue is preferred.
-   * For project internal changes intended to be pushed to a project repository rather than the JDK or JDK Updates repositories, the [Fix Version/s]{.jbs-field} should be set to [internal]{.jbs-value}, or if the project is large enough to have its own [repo-*]{.jbs-value} fix version, use that.
-   * Only one [Fix Version/s]{.jbs-field} should ever be set, if the issue is to be fixed in additional releases then a separate backport must be created (see [Working with backports in JBS]). There are exceptions to this rule for CSRs and Release Notes.
+   * For Project internal changes intended to be pushed to a Project repository rather than the JDK or JDK Updates repositories, the [Fix Version/s]{.jbs-field} should be set to [internal]{.jbs-value}, or if the [Project](https://openjdk.org/bylaws#project) is large enough to have its own [repo-*]{.jbs-value} fix version, use that.
+   * Only one [Fix Version/s]{.jbs-field} should ever be set, if the issue is to be fixed in additional releases then separate backport issues must be created (see [Working with backports in JBS]). There are exceptions to this rule for CSRs and Release Notes.
 1. Make sure the bug has all the required labels – see [JBS Label Dictionary].
    * Bugs where behavior has _incorrectly_ changed from a previous build or release: [[regression]{.jbs-label}](#regression)
    * Changes that don't affect product code, but are only against the regression test, or problem-listing: [[noreg-self]{.jbs-label}](#noreg-self)
@@ -263,7 +260,7 @@ Once the work on an issue has been completed the issues [Status]{.jbs-field} sho
 
 | Resolution | Use with status | Covers |
 |:-|:-|:----------|
-| [Fixed]{.jbs-value} | [Resolved]{.jbs-value} / [Closed]{.jbs-value} | The [Fixed]{.jbs-value} resolution should be used **only** if a change has been integrated in a repo to address the issue. For the JDK project in almost all cases the bots will transition the issue to [Resolved]{.jbs-value}/[Fixed]{.jbs-value} when the changeset is pushed to the repo. An issue in [Resolved]{.jbs-value}/[Fixed]{.jbs-value} state needs to go through [verification](#verifying-an-issue) to end up as [Closed]{.jbs-value}/[Fixed]{.jbs-value}.<br />If there isn't a fix in the repo (and so no associated changeset) then the issue should **not** be marked as [Fixed]{.jbs-field}. |
+| [Fixed]{.jbs-value} | [Resolved]{.jbs-value} / [Closed]{.jbs-value} | The [Fixed]{.jbs-value} resolution should be used **only** if a change has been integrated in a repo to address the issue. For the JDK Project in almost all cases the bots will transition the issue to [Resolved]{.jbs-value}/[Fixed]{.jbs-value} when the changeset is pushed to the repo. An issue in [Resolved]{.jbs-value}/[Fixed]{.jbs-value} state needs to go through [verification](#verifying-an-issue) to end up as [Closed]{.jbs-value}/[Fixed]{.jbs-value}.<br />If there isn't a fix in the repo (and so no associated changeset) then the issue should **not** be marked as [Fixed]{.jbs-field}. |
 | [Won't Fix]{.jbs-value} | [Closed]{.jbs-value} | Used when the issue is describing behavior which, while maybe problematic or not ideal, isn't going to be changed - for compatibility reasons for example. |
 | [Duplicate]{.jbs-value} | [Closed]{.jbs-value} | Used to indicate that the same issue is described in another JBS issue. See [Closing issues as duplicates] for more information. |
 | [Incomplete]{.jbs-value} | [Resolved]{.jbs-value} / [Closed]{.jbs-value} | Used to indicate that the JBS issue doesn't contain enough information to work on the issue. See [Closing incomplete issues] for more information. |
@@ -322,13 +319,13 @@ This table contains some frequently used JBS labels and their meaning. Please he
   <tr>
     <td class="dictionary">[*(Area)*[-interest]{.jbs-label}]{#area-interest}</td>
     <td class="dictionary">
-      Used to indicate that an area (usually a team or project) is interested in the issue. This label doesn't indicate ownership of the issue. E.g., [redhat-interest]{.jbs-label}, [azul-interest]{.jbs-label}, [coin-interest]{.jbs-label}
+      Used to indicate that an area (usually a team or [Project](https://openjdk.org/bylaws#project)) is interested in the issue. This label doesn't indicate ownership of the issue. E.g., [redhat-interest]{.jbs-label}, [azul-interest]{.jbs-label}, [coin-interest]{.jbs-label}
     </td>
   </tr>
   <tr>
     <td class="dictionary">[*(Area)*[-related]{.jbs-label}]{#area-related}</td>
     <td class="dictionary">
-      Used to indicate that an issue is related to a specific area (usually a feature or project). This label doesn't indicate ownership of the issue. E.g., [graal-related]{.jbs-label}, [testcolo-related]{.jbs-label}, [doc-related]{.jbs-label}
+      Used to indicate that an issue is related to a specific area (usually a feature or [Project](https://openjdk.org/bylaws#project)). This label doesn't indicate ownership of the issue. E.g., [graal-related]{.jbs-label}, [testcolo-related]{.jbs-label}, [doc-related]{.jbs-label}
     </td>
   </tr>
   <!-- Release -->
@@ -343,7 +340,7 @@ This table contains some frequently used JBS labels and their meaning. Please he
                            [*(Rel)*[-critical-approved]{.jbs-label}]{#rel-critical-approved}<br />
                            [*(Rel)*[-critical-watch]{.jbs-label}]{#rel-critical-watch}</td>
     <td class="dictionary">
-      Used in the rampdown phases of specific releases to request approval of changes that requires project lead approval (or similar) to be included. *(Rel)* is the release in question. E.g., [jdk11-critical-request]{.jbs-label}
+      Used in the ramp down phases of specific releases to request approval of changes that requires Project lead approval (or similar) to be included. *(Rel)* is the release in question. E.g., [jdk11-critical-request]{.jbs-label}
 
       *(Rel)*[-critical-approved]{.jbs-label} is used to signal that the change has been approved for inclusion. E.g., [jdk11-critical-approved]{.jbs-label}<br />
       *(Rel)*[-critical-watch]{.jbs-label} is used for issues that must get into a specific release but risk running late. The label is used while the issue is still in progress and is replaced with *(Rel)*[-critical-request]{.jbs-label} once the issue is resolved. E.g., [jdk11-critical-watch]{.jbs-label}
@@ -356,7 +353,7 @@ This table contains some frequently used JBS labels and their meaning. Please he
                            [*(Rel)*[-defer-yes]{.jbs-label}]{#rel-defer-yes}<br />
                            [*(Rel)*[-defer-no]{.jbs-label}]{#rel-defer-no}</td>
     <td class="dictionary">
-      Used to request deferral of changes that requires project lead approval (or similar) to defer. *(Rel)* is the release in question. E.g., [jdk12-defer-request]{.jbs-label}
+      Used to request deferral of changes that requires Project lead approval (or similar) to defer. *(Rel)* is the release in question. E.g., [jdk12-defer-request]{.jbs-label}
 
       *(Rel)*[-defer-yes]{.jbs-label} and *(Rel)*[-defer-no]{.jbs-label} are used to indicate wether the deferral has been approved or not. E.g., [jdk12-defer-yes]{.jbs-label}
 
@@ -369,7 +366,7 @@ This table contains some frequently used JBS labels and their meaning. Please he
                            [*(Rel)*[-enhancement-yes]{.jbs-label}]{#rel-enhancement-yes}<br />
                            [*(Rel)*[-enhancement-no]{.jbs-label}]{#rel-enhancement-no}</td>
     <td class="dictionary">
-      Used in the rampdown phases to request the late inclusion of an enhancement. *(Rel)* is the release in question. E.g., [jdk10-enhancement-request]{.jbs-label}
+      Used in the ramp down phases to request the late inclusion of an enhancement. *(Rel)* is the release in question. E.g., [jdk10-enhancement-request]{.jbs-label}
 
       *(Rel)*[-enhancement-yes]{.jbs-label} and *(Rel)*[-enhancement-no]{.jbs-label} are used to indicate the response on the request. E.g., [jdk10-enhancement-yes]{.jbs-label}, [jdk10-enhancement-no]{.jbs-label}
 
@@ -383,7 +380,7 @@ This table contains some frequently used JBS labels and their meaning. Please he
                            [*(Rel)*[-fix-yes]{.jbs-label}]{#rel-fix-yes}<br />
                            [*(Rel)*[-fix-no]{.jbs-label}]{#rel-fix-no}</td>
     <td class="dictionary">
-      Used in rampdown phase 2 to indicate that an issue would be of interest to get integrated into release *(Rel)*. E.g., [jdk12u-fix-request]{.jbs-label}
+      Used in ramp down phase 2 to indicate that an issue would be of interest to get integrated into release *(Rel)*. E.g., [jdk12u-fix-request]{.jbs-label}
 
       *(Rel)*[-fix-SQE-ok]{.jbs-label} is used to indicate that the issue will be covered by the test plan for *(Rel)*. E.g., [jdk12u-fix-SQE-ok]{.jbs-label}<br />
       *(Rel)*[-fix-yes]{.jbs-label} and *(Rel)*[-fix-no]{.jbs-label} are used to indicate wether an issue has been approved for backport to *(Rel)*. E.g., [jdk12u-fix-yes]{.jbs-label}
@@ -749,7 +746,7 @@ Examples:  If a bug fix only corrects a change in the build system, then add the
     <td class="dictionary">
       Used to indicate which tier in the `jdk/jdk` CI pipeline a test failure has been seen in. Lower tiers would in general mean higher urgency to fix the issue. E.g., [tier1]{.jbs-label}, [tier2]{.jbs-label}
 
-      Please note that these labels are reserved for bugs seen in the `jdk/jdk` CI pipeline. Use *(Rel)*[-tier1] for other CI pipelines, where *(Rel)* is the name of the pipeline. E.g. [8u-tier1]{.jbs-label}
+      Please note that these labels are reserved for bugs seen in the `jdk/jdk` CI pipeline. Use *(Rel)*[-tier]{.jbs-label}`[1-8]` for other CI pipelines, where *(Rel)* is the name of the pipeline. E.g. [8u-tier1]{.jbs-label}
     </td>
   </tr>
   <!-- U -->
