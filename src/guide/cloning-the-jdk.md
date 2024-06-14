@@ -7,7 +7,7 @@
 * [Skara Documentation](https://wiki.openjdk.org/display/SKARA)
 :::
 
-The complete source code for the JDK is hosted at [GitHub](https://github.com). You can browse the code directly in the [openjdk/jdk repository](https://github.com/openjdk/jdk), or download the code for offline browsing, editing, and building using `git clone`.
+After the initial release of the JDK source code into OpenJDK in 2007 the OpenJDK project moved from TeamWare to using Mercurial. Starting in 2019 the source revision control has been moved to Git. The complete source code for the JDK is today hosted at [GitHub](https://github.com). You can browse the code directly in the [openjdk/jdk repository](https://github.com/openjdk/jdk), or download the code for offline browsing, editing, and building using `git clone`.
 
     $ git clone https://github.com/openjdk/jdk.git
 
