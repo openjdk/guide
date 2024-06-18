@@ -265,7 +265,7 @@ Once the work on an issue has been completed the issues [Status]{.jbs-field} sho
 
 Most resolutions are used to close an issue so that it ends up being [Closed]{.jbs-value} directly, but resolutions that indicates that a change has been integrated into a Project repository must go through the [Resolved]{.jbs-value} state. An issue in [Resolved]{.jbs-value} state needs to go through [verification](#verifying-an-issue) to end up as [Closed]{.jbs-value}. For the JDK project in almost all cases the bots will transition the issue to [Resolved]{.jbs-value}/[Fixed]{.jbs-value} when the changeset is integrated to the repository.
 
-The [Fix Version/s]{.jbs-field} field should indicate when an issue was fixed. The most common value for this field is a JDK version number. There are some special values available for this field in JBS, these should only be used is special cases as outlined in this Guide.
+The [Fix Version/s]{.jbs-field} field should indicate when an issue was fixed. The most common value for this field is a JDK version number. There are some special values available for this field in JBS, these should only be used for special cases as outlined in this Guide.
 
 ::: {.note}
 **Note:** An issue should never be closed if it has open sub-tasks.
@@ -310,7 +310,7 @@ Any issue closed as a [Duplicate]{.jbs-value} **must** have a "Duplicates" link 
 :::
 
 ::: {.note}
-Be mindful of labels on issues closed as [Duplicate]{.jbs-value}. Some labels needs to be copied over to the duplicating issue, see for instance the [[tck-red-]{.jbs-label}*(Rel)*](#tck-red-rel) label.
+Be mindful of labels on issues closed as [Duplicate]{.jbs-value}. Some labels need to be copied over to the duplicating issue, see for instance the [[tck-red-]{.jbs-label}*(Rel)*](#tck-red-rel) label.
 :::
 
 ### Closing incomplete issues
@@ -319,7 +319,7 @@ As mentioned above, issues that lack the information needed to investigate the p
 
 ## Verifying an issue
 
-Once a bug is marked as fixed there is now the option of someone, other than the person that fixed it, of marking it as [Verified]{.jbs-value} to confirm that the issue is fixed after testing; marking it as [Fix Failed]{.jbs-value} if it didn't solve the issue; or, [Not Verified]{.jbs-value} to indicate that it wasn't explicitly tested. Note that the JBS UI doesn't highlight when [Fix Failed]{.jbs-value} has been set, you need to look for the [Verification]{.jbs-field} field at the bottom of the left-hand column in the Details section.
+Once an issue is marked as resolved there is now the option of someone, other than the person that fixed it, of marking it as [Verified]{.jbs-value} to confirm that the issue is fixed after testing; marking it as [Fix Failed]{.jbs-value} if it didn't solve the issue; or, [Not Verified]{.jbs-value} to indicate that it wasn't explicitly tested. Note that the JBS UI doesn't highlight when [Fix Failed]{.jbs-value} has been set, you need to look for the [Verification]{.jbs-field} field at the bottom of the left-hand column in the Details section.
 
 ## Removing an issue
 
