@@ -38,8 +38,8 @@ Depending on your answer to that question you will need to consider one or more 
 [Quick Links]{.boxheader}
 
 * [Oracle Contributor Agreement (OCA)](https://www.oracle.com/technical-resources/oracle-contributor-agreement.html)
-* [OCA Signatories List][https://oca.opensource.oracle.com/?ojr=contrib-list]
-* [OpenJDK Legal Documents][https://openjdk.org/legal/]
+* [OCA Signatories List](https://oca.opensource.oracle.com/?ojr=contrib-list)
+* [OpenJDK Legal Documents](https://openjdk.org/legal/)
 * [JDK Bug System (JBS)](https://bugs.openjdk.org/)
 * [OpenJDK Project Roles](https://openjdk.org/bylaws#project-roles)
 :::
@@ -48,7 +48,7 @@ In many GitHub projects the standard way to propose a change is to create a pull
 
 ### 1. Sign the OCA
 
-Like many other open-source communities, the OpenJDK Community requires Contributors to jointly assign their copyright on contributed code. Oracle is the steward of OpenJDK and if you haven't yet signed the [Oracle Contributor Agreement](https://oca.opensource.oracle.com/) (OCA), and are not covered by a company-level agreement, then please do so. This is required in order to make your patch available for review. The OCA gives Oracle and you as a Contributor joint copyright interests in the code. You will retain your copyright while also granting those rights to Oracle. If you don't know if your organization has signed the OCA you can check the [OCA Signatories List][https://oca.opensource.oracle.com/?ojr=contrib-list], or ask your legal advisor.
+Like many other open-source communities, the OpenJDK Community requires Contributors to jointly assign their copyright on contributed code. Oracle is the steward of OpenJDK and if you haven't yet signed the [Oracle Contributor Agreement](https://oca.opensource.oracle.com/) (OCA), and are not covered by a company-level agreement, then please do so. This is required in order to make your patch available for review. The OCA gives Oracle and you as a Contributor joint copyright interests in the code. You will retain your copyright while also granting those rights to Oracle. If you don't know if your organization has signed the OCA you can check the [OCA Signatories List](https://oca.opensource.oracle.com/?ojr=contrib-list), or ask your legal advisor.
 
 When you sign the OCA, please make sure that you specify your GitHub user name in the `Username` field of the OCA. If you try to create a PR before you have signed the OCA, or if you didn't specify your GitHub user name, you'll get instructions telling you to do so, and the PR won't be published until this is done. OCA registration is a manual process. Please allow for up to several days to have your OCA application processed, even though it's normally processed swiftly.
 
