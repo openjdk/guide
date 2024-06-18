@@ -221,6 +221,7 @@ Now that the issue is in the right component and has the basic information, the 
     * In addition to the version where the bug was found, take special care to also investigate if the bug affects mainline.
       * See [Indicating what releases an issue is applicable to](#indicating-what-releases-an-issue-is-applicable-to) for more details.
     * For enhancements the [Affects Version/s]{.jbs-field} should be empty unless you feel that the enhancement is only relevant to a particular release family, and shouldn't go into a future mainline release.
+    * [Affects Version/s]{.jbs-field} should never use any of the "special" values available in JBS like [tbd]{.jbs-value}, [na]{.jbs-value}, [unknown]{.jbs-value} or similar. Only actual JDK release numbers or [-pool]{.jbs-value} versions should be used.
 1. Set the [Fix Version/s]{.jbs-field}.
    * A bug should be fixed first in the most recent version where it exists. If you don't know what version the fix will go into set the [Fix Version/s]{.jbs-field} to [tbd]{.jbs-value}.
    * If the bug also exists in older versions it may require [backporting].
