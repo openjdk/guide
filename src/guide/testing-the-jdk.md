@@ -179,6 +179,10 @@ In case of failures in the GHA it's always a good start to try to reproduce the 
 
 Please keep in mind that the tier 1 tests run by the GHA should only be seen as a smoke test that finds the most critical breakages, like build errors or if the JDK is DOA. These tests can never replace the targeted testing that you always must do on your changes. There are several areas of the JDK that aren't part of tier 1 at all. To see exactly what tier 1 includes, please see the various TEST.groups files that you will find in the subdirectories of [`jdk/test/`](https://github.com/openjdk/jdk/tree/master/test).
 
+::: {.note}
+In the past there used to be a sandbox repository that could be used for testing purposes. With the move to Git this has been replaced by GitHub Actions.
+:::
+
 ## Excluding a test
 
 Sometimes tests break. It could be e.g. due to bugs in the test itself, due to changed functionality in the code that the test is testing, or changes in the environment where the test is executed. While working on a fix, it can be useful to stop the test from being executed in everyone else's testing to reduce noise, especially if the test is expected to fail for more than a day. There are two ways to stop a test from being run in standard test runs: ProblemListing and using the `@ignore` keyword. Removing tests isn't the standard way to remove a failure. A failing test is often a regression and should ideally be handled with high urgency.
@@ -367,23 +371,6 @@ index 4961acb2126..399e7cc311f 100644
 
  For build instructions please see the
  [online documentation](https://openjdk.org/groups/build/doc/building.html),
-~~~
-
-### How to work with Mercurial when a change is backed out
-
-In order to backout a change, the `hg backout` command is recommended, which essentially applies the anti-delta of the change. Make sure you perform the backout in the most upstream repository the change has escaped to.
-
-~~~
-hg backout [OPTION]... [-r] REV
-
-reverse effect of earlier changeset
-
-    Prepare a new changeset with the effect of REV undone in the current
-    working directory.
-
-    If REV is the parent of the working directory, then this new changeset is
-    committed automatically. Otherwise, hg needs to merge the changes and the
-    merged result is left uncommitted.
 ~~~
 
 ## Backing out a backport
