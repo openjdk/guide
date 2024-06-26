@@ -11,13 +11,13 @@ After the initial release of the JDK source code into OpenJDK in 2007 the OpenJD
 
     $ git clone https://github.com/openjdk/jdk.git
 
-`openjdk/jdk` is the mainline JDK development repository where the next major release of the JDK is being developed. Other projects have their own repositories on GitHub.
+`openjdk/jdk` is the mainline JDK development repository where the next major release of the JDK is being developed. Other [Projects](https://openjdk.org/bylaws#project) have their own repositories on [GitHub](https://github.com/openjdk).
 
 ::: {.note}
-Note that source may be available from other locations, for example `src.zip` from a full JDK distribution. However, OpenJDK contributions must use source from the appropriate OpenJDK GitHub repository since other source distributions may contain older code or code which differs due to licensing. Consult the Project's documentation or [mailing list] to determine the appropriate repository, development conventions, and helpful tools.
+Note that source may be available from other locations, for example `src.zip` from a full JDK distribution. However, OpenJDK contributions must use source from the appropriate [OpenJDK GitHub repository](https://github.com/openjdk) since other source distributions may contain older code or code which differs due to licensing. Consult the Project's documentation or [mailing lists] to determine the appropriate repository, development conventions, and helpful tools.
 :::
 
-If you intend to contribute patches, you should first *fork* the repository on GitHub and clone your own *personal fork* as shown below. To fork a project on GitHub, go to the GitHub project page and click the 'Fork' button in the upper right corner, then follow the on screen instructions.
+If you intend to contribute patches, you should first *fork* the repository on [GitHub](https://github.com) and clone your own *personal fork* as shown below. To fork a [Project](https://openjdk.org/bylaws#project) on [GitHub](https://github.com), go to the GitHub Project page and click the 'Fork' button in the upper right corner, then follow the on screen instructions.
 
 This is the typical development model:
 
@@ -35,13 +35,13 @@ graph TD
 ~~~
 :::
 
-Pushes to your personal fork can be made either using HTTPS or SSH. These examples assume you have an SSH key installed on GitHub. If this is the first time you clone your personal fork of an OpenJDK repository you may want to create an SSH key to use with it. See [Generating an SSH key] below. Once you have your personal fork and an SSH key to go with it, go ahead and clone.
+Pushes to your personal fork can be made either using HTTPS or SSH. These examples assume you have an SSH key installed on [GitHub](https://github.com). If this is the first time you clone your personal fork of an OpenJDK repository you may want to create an SSH key to use with it. See [Generating an SSH key] below. Once you have your personal fork and an SSH key to go with it, go ahead and clone.
 
     $ git clone git@github.com:OpenDuke/jdk.git
     $ cd jdk
     $ git remote add upstream https://github.com/openjdk/jdk.git
 
-In the example above Duke cloned his personal fork of the JDK mainline repository using SSH. You should of course use your own GitHub username instead. Then, by adding a new *remote* named 'upstream', the clone is associated with [openjdk/jdk](https://github.com/openjdk/jdk). Doing this will allow the tooling to automatically create a PR on [openjdk/jdk](https://github.com/openjdk/jdk) whenever a change is pushed to the personal fork. The way that works is that once the change has been pushed to the personal fork, and you navigate to the [openjdk/jdk](https://github.com/openjdk/jdk) repository on GitHub, there will be a message saying that you just pushed a change and asking if you want to create a PR.
+In the example above Duke cloned his personal fork of the JDK mainline repository using SSH. You should of course use your own [GitHub](https://github.com) username instead. Then, by adding a new *remote* named 'upstream', the clone is associated with [openjdk/jdk](https://github.com/openjdk/jdk). Doing this will allow the tooling to automatically create a PR on [openjdk/jdk](https://github.com/openjdk/jdk) whenever a change is pushed to the personal fork. The way that works is that once the change has been pushed to the personal fork, and you navigate to the [openjdk/jdk](https://github.com/openjdk/jdk) repository on [GitHub](https://github.com), there will be a message saying that you just pushed a change and asking if you want to create a PR.
 
 ## Working with git branches
 
@@ -86,7 +86,7 @@ For security reasons you should always create new keys and use different keys wi
     | .=B=. .. .      |
     +----[SHA256]-----+
 
-`~/.ssh/openjdk-jdk` is a text file containing your private ssh key. There's a corresponding public key in `~/.ssh/openjdk-jdk.pub` (as detailed in the example above). You should **never** share your private key. The *public* key on the other hand should be uploaded to GitHub. Follow the steps below to do that.
+`~/.ssh/openjdk-jdk` is a text file containing your private ssh key. There's a corresponding public key in `~/.ssh/openjdk-jdk.pub` (as detailed in the example above). You should **never** share your private key. The *public* key on the other hand should be uploaded to [GitHub](https://github.com). Follow the steps below to do that.
 
 * Go to the GitHub settings for your account by choosing "Settings" in the menu by your avatar in the upper right corner
 * Go to "SSH and GPG keys"

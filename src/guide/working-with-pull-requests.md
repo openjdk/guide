@@ -6,7 +6,7 @@
 * [Skara documentation on PR commands](https://wiki.openjdk.org/display/SKARA/Pull+Request+Commands)
 :::
 
-Once you have made a change that you want to integrate into an OpenJDK code base you need to create a _Pull Request_ (PR) on GitHub. This section assumes that you have previous experience from using git and GitHub and won't go into details of how those work. Still, the aim is of course to provide a useful guide, so [send an email](#about-this-guide) if more details are needed.
+Once you have made a change that you want to integrate into an OpenJDK code base you need to create a _Pull Request_ (PR) on [GitHub](https://github.com). This section assumes that you have previous experience from using git and [GitHub](https://github.com), and won't go into details of how those work. Still, the aim is of course to provide a useful guide, so [send an email](#about-this-guide) if more details are needed.
 
 This section also assumes that you have already read [I have a patch, what do I do?] and followed **all** the steps there.
 
@@ -14,7 +14,7 @@ This section also assumes that you have already read [I have a patch, what do I 
 
 All code reviews in OpenJDK are done in public. Once you open your PR for public review the internet can see it and comment on it. Make sure your code is ready for it. Look through your comments, make sure that temporary code is gone, and make sure you have sanitized your method and variable names. Also, make sure you understand your code. Why is it working? What are the potential pitfalls? What are the edge-cases? If you haven't already answered all these questions in the mail conversation that preceded this PR, it's likely that you will need to answer them during the review.
 
-It's also worth taking the extra time to see if the change can be split into a few different separate changes. A large change will take more effort and thus attract fewer Reviewers. Smaller changes will get reviewed faster and get better quality reviews. You can compare proposing a single large change to proposing ten individual small unrelated changes. What happens in practice when all these ten changes are presented as one PR is that there's a focus on say 5-6 of these smaller changes and no one really looks hard at the other 4-5. For complexity, even small changes that are hard to understand and test may be risky.
+It's also worth taking the extra time to see if the change can be split into a few different separate changes. A large change will take more effort and thus attract fewer [Reviewers](https://openjdk.org/bylaws#reviewer). Smaller changes will get reviewed faster and get better quality reviews. You can compare proposing a single large change to proposing ten individual small unrelated changes. What happens in practice when all these ten changes are presented as one PR is that there's a focus on say 5-6 of these smaller changes and no one really looks hard at the other 4-5. For complexity, even small changes that are hard to understand and test may be risky.
 
 The timing of your change will also affect the availability of reviewers. The JDK runs on a [six-months release cadence](#release-cycle). During the months around the start of the ramp down phase most area experts will be busy working on their own changes and reviewing major features that are planned for the release. If you propose a change during this period (basically May-June, or November-December) it may take a long time before you get the required reviews.
 
@@ -48,13 +48,13 @@ Creating the PR is essentially the same as asking a large group of people to sta
 
 If you are unsure of any of these things but still want to go ahead and create the PR, **don't!**
 
-If you have an actual reason to create a PR before the change is all done, make sure to create it in `DRAFT` mode. The bot won't add the `rfr` label or send emails to labeled groups as long as the PR is in `DRAFT` mode.
+If you have an actual reason to create a PR before the change is all done, make sure to create it in `DRAFT` mode. The bot won't add the `rfr` label or send emails to labeled [Groups](https://openjdk.org/bylaws#group) as long as the PR is in `DRAFT` mode.
 
 ## Life of a PR
 
 #. **Make sure the PR is reviewable**
 
-   There are changes that span across several areas, for example wide spread cleanups or the introduction of a new langauge feature. Accordingly, the number of lines of code touched can be quite large, which makes it harder to review the entire PR. In such cases, it may make sense to split the change into several PRs, most commonly by grouping them by module or area.
+   There are changes that span across several areas, for example wide spread cleanups or the introduction of a new language feature. Accordingly, the number of lines of code touched can be quite large, which makes it harder to review the entire PR. In such cases, it may make sense to split the change into several PRs, most commonly by grouping them by module or area.
 
 #. **Set a correctly formatted title**
 
@@ -62,7 +62,7 @@ If you have an actual reason to create a PR before the change is all done, make 
 
 #. **Write a useful description**
 
-   The description of the PR should state what problem is being solved and shortly describe how it's solved. Reviewers and other interested readers are referred to the text in the JBS issue for details, but the description should be enough to give an overview. This assumes there's useful information in the JBS issue, like an evaluation etc. If not, add it.
+   The description of the PR should state what problem is being solved and shortly describe how it's solved. [Reviewers](https://openjdk.org/bylaws#reviewer) and other interested readers are referred to the text in the JBS issue for details, but the description should be enough to give an overview. This assumes there's useful information in the JBS issue, like an evaluation etc. If not, add it.
 
    Remember that the description is included in many emails sent to lists with many receivers, so a too long description can cause a lot of noise, while of course a too short description won't give the reader enough information to perform the review. If you have a lot of information you wish to add to your PR, like performance evaluations, you can put that in a separate comment in the PR.
 
@@ -70,9 +70,9 @@ If you have an actual reason to create a PR before the change is all done, make 
 
    Each update to a published PR will result in emails being sent to all relevant lists. This is per design and it's how we want it to be, but it also mean that if you publish a PR before you have gone through the final check mentioned above, and later find that a few more updates are necessary, a lot of people will get a lot of emails.
 
-#. **Make sure all relevant groups are included**
+#. **Make sure all relevant [Groups](https://openjdk.org/bylaws#group) are included**
 
-   The bot will make an attempt to include the groups that need to review your change based on the location of the source code you have changed. There may be aspects of your change that are relevant to other groups as well, and the mapping from source to groups isn't always perfect, so make sure all relevant groups have been included, and add new labels using [`/label`](https://wiki.openjdk.org/display/SKARA/Pull+Request+Commands#PullRequestCommands-/label) if needed. Consult the [Code Owners](#code-owners) section if you are unsure of who owns the code you are changing.
+   The bot will make an attempt to include the [Groups](https://openjdk.org/bylaws#group) that need to review your change based on the location of the source code you have changed. There may be aspects of your change that are relevant to other [Groups](https://openjdk.org/bylaws#group) as well, and the mapping from source to [Groups](https://openjdk.org/bylaws#group) isn't always perfect, so make sure all relevant [Groups](https://openjdk.org/bylaws#group) have been included, and add new labels using [`/label`](https://wiki.openjdk.org/display/SKARA/Pull+Request+Commands#PullRequestCommands-/label) if needed. Consult the [Code Owners](#code-owners) section if you are unsure of who owns the code you are changing.
 
 #. **Allow enough time for review**
 
@@ -80,7 +80,7 @@ If you have an actual reason to create a PR before the change is all done, make 
 
 #. **Get the required reviews**
 
-   At least one Reviewer knowledgeable in each area being changed must approve every change. Some areas (e.g. Client and HotSpot) require two reviewers in most cases, so be sure to read the relevant OpenJDK group pages for advice or ask your sponsor.
+   At least one [Reviewer](https://openjdk.org/bylaws#reviewer) knowledgeable in each area being changed must approve every change. Some areas (e.g. Client and HotSpot) require two reviewers in most cases, so be sure to read the relevant [OpenJDK Group](https://openjdk.org/bylaws#group) pages for advice or ask your [Sponsor](https://openjdk.org/bylaws#sponsor).
 
    Be open to comments and polite in replies. Remember that the reviewer wants to improve the world just as much as you do, only in a slightly different way. If you don't understand some comment, ask the reviewer to clarify. Accept authority when applicable. If you're making changes in an area where you're not the area expert, acknowledge that your reviewers may be. Take their advice seriously, even if it is to not make the change. There are many reasons [why a change may get rejected](#why-is-my-change-rejected). And you did read the section [Things to consider before changing OpenJDK code], right?
 
@@ -88,7 +88,7 @@ If you have an actual reason to create a PR before the change is all done, make 
 
    You may need to change the code in response to review comments. To do this, simply commit new changes and push them onto the PR branch. The PR will be updated automatically. Multiple commits to the branch will be squashed into a single commit when the PR is eventually integrated.
 
-   If the set of files in the PR has changed, this may affect the groups that need to review the PR. Make sure to adjust the PR labels accordingly.
+   If the set of files in the PR has changed, this may affect the [Groups](https://openjdk.org/bylaws#group) that need to review the PR. Make sure to adjust the PR labels accordingly.
 
    If you want to update the title of the PR, remember that the one and only truth is the JBS issue, so the title must first be changed there.
 
@@ -96,12 +96,13 @@ If you have an actual reason to create a PR before the change is all done, make 
 
    If your PR is out for review for a longer time it's a good habit to pull from the target repository regularly to keep the change up to date. This will make it easier to review the change and it will help you find issues caused by other changes sooner. Typically this involves fetching changes from the `master` branch of the main JDK repo, merging them into your local branch, resolving conflicts if necessary, and then pushing these changes to the PR branch. Pushing additional commits and merges into the PR branch is fine; they will be squashed into a single commit when the PR is integrated. Avoid rebasing changes, and prefer merging instead.
 
-   If there are upstream changes that might affect your change, it's likely a good idea to rerun relevant testing as well. The [GHA testing](#github-actions) that's done automatically by GitHub should only be seen as a smoke test that finds the most severe problems with your change. It's highly unlikely that it will test your actual change in any greater detail - or even at all execute the code that you have changed in most cases.
    If your PR is targeting some other branch than `master`, make sure to merge the correct upstream branch (the target branch). Verify that your PR doesn't include changes from some other branch (e.g. `master`) that aren't supposed to be there.
+
+   If there are upstream changes that might affect your change, it's likely a good idea to rerun relevant testing as well. The [GHA testing](#github-actions) that's done automatically by [GitHub](https://github.com) should only be seen as a smoke test that finds the most severe problems with your change. It's highly unlikely that it will test your actual change in any greater detail - or even at all execute the code that you have changed in most cases.
 
 #. **Integrate your change**
 
-   When you have the required reviews and have made sure all relevant areas have had a chance to look at your change, integrate by entering the command [`/integrate`](https://wiki.openjdk.org/display/SKARA/Pull+Request+Commands#PullRequestCommands-/integrate) in a comment on the PR. If you are not yet a Committer in the project, ask your sponsor to enter the command [`/sponsor`](https://wiki.openjdk.org/display/SKARA/Pull+Request+Commands#PullRequestCommands-/sponsor) in the PR as well in order for your change to be allowed to be integrated.
+   When you have the required reviews and have made sure all relevant areas have had a chance to look at your change, integrate by entering the command [`/integrate`](https://wiki.openjdk.org/display/SKARA/Pull+Request+Commands#PullRequestCommands-/integrate) in a comment on the PR. If you are not yet a [Committer](https://openjdk.org/bylaws#committer) in the [Project](https://openjdk.org/bylaws#project), ask your [Sponsor](https://openjdk.org/bylaws#sponsor) to enter the command [`/sponsor`](https://wiki.openjdk.org/display/SKARA/Pull+Request+Commands#PullRequestCommands-/sponsor) in the PR as well in order for your change to be allowed to be integrated.
 
 #. **After integration**
 
@@ -116,17 +117,17 @@ If you have an actual reason to create a PR before the change is all done, make 
 * [Webrev Mailing List](https://mail.openjdk.org/pipermail/webrev-dev/)
 :::
 
-As all OpenJDK projects are hosted on GitHub, most code reviews takes place there. When you publish a PR to an OpenJDK repository the corresponding JBS issue will get a link to the code review in the PR, making this the natural place to go for review. OpenJDK do however provide other tools and infrastructure for code reviews as well: The **webrevs**.
+As all [OpenJDK Projects](https://openjdk.org/bylaws#project) are hosted on [GitHub](https://github.com), most code reviews takes place there. When you publish a PR to an OpenJDK repository the corresponding JBS issue will get a link to the code review in the PR, making this the natural place to go for review. OpenJDK do however provide other tools and infrastructure for code reviews as well: The **webrevs**.
 
-Webrev refers to both the tool used to create them and its output. The script, [`webrev.ksh`](https://github.com/openjdk/webrev/blob/master/webrev.ksh), is maintained in the [Code Tools](../projects/code-tools) project. Please note that this version of webrev is for use with mercurial and won't work with the git based repositories. You don't actually need tools like this anymore unless you want to host code reviews in other locations than GitHub.
+Webrev refers to both the tool used to create them and its output. The script, [`webrev.ksh`](https://github.com/openjdk/webrev/blob/master/webrev.ksh), is maintained in the [Code Tools Project](../projects/code-tools). Please note that this version of webrev is for use with mercurial and won't work with the git based repositories. You don't actually need tools like this anymore unless you want to host code reviews in other locations than [GitHub](https://github.com).
 
-On the GitHub reviews you will find links to webrevs. These are automatically generated by the bot and are provided as a complement for those who prefer this style of code review. Many OpenJDK developers are used to the webrevs as this was the default way to provide code for review before OpenJDK moved to GitHub. Though webrevs are mainly deprecated today, they used to be a central part of OpenJDK development and you may still see people use the word as a synonym for code review, so they do deserve to be mentioned here as well.
+On the GitHub reviews you will find links to webrevs. These are automatically generated by the bot and are provided as a complement for those who prefer this style of code review. Many OpenJDK developers are used to the webrevs as this was the default way to provide code for review before OpenJDK moved to [GitHub](https://github.com). Though webrevs are mainly deprecated today, they used to be a central part of OpenJDK development and you may still see people use the word as a synonym for code review, so they do deserve to be mentioned here as well.
 
 ## File storage for OpenJDK artifacts - `cr.openjdk.org`
 
-The `cr.openjdk.org` server provides storage and display of code review materials such as webrevs and other artifacts related to the OpenJDK Community. This area can also be used to store design documents and other documentation related OpenJDK but not related to any specific project that have an OpenJDK wiki space for such purposes.
+The `cr.openjdk.org` server provides storage and display of code review materials such as webrevs and other artifacts related to the OpenJDK Community. This area can also be used to store design documents and other documentation related OpenJDK but not related to any specific [Project](https://openjdk.org/bylaws#project) that have an OpenJDK wiki space for such purposes.
 
-Any OpenJDK Author can publish materials on the `cr.openjdk.org` server. Users can upload files to temporary storage using secure methods (`rsync`, `scp`, and `sftp`).
+Any OpenJDK [Author](https://openjdk.org/bylaws#author) can publish materials on the `cr.openjdk.org` server. Users can upload files to temporary storage using secure methods (`rsync`, `scp`, and `sftp`).
 
 This site is for open source materials related to the OpenJDK Community only. Users uploading inappropriate materials will lose access and the material will be deleted. Please review the [Terms of Use](https://openjdk.org/legal/terms.html) before using this server.
 
