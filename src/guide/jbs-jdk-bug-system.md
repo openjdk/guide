@@ -785,12 +785,6 @@ Examples:  If a bug fix only corrects a change in the build system, then add the
   </tr>
   <!-- U -->
   <!-- V -->
-  <tr>
-    <td class="dictionary">[[vthreads]{.jbs-label}]{#vthreads}</td>
-    <td class="dictionary">
-      Used to identify an issue in the virtual thread implementation.
-    </td>
-  </tr>
   <!-- W -->
   <tr>
     <td class="dictionary">[[webbug]{.jbs-label}]{#webbug}</td>
