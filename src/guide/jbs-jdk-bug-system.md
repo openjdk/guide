@@ -261,7 +261,7 @@ Some additional fields should be filled out or updated as you get a better under
 
 ## Resolving or Closing an issue
 
-Once the work on an issue has been completed the issues [Status]{.jbs-field} should be in a "completed" state. There are two "completed" states: [Resolved]{.jbs-value} and [Closed]{.jbs-value}. These are accompanied by a [Resolution]{.jbs-field} and a [Fix Version/s]{.jbs-value}. Which combination of [Status]{.jbs-field}, [Resolution]{.jbs-field}, and [Fix Version/s]{.jbs-value} you should use depends on how the issue is completed.
+Once the work on an issue has been completed the issue's [Status]{.jbs-field} should be in a "completed" state. There are two "completed" states: [Resolved]{.jbs-value} and [Closed]{.jbs-value}. These are accompanied by a [Resolution]{.jbs-field} and a [Fix Version/s]{.jbs-value}. Which combination of [Status]{.jbs-field}, [Resolution]{.jbs-field}, and [Fix Version/s]{.jbs-value} you should use depends on how the issue is completed.
 
 Most resolutions are used to close an issue so that it ends up being [Closed]{.jbs-value} directly, but resolutions that indicates that a change has been integrated into a Project repository must go through the [Resolved]{.jbs-value} state. An issue in [Resolved]{.jbs-value} state needs to go through [verification](#verifying-an-issue) to end up as [Closed]{.jbs-value}. For the JDK project in almost all cases the bots will transition the issue to [Resolved]{.jbs-value}/[Fixed]{.jbs-value} when the changeset is integrated to the repository.
 
@@ -294,7 +294,7 @@ When an issue is closed as [Won't Fix]{.jbs-value}, do not remove the [Fix Versi
 :::
 
 :::{.note}
-The fix version [na]{.jbs-value} should only be used on backport issues that was created by mistake. See [How to fix an incorrect backport creation in JBS].
+The fix version [na]{.jbs-value} should only be used on backport issues that is created by mistake. See [How to fix an incorrect backport creation in JBS].
 :::
 
 ### Closing issues without knowing what fixed it
