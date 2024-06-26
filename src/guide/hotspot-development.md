@@ -96,7 +96,7 @@ UL automatically applies a default argument of `-Xlog:all=warning:stdout:uptime,
 
 Starting the JVM with the option `-Xlog:help` outputs more information and more examples.
 
-A full description of the syntax of `-Xlog` is available in [JEP 158](https://openjdk.java.net/jeps/158).
+A full description of the syntax of `-Xlog` is available in [JEP 158](https://openjdk.org/jeps/158).
 
 ::: {.box}
 [To the top](#){.boxheader}

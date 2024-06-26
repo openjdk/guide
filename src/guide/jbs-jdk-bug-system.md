@@ -218,13 +218,14 @@ Now that the issue is in the right component and has the basic information, the 
     * In addition to the version where the bug was found, take special care to also investigate if the bug affects mainline.
       * See [Indicating what releases an issue is applicable to](#indicating-what-releases-an-issue-is-applicable-to) for more details.
     * For enhancements the [Affects Version/s]{.jbs-field} should be empty unless you feel that the enhancement is only relevant to a particular release family, and shouldn't go into a future mainline release.
+    * [Affects Version/s]{.jbs-field} should never use any of the "special" values available in JBS like [tbd]{.jbs-value}, [na]{.jbs-value}, [unknown]{.jbs-value} or similar. Only actual JDK release numbers or [-pool]{.jbs-value} versions should be used.
 1. Set the [Fix Version/s]{.jbs-field}.
    * A bug should be fixed first in the most recent version where it exists. If you don't know what version the fix will go into set the [Fix Version/s]{.jbs-field} to [tbd]{.jbs-value}.
    * If the bug also exists in older versions it may require [backporting].
      * The decision to backport to a release should be made inline with the guidelines of the lead for that release.
-     * There are two options for creating backport issues to track the backport: one is to create it manually once it's agreed that the bug should be backported; the second, is to let the bots create the backport issue once you push the fix to the repo (see [Working with backports in JBS]). In most cases, letting the bots create the backport issue is preferred.
-   * For Project internal changes intended to be pushed to a Project repository rather than the JDK or JDK Updates repositories, the [Fix Version/s]{.jbs-field} should be set to [internal]{.jbs-value}, or if the [Project](https://openjdk.org/bylaws#project) is large enough to have its own [repo-*]{.jbs-value} fix version, use that.
-   * Only one [Fix Version/s]{.jbs-field} should ever be set, if the issue is to be fixed in additional releases then separate backport issues must be created (see [Working with backports in JBS]). There are exceptions to this rule for CSRs and Release Notes.
+     * There are two options for creating backport issues to track the backport: one is to create it manually once it's agreed that the bug should be backported; the second, is to let the bots create the backport issue once you integrate the fix to the repository (see [Working with backports in JBS]). In most cases, letting the bots create the backport issue is preferred.
+   * For Project internal changes intended to be integrated to a Project repository rather than the JDK or JDK Updates repositories, the [Fix Version/s]{.jbs-field} should be set to [internal]{.jbs-value}, or if the [Project](https://openjdk.org/bylaws#project) is large enough to have its own [repo-*]{.jbs-value} fix version, use that.
+   * Only one [Fix Version/s]{.jbs-field} should ever be set. If the issue is to be fixed in additional releases then separate backport issues must be created (see [Working with backports in JBS]). There are exceptions to this rule for CSRs and Release Notes.
 1. Make sure the bug has all the required labels – see [JBS Label Dictionary].
    * Bugs where behavior has _incorrectly_ changed from a previous build or release: [[regression]{.jbs-label}](#regression)
    * Changes that don't affect product code, but are only against the regression test, or problem-listing: [[noreg-self]{.jbs-label}](#noreg-self)
@@ -257,29 +258,45 @@ Some additional fields should be filled out or updated as you get a better under
 
 ## Resolving or Closing an issue
 
-Once the work on an issue has been completed the issues [Status]{.jbs-field} should be in a "completed" state. There are two "completed" states: [Resolved]{.jbs-value} and [Closed]{.jbs-value}. These are accompanied by a [Resolution]{.jbs-field}. Which combination of [Status]{.jbs-field} and [Resolution]{.jbs-field} you should use depends on how the issue is completed.
+Once the work on an issue has been completed the issue's [Status]{.jbs-field} should be in a "completed" state. There are two "completed" states: [Resolved]{.jbs-value} and [Closed]{.jbs-value}. These are accompanied by a [Resolution]{.jbs-field} and a [Fix Version/s]{.jbs-value}. Which combination of [Status]{.jbs-field}, [Resolution]{.jbs-field}, and [Fix Version/s]{.jbs-value} you should use depends on how the issue is completed.
+
+Most resolutions are used to close an issue so that it ends up being [Closed]{.jbs-value} directly, but resolutions that indicates that a change has been integrated into a Project repository must go through the [Resolved]{.jbs-value} state. An issue in [Resolved]{.jbs-value} state needs to go through [verification](#verifying-an-issue) to end up as [Closed]{.jbs-value}. For the JDK Project in almost all cases the bots will transition the issue to [Resolved]{.jbs-value}/[Fixed]{.jbs-value} when the changeset is integrated to the repository.
+
+The [Fix Version/s]{.jbs-field} field should indicate when an issue was fixed. The most common value for this field is a JDK version number. There are some special values available for this field in JBS, these should only be used for special cases as outlined in this Guide.
 
 ::: {.note}
 **Note:** An issue should never be closed if it has open sub-tasks.
 :::
 
-| Resolution | Use with status | Covers |
-|:-|:-|:----------|
-| [Fixed]{.jbs-value} | [Resolved]{.jbs-value} / [Closed]{.jbs-value} | The [Fixed]{.jbs-value} resolution should be used **only** if a change has been integrated in a repo to address the issue. For the JDK Project in almost all cases the bots will transition the issue to [Resolved]{.jbs-value}/[Fixed]{.jbs-value} when the changeset is pushed to the repo. An issue in [Resolved]{.jbs-value}/[Fixed]{.jbs-value} state needs to go through [verification](#verifying-an-issue) to end up as [Closed]{.jbs-value}/[Fixed]{.jbs-value}.<br />If there isn't a fix in the repo (and so no associated changeset) then the issue should **not** be marked as [Fixed]{.jbs-field}. |
-| [Won't Fix]{.jbs-value} | [Closed]{.jbs-value} | Used when the issue is describing behavior which, while maybe problematic or not ideal, isn't going to be changed - for compatibility reasons for example. |
-| [Duplicate]{.jbs-value} | [Closed]{.jbs-value} | Used to indicate that the same issue is described in another JBS issue. See [Closing issues as duplicates] for more information. |
-| [Incomplete]{.jbs-value} | [Resolved]{.jbs-value} / [Closed]{.jbs-value} | Used to indicate that the JBS issue doesn't contain enough information to work on the issue. See [Closing incomplete issues] for more information. |
-| [Cannot Reproduce]{.jbs-value} | [Closed]{.jbs-value} | Use when a reproducer is provided (or clear steps) but it's not possible to see the faulty behavior. When you can't reproduce an issue, where feasible try on the release the issue was reported against as a way of confirming that it's indeed addressed on the latest release, rather than you not having the right environment in which to reproduce the issue. |
-| [Other]{.jbs-value} | [Closed]{.jbs-value} | Used in rare cases where none of the other statuses fit the situation. |
-| [External]{.jbs-value} | [Closed]{.jbs-value} | Use where the issue is due to a problem in a Java library (not part of the JDK code base), an IDE or other external tool etc. Where known, it's good to provide a link to the site where the issue should be reported. |
-| [Not an Issue]{.jbs-value} | [Closed]{.jbs-value} | Use when the behavior is expected and valid (cf. [Won't Fix]{.jbs-value}) and the reporter perhaps has misunderstood what the behavior should be. |
-| [Migrated]{.jbs-value} | [Closed]{.jbs-value} | Used rarely, but can be seen when issues are transferred into another project by opening up a separate issue in that project, with the issue in the original project being [Closed]{.jbs-value} |
-| [Delivered]{.jbs-value} | [Resolved]{.jbs-value} / [Closed]{.jbs-value} | Used to close out issues where a change to the code isn't required, common examples are Tasks, Release Notes, and umbrella issues for larger changes. |
-| [Withdrawn]{.jbs-value} | [Closed]{.jbs-value} | [Withdrawn]{.jbs-value} is essentially the partner state to [Delivered]{.jbs-value} for issues that would not have resulted in a fix to the repo, and also part of the [CSR](https://wiki.openjdk.org/display/csr/Main) and [Release Note](#release-notes) process. |
-| [Approved]{.jbs-value} | [Closed]{.jbs-value} | Used as part of the [CSR process](https://wiki.openjdk.org/display/csr/Main). |
-| Challenge States | --- | [Exclude [Challenge]]{.jbs-value}, [Alternative Tests [Challenge]]{.jbs-value}, and [Reject [Challenge]]{.jbs-value} are only relevant within the context of the JCK Project. |
-| [Future Project]{.jbs-value} | --- | This status is not recommended for use. |
-| [Rejected]{.jbs-value} | --- | This status should not be used. |
+| Status<br />Resolution | Covers |
+|:-|:-----------|
+| [Resolved]{.jbs-value}/[Closed]{.jbs-value}<br />[Fixed]{.jbs-value} | The resolution [Fixed]{.jbs-value} should be used **only** if a change has been integrated in a Project repository to address the issue, and the [Fix Version/s]{.jbs-field} must always correspond to the version where the change was integrated, or be one of the [repo-*]{.jbs-value} fix versions or [internal]{.jbs-value}. If there isn't a fix in the repository (and so no associated changeset) then the issue should **not** be marked as [Fixed]{.jbs-field}. |
+| [Closed]{.jbs-value}<br />[Won't Fix]{.jbs-value} | Used when the issue is describing behavior which, while maybe problematic or not ideal, isn't going to be changed - for compatibility reasons for example. |
+| [Closed]{.jbs-value}<br />[Duplicate]{.jbs-value} | Used to indicate that the same issue is described in another JBS issue. See [Closing issues as duplicates] for more information. |
+| [Resolved]{.jbs-value}/[Closed]{.jbs-value}<br />[Incomplete]{.jbs-value} | Used to indicate that the JBS issue doesn't contain enough information to work on the issue. See [Closing incomplete issues] for more information. |
+| [Closed]{.jbs-value}<br />[Cannot Reproduce]{.jbs-value} | Use when a reproducer is provided (or clear steps) but it's not possible to see the faulty behavior. When you can't reproduce an issue, where feasible try on the release the issue was reported against as a way of confirming that it's indeed addressed on the latest release, rather than you not having the right environment in which to reproduce the issue. |
+| [Closed]{.jbs-value}<br />[Other]{.jbs-value} | Used in rare cases where none of the other statuses fit the situation. |
+| [Closed]{.jbs-value}<br />[External]{.jbs-value} | Use where the issue is due to a problem in a Java library (not part of the OpenJDK code base), an IDE or other external tool etc. Where known, it's good to provide a link to the site where the issue should be reported. |
+| [Closed]{.jbs-value}<br />[Not an Issue]{.jbs-value} | Use when the behavior is expected and valid (cf. [Won't Fix]{.jbs-value}) and the reporter perhaps has misunderstood what the behavior should be. |
+| [Closed]{.jbs-value}<br />[Migrated]{.jbs-value} | Used rarely, but can be seen when issues are transferred into another project by opening up a separate issue in that project, with the issue in the original project being [Closed]{.jbs-value}. |
+| [Resolved]{.jbs-value}/[Closed]{.jbs-value}<br />[Delivered]{.jbs-value} | Used to close out issues where a change to the code isn't required, common examples are Tasks, Release Notes, and umbrella issues for larger changes. |
+| [Closed]{.jbs-value}<br />[Withdrawn]{.jbs-value} | [Withdrawn]{.jbs-value} is essentially the partner state to [Delivered]{.jbs-value} for issues that would not have resulted in a fix to the repo, and also part of the [CSR](https://wiki.openjdk.org/display/csr/Main) and [Release Note](#release-notes) process. |
+| [Closed]{.jbs-value}<br />[Approved]{.jbs-value} | Used as part of the [CSR process](https://wiki.openjdk.org/display/csr/Main). |
+| Challenge States| [Exclude [Challenge]]{.jbs-value}, [Alternative Tests [Challenge]]{.jbs-value}, and [Reject [Challenge]]{.jbs-value} are only relevant within the context of the JCK Project. |
+| [Future Project]{.jbs-value} | This status is not recommended for use. |
+| [Rejected]{.jbs-value} | This status should not be used. |
+
+:::{.note}
+When an issue is closed as [Won't Fix]{.jbs-value}, do not remove the [Fix Version/s]{.jbs-field}. It's valuable information to know what version it was decided not to fix an issue in. The same goes for resolutions such as [Duplicate]{.jbs-value}, [Cannot Reproduce]{.jbs-value} and [Not an Issue]{.jbs-value}.
+:::
+
+:::{.note}
+The fix version [na]{.jbs-value} should only be used on backport issues that is created by mistake. See [How to fix an incorrect backport creation in JBS].
+:::
+
+### Closing issues without knowing what fixed it
+
+If it's determined that an issue has been fixed, but it's unknown what change that fixed it, closing as [Fixed]{.jbs-value} is not an option as this requires a changeset in a project repository. [Duplicate]{.jbs-value} is also not an option since this requires a duplicate-link to the issue that fixed it. A common way to handle such cases is to close the issue as [Delivered]{.jbs-value} with the [Fix version/s]{.jbs-value} set to [unknown]{.jbs-value}. Closing an issue as [Cannot Reproduce]{.jbs-value} has also been common practice but is no longer recommended if it's known that the issue has actually been fixed.
 
 ### Closing issues as duplicates
 
@@ -289,13 +306,17 @@ If the same issue is described in another JBS issue then close one against the o
 Any issue closed as a [Duplicate]{.jbs-value} **must** have a "Duplicates" link to the duplicating issue.
 :::
 
+::: {.note}
+Be mindful of labels on issues closed as [Duplicate]{.jbs-value}. Some labels need to be copied over to the duplicating issue, see for instance the [[tck-red-]{.jbs-label}*(Rel)*](#tck-red-rel) label.
+:::
+
 ### Closing incomplete issues
 
 As mentioned above, issues that lack the information needed to investigate the problem are placed in status [Resolved]{.jbs-value} - [Incomplete]{.jbs-value}. Triage teams should monitor incomplete issues in their area and if needed ping the relevant person. If the required information hasn't been obtained within reasonable time (3-4 weeks) the bug should be closed as [Incomplete]{.jbs-value}.
 
 ## Verifying an issue
 
-Once a bug is marked as fixed there is now the option of someone, other than the person that fixed it, of marking it as [Verified]{.jbs-value} to confirm that the issue is fixed after testing; marking it as [Fix Failed]{.jbs-value} if it didn't solve the issue; or, [Not Verified]{.jbs-value} to indicate that it wasn't explicitly tested. Note that the JBS UI doesn't highlight when [Fix Failed]{.jbs-value} has been set, you need to look for the [Verification]{.jbs-field} field at the bottom of the left-hand column in the Details section.
+Once an issue is marked as resolved there is now the option of someone, other than the person that fixed it, of marking it as [Verified]{.jbs-value} to confirm that the issue is fixed after testing; marking it as [Fix Failed]{.jbs-value} if it didn't solve the issue; or, [Not Verified]{.jbs-value} to indicate that it wasn't explicitly tested. Note that the JBS UI doesn't highlight when [Fix Failed]{.jbs-value} has been set, you need to look for the [Verification]{.jbs-field} field at the bottom of the left-hand column in the Details section.
 
 ## Removing an issue
 
@@ -740,6 +761,8 @@ Examples:  If a bug fix only corrects a change in the build system, then add the
                            [[~~tck-red~~]{.jbs-label}]{#tck-red}</td>
     <td class="dictionary">
       Used to identify TCK conformance stoppers (e.g. failure of a valid TCK test that exists in a shipped TCK). The release number indicates which release of the TCK that failed. E.g., [tck-red-11]{.jbs-label}
+
+      If an issue with a [tck-red-]{.jbs-label}*(Rel)* label is closed as a [Duplicate]{.jbs-value}, the label **must** be added to the duplicating issue as well.
 
       There are [tck-red]{.jbs-label} labels without the release number out there as well. This usage is deprecated.
     </td>
