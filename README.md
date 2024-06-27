@@ -27,7 +27,7 @@ To clarify further, a few examples:
 * A [Project](https://openjdk.org/bylaws#project) may produce code. --- The word "Project" refers to an OpenJDK Project as defined in the Bylaws.
 * Y is an [OpenJDK Project](https://openjdk.org/bylaws#project). --- "OpenJDK Project" is a noun phrase and all of it should be included in the link.
 * The Project repository contains code. --- Here "Project repository" refers to the code repository, not the Project, but the Project is still an OpenJDK Project, so it's capitalized but has no link.
-* A [GitHub](https://github.com) project is a different thing. --- Not an OpenJDK Project, however GitHub is a keyword and has is therefore correctly capitalized and has it's own link. If we were writing about a specific GitHub project then a link to that project would be appropriate.
+* A [GitHub](https://github.com) project is a different thing. --- Not an OpenJDK Project, however GitHub is a keyword and is therefore correctly capitalized and has it's own link. If we were writing about a specific GitHub project then a link to that project would be appropriate.
 
 Section headers do not contain links since this mess with our ability to link to said sections.
 

@@ -21,12 +21,22 @@ During ramp down of a feature release there are two branches of the mainline rep
 
 Please note that special rules applies during ramp down regarding what can and can't be included into the stabilization branch. See the [The JDK Release Process] for more information.
 
+## Backporting multiple related changes
+
+When backporting a number of changes that are dependent on each other, like a change with a tail of bug fixes, it can sometimes seem attractive to merge all those commits into a single change to avoid backporting a broken change. Please don't. The general recommendation is to backport each commit individually. There are several reasons for this recommendation.
+
+If, for instance, there are other changes between the original one and the followup fix(es) there may be a dependency on other changes that are unrelated to the issue itself. By merging the original change, the fix(es), and the unrelated changes to meet the dependency, a single very different change is created. It's unlikely that this change will match the description in the single JBS issue used for the merged backport. Backporting each commit individually will preserve the git history and make it easy to figure out what has actually been backported.
+
+Testing each individual change is more likely to find issues than just testing the single merged change. It's also easier and less error prone to use the `/backport` command on each commit instead of manually cherrypick and deal with the merges etc.
+
+And finally, if backporting each commit individually, the JBS records will clearly indicate that the followup changes have been backported as well. This is important as there is tooling that verifies that everything is done in the right way. That tooling will be confused if it can't deduct from JBS what has happened.
+
 ## Working with backports in JBS
 
 ::: {.box}
 [Terminology]{.boxheader}
 
-Main issue - The top issue in a backport hierarchy. Eg. [JDK-8272373](https://bugs.openjdk.org/browse/JDK-8272373) is a main issue, while [JDK-8277498](https://bugs.openjdk.org/browse/JDK-8277498) and [JDK-8277499](https://bugs.openjdk.org/browse/JDK-8277499) are backport issues of this main issue.
+Main issue - The top issue in a backport hierarchy. Eg. [JDK-8272373](https://bugs.openjdk.org/browse/JDK-8272373) is a _main issue_, while [JDK-8277498](https://bugs.openjdk.org/browse/JDK-8277498) and [JDK-8277499](https://bugs.openjdk.org/browse/JDK-8277499) are _backport issues_ of this main issue.
 :::
 
 ::: {style="text-align:center;"}
@@ -35,8 +45,8 @@ graph TD
   main(JDK-8272373)
   backport1(JDK-8277498)
   backport2(JDK-8277499)
-  main --> |backport| backport1
-  main --> |backport| backport2
+  main --> |backport to JDK 17| backport1
+  main --> |backport to JDK 11| backport2
 ~~~
 :::
 
@@ -44,15 +54,15 @@ In general there's no need to create backport issues in JBS manually. All work t
 
 There can be cases where it's desirable to create a backport issue before the fix is done, e.g. if a CSR needs to be filed. In these cases set the [Fix Version/s]{.jbs-field} of the backport to `N` or `N-pool`, where `N` is the release train the backport is targeting. E.g. `17-pool`. Please note that even if a backport issue is created ahead of time, all work done in JBS for approvals and similar is still done in the main issue.
 
-Obviously it's possible to set the [Fix Version/s]{.jbs-field} to the exact release the backport is targeting, but in general this isn't recommended unless you are targeting a feature release in ramp down. When a change is pushed to an update release repository, the bots will look at the main issue as indicated in the PR title, and look for backports with the current `N.0.x` release version as [Fix Version/s]{.jbs-field}, if no such backport is found they will look for `N-pool`, and if that isn't found either, a new backport issue will be created. This means that if the backport has an exact [Fix Version/s]{.jbs-field} set, but is delayed and misses the release indicated by this [Fix Version/s]{.jbs-field}, a new backport issue is created with a small mess as the result. (See [How to fix an incorrect backport creation in JBS].)
+Obviously it's possible to set the [Fix Version/s]{.jbs-field} to the exact release the backport is targeting, but in general this isn't recommended unless you are targeting a feature release in ramp down. When a change is integrated to an update release repository, the bots will look at the main issue as indicated in the PR title, and look for backports with the current `N.0.x` release version as [Fix Version/s]{.jbs-field}, if no such backport is found they will look for `N-pool`, and if that isn't found either, a new backport issue will be created. This means that if the backport has an exact [Fix Version/s]{.jbs-field} set, but is delayed and misses the release indicated by this [Fix Version/s]{.jbs-field}, a new, superfluous backport issue is created with a small mess as the result. (See [How to fix an incorrect backport creation in JBS].)
 
 Setting the [Fix Version/s]{.jbs-field} of a backport targeted to an update release to `N` is always wrong. JDK `N` has already been released (or it wouldn't be an update release) and can't get any more fixes.
 
 ## Requesting approvals for backports
 
-In order to be allowed to push a change to one of the OpenJDK update development repositories (e.g. [`jdk17u-dev`](https://github.com/openjdk/jdk17u-dev)), an approval is required. The [official process for how to request push approval for a backport](https://openjdk.org/projects/jdk-updates/approval.html) describes in detail how to work with JBS when requesting approvals. In short, there's a label [jdk&lt;release&gt;u-fix-request]{.jbs-label} that should be added to the main JBS issue. Also put a motivation as to why the issue needs to be backported as a comment in the main issue. Once the label and motivation has been added, wait for the maintainers of the release to approve your request. The approval will be indicated with a label, [jdk&lt;release&gt;u-fix-yes]{.jbs-label}, added to the main issue.
+In order to be allowed to integrate a change to one of the OpenJDK update development repositories (e.g. [`jdk17u-dev`](https://github.com/openjdk/jdk17u-dev)), an approval is required. The [official process for how to request push approval for a backport](https://openjdk.org/projects/jdk-updates/approval.html) describes in detail how to work with JBS when requesting approvals. In short, there's a label [jdk&lt;release&gt;u-fix-request]{.jbs-label} that should be added to the main JBS issue. Also put a motivation as to why the issue needs to be backported as a comment in the main issue. Once the label and motivation has been added, wait for the maintainers of the release to approve your request. The approval will be indicated with a label, [jdk&lt;release&gt;u-fix-yes]{.jbs-label}, added to the main issue.
 
-If the update release is in ramp down, changes are pushed to the release repository (e.g. [`jdk17u`](https://github.com/openjdk/jdk17u)). During ramp down the bar to get changes in is significantly higher and fixes need to be approved with [jdk&lt;release&gt;u-critical-request]{.jbs-label} / [jdk&lt;release&gt;u-critical-yes]{.jbs-label}.
+If the update release is in ramp down, changes are integrated to the release repository (e.g. [`jdk17u`](https://github.com/openjdk/jdk17u)). During ramp down the bar to get changes in is significantly higher and fixes need to be approved with [jdk&lt;release&gt;u-critical-request]{.jbs-label} / [jdk&lt;release&gt;u-critical-yes]{.jbs-label}.
 
 If your request to backport a change is denied, but you for some reason already created the backport issue in JBS (why?!), the backport issue should be closed as [Won't Fix]{.jbs-value}.
 
@@ -72,18 +82,18 @@ Using the `/backport` command is the recommended way to perform backports as the
 
 ## How to fix an incorrect backport creation in JBS
 
-If an issue is targeted to a release and a fix referring to that issue is pushed to a different release repository, then a backport issue is automatically created in JBS. Usually this is a "good thing", e.g., when you are backporting a fix to an earlier release, but not always... If the main issue is targeted to a later release (due to schedule planning) but someone finds the time to fix that issue in the current release, or if the main issue is targeted to a feature release in ramp down and the fix is pushed to the master branch, then the issue should be retargeted to the correct release before pushing the fix. However, sometimes we forget.
+If an issue is targeted to a release and a fix referring to that issue is integrated to a different release repository, then a backport issue is automatically created in JBS. Usually this is a "good thing", e.g., when you are backporting a fix to an earlier release, but not always... If the main issue is targeted to a later release (due to schedule planning) but someone finds the time to fix that issue in the current release, or if the main issue is targeted to a feature release in ramp down and the fix is integrated to the master branch, then the issue should be retargeted to the correct release before integrating the fix. However, sometimes we forget.
 
 Here's how to fix that:
 
 ::: {.note}
-In this example a fix was pushed to JDK N+1 (the mainline master branch) while the JBS bug was targeted to JDK N (a feature release in ramp down). The same procedure can be used in the opposite situation, when a fix has been pushed to JDK N when the JBS bug was targeted to JDK N+1, by switching N and N+1 below. Remember, to keep the record clean for the future, what matters the most is that the **bug id used in the commit comment is the main bug**, and that **the "backports"** (regardless of if they are to earlier or later releases) **are Backport type issues of that main issue**. Also make sure there are never more than one Backport issue of the same main issue targeted to any given release.
+In this example a fix was integrated to JDK N+1 (the mainline master branch) while the JBS bug was targeted to JDK N (a feature release in ramp down). The same procedure can be used in the opposite situation, when a fix has been integrated to JDK N when the JBS bug was targeted to JDK N+1, by switching N and N+1 below. Remember, to keep the record clean for the future, what matters the most is that the **bug id used in the commit comment is the main bug**, and that **the "backports"** (regardless of if they are to earlier or later releases) **are Backport type issues of that main issue**. Also make sure there are never more than one Backport issue of the same main issue targeted to any given release.
 :::
 
 #. Reopen the _backport_ issue that was created automatically
    * Use a comment like the following (in the reopen dialog):
 ~~~
-Fix was pushed while main issue was targeted to 'N'. Reset the main issue to fixed in 'N+1', reset this issue to fix in 'na' and closed as Not An Issue to avoid confusion.
+Fix was integrated while main issue was targeted to 'N'. Reset the main issue to fixed in 'N+1', reset this issue to fix in 'na' and closed as Not An Issue to avoid confusion.
 ~~~
    * Change the [Fix Version/s]{.jbs-field} from 'N+1' to 'na'.
    * Close the _backport_ issue as [Not an Issue]{.jbs-value}. Note: [Closed]{.jbs-value}, **not** [Resolved]{.jbs-value}
@@ -100,10 +110,10 @@ URL: https://git.openjdk.org/jdk/commit/12345678
 ~~~
    * Add a comment like the following to the _main_ issue:
 ~~~
-Fix was pushed to 'N+1' while this main issue was targeted to 'N'. Reset this issue to fixed in 'N+1' and copied the Robo Duke entry here.
+Fix was integrated to 'N+1' while this main issue was targeted to 'N'. Reset this issue to fixed in 'N+1' and copied the Robo Duke entry here.
 ~~~
    * Reset the _main_ issue [Fix Version/s]{.jbs-field} from 'N' to 'N+1'.
-   * Resolve the _main_ issue as [Fixed]{.jbs-value} in build "team" or in build "master" depending on where the fix was pushed - or to an actual build number if the change has already made it to a promoted build (look in the _backport_ issue if you are unsure). Pushes to 'openjdk/jdk' are fixed in build "master" and pushes to Project repositories are fixed in build "team".
+   * Resolve the _main_ issue as [Fixed]{.jbs-value} in build "team" or in build "master" depending on where the fix was integrated - or to an actual build number if the change has already made it to a promoted build (look in the _backport_ issue if you are unsure). Integrations to 'openjdk/jdk' are fixed in build "master" and integrations to other Project repositories are fixed in build "team".
 
 ::: {.box}
 [To the top](#){.boxheader}
