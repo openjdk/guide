@@ -29,7 +29,7 @@ If, for instance, there are other changes between the original one and the follo
 
 Testing each individual change is more likely to find issues than just testing the single merged change. It's also easier and less error prone to use the `/backport` command on each commit instead of manually cherrypick and deal with the merges etc.
 
-And finally, if backporting each commit individually, the JBS records will clearly indicate that the followup changes has been backported as well. This is important as there is tooling that verifies that everything is done in the right way. That tooling will be confused if it can't deduct from JBS what has happened.
+And finally, if backporting each commit individually, the JBS records will clearly indicate that the followup changes have been backported as well. This is important as there is tooling that verifies that everything is done in the right way. That tooling will be confused if it can't deduct from JBS what has happened.
 
 ## Working with backports in JBS
 
@@ -54,7 +54,7 @@ In general there's no need to create backport issues in JBS manually. All work t
 
 There can be cases where it's desirable to create a backport issue before the fix is done, e.g. if a CSR needs to be filed. In these cases set the [Fix Version/s]{.jbs-field} of the backport to `N` or `N-pool`, where `N` is the release train the backport is targeting. E.g. `17-pool`. Please note that even if a backport issue is created ahead of time, all work done in JBS for approvals and similar is still done in the main issue.
 
-Obviously it's possible to set the [Fix Version/s]{.jbs-field} to the exact release the backport is targeting, but in general this isn't recommended unless you are targeting a feature release in ramp down. When a change is integrated to an update release repository, the bots will look at the main issue as indicated in the PR title, and look for backports with the current `N.0.x` release version as [Fix Version/s]{.jbs-field}, if no such backport is found they will look for `N-pool`, and if that isn't found either, a new backport issue will be created. This means that if the backport has an exact [Fix Version/s]{.jbs-field} set, but is delayed and misses the release indicated by this [Fix Version/s]{.jbs-field}, a new backport issue is created with a small mess as the result. (See [How to fix an incorrect backport creation in JBS].)
+Obviously it's possible to set the [Fix Version/s]{.jbs-field} to the exact release the backport is targeting, but in general this isn't recommended unless you are targeting a feature release in ramp down. When a change is integrated to an update release repository, the bots will look at the main issue as indicated in the PR title, and look for backports with the current `N.0.x` release version as [Fix Version/s]{.jbs-field}, if no such backport is found they will look for `N-pool`, and if that isn't found either, a new backport issue will be created. This means that if the backport has an exact [Fix Version/s]{.jbs-field} set, but is delayed and misses the release indicated by this [Fix Version/s]{.jbs-field}, a new, superfluous backport issue is created with a small mess as the result. (See [How to fix an incorrect backport creation in JBS].)
 
 Setting the [Fix Version/s]{.jbs-field} of a backport targeted to an update release to `N` is always wrong. JDK `N` has already been released (or it wouldn't be an update release) and can't get any more fixes.
 
