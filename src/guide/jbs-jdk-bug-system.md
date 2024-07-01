@@ -13,7 +13,7 @@
 
 When a new failure is found, or an improvement identified, an issue should be filed to describe and track its resolution. Depending on your role in OpenJDK you can either use the [Bug Report Tool](https://bugreport.java.com/) or, if you are registered in the [OpenJDK Census](https://openjdk.org/census), you can report the issue directly in [JBS](https://bugs.openjdk.org/).
 
-When filing an issue, try to make the report as complete as possible in order to make it easier to triage, investigate and resolve the issue.
+When filing an issue, try to make the report as complete as possible in order to make it easier to triage, investigate and resolve the issue. Bug descriptions and comments should be written in a professional manner.
 
 ::: {.note}
 If you suspect that the issue is a vulnerability, **don't file a JBS issue!** Instead send your report to [vuln-report@openjdk.org](mailto:vuln-report@openjdk.org). Also use this alias if you find an existing report which may cover a vulnerability - please do *not* report or discuss potential vulnerabilities on any open lists or other public channels - see [OpenJDK Vulnerabilities](https://openjdk.org/groups/vulnerability/report) for more information.
