@@ -1,67 +1,26 @@
 # Making a Change
 
-In case you jumped directly here and skipped reading the earlier sections of this guide, please keep in mind that there's a lot more to it than just making a change in the code and submit a PR to GitHub. The graphics below shows all the steps required before a change can be accepted into OpenJDK.
+In case you jumped directly here and skipped reading the earlier sections of this guide, please keep in mind that there's a lot more to it than just making a change in the code and submit a PR to GitHub. The list below shows the bare minimum required before a change can be accepted into OpenJDK.
 
-::: {style="text-align:center;"}
-~~~{.mermaid caption="Workflow for fixing an OpenJDK issue" format=svg theme=neutral}
-flowchart TD
+1. **Discuss the intended change** -- See [Contributing to an OpenJDK Project]
+1. **Make sure an issue id exists for the work** -- See [Filing an issue]
+1. **Initiate a CSR request if your change have a compatibility impact** -- See [Working with the CSR]
+1. **Fix the issue** -- See [Cloning the JDK], [Working with git branches], and [Building the JDK]
+1. **Write regression tests and run relevant regression and unit tests on all relevant platforms** -- See [Testing the JDK]
+1. **Create a changeset** -- See [Working With Pull Requests]
+1. **Update the bug content** -- See [Updating an issue while fixing]
+1. **Request a review of the changes** -- See [Life of a PR]
+1. **Merge with the latest upstream changes and test again**
+1. **Integrate the changeset** -- See [Working With Pull Requests]
+1. **Write a release note if appropriate** -- See [Release Notes]
 
-discuss(<b>Discuss the intended change</b><br><font size=-1><i>See <a href='https://www.openjdk.org/guide/index.html#contributing-to-an-openjdk-project'>Contributing to an OpenJDK Project</a></i></font>)
-createIssue(<b>Make sure an issue id exists for the work</b><br><font size=-1><i>See Filing an issue</i></font>)
-csr(<b>Initiate a CSR request if your fix have a compatibility impact</b><br><font size=-1><i>See Working with the CSR</i></font>)
-fix(<b>Fix the issue</b><br><font size=-1><i>See Cloning the JDK<br>Working with git branches<br>Building the JDK</i></font>)
-writeTest(<b>Write regression tests and run relevant regression and unit tests on all relevant platforms</b><br><font size=-1><i>See Testing the JDK</i></font>)
-pr(<b>Create a changeset</b><br><font size=-1><i>See Working With Pull Requests</i></font>)
-updateIssue(<b>Update the bug content</b>)
-review(<b>Request a review of the changes</b>)
-testAgain(<b>Merge with the latest changes and test again</b>)
-integrate(<b>Push the changeset</b>)
-releaseNote(<b>Write a release note if appropriate</b><br><font size=-1><i>See Release Notes</i></font>)
+## Working with the CSR
 
-discuss --> createIssue
-createIssue --> csr
-csr --> fix
-fix --> writeTest
-writeTest --> pr
-pr --> updateIssue
-updateIssue --> review
-review --> testAgain
-testAgain --> integrate
-integrate --> releaseNote
+Changes that have a compatibility impact will require a separate approval besides the code review. This is handled through a [Compatibility and Specification Review](https://wiki.openjdk.org/display/csr/Main), a.k.a. CSR. Compatibility impact can be things like requiring a specification change, directly affect an external interface, changing command line options, or otherwise alter the behavior of the JDK in ways that could cause issues for users when upgrading to the next JDK version.
 
-~~~
-:::
+See the [CSR wiki](https://wiki.openjdk.org/display/csr/Main) for information on how to work through the CSR process.
 
-
-#. **Does the fix have a compatibility impact?**
-require a specification change, directly affect an external interface, or otherwise
-
-   **Yes**
-   :   Submission of a CSR request is required. The CSR must be [approved](#approved) before the bug fix is pushed to a feature release or update release repository. The work may begin concurrently with the CSR review, but may need to be modified in response to CSR feedback.
-
-   **No**
-   :   Continue
-
-#. **Request a review of the changes by sending an e-mail to the development alias**
-
-   A patch can be submitted as described in [Contributing](https://openjdk.org/contribute/). Alternatively, a ["webrev"](webrevHelp.html) may be generated and uploaded to the [community code review](https://cr.openjdk.java.net/) server. The complete webrev generation and upload procedure is described at [https://cr.openjdk.java.net](https://cr.openjdk.java.net/).
-
-   Changeset pushes before the [Feature Complete](https://openjdk.org/projects/jdk8/milestones#Feature_Complete) require at least one [Reviewer](https://openjdk.org/bylaws#reviewer); pushes after the Feature Complete require at least two [Reviewers](https://openjdk.org/bylaws#reviewer). In either case, the more the merrier. Some teams may require more [Reviewers](https://openjdk.org/bylaws#reviewer). Check with members of the [Project](https://openjdk.org/bylaws#project).
-
-   [Reviewers](https://openjdk.org/bylaws#reviewer) should examine not only the code being added or changed but also the relevant unit or regression tests.
-
-   A change may require multiple [Reviewers](https://openjdk.org/bylaws#reviewer) because it affects multiple areas. [Reviewers](https://openjdk.org/bylaws#reviewer) should be aware that they take full responsibility for the appropriateness and correctness of any changes in their area of expertise. If something goes wrong (e.g., the build breaks) and the change&apos;s author is unavailable, they may be asked to deal with the problem. Potential [Reviewers](https://openjdk.org/bylaws#reviewer) are encouraged to refuse to review code for which they aren't qualified.
-
-#. **Push the changeset into the Project's forest**
-
-   Follow the instructions in [Working With Pull Requests]. If working with a Sponsor, send the changeset to the development mailing list so that they can handle the final push.
-
-   The push will trigger a update to the bug which will make the following changes:
-
-    * Set the bug's "Status" to "Resolved" and "Resolution to "Fixed".
-    * Set the bug's "Fix Version/s" to an appropriate release.
-    * Set the bug's "Resolved in Build" to "team".
-    * Add a Comment containing a reference to the changeset.
+The CSR must be approved before the change is allowed to be integrated to a feature release or update release repository. Feature design and implementation work may begin concurrently with the CSR review, but may need to be modified in response to CSR feedback.
 
 ## Copyright Headers
 

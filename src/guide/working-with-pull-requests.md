@@ -80,7 +80,14 @@ If you have an actual reason to create a PR before the change is all done, make 
 
 #. **Get the required reviews**
 
-   At least one [Reviewer](https://openjdk.org/bylaws#reviewer) knowledgeable in each area being changed must approve every change. Some areas (e.g. Client and HotSpot) require two reviewers in most cases, so be sure to read the relevant [OpenJDK Group](https://openjdk.org/bylaws#group) pages for advice or ask your [Sponsor](https://openjdk.org/bylaws#sponsor).
+Changeset pushes before the [Feature Complete](https://openjdk.org/projects/jdk8/milestones#Feature_Complete) require at least one [Reviewer](https://openjdk.org/bylaws#reviewer); pushes after the Feature Complete require at least two [Reviewers](https://openjdk.org/bylaws#reviewer). In either case, the more the merrier.
+
+
+
+
+
+
+   At least one [Reviewer](https://openjdk.org/bylaws#reviewer) knowledgeable in each area being changed must approve every change. A change may therefore require multiple [Reviewers](https://openjdk.org/bylaws#reviewer) because it affects multiple areas. Some areas (e.g. Client and HotSpot) require two reviewers in most cases, so be sure to read the relevant [OpenJDK Group](https://openjdk.org/bylaws#group) pages for advice or ask your [Sponsor](https://openjdk.org/bylaws#sponsor).
 
    Be open to comments and polite in replies. Remember that the reviewer wants to improve the world just as much as you do, only in a slightly different way. If you don't understand some comment, ask the reviewer to clarify. Accept authority when applicable. If you're making changes in an area where you're not the area expert, acknowledge that your reviewers may be. Take their advice seriously, even if it is to not make the change. There are many reasons [why a change may get rejected](#why-is-my-change-rejected). And you did read the section [Things to consider before changing OpenJDK code], right?
 
