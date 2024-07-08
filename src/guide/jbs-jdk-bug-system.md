@@ -294,10 +294,6 @@ When an issue is closed as [Won't Fix]{.jbs-value}, do not remove the [Fix Versi
 The fix version [na]{.jbs-value} should only be used on backport issues that is created by mistake. See [How to fix an incorrect backport creation in JBS].
 :::
 
-### Closing issues without knowing what fixed it
-
-If it's determined that an issue has been fixed, but it's unknown what change that fixed it, closing as [Fixed]{.jbs-value} is not an option as this requires a changeset in a project repository. [Duplicate]{.jbs-value} is also not an option since this requires a duplicate-link to the issue that fixed it. A common way to handle such cases is to close the issue as [Delivered]{.jbs-value} with the [Fix version/s]{.jbs-value} set to [unknown]{.jbs-value}. Closing an issue as [Cannot Reproduce]{.jbs-value} has also been common practice but is no longer recommended if it's known that the issue has actually been fixed.
-
 ### Closing issues as duplicates
 
 If the same issue is described in another JBS issue then close one against the other as [Closed]{.jbs-value}/[Duplicate]{.jbs-value}. In general the newer issue is closed as a [Duplicate]{.jbs-value} of the older one, but where the newer issue has a clearer description, or more useful, up-to-date comments then doing it the other way round is ok as long as none of them has been [Fixed]{.jbs-value} already. If one of the issues has been [Fixed]{.jbs-value} the other one should be closed as a [Duplicate]{.jbs-value} of the [Fixed]{.jbs-value} issue. There may be other reasons to choose to close one or the other issue as the [Duplicate]{.jbs-value}. As always - use your best judgement to make the end result as good as possible.
@@ -309,6 +305,10 @@ Any issue closed as a [Duplicate]{.jbs-value} **must** have a "Duplicates" link 
 ::: {.note}
 Be mindful of labels on issues closed as [Duplicate]{.jbs-value}. Some labels need to be copied over to the duplicating issue, see for instance the [[tck-red-]{.jbs-label}*(Rel)*](#tck-red-rel) label.
 :::
+
+### Closing issues without knowing what fixed it
+
+If it's determined that an issue has been fixed, but it's unknown what change that fixed it, closing as [Fixed]{.jbs-value} is not an option as this requires a changeset in a project repository. [Duplicate]{.jbs-value} is also not an option since this requires a duplicate-link to the issue that fixed it. A common way to handle such cases is to close the issue as [Delivered]{.jbs-value} with the [Fix version/s]{.jbs-value} set to [unknown]{.jbs-value}. Closing an issue as [Cannot Reproduce]{.jbs-value} has also been common practice but is no longer recommended if it's known that the issue has actually been fixed.
 
 ### Closing incomplete issues
 

@@ -16,6 +16,8 @@ To engage in the development of the Developers' Guide itself, create a private f
 
 The OpenJDK Developers' Guide is written in American English. The Guide is meant to be an informal document. This is reflected in the language used. For instance, contractions are commonly used.
 
+When choosing what words to use, keep in mind that a large portion of the audience isn't native English speakers. Always try to keep the language easy to understand and avoid niche words and local terminology if possible. That said, the language must also be precise to avoid mixing up different concepts. For instance the git term `push` is only used when talking about pushes to a private clone of a Project repository. When talking about the Project repositories themselves we use the Skara term `integrate` since developers can't push directly to these repositories.
+
 ### Keywords and links
 
 All terms defined in the OpenJDK Bylaws are considered keywords, and should be capitalized. Company and organization names are also considered keywords and follow the same rules. A keyword should be linked to the definition of that term if the keyword is referring to the defined term. Additional words that build a noun phrase should be included in the link.
@@ -54,7 +56,6 @@ The Developers' Guide is continuously updated and there are several parts still 
 * Text about adding an API
 * Text about adding a feature
 * Text about JCK
-* Text about triage, priorities, status
 * List JTReg `@key` conventions for different areas
 * Document best practices around TEST.properties usage. See [PR#30](https://github.com/openjdk/guide/pull/30#issuecomment-714589551)
 * How to work with the code in an IDE

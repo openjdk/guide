@@ -12,7 +12,7 @@ In addition to your own Java applications, OpenJDK has support for two test fram
 
 This section provides a brief summary of how to get started with testing in OpenJDK. For more information on configuration and how to use the OpenJDK test framework, a.k.a. "run-test framework", see [`doc/testing.md`](https://github.com/openjdk/jdk/blob/master/doc/testing.md).
 
-Please note that what's mentioned later in this section, like [GHA](#github-actions) and tier 1 testing, will only run a set of smoke-tests to ensure your change compiles and runs on a variety of platforms. They won't do any targeted testing on the particular code you have changed. You must always make sure your change works as expected before pushing, using targeted testing. In general all changes should come with a regression test, so if you're writing product code you should also be writing test code. Including the new tests (in the right places) in your change will ensure your tests will be run as part of your testing on all platforms and in the future.
+Please note that what's mentioned later in this section, like [GHA](#github-actions) and tier 1 testing, will only run a set of smoke-tests to ensure your change compiles and runs on a variety of platforms. They won't do any targeted testing on the particular code you have changed. You must always make sure your change works as expected before integrating, using targeted testing. In general all changes should come with a regression test, so if you're writing product code you should also be writing test code. Including the new tests (in the right places) in your change will ensure your tests will be run as part of your testing on all platforms and in the future.
 
 A few key items to think about when writing a regression test:
 
@@ -187,7 +187,7 @@ In the past there used to be a sandbox repository that could be used for testing
 
 Sometimes tests break. It could be e.g. due to bugs in the test itself, due to changed functionality in the code that the test is testing, or changes in the environment where the test is executed. While working on a fix, it can be useful to stop the test from being executed in everyone else's testing to reduce noise, especially if the test is expected to fail for more than a day. There are two ways to stop a test from being run in standard test runs: ProblemListing and using the `@ignore` keyword. Removing tests isn't the standard way to remove a failure. A failing test is often a regression and should ideally be handled with high urgency.
 
-Remember to remove the JBS id from the ProblemList or the test when the bug is closed. This is especially easy to forget if a bug is closed as [Duplicate]{.jbs-value} or [Won't Fix]{.jbs-value}. jcheck will report an error and prohibit a push if a PR is created for an issue that is found in a ProblemList if the fix doesn't remove the bug ID from the ProblemList.
+Remember to remove the JBS id from the ProblemList or the test when the bug is closed. This is especially easy to forget if a bug is closed as [Duplicate]{.jbs-value} or [Won't Fix]{.jbs-value}. jcheck will report an error and prohibit an integration if a PR is created for an issue that is found in a ProblemList if the fix doesn't remove the bug ID from the ProblemList.
 
 ### ProblemListing jtreg tests
 
@@ -300,7 +300,7 @@ After a failure is handled by excluding a test, the main JBS issue should be re-
 
 ## Backing out a change
 
-If a change causes a regression that can't be fixed within reasonable time, the best way to handle the regression can be to back out the change. Backing out means that the inverse (anti-delta) of the change is pushed to effectively undo the change in the repository. There are two parts to this task, how to do the bookkeeping in JBS, and how to do the actual backout in git or Mercurial.
+If a change causes a regression that can't be fixed within reasonable time, the best way to handle the regression can be to back out the change. Backing out means that the inverse (anti-delta) of the change is integrated to effectively undo the change in the repository. There are two parts to this task, how to do the bookkeeping in JBS, and how to do the actual backout in git or Mercurial.
 
 The backout is a regular change and will have to go through the standard code review process, but is considered a [trivial](#trivial) change. The rationale is that a backout is usually urgent in nature and the change itself is automatically generated. In areas where two reviewers are normally required, only one additional [Reviewer](https://openjdk.org/bylaws#reviewer) is required for a backout since the person who is performing the backout also will review the change.
 

@@ -20,7 +20,7 @@ The timing of your change will also affect the availability of reviewers. The JD
 
 ## Rebase before creating the PR
 
-It's likely that other people have pushed changes to the code base since you created your branch. Make sure to pull the latest changes and rebase your fix on top of that before creating your PR. This is a courtesy issue. Your reviewers shouldn't have to read your patch on top of old code that has since changed. This is hopefully obvious in cases where the upstream code has gone through cleanups or refactorings, and your patch may need similar cleanups in order to even compile. But even in cases where only smaller changes have been done, the reviewers shouldn't have to react to issues like "that line of code was moved last week, why is it back there?".
+It's likely that other people have integrated changes to the code base since you created your branch. Make sure to pull the latest changes and rebase your fix on top of that before creating your PR. This is a courtesy issue. Your reviewers shouldn't have to read your patch on top of old code that has since changed. This is hopefully obvious in cases where the upstream code has gone through cleanups or refactorings, and your patch may need similar cleanups in order to even compile. But even in cases where only smaller changes have been done, the reviewers shouldn't have to react to issues like "that line of code was moved last week, why is it back there?".
 
 Most changes are made to the `master` branch of the mainline repository. In these cases, rebase using:
 
@@ -56,6 +56,10 @@ If you have an actual reason to create a PR before the change is all done, make 
 
    There are changes that span across several areas, for example wide spread cleanups or the introduction of a new language feature. Accordingly, the number of lines of code touched can be quite large, which makes it harder to review the entire PR. In such cases, it may make sense to split the change into several PRs, most commonly by grouping them by module or area.
 
+#. **Make sure you target the correct branch**
+
+   Many project repositories have several branches. Make sure your PR targets the correct one. This is of course especially important when not targeting the default branch. At the top of your PR, right below the title, it will say "NNN wants to merge X commit(s) into [branch]". Typical red flags to watch out for are if your PR seems to include commits or changed files that shouldn't be part of your integration. E.g. Seeing the "Start of release updates for JDK N" when backporting something to JDK N-1 is a bad sign.
+
 #. **Set a correctly formatted title**
 
    The title of the PR should be of the form "`nnnnnnn: Title of JBS issue`" where `nnnnnnn` is the JBS issue id of the main JBS issue that is being fixed, and the `Title of JBS issue` is the exact title of the issue as written in JBS. In fact, the title can be set to _only_ the JBS issue id (`nnnnnnn`) in which case the bot will fetch the title from JBS automatically. If you are creating a backport PR, see [Using the Skara tooling to help with backports] for more details on the title requirements.
@@ -76,7 +80,7 @@ If you have an actual reason to create a PR before the change is all done, make 
 
 #. **Allow enough time for review**
 
-   In general all PRs should be open for at least 24 hours to allow for reviewers in all time zones to get a chance to see it. It may actually happen that even 24 hours isn't enough. Take into account weekends, holidays, and vacation times throughout the world and you'll realize that a change that requires more than just a trivial review may have to be open for a while. In some areas [trivial] changes are allowed to be pushed without the 24 hour delay. Ask your reviewers if you think this applies to your change.
+   In general all PRs should be open for at least 24 hours to allow for reviewers in all time zones to get a chance to see it. It may actually happen that even 24 hours isn't enough. Take into account weekends, holidays, and vacation times throughout the world and you'll realize that a change that requires more than just a trivial review may have to be open for a while. In some areas [trivial] changes are allowed to be integrated without the 24 hour delay. Ask your reviewers if you think this applies to your change.
 
 #. **Get the required reviews**
 
@@ -106,7 +110,7 @@ If you have an actual reason to create a PR before the change is all done, make 
 
 #. **After integration**
 
-   After you have integrated your change you are expected to stay around in case there are any issues with it. As mentioned above, you are expected to have run all relevant testing on your change before integrating your PR, but regardless of how thorough you test it, things might slip through. After your change has been integrated an automatic pipeline of tests is triggered and your change will be tested on a variety of platforms and in a variety of different modes that the JDK can be executed in. A change that causes failures in this testing may be backed out if a fix can't be provided fast enough, or if the developer isn't responsive when noticed about the failure. Note that this directive should be interpreted as "it's a really bad idea to push a change the last thing you do before bedtime, or the day before going on vacation".
+   After you have integrated your change you are expected to stay around in case there are any issues with it. As mentioned above, you are expected to have run all relevant testing on your change before integrating your PR, but regardless of how thorough you test it, things might slip through. After your change has been integrated an automatic pipeline of tests is triggered and your change will be tested on a variety of platforms and in a variety of different modes that the JDK can be executed in. A change that causes failures in this testing may be backed out if a fix can't be provided fast enough, or if the developer isn't responsive when noticed about the failure. Note that this directive should be interpreted as "it's a really bad idea to integrate a change the last thing you do before bedtime, or the day before going on vacation".
 
 ## Webrevs
 
