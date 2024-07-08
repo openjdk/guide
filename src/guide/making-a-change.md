@@ -1,18 +1,24 @@
 # Making a Change
 
+::: {.box}
+[Quick Links]{.boxheader}
+
+* [CSR Wiki](https://wiki.openjdk.org/display/csr/Main)
+:::
+
 In case you jumped directly here and skipped reading the earlier sections of this guide, please keep in mind that there's a lot more to it than just making a change in the code and submit a PR to GitHub. The list below shows the bare minimum required before a change can be accepted into OpenJDK.
 
-1. **Discuss the intended change** -- See [Contributing to an OpenJDK Project]
-1. **Make sure an issue id exists for the work** -- See [Filing an issue]
-1. **Initiate a CSR request if your change have a compatibility impact** -- See [Working with the CSR]
-1. **Fix the issue** -- See [Cloning the JDK], [Working with git branches], and [Building the JDK]
-1. **Write regression tests and run relevant regression and unit tests on all relevant platforms** -- See [Testing the JDK]
-1. **Create a changeset** -- See [Working With Pull Requests]
-1. **Update the bug content** -- See [Updating an issue while fixing]
-1. **Request a review of the changes** -- See [Life of a PR]
-1. **Merge with the latest upstream changes and test again**
-1. **Integrate the changeset** -- See [Working With Pull Requests]
-1. **Write a release note if appropriate** -- See [Release Notes]
+#. **Discuss the intended change** -- See [Contributing to an OpenJDK Project]
+#. **Make sure an issue id exists for the work** -- See [Filing an issue]
+#. **Initiate a CSR request if your change have a compatibility impact** -- See [Working with the CSR]
+#. **Fix the issue** -- See [Cloning the JDK], [Working with git branches], and [Building the JDK]
+#. **Write regression tests and run relevant regression and unit tests on all relevant platforms** -- See [Testing the JDK]
+#. **Create a changeset** -- See [Working With Pull Requests]
+#. **Update the bug content** -- See [Updating an issue while fixing]
+#. **Request a review of the changes** -- See [Life of a PR]
+#. **Merge with the latest upstream changes and test again**
+#. **Integrate the changeset** -- See [Working With Pull Requests]
+#. **Write a release note if appropriate** -- See [Release Notes]
 
 ## Working with the CSR
 
