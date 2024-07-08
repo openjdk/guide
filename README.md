@@ -48,7 +48,6 @@ The resulting HTML files in the `build` directory are exactly the files publishe
 The Developers' Guide is continuously updated and there are several parts still missing. This todo list isn't complete and there is no limitation on current work being tied to any item on this list. It's just a list of things that we know are missing or needs to be updated. The list isn't ordered in any way.
 
 * JEPs - When do I need one? - Working with JEPs
-* Reference external CSR pages with small intro that is unlikely to need updates
 * Add "stakeholders" for each section
 * Add references to current code conventions for Java, C++, Markdown, Makefiles
 * Text about adding an API
