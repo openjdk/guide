@@ -30,7 +30,7 @@ The CSR must be approved before the change is allowed to be integrated to a feat
 
 ## Copyright Headers
 
-All source code files in OpenJDK has a header with copyright statements and a license. Since this is legal documentation it shall not be updated or modified without seeking guidance from your legal representative. For that reason this guide can't really give detailed information on what you can or should do. There are however a few generic things that can be clarified.
+All source code files in OpenJDK have a header with copyright statements and a license. Since this is legal documentation it shall not be updated or modified without seeking guidance from your legal representative. For that reason this guide can't really give detailed information on what you can or should do. There are however a few generic things that can be clarified.
 
 This is an example copyright/license header:
 
