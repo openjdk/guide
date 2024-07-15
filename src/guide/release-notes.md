@@ -19,9 +19,9 @@ Writing the release note is the responsibility of the engineer who owns the issu
 
 When writing a release note, be prepared for rather picky review comments about grammar, typos, and wording. This is for the sake of the Java community as a whole, as the language of the release note sets the tone for many blogs and news articles. For a widely used product like the JDK, the release notes are often copied verbatim (including typos) and published to highlight news in the release. This means that we need to take extra care to make sure the text in the release note is correct and follows a similar style.
 
-The release note itself is written in a [JBS](#jbs---jdk-bug-system) sub-task of the issue that is used to push the change. There are a few steps to follow for the release note to find its way from JBS to the actual release note document.
+The release note itself is written in a [JBS](#jbs---jdk-bug-system) sub-task of the issue that is used to integrate the change. There are a few steps to follow for the release note to find its way from JBS to the actual release note document.
 
-#. Create a sub-task (More &rightarrow; Create Sub-Task) for the issue that requires a release note - the main issue, that is, the JBS issue that is used to push the original change, **not** for backports or the CSR (if there is one).
+#. Create a sub-task (More &rightarrow; Create Sub-Task) for the issue that requires a release note - the main issue, that is, the JBS issue that is used to integrate the original change, **not** for backports or the CSR (if there is one).
 
 #. For the newly created sub-task, follow these steps:
    * The [Summary]{.jbs-field} should be a one sentence synopsis that is informative (and concise) enough to attract the attention of users, developers, and maintainers who might be impacted by the change. It should succinctly describe what has actually changed, not be the original bug title, nor describe the problem that was being solved. It should read well as a sub-section heading in a document.

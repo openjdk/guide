@@ -63,9 +63,9 @@ The commands above will likely run without a hitch up until the final `git merge
 
 For complicated merges, see [Sharing the work] below.
 
-### Test before push
+### Test before integration
 
-Regardless of if you encountered conflicts or not, you should always build and test your merge before pushing it to your Project repository. Testing needs to be done even when there are no textual conflicts as changes like for instance a rename can result in a compile or test error without any conflict. One could argue that `git merge --no-commit` could be used and have logical errors fixed in the merge commit. However, a subsequent "Fix logical merge errors" commit, is in fact more useful, as it clearly shows the Project specific adjustments needed for incoming changes.
+Regardless of if you encountered conflicts or not, you should always build and test your merge before integrating it to your Project repository. Testing needs to be done even when there are no textual conflicts as changes like for instance a rename can result in a compile or test error without any conflict. One could argue that `git merge --no-commit` could be used and have logical errors fixed in the merge commit. However, a subsequent "Fix logical merge errors" commit, is in fact more useful, as it clearly shows the Project specific adjustments needed for incoming changes.
 
 It's always okay to have further commits to clean up after a merge. Hiding a large amount of reworking Project code to fit with upstream changes in a single merge commit will make it hard for further errors post integration to be identified.
 
@@ -84,7 +84,7 @@ Make sure the PR title starts with "Merge". You may have noticed that when you i
 
 It's always a good idea to also include what was merged in the title of the PR. If you for instance is pulling in JDK mainline into your Project repository it's likely (because it's in general a good idea) that you choose some stable EA tag in mainline to merge. Your PR title could then be something like "Merge jdk-21+2".
 
-Whether a merge requires a review or not is up to your Project lead to decide. Many [Projects](https://openjdk.org/bylaws#project) don't require this so the GitHub bots will allow you to push the merge as soon as the [GHA](#github-actions)s are done. (They actually allow you to push even before the GHAs are done, but that's in general not a good idea.)
+Whether a merge requires a review or not is up to your Project lead to decide. Many [Projects](https://openjdk.org/bylaws#project) don't require this so the GitHub bots will allow you to integrate the merge as soon as the [GHA](#github-actions)s are done. (They actually allow you to integrate even before the GHAs are done, but that's in general not a good idea.)
 
 Once the PR has been integrated, you can clean up your fork and its clone in preparation for the next merge.
 
@@ -124,7 +124,7 @@ An alternative to parking a merge with conflicts in place, is to incrementally m
 * Find yourself in trouble, identify which change is causing the issue.
 * Abort: `git merge --abort`
 * Find the troublesome change: `git log --topo-order --pretty=oneline --reverse $(current_branch)..$TAG`
-* Merge up to the previous change, commit and push.
+* Merge up to the previous change, commit and integrate.
 * Ask others to continue the merge from the troubled change forward, how far forward is up you of course, either just that troublesome change, or the rest of the merge up to the $TAG.
 * Rinse and repeat: There may appear further conflicts requiring other [Contributors'](https://openjdk.org/bylaws#contributor) help.
 
