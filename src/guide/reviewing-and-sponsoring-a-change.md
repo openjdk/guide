@@ -8,7 +8,7 @@
 
 Two of the most important contributions you can make in the OpenJDK community are to review and sponsor changes for other developers. All changes needs to be reviewed. Many changes even need to be reviewed by more than one person. This means that in order to enable a fast-pased development experience, all developers need to review more changes then they produce themself.
 
-If you are new to an area, reviewing changes is also a great way to learn the code and see what general styles and types of changes that are relevant in the area. Be mindful though, if you don't know the area well you should state this in your review comments.
+If you are new to an area, reviewing changes is also a great way to learn the code and see what general styles and types of changes are relevant in the area. Be mindful though, if you don't know the area well you should state this in your review comments.
 
 New developers in the OpenJDK community don't have the permissions needed to integrate changes to the repositories. This is a feature that ensures that all developers get familiar with the code, processes, and community before being allowed to actually make changes. To get their first changes in, the new Contributor needs the help of a Sponsor. The Sponsor's role is to offer constructive advice and eventually integrate the sponsored contribution into the repository.
 
@@ -18,7 +18,7 @@ There are many different reasons to sponsor a change and depending on the situat
 
 ## Responsibilities of a Reviewer
 
-As a [Reviewer](https://openjdk.org/bylaws#reviewer) you have a responsibility to make sure changes are sound and aline with the general direction of the area. If you, as a [Reviever](https://openjdk.org/bylaws#reviewer), review a change in an area that you don't know well you probably shouldn't be the one to approve the change.
+As a [Reviewer](https://openjdk.org/bylaws#reviewer) you have a responsibility to make sure changes are sound and align with the general direction of the area. If you, as a [Reviever](https://openjdk.org/bylaws#reviewer), review a change in an area that you don't know well you probably shouldn't be the one to approve the change.
 
 [Reviewers](https://openjdk.org/bylaws#reviewer) should be aware that they take full responsibility for the appropriateness and correctness of any changes in their area of expertise. If something goes wrong (e.g., the build breaks) and the change's author is unavailable, they may be asked to deal with the problem. Potential [Reviewers](https://openjdk.org/bylaws#reviewer) are encouraged to refuse to review code for which they aren't qualified.
 
