@@ -67,7 +67,7 @@ This list is intended to make it easier to identify which email list to include 
     * [com/sun/crypto](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/com/sun/crypto) - Security
     * [com/sun/security](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/com/sun/security) - Security
     * [crypto](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/javax/crypto) - Security
-    * [[linux](https://github.com/openjdk/jdk/tree/master/java.base/linux/classes/jdk/internal), [macosx](https://github.com/openjdk/jdk/tree/master/java.base/macosx/classes/jdk/internal), [share](https://github.com/openjdk/jdk/tree/master/java.base/share/classes/jdk/internal), [unix](https://github.com/openjdk/jdk/tree/master/java.base/unix/classes/jdk/internal), [windows](https://github.com/openjdk/jdk/tree/master/java.base/windows/classes/jdk/internal)]/internal
+    * [[aix](https://github.com/openjdk/jdk/tree/master/java.base/aix/classes/jdk/internal), [linux](https://github.com/openjdk/jdk/tree/master/java.base/linux/classes/jdk/internal), [macosx](https://github.com/openjdk/jdk/tree/master/java.base/macosx/classes/jdk/internal), [share](https://github.com/openjdk/jdk/tree/master/java.base/share/classes/jdk/internal), [unix](https://github.com/openjdk/jdk/tree/master/java.base/unix/classes/jdk/internal), [windows](https://github.com/openjdk/jdk/tree/master/java.base/windows/classes/jdk/internal)]/internal
       * [access](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/access) - Core Libs, Security
       * [event](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/event) - JFR
       * [foreign](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/foreign) - Core Libs
@@ -77,7 +77,7 @@ This list is intended to make it easier to identify which email list to include 
       * [jimage](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/jimage) - Core Libs
       * [jmod](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/jmod) - Core Libs
       * [jrtfs](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/jrtfs) - Core Libs
-      * [[macosx](https://github.com/openjdk/jdk/tree/master/java.base/macosx/classes/jdk/internal/loader), [share](https://github.com/openjdk/jdk/tree/master/java.base/share/classes/jdk/internal/loader), [unix](https://github.com/openjdk/jdk/tree/master/java.base/unix/classes/jdk/internal/loader), [windows](https://github.com/openjdk/jdk/tree/master/java.base/windows/classes/jdk/internal/loader)]/loader - Core Libs
+      * [[aix](https://github.com/openjdk/jdk/tree/master/java.base/aix/classes/jdk/internal/loader), [macosx](https://github.com/openjdk/jdk/tree/master/java.base/macosx/classes/jdk/internal/loader), [share](https://github.com/openjdk/jdk/tree/master/java.base/share/classes/jdk/internal/loader), [unix](https://github.com/openjdk/jdk/tree/master/java.base/unix/classes/jdk/internal/loader), [windows](https://github.com/openjdk/jdk/tree/master/java.base/windows/classes/jdk/internal/loader)]/loader - Core Libs
       * [logger](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/logger) - Core Libs
       * [math](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/math) - Core Libs
       * [[share](https://github.com/openjdk/jdk/tree/master/java.base/share/classes/jdk/internal/misc), [unix](https://github.com/openjdk/jdk/tree/master/java.base/unix/classes/jdk/internal/misc), [windows](https://github.com/openjdk/jdk/tree/master/java.base/windows/classes/jdk/internal/misc)]/misc - Core Libs, HotSpot
@@ -197,7 +197,6 @@ This list is intended to make it easier to identify which email list to include 
 * [jdk.naming.rmi](https://github.com/openjdk/jdk/tree/master/src/jdk.naming.rmi) - Core Libs
 * [jdk.net](https://github.com/openjdk/jdk/tree/master/src/jdk.net) - Net
 * [jdk.nio.mapmode](https://github.com/openjdk/jdk/tree/master/src/jdk.nio.mapmode) - NIO
-* [jdk.random](https://github.com/openjdk/jdk/tree/master/src/jdk.random) - Core Libs
 * [jdk.sctp](https://github.com/openjdk/jdk/tree/master/src/jdk.sctp) - Net
 * [jdk.security.auth](https://github.com/openjdk/jdk/tree/master/src/jdk.security.auth) - Security
 * [jdk.security.jgss](https://github.com/openjdk/jdk/tree/master/src/jdk.security.jgss) - Security
@@ -228,6 +227,7 @@ This list is intended to make it easier to identify which email list to include 
 * `jdk.internal.vm.compiler` – Compiler (Removed in [22](https://bugs.openjdk.org/browse/JDK-8318027))
 * `jdk.internal.vm.compiler.management` – Compiler (Removed in [22](https://bugs.openjdk.org/browse/JDK-8318027))
 * `jdk.pack` – Tools (Removed in [14](https://bugs.openjdk.org/browse/JDK-8234596))
+* `jdk.random` – Core Libs (Unknown when it was Removed)
 * `jdk.rmic` – Core Libs (Removed in [15](https://bugs.openjdk.org/browse/JDK-8225319))
 * `jdk.scripting.nashorn` – Tools (Removed in [15](https://bugs.openjdk.org/browse/JDK-8236933))
 * `jdk.scripting.nashorn.shell` – Tools (Removed in [15](https://bugs.openjdk.org/browse/JDK-8236933))

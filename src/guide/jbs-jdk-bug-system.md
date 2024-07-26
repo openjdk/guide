@@ -83,12 +83,12 @@ The [Affects Version/s]{.jbs-field} field is used to indicate which releases an 
 Another aspect of an issue is when the feature it's a part of was added or removed from the JDK, which in either case limits the range of releases the issue impacts. Knowing that a feature was removed before the oldest currently maintained release means it can be resolved as [Won't Fix]{.jbs-value}.
 
 #### Setting the Affects Version/s field
-Set the [Affects Version/s]{.jbs-field} field to the lowest release value that the bug is known to be reproducible on.
+Set the [Affects Version/s]{.jbs-field} field to the lowest release where the bug has been seen.
 
-* The [Affects Version/s]{.jbs-field} isn't meant to be an exhaustive list of releases the issue is relevant to - it should initially be set to the release the issue was reproduced or identified on, and by implication it will be relevant to all releases past that point (see [Usage of (Rel)[-na]{.jbs-label} Label](#usage-of-rel-na-label)). If it's later found to be applicable to an earlier release family then adding that earlier release is encouraged if the issue needs to be fixed in that release.
+* The [Affects Version/s]{.jbs-field} isn't meant to be an exhaustive list of releases the issue is relevant to - it should initially be set to the release the issue was reproduced or identified on, and by implication it will be relevant to all releases past that point (see [Usage of the (Rel)[-na]{.jbs-label} Label](#usage-of-rel-na-label)). If it's later found to be applicable to an earlier release family then adding that earlier release is encouraged if the issue needs to be fixed in that release.
 * Don't add additional release values to [Affects Version/s]{.jbs-field} for the same release family. For example, if there is the value [11.0.2]{.jbs-value}, don't add [11.0.5]{.jbs-value}, [11.0.7]{.jbs-value} etc. Adding an additional value for a separate release family where it's still reproducible, e.g. JDK [21]{.jbs-value}, is encouraged if there isn't currently a feature release value set, or, it has been a few releases since it was last reproduced/reviewed. For example, if the [Affects Version/s]{.jbs-field} is JDK [8]{.jbs-value}, but it is still relevant to the latest mainline release.
 
-#### Usage of (Rel)-na Label
+#### Usage of the (Rel)-na Label
 
 Labels of the form (Rel)[-na]{.jbs-label} (eg. [17-na]{.jbs-label}) should be used when a bug is not applicable to a more recent release family. For example:
 
@@ -102,10 +102,11 @@ Don't:
 
   [Affects Version/s]{.jbs-field}: [11.0.20]{.jbs-value}, [17]{.jbs-value}
 
-  the label [8-na]{.jbs-label} would not be needed - as it doesn't have a JDK 8 release, or earlier, value in the [Affects Version/s]{.jbs-field}, it is not relevant to JDK 8.
+  the label [8-na]{.jbs-label} would not be needed - as it doesn't have a JDK 8 release, or earlier, value in the [Affects Version/s]{.jbs-field}, it is not relevant to JDK 8. Also see [Usage of the (Rel)[-wnf]{.jbs-label} Label](#usage-of-rel-wnf-label)
 - add multiple [-na]{.jbs-label} labels: you only need one, for example don't add both [9-na]{.jbs-label} and [11-na]{.jbs-label} — [9-na]{.jbs-label} implies all following releases therefore [11-na]{.jbs-label}, or [17-na]{.jbs-label} etc. are not needed.
+- It's not recommended to specify update releases like 17u4 or 21u in the label. Labels like [17-na]{.jbs-label} and [21-na]{.jbs-label} are in general enough.
 
-#### Usage of (Rel)-wnf Label
+#### Usage of the (Rel)-wnf Label
 
 Labels of the form (Rel)[-wnf]{.jbs-label} (e.g. [11-wnf]{.jbs-label}) should be used to indicate that a bug is not going to be fixed in a release that it's applicable to, or any earlier releases. For example, [11-wnf]{.jbs-label} states it won't be fixed in JDK 11 and implicitly indicates it won't be fixed in JDK 8 either.
 
@@ -418,15 +419,9 @@ This table contains some frequently used JBS labels and their meaning. Please he
   <tr>
     <td class="dictionary">[*(Rel)*[-na]{.jbs-label}]{#rel-na}</td>
     <td class="dictionary">
-      Labels of the form [11-na]{.jbs-label} or [21-na]{.jbs-label} should be used when a bug is not applicable to a **more recent** release family.
+      Labels of the form [11-na]{.jbs-label} or [21-na]{.jbs-label} should be used when a bug is not applicable to a **more recent** release family. See [Usage of the (Rel)-na Label].
 
-      The [Affects Version/s]{.jbs-field} field is used to indicate the releases where an issue has been seen - it's implied that the issue is also applicable to newer releases. Where this isn't the case - for instance a bug in code that was removed in *(Rel)* - then use *(Rel)*[-na]{.jbs-label} to indicate this. Note that there should only be **one** *(Rel)*[-na]{.jbs-label} label on any JBS issue. The label indicates the first known release where the issue is not present. If it's found that the issue is not present in an earlier release, change the label to indicate this.
-
-      It's not recommended to specify update releases like 17u4 or 21u in the label. Please stick to labels like [17-na]{.jbs-label} and [21-na]{.jbs-label}.
-
-      Don't use this label to indicate that a bug isn't relevant to an earlier release where it's present in a later release. If a bug is not present in an earlier release you can use [Introduced in Version]{.jbs-field} to indicate where the bug was introduced. If a bug is present in an earlier release, but shouldn't be fixed there, use [*(Rel)*[-wnf]{.jbs-label}]{#rel-wnf}.
-
-      Also see [Usage of (Rel)-na Label].
+      (Rel) can also refer to more general release atrifacts like [oraclejdk-na]{.jbs-label}, [openjdk-na]{.jbs-label}, and [sap-aix-na]{.jbs-label} to indicate that the issue doesn't affect code included in that specific atrifact.
     </td>
   </tr>
   <tr>
@@ -434,7 +429,7 @@ This table contains some frequently used JBS labels and their meaning. Please he
     <td class="dictionary">
       Labels of the form [11-wnf]{.jbs-label} or [21-wnf]{.jbs-label} should be used to indicate that a bug is not going to be fixed in a release where it's present. Note that there should only be **one** *(Rel)*[-wnf]{.jbs-label} label on any JBS issue. It is implied that earlier versions will not be fixed either.
 
-      Also see [Usage of (Rel)-wnf Label].
+      Also see [Usage of the (Rel)-wnf Label].
     </td>
   </tr>
   <!-- Team -->
@@ -473,7 +468,7 @@ This table contains some frequently used JBS labels and their meaning. Please he
     <td class="dictionary">
       Used to identify issues in the JVM JIT compiler C2.
 
-      [c2-]{.jbs-label}`.*` labels are used to identify different c2 features. E.g., [c2-intrinsic]{.jbs-label}, [c2-loopopts]{.jbs-label}
+      [c2-]{.jbs-label}`.*` labels are used to identify different C2 features. E.g., [c2-intrinsic]{.jbs-label}, [c2-loopopts]{.jbs-label}
     </td>
   </tr>
   <tr>
