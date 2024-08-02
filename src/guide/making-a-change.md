@@ -30,7 +30,7 @@ The CSR must be approved before the change is allowed to be integrated to a feat
 
 ## Copyright Headers
 
-All source code files in OpenJDK have a header with copyright statements and a license. Since this is legal documentation it shall not be updated or modified without seeking guidance from your legal representative. For that reason this guide can't really give detailed information on what you can or should do. There are however a few generic things that can be clarified.
+All source code files in OpenJDK has a header with copyright statements and a license. Since this is legal documentation it shall not be updated or modified without seeking guidance from your legal representative. For that reason this guide can't really give detailed information on what you can or should do. There are however a few generic things that can be clarified.
 
 This is an example copyright/license header:
 
@@ -62,7 +62,7 @@ This is an example copyright/license header:
 
 This header has two copyright notices at the top (Oracle and SAP SE) and below them the license text.
 
-As stated in the header, don't make changes to the copyright notices or the license text below them. If your affiliation has a copyright notice at the top of the header, consult your legal representative on how to update it. If your affiliation doesn't have a copyright notice, again consult your legal representative to see if you should add one. Do not update a copyright notice if you don't belong to that affiliation.
+As stated in the header, don't make changes to the copyright notices or the license text below them. If your affiliation has a copyright notice at the top of the header, consult your legal representative on how to update it. If your affiliation doesn't have a copyright notice, again consult your legal representative to see if you should add one. Do not update a copyright notice if you don't belong to that affiliation unless explicitly asked by the affiliation in question.
 
 If you create a new file, copy the license text from a nearby file. Do not add copyright notices for affiliations to which you don't belong.
 
