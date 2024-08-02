@@ -58,6 +58,10 @@ When a complete file has been reviewed there's a "viewed" checkbox at the top ri
 
 Once you have looked through all the changes and added all your comments, the green button at the top right of the screen "Review changes" is used to finish your review. You can add a final comment to sum up your findings and then choose whether you just want to provide your comments, if you want to approve the changes, or request that changes are done before the change can be approved. Finally click "Submit review" to publish your thoughts.
 
+### Trivial changes
+
+A change that is small, well contained, and that makes no semantic changes can be called _trivial_. Typical examples are fixing obvious typos or renaming a local identifier. A trivial change can also be integrating an already-reviewed change that was missed in an earlier integration (e.g., forgot to add a file) or generated changes like a [`git revert`](#backing-out-a-change). It's up to the author of a change to claim that the change is trivial in the RFR, and it's up to the [Reviewer](https://openjdk.org/bylaws#reviewer) whether to approve such a claim. A change is trivial only if the [Reviewer](https://openjdk.org/bylaws#reviewer) agrees that it is. A trivial change doesn't need to wait 24 hours before being pushed, and it only needs one [Reviewer](https://openjdk.org/bylaws#reviewer), even in areas where stricter rules for integration normally apply.
+
 ## Volunteering to sponsor a contribution
 
 In an ideal situation opportunities to sponsor contributions occur in the OpenJDK mail lists. Since Contributors are encouraged to discuss their intended changes before they submit a patch, the ideal time to declare your sponsorship is during that initial conversation. As a Sponsor you should offer advice and collaborate with the Contributor as necessary to produce a high-quality patch. In addition to sponsoring changes to code you regularly maintain, there may be other areas where you can serve as a Sponsor.
