@@ -167,7 +167,8 @@ This list is intended to make it easier to identify which email list to include 
 * [jdk.crypto.mscapi](https://github.com/openjdk/jdk/tree/master/src/jdk.crypto.mscapi) - Security
 * [jdk.dynalink](https://github.com/openjdk/jdk/tree/master/src/jdk.dynalink) - Tools
 * [jdk.editpad](https://github.com/openjdk/jdk/tree/master/src/jdk.editpad) - JShell
-* [[jdk.graal.compiler](https://github.com/openjdk/jdk/tree/master/jdk.graal.compiler), [jdk.graal.compiler.management](https://github.com/openjdk/jdk/tree/master/jdk.graal.compiler.management)]/jdk.graal.* - Compiler
+* [jdk.graal.compiler](https://github.com/openjdk/jdk/tree/master/src/jdk.graal.compiler) - Compiler
+* [jdk.graal.compiler.management](https://github.com/openjdk/jdk/tree/master/src/jdk.graal.compiler.management) - Compiler
 * [jdk.hotspot.agent](https://github.com/openjdk/jdk/tree/master/src/jdk.hotspot.agent) - Serviceability
 * [jdk.httpserver](https://github.com/openjdk/jdk/tree/master/src/jdk.httpserver) - Net
 * [jdk.incubator.vector](https://github.com/openjdk/jdk/tree/master/src/jdk.incubator.vector) - Compiler
@@ -227,7 +228,7 @@ This list is intended to make it easier to identify which email list to include 
 * `jdk.internal.vm.compiler` – Compiler (Removed in [22](https://bugs.openjdk.org/browse/JDK-8318027))
 * `jdk.internal.vm.compiler.management` – Compiler (Removed in [22](https://bugs.openjdk.org/browse/JDK-8318027))
 * `jdk.pack` – Tools (Removed in [14](https://bugs.openjdk.org/browse/JDK-8234596))
-* `jdk.random` – Core Libs (Unknown when it was Removed)
+* `jdk.random` – Core Libs (Removed in [23](https://bugs.openjdk.org/browse/JDK-8330005))
 * `jdk.rmic` – Core Libs (Removed in [15](https://bugs.openjdk.org/browse/JDK-8225319))
 * `jdk.scripting.nashorn` – Tools (Removed in [15](https://bugs.openjdk.org/browse/JDK-8236933))
 * `jdk.scripting.nashorn.shell` – Tools (Removed in [15](https://bugs.openjdk.org/browse/JDK-8236933))
