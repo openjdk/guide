@@ -10,6 +10,10 @@ The mailing lists are the key communications mechanism for all OpenJDK work. All
 
 > [`mail.openjdk.org`](https://mail.openjdk.org/mailman/listinfo)
 
+:::{.note}
+Please note that OpenJDK mailing lists typically are for discussions about the **development** of the JDK, not its usage. This is not a place to ask support questions. If you think you found an issue in or with the JDK, see [JBS - JDK Bug System] for instructions on reporting it.
+:::
+
 The OpenJDK Community is a friendly place. To keep it that way it's important to keep a professional tone in emails and be aware that the community is global. Many different people with different backgrounds collaborate in these lists. Even though English is the required language for all lists, many Participants speak other languages as their native language. A high tolerance for non-perfect English is expected from anyone joining these lists. You're also strongly encouraged to use your real name on the mailing lists. This adds to the professional tone of your email. Postings from anonymized mailboxes risk being seen as spam. If you do work in OpenJDK on behalf of your employer, please also list this affiliation. If your GitHub username differs from your real name it's also a good idea to include that to identify yourself and your actions on [GitHub](https://github.com).
 
 You must be a member of a list to be able to post to that list. Some lists are moderated to keep the content on topic. Each list has its own archive where you can browse older conversations on the list.
