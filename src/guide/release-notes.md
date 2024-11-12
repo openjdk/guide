@@ -78,7 +78,7 @@ The following are general practices that should be followed when creating releas
       * If more than one release note is required for the same set of fixes, then open additional sub-tasks with the same [Affects Version]{.jbs-field} - see [JDK-8073861](https://bugs.openjdk.org/browse/JDK-8073861) as an example.
   * Release notes across backports
     * If an issue is backported to earlier releases the same note will be used - just add the new release version in the [Affects Version]{.jbs-field} field of the release note.
-    * Where a different release note is required, then create a separate note with the [Affects Version]{.jbs-field} for the new release - see [JDK-8308194](https://bugs.openjdk.org/browse/JDK-8308194) as an example.
+    * Where a different release note is required, then create a separate note with the [Affects Version]{.jbs-field} for the new release - see [JDK-8308194](https://bugs.openjdk.org/browse/JDK-8308194) and [JDK-8322473](https://bugs.openjdk.org/browse/JDK-8322473) for an example.
 
 ## RN-labels
 
