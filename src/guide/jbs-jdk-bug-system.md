@@ -249,9 +249,26 @@ Once you are made, or you make yourself, the assignee of an issue you take on th
 
 Some additional fields should be filled out or updated as you get a better understanding of the issue:
 
-* For a regression, if you identify the fix that caused it, add a relates-to link to that issue (and add a [[regression_]{.jbs-label}(ID)](#regression_id) label) and set the [Introduced in Build]{.jbs-field} or [Introduced in Version]{.jbs-field} field.
 * The [Description]{.jbs-field} usually explains what went wrong and how the failure was found, then there's some investigation and eventually the root cause is found. At this point the [Summary]{.jbs-field} should be updated to correctly describe the bug. The [Description]{.jbs-field} however should remain a description of how the failure was found.
 * The [Affects Version/s]{.jbs-field} should be updated if you in your investigation finds that the issue is older than what is indicated by the current [Affects Version/s]{.jbs-field}.
+
+### Linking Issues
+
+An important aspect of any issue is making clear how it is connected/related to other issues, this linking is done when closing an issue - such as marking an issue as a duplicate and [adding a duplicate link](#closing-issues-as-duplicates) or when using the ‘Create Backport’ or ‘Create CSR’ options are used which we automatically create ‘backported by’ or ‘csr for’ links (never create an issue of type Backport or CSR by hand). The other use of linking is to associate an issue with one or more other issues that share some relation with the issue and is done during the triage or resolution of the issue.
+
+There are the following link types:
+
+’duplicate of` - See [Closing issues as duplicates] for more information.
+
+‘backported by’ - When creating a backport with the “More -> Create Backport” option a link is automatically created between the main issue and the new Backport
+
+‘CSR for’ - When creating a CSR with the “More -> Create CSR” option a link is automatically created between the main issue and the new CSR
+
+‘blocks’ - when a fix is broken down into a number of parts the ‘blocks’ link should be used to ensure they are all fixed before the main issue is considered resolved - see [implementing large changes](#implementing-large-changes]
+
+‘relates to’ - there are no rules as to when or why to create a relates link apart from not duplicating an existing “duplicated by”, ‘backported by’, ‘csr for’ or ‘blocked by’ links. In general, you should link any other issue that has a bearing on the situation where you feel the related issue should be reviewed in order to have a better understanding of what is going on
+
+‘causes’/‘caused by’ - the causes link implies a stronger relationship than relates. If an issue B is filed which can be traced back to the fix for issue A then ‘A causes B’ (or ‘B was caused by A’).  A ‘causes’ link would be added to A if after the integration or release of A it is found that additional work needs to be done. This might be that extra work in another area forgotten and needs to be completed or the more common case would be that a fix ‘causes’ a change of behavior (intentional or otherwise).  For a regression, if you identify the fix that caused it, add a caused-by link to that issue and set the Introduced in Build or Introduced in Version field.  Whenever looking to backport a fix the developer should look for both ‘blocked by’ and ‘causes’ links in order to understand the set of fixes that should be backported. Likewise, if A has already been backported the new causes linked issues will need to be assessed to see if it is important enough to be backported as well. On B make sure to set the [Introduced in Build]{.jbs-field} or [Introduced in Version]{.jbs-field} field.
 
 ::: {.note}
 **Note:** If during your investigation of the bug you determine that the issue is in the wrong component, make sure to move it back to the [New]{.jbs-value} state before moving it to the new component, so that it will be picked up by the component's triage team. Make sure there is a comment outlining the reason for the move, as explained above.
