@@ -254,17 +254,17 @@ Some additional fields should be filled out or updated as you get a better under
 
 ### Linking Issues
 
-An important aspect of any issue is making clear how it is connected/related to other issues, this linking is done when closing an issue - such as marking an issue as a duplicate and [adding a duplicate link](#closing-issues-as-duplicates) or when using the ‘Create Backport’ or ‘Create CSR’ options are used which we automatically create ‘backported by’ or ‘csr for’ links (never create an issue of type Backport or CSR by hand). The other use of linking is to associate an issue with one or more other issues that share some relation with the issue and is done during the triage or resolution of the issue.
+An important aspect of any issue is making clear how it is connected/related to other issues. This can occur at any stage of the issue's lifecycle. For example, as information becomes available that might suggest a cause, or similar issue (relates to); or when a Backport or CSR request is created; or when closing as a duplicate of another issue.
 
 There are the following link types:
 
-’duplicate of` - See [Closing issues as duplicates] for more information.
+’duplicate of` - Normally set automatically - see [Closing issues as duplicates] for more information
 
-‘backported by’ - When creating a backport with the “More -> Create Backport” option a link is automatically created between the main issue and the new Backport
+‘backported by’ - Normally set automatically when creating a backport with the “More -> Create Backport” option
 
 ‘CSR for’ - When creating a CSR with the “More -> Create CSR” option a link is automatically created between the main issue and the new CSR
 
-‘blocks’ - when a fix is broken down into a number of parts the ‘blocks’ link should be used to ensure they are all fixed before the main issue is considered resolved - see [implementing large changes](#implementing-large-changes]
+‘blocks’ - For when other issues are dependent on the current issue being resolved/fixed before they can be. For example, when a fix is broken down into a number of parts the ‘blocks’ link should be used to ensure they are all fixed before the main issue is considered resolved - see [implementing large changes](#implementing-large-changes]
 
 ‘relates to’ - there are no rules as to when or why to create a relates link apart from not duplicating an existing “duplicated by”, ‘backported by’, ‘csr for’ or ‘blocked by’ links. In general, you should link any other issue that has a bearing on the situation where you feel the related issue should be reviewed in order to have a better understanding of what is going on
 
