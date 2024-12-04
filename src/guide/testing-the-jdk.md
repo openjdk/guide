@@ -5,7 +5,7 @@
 
 * [Using the run-test Framework](https://openjdk.org/groups/build/doc/testing.html)
 * [jtreg Harness Documentation](https://openjdk.org/jtreg/)
-* [Google Test Documentation](https://github.com/google/googletest/blob/master/googletest/docs/primer.md)
+* [Google Test Documentation](https://github.com/google/googletest/blob/main/docs/index.md)
 :::
 
 In addition to your own Java applications, OpenJDK has support for two test frameworks to test the JDK, jtreg and GTest. jtreg is a Java regression test framework that is used for most of the tests that are included in the OpenJDK source repository. The Google Test (GTest) framework is intended for unit testing of the C++ native code. Currently only JVM testing is supported by the GTest framework. Other areas use jtreg for unit testing of C++ code.
@@ -137,7 +137,7 @@ TEST(Demo, quicksort) {
 }
 ~~~
 
-`ASSERT_EQ` is one example of an assertion that can be used in the test. Below are a few other examples. A full list is found in the [Google Test Documentation](https://github.com/google/googletest/blob/master/googletest/docs/primer.md).
+`ASSERT_EQ` is one example of an assertion that can be used in the test. Below are a few other examples. A full list is found in the [Google Test Documentation](https://github.com/google/googletest/blob/main/docs/index.md).
 
 ~~~Java
 ASSERT_TRUE(condition);
