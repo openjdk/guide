@@ -228,12 +228,12 @@ Now that the issue is in the right component and has the basic information, the 
    * For Project internal changes intended to be integrated to a Project repository rather than the JDK or JDK Updates repositories, the [Fix Version/s]{.jbs-field} should be set to [internal]{.jbs-value}, or if the [Project](https://openjdk.org/bylaws#project) is large enough to have its own [repo-*]{.jbs-value} fix version, use that.
    * Only one [Fix Version/s]{.jbs-field} should ever be set. If the issue is to be fixed in additional releases then separate backport issues must be created (see [Working with backports in JBS]). There are exceptions to this rule for CSRs and Release Notes.
 1. Make sure the bug has all the required labels – see [JBS Label Dictionary].
-   * Bugs where behavior has _incorrectly_ changed from a previous build or release: [[regression]{.jbs-label}](#regression)
    * Changes that don't affect product code, but are only against the regression test, or problem-listing: [[noreg-self]{.jbs-label}](#noreg-self)
    * Changes that don't affect product code, but are only against documentation: [[noreg-doc]{.jbs-label}](#noreg-doc)
    * Well contained issues that seem to be easy to fix: [[starter]{.jbs-label}](#starter)
    * Enhancements that are pure cleanups: [[cleanup]{.jbs-label}](#cleanup)
    * Project specific issues usually have their own labels as well
+1. Managing regressions - for a bug (B) where behavior has _incorrectly_ changed from a previous fix (A) sure that the label [[regression]{.jbs-label}](#regression) is added.  Once it is known what fix caused the regression a 'caused by' link should be added to 'B' or a causes link to 'A'. A ‘causes’ link would be added to A if after the integration or release of A it is found that additional work needs to be done. This might be that extra work in another area forgotten and needs to be completed or the more common case would be that a fix ‘causes’ a change of behavior (intentional or otherwise).  If 'A' has been identifed as well as a caused-by link to that issue and set the [Introduced in Build]{.jbs-field} and [Introduced in Version]{.jbs-field} fields of 'B', based on which release 'A' was fixed in.  
 
 At this point move the issue into the [Open]{.jbs-value} state.
 
@@ -268,7 +268,7 @@ There are the following link types:
 
 ‘relates to’ - there are no rules as to when or why to create a relates link apart from not duplicating an existing “duplicated by”, ‘backported by’, ‘csr for’ or ‘blocked by’ links. In general, you should link any other issue that has a bearing on the situation where you feel the related issue should be reviewed in order to have a better understanding of what is going on
 
-‘causes’/‘caused by’ - the causes link implies a stronger relationship than relates. If an issue B is filed which can be traced back to the fix for issue A then ‘A causes B’ (or ‘B was caused by A’).  A ‘causes’ link would be added to A if after the integration or release of A it is found that additional work needs to be done. This might be that extra work in another area forgotten and needs to be completed or the more common case would be that a fix ‘causes’ a change of behavior (intentional or otherwise).  For a regression, if you identify the fix that caused it, add a caused-by link to that issue and set the Introduced in Build or Introduced in Version field.  Whenever looking to backport a fix the developer should look for both ‘blocked by’ and ‘causes’ links in order to understand the set of fixes that should be backported. Likewise, if A has already been backported the new causes linked issues will need to be assessed to see if it is important enough to be backported as well. On B make sure to set the [Introduced in Build]{.jbs-field} or [Introduced in Version]{.jbs-field} field.
+‘causes’/‘caused by’ - the causes link implies a stronger relationship than relates. If an issue B is filed which can be traced back to the fix for issue A then ‘A causes B’ (or ‘B was caused by A’)
 
 ::: {.note}
 **Note:** If during your investigation of the bug you determine that the issue is in the wrong component, make sure to move it back to the [New]{.jbs-value} state before moving it to the new component, so that it will be picked up by the component's triage team. Make sure there is a comment outlining the reason for the move, as explained above.
