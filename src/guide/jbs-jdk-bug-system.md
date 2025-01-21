@@ -260,7 +260,7 @@ There are the following link types:
 
 [duplicate of]{.jbs-value} - Normally set automatically - see [Closing issues as duplicates] for more information
 
-[backported by]{.jbs-value} - Normally set automatically when creating a backport with the “More -> Create Backport” option
+[backported by]{.jbs-value} - Normally set automatically when creating a backport with the “More -> Create Backport” option, or by the Skara tooling
 
 [CSR for]{.jbs-value} - When creating a CSR with the “More -> Create CSR” option a link is automatically created between the main issue and the new CSR
 
@@ -268,7 +268,7 @@ There are the following link types:
 
 [relates to]{.jbs-value} - To avoid lots of relates links, the links should have some significance in relation to the cause and/or fix, for the current issue. In addition, relates links should not duplicate an existing [duplicated by]{.jbs-value}, [backported by]{.jbs-value}, [csr for]{.jbs-value} or [blocked by]{.jbs-value} link.  In particular, it may be necessary to manually remove a [relates to]{.jbs-value} link if it is later added as a [duplicated by]{.jbs-value} or [caused by]{.jbs-value} link
 
-[causes]{.jbs-value}/[caused by]{.jbs-value} - the causes link implies a stronger relationship than relates. If an issue B is filed which can be traced back to the fix for issue A then ‘A causes B’ (or ‘B was caused by A’)
+[causes]{.jbs-value}/[caused by]{.jbs-value} - the causes link implies a stronger relationship than relates. If an issue 'B' can be traced back to the fix for issue 'A' then ‘A causes B’ (or ‘B was caused by A’)
 
 ::: {.note}
 **Note:** If during your investigation of the bug you determine that the issue is in the wrong component, make sure to move it back to the [New]{.jbs-value} state before moving it to the new component, so that it will be picked up by the component's triage team. Make sure there is a comment outlining the reason for the move, as explained above.
