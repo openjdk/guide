@@ -83,6 +83,11 @@ The [Affects Version/s]{.jbs-field} field is used to indicate which releases an 
 Another aspect of an issue is when the feature it's a part of was added or removed from the JDK, which in either case limits the range of releases the issue impacts. Knowing that a feature was removed before the oldest currently maintained release means it can be resolved as [Won't Fix]{.jbs-value}.
 
 #### Setting the Affects Version/s field
+
+:::{.note}
+Note that the [Affects Version/s]{.jbs-field} field is mainly used for bugs and bug-like tasks/sub-tasks etc. In general enhancements and enhancement-like tasks/sub-tasks should not have an [Affects Version/s]{.jbs-field}.
+:::
+
 Set the [Affects Version/s]{.jbs-field} field to the lowest release where the bug has been seen.
 
 * The [Affects Version/s]{.jbs-field} isn't meant to be an exhaustive list of releases the issue is relevant to - it should initially be set to the release the issue was reproduced or identified on, and by implication it will be relevant to all releases past that point (see [Usage of the (Rel)[-na]{.jbs-label} Label](#usage-of-rel-na-label)). If it's later found to be applicable to an earlier release family then adding that earlier release is encouraged if the issue needs to be fixed in that release.
