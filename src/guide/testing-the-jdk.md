@@ -300,9 +300,13 @@ After a failure is handled by excluding a test, the main JBS issue should be re-
 
 ## Backing out a change
 
-If a change causes a regression that can't be fixed within reasonable time, the best way to handle the regression can be to back out the change. Backing out means that the inverse (anti-delta) of the change is integrated to effectively undo the change in the repository. There are two parts to this task, how to do the bookkeeping in JBS, and how to do the actual backout in git or Mercurial.
+If a change causes a regression that can't be fixed within reasonable time, the best way to handle the regression can be to back out the change. Backing out means that the inverse (anti-delta) of the change is integrated to effectively undo the change in the repository. Whether to back out a change or not will always be a judgement call. How noisy and frequent are the failures caused by the broken change? How soon can the fix be expected? If you want to avoid having your change backed out, you should make sure to let the relevant developers know that you are working on the fix and give an estimated ETA of the fix.
 
-The backout is a regular change and will have to go through the standard code review process, but is considered a [trivial](#trivial) change. The rationale is that a backout is usually urgent in nature and the change itself is automatically generated. In areas where two reviewers are normally required, only one additional [Reviewer](https://openjdk.org/bylaws#reviewer) is required for a backout since the person who is performing the backout also will review the change.
+It will happen of course when the build is broken or the JDK is DOA and similar situations that a change is immediately backed out without further investigation. Backing out a change is however seldom the first course of action if the change has been done in accordance with the guidance in [Working With Pull Requests]. If, when investigated, it is found that a change didn't go through relevant testing or there are other issues that should have been caught before integration if proper procedure had been followed, it's quite possible that a change is backed out even if the author is desperately working on a fix. The JDK source code is deliberately menat to have a high bar for acceptance of changes. If something crawls in underneath that bar it should most likely be backed out.
+
+The backout is a regular change and will have to go through the standard code review process, but is considered a [trivial](#trivial) change. The rationale is that a backout is usually urgent in nature and the change itself is automatically generated. In areas where two reviewers are normally required, only one [Reviewer](https://openjdk.org/bylaws#reviewer) is required for a backout since the person who is performing the backout also should review the change.
+
+There are two parts to this task, how to do the bookkeeping in JBS, and how to do the actual backout in git.
 
 ### How to work with JBS when a change is backed out
 
