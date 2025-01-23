@@ -27,6 +27,7 @@ A few things to keep in mind when filing an issue:
 * Make a reasonable attempt to narrow down which build or release the failure first appeared in.
 * Set [Affects Version/s]{.jbs-field} to the earliest JDK version where the failure was seen.
   * If the failure is found in an update train of the JDK (e.g. 11.0.x), please see (if possible) if it's also present in [mainline](https://github.com/openjdk/jdk). See [Indicating what releases an issue is applicable to](#indicating-what-releases-an-issue-is-applicable-to) for more details.
+  * All issues of type [Bug]{.jbs-value} must have the [Affects Version/s]{.jbs-field} set. It's not a bug if it doesn't affect some version.
   * For enhancements the [Affects Version/s]{.jbs-field} should be left empty, unless it is only relevant to a specific release family.
 * Add relevant [Labels]{.jbs-field} like [[intermittent]{.jbs-label}](#intermittent), [[regression]{.jbs-label}](#regression), [[noreg-self]{.jbs-label}](#noreg-self), [[tier1]{.jbs-label}](#tier) etc.
   * For more information see the [JBS Label Dictionary].
@@ -83,6 +84,11 @@ The [Affects Version/s]{.jbs-field} field is used to indicate which releases an 
 Another aspect of an issue is when the feature it's a part of was added or removed from the JDK, which in either case limits the range of releases the issue impacts. Knowing that a feature was removed before the oldest currently maintained release means it can be resolved as [Won't Fix]{.jbs-value}.
 
 #### Setting the Affects Version/s field
+
+:::{.note}
+Note that the [Affects Version/s]{.jbs-field} field is mainly used for bugs and bug-like tasks/sub-tasks etc. In general enhancements and enhancement-like tasks/sub-tasks should not have an [Affects Version/s]{.jbs-field}.
+:::
+
 Set the [Affects Version/s]{.jbs-field} field to the lowest release where the bug has been seen.
 
 * The [Affects Version/s]{.jbs-field} isn't meant to be an exhaustive list of releases the issue is relevant to - it should initially be set to the release the issue was reproduced or identified on, and by implication it will be relevant to all releases past that point (see [Usage of the (Rel)[-na]{.jbs-label} Label](#usage-of-rel-na-label)). If it's later found to be applicable to an earlier release family then adding that earlier release is encouraged if the issue needs to be fixed in that release.
