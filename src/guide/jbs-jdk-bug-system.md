@@ -254,7 +254,7 @@ Some additional fields should be filled out or updated as you get a better under
 
 ### Linking Issues
 
-An important aspect of any issue is making clear how it is connected/related to other issues. This can occur at any stage of the issue's lifecycle. For example, as information becomes available that might suggest a cause, or similar issue (relates to); or when a Backport or CSR request is created; or when closing as a duplicate of another issue.
+An important aspect of any issue is making clear how it is connected/related to other issues. This can occur at any stage of the issue's lifecycle. For example, as information becomes available that might suggest a cause, or similar issue (relates to).
 
 There are the following link types:
 
