@@ -262,7 +262,7 @@ There are the following link types:
 
 [backported by]{.jbs-value} - Normally set automatically when creating a backport with the “More -> Create Backport” option, or by the Skara tooling
 
-[CSR for]{.jbs-value} - When creating a CSR with the “More -> Create CSR” option a link is automatically created between the main issue and the new CSR
+[CSR for]{.jbs-value} - When creating a CSR with the “More -> Create CSR” option, a link is automatically created between the main issue and the new CSR
 
 [blocks]{.jbs-value} - For when other issues are dependent on the current issue being resolved/fixed before they can be. For example, when a fix is broken down into a number of parts the [blocks]{.jbs-value} link should be used to ensure they are all fixed before the main issue is considered resolved - see [implementing large changes](#implementing-large-changes]
 
