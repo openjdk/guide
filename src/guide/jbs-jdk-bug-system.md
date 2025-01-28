@@ -234,12 +234,12 @@ Now that the issue is in the right component and has the basic information, the 
    * For Project internal changes intended to be integrated to a Project repository rather than the JDK or JDK Updates repositories, the [Fix Version/s]{.jbs-field} should be set to [internal]{.jbs-value}, or if the [Project](https://openjdk.org/bylaws#project) is large enough to have its own [repo-*]{.jbs-value} fix version, use that.
    * Only one [Fix Version/s]{.jbs-field} should ever be set. If the issue is to be fixed in additional releases then separate backport issues must be created (see [Working with backports in JBS]). There are exceptions to this rule for CSRs and Release Notes.
 1. Make sure the bug has all the required labels – see [JBS Label Dictionary].
-   * Bugs where behavior has _incorrectly_ changed from a previous build or release: [[regression]{.jbs-label}](#regression)
    * Changes that don't affect product code, but are only against the regression test, or problem-listing: [[noreg-self]{.jbs-label}](#noreg-self)
    * Changes that don't affect product code, but are only against documentation: [[noreg-doc]{.jbs-label}](#noreg-doc)
    * Well contained issues that seem to be easy to fix: [[starter]{.jbs-label}](#starter)
    * Enhancements that are pure cleanups: [[cleanup]{.jbs-label}](#cleanup)
    * Project specific issues usually have their own labels as well
+1. Managing regressions - for a bug (B) where behavior has _incorrectly_ changed from a previous fix (A) ensure that the label [[regression]{.jbs-label}](#regression) is added.  Once it is known what fix caused the regression a [caused by]{.jbs-value} link should be added to 'B' or a [causes]{.jbs-value} link to 'A'. A [causes]{.jbs-value} link would also be added to A if the fix _causes_ a change of behavior (intentional or otherwise) or it is found after integration, that additional work needs to be done. In addition to adding a [caused by]{.jbs-value} link, set the [Introduced in Version]{.jbs-field} and [Introduced in Build]{.jbs-field} fields of 'B', based on which release 'A' was fixed in.  Do not add a [caused by]{.jbs-value} link if there was no specific product fix which _caused it_, for example, the addition of a test which finds an underlying problem should not be linked.
 
 At this point move the issue into the [Open]{.jbs-value} state.
 
@@ -255,9 +255,26 @@ Once you are made, or you make yourself, the assignee of an issue you take on th
 
 Some additional fields should be filled out or updated as you get a better understanding of the issue:
 
-* For a regression, if you identify the fix that caused it, add a relates-to link to that issue (and add a [[regression_]{.jbs-label}(ID)](#regression_id) label) and set the [Introduced in Build]{.jbs-field} or [Introduced in Version]{.jbs-field} field.
 * The [Description]{.jbs-field} usually explains what went wrong and how the failure was found, then there's some investigation and eventually the root cause is found. At this point the [Summary]{.jbs-field} should be updated to correctly describe the bug. The [Description]{.jbs-field} however should remain a description of how the failure was found.
 * The [Affects Version/s]{.jbs-field} should be updated if you in your investigation finds that the issue is older than what is indicated by the current [Affects Version/s]{.jbs-field}.
+
+### Linking Issues
+
+An important aspect of any issue is making clear how it is connected/related to other issues. This can occur at any stage of the issue's lifecycle. For example, as information becomes available that might suggest a cause, or similar issue (relates to).
+
+There are the following link types:
+
+[duplicate of]{.jbs-value} - Normally set automatically - see [Closing issues as duplicates] for more information
+
+[backported by]{.jbs-value} - Normally set automatically when creating a backport with the “More -> Create Backport” option, or by the Skara tooling
+
+[CSR for]{.jbs-value} - When creating a CSR with the “More -> Create CSR” option, a link is automatically created between the main issue and the new CSR
+
+[blocks]{.jbs-value} - For when other issues are dependent on the current issue being resolved/fixed before they can be. For example, when a fix is broken down into a number of parts the [blocks]{.jbs-value} link should be used to ensure they are all fixed before the main issue is considered resolved - see [implementing large changes](#implementing-large-changes]
+
+[relates to]{.jbs-value} - To avoid lots of [relates to]{.jbs-value} links, the links should have some significance in relation to the cause and/or fix, for the current issue. In addition, relates links should not duplicate an existing [duplicated by]{.jbs-value}, [backported by]{.jbs-value}, [csr for]{.jbs-value} or [blocked by]{.jbs-value} link.  In particular, it may be necessary to manually remove a [relates to]{.jbs-value} link if it is later added as a [duplicated by]{.jbs-value} or [caused by]{.jbs-value} link
+
+[causes]{.jbs-value}/[caused by]{.jbs-value} - the [causes]{.jbs-value} link implies a stronger relationship than [relates to]{.jbs-value}. If an issue 'B' can be traced back to the fix for issue 'A' then ‘A causes B’ (or ‘B is caused by A’)
 
 ::: {.note}
 **Note:** If during your investigation of the bug you determine that the issue is in the wrong component, make sure to move it back to the [New]{.jbs-value} state before moving it to the new component, so that it will be picked up by the component's triage team. Make sure there is a comment outlining the reason for the move, as explained above.

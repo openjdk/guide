@@ -23,6 +23,8 @@ Please note that special rules applies during ramp down regarding what can and c
 
 ## Backporting multiple related changes
 
+Ideally fixes should not be backported until there has been enough time for any regressions or follow-on issues to have been identified. Then, when looking to backport a fix the developer should look for both [blocked by]{.jbs-value} and [causes]{.jbs-value} links in order to understand the complete set of fixes that should be backported.
+
 When backporting a number of changes that are dependent on each other, like a change with a tail of bug fixes, it can sometimes seem attractive to merge all those commits into a single change to avoid backporting a broken change. Please don't. The general recommendation is to backport each commit individually. There are several reasons for this recommendation.
 
 If, for instance, there are other changes between the original one and the followup fix(es) there may be a dependency on other changes that are unrelated to the issue itself. By merging the original change, the fix(es), and the unrelated changes to meet the dependency, a single very different change is created. It's unlikely that this change will match the description in the single JBS issue used for the merged backport. Backporting each commit individually will preserve the git history and make it easy to figure out what has actually been backported.
