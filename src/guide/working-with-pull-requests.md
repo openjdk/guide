@@ -10,6 +10,10 @@ Once you have made a change that you want to integrate into an OpenJDK code base
 
 This section also assumes that you have already read [I have a patch, what do I do?] and followed **all** the steps there.
 
+::: {.note}
+Please note that the description of a change should always be in the JBS issue. The [GitHub](https://github.com) PR can be a good place to discuss technical implementation details regarding your change, but it's not the right place to describe the problem. Make sure you have a proper problem description in your JBS issue before publishing a PR.
+:::
+
 ## Think once more
 
 All code reviews in OpenJDK are done in public. Once you open your PR for public review the internet can see it and comment on it. Make sure your code is ready for it. Look through your comments, make sure that temporary code is gone, and make sure you have sanitized your method and variable names. Also, make sure you understand your code. Why is it working? What are the potential pitfalls? What are the edge-cases? If you haven't already answered all these questions in the mail conversation that preceded this PR, it's likely that you will need to answer them during the review.
