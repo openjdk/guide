@@ -116,3 +116,21 @@ strong > code {
     white-space: nowrap;
     color: #060;
 }
+
+div#TOC {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    width: 27em;
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+@media (max-width: 81em) {
+  div#TOC {
+    position: static;
+    max-height: none;
+    overflow-y: visible;
+  }
+}

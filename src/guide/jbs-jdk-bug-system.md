@@ -258,26 +258,27 @@ Some additional fields should be filled out or updated as you get a better under
 * The [Description]{.jbs-field} usually explains what went wrong and how the failure was found, then there's some investigation and eventually the root cause is found. At this point the [Summary]{.jbs-field} should be updated to correctly describe the bug. The [Description]{.jbs-field} however should remain a description of how the failure was found.
 * The [Affects Version/s]{.jbs-field} should be updated if you in your investigation finds that the issue is older than what is indicated by the current [Affects Version/s]{.jbs-field}.
 
-### Linking Issues
+::: {.note}
+**Note:** If during your investigation of the bug you determine that the issue is in the wrong component, make sure to move it back to the [New]{.jbs-value} state before moving it to the new component, so that it will be picked up by the component's triage team. Make sure there is a comment outlining the reason for the move, as explained above.
+:::
+
+## Linking Issues
 
 An important aspect of any issue is making clear how it is connected/related to other issues. This can occur at any stage of the issue's lifecycle. For example, as information becomes available that might suggest a cause, or similar issue (relates to).
 
 There are the following link types:
 
-[duplicate of]{.jbs-value} - Normally set automatically - see [Closing issues as duplicates] for more information
-
-[backported by]{.jbs-value} - Normally set automatically when creating a backport with the “More -> Create Backport” option, or by the Skara tooling
-
-[CSR for]{.jbs-value} - When creating a CSR with the “More -> Create CSR” option, a link is automatically created between the main issue and the new CSR
-
-[blocks]{.jbs-value} - For when other issues are dependent on the current issue being resolved/fixed before they can be. For example, when a fix is broken down into a number of parts the [blocks]{.jbs-value} link should be used to ensure they are all fixed before the main issue is considered resolved - see [implementing large changes](#implementing-large-changes]
-
-[relates to]{.jbs-value} - To avoid lots of [relates to]{.jbs-value} links, the links should have some significance in relation to the cause and/or fix, for the current issue. In addition, relates links should not duplicate an existing [duplicated by]{.jbs-value}, [backported by]{.jbs-value}, [csr for]{.jbs-value} or [blocked by]{.jbs-value} link.  In particular, it may be necessary to manually remove a [relates to]{.jbs-value} link if it is later added as a [duplicated by]{.jbs-value} or [caused by]{.jbs-value} link
-
-[causes]{.jbs-value}/[caused by]{.jbs-value} - the [causes]{.jbs-value} link implies a stronger relationship than [relates to]{.jbs-value}. If an issue 'B' can be traced back to the fix for issue 'A' then ‘A causes B’ (or ‘B is caused by A’)
+| Type | Usage |
+|:-|:----------|
+| [duplicate of]{.jbs-value} | Normally set automatically when an issue is closed as a duplicate - see [Closing issues as duplicates] for more information. |
+| [backported by]{.jbs-value} | Normally set automatically when creating a backport with the “More -> Create Backport” option, or by the Skara tooling. |
+| [CSR for]{.jbs-value} | When creating a CSR with the “More -> Create CSR” option, a link is automatically created between the main issue and the new CSR. |
+| [blocks]{.jbs-value} | For when other issues are dependent on the current issue being resolved/fixed before they can be. For example, when a fix is broken down into a number of parts the [blocks]{.jbs-value} link should be used to ensure they are all fixed before the main issue is considered resolved - see [Implementing a large change]. |
+| [relates to]{.jbs-value} | Used to indicate a relationship between two issues. To avoid lots of [relates to]{.jbs-value} links, the links should have some significance in relation to the cause and/or fix, for the current issue. |
+| [causes]{.jbs-value}/[caused by]{.jbs-value} | The [causes]{.jbs-value} link implies a stronger relationship than [relates to]{.jbs-value}. If an issue 'B' can be traced back to the fix for issue 'A' then ‘A causes B’ (or ‘B is caused by A’). |
 
 ::: {.note}
-**Note:** If during your investigation of the bug you determine that the issue is in the wrong component, make sure to move it back to the [New]{.jbs-value} state before moving it to the new component, so that it will be picked up by the component's triage team. Make sure there is a comment outlining the reason for the move, as explained above.
+**Note:** There should never be more than one type of link between two issues. It may be necessary to manually remove a link, e.g. [relates to]{.jbs-value}, if later a [duplicated by]{.jbs-value} or [caused by]{.jbs-value} link is added.
 :::
 
 ## Resolving or Closing an issue
@@ -310,11 +311,11 @@ The [Fix Version/s]{.jbs-field} field should indicate when an issue was fixed. T
 | [Future Project]{.jbs-value} | This status is not recommended for use. |
 | [Rejected]{.jbs-value} | This status should not be used. |
 
-:::{.note}
+::: {.note}
 When an issue is closed as [Won't Fix]{.jbs-value}, do not remove the [Fix Version/s]{.jbs-field}. It's valuable information to know what version it was decided not to fix an issue in. The same goes for resolutions such as [Duplicate]{.jbs-value}, [Cannot Reproduce]{.jbs-value} and [Not an Issue]{.jbs-value}.
 :::
 
-:::{.note}
+::: {.note}
 The fix version [na]{.jbs-value} should only be used on backport issues that is created by mistake. See [How to fix an incorrect backport creation in JBS].
 :::
 
