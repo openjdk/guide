@@ -84,13 +84,13 @@ If you have an actual reason to create a PR before the change is all done, make 
 
 #. **Allow enough time for review**
 
-   In general all PRs should be open for at least 24 hours to allow for reviewers in all time zones to get a chance to see it. It may actually happen that even 24 hours isn't enough. Take into account weekends, holidays, and vacation times throughout the world and you'll realize that a change that requires more than just a trivial review may have to be open for a while. In some areas [trivial] changes are allowed to be integrated without the 24 hour delay. Ask your reviewers if you think this applies to your change.
+   In general all PRs should be open for at least 24 hours to allow for reviewers in all time zones to get a chance to see it. It may actually happen that even 24 hours isn't enough. Take into account weekends, holidays, and vacation times throughout the world and you'll realize that a change that requires more than just a trivial review may have to be open for a while. In some areas [trivial changes] are allowed to be integrated without the 24 hour delay. Ask your reviewers if you think this applies to your change.
 
 #. **Get the required reviews**
 
    At least one [Reviewer](https://openjdk.org/bylaws#reviewer) knowledgeable in each area being changed must approve every change. A change may therefore require multiple [Reviewers](https://openjdk.org/bylaws#reviewer) because it affects multiple areas. Some areas (e.g. Client and HotSpot) require two reviewers in most cases, so be sure to read the relevant [OpenJDK Group](https://openjdk.org/bylaws#group) pages for advice or ask your [Sponsor](https://openjdk.org/bylaws#sponsor).
 
-   Be open to comments and polite in replies. Remember that the reviewer wants to improve the world just as much as you do, only in a slightly different way. If you don't understand some comment, ask the reviewer to clarify. Accept authority when applicable. If you're making changes in an area where you're not the area expert, acknowledge that your reviewers may be. Take their advice seriously, even if it is to not make the change. There are many reasons [why a change may get rejected](#why-is-my-change-rejected). And you did read the section [Things to consider before changing OpenJDK code], right?
+   Be open to comments and polite in replies. Remember that the reviewer wants to improve the world just as much as you do, only in a slightly different way. If you don't understand some comment, ask the reviewer to clarify. Accept authority when applicable. If you're making changes in an area where you're not the area expert, acknowledge that your reviewers may be. Take their advice seriously, even if it is to not make the change. There are many reasons [why a change may get rejected](#why-is-my-change-rejected). And you did read the section [Things to consider before proposing changes to OpenJDK code], right?
 
 #. **Updating the PR**
 
