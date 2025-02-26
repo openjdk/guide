@@ -736,7 +736,7 @@ Examples:  If a bug fix only corrects a change in the build system, then add the
   <tr>
     <td class="dictionary">[[regression_]{.jbs-label}*(ID)*]{#regression_id}</td>
     <td class="dictionary">
-      **Deprecated.** Used to identify the fix that caused the regression, where known. Has been replaced by the use of the [caused by]{.jbs-value} link.
+      **Deprecated.** Was used to identify the fix that caused the regression, where known. Has been replaced by the use of the [caused by]{.jbs-value} link.
     </td>
   </tr>
   <tr>
