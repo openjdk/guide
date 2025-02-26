@@ -81,7 +81,7 @@ The [Affects Version/s]{.jbs-field} field is used to indicate which releases an 
 
 1) If an issue is applicable to release N, then it can't be assumed that it is applicable to older releases less than N. It may be, but in general this is less important to know, as the majority of issues are only fixed in the latest feature release. If the issue is a crash or important in another way, then it becomes worthwhile to take the time to determine if it's relevant to earlier LTS releases.
 
-Another aspect of an issue is when the feature it's a part of was added or removed from the JDK, which in either case limits the range of releases the issue impacts. Knowing that a feature was removed before the oldest currently maintained release means it can be resolved as [Won't Fix]{.jbs-value}.
+Another aspect of an issue is when the feature, it's a part of, was added or removed from the JDK, which in either case limits the range of releases the issue impacts. Knowing that a feature was removed before the oldest currently maintained release means it can be resolved as [Won't Fix]{.jbs-value}.
 
 #### Setting the Affects Version/s field
 
@@ -125,7 +125,7 @@ Add a comment when adding a (Rel)[-wnf]{.jbs-label} label so that it's clear for
 1. Issue relevant to JDK 8 and all future releases.
 2. No need to add additional releases as they are implied.
 3. Adding the occasional LTS release value is ok.
-4. Use N-na to indicate that the issue is no longer relevant from that release, which could be due to the feature or platform being removed or the code being rewritten.
+4. Use N-na to indicate that the issue is no longer relevant from that release, which could be due to the feature or platform being removed or the code has been rewritten.
 5. Use N-wnf to indicate that a fix will not be backported to that release, or earlier.
 
 ### Things to keep in mind when requesting an improvement
@@ -431,7 +431,7 @@ This table contains some frequently used JBS labels and their meaning. Please he
                            [*(Rel)*[-fix-yes]{.jbs-label}]{#rel-fix-yes}<br />
                            [*(Rel)*[-fix-no]{.jbs-label}]{#rel-fix-no}</td>
     <td class="dictionary">
-      Used in ramp down phase 2 to indicate that an issue would be of interest to get integrated into release *(Rel)*. E.g., [jdk12u-fix-request]{.jbs-label}
+      Used in ramp down phase 2 to indicate that an issue would be of interest to be integrated into release *(Rel)*. E.g., [jdk12u-fix-request]{.jbs-label}
 
       *(Rel)*[-fix-SQE-ok]{.jbs-label} is used to indicate that the issue will be covered by the test plan for *(Rel)*. E.g., [jdk12u-fix-SQE-ok]{.jbs-label}<br />
       *(Rel)*[-fix-yes]{.jbs-label} and *(Rel)*[-fix-no]{.jbs-label} are used to indicate wether an issue has been approved for backport to *(Rel)*. E.g., [jdk12u-fix-yes]{.jbs-label}
@@ -542,7 +542,7 @@ This table contains some frequently used JBS labels and their meaning. Please he
 
       There are also labels in use to identify different GC features or areas rather than GC algorithms. E.g., [gc-g1-fullgc]{.jbs-label}, [gc-largeheap]{.jbs-label}, [gc-performance]{.jbs-label}
 
-      Note that ZGC breaks this pattern and use the label [zgc]{.jbs-label}.
+      Note that ZGC breaks this pattern and uses the label [zgc]{.jbs-label}.
     </td>
   </tr>
   <tr>
@@ -722,7 +722,7 @@ Examples:  If a bug fix only corrects a change in the build system, then add the
   <tr>
     <td class="dictionary">[[problemlist]{.jbs-label}]{#problemlist}</td>
     <td class="dictionary">
-      One or more tests has been problem-listed due to this bug.
+      One or more tests have been problem-listed due to this bug.
     </td>
   </tr>
   <!-- Q -->
@@ -736,7 +736,7 @@ Examples:  If a bug fix only corrects a change in the build system, then add the
   <tr>
     <td class="dictionary">[[regression_]{.jbs-label}*(ID)*]{#regression_id}</td>
     <td class="dictionary">
-      Used to identify the fix that caused the regression, where known.
+      **Deprecated.** Used to identify the fix that caused the regression, where known. Has been replaced by the use of the [caused by]{.jbs-value} link.
     </td>
   </tr>
   <tr>
