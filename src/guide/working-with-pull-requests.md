@@ -62,7 +62,7 @@ If you have an actual reason to create a PR before the change is all done, make 
 
 #. **Make sure you target the correct branch**
 
-   Many project repositories have several branches. Make sure your PR targets the correct one. This is of course especially important when not targeting the default branch. At the top of your PR, right below the title, it will say "NNN wants to merge X commit(s) into [branch]". Typical red flags to watch out for are if your PR seems to include commits or changed files that shouldn't be part of your integration. E.g. Seeing the "Start of release updates for JDK N" when backporting something to JDK N-1 is a bad sign.
+   Many project repositories have several branches. Make sure your PR targets the correct one. This is of course especially important when not targeting the default branch. At the top of your PR, right below the title, it will say "NNN wants to merge X commit(s) into [branch]". A typical red flag to watch out for is if your PR seems to include commits or changed files that shouldn't be part of your integration. E.g. Seeing the "Start of release updates for JDK N" when backporting something to JDK N-1 is a bad sign.
 
 #. **Set a correctly formatted title**
 
