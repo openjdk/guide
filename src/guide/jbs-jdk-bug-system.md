@@ -337,7 +337,7 @@ If it's determined that an issue has been fixed, but it's unknown what change th
 
 ### Closing incomplete issues
 
-As mentioned above, issues that lack the information needed to investigate the problem are placed in status [Resolved]{.jbs-value} - [Incomplete]{.jbs-value}. Triage teams should monitor incomplete issues in their area and if needed ping the relevant person. When new information has been received, the bug should be put back to status [Open]{.jbs-value}. If the required information hasn't been obtained within reasonable time (3-4 weeks) the bug should be closed as [Incomplete]{.jbs-value}.
+As mentioned above, issues that lack the information needed to investigate the problem are placed in status [Resolved]{.jbs-value} - [Incomplete]{.jbs-value}. Triage teams should monitor incomplete issues in their area and if needed ping the relevant person. When new information is received, the bug should be returned to status [Open]{.jbs-value}. If the required information hasn't been obtained within reasonable time (3-4 weeks) the bug should be closed as [Incomplete]{.jbs-value}.
 
 ## Verifying an issue
 
