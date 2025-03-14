@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="550" height="200"
+     version="1.1"
+     xmlns="http://www.w3.org/2000/svg">
+    <style><![CDATA[
+        rect {
+            fill: none;
+            stroke: black;
+            stroke-width: 1;
+        }
+        text {
+            font: 16px 'DejaVu Sans', sans-serif;
+        }
+        #head text {
+            text-anchor: middle;
+            dominant-baseline: text-bottom;
+        }
+        #refs text {
+            dominant-baseline: middle;
+        }
+        text.lts {
+            font-weight: bold;
+        }
+        #headlines line, #timeline path {
+            stroke: #808080;
+            stroke-width: 2;
+        }
+        #lts-lines line {
+            stroke: #CCCCCC;
+            stroke-width: 16;
+        }
+    ]]></style>
+
+    <text x="15" y="160" transform="rotate(-90 15, 160)">Affects Version</text>
+
+<g id="head">
+    <text x="45" y="15">8</text>
+    <text x="75" y="15">9</text>
+    <text x="105" y="15">10</text>
+    <text x="135" y="15" class="lts">11</text>
+    <text x="165" y="15">12</text>
+    <text x="195" y="15">13</text>
+    <text x="225" y="15">14</text>
+    <text x="255" y="15">15</text>
+    <text x="285" y="15">16</text>
+    <text x="315" y="15" class="lts">17</text>
+    <text x="345" y="15">18</text>
+    <text x="375" y="15">19</text>
+    <text x="405" y="15">20</text>
+    <text x="435" y="15" class="lts">21</text>
+    <text x="465" y="15">22</text>
+</g>
+
+<g id="headlines">
+    <line x1="45" y1="18"
+          x2="45" y2="36"/>
+    <line x1="75" y1="18"
+          x2="75" y2="36"/>
+    <line x1="105" y1="18"
+          x2="105" y2="36"/>
+    <line x1="135" y1="18"
+          x2="135" y2="36"/>
+    <line x1="165" y1="18"
+          x2="165" y2="146"/>
+    <line x1="195" y1="18"
+          x2="195" y2="36"/>
+    <line x1="225" y1="18"
+          x2="225" y2="36"/>
+    <line x1="255" y1="18"
+          x2="255" y2="36"/>
+    <line x1="285" y1="18"
+          x2="285" y2="36"/>
+    <line x1="315" y1="18"
+          x2="315" y2="36"/>
+    <line x1="345" y1="18"
+          x2="345" y2="36"/>
+    <line x1="375" y1="18"
+          x2="375" y2="36"/>
+    <line x1="405" y1="18"
+          x2="405" y2="36"/>
+    <line x1="435" y1="18"
+          x2="435" y2="36"/>
+    <line x1="465" y1="18"
+          x2="465" y2="36"/>
+</g>
+
+<g id="lts-lines">
+    <line x1="135" y1="36"
+          x2="135" y2="196"/>
+    <line x1="315" y1="36"
+          x2="315" y2="196"/>
+    <line x1="435" y1="36"
+          x2="435" y2="196"/>
+</g>
+
+<g id="timeline">
+    <defs>
+        <marker
+                id="arrow"
+                viewBox="0 0 20 18"
+                refX="0"
+                refY="9"
+                markerWidth="20"
+                markerHeight="18"
+                orient="auto">
+            <path d="M 0 7 L 6 9 L 0 11 Z"
+                  fill="#808080"/>
+        </marker>
+        <marker
+                id="circle"
+                viewBox="0 0 12 12"
+                refX="6"
+                refY="6"
+                markerWidth="12"
+                markerHeight="12"
+                orient="auto">
+            <circle cx="6" cy="6"
+                    r="3"
+                    fill="#808080"/>
+        </marker>
+    </defs>
+
+    <text x="25" y="52">8</text>
+    <path d="M 45, 56 L 495, 56"
+          marker-end="url(#arrow)"/>
+
+    <text x="25" y="82">8,
+        <tspan fill="red">8u40, 9, 12</tspan></text>
+    <path d="M 45, 86 L 495, 86"
+          marker-end="url(#arrow)"/>
+
+    <text x="25" y="112">11, 21</text>
+    <path d="M 135, 116 L 495, 116"
+          marker-end="url(#arrow)"/>
+
+    <text x="25" y="142">8</text>
+    <text x="165" y="142">12-na</text>
+    <path d="M 45, 146 L 147, 146"
+          marker-end="url(#arrow)"/>
+
+    <text x="25" y="172">8</text>
+    <text x="135" y="172" style="text-anchor: middle">11-wnf</text>
+    <path d="M 45, 176 L 315, 176 L 435, 176"
+          marker-mid="url(#circle)"
+          marker-end="url(#circle)"/>
+</g>
+
+<g id="refs">
+    <text x="520" y="56">(1)</text>
+    <text x="520" y="86">(2)</text>
+    <text x="520" y="116">(3)</text>
+    <text x="520" y="146">(4)</text>
+    <text x="520" y="176">(5)</text>
+</g>
+
+</svg>
