@@ -70,7 +70,7 @@ If you move code from an existing file to a new file, bring the entire copyright
 
 ## Changes Late in the Release
 
-You should always aim to get your changes integrated as early in a release as possible to maximize the amount of testing done before release. If you risk running late it's almost always a better idea to defer the change to the next release rather than trying to squeeze it in in the last minute. The next release is only six months out, the world can wait even though you are eager.
+You should always aim to get your changes integrated as early in a release as possible to maximize the amount of testing done before release. If you risk running late, it's almost always a better idea to defer the change to the next release rather than trying to squeeze it in in the last minute. The next release is only six months away, the world can wait even though you are eager.
 
 Integrating during the rampdown phase is not recommended. The bar to integrate a change in the rampdown phase is considerably higher than during the normal development phase. See [The JDK Release Process] for more information. Also note that changes that are made late in the release shouldn't expect localization since this in itself takes some time.
 
