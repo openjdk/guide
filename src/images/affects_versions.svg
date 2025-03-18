@@ -147,6 +147,9 @@
     <path d="M 45, 176 L 315, 176 L 435, 176"
           marker-mid="url(#circle)"
           marker-end="url(#circle)"/>
+    <path d="M 132, 173 L 138, 179
+             M 138, 173 L 132, 179"
+          style="stroke: red"/>
 </g>
 
 <g id="refs">
