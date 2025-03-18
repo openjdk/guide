@@ -135,8 +135,8 @@
 
     <text x="25" y="142">8</text>
     <text x="165" y="142">12-na</text>
-    <path d="M 45, 146 L 147, 146"
-          marker-end="url(#arrow)"/>
+    <path d="M  45, 146 L 135, 146
+             M 135, 152 L 135, 140"/>
 
     <text x="25" y="172">8</text>
     <text x="135" y="172" style="text-anchor: middle">11-wnf</text>
