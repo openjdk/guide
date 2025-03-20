@@ -337,7 +337,7 @@ If it's determined that an issue has been fixed, but it's unknown what change th
 
 ### Closing incomplete issues
 
-As mentioned above, issues that lack the information needed to investigate the problem are placed in status [Resolved]{.jbs-value} - [Incomplete]{.jbs-value}. Triage teams should monitor incomplete issues in their area and if needed ping the relevant person. When new information has been received, the bug should be put back to status [Open]{.jbs-value}. If the required information hasn't been obtained within reasonable time (3-4 weeks) the bug should be closed as [Incomplete]{.jbs-value}.
+As mentioned above, issues that lack the information needed to investigate the problem are placed in status [Resolved]{.jbs-value} - [Incomplete]{.jbs-value}. Triage teams should monitor incomplete issues in their area and if needed ping the relevant person. When new information is received, the bug should be returned to status [Open]{.jbs-value}. If the required information hasn't been obtained within reasonable time (3-4 weeks) the bug should be closed as [Incomplete]{.jbs-value}.
 
 ## Verifying an issue
 
@@ -431,10 +431,10 @@ This table contains some frequently used JBS labels and their meaning. Please he
                            [*(Rel)*[-fix-yes]{.jbs-label}]{#rel-fix-yes}<br />
                            [*(Rel)*[-fix-no]{.jbs-label}]{#rel-fix-no}</td>
     <td class="dictionary">
-      Used in ramp down phase 2 to indicate that an issue would be of interest to get integrated into release *(Rel)*. E.g., [jdk12u-fix-request]{.jbs-label}
+      *(Rel)*[-fix-request]{.jbs-label} is used in ramp down phase 2 to indicate that an issue would be of interest to be integrated into release *(Rel)*. E.g., [jdk12-fix-request]{.jbs-label}
 
-      *(Rel)*[-fix-SQE-ok]{.jbs-label} is used to indicate that the issue will be covered by the test plan for *(Rel)*. E.g., [jdk12u-fix-SQE-ok]{.jbs-label}<br />
-      *(Rel)*[-fix-yes]{.jbs-label} and *(Rel)*[-fix-no]{.jbs-label} are used to indicate wether an issue has been approved for backport to *(Rel)*. E.g., [jdk12u-fix-yes]{.jbs-label}
+      *(Rel)*[-fix-SQE-ok]{.jbs-label} is used to indicate that the issue will be covered by the test plan for *(Rel)*. E.g., [jdk12-fix-SQE-ok]{.jbs-label}<br />
+      *(Rel)*[-fix-yes]{.jbs-label} and *(Rel)*[-fix-no]{.jbs-label} are used to indicate wether an issue has been approved for backport to *(Rel)*. E.g., [jdk12-fix-yes]{.jbs-label}
 
       These labels are always placed on the main JBS issue, never on backports or subtasks.
       Further details are found in the [JDK Release Process](https://openjdk.org/jeps/3#Fix-Request-Process).
