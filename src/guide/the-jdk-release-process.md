@@ -29,8 +29,8 @@ Throughout the release there are a number of milestones and phases that define w
 [**All Tests Run (ATR)**]{#atr}
 :    ATR is not a milestone described in JEP 3, but it's still a concept that might be mentioned in discussions on this topic and is therefore good to know about. ATR (a.k.a. ATR Start) is the start of an approximately six week long test period where all tests in the test plan for the given release is ran. ATR usually starts at the same time as RDP1.
 
-[**Ramp Down Phase 2 (RPD2)**]{#rdp2}
-:    In RDP2 the bar is higher to get changes into the release. For product bugs, only P1:s and P2:s are supposed to be fixed here, and to do so an approval is needed. See the [Fix-Request Process](https://openjdk.org/jeps/3#Fix-Request-Process) for details on how to obtain one. All other product bugs should be deferred. See [Push or defer during ramp down] below for more details.
+[**Ramp Down Phase 2 (RDP2)**]{#rdp2}
+:    In RDP2 the bar is higher to get changes into the release. For product bugs, only P1:s and P2:s are supposed to be fixed here, and to do so an approval is needed. See the [Fix-Request Process](https://openjdk.org/jeps/3#Fix-Request-Process) for details on how to obtain one. All other product bugs should be deferred. See [Push or defer during ramp down] below for more details. Also note that there is no guarantee that localization can be done for changes made in RDP2.
 
 [**Release Candidate (RC)**]{#rc}
 :    Towards the end of the release cycle, when there are no more open product bugs targeted to the release, a stable build is selected to be the release candidate. This build will go through additional testing and if no more issues are found it will be the build released. If new bugs are found these are investigated and hopefully fixed, and a new build becomes the release candidate. The RC phase has a few milestones with a deadline for finding a candidate build, and another for making sure the build is ready to go live.

@@ -72,6 +72,7 @@ The following are general practices that should be followed when creating releas
     * [Summary]{.jbs-field} - If the change is an actual JEP, use the JEP title.
     * [Description]{.jbs-field} - the JEP Summary text have already been heavily reviewed and also approved by the Project lead. It should be the first sentence in the release note description. That would be analogous to the "change that was made" sentence in other release note descriptions. The remaining text would be composed of the background info from the JEP.
     * [Description]{.jbs-field} - The JEP release note description should contain the link to the JEP.
+    * [Labels]{.jbs-field} - The [release-note=yes]{.jbs-label} label should be placed on the JEP issue itself.
   * Single release note for multiple changes
     * A link to the parent issue that the note is a sub-task of, will be placed alongside the summary in the release notes. If note relates to additional changes, then add them as [Relates]{.jbs-field} links to the note and add the label [RN-MultipleLinks]{.jbs-label} - see [JDK-8284975](https://bugs.openjdk.org/browse/JDK-8284975) as an example.
   * Multiple release notes for the same change
