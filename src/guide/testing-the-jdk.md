@@ -238,7 +238,7 @@ Although `windows-all` isn't strictly required in this example, it's preferable 
 
 A common way to handle the JBS issue used to problemlist a test is to create a [Sub-task]{.jbs-value} of the bug that needs to be fixed to be able to remove the test from the problem list again.
 
-Remember to always add a [problemlist]{.jbs-label} label in the JBS issue referenced in the ProblemList entry. When the issue is fixed the [problemlist]{.jbs-label} label should be removed from the JBS issue again.
+Remember to always add a [problemlist]{.jbs-label} label in the JBS issue referenced in the ProblemList entry. When the issue is fixed, the [problemlist]{.jbs-label} label can be removed from the JBS issue.
 
 #### ProblemListing some, but not all, test cases in a file
 
