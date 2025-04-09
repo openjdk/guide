@@ -120,7 +120,7 @@ Add a comment when adding a (Rel)[-wnf]{.jbs-label} label so that it's clear for
 
 #### Examples
 
-![Guidelines for setting [Affects Version/s]{.jbs-field}](affects_versions.png)
+![Guidelines for setting [Affects Version/s]{.jbs-field}](affects_versions.svg)
 
 1. Issue relevant to JDK 8 and all future releases.
 2. No need to add additional releases as they are implied.
