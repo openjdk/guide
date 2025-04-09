@@ -326,12 +326,16 @@ There are two parts to this task, how to do the bookkeeping in JBS, and how to d
    * Alternative 3 - no redo issue was created.
      * Create a backout-issue **(B)** with the same summary as **(O)**, prefix with `[BACKOUT]`.
      * Add a _relates to_ link between **(B)** and **(O)**.
+#. If **(O)** had a CSR request, update the CSR issue as follows:
+   * Add a csr-for link from the CSR to **(R)**.
+   * Add a note to the CSR that explains the reason for the redo and the impact on the CSR.
+   * Move the CSR back into the Finalized state for re-review. (It's necessary to first move the CSR back to the Draft state before moving it to the Finalized state.)
 
 ProblemList entries and `@ignore` keywords will continue to point to the original bug (unless updated at back out). This is accepted since there is a clone link to follow.
 
 ### How to work with git when a change is backed out
 
-To backout a change with git, use `git revert`. This will apply (commit) the anti-delta of the change.
+To backout a change with git, use `git revert`. This will apply (commit) the anti-delta of the change. Then proceed as usual with creating a PR and getting it reviewed.
 
 ~~~diff
 $ git show aa371b4f02c2f809eb9cd3e52aa12b639bed1ef5
