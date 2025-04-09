@@ -335,8 +335,7 @@ ProblemList entries and `@ignore` keywords will continue to point to the origina
 
 ### How to work with git when a change is backed out
 
-To backout a change with git, use `git revert`. This will apply (commit) the anti-delta of the change.
-Then proceed as usual with creating a PR and getting it reviewed.
+To backout a change with git, use `git revert`. This will apply (commit) the anti-delta of the change. Then proceed as usual with creating a PR and getting it reviewed.
 
 ~~~diff
 $ git show aa371b4f02c2f809eb9cd3e52aa12b639bed1ef5
