@@ -14,6 +14,34 @@
      id="defs1112">
     <marker
        style="overflow:visible"
+       id="DotM"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="DotM"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.4) translate(7.4, 1)"
+         style="fill-rule:evenodd;fill:context-stroke;stroke:context-stroke;stroke-width:1.0pt"
+         d="M -2.5,-1.0 C -2.5,1.7600000 -4.7400000,4.0 -7.5,4.0 C -10.260000,4.0 -12.5,1.7600000 -12.5,-1.0 C -12.5,-3.7600000 -10.260000,-6.0 -7.5,-6.0 C -4.7400000,-6.0 -2.5,-3.7600000 -2.5,-1.0 z "
+         id="path2501" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="StopS"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="StopS"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.2)"
+         style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:context-stroke;stroke-width:1.0pt"
+         d="M 0.0,5.65 L 0.0,-5.65"
+         id="path2612" />
+    </marker>
+    <marker
+       style="overflow:visible"
        id="StopL"
        refX="0.0"
        refY="0.0"
@@ -206,7 +234,7 @@
      inkscape:window-width="1932"
      inkscape:window-height="1186"
      inkscape:window-x="0"
-     inkscape:window-y="25"
+     inkscape:window-y="1945"
      inkscape:window-maximized="0"
      inkscape:current-layer="timeline" />
   <style
@@ -535,7 +563,7 @@
        d="M  45, 146 L 135, 146"
        marker-end="url(#circle)"
        id="path1086"
-       style="fill:#808080;fill-opacity:1;marker-end:url(#StopL)" />
+       style="fill:#808080;fill-opacity:1;marker-end:url(#DotM)" />
     <text
        x="29"
        y="174"
