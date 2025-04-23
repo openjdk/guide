@@ -5,7 +5,7 @@
    version="1.1"
    id="svg1108"
    sodipodi:docname="affects_versions.svg"
-   inkscape:version="1.1.1 (c3084ef, 2021-09-22)"
+   inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -228,15 +228,18 @@
      showgrid="false"
      inkscape:snap-midpoints="true"
      inkscape:snap-bbox="true"
-     inkscape:zoom="1.9259017"
-     inkscape:cx="283.76318"
-     inkscape:cy="132.40551"
-     inkscape:window-width="1932"
+     inkscape:zoom="2.7236363"
+     inkscape:cx="274.26569"
+     inkscape:cy="105.19026"
+     inkscape:window-width="1936"
      inkscape:window-height="1186"
      inkscape:window-x="0"
      inkscape:window-y="1945"
      inkscape:window-maximized="0"
-     inkscape:current-layer="timeline" />
+     inkscape:current-layer="timeline"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1"
+     showguides="true" />
   <style
      id="style985"><![CDATA[
         rect {
@@ -485,7 +488,8 @@
        id="text1105">(5)</text>
   </g>
   <g
-     id="timeline">
+     id="timeline"
+     style="display:inline">
     <defs
        id="defs1066">
       <marker
@@ -497,7 +501,7 @@
          markerHeight="18"
          orient="auto">
         <path
-           d="M 0 7 L 6 9 L 0 11 Z"
+           d="M 0,7 6,9 0,11 Z"
            fill="#808080"
            id="path1060" />
       </marker>
@@ -523,10 +527,10 @@
        id="text1068"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;line-height:normal;font-family:'DejaVu Sans', sans-serif">8</text>
     <path
-       d="M 45, 56 L 495, 56"
+       d="M 45,56 H 495"
        marker-end="url(#arrow)"
        id="path1070"
-       style="marker-end:url(#arrow-5);fill:#808080;fill-opacity:1;stroke-width:1.99937008;stroke-miterlimit:4;stroke-dasharray:none" />
+       style="fill-opacity:1;stroke-width:1.99937;stroke-miterlimit:4;stroke-dasharray:none;marker-end:url(#arrow-5)" />
     <text
        x="29"
        y="84"
@@ -535,20 +539,20 @@
    fill="#ff0000"
    id="tspan1072">8u40, 9, 12</tspan></text>
     <path
-       d="M 45, 86 L 495, 86"
+       d="M 45,86 H 495"
        marker-end="url(#arrow)"
        id="path1076"
-       style="marker-end:url(#arrow-5);fill:#808080;fill-opacity:1" />
+       style="fill-opacity:1;marker-end:url(#arrow-5)" />
     <text
        x="29"
        y="114"
        id="text1078"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;line-height:normal;font-family:'DejaVu Sans', sans-serif">11, 21</text>
     <path
-       d="M 135, 116 L 495, 116"
+       d="M 135,116 H 495"
        marker-end="url(#arrow)"
        id="path1080"
-       style="marker-end:url(#arrow-5);fill:#808080;fill-opacity:1;stroke-width:1.99937008;stroke-miterlimit:4;stroke-dasharray:none" />
+       style="fill-opacity:1;stroke-width:1.99937;stroke-miterlimit:4;stroke-dasharray:none;marker-end:url(#arrow-5)" />
     <text
        x="29"
        y="144"
@@ -560,10 +564,10 @@
        id="text1084"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;line-height:normal;font-family:'DejaVu Sans', sans-serif">12-na</text>
     <path
-       d="M  45, 146 L 135, 146"
+       d="m 45,146 h 90"
        marker-end="url(#circle)"
        id="path1086"
-       style="fill:#808080;fill-opacity:1;marker-end:url(#DotM)" />
+       style="fill-opacity:1;marker-end:url(#DotM)" />
     <text
        x="29"
        y="174"
@@ -578,15 +582,16 @@
        d="M 44.597831,176.17383 H 494.59783"
        marker-end="url(#arrow-4)"
        id="path1076-6"
-       style="stroke:#808080;stroke-width:1.99937;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;marker-end:url(#arrow-5);fill:#808080;fill-opacity:1" />
+       style="fill-opacity:1;stroke:#808080;stroke-width:1.99937;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;marker-end:url(#arrow-5)" />
     <path
-       d="m 44,173 2.63284,2.63284 L 50,179 m 0,-6 -6,6"
+       d="m 42,173 2.63284,2.63284 L 48,179 m 0,-6 -6,6"
        style="stroke:#ff0000;stroke-width:2"
        id="path1094-7"
-       sodipodi:nodetypes="ccccc" />
+       sodipodi:nodetypes="ccccc"
+       inkscape:label="path1094-7" />
     <path
-       d="M 132, 173 L 138, 179              M 138, 173 L 132, 179"
-       style="stroke: red"
+       d="m 132,173 6,6 m 0,-6 -6,6"
+       style="stroke:#ff0000"
        id="path1094" />
   </g>
 </svg>
