@@ -180,7 +180,7 @@
      inkscape:window-x="0"
      inkscape:window-y="25"
      inkscape:window-maximized="0"
-     inkscape:current-layer="timeline" />
+     inkscape:current-layer="svg1108" />
   <style
      id="style985"><![CDATA[
         rect {
@@ -470,7 +470,7 @@
        d="M 45, 56 L 495, 56"
        marker-end="url(#arrow)"
        id="path1070"
-       style="marker-end:url(#ExperimentalArrow)" />
+       style="marker-end:url(#marker2763);fill:#808080;fill-opacity:1;stroke-width:1.99937008;stroke-miterlimit:4;stroke-dasharray:none" />
     <text
        x="29"
        y="84"
@@ -482,7 +482,7 @@
        d="M 45, 86 L 495, 86"
        marker-end="url(#arrow)"
        id="path1076"
-       style="marker-end:url(#Arrow2Lend)" />
+       style="marker-end:url(#Arrow2Lend);fill:#808080;fill-opacity:1" />
     <text
        x="29"
        y="114"
@@ -492,7 +492,7 @@
        d="M 135, 116 L 495, 116"
        marker-end="url(#arrow)"
        id="path1080"
-       style="marker-end:url(#marker2763)" />
+       style="marker-end:url(#Arrow2Mend);fill:#808080;fill-opacity:1" />
     <text
        x="29"
        y="144"
@@ -506,7 +506,8 @@
     <path
        d="M  45, 146 L 135, 146"
        marker-end="url(#circle)"
-       id="path1086" />
+       id="path1086"
+       style="fill:#808080;fill-opacity:1" />
     <text
        x="29"
        y="174"
@@ -521,7 +522,7 @@
        d="M 44.597831,176.17383 H 494.59783"
        marker-end="url(#arrow-4)"
        id="path1076-6"
-       style="stroke:#808080;stroke-width:1.99937;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;marker-end:url(#marker2763)" />
+       style="stroke:#808080;stroke-width:1.99937;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;marker-end:url(#arrow-5);fill:#808080;fill-opacity:1" />
     <path
        d="m 44,173 2.63284,2.63284 L 50,179 m 0,-6 -6,6"
        style="stroke:#ff0000;stroke-width:2"
