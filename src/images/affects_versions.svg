@@ -13,6 +13,20 @@
   <defs
      id="defs1112">
     <marker
+       style="overflow:visible"
+       id="StopM"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="StopM"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.4)"
+         style="fill:none;fill-opacity:0.75000000;fill-rule:evenodd;stroke:context-stroke;stroke-width:1.0pt"
+         d="M 0.0,5.65 L 0.0,-5.65"
+         id="path2609" />
+    </marker>
+    <marker
        id="marker2763"
        refX="5.0"
        refY="3.0"
@@ -180,7 +194,7 @@
      inkscape:window-x="0"
      inkscape:window-y="25"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg1108" />
+     inkscape:current-layer="timeline" />
   <style
      id="style985"><![CDATA[
         rect {
@@ -470,7 +484,7 @@
        d="M 45, 56 L 495, 56"
        marker-end="url(#arrow)"
        id="path1070"
-       style="marker-end:url(#marker2763);fill:#808080;fill-opacity:1;stroke-width:1.99937008;stroke-miterlimit:4;stroke-dasharray:none" />
+       style="marker-end:url(#arrow-5);fill:#808080;fill-opacity:1;stroke-width:1.99937008;stroke-miterlimit:4;stroke-dasharray:none" />
     <text
        x="29"
        y="84"
@@ -482,7 +496,7 @@
        d="M 45, 86 L 495, 86"
        marker-end="url(#arrow)"
        id="path1076"
-       style="marker-end:url(#Arrow2Lend);fill:#808080;fill-opacity:1" />
+       style="marker-end:url(#arrow-5);fill:#808080;fill-opacity:1" />
     <text
        x="29"
        y="114"
@@ -492,7 +506,7 @@
        d="M 135, 116 L 495, 116"
        marker-end="url(#arrow)"
        id="path1080"
-       style="marker-end:url(#Arrow2Mend);fill:#808080;fill-opacity:1" />
+       style="marker-end:url(#arrow-5);fill:#808080;fill-opacity:1;stroke-width:1.99937008;stroke-miterlimit:4;stroke-dasharray:none" />
     <text
        x="29"
        y="144"
@@ -507,7 +521,7 @@
        d="M  45, 146 L 135, 146"
        marker-end="url(#circle)"
        id="path1086"
-       style="fill:#808080;fill-opacity:1" />
+       style="fill:#808080;fill-opacity:1;marker-end:url(#StopM)" />
     <text
        x="29"
        y="174"
