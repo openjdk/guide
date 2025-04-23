@@ -178,9 +178,9 @@
      inkscape:window-width="1932"
      inkscape:window-height="1186"
      inkscape:window-x="0"
-     inkscape:window-y="1225"
+     inkscape:window-y="25"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg1108" />
+     inkscape:current-layer="timeline" />
   <style
      id="style985"><![CDATA[
         rect {
@@ -470,7 +470,7 @@
        d="M 45, 56 L 495, 56"
        marker-end="url(#arrow)"
        id="path1070"
-       style="marker-end:url(#marker2763)" />
+       style="marker-end:url(#ExperimentalArrow)" />
     <text
        x="29"
        y="84"
@@ -482,7 +482,7 @@
        d="M 45, 86 L 495, 86"
        marker-end="url(#arrow)"
        id="path1076"
-       style="marker-end:url(#marker2763)" />
+       style="marker-end:url(#Arrow2Lend)" />
     <text
        x="29"
        y="114"
