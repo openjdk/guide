@@ -148,7 +148,7 @@
     <path d="M 45, 176 L 315, 176 L 435, 176"
           marker-mid="url(#circle)"
           marker-end="url(#circle)"/>
-    <g id="redcross">
+    <g id="red-cross">
         <path d="M 132, 173 L 138, 179
                  M 138, 173 L 132, 179"
               style="stroke: red"/>
@@ -156,7 +156,8 @@
     <use
           x="-90"
           y="0"
-          xlink:href="#redcross"
+          xlink:href="#red-cross"
+          stroke-width="2"
     />
 </g>
 
