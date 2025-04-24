@@ -139,7 +139,7 @@
           marker-end="url(#arrow)"/>
 
     <text x="25" y="142">8</text>
-    <text x="165" y="142">12-na</text>
+    <text x="165" y="142" text-anchor="middle">12-na</text>
     <path d="M  45, 146 L 135, 146"
           marker-end="url(#circle)"/>
 
