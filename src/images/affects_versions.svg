@@ -153,12 +153,8 @@
                  M 138, 173 L 132, 179"
               style="stroke: red"/>
     </g>
-    <use
-          x="-90"
-          y="0"
-          xlink:href="#red-cross"
-          stroke-width="2"
-    />
+    <use x="-90" y="0" stroke-width="2"
+         xlink:href="#red-cross"/>
 </g>
 
 <g id="refs">
