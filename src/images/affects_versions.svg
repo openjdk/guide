@@ -144,7 +144,7 @@
           marker-end="url(#circle)"/>
 
     <text x="25" y="174">8</text>
-    <text x="135" y="174" style="text-anchor: middle">11-wnf</text>
+    <text x="139" y="174" style="text-anchor: middle">11-wnf</text>
     <path d="M 45, 176 L 315, 176 L 435, 176"
           marker-mid="url(#circle)"
           marker-end="url(#circle)"/>
