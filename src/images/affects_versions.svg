@@ -106,7 +106,7 @@
                 refX="0"
                 refY="9"
                 markerWidth="20"
-                markerHeight="18"
+                markerHeight="9"
                 orient="auto">
             <path d="M 0 7 L 6 9 L 0 11 Z"
                   fill="#808080"/>
