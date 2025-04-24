@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="550" height="200"
      version="1.1"
-     xmlns="http://www.w3.org/2000/svg">
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
     <style><![CDATA[
         rect {
             fill: none;
@@ -147,9 +148,16 @@
     <path d="M 45, 176 L 315, 176 L 435, 176"
           marker-mid="url(#circle)"
           marker-end="url(#circle)"/>
-    <path d="M 132, 173 L 138, 179
-             M 138, 173 L 132, 179"
-          style="stroke: red"/>
+    <g id="redcross">
+        <path d="M 132, 173 L 138, 179
+                 M 138, 173 L 132, 179"
+              style="stroke: red"/>
+    </g>
+    <use
+          x="-90"
+          y="0"
+          xlink:href="#redcross"
+    />
 </g>
 
 <g id="refs">
