@@ -35,7 +35,7 @@
     <text x="15" y="160" transform="rotate(-90 15, 160)">Affects Version</text>
 
 <g id="head">
-    <text x="45" y="15">8</text>
+    <text x="45" y="15" class="lts">8</text>
     <text x="75" y="15">9</text>
     <text x="105" y="15">10</text>
     <text x="135" y="15" class="lts">11</text>
