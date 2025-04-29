@@ -120,7 +120,7 @@
                 markerHeight="12"
                 orient="auto">
             <circle cx="6" cy="6"
-                    r="3"
+                    r="2"
                     fill="#808080"/>
         </marker>
     </defs>
