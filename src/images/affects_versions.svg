@@ -98,7 +98,7 @@
     <path d="m 45,146 h 90" marker-end="url(#circle)" />
     <text x="29" y="174">8</text>
     <text x="139.14552" y="171.54607">11-wnf</text>
-    <path d="m 506.81589,176.5007 -71.77496,-0.0579 -120.14982,-0.029 -269.949569,-0.029" marker-mid="url(#circle)" />
+    <path d="m 506.81589,176.5007 -71.77496,-0.0579 -120.14982,-0.029 -269.949569,-0.029" marker-mid="url(#circle)" marker-start="url(#arrow)"/>
     <path d="m 132,173 6,6 m 0,-6 -6,6" style="stroke:#ff0000" />
     <path d="m 42,173 2.63284,2.63284 L 48,179 m 0,-6 -6,6" style="stroke:#ff0000" />
   </g>
