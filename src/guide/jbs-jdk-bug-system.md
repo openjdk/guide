@@ -108,7 +108,7 @@ Don't:
 
   [Affects Version/s]{.jbs-field}: [11.0.20]{.jbs-value}, [17]{.jbs-value}
 
-  the label [8-na]{.jbs-label} would not be needed - as it doesn't have a JDK 8 release, or earlier, value in the [Affects Version/s]{.jbs-field}, it is not relevant to JDK 8. Also see [Usage of the (Rel)[-wnf]{.jbs-label} Label](#usage-of-rel-wnf-label)
+  the label [8-na]{.jbs-label} would not be needed - as it doesn't have a JDK 8 release, or earlier, value in the [Affects Version/s]{.jbs-field}, it is not relevant to JDK 8. Also see [Usage of the (Rel)[-wnf]{.jbs-label} Label](#usage-of-the-rel-wnf-label)
 - add multiple [-na]{.jbs-label} labels: you only need one, for example don't add both [9-na]{.jbs-label} and [11-na]{.jbs-label} — [9-na]{.jbs-label} implies all following releases therefore [11-na]{.jbs-label}, or [17-na]{.jbs-label} etc. are not needed.
 - It's not recommended to specify update releases like 17u4 or 21u in the label. Labels like [17-na]{.jbs-label} and [21-na]{.jbs-label} are in general enough.
 
