@@ -113,7 +113,7 @@ Unless labeled otherwise it will be assumed that the release note documents a ch
 :   Only for major releases. The release notes cover an API, feature, tool etc. that has been marked as deprecated in the release.
     The [Summary]{.jbs-field} must be of the form "Deprecated" Item/API.
     The [Description]{.jbs-field} must contain the name of the item that has been deprecated, the reason for its deprecation, and (optional) any special conditions that a user should be aware of regarding the possible future removal.
-    Example: [JDK-8179909](https://bugs.openjdk.org/browse/JDK-8179909)
+    Example: [JDK-8296385](https://bugs.openjdk.org/browse/JDK-8296385)
 
 [[RN-Important]{.jbs-label}]{#RN-Important}
 :   Used to indicate that the release note should be highlighted in some fashion, such as listing it at the beginning of the release notes.
