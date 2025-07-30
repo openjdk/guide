@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="550" height="200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
-  <style id="style985"><![CDATA[
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="550" height="200" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <style><![CDATA[
         rect {
             fill: none;
             stroke: black;
@@ -84,7 +84,7 @@
         <path d="M 0,7 6,9 0,11 Z" fill="#808080" />
       </marker>
       <marker id="circle" viewBox="0 0 12 12" refX="6" refY="6" markerWidth="12" markerHeight="12" orient="auto">
-        <circle cx="6" cy="6" r="2" fill="#808080" />
+        <circle cx="6" cy="6" r="3" fill="#808080" />
       </marker>
     </defs>
     <text x="29" y="54">8</text>
@@ -94,11 +94,11 @@
     <text x="29" y="114">11, 21</text>
     <path d="M 135,116 H 495" marker-end="url(#arrow)" />
     <text x="29" y="144">8</text>
-    <text x="145.01936" y="151.4693">12-na</text>
+    <text x="145" y="151.4693">12-na</text>
     <path d="m 45,146 h 90" marker-end="url(#circle)" />
     <text x="29" y="174">8</text>
     <text x="139.14552" y="171.54607">11-wnf</text>
-    <path d="m 506.81589,176.5007 -71.77496,-0.0579 -120.14982,-0.029 -269.949569,-0.029" marker-mid="url(#circle)" marker-start="url(#arrow)"/>
+    <path d="m 45,176 L 315,176 L 435,176" marker-mid="url(#circle)" marker-end="url(#circle)"/>
     <path d="m 132,173 6,6 m 0,-6 -6,6" style="stroke:#ff0000" />
     <path d="m 42,173 2.63284,2.63284 L 48,179 m 0,-6 -6,6" style="stroke:#ff0000" />
   </g>
