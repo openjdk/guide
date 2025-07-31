@@ -125,25 +125,25 @@
         </marker>
     </defs>
 
-    <text x="28" y="54">8</text>
+    <text x="30" y="54">8</text>
     <path d="M 45, 56 L 495, 56"
           marker-end="url(#arrow)"/>
 
-    <text x="28" y="84">8,
+    <text x="30" y="84">8,
         <tspan fill="red">8u40, 9, 12</tspan></text>
     <path d="M 45, 86 L 495, 86"
           marker-end="url(#arrow)"/>
 
-    <text x="28" y="114">11, 21</text>
+    <text x="30" y="114">11, 21</text>
     <path d="M 135, 116 L 495, 116"
           marker-end="url(#arrow)"/>
 
-    <text x="28" y="144">8</text>
+    <text x="30" y="144">8</text>
     <text x="145" y="144">12-na</text>
     <path d="M  45, 146 L 135, 146"
           marker-end="url(#circle)"/>
 
-    <text x="28" y="174">8</text>
+    <text x="30" y="174">8</text>
     <text x="145" y="174">11-wnf</text>
     <path d="M 45, 176 L 315, 176 L 435, 176"
           marker-mid="url(#circle)"
