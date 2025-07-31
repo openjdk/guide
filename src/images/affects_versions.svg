@@ -53,7 +53,7 @@
     <line x1="135" y1="18" x2="135" y2="36" />
     <!-- 12-na -->
     <line x1="165" y1="18" x2="165" y2="36" />
-    <line x1="165" y1="36" x2="165" y2="137.15955" stroke-dasharray="2.07477, 5.18692" />
+    <line x1="165" y1="36" x2="165" y2="130" stroke-dasharray="2, 5" />
     <!-- /12-na -->
     <line x1="195" y1="18" x2="195" y2="36" />
     <line x1="225" y1="18" x2="225" y2="36" />
@@ -94,10 +94,10 @@
     <text x="29" y="114">11, 21</text>
     <path d="M 135,116 H 495" marker-end="url(#arrow)" />
     <text x="29" y="144">8</text>
-    <text x="145" y="151.4693">12-na</text>
+    <text x="145" y="144">12-na</text>
     <path d="m 45,146 h 90" marker-end="url(#circle)" />
     <text x="29" y="174">8</text>
-    <text x="139.14552" y="171.54607">11-wnf</text>
+    <text x="139" y="174">11-wnf</text>
     <path d="m 45,176 L 315,176 L 435,176" marker-mid="url(#circle)" marker-end="url(#circle)"/>
     <path d="m 132,173 6,6 m 0,-6 -6,6" style="stroke:#ff0000" />
     <path d="m 42,173 2.63284,2.63284 L 48,179 m 0,-6 -6,6" style="stroke:#ff0000" />
