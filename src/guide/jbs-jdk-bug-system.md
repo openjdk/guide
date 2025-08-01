@@ -122,11 +122,11 @@ Add a comment when adding a (Rel)[-wnf]{.jbs-label} label so that it's clear for
 
 ![Guidelines for setting [Affects Version/s]{.jbs-field}](affects_versions.svg)
 
-1. Issue relevant to JDK 8 and all future releases (until fixed).
-2. No need to add additional releases as they are implied.
+1. Affects Version contains 8 only, which means this issue is applicable to 8 and all future releases (until it's fixed).
+2. Affects Version contains 8, 8u40, 9, and 12, yet 8 already implies that the later releases are affected.
 3. Adding the occasional LTS release value is ok.
-4. Issue relevant from JDK 8 up to JDK 11.
-5. Issue fixed in JDK 21 that would be relevant to backport to JDK 17, but not to JDK 11 or earlier.
+4. Affects Version contains 8 and the issue is fixed in 11. The 12-na label indicates that the issue is not applicable to 12 and subsequent versions.
+5. Affects Version contains 8, the issue is fixed in 21 and is backported to 17. The label 11-wnf indicates that the fix will not be backported to 11 or 8.
 
 ### Things to keep in mind when requesting an improvement
 
