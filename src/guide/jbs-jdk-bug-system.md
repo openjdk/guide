@@ -125,7 +125,7 @@ Add a comment when adding a (Rel)[-wnf]{.jbs-label} label so that it's clear for
 1. [Affects Version/s]{.jbs-field} contains 8 only, which means this issue is applicable to 8 and all future releases (until it's fixed).
 2. Affects Version contains 8, 8u40, 9, and 12, yet 8 already implies that the later releases are affected.
 3. [Affects Version/s]{.jbs-field} contains 11 and 21. Adding the occasional LTS release version (21 in this example) is fine; 17 is implicitly affected as well as versions after 21.
-4. Affects Version contains 8 and the issue is fixed in 11. The 12-na label indicates that the issue is not applicable to 12 and subsequent versions.
+4. Affects Version contains 8 and the issue is fixed in 11. The [12-na]{.jbs-label} label indicates that the issue is not applicable to 12 and subsequent versions.
 5. Affects Version contains 8, the issue is fixed in 21 and is backported to 17. The label 11-wnf indicates that the fix will not be backported to 11 or 8.
 
 ### Things to keep in mind when requesting an improvement
