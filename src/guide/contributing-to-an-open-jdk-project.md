@@ -8,6 +8,12 @@ If you have a success story where Java solved your problem, or if you successful
 
 If you're in a position to choose what programming language to use in a project, in a tutorial, or in a class, you have the power to enlarge the Java community in a very direct way, and your colleagues or students will get an opportunity to learn one of the most used programming languages in the world.
 
+## Requesting a change
+
+If you want to request a change to the JDK, but don't have the intention to implement the change yourself, you should always contact the developers through the appropriate [mailing list](#mailing-lists). This is also the case if you find a change that you would like to see backported to an eralier JDK release. Never reach out directly to any developer.
+
+Before you reach out, make sure you have read [Things to consider before proposing changes to OpenJDK code](#things-to-consider-before-proposing-changes-to-openjdk-code) and [Why is my change rejected?](#why-is-my-change-rejected) below.
+
 ## Things to consider before proposing changes to OpenJDK code
 
 Every change to JDK code carries a risk of changes in behavior which may adversely affect applications. Generally we're looking to improve the functionality and capability and sometimes performance of the platform without that negative consequence. So we need to ask ourselves whether each change is worthwhile - and some may not be no matter how well intentioned.
@@ -31,6 +37,15 @@ Depending on your answer to that question you will need to consider one or more 
 * **Performance** -- Can you demonstrate a user perceptible change? If you can't measure the change, or a user can't notice the change, or the change only improves code that is used infrequently, then maybe it isn't worth it. Do you have benchmarks to back up your claims? Do you understand the results? Performance testing is complex and often there are many factors unrelated to your change that affects the numbers. What's the tradeoff? The performance improvements that just make everything better do exist, but they are extremely rare. Most often the code gets more complex, or you speed up one case but slow down another. Are you making the right tradeoff?
 
 * **Modernizing** -- Changing code purely for the sake of using a new language feature isn't usually a good change. Be a subject matter expert, not just a language expert. Writing code in "a better way" is not guaranteed to be safe. A change of behavior is always possible and unless you understand the code you are changing at more than the core language/API level, and have looked into appropriate tests and can speak to the risks, then you should first find a subject matter expert to discuss it with. Keep in mind that the OpenJDK code is developed by a large community. If a new language feature is introduced, all developers working in that code must learn this new feature and understand the implications of using it.
+
+## I found an issue in JBS that I want to fix
+
+Great! This is a good way to get started with OpenJDK development. There are a few things you should think about before getting started.
+
+- As with any change, do bring it up for discussion on the [mailing lists](#mailing-lists) before spending time on the fix. Even though the issue has been filed in JBS there may be reasons not to fix that particular issue right now.
+- Never work on an issue that is assigned to someone else. Duplicating work is pointless. If you think that an issue should be fixed and it has been assinged to someone for a long time without progress, reach out to that person and ask what the current status is. Many issues requires a lot of thought, and there may be half-baked solutions that you can build on to avoid the traps the initial developer has already fallen into.
+
+Once you are the assignee of an issue, continue reading [I have a patch, what do I do?](#i-have-a-patch-what-do-i-do) below. (Ideally before you have a patch.)
 
 ## I have a patch, what do I do?
 
@@ -71,12 +86,6 @@ Many [OpenJDK Projects](https://openjdk.org/bylaws#project) require a tracking i
 ### 5. Get acquainted with local process
 
 Even though we strive to unify how things are done within OpenJDK, different areas and [Projects](https://openjdk.org/bylaws#project) in OpenJDK may have slight variations in how they work. Some of these differences are highlighted throughout this guide, some aren't. If you're new to an area, make sure you understand local differences before you proceed. Ask your [Sponsor](https://openjdk.org/bylaws#sponsor) who should be your main point of contact through your first developer experience in OpenJDK.
-
-## Requesting a change
-
-If you want to request a change to the JDK, but don't have the intention to implement the change yourself, you should always contact the developers through the appropriate [mailing list](#mailing-lists). This is also the case if you find a change that you would like to see backported to an eralier JDK release. Never reach out directly to any developer.
-
-Before you reach out, make sure you have read [Why is my change rejected?](#why-is-my-change-rejected) below.
 
 ## Why is my change rejected?
 
