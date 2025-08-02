@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="550" height="200"
      version="1.1"
-     xmlns="http://www.w3.org/2000/svg">
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
     <style><![CDATA[
         rect {
             fill: none;
@@ -34,7 +35,7 @@
     <text x="15" y="160" transform="rotate(-90 15, 160)">Affects Version</text>
 
 <g id="head">
-    <text x="45" y="15">8</text>
+    <text x="45" y="15" class="lts">8</text>
     <text x="75" y="15">9</text>
     <text x="105" y="15">10</text>
     <text x="135" y="15" class="lts">11</text>
@@ -105,7 +106,7 @@
                 refX="0"
                 refY="9"
                 markerWidth="20"
-                markerHeight="18"
+                markerHeight="9"
                 orient="auto">
             <path d="M 0 7 L 6 9 L 0 11 Z"
                   fill="#808080"/>
@@ -119,37 +120,41 @@
                 markerHeight="12"
                 orient="auto">
             <circle cx="6" cy="6"
-                    r="3"
+                    r="2"
                     fill="#808080"/>
         </marker>
     </defs>
 
-    <text x="25" y="52">8</text>
+    <text x="30" y="54">8</text>
     <path d="M 45, 56 L 495, 56"
           marker-end="url(#arrow)"/>
 
-    <text x="25" y="82">8,
+    <text x="30" y="84">8,
         <tspan fill="red">8u40, 9, 12</tspan></text>
     <path d="M 45, 86 L 495, 86"
           marker-end="url(#arrow)"/>
 
-    <text x="25" y="112">11, 21</text>
+    <text x="30" y="114">11, 21</text>
     <path d="M 135, 116 L 495, 116"
           marker-end="url(#arrow)"/>
 
-    <text x="25" y="142">8</text>
-    <text x="165" y="142">12-na</text>
+    <text x="30" y="144">8</text>
+    <text x="145" y="144">12-na</text>
     <path d="M  45, 146 L 135, 146"
           marker-end="url(#circle)"/>
 
-    <text x="25" y="172">8</text>
-    <text x="135" y="172" style="text-anchor: middle">11-wnf</text>
+    <text x="30" y="174">8</text>
+    <text x="145" y="174">11-wnf</text>
     <path d="M 45, 176 L 315, 176 L 435, 176"
           marker-mid="url(#circle)"
           marker-end="url(#circle)"/>
-    <path d="M 132, 173 L 138, 179
-             M 138, 173 L 132, 179"
-          style="stroke: red"/>
+    <g id="red-cross">
+        <path d="M 132, 173 L 138, 179
+                 M 138, 173 L 132, 179"
+              style="stroke: red"/>
+    </g>
+    <use x="-90" y="0" stroke-width="2"
+         xlink:href="#red-cross"/>
 </g>
 
 <g id="refs">
