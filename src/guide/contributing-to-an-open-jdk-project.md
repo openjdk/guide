@@ -72,6 +72,12 @@ Many [OpenJDK Projects](https://openjdk.org/bylaws#project) require a tracking i
 
 Even though we strive to unify how things are done within OpenJDK, different areas and [Projects](https://openjdk.org/bylaws#project) in OpenJDK may have slight variations in how they work. Some of these differences are highlighted throughout this guide, some aren't. If you're new to an area, make sure you understand local differences before you proceed. Ask your [Sponsor](https://openjdk.org/bylaws#sponsor) who should be your main point of contact through your first developer experience in OpenJDK.
 
+## Requesting a change
+
+If you want to request a change to the JDK, but don't have the intention to implement the change yourself, you should always contact the developers through the appropriate [mailing list](#mailing-lists). This is also the case if you find a change that you would like to see backported to an eralier JDK release. Never reach out directly to any developer.
+
+Before you reach out, make sure you have read [Why is my change rejected?](#why-is-my-change-rejected) below.
+
 ## Why is my change rejected?
 
 ::: {.box}
