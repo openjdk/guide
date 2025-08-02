@@ -214,6 +214,7 @@ When triaging an issue, first give it a general review.
 
 1. If the issue is a duplicate, close it as such.
 1. If the issue belongs to a different area (it was filed in libraries, but it's an HotSpot issue), transfer it to the correct component/subcomponent making sure that the state remains [New]{.jbs-value}.
+   * Please note that issues in the [hotspot]{.jbs-value} component must have a [Subcomponent]{.jbs-field} set as well.
 1. If the issue is incomplete, add a comment noting what is needed and resolve the bug as [Resolved]{.jbs-value} - [Incomplete]{.jbs-value}. This is the JBS way of saying "need more information". If no more information is obtained within reasonable time, the issue should be closed ([Closed]{.jbs-value} - [Incomplete]{.jbs-value}).
 
 Now that the issue is in the right component and has the basic information, the analysis continues to get a more detailed understanding of the issue, and what should be done:
