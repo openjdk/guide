@@ -70,7 +70,7 @@ If you have an actual reason to create a PR before the change is all done, make 
 
 #. **Write a useful description**
 
-   The description of the PR should state what problem is being solved and shortly describe how it's solved. [Reviewers](https://openjdk.org/bylaws#reviewer) and other interested readers are referred to the text in the JBS issue for details, but the description should be enough to give an overview. This assumes there's useful information in the JBS issue, like an evaluation etc. If not, add it.
+   The description of the PR should state what problem is being solved and shortly describe how it's solved. The PR description should also list what testing has been done. [Reviewers](https://openjdk.org/bylaws#reviewer) and other interested readers are referred to the text in the JBS issue for details, but the description should be enough to give an overview. This assumes there's useful information in the JBS issue, like an evaluation etc. If not, add it.
 
    Remember that the description is included in many emails sent to lists with many receivers, so a too long description can cause a lot of noise, while of course a too short description won't give the reader enough information to perform the review. If you have a lot of information you wish to add to your PR, like performance evaluations, you can put that in a separate comment in the PR.
 
@@ -99,6 +99,8 @@ If you have an actual reason to create a PR before the change is all done, make 
    If the set of files in the PR has changed, this may affect the [Groups](https://openjdk.org/bylaws#group) that need to review the PR. Make sure to adjust the PR labels accordingly.
 
    If you want to update the title of the PR, remember that the one and only truth is the JBS issue, so the title must first be changed there.
+
+   After having made all updates needed to get to the final version of the change, remember to re-run relevant testing. Even minor changes may go bad and you don't want to cause (another) build failure due to an updated comment.
 
 #. **Merge the latest changes**
 

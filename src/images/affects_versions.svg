@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="550" height="200" version="1.1" xmlns="http://www.w3.org/2000/svg">
-  <style><![CDATA[
+<svg width="550" height="200"
+     version="1.1"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+    <style><![CDATA[
         rect {
             fill: none;
             stroke: black;
@@ -28,9 +31,11 @@
             stroke-width: 16;
         }
     ]]></style>
-  <text x="-166" y="21" transform="rotate(-90)">Affects Version</text>
-  <g id="head">
-    <text x="45" y="15">8</text>
+
+    <text x="15" y="160" transform="rotate(-90 15, 160)">Affects Version</text>
+
+<g id="head">
+    <text x="45" y="15" class="lts">8</text>
     <text x="75" y="15">9</text>
     <text x="105" y="15">10</text>
     <text x="135" y="15" class="lts">11</text>
@@ -55,23 +60,97 @@
     <line x1="165" y1="18" x2="165" y2="36" />
     <line x1="165" y1="36" x2="165" y2="130" stroke-dasharray="2, 5" />
     <!-- /12-na -->
-    <line x1="195" y1="18" x2="195" y2="36" />
-    <line x1="225" y1="18" x2="225" y2="36" />
-    <line x1="255" y1="18" x2="255" y2="36" />
-    <line x1="285" y1="18" x2="285" y2="36" />
-    <line x1="315" y1="18" x2="315" y2="36" />
-    <line x1="345" y1="18" x2="345" y2="36" />
-    <line x1="375" y1="18" x2="375" y2="36" />
-    <line x1="405" y1="18" x2="405" y2="36" />
-    <line x1="435" y1="18" x2="435" y2="36" />
-    <line x1="465" y1="18" x2="465" y2="36" />
-  </g>
-  <g id="lts-lines">
-    <line x1="135" y1="36" x2="135" y2="196" />
-    <line x1="315" y1="36" x2="315" y2="196" />
-    <line x1="435" y1="36" x2="435" y2="196" />
-  </g>
-  <g id="refs">
+    <line x1="195" y1="18"
+          x2="195" y2="36"/>
+    <line x1="225" y1="18"
+          x2="225" y2="36"/>
+    <line x1="255" y1="18"
+          x2="255" y2="36"/>
+    <line x1="285" y1="18"
+          x2="285" y2="36"/>
+    <line x1="315" y1="18"
+          x2="315" y2="36"/>
+    <line x1="345" y1="18"
+          x2="345" y2="36"/>
+    <line x1="375" y1="18"
+          x2="375" y2="36"/>
+    <line x1="405" y1="18"
+          x2="405" y2="36"/>
+    <line x1="435" y1="18"
+          x2="435" y2="36"/>
+    <line x1="465" y1="18"
+          x2="465" y2="36"/>
+</g>
+
+<g id="lts-lines">
+    <line x1="135" y1="36"
+          x2="135" y2="196"/>
+    <line x1="315" y1="36"
+          x2="315" y2="196"/>
+    <line x1="435" y1="36"
+          x2="435" y2="196"/>
+</g>
+
+<g id="timeline">
+    <defs>
+        <marker
+                id="arrow"
+                viewBox="0 0 20 18"
+                refX="0"
+                refY="9"
+                markerWidth="20"
+                markerHeight="9"
+                orient="auto">
+            <path d="M 0 7 L 6 9 L 0 11 Z"
+                  fill="#808080"/>
+        </marker>
+        <marker
+                id="circle"
+                viewBox="0 0 12 12"
+                refX="6"
+                refY="6"
+                markerWidth="12"
+                markerHeight="12"
+                orient="auto">
+            <circle cx="6" cy="6"
+                    r="2"
+                    fill="#808080"/>
+        </marker>
+    </defs>
+
+    <text x="30" y="54">8</text>
+    <path d="M 45, 56 L 495, 56"
+          marker-end="url(#arrow)"/>
+
+    <text x="30" y="84">8,
+        <tspan fill="red">8u40, 9, 12</tspan></text>
+    <path d="M 45, 86 L 495, 86"
+          marker-end="url(#arrow)"/>
+
+    <text x="30" y="114">11, 21</text>
+    <path d="M 135, 116 L 495, 116"
+          marker-end="url(#arrow)"/>
+
+    <text x="30" y="144">8</text>
+    <text x="145" y="144">12-na</text>
+    <path d="M  45, 146 L 135, 146"
+          marker-end="url(#circle)"/>
+
+    <text x="30" y="174">8</text>
+    <text x="145" y="174">11-wnf</text>
+    <path d="M 45, 176 L 315, 176 L 435, 176"
+          marker-mid="url(#circle)"
+          marker-end="url(#circle)"/>
+    <g id="red-cross">
+        <path d="M 132, 173 L 138, 179
+                 M 138, 173 L 132, 179"
+              style="stroke: red"/>
+    </g>
+    <use x="-90" y="0" stroke-width="2"
+         xlink:href="#red-cross"/>
+</g>
+
+<g id="refs">
     <text x="520" y="56">(1)</text>
     <text x="520" y="86">(2)</text>
     <text x="520" y="116">(3)</text>
