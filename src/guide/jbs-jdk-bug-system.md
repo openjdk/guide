@@ -655,7 +655,7 @@ As with any issue the best way to deal with a [maintainer-pain]{.jbs-label} issu
       motivated, discussed, and agreed upon.
 
 [[-sqe]{.jbs-label}]{#noreg-sqe}
-:    Change can be verified by running an existing SQE test suite; the bug should identify the suite and the specific test case(s).
+:    Change can be verified by running an existing jtreg test suite; the bug should identify the suite and the specific test case(s).
 
 [[-jck]{.jbs-label}]{#noreg-jck}
 :    Change can be verified by running the JCK; the bug should identify the specific test case(s).
