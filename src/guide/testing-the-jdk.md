@@ -24,7 +24,7 @@ A few key items to think about when writing a regression test:
 
 The jtreg documentation has a section on [how to write good jtreg tests](https://openjdk.org/jtreg/writetests.html).
 
-There are a few examples where it doesn't make sense to write an explicit regression test. These should be tagged in JBS with one of the [noreg-labels](#noreg).
+There are a few cases where it doesn't make sense to write an explicit regression test. These should be tagged in JBS with one of the [noreg-labels](#noreg).
 
 ## jtreg
 

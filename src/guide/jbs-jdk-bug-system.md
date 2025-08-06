@@ -214,6 +214,7 @@ When triaging an issue, first give it a general review.
 
 1. If the issue is a duplicate, close it as such.
 1. If the issue belongs to a different area (it was filed in libraries, but it's an HotSpot issue), transfer it to the correct component/subcomponent making sure that the state remains [New]{.jbs-value}.
+   * Please note that issues in the [hotspot]{.jbs-value} and [security-libs]{.jbs-value} components must have a [Subcomponent]{.jbs-field} set as well.
 1. If the issue is incomplete, add a comment noting what is needed and resolve the bug as [Resolved]{.jbs-value} - [Incomplete]{.jbs-value}. This is the JBS way of saying "need more information". If no more information is obtained within reasonable time, the issue should be closed ([Closed]{.jbs-value} - [Incomplete]{.jbs-value}).
 
 Now that the issue is in the right component and has the basic information, the analysis continues to get a more detailed understanding of the issue, and what should be done:
@@ -648,13 +649,13 @@ As with any issue the best way to deal with a [maintainer-pain]{.jbs-label} issu
     <td class="dictionary">[[noreg-]{.jbs-label}`.*`]{#noreg}<br />
                            [[nounit-]{.jbs-label}`.*`]{#nounit}</td>
     <td class="dictionary">
-      The [noreg-]{.jbs-label}`.*` and [nounit-]{.jbs-label}`.*` labels are used to explain why a bugfix doesn't need/have a regression test or a unit test. The suffix of the label is described below.
+      The [noreg-]{.jbs-label}`.*` and [nounit-]{.jbs-label}`.*` labels are used to explain why a change doesn't need/have a regression test or a unit test. The suffix of the label is described below. Every change that is integrated into the JDK source code must either have a regression/unit test, or have at least one of these labels on its JBS issue. It's quite possible to have more than one of these labels on the same issue. For instance, an integration could contain both changes to documentation and test code. In that case it would be logical to label the issue with both [noreg-doc]{.jbs-label} and [noreg-self]{.jbs-label}.
 
       Please note that the [noreg-]{.jbs-label} namespace is closed, meaning that no new [noreg-]{.jbs-label} labels should be added unless properly
       motivated, discussed, and agreed upon.
 
 [[-sqe]{.jbs-label}]{#noreg-sqe}
-:    Change can be verified by running an existing SQE test suite; the bug should identify the suite and the specific test case(s).
+:    Change can be verified by running an existing jtreg test suite; the bug should identify the suite and the specific test case(s).
 
 [[-jck]{.jbs-label}]{#noreg-jck}
 :    Change can be verified by running the JCK; the bug should identify the specific test case(s).
