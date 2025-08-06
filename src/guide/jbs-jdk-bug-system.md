@@ -124,7 +124,7 @@ Add a comment when adding a (Rel)[-wnf]{.jbs-label} label so that it's clear for
 
 1. [Affects Version/s]{.jbs-field} contains [8]{.jbs-value} only, which means this issue is applicable to JDK 8 and all releases thereafter (until it's fixed).
 2. [Affects Version/s]{.jbs-field} contains [8]{.jbs-value}, [8u40]{.jbs-value}, [9]{.jbs-value}, and [12]{.jbs-value}. Since [8]{.jbs-value} already implies that later releases are affected, adding other versions are discouraged.
-3. [Affects Version/s]{.jbs-field} contains [11]{.jbs-value} and [21]{.jbs-value}. Adding occasional versions for actively maintained JDK releases (JDK 21 in this example) is fine; JDK 17 is implicitly affected as well as releases after JDK 21.
+3. [Affects Version/s]{.jbs-field} contains [11]{.jbs-value} and [21]{.jbs-value}. Adding occasional versions of actively maintained JDK releases (JDK 21 in this example) is fine; JDK 17 is implicitly affected as well as releases after JDK 21.
 4. [Affects Version/s]{.jbs-field} contains [8]{.jbs-value} and the issue is fixed in JDK 11. The [12-na]{.jbs-label} label indicates that the issue is not applicable to JDK 12 and subsequent versions.
 5. [Affects Version/s]{.jbs-field} contains [8]{.jbs-value}. The issue is fixed in JDK 21 and is backported to JDK 17. The [11-wnf]{.jbs-label} label indicates that the fix will not be backported to JDK 11 or 8.
 
