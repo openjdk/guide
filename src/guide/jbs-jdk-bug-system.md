@@ -649,7 +649,7 @@ As with any issue the best way to deal with a [maintainer-pain]{.jbs-label} issu
     <td class="dictionary">[[noreg-]{.jbs-label}`.*`]{#noreg}<br />
                            [[nounit-]{.jbs-label}`.*`]{#nounit}</td>
     <td class="dictionary">
-      The [noreg-]{.jbs-label}`.*` and [nounit-]{.jbs-label}`.*` labels are used to explain why a change doesn't need/have a regression test or a unit test. The suffix of the label is described below. Every change that is integrated into the JDK source code must either have a regression/unit test, or have at least one of these labels on its JBS issue. It's quite possible to have more than one of these labels on the same issue. For instance, an integration could contain both changes to documentation and test code. In that case it would be logical to label the issue with both [noreg-doc]{.jbs-label} and [noreg-self]{.jbs-label}.
+      The [noreg-]{.jbs-label}`.*` and [nounit-]{.jbs-label}`.*` labels are used to explain why a change doesn't need/have a regression test or a unit test. The suffix of the label is described below. Every change that is integrated into the JDK source code must either have a regression/unit test, or have at least one of these labels on its JBS issue. It's possible to have more than one of these labels on the same issue. For instance, a changeset could modify both documentation and test code. In that case it would be logical to label the issue with both [noreg-doc]{.jbs-label} and [noreg-self]{.jbs-label}.
 
       Please note that the [noreg-]{.jbs-label} namespace is closed, meaning that no new [noreg-]{.jbs-label} labels should be added unless properly
       motivated, discussed, and agreed upon.
