@@ -289,7 +289,7 @@ In this example, `MyTest.java` is excluded, tracked by bug `JDK-4711`. `@ignore`
 
 ProblemListing and `@ignore`-ing are done in the JDK source tree, that means a check-in into the repository is needed. This in turn means that a unique JBS issue and a code review are needed. This is a good thing since it makes test problems visible.
 
-* **Code review**: ProblemListing a test is considered a [trivial]#trivial-changes) change.
+* **Code review**: ProblemListing a test is considered a [trivial change]#trivial-changes).
 * **JBS issue**: A JBS issue is obviously created for the bug that caused the failure, we call this the _main issue_. To exclude the test, create a subtask to the main issue. Also add the label [[problemlist]{.jbs-label}](#problemlist) to the main issue.
 
 The fix for the main issue should remove the test from the ProblemList or remove the `@ignore` keyword from the test.
