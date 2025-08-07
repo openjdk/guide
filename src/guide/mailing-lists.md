@@ -21,13 +21,13 @@ You must be a member of a list to be able to post to that list. Some lists are m
 There are a few different types of lists. The list name has two parts to explain what the list is intended for, `<name>-<suffix>`. The name often refers to the [Project](https://openjdk.org/bylaws#project) that owns the list or a specific area of interest that the list focuses on. The suffix is explained below. Not all [Projects](https://openjdk.org/bylaws#project) or areas have all types of lists described here.
 
 > `-dev`
-> :    Technical discussions around the implementation of the Project artifacts. This is also where code reviews happen.
+> :    Technical discussions about the implementation of the Project artifacts. This is also where code reviews happen.
 
 > `-use`
-> :    Technical discussions around the usage of the Project artifacts.
+> :    Technical discussions about the usage of the Project artifacts.
 
 > `-discuss`
-> :    General discussions around the [Project](https://openjdk.org/bylaws#project). The special case `discuss@openjdk.org` is used for general discussions around OpenJDK. Discussions around new Project proposals usually happen here.
+> :    General discussions about the [Project](https://openjdk.org/bylaws#project). The special case `discuss@openjdk.org` is used for general discussions around OpenJDK. Discussions around new Project proposals usually happen here.
 
 >  `-changes`
 > :    Changeset notifications from the source code repositories maintained by the [Project](https://openjdk.org/bylaws#project).
@@ -46,7 +46,7 @@ There are a few different types of lists. The list name has two parts to explain
 
 ## Changing your email address
 
-If you need to change your registered email address, or if you have any other problems with the mailing lists, please contact [mailman@openjdk.org](mailto:mailman@openjdk.org).
+If you need to change your registered email address, or if you have any other problems with the mailing lists, please contact [mailman-owner@openjdk.org](mailto:mailman-owner@openjdk.org).
 
 ::: {.box}
 [To the top](#){.boxheader}
