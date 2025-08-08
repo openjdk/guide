@@ -43,7 +43,7 @@ Depending on your answer to that question you will need to consider one or more 
 Great! This is a good way to get started with OpenJDK development. There are a few things you should think about before getting started.
 
 - As with any change, do bring it up for discussion on the [mailing lists](#mailing-lists) before spending time on the fix. Even though the issue has been filed in JBS there may be reasons not to fix that particular issue right now.
-- Never work on an issue that is assigned to someone else. Duplicating work is pointless. If you think that an issue should be fixed and it has been assinged to someone for a long time without progress, reach out to that person and ask what the current status is. Many issues requires a lot of thought, and there may be half-baked solutions that you can build on to avoid the traps the initial developer has already fallen into.
+- Never work on an issue that is assigned to someone else. Duplicating work is pointless. If you think that an issue should be fixed and it has been assigned to someone for a long time without progress, reach out to that person and ask what the current status is. Many issues require a lot of thought, and there may be half-baked solutions that you can build on to avoid the traps the initial developer has already fallen into.
 
 Once you are the assignee of an issue, continue reading [I have a patch, what do I do?](#i-have-a-patch-what-do-i-do) below. (Ideally before you have a patch.)
 
