@@ -289,7 +289,7 @@ In this example, `MyTest.java` is excluded, tracked by bug `JDK-4711`. `@ignore`
 
 ProblemListing and `@ignore`-ing are done in the JDK source tree, that means a check-in into the repository is needed. This in turn means that a unique JBS issue and a code review are needed. This is a good thing since it makes test problems visible.
 
-* **Code review**: ProblemListing a test is considered a [trivial](#trivial) change.
+* **Code review**: ProblemListing a test is considered a [trivial change](#trivial-changes).
 * **JBS issue**: A JBS issue is obviously created for the bug that caused the failure, we call this the _main issue_. To exclude the test, create a subtask to the main issue. Also add the label [[problemlist]{.jbs-label}](#problemlist) to the main issue.
 
 The fix for the main issue should remove the test from the ProblemList or remove the `@ignore` keyword from the test.
@@ -304,7 +304,7 @@ If a change causes a regression that can't be fixed within reasonable time, the 
 
 It will happen of course when the build is broken or the JDK is DOA and similar situations that a change is immediately backed out without further investigation. Backing out a change is however seldom the first course of action if the change has been done in accordance with the guidance in [Working With Pull Requests]. If, when investigated, it is found that a change didn't go through relevant testing or there are other issues that should have been caught before integration if proper procedure had been followed, it's quite possible that a change is backed out even if the author is desperately working on a fix. The JDK source code is deliberately menat to have a high bar for acceptance of changes. If something crawls in underneath that bar it should most likely be backed out.
 
-The backout is a regular change and will have to go through the standard code review process, but is considered a [trivial](#trivial) change. The rationale is that a backout is usually urgent in nature and the change itself is automatically generated. In areas where two reviewers are normally required, only one [Reviewer](https://openjdk.org/bylaws#reviewer) is required for a backout since the person who is performing the backout also should review the change.
+The backout is a regular change and will have to go through the standard code review process, but is considered a [trivial change](#trivial-changes). The rationale is that a backout is usually urgent in nature and the change itself is automatically generated. In areas where two reviewers are normally required, only one [Reviewer](https://openjdk.org/bylaws#reviewer) is required for a backout since the person who is performing the backout also should review the change.
 
 There are two parts to this task, how to do the bookkeeping in JBS, and how to do the actual backout in git.
 
