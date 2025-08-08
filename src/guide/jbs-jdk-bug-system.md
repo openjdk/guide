@@ -108,7 +108,7 @@ Don't:
 
   [Affects Version/s]{.jbs-field}: [11.0.20]{.jbs-value}, [17]{.jbs-value}
 
-  the label [8-na]{.jbs-label} would not be needed - as it doesn't have a JDK 8 release, or earlier, value in the [Affects Version/s]{.jbs-field}, it is not relevant to JDK 8. Also see [Usage of the (Rel)[-wnf]{.jbs-label} Label](#usage-of-rel-wnf-label)
+  the label [8-na]{.jbs-label} would not be needed - as it doesn't have a JDK 8 release, or earlier, value in the [Affects Version/s]{.jbs-field}, it is not relevant to JDK 8. Also see [Usage of the (Rel)[-wnf]{.jbs-label} Label](#usage-of-the-rel-wnf-label)
 - add multiple [-na]{.jbs-label} labels: you only need one, for example don't add both [9-na]{.jbs-label} and [11-na]{.jbs-label} — [9-na]{.jbs-label} implies all following releases therefore [11-na]{.jbs-label}, or [17-na]{.jbs-label} etc. are not needed.
 - It's not recommended to specify update releases like 17u4 or 21u in the label. Labels like [17-na]{.jbs-label} and [21-na]{.jbs-label} are in general enough.
 
@@ -122,11 +122,11 @@ Add a comment when adding a (Rel)[-wnf]{.jbs-label} label so that it's clear for
 
 ![Guidelines for setting [Affects Version/s]{.jbs-field}](affects_versions.svg)
 
-1. Issue relevant to JDK 8 and all future releases.
-2. No need to add additional releases as they are implied.
-3. Adding the occasional LTS release value is ok.
-4. Use N-na to indicate that the issue is no longer relevant from that release, which could be due to the feature or platform being removed or the code being rewritten.
-5. Use N-wnf to indicate that a fix will not be backported to that release, or earlier.
+1. [Affects Version/s]{.jbs-field} contains [8]{.jbs-value} only, which means this issue is applicable to JDK 8 and all releases thereafter (until it's fixed).
+2. [Affects Version/s]{.jbs-field} contains [8]{.jbs-value}, [8u40]{.jbs-value}, [9]{.jbs-value}, and [12]{.jbs-value}. Since [8]{.jbs-value} already implies that later releases are affected, adding other versions are discouraged.
+3. [Affects Version/s]{.jbs-field} contains [11]{.jbs-value} and [21]{.jbs-value}. Adding occasional versions of actively maintained JDK releases (JDK 21 in this example) is fine; JDK 17 is implicitly affected as well as releases after JDK 21.
+4. [Affects Version/s]{.jbs-field} contains [8]{.jbs-value} and the issue is fixed in JDK 11. The [12-na]{.jbs-label} label indicates that the issue is not applicable to JDK 12 and subsequent versions.
+5. [Affects Version/s]{.jbs-field} contains [8]{.jbs-value}. The issue is fixed in JDK 21 and is backported to JDK 17. The [11-wnf]{.jbs-label} label indicates that the fix will not be backported to JDK 11 or 8.
 
 ### Things to keep in mind when requesting an improvement
 
