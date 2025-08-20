@@ -77,8 +77,8 @@ The Skara tooling includes support for backports. [The official Skara documentat
 
 In this example we backport a change to the JDK 21 update release. The difference between `jdk21u` and `jdk21u-dev` is that `jdk21u` is used for the two first update releases (21.0.1 and 21.0.2), while `jdk21u-dev` is used for any later update releases of OpenJDK 21. To backport to other update releases, replace `jdk21u` with the corresponding name for the target update repository.
 
-/backport jdk jdk23
-/backport :jdk23
+    /backport jdk jdk23
+    /backport :jdk23
 
 In this second example we backport the change to a stabilization branch, in this case JDK 23. As before `jdk` is the name of the target repository, and `jdk23` is the name of the stabilization branch. Using the colon syntax is a shortcut.
 
