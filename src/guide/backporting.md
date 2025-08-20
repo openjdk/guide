@@ -72,15 +72,14 @@ If your request to backport a change is denied, but you for some reason already 
 
 The Skara tooling includes support for backports. [The official Skara documentation](https://wiki.openjdk.org/display/SKARA/Backports) describes in detail how to work with the tooling to create backport PRs on [GitHub](https://github.com) or using the CLI tools. As described in the documentation, the [`/backport`](https://wiki.openjdk.org/display/SKARA/Commit+Commands#CommitCommands-/backport) command can be used on a commit or a PR to create the backport PR:
 
-    /backport jdk21u
-    /backport jdk21u-dev
+    /backport :jdk25
 
-In this example we backport a change to the JDK 21 update release. The difference between `jdk21u` and `jdk21u-dev` is that `jdk21u` is used for the two first update releases (21.0.1 and 21.0.2), while `jdk21u-dev` is used for any later update releases of OpenJDK 21. To backport to other update releases, replace `jdk21u` with the corresponding name for the target update repository.
+In this example we backport the change to a stabilization branch, in this case JDK 25.
 
-    /backport jdk jdk23
-    /backport :jdk23
+    /backport jdk25u
+    /backport jdk25u-dev
 
-In this second example we backport the change to a stabilization branch, in this case JDK 23. As before `jdk` is the name of the target repository, and `jdk23` is the name of the stabilization branch. Using the colon syntax is a shortcut.
+In this second example we backport a change to the JDK 25 update release. The difference between `jdk25u` and `jdk25u-dev` is that `jdk25u` is used for the two first update releases (25.0.1 and 25.0.2), while `jdk25u-dev` is used for any later OpenJDK JDK 25 update releases. To backport to other update releases, replace `jdk25u` with the corresponding name for the target update repository.
 
 Using the `/backport` command is the recommended way to perform backports as the tooling will automatically handle all the necessary steps in the background. If a backport PR is manually created, set the PR title to `Backport <original commit hash>`. This ensures that the bots will recognize it as a backport as opposed to a main fix specifically targeting an older release. One can tell whether or not the bots recognized a PR as a backport by the [backport]{.label} label being added if it's recognized.
 
