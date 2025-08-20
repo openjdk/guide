@@ -44,20 +44,3 @@ The project comes with a `Makefile`. Simply type `make` to generate HTML files f
 To generate the diagrams, you also need the `mermaid-filter` for pandoc. You can install this by running `npm install --global mermaid-filter --unsafe-perm=true`.
 
 The resulting HTML files in the `build` directory are exactly the files published on the [OpenJDK web server](https://openjdk.java.net/guide/). There is, however, a larger framework on the web server with fonts and CSS that is not part of this project. This means that the HTML files as they are generated will not look exactly the same as the final published version. Still they are hopefully good enough to proof read changes and see the layout in a browser.
-
-## Todo
-
-The Developers' Guide is continuously updated and there are several parts still missing. This todo list isn't complete and there is no limitation on current work being tied to any item on this list. It's just a list of things that we know are missing or needs to be updated. The list isn't ordered in any way.
-
-* JEPs - When do I need one? - Working with JEPs
-* Add "stakeholders" for each section
-* Add references to current code conventions for Java, C++, Markdown, Makefiles
-* Text about adding an API
-* Text about adding a feature
-* Text about JCK
-* List JTReg `@key` conventions for different areas
-* Document best practices around TEST.properties usage. See [PR#30](https://github.com/openjdk/guide/pull/30#issuecomment-714589551)
-* How to work with the code in an IDE
-* Where to find JTReg bundles
-* How to run tests with your fork and how to navigate the test result ZIP
-* Logging in hotspot - available strategies, what is preferred and where, how to log in special conditions
