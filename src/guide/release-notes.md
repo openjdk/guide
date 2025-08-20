@@ -76,10 +76,10 @@ The following are general practices that should be followed when creating releas
   * Single release note for multiple changes
     * A link to the parent issue that the note is a sub-task of, will be placed alongside the summary in the release notes. If note relates to additional changes, then add them as [Relates]{.jbs-field} links to the note and add the label [RN-MultipleLinks]{.jbs-label} - see [JDK-8284975](https://bugs.openjdk.org/browse/JDK-8284975) as an example.
   * Multiple release notes for the same change
-      * If more than one release note is required for the same set of fixes, then open additional sub-tasks with the same [Affects Version]{.jbs-field} - see [JDK-8073861](https://bugs.openjdk.org/browse/JDK-8073861) as an example.
+      * If more than one release note is required for the same set of fixes, then open additional sub-tasks with the same affects version - see [JDK-8073861](https://bugs.openjdk.org/browse/JDK-8073861) as an example.
   * Release notes across backports
-    * If an issue is backported to earlier releases the same note will be used - just add the new release version in the [Affects Version]{.jbs-field} field of the release note.
-    * Where a different release note is required, then create a separate note with the [Affects Version]{.jbs-field} for the new release - see [JDK-8308194](https://bugs.openjdk.org/browse/JDK-8308194) and [JDK-8322473](https://bugs.openjdk.org/browse/JDK-8322473) for an example.
+    * If an issue is backported to earlier releases the same note will be used - just add the new release version in the [Affects Version/s]{.jbs-field} field of the release note.
+    * Where a different release note is required, then create a separate note with the affects version for the new release - see [JDK-8308194](https://bugs.openjdk.org/browse/JDK-8308194) and [JDK-8322473](https://bugs.openjdk.org/browse/JDK-8322473) for an example.
 
 ## RN-labels
 
