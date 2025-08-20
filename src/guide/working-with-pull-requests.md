@@ -88,7 +88,7 @@ If you have an actual reason to create a PR before the change is all done, make 
 
 #. **Get the required reviews**
 
-   At least one [Reviewer](https://openjdk.org/bylaws#reviewer) knowledgeable in each area being changed must approve every change. A change may therefore require multiple [Reviewers](https://openjdk.org/bylaws#reviewer) because it affects multiple areas. Some areas (e.g. Client and HotSpot) require two reviewers in most cases, so be sure to read the relevant [OpenJDK Group](https://openjdk.org/bylaws#group) pages for advice or ask your [Sponsor](https://openjdk.org/bylaws#sponsor).
+   At least one [Reviewer](https://openjdk.org/bylaws#reviewer) knowledgeable in each area being changed must approve every change. A change may therefore require multiple [Reviewers](https://openjdk.org/bylaws#reviewer) because it affects multiple areas. Some areas (e.g. Client and HotSpot) require two reviewers in most cases, so be sure to read the relevant [OpenJDK Group](https://openjdk.org/bylaws#group) pages for advice or ask your [sponsor](#reviewing-and-sponsoring-a-change).
 
    Be open to comments and polite in replies. Remember that the reviewer wants to improve the world just as much as you do, only in a slightly different way. If you don't understand some comment, ask the reviewer to clarify. Accept authority when applicable. If you're making changes in an area where you're not the area expert, acknowledge that your reviewers may be. Take their advice seriously, even if it is to not make the change. There are many reasons [why a change may get rejected](#why-is-my-change-rejected). And you did read the section [Things to consider before proposing changes to OpenJDK code], right?
 
@@ -112,7 +112,7 @@ If you have an actual reason to create a PR before the change is all done, make 
 
 #. **Integrate your change**
 
-   When you have the required reviews and have made sure all relevant areas have had a chance to look at your change, integrate by entering the command [`/integrate`](https://wiki.openjdk.org/display/SKARA/Pull+Request+Commands#PullRequestCommands-/integrate) in a comment on the PR. If you are not yet a [Committer](https://openjdk.org/bylaws#committer) in the [Project](https://openjdk.org/bylaws#project), ask your [Sponsor](https://openjdk.org/bylaws#sponsor) to enter the command [`/sponsor`](https://wiki.openjdk.org/display/SKARA/Pull+Request+Commands#PullRequestCommands-/sponsor) in the PR as well in order for your change to be allowed to be integrated.
+   When you have the required reviews and have made sure all relevant areas have had a chance to look at your change, integrate by entering the command [`/integrate`](https://wiki.openjdk.org/display/SKARA/Pull+Request+Commands#PullRequestCommands-/integrate) in a comment on the PR. If you are not yet a [Committer](https://openjdk.org/bylaws#committer) in the [Project](https://openjdk.org/bylaws#project), ask your [sponsor](#reviewing-and-sponsoring-a-change) to enter the command [`/sponsor`](https://wiki.openjdk.org/display/SKARA/Pull+Request+Commands#PullRequestCommands-/sponsor) in the PR as well in order for your change to be allowed to be integrated.
 
 #. **After integration**
 
