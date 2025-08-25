@@ -29,6 +29,7 @@ A few things to keep in mind when filing an issue:
   * If the failure is found in an update train of the JDK (e.g. 11.0.x), please see (if possible) if it's also present in [mainline](https://github.com/openjdk/jdk). See [Indicating what releases an issue is applicable to](#indicating-what-releases-an-issue-is-applicable-to) for more details.
   * All issues of type [Bug]{.jbs-value} must have the [Affects Version/s]{.jbs-field} set. It's not a bug if it doesn't affect some version.
   * For enhancements the [Affects Version/s]{.jbs-field} should be left empty, unless it is only relevant to a specific release family.
+* Never set [FixVersion/s]{.jbs-field} to an already released version. If you intend for the change to be fixed in a JDK 21 update, set [FixVersion/s]{.jbs-field} to [21-pool]{.jbs-value}. A fix version of [21]{.jbs-value} would indicate the mainline release of JDK 21, which was released in 2023, and it is too late to add more changes there.
 * Add relevant [Labels]{.jbs-field} like [[intermittent]{.jbs-label}](#intermittent), [[regression]{.jbs-label}](#regression), [[noreg-self]{.jbs-label}](#noreg-self), [[tier1]{.jbs-label}](#tier) etc.
   * For more information see the [JBS Label Dictionary].
 * Set the priority.
@@ -129,19 +130,11 @@ Add a comment when adding a (Rel)[-wnf]{.jbs-label} label so that it's clear for
 4. [Affects Version/s]{.jbs-field} contains [8]{.jbs-value} and the issue is fixed in JDK 11. The [12-na]{.jbs-label} label indicates that the issue is not applicable to JDK 12 and subsequent versions.
 5. [Affects Version/s]{.jbs-field} contains [8]{.jbs-value}. The issue is fixed in JDK 21 and is backported to JDK 17. The [11-wnf]{.jbs-label} label indicates that the fix will not be backported to JDK 11 or 8.
 
-### Things to keep in mind when requesting an improvement
-
-Unlike reporting a problem, when it comes to improvements, what constitutes a reasonable request can take discussion, and in general it's encouraged that the [mailing list](#mailing-lists) for the area is used to suggest an improvement before filing.
-
-Enhancements to the Java Language Specification and the JVM Specification are managed through the [Java Community Process](http://jcp.org/).
-
-To find out which component to use for different bugs, consult the [directory to area mapping].
-
 ### Implementing a large change
 
 When managing the work for a large change, especially when the work involves multiple engineers, it's recommended that the work is distributed across one or more "implementation" issues which should be linked to the main enhancement with a "blocks" link along with any relevant CSRs. The enhancement shouldn't be considered done until all the blocking elements are completed. The use of sub-tasks for enhancements is not recommended unless all the sub-tasks are relevant to the fix, if it were to be backported, for example [JDK-8231641](https://bugs.openjdk.org/browse/JDK-8231641) or [JDK-8171407](https://bugs.openjdk.org/browse/JDK-8171407).
 
-### Implementing a JEP
+#### Implementing a JEP
 
 It's recommended for [JEP]{.jbs-value}s that the implementation is spread across one or more [Enhancement]{.jbs-value}s as described above.
 
