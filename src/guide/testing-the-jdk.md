@@ -311,25 +311,24 @@ There are two parts to this task, how to do the bookkeeping in JBS, and how to d
 ### How to work with JBS when a change is backed out
 
 #. Close the original (failed) JBS issue **(O)**.
-   * "Verify" the issue and choose "Fix Failed".
+   * "Verify" the issue with verification [Fix Failed]{.jbs-value}.
 #. If the intention is to fix the change and submit it again, create a redo-issue **(R)** to track that the work still needs to be done.
    * Clone **(O)** and add the prefix `[REDO]` on the summary - the clone becomes the redo-issue **(R)**.
    * Make sure relevant information is brought to **(R)**.
    * Remember that comments aren't automatically brought over when cloning.
-#. Create a backout-issue **(B)**:
+#. Setup a backout-issue **(B)**.
    * Alternative 1 - the regression is identified directly.
-     * Create a sub-task to **(R)** with the same summary prefixed with `[BACKOUT]`.
-   * Alternative 2 - an investigation issue was created **(I)**, and during the investigation backing out the change is identified as the best solution.
-     * Use the investigation issue **(I)** for the backout.
-     * Change summary of **(I)** to the same as **(O)** and prefix with `[BACKOUT]`.
-     * Move and change type of **(I)** to become a sub-task of **(R)**.
-   * Alternative 3 - no redo issue was created.
-     * Create a backout-issue **(B)** with the same summary as **(O)**, prefix with `[BACKOUT]`.
+     * Create a new issue of type [Bug]{.jbs-value}. This new issue will be the backout-issue **(B)**.
+     * Use the same summary as **(R)** prefixed with `[BACKOUT]`.
      * Add a _relates to_ link between **(B)** and **(O)**.
+   * Alternative 2 - an investigation issue was created **(I)**, and during the investigation backing out the change is identified as the best solution.
+     * Use the investigation issue **(I)** for the backout. (Don't create a new **(B)**.)
+     * Change summary of **(I)** to the same as **(O)** and prefix with `[BACKOUT]`.
+     * Add a _relates to_ link between **(I)** and **(O)**.
 #. If **(O)** had a CSR request, update the CSR issue as follows:
-   * Add a csr-for link from the CSR to **(R)**.
+   * Add a _csr-for_ link from the CSR to **(R)**.
    * Add a note to the CSR that explains the reason for the redo and the impact on the CSR.
-   * Move the CSR back into the Finalized state for re-review. (It's necessary to first move the CSR back to the Draft state before moving it to the Finalized state.)
+   * Move the CSR back into the [Finalized]{.jbs-value} state for re-review. (It's necessary to first move the CSR back to the [Draft]{.jbs-value} state before moving it to the [Finalized]{.jbs-value} state.)
 
 ProblemList entries and `@ignore` keywords will continue to point to the original bug (unless updated at back out). This is accepted since there is a clone link to follow.
 
