@@ -108,7 +108,7 @@ If you have an actual reason to create a PR before the change is all done, make 
 
    If your PR is targeting some other branch than `master`, make sure to merge the correct upstream branch (the target branch). Verify that your PR doesn't include changes from some other branch (e.g. `master`) that aren't supposed to be there.
 
-   If there are upstream changes that might affect your change, it's likely a good idea to rerun relevant testing as well. The [GHA testing](#github-actions) that's done automatically by [GitHub](https://github.com) should only be seen as a smoke test that finds the most severe problems with your change. It's highly unlikely that it will test your actual change in any greater detail - or even at all execute the code that you have changed in most cases.
+   Once changes have been merged rerun all relevant testing even if you think nothing in the merge affected your change. The [GHA testing](#github-actions) that's done automatically by [GitHub](https://github.com) should only be seen as a smoke test that finds the most severe problems. It's highly unlikely that it will test your actual change in any greater detail - or even at all execute the code that you have changed in most cases.
 
 #. **Integrate your change**
 
