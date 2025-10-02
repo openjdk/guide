@@ -1,6 +1,6 @@
 # Code Owners
 
-This list is intended to make it easier to identify which email list to include in code reviews when making changes in different areas. The list may also help when assigning bugs based on which code they are found in. Please note that some directories may have been created or removed between releases. The intention here is to include directories that exists in mainline and other releases (post JDK 9) commonly being updated.
+This list is intended to make it easier to identify which email list to include in code reviews when making changes in different areas. The list may also help when assigning bugs based on which code they are found in. Please note that some directories may have been created or removed between releases. The intention is to include directories that exist in mainline and other commonly updated releases (post JDK 9).
 
 ## Area mailing lists
 
