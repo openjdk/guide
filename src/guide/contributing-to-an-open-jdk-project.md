@@ -10,7 +10,7 @@ If you're in a position to choose what programming language to use in a project,
 
 ## Requesting a change
 
-If you want to request a change to the JDK, but don't have the intention to implement/contribute to the change yourself, you should always report it at [bugreport.java.com](bugreport.java.com). This is also the case if you find a change that you would like to see backported to an earlier JDK release. **Never** reach out directly to any developer. Also, please note that the [OpenJDK mailing lists](#mailing-lists) are intended for developers and contributors. These lists are not support channels or channels for requesting changes.
+If you want to request a change to the JDK, but don't have the intention to implement/contribute to the change yourself, you should always report it at [bugreport.java.com](https://bugreport.java.com). This is also the case if you find a change that you would like to see backported to an earlier JDK release. **Never** reach out directly to any developer. Also, please note that the [OpenJDK mailing lists](#mailing-lists) are intended for developers and contributors. These lists are not support channels or channels for requesting changes.
 
 Before you file an issue, make sure you have read [Things to consider before proposing changes to OpenJDK code](#things-to-consider-before-proposing-changes-to-openjdk-code) and [Why is my change rejected?](#why-is-my-change-rejected) below.
 
