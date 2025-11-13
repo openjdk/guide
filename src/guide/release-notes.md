@@ -11,11 +11,11 @@
 
 Release notes for a product such as the JDK are part of the release deliverables providing a way to highlight information about a fix, such as when it may have changed behavior, or when it's decided not to fix something. While what should go into a release note isn't something that can be precisely defined, it should describe changes that are important for a user to take into account when they are upgrading to the specific version. While release notes should not duplicate information in other documents, they can serve to highlight that a change has been made.
 
-Release notes are associated with a JBS issue that has been fixed (or in some cases not been fixed) in a release and are generated with each build of a release. Any note should be considered as an integral part of the fix process, rather than waiting until the end of the release to determine what to write. In OpenJDK, release notes are currently being generated for the JDK and JDK Updates Projects.
+Release notes are associated with a JBS issue that has been fixed (or in some cases not been fixed) in a release and are generated with each build of a release. Any release note should be considered an integral part of the fix process, rather than waiting until the end of the release to determine what to write. In OpenJDK, release notes are currently being generated for the JDK and JDK Updates Projects.
 
 ## Writing a release note
 
-Writing the release note is the responsibility of the engineer who owns the issue. The note should be generated before the fix is reviewed, or in the case of known issues, when it's determined that a fix won't be possible in the release the issue was found in.
+Writing the release note is the responsibility of the engineer who owns the issue. The release note should be generated before the fix is reviewed, or in the case of known issues, when it's determined that a fix won't be possible in the release the issue was found in.
 
 When writing a release note, be prepared for rather picky review comments about grammar, typos, and wording. This is for the sake of the Java community as a whole, as the language of the release note sets the tone for many blogs and news articles. For a widely used product like the JDK, the release notes are often copied verbatim (including typos) and published to highlight news in the release. This means that we need to take extra care to make sure the text in the release note is correct and follows a similar style.
 
@@ -33,7 +33,7 @@ The release note itself is written in a [JBS](#jbs---jdk-bug-system) sub-task of
    * Set [Affects Version/s]{.jbs-field} to the release versions for which the release note should be published.
    * Add the [release-note]{.jbs-label} label. This is required for the release note to be included in the release notes.
    * Add the proper [RN-]{.jbs-label}label if applicable to indicate what section of the release notes it should be included in (see [RN-labels] below).
-   * Set the [Fix Version/s]{.jbs-field} to the same value that the main issue - in almost all cases this will be the version of mainline.
+   * Set the [Fix Version/s]{.jbs-field} to the same value as the [Affects Version/s]{.jbs-field}.
 
 #. Have the release note ready to be reviewed at the same time as the code is reviewed. If it's later determined that a release note is necessary, then go back to the same engineers who reviewed the fix to review the release note.  Special care should be taken when writing a release note that will cover changes related to a vulnerability fix in order to avoid describing technical details of how it could have been exploited.
 
@@ -74,19 +74,19 @@ The following are general practices that should be followed when creating releas
     * [Description]{.jbs-field} - The JEP release note description should contain the link to the JEP.
     * [Labels]{.jbs-field} - The [release-note=yes]{.jbs-label} label should be placed on the JEP issue itself.
   * Single release note for multiple changes
-    * A link to the parent issue that the note is a sub-task of, will be placed alongside the summary in the release notes. If note relates to additional changes, then add them as [Relates]{.jbs-field} links to the note and add the label [RN-MultipleLinks]{.jbs-label} - see [JDK-8284975](https://bugs.openjdk.org/browse/JDK-8284975) as an example.
+    * A link to the parent issue that the release note is a sub-task of, will be placed alongside the summary in the release notes. If release note relates to additional changes, then add them as [relates-to]{.jbs-value} links to the release note sub-task and add the label [RN-MultipleLinks]{.jbs-label} - see [JDK-8284975](https://bugs.openjdk.org/browse/JDK-8284975) as an example.
   * Multiple release notes for the same change
       * If more than one release note is required for the same set of fixes, then open additional sub-tasks with the same affects version - see [JDK-8073861](https://bugs.openjdk.org/browse/JDK-8073861) as an example.
   * Release notes across backports
-    * If an issue is backported to earlier releases the same note will be used - just add the new release version in the [Affects Version/s]{.jbs-field} field of the release note.
-    * Where a different release note is required, then create a separate note with the affects version for the new release - see [JDK-8308194](https://bugs.openjdk.org/browse/JDK-8308194) and [JDK-8322473](https://bugs.openjdk.org/browse/JDK-8322473) for an example.
+    * If an issue is backported to earlier releases the same release note will be used - just add the new release version in the [Affects Version/s]{.jbs-field} and [Fix Version/s]{.jbs-field} fields of the release note sub-task.
+    * Where a different release note is required, then create a separate sub-task of the main JBS issue with the affects version for the new release - see [JDK-8308194](https://bugs.openjdk.org/browse/JDK-8308194) and [JDK-8322473](https://bugs.openjdk.org/browse/JDK-8322473) for an example.
   * Adding or Updating Release Notes after GA
-    * If a note needs to be added after the GA of a release, or an existing note needs updating then create the new note, or update the existing note, and then reach out to [ops@openjdk.org](mailto:ops@openjdk.org).
-    * If an existing note should be extended to cover more releases (e.g. after the described change has been backported), update the [Affects Version/s]{.jbs-field} field of the existing note. Only create a new release note if the text differs from the existing one.
+    * If a release note needs to be added after the GA of a release, or an existing release note needs updating, then create the new release note sub-task, or update the existing release note, and then reach out to [ops@openjdk.org](mailto:ops@openjdk.org).
+    * If an existing release note should be extended to cover more releases (e.g. if the main JBS issue has been backported), update the [Affects Version/s]{.jbs-field} field of the existing release note sub-task. Only create a new release note sub-task if the new release note text differs from the existing one.
 
 ## RN-labels
 
-Unless labeled otherwise it will be assumed that the release note documents a change in behavior (will have likely required a CSR) or other item which should be included in the release notes. If the note covers a more specific type of change, then one of the following labels can be included (notes of a similar type will be listed together).
+Unless labeled otherwise it will be assumed that the release note documents a change in behavior (will have likely required a CSR) or other item which should be included in the release notes. If the release note covers a more specific type of change, then one of the following labels can be included (release notes of a similar type will be listed together).
 
 [[RN-NewFeature]{.jbs-label}]{#RN-NewFeature}
 :   A new feature or enhancement in the release.

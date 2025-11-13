@@ -327,7 +327,7 @@ There are two parts to this task, how to do the bookkeeping in JBS, and how to d
      * Add a _causes_ link from **(O)** to **(I)**.
 #. If **(O)** had a CSR request, update the CSR issue as follows:
    * Add a _csr-for_ link from the CSR to **(R)**.
-   * Add a note to the CSR that explains the reason for the redo and the impact on the CSR.
+   * Add a comment to the CSR that explains the reason for the redo and the impact on the CSR.
    * Move the CSR back into the [Finalized]{.jbs-value} state for re-review. (It's necessary to first move the CSR back to the [Draft]{.jbs-value} state before moving it to the [Finalized]{.jbs-value} state.)
 
 ProblemList entries and `@ignore` keywords will continue to point to the original bug (unless updated at back out). This is accepted since there is a clone link to follow.
