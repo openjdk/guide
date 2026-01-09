@@ -79,9 +79,9 @@ As well as the standard [CommonMark link types](https://spec.commonmark.org/0.31
 
   * The linking options similar to those for [JavaDoc MarkDown](https://openjdk.org/jeps/467#Links) are supported.
   * Linking to the JDK tools is supported - differentiate between `[JarSigner]` the class, and `[jarsigner]` the tool, the tool reference should be in all lowercase.
-  * Linking to the JDK tools command line arguments is supported, for example `[-XX:+UseTransparentHugePages]`
+  * Linking to the JDK tools command line arguments is supported for JDK 27 and above, for example `[-XX:+UseTransparentHugePages]`
   * Method names do not need to be prefixed with their class name if they are unique within the JDK, for example '[getTotalGcCpuTime()]'. Where there are multiple methods with the same name, a plain reference to the method can be achieved with '[enquoteIdentifier][Statement.enquoteIdentifier]'
-  * Links of the form `[NumberFormat.setStrict]`, `[NumberFormat.setStrict(boolean)]`, `[NumberFormat.setStrict(true)]` are supported with any of the separators `[.]`, `[#]` and `[::]`.
+  * Links of the form `[NumberFormat.setStrict]`, `[NumberFormat.setStrict(boolean)]`, `[NumberFormat.setStrict(true)]`, `[ofFileChannel(FileChannel channel, long offset, long length)]` are supported with any of the separators `[.]`, `[#]` and `[::]`.
   * If a link cannot be found then the string will be rendered as if it had been enclosed in back-ticks and, in the EA release notes only, the string "(link not found)" will be added.
   * For notes of the type `rn-removed` if a link is not found then it will be looked for in the JavaDoc of the previous release family.
   * If a sequence that contains `[]` should not be treated as a link such as 'm[s]' then precede the opening square bracket with a backslash `m\\[s]`.
@@ -90,11 +90,11 @@ As well as the standard [CommonMark link types](https://spec.commonmark.org/0.31
 
 When manually adding a link to the Java documentation, put the full link to docs.oracle.com (either the existing page, or what will be the page at GA), for example:
 
-`https://docs.oracle.com/en/java/javase/&lt;NN>/&lt;path to class>`
+`https://docs.oracle.com/en/java/javase/26/docs/specs/jar/jar.html`
 
-and, in the EA versions of the release notes, this will be translated to:
+and, in the EA versions of the release notes, any links which refer the to feature release under development will be translated to:
 
-`https://download.java.net/java/early_access/jdk&lt;NN>/&lt;path to class>`
+`https://download.java.net/java/early_access/jdk26/docs/specs/jar/jar.html`
 
 ## Advanced options
   * JEP release notes
