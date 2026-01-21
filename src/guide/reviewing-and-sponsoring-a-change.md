@@ -18,7 +18,7 @@ There are many different reasons to sponsor a change and depending on the situat
 
 ## Responsibilities of a Reviewer
 
-As a [Reviewer](https://openjdk.org/bylaws#reviewer) you have a responsibility to make sure changes are sound and align with the general direction of the area. If you, as a [Reviever](https://openjdk.org/bylaws#reviewer), review a change in an area that you don't know well you probably shouldn't be the one to approve the change.
+As a [Reviewer](https://openjdk.org/bylaws#reviewer) you have a responsibility to make sure changes are sound and align with the general direction of the area. If you, as a [Reviewer](https://openjdk.org/bylaws#reviewer), review a change in an area that you don't know well you probably shouldn't be the one to approve the change.
 
 [Reviewers](https://openjdk.org/bylaws#reviewer) should be aware that they take full responsibility for the appropriateness and correctness of any changes in their area of expertise. If something goes wrong (e.g., the build breaks) and the change's author is unavailable, they may be asked to deal with the problem. Potential [Reviewers](https://openjdk.org/bylaws#reviewer) are encouraged to refuse to review code for which they aren't qualified.
 
