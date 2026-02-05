@@ -28,7 +28,7 @@ The release note itself is written in a [JBS](#jbs---jdk-bug-system) sub-task of
    * Set the [Assignee]{.jbs-field} to the same person who owns the main issue.
    * The [Summary]{.jbs-field} should be a one sentence synopsis that is informative (and concise) enough to attract the attention of users, developers, and maintainers who might be impacted by the change. It should succinctly describe what has actually changed, not be the original bug title, nor describe the problem that was being solved. It should read well as a subsection heading in a document.
    * Prefix the [Summary]{.jbs-field} with "Release Note:".
-   * Enter the text of the release note in the [Description]{.jbs-field} field using Markdown formatting, following the [CommonMark specification](https://spec.commonmark.org/current/). While the markdown won't be rendered in JBS, you can use [dingus](https://spec.commonmark.org/dingus/) to see what the release note will look like. Note that [GitHub style ascii table formatting](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables) is supported but will not display correctly in the dingus page. For more information see [General Conventions for Release Notes] below.
+   * Enter the text of the release note in the [Description]{.jbs-field} field using Markdown formatting, following the [CommonMark specification](https://spec.commonmark.org/current/). While the Markdown won't be rendered in JBS, you can use [dingus](https://spec.commonmark.org/dingus/) to see what the release note will look like. Note that [GitHub-style table formatting](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables) is supported but will not display correctly in the dingus page. For more information, see [General Conventions for Release Notes] below.
    * Set [Component/s]{.jbs-field} and [Subcomponent]{.jbs-field} to the same values as the original bug.
    * Set [Affects Version/s]{.jbs-field} to the release versions for which the release note should be published.
    * Add the [release-note]{.jbs-label} label. This is required for the release note to be included in the release notes.
@@ -77,24 +77,27 @@ As well as the standard [CommonMark link types](https://spec.commonmark.org/0.31
 
 ### Linking to the Java documentation
 
-  * The linking options similar to those for [JavaDoc MarkDown](https://openjdk.org/jeps/467#Links) are supported.
-  * Linking to the JDK tools is supported - differentiate between `[JarSigner]` the class, and `[jarsigner]` the tool, the tool reference should be in all lowercase.
-  * Linking to the JDK tools command line arguments is supported for JDK 27 and above, for example `[-XX:+UseTransparentHugePages]`
-  * Method names do not need to be prefixed with their class name if they are unique within the JDK, for example '[getTotalGcCpuTime()]'. Where there are multiple methods with the same name, a plain reference to the method can be achieved with '[enquoteIdentifier][Statement.enquoteIdentifier]'
+When introducing a new method or describing a change it is useful to link to the JavaDoc where additional information can be found.  To support this linking options similar to those for [JavaDoc Markdown](https://openjdk.org/jeps/467#Links) are supported, including `[NumberFormat.setStrict]` or `[some text][NumberFormat.setStrict]`.
+
+  * Linking to the [JDK tools](https://docs.oracle.com/en/java/javase/25/docs/specs/man/index.html) is supported - to differentiate between the class `[JarSigner]`, and the tool `[jarsigner]`, the tool reference should be in all lowercase.
+  * Linking to the JDK tools command line arguments is supported for JDK 27 and above, for example `[-XX:+UseTransparentHugePages]`. If the command line argument is not unique across all the JDK tools, then the option needs to be prefixed with the name of the tool, for example `[jarsigner -storepass]`.
+  * Method names do not need to be prefixed with their class name if they are unique within the JDK, for example `[getTotalGcCpuTime()]`. Where there are multiple methods with the same name, a plain reference to the method can be achieved with `[enquoteIdentifier][Statement.enquoteIdentifier]`.
   * Links of the form `[NumberFormat.setStrict]`, `[NumberFormat.setStrict(boolean)]`, `[NumberFormat.setStrict(true)]`, `[ofFileChannel(FileChannel channel, long offset, long length)]` are supported with any of the separators `[.]`, `[#]` and `[::]`.
   * If a link cannot be found then the string will be rendered as if it had been enclosed in back-ticks and, in the EA release notes only, the string "(link not found)" will be added.
-  * For notes of the type `rn-removed` if a link is not found then it will be looked for in the JavaDoc of the previous release family.
+  * For notes of the type [RN-Remove]{.jbs-value} if a link is not found then it will be looked for in the JavaDoc of the previous release family.
   * If a sequence that contains `[]` should not be treated as a link such as 'm[s]' then precede the opening square bracket with a backslash `m\\[s]`.
 
 ### Manually linking to the Java documentation
 
-When manually adding a link to the Java documentation, put the full link to docs.oracle.com (either the existing page, or what will be the page at GA), for example:
+When manually adding a link to the Java documentation, put last part of the url, from the `/docs` element, for example:
 
-`https://docs.oracle.com/en/java/javase/26/docs/specs/jar/jar.html`
+`[StackFrame.SetValues][/docs/specs/jdwp/jdwp-protocol.html#JDWP_StackFrame_SetValues]`
 
-and, in the EA versions of the release notes, any links which refer the to feature release under development will be translated to:
+and, in the EA versions of the release notes, any links which refer to the feature release under development will be translated to:
 
-`https://download.java.net/java/early_access/jdk26/docs/specs/jar/jar.html`
+`https://download.java.net/java/early_access/jdk26/docs/specs/jdwp/jdwp-protocol.html#JDWP_StackFrame_SetValues`
+
+and then mapped to the final location for the GA version of the release notes
 
 ## Advanced options
   * JEP release notes
