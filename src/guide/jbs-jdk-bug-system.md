@@ -93,26 +93,16 @@ Note that the [Affects Version/s]{.jbs-field} field is mainly used for bugs and 
 
 Set the [Affects Version/s]{.jbs-field} field to the lowest release where the bug has been seen.
 
-* The [Affects Version/s]{.jbs-field} isn't meant to be an exhaustive list of releases the issue is relevant to - it should initially be set to the release the issue was reproduced or identified on, and by implication it will be relevant to all releases past that point (see [Usage of the (Rel)[-na]{.jbs-label} Label](#usage-of-the-rel-na-label)). If it's later found to be applicable to an earlier release family then adding that earlier release is encouraged if the issue needs to be fixed in that release.
-* Don't add additional release values to [Affects Version/s]{.jbs-field} for the same release family. For example, if there is the value [11.0.2]{.jbs-value}, don't add [11.0.5]{.jbs-value}, [11.0.7]{.jbs-value} etc. Adding an additional value for a separate release family where it's still reproducible, e.g. JDK 21, is encouraged if there isn't currently a feature release value set, or, it has been a few releases since it was last reproduced/reviewed. For example, if the [Affects Version/s]{.jbs-field} is [8]{.jbs-value}, but it is still relevant to the latest mainline release.
+* The [Affects Version/s]{.jbs-field} isn't meant to be an exhaustive list of releases the issue is relevant to - it should initially be set to the release the issue was reproduced or identified on, and by implication it will be relevant to all releases past that point (see [Usage of the (Rel)[-na]{.jbs-label} Label](#usage-of-the-rel-na-label) if the issue is not applicable beyond a certain release). If it's later found to be applicable to an earlier release family then adding that earlier release is encouraged if the issue needs to be fixed in that release.
+* Don't add additional release values to [Affects Version/s]{.jbs-field} for the same release family. For example, if there is the value [11.0.2]{.jbs-value}, don't add [11.0.5]{.jbs-value}, [11.0.7]{.jbs-value} etc. Adding an additional value for a separate release family where it's still reproducible, e.g. JDK 21, is encouraged if there isn't currently a feature release value set, or, it has been a few releases since it was last reproduced/reviewed. For example, if the [Affects Version/s]{.jbs-field} is [8]{.jbs-value}, but it is still relevant to the latest mainline release that release can be added.
 * [Affects Version/s]{.jbs-field} should never use any of the "special" values available in JBS like [tbd]{.jbs-value}, [na]{.jbs-value}, [unknown]{.jbs-value}, [(Rel)-pool]{.jbs-value} or similar. Only actual JDK release numbers should be used. If you want to reflect that an issue is relevant to an older release, use a family release value or an exact release if you know where the issue was introduced: [8]{.jbs-value}, [17]{.jbs-value}, [21u4]{.jbs-value}.
 
 #### Usage of the (Rel)-na Label
 
-Labels of the form (Rel)[-na]{.jbs-label} (eg. [17-na]{.jbs-label}) should be used when a bug is not applicable to a more recent release family. For example:
+Labels of the form (Rel)[-na]{.jbs-label} (eg. [17-na]{.jbs-label}) should be used when a bug is not applicable to a more recent release family. For example, if [Affects Version/s]{.jbs-field} is [7u111]{.jbs-value}, [8u131]{.jbs-value}, add the label [9-na]{.jbs-label} if the issue is not relevant to JDK 9 and above. Reasons why this would be the case include the fact that the source has been removed from a later release or rewritten such that the issue is no longer relevant.
 
-[Affects Version/s]{.jbs-field}: [7u111]{.jbs-value}, [8u131]{.jbs-value}
-
-add the label [9-na]{.jbs-label} if the issue is not relevant to JDK 9 and above. Reasons why this would be the case include the fact that the source has been removed from a later release or rewritten such that the issue is no longer relevant.
-
-Don't:
-
-- use the label to indicate that a bug is not relevant to an earlier release, for example
-
-  [Affects Version/s]{.jbs-field}: [11.0.20]{.jbs-value}, [17]{.jbs-value}
-
-  the label [8-na]{.jbs-label} would not be needed - as it doesn't have a JDK 8 release, or earlier, value in the [Affects Version/s]{.jbs-field}, it is not relevant to JDK 8. Also see [Usage of the (Rel)[-wnf]{.jbs-label} Label](#usage-of-the-rel-wnf-label)
-- add multiple [-na]{.jbs-label} labels: you only need one, for example don't add both [9-na]{.jbs-label} and [11-na]{.jbs-label} — [9-na]{.jbs-label} implies all following releases therefore [11-na]{.jbs-label}, or [17-na]{.jbs-label} etc. are not needed.
+- Don't use the label to indicate that a bug is not relevant to an earlier release. If for example [Affects Version/s]{.jbs-field} is [11.0.20]{.jbs-value}, [17]{.jbs-value} the label [8-na]{.jbs-label} would not be needed - as it doesn't have a JDK 8 release, or earlier, value in the [Affects Version/s]{.jbs-field}, it is not relevant to JDK 8. Also see [Usage of the (Rel)[-wnf]{.jbs-label} Label](#usage-of-the-rel-wnf-label)
+- Never add multiple [-na]{.jbs-label} labels: you only need one. For example don't add both [9-na]{.jbs-label} and [11-na]{.jbs-label} — the [9-na]{.jbs-label} label implies all following releases therefore [11-na]{.jbs-label}, or [17-na]{.jbs-label} etc. are not needed.
 - It's not recommended to specify update releases like 17u4 or 21u in the label. Labels like [17-na]{.jbs-label} and [21-na]{.jbs-label} are in general enough.
 
 #### Usage of the (Rel)-wnf Label
