@@ -104,7 +104,7 @@ Labels of the form (Rel)[-na]{.jbs-label} (eg. [17-na]{.jbs-label}) should be us
 For example, if [Affects Version/s]{.jbs-field} is [7u111]{.jbs-value}, [8u131]{.jbs-value} the label [9-na]{.jbs-label} can be added if the issue is not relevant to JDK 9 and above. Reasons why this would be the case include the fact that the source has been removed from a later release or rewritten such that the issue is no longer relevant.
 
 - Don't use the label to indicate that a bug is not relevant to an earlier release. If for example [Affects Version/s]{.jbs-field} is [11.0.20]{.jbs-value}, [17]{.jbs-value} the label [8-na]{.jbs-label} would not be needed. Since the bug doesn't have [Affects Version/s]{.jbs-field} [8]{.jbs-value} or earlier, it is not relevant to JDK 8. See also how to [use (Rel)-[wnf]{.jbs-label} Label when a bug won't be fixed in a release](#use-rel-wnf-label-when-a-bug-wont-be-fixed-in-a-release).
-- Never add multiple [-na]{.jbs-label} labels: you only need one. For example don't add both [9-na]{.jbs-label} and [11-na]{.jbs-label} — the [9-na]{.jbs-label} label implies all following releases therefore [11-na]{.jbs-label}, or [17-na]{.jbs-label} etc. are not needed.
+- Never add multiple [-na]{.jbs-label} labels. For example don't add both [9-na]{.jbs-label} and [11-na]{.jbs-label} — the [9-na]{.jbs-label} label implies all following releases therefore [11-na]{.jbs-label}, or [17-na]{.jbs-label} etc. are not needed.
 - It's not recommended to specify update releases like 17u4 or 21u in the label. Labels like [17-na]{.jbs-label} and [21-na]{.jbs-label} are in general enough.
 
 #### Use (Rel)-wnf Label when a bug won't be fixed in a release
