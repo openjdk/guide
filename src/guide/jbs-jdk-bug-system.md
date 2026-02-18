@@ -431,9 +431,11 @@ This table contains some frequently used JBS labels and their meaning. Please he
   <tr>
     <td class="dictionary">[*(Rel)*[-na]{.jbs-label}]{#rel-na}</td>
     <td class="dictionary">
-      Labels of the form [11-na]{.jbs-label} or [21-na]{.jbs-label} should be used when a bug is not applicable to a **more recent** release family. See [Use (Rel)-na Label if a bug doesn't affect a release].
+      Labels of the form [11-na]{.jbs-label} or [21-na]{.jbs-label} should be used when a bug is not applicable to a **more recent** release family.
 
-      (Rel) can also refer to more general release atrifacts like [oraclejdk-na]{.jbs-label}, [openjdk-na]{.jbs-label}, and [sap-aix-na]{.jbs-label} to indicate that the issue doesn't affect code included in that specific atrifact.
+      (Rel) can also refer to more general release artifacts like [oraclejdk-na]{.jbs-label}, [openjdk-na]{.jbs-label}, and [sap-aix-na]{.jbs-label} to indicate that the issue doesn't affect code included in that specific artifact.
+
+      See [(Rel)-[na]{.jbs-label}](#use-rel-na-label-if-a-bug-doesnt-affect-a-release).
     </td>
   </tr>
   <tr>
@@ -441,7 +443,7 @@ This table contains some frequently used JBS labels and their meaning. Please he
     <td class="dictionary">
       Labels of the form [11-wnf]{.jbs-label} or [21-wnf]{.jbs-label} should be used to indicate that a bug is not going to be fixed in a release where it's present. Note that there should only be **one** *(Rel)*[-wnf]{.jbs-label} label on any JBS issue. It is implied that earlier versions will not be fixed either.
 
-      Also see [Use (Rel)-wnf Label when a bug won't be fixed in a release].
+      See [(Rel)-[wnf]{.jbs-label}](#use-rel-wnf-label-when-a-bug-wont-be-fixed-in-a-release).
     </td>
   </tr>
   <!-- Team -->
