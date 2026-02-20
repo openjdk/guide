@@ -285,7 +285,7 @@ Once the work on an issue has been completed the issue's [Status]{.jbs-field} sh
 
 When a change is integrated into a project repository, the corresponding JBS issue should be [Resolved]{.jbs-value} with the resolution [Fixed]{.jbs-value}. For the JDK Project, in almost all cases the bots will transition the issue to [Resolved]{.jbs-value}/[Fixed]{.jbs-value} automatically when the changeset is integrated. There are a few more cases where you want to indicate that a change has been integrated into a project repository that must also go through the [Resolved]{.jbs-value} state. In other cases, where you close an issue manually, it should go directly to [Closed]{.jbs-value} with the appropriate resolution. See the [table below](#close-resolve-table) for more details.
 
-An issue in [Resolved]{.jbs-value} state needs to go through [verification](#verifying-an-issue) to end up as [Closed]{.jbs-value}. If you accidentally move an issue to the [Resolved]{.jbs-value} state for a resolution that should only be [Closed]{.jbs-value}, use the "Verify" option in the state transition menu and select verification [None]{.jbs-value}.
+An issue in the [Resolved]{.jbs-value} state needs to go through [verification](#verifying-an-issue) to end up as [Closed]{.jbs-value}. If you move an issue to [Resolved]{.jbs-value} when it should be [Closed]{.jbs-value}, use the "Verify" option in the state transition menu and select verification [None]{.jbs-value}.
 
 The [Fix Version/s]{.jbs-field} field should indicate when an issue was fixed. The most common value for this field is a JDK version number. There are some special values available for this field in JBS, these should only be used for special cases as outlined in this Guide.
 
