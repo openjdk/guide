@@ -22,7 +22,7 @@ If you suspect that the issue is a vulnerability, **don't file a JBS issue!** In
 A few things to keep in mind when filing an issue:
 
 * Before filing, verify that there isn't an open issue already filed.
-  * Search [JBS](https://bugs.openjdk.org/issues/?jql=) for things like the name of the failing test, assert messages, the name of the source code file where a crash occurred etc.
+  * Search [JBS](https://bugs.openjdk.org/issues/?jql=project%20%3D%20JDK) for things like the name of the failing test, assert messages, the name of the source code file where a crash occurred etc.
   * If you find a similar issue that was closed as [Cannot Reproduce]{.jbs-value} then it may be appropriate to re-open that one - if you don't have direct access to JBS you can file a bug using the [Bug Report Tool](https://bugreport.java.com/) requesting that it be reopened.
 * Set a relevant [Component/s]{.jbs-field} for the issue.
   * If you are unsure what component to choose, see [Code Owners](#code-owners) for guidance.
