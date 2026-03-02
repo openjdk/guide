@@ -78,7 +78,7 @@ Knowing when an issue was introduced is important to determine the impact of the
 
 The [Affects Version/s]{.jbs-field} field is used to indicate which releases an issue is applicable to, and to avoid having to set it to an exhaustive list of impacted releases the following assumptions are used to give that range:
 
-1) If an issue is applicable to a feature release N, it is assumed to be applicable to all (more recent) releases unless indicated otherwise (see [(Rel)-na](#use-rel-na-label-if-a-bug-doesnt-affect-a-release) below).
+1) If an issue is applicable to a feature release N, it is assumed to be applicable to all (more recent) releases unless indicated otherwise (see [(Rel)-na](#use-the-rel-na-label-if-a-bug-doesnt-affect-a-release) below).
     - Note that if it's reported against an update release then all we can say is that it's applicable to all the following update releases, not necessarily the next feature release as it may have been introduced in an update. Given this, it is always important to try and reproduce the issue in the corresponding feature release as well as mainline.
 
 1) If an issue is applicable to release N, then it can't be assumed that it is applicable to older releases less than N. It may be, but in general this is less important to know, as the majority of issues are only fixed in the latest feature release. If the issue is a crash or important in another way, then it becomes worthwhile to take the time to determine if it's relevant to earlier maintained releases.
@@ -97,19 +97,19 @@ Set the [Affects Version/s]{.jbs-field} field to the lowest release where the bu
 * A good rule of thumb is to include the first and the last release where the bug was seen. This does not imply that all bugs should be updated for each release just to indicate that they still exist in mainline, but if you update, make sure to remove any versions between the first and the last. Don't add additional release values to [Affects Version/s]{.jbs-field} for the same release family. For example, if there is the value [21.0.6]{.jbs-value}, don't add [21.0.7]{.jbs-value}, [21.0.8]{.jbs-value} etc.
 * [Affects Version/s]{.jbs-field} should never use any of the "special" values available in JBS like [tbd]{.jbs-value}, [na]{.jbs-value}, [unknown]{.jbs-value}, [(Rel)-pool]{.jbs-value} or similar. Only actual JDK release numbers should be used. If you want to reflect that an issue is relevant to an older release, use a family release value or an exact release if you know where the issue was introduced: [8]{.jbs-value}, [17]{.jbs-value}, [21.0.4]{.jbs-value}.
 
-#### Use (Rel)-na Label if a bug doesn't affect a release
+#### Use the (Rel)-na Label if a bug doesn't affect a release
 
 Labels of the form (Rel)[-na]{.jbs-label} (eg. [17-na]{.jbs-label}) should be used when a bug is not applicable to a more recent release family.
 
 For example, if [Affects Version/s]{.jbs-field} is [7u111]{.jbs-value}, [8u131]{.jbs-value} the label [9-na]{.jbs-label} can be added if the issue is not relevant to JDK 9 and above. Reasons why this would be the case include the fact that the source has been removed from a later release or rewritten such that the issue is no longer relevant.
 
-- Don't use the label to indicate that a bug is not relevant to an earlier release. If for example [Affects Version/s]{.jbs-field} is [11.0.20]{.jbs-value}, [17]{.jbs-value} the label [8-na]{.jbs-label} would not be needed. Since the bug doesn't have [Affects Version/s]{.jbs-field} [8]{.jbs-value} or earlier, it is not relevant to JDK 8. See also how to [use (Rel)-[wnf]{.jbs-label} Label when a bug won't be fixed in a release](#use-rel-wnf-label-when-a-bug-wont-be-fixed-in-a-release).
+- Don't use the label to indicate that a bug is not relevant to an earlier release. If for example [Affects Version/s]{.jbs-field} is [11.0.20]{.jbs-value}, [17]{.jbs-value} the label [8-na]{.jbs-label} would not be needed. Since the bug doesn't have [Affects Version/s]{.jbs-field} [8]{.jbs-value} or earlier, it is not relevant to JDK 8. See also how to [use (Rel)-[wnf]{.jbs-label} Label when a bug won't be fixed in a release](#use-the-rel-wnf-label-when-a-bug-wont-be-fixed-in-a-release).
 
-- Never add multiple [-na]{.jbs-label} labels. For example don't add both [9-na]{.jbs-label} and [11-na]{.jbs-label} — the [9-na]{.jbs-label} label implies all following releases therefore [11-na]{.jbs-label}, or [17-na]{.jbs-label} etc. are not needed.
+- Never add multiple [-na]{.jbs-label} labels. For example don't add both [9-na]{.jbs-label} and [11-na]{.jbs-label} — the [9-na]{.jbs-label} label implies all following releases, hence no need for [11-na]{.jbs-label}, [17-na]{.jbs-label} etc.
 
 - It's not recommended to specify update releases like 17u4 or 21u in the label. Labels like [17-na]{.jbs-label} and [21-na]{.jbs-label} are in general enough.
 
-#### Use (Rel)-wnf Label when a bug won't be fixed in a release
+#### Use the (Rel)-wnf Label when a bug won't be fixed in a release
 
 Labels of the form (Rel)[-wnf]{.jbs-label} (e.g. [11-wnf]{.jbs-label}) should be used to indicate that a bug is not going to be fixed in a release that it's applicable to, or any earlier releases. For example, [11-wnf]{.jbs-label} states it won't be fixed in JDK 11 and implicitly indicates it won't be fixed in JDK 8 either.
 
@@ -435,7 +435,7 @@ This table contains some frequently used JBS labels and their meaning. Please he
 
       (Rel) can also refer to more general release artifacts like [oraclejdk-na]{.jbs-label}, [openjdk-na]{.jbs-label}, and [sap-aix-na]{.jbs-label} to indicate that the issue doesn't affect code included in that specific artifact.
 
-      See [(Rel)-[na]{.jbs-label}](#use-rel-na-label-if-a-bug-doesnt-affect-a-release).
+      See [(Rel)-[na]{.jbs-label}](#use-the-rel-na-label-if-a-bug-doesnt-affect-a-release).
     </td>
   </tr>
   <tr>
@@ -443,7 +443,7 @@ This table contains some frequently used JBS labels and their meaning. Please he
     <td class="dictionary">
       Labels of the form [11-wnf]{.jbs-label} or [21-wnf]{.jbs-label} should be used to indicate that a bug is not going to be fixed in a release where it's present. Note that there should only be **one** *(Rel)*[-wnf]{.jbs-label} label on any JBS issue. It is implied that earlier versions will not be fixed either.
 
-      See [(Rel)-[wnf]{.jbs-label}](#use-rel-wnf-label-when-a-bug-wont-be-fixed-in-a-release).
+      See [(Rel)-[wnf]{.jbs-label}](#use-the-rel-wnf-label-when-a-bug-wont-be-fixed-in-a-release).
     </td>
   </tr>
   <!-- Team -->
