@@ -77,7 +77,7 @@ A [Bug]{.jbs-value} or [Enhancement]{.jbs-value} should only be used if the work
 
 #### Is it a Bug or an Enhancement?
 
-To decide wether an issue is a bug or an enhancement is not always straight forward. The basic distinction is not complex; If the detected behavior breaks the specification, it's a bug. If the intended behavior changes the specification, it's an enhancement. A few things to consider are:
+To decide wether an issue is a bug or an enhancement is not always straight forward. The basic distinction is not complex; If the detected behavior breaks the specification, it's a bug. If the intended behavior changes the specification, it's an enhancement. In reality though it's not always as straight forward. A few things to consider are:
 
 - Is there a failing test?
 :   Provided you didn't just write the test and are doing test-driven development, a failing test is usually a sign of a bug. Something that used to work is now failing. The bug could be either in the JDK or in the test, but something is broken if a test is failing, and that should be classified as a bug.
