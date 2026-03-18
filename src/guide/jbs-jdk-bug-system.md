@@ -25,14 +25,14 @@ A few things to keep in mind when filing an issue:
   * Search [JBS](https://bugs.openjdk.org/issues/?jql=project%20%3D%20JDK) for things like the name of the failing test, assert messages, the name of the source code file where a crash occurred etc.
   * If you find a similar issue that was closed as [Cannot Reproduce]{.jbs-value} then it may be appropriate to re-open that one - if you don't have direct access to JBS you can file a bug using the [Bug Report Tool](https://bugreport.java.com/) requesting that it be reopened.
 * Set a relevant [Component/s]{.jbs-field} for the issue.
-  * If you are unsure what component to choose, see [Code Owners](#code-owners) for guidance.
+  * If you are unsure what component to choose, see [Code Owners] for guidance.
   * Please note that issues in the [hotspot]{.jbs-value} and [security-libs]{.jbs-value} components must have a [Subcomponent]{.jbs-field} set as well.
 * Make a reasonable attempt to narrow down which build or release the failure first appeared in.
 * Set [Affects Version/s]{.jbs-field} to the earliest JDK version where the failure was seen.
   * If the failure is found in an update train of the JDK (e.g. 11.0.x), please see (if possible) if it's also present in [mainline](https://github.com/openjdk/jdk).
   * All issues of type [Bug]{.jbs-value} must have the [Affects Version/s]{.jbs-field} set. It's not a bug if it doesn't affect some version.
   * For enhancements the [Affects Version/s]{.jbs-field} should be left empty, unless it is only relevant to a specific release family.
-  * See [Indicating what releases an issue is applicable to](#indicating-what-releases-an-issue-is-applicable-to) for more details.
+  * See [Indicating what releases an issue is applicable to] for more details.
 * Never set [Fix Version/s]{.jbs-field} to an already released version. If you intend for the change to be fixed in a JDK 21 update, set [Fix Version/s]{.jbs-field} to [21-pool]{.jbs-value}. A fix version of [21]{.jbs-value} would indicate the mainline release of JDK 21, which was released in 2023, and it is too late to add more changes there.
 * Add relevant [Labels]{.jbs-field} like [[intermittent]{.jbs-label}](#intermittent), [[regression]{.jbs-label}](#regression), [[noreg-self]{.jbs-label}](#noreg-self), [[tier1]{.jbs-label}](#tier) etc.
   * For more information see the [JBS Label Dictionary].
@@ -64,7 +64,7 @@ The most common issue types are:
 
 | Issue Type | Covers |
 |:-|:----------|
-| [Bug]{.jbs-value} | A [Bug]{.jbs-value} should relate to functional correctness - a deviation from behavior that can be tied back to a specification. Anything else, including performance concerns, is generally not a bug, but an enhancement. Though it's not clear-cut as a significant performance regression may be classified as a [Bug]{.jbs-value}, for example. |
+| [Bug]{.jbs-value} | A [Bug]{.jbs-value} should relate to functional correctness - a deviation from behavior that can be tied back to a specification. See [Is it a Bug or an Enhancement?] |
 | [Enhancement]{.jbs-value} | An [Enhancement]{.jbs-value} is a small to medium improvement to existing functionality. |
 | [JEP]{.jbs-value} | The [JEP]{.jbs-value} issue type is used for a proposal of a significant change or new feature which will take four or more weeks of work - see [JEP-1](https://openjdk.org/jeps/1). |
 | [Sub-task]{.jbs-value} | Sub-tasks can be used to break up the work for an issue, such as the changes to the docs, tests etc. This is not recommended as a way to break up a large amount of code change associated with a new feature - see [Implementing a JEP] or [Implementing a large change] below. |
@@ -74,6 +74,22 @@ The most common issue types are:
 ::: {.note}
 A [Bug]{.jbs-value} or [Enhancement]{.jbs-value} should only be used if the work is expected to result in a change in a code repository. A [Bug]{.jbs-value} or [Enhancement]{.jbs-value} with resolution [Fixed]{.jbs-value} is required to have a corresponding changeset in one of the OpenJDK repositories.
 :::
+
+#### Is it a Bug or an Enhancement?
+
+To decide whether an issue is a bug or an enhancement is not always straight forward. The basic distinction is not complex; If the detected behavior breaks the specification, it's a bug. If the intended behavior changes the specification, it's an enhancement. To make the right choice in reality, it might help to consider a few things:
+
+- Is there a failing test?
+:   Provided you didn't just write the test and are doing test-driven development, a failing test is usually a sign of a bug. Something that used to work is now failing. The bug could be either in the JDK or in the test, but something is broken if a test is failing, and that should be classified as a bug.
+
+- Is the existing code working as it was designed?
+:   If the code is doing what it was designed to do, and the design itself didn't have a bug, adapting code to changing circumstances should be considered enhancements. It's not a bug that we're not supporting a new version of an OS that didn't exist when the code was written. This includes cases where something that wasn't desired or required before has now become so. If something was deliberately left out for some acceptable reason, it would be an enhancement to add it later.
+
+- Corner cases and bugs in rarely taken code paths
+:   A bug is a bug, it doesn't matter if the code where the bug sits is extremely unlikely to be executed, or if the calculated result of the code is unlikely to be used. The likelihood of failure doesn't change the type of the issue. It may however affect if we chose to fix it or not.
+
+- Performance issues
+:   Performance issues rarely breaks any specification, but in general these can be divided into two categories: Performance regressions (bugs) and Performance enhancements. If something has worse performance than it used to have, that is a regression. While if you are looking to improve performance of something that has not recently regressed, it's an enhancement.
 
 ### Indicating what releases an issue is applicable to
 
@@ -217,7 +233,7 @@ Now that the issue is in the right component and has the basic information, the 
 1. Ensure the [Affects Version/s]{.jbs-field} field is correct (within reason).
     * This may involve reproducing the bug, if doing so is fast and easy.
     * In addition to the version where the bug was found, take special care to also investigate if the bug affects mainline.
-    * See [Indicating what releases an issue is applicable to](#indicating-what-releases-an-issue-is-applicable-to) for more details.
+    * See [Indicating what releases an issue is applicable to] for more details.
 1. Set the [Fix Version/s]{.jbs-field}.
    * A bug should be fixed first in the most recent version where it exists. If you don't know what version the fix will go into set the [Fix Version/s]{.jbs-field} to [tbd]{.jbs-value} or the appropriate [(Rel)-pool]{.jbs-value} if the fix is for a specific release family. If there is a [(Rel)-pool]{.jbs-value} in the fix version Skara tooling will use that issue/backport when you integrate the fix for that release family.
    * If the bug also exists in older versions it may require [backporting].
@@ -262,8 +278,8 @@ There are the following link types:
 
 | Type | Usage |
 |:-|:----------|
-| [duplicate of]{.jbs-value} | Normally set automatically when an issue is closed as a duplicate - see [Closing issues as duplicates] for more information. |
-| [backported by]{.jbs-value} | Normally set automatically when creating a backport with the “More -> Create Backport” option, or by the Skara tooling. |
+| [duplicate of]{.jbs-value} | Used when an issue is closed as a duplicate - see [Closing issues as duplicates] for more information. |
+| [backported by]{.jbs-value} | Set automatically when creating a backport with the “More -> Create Backport” option, or by the Skara tooling. |
 | [CSR for]{.jbs-value} | When creating a CSR with the “More -> Create CSR” option, a link is automatically created between the main issue and the new CSR. |
 | [blocks]{.jbs-value} | For when other issues are dependent on the current issue being resolved/fixed before they can be. For example, when a fix is broken down into a number of parts the [blocks]{.jbs-value} link should be used to ensure they are all fixed before the main issue is considered resolved - see [Implementing a large change]. |
 | [relates to]{.jbs-value} | Used to indicate a relationship between two issues. To avoid lots of [relates to]{.jbs-value} links, the links should have some significance in relation to the cause and/or fix, for the current issue. |
