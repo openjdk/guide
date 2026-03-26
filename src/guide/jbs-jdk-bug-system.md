@@ -89,7 +89,7 @@ To decide whether an issue is a bug or an enhancement is not always straight for
 :   A bug is a bug, it doesn't matter if the code where the bug sits is extremely unlikely to be executed, or if the calculated result of the code is unlikely to be used. The likelihood of failure doesn't change the type of the issue. It may however affect if we chose to fix it or not.
 
 - Performance issues
-:   Performance issues rarely breaks any specification, but in general these can be divided into two categories: Performance regressions (bugs) and Performance enhancements. If something has worse performance than it used to have, that is a regression. While if you are looking to improve performance of something that has not recently regressed, it's an enhancement.
+:   Performance issues rarely break any specification, but in general these can be divided into two categories: Performance regressions (bugs) and Performance enhancements. If something has worse performance than it used to have, that is a regression. While if you are looking to improve performance of something that has not recently regressed, it's an enhancement.
 
 ### Indicating what releases an issue is applicable to
 
