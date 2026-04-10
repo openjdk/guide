@@ -83,7 +83,7 @@ Deciding whether an issue is a bug or an enhancement is not always straightforwa
 :   Provided you didn't just write the test and are doing test-driven development, a failing test is usually a sign of a bug. Something that used to work is now failing. The bug could be either in the JDK or in the test, but something is broken if a test is failing, and that should be classified as a bug.
 
 - Is the existing code working as it was designed?
-:   If the code is doing what it was designed to do, and the design itself didn't have a bug, adapting code to changing circumstances should be considered enhancements. It's not a bug that we're not supporting a new version of an OS that didn't exist when the code was written. This includes cases where something that wasn't desired or required before has now become so. If something was deliberately left out for some acceptable reason, it would be an enhancement to add it later.
+:   If the code is doing what it was designed to do, and the design itself didn't have a bug, adapting the code to changing circumstances should be considered as an enhancement. It's not a bug that we're not supporting a new version of an OS that didn't exist when the code was written. This includes cases where something that wasn't desired or required before has now become so. If something was deliberately left out, it would be an enhancement to add it later.
 
 - Corner cases and bugs in rarely taken code paths
 :   A bug is a bug, it doesn't matter if the code where the bug sits is extremely unlikely to be executed, or if the calculated result of the code is unlikely to be used. The likelihood of failure doesn't change the type of the issue. It may however affect if we chose to fix it or not.
