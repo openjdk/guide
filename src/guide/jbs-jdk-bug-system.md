@@ -86,7 +86,7 @@ Deciding whether an issue is a bug or an enhancement is not always straightforwa
 :   If the code is doing what it was designed to do, and the design itself didn't have a bug, adapting the code to changing circumstances should be considered as an enhancement. It's not a bug that we're not supporting a new version of an OS that didn't exist when the code was written. This includes cases where something that wasn't desired or required before has now become so. If something was deliberately left out, it would be an enhancement to add it later.
 
 - Corner cases and bugs in rarely taken code paths
-:   A bug is a bug, it doesn't matter if the code where the bug sits is extremely unlikely to be executed, or if the calculated result of the code is unlikely to be used. The likelihood of failure doesn't change the type of the issue. It may however affect if we chose to fix it or not.
+:   A bug is a bug, it doesn't matter if the code where the bug sits is extremely unlikely to be executed, or if the calculated result of the code is unlikely to be used. The likelihood of failure doesn't change the type of the issue. It may, however, affect if we chose to fix it or not.
 
 - Performance issues
 :   Performance issues rarely break any specification, but in general these can be divided into two categories: Performance regressions (bugs) and Performance enhancements. If something has worse performance than it used to have, that is a regression. While if you are looking to improve performance of something that has not recently regressed, it's an enhancement.
