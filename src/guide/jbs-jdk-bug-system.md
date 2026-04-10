@@ -64,7 +64,7 @@ The most common issue types are:
 
 | Issue Type | Covers |
 |:-|:----------|
-| [Bug]{.jbs-value} | A [Bug]{.jbs-value} should relate to functional correctness - a deviation from behavior that can be tied back to a specification. See [Is it a Bug or an Enhancement?] |
+| [Bug]{.jbs-value} | A [Bug]{.jbs-value} relates to functional correctness - a deviation from behavior that can be tied back to a specification. See [Is it a Bug or an Enhancement?] |
 | [Enhancement]{.jbs-value} | An [Enhancement]{.jbs-value} is a small to medium improvement to existing functionality. |
 | [JEP]{.jbs-value} | The [JEP]{.jbs-value} issue type is used for a proposal of a significant change or new feature which will take four or more weeks of work - see [JEP-1](https://openjdk.org/jeps/1). |
 | [Sub-task]{.jbs-value} | Sub-tasks can be used to break up the work for an issue, such as the changes to the docs, tests etc. This is not recommended as a way to break up a large amount of code change associated with a new feature - see [Implementing a JEP] or [Implementing a large change] below. |
