@@ -47,7 +47,6 @@ This list is intended to make it easier to identify which email list to include 
     * [include](https://github.com/openjdk/jdk/tree/master/src/hotspot/share/include) - HotSpot
     * [interpreter](https://github.com/openjdk/jdk/tree/master/src/hotspot/share/interpreter) - Runtime
     * [jfr](https://github.com/openjdk/jdk/tree/master/src/hotspot/share/jfr) - JFR
-    * [jvmci](https://github.com/openjdk/jdk/tree/master/src/hotspot/share/jvmci) - Compiler
     * [libadt](https://github.com/openjdk/jdk/tree/master/src/hotspot/share/libadt) - Compiler
     * [logging](https://github.com/openjdk/jdk/tree/master/src/hotspot/share/logging) - Runtime
     * [memory](https://github.com/openjdk/jdk/tree/master/src/hotspot/share/memory) - GC, Runtime
@@ -172,8 +171,6 @@ This list is intended to make it easier to identify which email list to include 
 * [jdk.crypto.mscapi](https://github.com/openjdk/jdk/tree/master/src/jdk.crypto.mscapi) - Security
 * [jdk.dynalink](https://github.com/openjdk/jdk/tree/master/src/jdk.dynalink) - Tools
 * [jdk.editpad](https://github.com/openjdk/jdk/tree/master/src/jdk.editpad) - JShell
-* [jdk.graal.compiler](https://github.com/openjdk/jdk/tree/master/src/jdk.graal.compiler) - Compiler
-* [jdk.graal.compiler.management](https://github.com/openjdk/jdk/tree/master/src/jdk.graal.compiler.management) - Compiler
 * [jdk.hotspot.agent](https://github.com/openjdk/jdk/tree/master/src/jdk.hotspot.agent) - Serviceability
 * [jdk.httpserver](https://github.com/openjdk/jdk/tree/master/src/jdk.httpserver) - Net
 * [jdk.incubator.vector](https://github.com/openjdk/jdk/tree/master/src/jdk.incubator.vector) - Compiler
@@ -182,7 +179,6 @@ This list is intended to make it easier to identify which email list to include 
 * [jdk.internal.le](https://github.com/openjdk/jdk/tree/master/src/jdk.internal.le) - JShell
 * [jdk.internal.md](https://github.com/openjdk/jdk/tree/master/src/jdk.internal.md) - Tools
 * [jdk.internal.opt](https://github.com/openjdk/jdk/tree/master/src/jdk.internal.opt) - Tools
-* [jdk.internal.vm.ci](https://github.com/openjdk/jdk/tree/master/src/jdk.internal.vm.ci) - Compiler
 * [jdk.jartool](https://github.com/openjdk/jdk/tree/master/src/jdk.jartool) - Tools
 * [jdk.javadoc](https://github.com/openjdk/jdk/tree/master/src/jdk.javadoc) - Javadoc
 * [jdk.jcmd](https://github.com/openjdk/jdk/tree/master/src/jdk.jcmd) - Serviceability

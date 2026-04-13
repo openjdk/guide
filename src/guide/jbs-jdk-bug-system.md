@@ -376,7 +376,7 @@ This table contains some frequently used JBS labels and their meaning. Please he
   <tr>
     <td class="dictionary">[*(Area)*[-related]{.jbs-label}]{#area-related}</td>
     <td class="dictionary">
-      Used to indicate that an issue is related to a specific area (usually a feature or [Project](https://openjdk.org/bylaws#project)). This label doesn't indicate ownership of the issue. E.g., [graal-related]{.jbs-label}, [testcolo-related]{.jbs-label}, [doc-related]{.jbs-label}
+      Used to indicate that an issue is related to a specific area (usually a feature or [Project](https://openjdk.org/bylaws#project)). This label doesn't indicate ownership of the issue. E.g., [testcolo-related]{.jbs-label}, [doc-related]{.jbs-label}
     </td>
   </tr>
   <!-- Release -->
@@ -544,18 +544,6 @@ This table contains some frequently used JBS labels and their meaning. Please he
       Note that ZGC breaks this pattern and uses the label [zgc]{.jbs-label}.
     </td>
   </tr>
-  <tr>
-    <td class="dictionary">[[graal]{.jbs-label}]{#graal}</td>
-    <td class="dictionary">
-      Used to indicate that this is a Graal issue. (Something that needs to be fixed in Graal rather than in the JDK.)
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">[[graal-integration]{.jbs-label}]{#graal-integration}</td>
-    <td class="dictionary">
-      Reserved for Graal integration umbrella bugs. The automated integration script will break if this label is used for other bugs.
-    </td>
-  </tr>
   <!-- H -->
   <tr>
     <td class="dictionary">[[hgupdate-sync]{.jbs-label}]{#hgupdate-sync}</td>
@@ -612,12 +600,6 @@ This table contains some frequently used JBS labels and their meaning. Please he
     <td class="dictionary">[[jep-superseded]{.jbs-label}]{#jep-superseded}</td>
     <td class="dictionary">
       Used to tag JEPs that have been superseded by a newer version of the JEP.
-    </td>
-  </tr>
-  <tr>
-    <td class="dictionary">[[jvmci]{.jbs-label}]{#jvmci}</td>
-    <td class="dictionary">
-      Used to identify issues in the JVM Compiler Interface.
     </td>
   </tr>
   <!-- K -->
