@@ -218,6 +218,7 @@ This list is intended to make it easier to identify which email list to include 
   * `*.jdk` – Compiler (Removed in [10](https://bugs.openjdk.org/browse/JDK-8187443))
   * share
     * `aot` – Compiler (Removed in [17](https://bugs.openjdk.org/browse/JDK-8263327))
+    * `jvmci` – Compiler (Removed in [27](https://bugs.openjdk.org/browse/JDK-8382582))
     * `shark` – Compiler (Removed in [10](https://bugs.openjdk.org/browse/JDK-8171853))
     * `trace` – Runtime (Removed in [11](https://bugs.openjdk.org/browse/JDK-8199712))
 * java.base
@@ -226,7 +227,10 @@ This list is intended to make it easier to identify which email list to include 
 * `jdk.aot` – Compiler (Removed in [17](https://bugs.openjdk.org/browse/JDK-8263327))
 * `jdk.crypto.ucrypto` – Security (Removed in [12](https://bugs.openjdk.org/browse/JDK-8241787))
   * only available on Solaris
+* `jdk.graal.compiler` – Compiler (Removed in [27](https://bugs.openjdk.org/browse/JDK-8382582))
+* `jdk.graal.compiler.management` – Compiler (Removed in [27](https://bugs.openjdk.org/browse/JDK-8382582))
 * `jdk.incubator.concurrent` – Core Libs (Removed in [21](https://bugs.openjdk.org/browse/JDK-8306647))
+* `jdk.internal.vm.ci` – Compiler (Removed in [27](https://bugs.openjdk.org/browse/JDK-8382582))
 * `jdk.internal.vm.compiler` – Compiler (Removed in [22](https://bugs.openjdk.org/browse/JDK-8318027))
 * `jdk.internal.vm.compiler.management` – Compiler (Removed in [22](https://bugs.openjdk.org/browse/JDK-8318027))
 * `jdk.pack` – Tools (Removed in [14](https://bugs.openjdk.org/browse/JDK-8234596))
