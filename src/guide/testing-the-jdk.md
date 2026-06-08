@@ -198,17 +198,14 @@ There are actually several ProblemList files to choose from in the JDK. Their lo
 ~~~
 test/hotspot/jtreg/ProblemList.txt
 test/hotspot/jtreg/ProblemList-aot.txt
-test/hotspot/jtreg/ProblemList-graal.txt
 test/hotspot/jtreg/ProblemList-non-cds-mode.txt
 test/hotspot/jtreg/ProblemList-Xcomp.txt
 test/hotspot/jtreg/ProblemList-zgc.txt
 test/jaxp/ProblemList.txt
 test/jdk/ProblemList.txt
 test/jdk/ProblemList-aot.txt
-test/jdk/ProblemList-graal.txt
 test/jdk/ProblemList-Xcomp.txt
 test/langtools/ProblemList.txt
-test/langtools/ProblemList-graal.txt
 test/lib-test/ProblemList.txt
 ~~~
 
