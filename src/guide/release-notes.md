@@ -26,9 +26,9 @@ The release note itself is written in a [JBS](#jbs---jdk-bug-system) sub-task of
 #. For the newly created sub-task, follow these steps:
    * While the [Priority]{.jbs-field} of the sub-task is set by default to be the same as the priority of the issue itself, it can be changed to adjust in what order the release note is listed compared to other release notes in the same build or release note section.
    * Set the [Assignee]{.jbs-field} to the same person who owns the main issue.
-   * The [Summary]{.jbs-field} should be a one sentence synopsis that is informative (and concise) enough to attract the attention of users, developers, and maintainers who might be impacted by the change. It should succinctly describe what has actually changed, not be the original bug title, nor describe the problem that was being solved. It should read well as a sub-section heading in a document.
+   * The [Summary]{.jbs-field} should be a one sentence synopsis that is informative (and concise) enough to attract the attention of users, developers, and maintainers who might be impacted by the change. It should succinctly describe what has actually changed, not be the original bug title, nor describe the problem that was being solved. It should read well as a subsection heading in a document.
    * Prefix the [Summary]{.jbs-field} with "Release Note:".
-   * Enter the text of the release note in the [Description]{.jbs-field} field using markdown formatting, following the [CommonMark specification](https://spec.commonmark.org/current/). While the markdown won't be rendered in JBS, you can use [dingus](https://spec.commonmark.org/dingus/) to see what the release note will look like. Note that [Github style ascii table formatting](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables) is supported but will not display correctly in the dingus page. For more information see [General Conventions for Release Notes] below.
+   * Enter the text of the release note in the [Description]{.jbs-field} field using Markdown formatting, following the [CommonMark specification](https://spec.commonmark.org/current/). While the Markdown won't be rendered in JBS, you can use [dingus](https://spec.commonmark.org/dingus/) to see what the release note will look like. Note that [GitHub-style table formatting](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables) is supported but will not display correctly in the dingus page. For more information, see [General Conventions for Release Notes] below.
    * Set [Component/s]{.jbs-field} and [Subcomponent]{.jbs-field} to the same values as the original bug.
    * Set [Affects Version/s]{.jbs-field} to the release versions for which the release note should be published.
    * Add the [release-note]{.jbs-label} label. This is required for the release note to be included in the release notes.
@@ -39,7 +39,7 @@ The release note itself is written in a [JBS](#jbs---jdk-bug-system) sub-task of
 
 #. When you are done, _resolve_ the release note sub-task as [Delivered]{.jbs-value} by hitting `Resolve` in the workflow drop-down, and then selecting [Delivered]{.jbs-value} as the Resolution. Only release notes where the sub-task has been resolved as [Delivered]{.jbs-value} is considered to be part of the EA/GA release notes. To avoid mixing up the release notes with the code fixes that have gone into a particular release or build, we don't use [Resolved]{.jbs-value}/[Fixed]{.jbs-value}.
 
-If you see an issue you feel should have a release note but you are not the assignee of the bug, then add the label [release-note=yes]{.jbs-label} to the main bug (not on a backport nor a sub-task). This acts as a flag to make sure that the release note is considered. This can be done even with fixes that have been shipped already if it's noticed that there is confusion around the change. If, after discussion, it's decided that a release note isn't required either remove the label, or change it to [release-note=no]{.jbs-label} if it makes sense to have a clear indication that a release note isn't required for the fix. The label [release-note=yes]{.jbs-label} can be removed once the release note sub-task has been created.
+If you see an issue you feel should have a release note, but you are not the assignee of the bug, then add the label [release-note=yes]{.jbs-label} to the main bug (not on a backport, nor a sub-task). This acts as a flag to make sure that the release note is considered. This can be done even with fixes that have been shipped already if it's noticed that there is confusion around the change. If, after discussion, it's decided that a release note isn't required either remove the label, or change it to [release-note=no]{.jbs-label} if it makes sense to have a clear indication that a release note isn't required for the fix. The label [release-note=yes]{.jbs-label} can be removed once the release note sub-task has been created.
 
 For examples of well written release note issues in JBS, see [JDK-8276929](https://bugs.openjdk.org/browse/JDK-8276929) or [JDK-8278458](https://bugs.openjdk.org/browse/JDK-8278458).
 
@@ -66,6 +66,38 @@ The following are general practices that should be followed when creating releas
   * Sentence stating the change that was made
   * Background info/context
   * Example: A new system property, `jdk.disableLastUsageTracking`, has been introduced to disable JRE last usage tracking for a running VM.
+
+## Linking options within a release note
+
+As well as the standard [CommonMark link types](https://spec.commonmark.org/0.31.2/#links) the following custom links are supported:
+
+### Linking of JBS issues
+
+  * Any JBS ID of the form `JDK-NNNNNNN` will be linked.
+
+### Linking to the Java documentation
+
+When introducing a new method or describing a change it is useful to link to the JavaDoc where additional information can be found.  To support this linking options similar to those for [JavaDoc Markdown](https://openjdk.org/jeps/467#Links) are supported, including `[NumberFormat.setStrict]` or `[some text][NumberFormat.setStrict]`.
+
+  * Linking to the [JDK tools](https://docs.oracle.com/en/java/javase/25/docs/specs/man/index.html) is supported - to differentiate between the class `[JarSigner]`, and the tool `[jarsigner]`, the tool reference should be in all lowercase.
+  * Linking to the JDK tools command line arguments is supported for JDK 27 and above, for example `[-XX:+UseTransparentHugePages]`. If the command line argument is not unique across all the JDK tools, then the option needs to be prefixed with the name of the tool, for example `[jarsigner -storepass]`.
+  * Method names do not need to be prefixed with their class name if they are unique within the JDK, for example `[getTotalGcCpuTime()]`. Where there are multiple methods with the same name, a plain reference to the method can be achieved with `[enquoteIdentifier][Statement.enquoteIdentifier]`.
+  * Links of the form `[NumberFormat.setStrict]`, `[NumberFormat.setStrict(boolean)]`, `[NumberFormat.setStrict(true)]`, `[ofFileChannel(FileChannel channel, long offset, long length)]` are supported with any of the separators `[.]`, `[#]` and `[::]`.
+  * If a link cannot be found then the string will be rendered as if it had been enclosed in back-ticks and, in the EA release notes only, the string "(link not found)" will be added.
+  * For notes of the type [RN-Remove]{.jbs-value} if a link is not found then it will be looked for in the JavaDoc of the previous release family.
+  * If a sequence that contains `[]` should not be treated as a link such as 'm[s]' then precede the opening square bracket with a backslash `m\\[s]`.
+
+### Manually linking to the Java documentation
+
+When manually adding a link to the Java documentation, put last part of the url, from the `/docs` element, for example:
+
+`[StackFrame.SetValues][/docs/specs/jdwp/jdwp-protocol.html#JDWP_StackFrame_SetValues]`
+
+and, in the EA versions of the release notes, any links which refer to the feature release under development will be translated to:
+
+`https://download.java.net/java/early_access/jdk26/docs/specs/jdwp/jdwp-protocol.html#JDWP_StackFrame_SetValues`
+
+and then mapped to the final location for the GA version of the release notes
 
 ## Advanced options
   * JEP release notes
