@@ -77,10 +77,9 @@ As well as the standard [CommonMark link types](https://spec.commonmark.org/0.31
 
 ### Linking to the Java documentation
 
-When introducing a new method or describing a change it is useful to link to the JavaDoc where additional information can be found.  To support this linking options similar to those for [JavaDoc Markdown](https://openjdk.org/jeps/467#Links) are supported, including `[NumberFormat.setStrict]` or `[some text][NumberFormat.setStrict]`.
+When introducing a new method or describing a change it is useful to link to the JavaDoc where additional information can be found.  To support this linking options similar to those for [JavaDoc Markdown](https://openjdk.org/jeps/467#Links) are supported, including `[NumberFormat.setStrict]` and `[some text][NumberFormat.setStrict]`.
 
   * Linking to the [JDK tools](https://docs.oracle.com/en/java/javase/25/docs/specs/man/index.html) is supported - to differentiate between the class `[JarSigner]`, and the tool `[jarsigner]`, the tool reference should be in all lowercase.
-  * Linking to the JDK tools command line arguments is supported for JDK 27 and above, for example `[-XX:+UseTransparentHugePages]`. If the command line argument is not unique across all the JDK tools, then the option needs to be prefixed with the name of the tool, for example `[jarsigner -storepass]`.
   * Method names do not need to be prefixed with their class name if they are unique within the JDK, for example `[getTotalGcCpuTime()]`. Where there are multiple methods with the same name, a plain reference to the method can be achieved with `[enquoteIdentifier][Statement.enquoteIdentifier]`.
   * Links of the form `[NumberFormat.setStrict]`, `[NumberFormat.setStrict(boolean)]`, `[NumberFormat.setStrict(true)]`, `[ofFileChannel(FileChannel channel, long offset, long length)]` are supported with any of the separators `[.]`, `[#]` and `[::]`.
   * If a link cannot be found then the string will be rendered as if it had been enclosed in back-ticks and, in the EA release notes only, the string "(link not found)" will be added.
