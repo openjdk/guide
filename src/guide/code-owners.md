@@ -2,8 +2,6 @@
 
 This list is intended to make it easier to identify which email list to include in code reviews when making changes in different areas. The list may also help when assigning bugs based on which code they are found in. Please note that some directories may have been created or removed between releases. The intention is to include directories that exist in mainline and other commonly updated releases (post JDK 9).
 
-## Area mailing lists
-
 * Generic JDK Development: [`jdk-dev`](https://mail.openjdk.org/mailman/listinfo/jdk-dev)
 * Build: [`build-dev`](https://mail.openjdk.org/mailman/listinfo/build-dev)
 * Client Libs: [`client-libs-dev`](https://mail.openjdk.org/mailman/listinfo/client-libs-dev)
@@ -43,11 +41,11 @@ This list is intended to make it easier to identify which email list to include 
     * [classfile](https://github.com/openjdk/jdk/tree/master/src/hotspot/share/classfile) - Runtime
     * [code](https://github.com/openjdk/jdk/tree/master/src/hotspot/share/code) - Compiler
     * [compiler](https://github.com/openjdk/jdk/tree/master/src/hotspot/share/compiler) - Compiler
+    * [cppstdlib](https://github.com/openjdk/jdk/tree/master/src/hotspot/share/cppstdlib) - Runtime
     * [gc](https://github.com/openjdk/jdk/tree/master/src/hotspot/share/gc) - GC
     * [include](https://github.com/openjdk/jdk/tree/master/src/hotspot/share/include) - HotSpot
     * [interpreter](https://github.com/openjdk/jdk/tree/master/src/hotspot/share/interpreter) - Runtime
     * [jfr](https://github.com/openjdk/jdk/tree/master/src/hotspot/share/jfr) - JFR
-    * [jvmci](https://github.com/openjdk/jdk/tree/master/src/hotspot/share/jvmci) - Compiler
     * [libadt](https://github.com/openjdk/jdk/tree/master/src/hotspot/share/libadt) - Compiler
     * [logging](https://github.com/openjdk/jdk/tree/master/src/hotspot/share/logging) - Runtime
     * [memory](https://github.com/openjdk/jdk/tree/master/src/hotspot/share/memory) - GC, Runtime
@@ -72,6 +70,7 @@ This list is intended to make it easier to identify which email list to include 
       * [classfile](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/classfile) - Core Libs
       * [constant](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/constant) - Core Libs
       * [event](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/event) - JFR
+      * [ffi](https://github.com/openjdk/jdk/tree/master/src/java.base/macosx/classes/jdk/internal/ffi) - Core Libs
       * [foreign](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/foreign) - Core Libs
       * [icu](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/icu) - Core Libs
       * [invoke](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/invoke) - Core Libs
@@ -86,6 +85,7 @@ This list is intended to make it easier to identify which email list to include 
       * [math](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/math) - Core Libs
       * [[share](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/misc), [unix](https://github.com/openjdk/jdk/tree/master/src/java.base/unix/classes/jdk/internal/misc), [windows](https://github.com/openjdk/jdk/tree/master/src/java.base/windows/classes/jdk/internal/misc)]/misc - Core Libs, HotSpot
       * [module](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/module) - Core Libs
+      * [net](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/net) - Net
       * [org/xml](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/org/xml) - Core Libs
       * [perf](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/perf) - Runtime
       * [[linux](https://github.com/openjdk/jdk/tree/master/src/java.base/linux/classes/jdk/internal/platform), [share](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/platform), [unix](https://github.com/openjdk/jdk/tree/master/src/java.base/unix/classes/jdk/internal/platform), [windows](https://github.com/openjdk/jdk/tree/master/src/java.base/windows/classes/jdk/internal/platform)]/platform - HotSpot
@@ -95,6 +95,7 @@ This list is intended to make it easier to identify which email list to include 
       * [util/random](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/util/random) - Core Libs
       * [util/regex](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/util/regex) - Core Libs
       * [util/xml](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/util/xml) - Core Libs
+      * [value](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/value) - Core Libs
       * [vm](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/jdk/internal/vm) - HotSpot
     * [invoke](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/sun/invoke) - Core Libs
     * [[share](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/java/io), [sun](https://github.com/openjdk/jdk/tree/master/src/java.base/windows/classes/sun/io), [unix](https://github.com/openjdk/jdk/tree/master/src/java.base/unix/classes/java/io)]/io - Core Libs
@@ -111,7 +112,6 @@ This list is intended to make it easier to identify which email list to include 
     * [[java](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/java/text), [sun](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/sun/text)]/text - I18n
     * [[java](https://github.com/openjdk/jdk/tree/master/src/java.base/share/classes/java/util), [macosx](https://github.com/openjdk/jdk/tree/master/src/java.base/macosx/classes/sun/util), [windows](https://github.com/openjdk/jdk/tree/master/src/java.base/windows/classes/sun/util)]/util - I18n, Core Libs
   * [[aix](https://github.com/openjdk/jdk/tree/master/src/java.base/aix/conf), [share](https://github.com/openjdk/jdk/tree/master/src/java.base/share/conf), [unix](https://github.com/openjdk/jdk/tree/master/src/java.base/unix/conf), [windows](https://github.com/openjdk/jdk/tree/master/src/java.base/windows/conf)]/conf
-    * [sdp](https://github.com/openjdk/jdk/tree/master/src/java.base/unix/conf/sdp) - Net
     * [security](https://github.com/openjdk/jdk/tree/master/src/java.base/share/conf/security) - Security
   * [[share](https://github.com/openjdk/jdk/tree/master/src/java.base/share/legal), [windows](https://github.com/openjdk/jdk/tree/master/src/java.base/windows/legal)]/legal
   * [man](https://github.com/openjdk/jdk/tree/master/src/java.base/share/man)
@@ -119,7 +119,7 @@ This list is intended to make it easier to identify which email list to include 
     * [keytool.md](https://github.com/openjdk/jdk/tree/master/src/java.base/share/man/keytool.md) - Security
   * [[aix](https://github.com/openjdk/jdk/tree/master/src/java.base/aix/native), [linux](https://github.com/openjdk/jdk/tree/master/src/java.base/linux/native), [macosx](https://github.com/openjdk/jdk/tree/master/src/java.base/macosx/native), [share](https://github.com/openjdk/jdk/tree/master/src/java.base/share/native), [unix](https://github.com/openjdk/jdk/tree/master/src/java.base/unix/native), [windows](https://github.com/openjdk/jdk/tree/master/src/java.base/windows/native)]/native
     * [common](https://github.com/openjdk/jdk/tree/master/src/java.base/windows/native/common)
-    * [[share](https://github.com/openjdk/jdk/tree/master/src/java.base/share/native/include), [unix](https://github.com/openjdk/jdk/tree/master/src/java.base/unix/native/include), [windows](https://github.com/openjdk/jdk/tree/master/src/java.base/windows/native/include)]/include - Runtime, Core Libs
+    * [[aix](https://github.com/openjdk/jdk/tree/master/src/java.base/aix/native/include), [share](https://github.com/openjdk/jdk/tree/master/src/java.base/share/native/include), [unix](https://github.com/openjdk/jdk/tree/master/src/java.base/unix/native/include), [windows](https://github.com/openjdk/jdk/tree/master/src/java.base/windows/native/include)]/include - Runtime, Core Libs
     * [jspawnhelper](https://github.com/openjdk/jdk/tree/master/src/java.base/unix/native/jspawnhelper) - Tools
     * [[share](https://github.com/openjdk/jdk/tree/master/src/java.base/share/native/launcher), [unix](https://github.com/openjdk/jdk/tree/master/src/java.base/unix/native/launcher), [windows](https://github.com/openjdk/jdk/tree/master/src/java.base/windows/native/launcher)]/launcher - Tools
     * [libfallbackLinker](https://github.com/openjdk/jdk/tree/master/src/java.base/share/native/libfallbackLinker) - Core Libs
@@ -172,8 +172,6 @@ This list is intended to make it easier to identify which email list to include 
 * [jdk.crypto.mscapi](https://github.com/openjdk/jdk/tree/master/src/jdk.crypto.mscapi) - Security
 * [jdk.dynalink](https://github.com/openjdk/jdk/tree/master/src/jdk.dynalink) - Tools
 * [jdk.editpad](https://github.com/openjdk/jdk/tree/master/src/jdk.editpad) - JShell
-* [jdk.graal.compiler](https://github.com/openjdk/jdk/tree/master/src/jdk.graal.compiler) - Compiler
-* [jdk.graal.compiler.management](https://github.com/openjdk/jdk/tree/master/src/jdk.graal.compiler.management) - Compiler
 * [jdk.hotspot.agent](https://github.com/openjdk/jdk/tree/master/src/jdk.hotspot.agent) - Serviceability
 * [jdk.httpserver](https://github.com/openjdk/jdk/tree/master/src/jdk.httpserver) - Net
 * [jdk.incubator.vector](https://github.com/openjdk/jdk/tree/master/src/jdk.incubator.vector) - Compiler
@@ -182,7 +180,6 @@ This list is intended to make it easier to identify which email list to include 
 * [jdk.internal.le](https://github.com/openjdk/jdk/tree/master/src/jdk.internal.le) - JShell
 * [jdk.internal.md](https://github.com/openjdk/jdk/tree/master/src/jdk.internal.md) - Tools
 * [jdk.internal.opt](https://github.com/openjdk/jdk/tree/master/src/jdk.internal.opt) - Tools
-* [jdk.internal.vm.ci](https://github.com/openjdk/jdk/tree/master/src/jdk.internal.vm.ci) - Compiler
 * [jdk.jartool](https://github.com/openjdk/jdk/tree/master/src/jdk.jartool) - Tools
 * [jdk.javadoc](https://github.com/openjdk/jdk/tree/master/src/jdk.javadoc) - Javadoc
 * [jdk.jcmd](https://github.com/openjdk/jdk/tree/master/src/jdk.jcmd) - Serviceability
@@ -194,7 +191,6 @@ This list is intended to make it easier to identify which email list to include 
 * [jdk.jlink](https://github.com/openjdk/jdk/tree/master/src/jdk.jlink) - Tools
 * [jdk.jpackage](https://github.com/openjdk/jdk/tree/master/src/jdk.jpackage) - Core Libs
 * [jdk.jshell](https://github.com/openjdk/jdk/tree/master/src/jdk.jshell) - JShell
-* [jdk.jsobject](https://github.com/openjdk/jdk/tree/master/src/jdk.jsobject) - Tools
 * [jdk.jstatd](https://github.com/openjdk/jdk/tree/master/src/jdk.jstatd) - Serviceability
 * [jdk.localedata](https://github.com/openjdk/jdk/tree/master/src/jdk.localedata) - I18n
 * [jdk.management](https://github.com/openjdk/jdk/tree/master/src/jdk.management) - Serviceability
@@ -222,6 +218,7 @@ This list is intended to make it easier to identify which email list to include 
   * `*.jdk` – Compiler (Removed in [10](https://bugs.openjdk.org/browse/JDK-8187443))
   * share
     * `aot` – Compiler (Removed in [17](https://bugs.openjdk.org/browse/JDK-8263327))
+    * `jvmci` – Compiler (Removed in [27](https://bugs.openjdk.org/browse/JDK-8382582))
     * `shark` – Compiler (Removed in [10](https://bugs.openjdk.org/browse/JDK-8171853))
     * `trace` – Runtime (Removed in [11](https://bugs.openjdk.org/browse/JDK-8199712))
 * java.base
@@ -230,9 +227,13 @@ This list is intended to make it easier to identify which email list to include 
 * `jdk.aot` – Compiler (Removed in [17](https://bugs.openjdk.org/browse/JDK-8263327))
 * `jdk.crypto.ucrypto` – Security (Removed in [12](https://bugs.openjdk.org/browse/JDK-8241787))
   * only available on Solaris
+* `jdk.graal.compiler` – Compiler (Removed in [27](https://bugs.openjdk.org/browse/JDK-8382582))
+* `jdk.graal.compiler.management` – Compiler (Removed in [27](https://bugs.openjdk.org/browse/JDK-8382582))
 * `jdk.incubator.concurrent` – Core Libs (Removed in [21](https://bugs.openjdk.org/browse/JDK-8306647))
+* `jdk.internal.vm.ci` – Compiler (Removed in [27](https://bugs.openjdk.org/browse/JDK-8382582))
 * `jdk.internal.vm.compiler` – Compiler (Removed in [22](https://bugs.openjdk.org/browse/JDK-8318027))
 * `jdk.internal.vm.compiler.management` – Compiler (Removed in [22](https://bugs.openjdk.org/browse/JDK-8318027))
+* `jdk.jsobject` – Tools (Removed in [26](https://bugs.openjdk.org/browse/JDK-8359760))
 * `jdk.pack` – Tools (Removed in [14](https://bugs.openjdk.org/browse/JDK-8234596))
 * `jdk.random` – Core Libs (Removed in [23](https://bugs.openjdk.org/browse/JDK-8330005))
 * `jdk.rmic` – Core Libs (Removed in [15](https://bugs.openjdk.org/browse/JDK-8225319))
