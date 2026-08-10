@@ -2,6 +2,8 @@
 
 This list is intended to make it easier to identify which email list to include in code reviews when making changes in different areas. The list may also help when assigning bugs based on which code they are found in. Please note that some directories may have been created or removed between releases. The intention is to include directories that exist in mainline and other commonly updated releases (post JDK 9).
 
+## Area mailing lists
+
 * Generic JDK Development: [`jdk-dev`](https://mail.openjdk.org/mailman/listinfo/jdk-dev)
 * Build: [`build-dev`](https://mail.openjdk.org/mailman/listinfo/build-dev)
 * Client Libs: [`client-libs-dev`](https://mail.openjdk.org/mailman/listinfo/client-libs-dev)
