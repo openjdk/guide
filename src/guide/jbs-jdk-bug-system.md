@@ -62,6 +62,8 @@ A few things to keep in mind when filing an issue:
 
 The most common issue types are:
 
+: {summary="JBS issue types and their purposes"}
+
 | Issue Type | Covers |
 |:-|:----------|
 | [Bug]{.jbs-value} | A [Bug]{.jbs-value} relates to functional correctness - a deviation from behavior that can be tied back to a specification. See [Is it a Bug or an Enhancement?] |
@@ -155,6 +157,8 @@ It's recommended for [JEP]{.jbs-value}s that the implementation is spread across
 ## Issue states
 
 JBS only has a few states in which a [Bug]{.jbs-value} or [Enhancement]{.jbs-value} can be:
+
+: {summary="JBS issue states and their meanings"}
 
 | Type | Covers |
 |:-|:----------|
@@ -276,6 +280,8 @@ An important aspect of any issue is making clear how it is connected/related to 
 
 There are the following link types:
 
+: {summary="JBS issue link types and their usage"}
+
 | Type | Usage |
 |:-|:----------|
 | [duplicate of]{.jbs-value} | Used when an issue is closed as a duplicate - see [Closing issues as duplicates] for more information. |
@@ -304,6 +310,8 @@ The [Fix Version/s]{.jbs-field} field should indicate when an issue was fixed. T
 :::
 
 []{#close-resolve-table}
+
+: {summary="JBS issue statuses, resolutions, and their meanings"}
 
 | Status<br />Resolution | Covers |
 |:-|:-----------|

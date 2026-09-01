@@ -40,6 +40,8 @@ In this case the built JDK can be found in `build/macosx-x86_64-server-release/j
 
 The JDK build is extremely configurable. This list only contains the most basic configure options needed to get you started. Use `configure --help` to see a complete list of options.
 
+: {summary="JDK build configuration options"}
+
 | Option | What it does   |
 |:-------|:-------|
 | `--with-boot-jdk` | Tell configure what boot JDK to use to build the Java libraries. |
@@ -62,6 +64,8 @@ In the example above we built a `release` image. To build a debug image as well 
 ## Make targets
 
 `make images`, as used in the example above, will build a JDK image which is very close to what you'd get from any JDK provider. There are several other make targets you can use depending on what you're looking for. The table below contains some commonly used make targets.
+
+: {summary="Common JDK build make targets"}
 
 | Target | What it does |
 |:-------|:-------------|
