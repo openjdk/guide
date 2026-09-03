@@ -26,13 +26,25 @@ ifneq ($(DEBUG_MAKE),)
   .SECONDARY: $(LEGACY_FOOTER) $(GUIDE_CONCATENATED) $(GUIDE_FOOTER) $(UTF8_HTML)
 endif
 
-MERMAID ?= $(shell command -v mermaid-filter 2> /dev/null)
-ifneq ($(MERMAID), )
-  MERMAID_FILTER := -F $(MERMAID)
-else
-  $(info Notice: mermaid is not present; building without diagrams)
-  MERMAID_FILTER :=
-endif
+MERMAID ?= mermaid-filter
+MERMAID_FILTER := -F $(MERMAID)
+
+BUILD_TOOLS := pandoc iconv sed git $(MERMAID)
+VALIDATE_TOOLS := tidy
+
+# $1: space-separated list of commands that must be available on PATH
+CheckTools = \
+	missing=""; \
+	for tool in $1; do \
+		if ! command -v "$$tool" > /dev/null 2>&1; then \
+			missing="$$missing $$tool"; \
+		fi; \
+	done; \
+	if test -n "$$missing"; then \
+		echo "Error: missing required tool(s):$$missing" >&2; \
+		echo "Install the missing tool(s) and run make again." >&2; \
+		exit 1; \
+	fi
 
 # Return the short form git hash for the last change to a file or set of files
 # $1: the name of the file or files to get the hash for
@@ -59,7 +71,7 @@ RunPandoc = \
 # $1: input utf-8 file
 # $2: output latin-1 file
 ConvertToLatin1 = \
-	sed -e 's/ charset=utf-8//' $1 | iconv -f UTF-8 -t ISO-8859-1 > $2
+	sed -e 's/ charset=utf-8//' -e 's/<table data-summary=/<table summary=/' $1 | iconv -f UTF-8 -t ISO-8859-1 > $2
 
 $(GUIDE_CONCATENATED): $(GUIDE_CHAPTER_FILES)
 	rm -f $@.tmp
@@ -74,7 +86,7 @@ $(GUIDE_FOOTER): $(GUIDE_CONCATENATED)
 	mkdir -p build/support/footers
 	$(call GenerateFooter, $@, $(call GetHash, $(GUIDE_CHAPTER_FILES)), src/guide)
 
-$(GUIDE_UTF8): $(GUIDE_CONCATENATED) $(GUIDE_FOOTER)
+$(GUIDE_UTF8): $(GUIDE_CONCATENATED) $(GUIDE_FOOTER) | check-tools
 	mkdir -p build/support/utf-8
 	$(call RunPandoc, $<, $@)
 
@@ -92,11 +104,17 @@ copyimages:
 
 all: $(GUIDE_RESULT) build/dist/guidestyle.css copyimages
 
+check-tools:
+	@$(call CheckTools,$(BUILD_TOOLS))
+
+check-validate-tools:
+	@$(call CheckTools,$(VALIDATE_TOOLS))
+
 clean:
 	rm -rf build
 	rm -f mermaid-filter.err
 
-validate: build/dist/index.html
+validate: check-validate-tools build/dist/index.html
 	tidy -q -ascii -asxhtml -n --doctype omit --tidy-mark n build/dist/index.html > /dev/null
 
-.PHONY: default all clean validate
+.PHONY: default all clean validate check-tools check-validate-tools
