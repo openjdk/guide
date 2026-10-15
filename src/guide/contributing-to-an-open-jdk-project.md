@@ -121,6 +121,14 @@ If you're relatively new to the Java platform then we recommend that you gain mo
 
 The feature releases currently under development are in the JDK Project. Most development work is focused on the newest release, so generally you should be working against the latest JDK sources rather than the JDK Updates sources.
 
+## Using generative AI to produce OpenJDK content
+
+The current policy for OpenJDK is to not allow AI generated content in any form. This includes, but is not limited to, source code, issue descriptions and comments in JBS, PR descriptions and comments on GitHub, and email content on the OpenJDK email lists. For example, do not use a third party AI service to review and comment on OpenJDK pull requests.
+
+When you open a PR in an OpenJDK project on GitHub there is a checkbox that you are expected to check to ensure that you didn't use generative AI to produce the patch or other content in the PR. Obviously you are not only expected to check the box, you are also expected to be truthful when doing so. Introducing AI generated content into OpenJDK could potentially lead to legal problems in the future.
+
+For details around the OpenJDK AI policy, see the [OpenJDK Interim Policy on Generative AI](https://openjdk.org/legal/ai).
+
 ::: {.box}
 [To the top](#){.boxheader}
 :::
