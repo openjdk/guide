@@ -60,6 +60,10 @@ Obviously it's possible to set the [Fix Version/s]{.jbs-field} to the exact rele
 
 Setting the [Fix Version/s]{.jbs-field} of a backport targeted to an update release to `N` is always wrong. JDK `N` has already been released (or it wouldn't be an update release) and can't get any more fixes.
 
+::: .{note}
+Note that the [Affects Version/s]{.jbs-field} in general doesn't have a meaning for backports. The [Fix Version/s]{.jbs-field} indicates where the backport is targeted. To see what other releases are affected by an issue, look at the main issue.
+:::
+
 ## Requesting approvals for backports
 
 In order to be allowed to integrate a change to one of the OpenJDK update development repositories (e.g. [`jdk17u-dev`](https://github.com/openjdk/jdk17u-dev)), an approval is required. The [official process for how to request push approval for a backport](https://openjdk.org/projects/jdk-updates/approval.html) describes in detail how to work with JBS when requesting approvals. In short, there's a label [jdk&lt;release&gt;u-fix-request]{.jbs-label} that should be added to the main JBS issue. Also put a motivation as to why the issue needs to be backported as a comment in the main issue. Once the label and motivation has been added, wait for the maintainers of the release to approve your request. The approval will be indicated with a label, [jdk&lt;release&gt;u-fix-yes]{.jbs-label}, added to the main issue.
