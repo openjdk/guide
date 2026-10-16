@@ -317,7 +317,7 @@ The [Fix Version/s]{.jbs-field} field should indicate when an issue was fixed. T
 |:-|:-----------|
 | [Resolved]{.jbs-value}/[Closed]{.jbs-value}<br />[Fixed]{.jbs-value} | The resolution [Fixed]{.jbs-value} should be used **only** if a change has been integrated in a Project repository to address the issue, and the [Fix Version/s]{.jbs-field} must always correspond to the version where the change was integrated, or be one of the [repo-*]{.jbs-value} fix versions or [internal]{.jbs-value}. If there isn't a fix in the repository (and so no associated changeset) then the issue should **not** be marked as [Fixed]{.jbs-field}.<br />It is extremely rare that you would set an issue to [Fixed]{.jbs-value} manually since the bots do this automatically when a change is integrated. If you for some reason do, the status should always be [Resolved]{.jbs-value}, never [Closed]{.jbs-value}. A [Fixed]{.jbs-value} issue must go through verification to reach [Closed]{.jbs-value}. |
 | [Closed]{.jbs-value}<br />[Won't Fix]{.jbs-value} | Used when the issue is describing behavior which, while maybe problematic or not ideal, isn't going to be changed - for compatibility reasons for example. |
-| [Closed]{.jbs-value}<br />[Duplicate]{.jbs-value} | Used to indicate that the same issue is described in another JBS issue. See [Closing issues as duplicates] for more information. |
+| [Closed]{.jbs-value}<br />[Duplicate]{.jbs-value} | Used to indicate that the same issue is described in, or was fixed by, another JBS issue. See [Closing issues as duplicates] for more information. |
 | [Resolved]{.jbs-value}/[Closed]{.jbs-value}<br />[Incomplete]{.jbs-value} | Used to indicate that the JBS issue doesn't contain enough information to work on the issue. See [Closing incomplete issues] for more information. |
 | [Closed]{.jbs-value}<br />[Cannot Reproduce]{.jbs-value} | Use when a reproducer is provided (or clear steps) but it's not possible to see the faulty behavior. When you can't reproduce an issue, where feasible try on the release the issue was reported against as a way of confirming that it's indeed addressed on the latest release, rather than you not having the right environment in which to reproduce the issue. |
 | [Closed]{.jbs-value}<br />[Other]{.jbs-value} | Used in rare cases where none of the other statuses fit the situation. |
@@ -345,6 +345,10 @@ If the same issue is described in another JBS issue then close one against the o
 
 ::: {.note}
 Any issue closed as a [Duplicate]{.jbs-value} **must** have a "Duplicates" link to the duplicating issue.
+:::
+
+::: {.note}
+If a larger change includes a smaller change that is described in a different JBS issue, the issue describing the smaller change should be closed as a [Duplicate]{.jbs-value} of the issue describing the larger change.
 :::
 
 ::: {.note}
