@@ -107,7 +107,9 @@ and then mapped to the final location for the GA version of the release notes
   * Single release note for multiple changes
     * A link to the parent issue that the release note is a sub-task of, will be placed alongside the summary in the release notes. If release note relates to additional changes, then add them as [relates-to]{.jbs-value} links to the release note sub-task and add the label [RN-MultipleLinks]{.jbs-label} - see [JDK-8284975](https://bugs.openjdk.org/browse/JDK-8284975) as an example.
   * Multiple release notes for the same change
-      * If more than one release note is required for the same set of fixes, then open additional sub-tasks with the same affects version - see [JDK-8073861](https://bugs.openjdk.org/browse/JDK-8073861) as an example.
+    * If more than one release note is required for the same set of fixes, then open additional sub-tasks with the same affects version - see [JDK-8073861](https://bugs.openjdk.org/browse/JDK-8073861) as an example.
+  * Changes in multiple updates of the same release train
+    * Release timing can sometimes cause situations where a change is integrated into multiple updates of the same release train, e.g., 25.0.1 and 25.0.2, at the same time. In this case, only add the release note to the oldest update (25.0.1 in this example).
   * Release notes across backports
     * If an issue is backported to earlier releases, the same release note will be used - just add the new release version in the [Affects Version/s]{.jbs-field} and [Fix Version/s]{.jbs-field} fields of the release note sub-task.
     * Where a different release note is required, then create a separate sub-task of the main JBS issue with the affects version for the new release - see [JDK-8308194](https://bugs.openjdk.org/browse/JDK-8308194) and [JDK-8322473](https://bugs.openjdk.org/browse/JDK-8322473) for an example.
